@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: Freeradio2026.20.2\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-09-22 18:29+0300\n"
-"PO-Revision-Date: 2026-09-18 06:41+0300\n"
+"PO-Revision-Date: 2026-09-27 11:28+0300\n"
 "Last-Translator: Volodymyr Pyrih <vp88.mobile@gmail.com>\n"
 "Language-Team: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -597,7 +597,7 @@ msgstr "Ця книга не має RSS-каналу LibriVox для читан�
 #. Translators: Error returned when a LibriVox RSS feed contains XML entity declarations, which are rejected as a security measure against entity-expansion attacks.
 #: addon\globalPlugins\freeradio\librivox.py:545
 msgid "The feed contains XML entity declarations and was rejected."
-msgstr ""
+msgstr "Стрічка містить оголошення XML-сутностей і була відхилена."
 
 #. Translators: Error returned when the book's LibriVox RSS feed could not be fetched or parsed.
 #: addon\globalPlugins\freeradio\librivox.py:555
@@ -878,9 +878,8 @@ msgstr "Активні записи"
 #: addon\globalPlugins\freeradio\playbackCoreMixin.py:238
 #: addon\globalPlugins\freeradio\trackInfoMixin.py:644
 #: addon\globalPlugins\freeradio\trackInfoMixin.py:658
-#, fuzzy
 msgid "Freeradio stopped"
-msgstr "Радіо зупинено"
+msgstr "Freeradio зупинено"
 
 #. Translators: Name of an NVDA command; skips to the next station in the favourites list.
 #: addon\globalPlugins\freeradio\playbackCoreMixin.py:242
@@ -986,12 +985,12 @@ msgstr "Немає нових епізодів (304)."
 #. Translators: Error returned when a subscribed feed's response is larger than the 10 MB safety cap (a real feed never is).
 #: addon\globalPlugins\freeradio\podcast.py:427
 msgid "Feed is too large (>10 MB)."
-msgstr ""
+msgstr "Стрічка занадто велика (>10 МБ)."
 
 #. Translators: Error returned when a subscribed feed contains XML entity declarations, which are rejected as a security measure against entity-expansion attacks.
 #: addon\globalPlugins\freeradio\podcast.py:441
 msgid "Feed contains XML entity declarations and was rejected."
-msgstr ""
+msgstr "Стрічка містить оголошення XML-сутностей і була відхилена."
 
 #. Translators: Error returned when a subscribed feed's content can't be parsed as either RSS or Atom XML.
 #: addon\globalPlugins\freeradio\podcast.py:450
@@ -1044,9 +1043,9 @@ msgstr "Відповідь отримано, але тип вмісту не є 
 
 #. Translators: Error returned when the server responds with an HTTP error status; %d is the status code, %s its reason phrase.
 #: addon\globalPlugins\freeradio\radioDialog.py:398
-#, fuzzy, python-format
+#, python-format
 msgid "HTTP error %(e.code)d: %(e.reason)s"
-msgstr "Помилка HTTP %d: %s"
+msgstr "Помилка HTTP %(e.code)d: %(e.reason)s"
 
 #. Translators: Error returned when the connection to the URL fails outright (DNS, refused, timeout); %s is the underlying reason.
 #: addon\globalPlugins\freeradio\radioDialog.py:401
@@ -2217,7 +2216,7 @@ msgstr "Деталі станції скопійовано в буфер обм�
 #. the moment '.' is pressed.
 #: addon\globalPlugins\freeradio\radioDialog.py:3457
 msgid " (marked)"
-msgstr ""
+msgstr " (позначено)"
 
 #. Translators: Body of the delete-confirmation dialog; %s is the station name.
 #: addon\globalPlugins\freeradio\radioDialog.py:3495
@@ -2277,9 +2276,8 @@ msgstr "%(name)s: не вдалося перевірити потік — %(deta
 #: addon\globalPlugins\freeradio\radioDialog.py:4972
 #: addon\globalPlugins\freeradio\radioDialog.py:7241
 #: addon\globalPlugins\freeradio\radioDialog.py:8308
-#, fuzzy
 msgid "Remove &Selected"
-msgstr "&Видалити вибране"
+msgstr "Видалити &вибране"
 
 #. --- Stream test ---
 #. Translators: Context-menu item; re-checks whether the station's stream URL is currently reachable.
@@ -2325,9 +2323,9 @@ msgstr "Переміщено: %s"
 #: addon\globalPlugins\freeradio\radioDialog.py:4890
 #: addon\globalPlugins\freeradio\radioDialog.py:6830
 #: addon\globalPlugins\freeradio\radioDialog.py:7986
-#, fuzzy, python-format
+#, python-format
 msgid "Unmarked: %s"
-msgstr "Призупинено: %s"
+msgstr "Непозначено: %s"
 
 #. Translators: Spoken after marking a favourite station in the multi-select removal flow; %s is the station name.
 #. Translators: Spoken after marking a liked song in the multi-select removal flow; %s is the song string.
@@ -2337,32 +2335,31 @@ msgstr "Призупинено: %s"
 #: addon\globalPlugins\freeradio\radioDialog.py:4894
 #: addon\globalPlugins\freeradio\radioDialog.py:6834
 #: addon\globalPlugins\freeradio\radioDialog.py:7990
-#, fuzzy, python-format
+#, python-format
 msgid "Marked: %s"
-msgstr "Переміщено: %s"
+msgstr "Позначено: %s"
 
 #: addon\globalPlugins\freeradio\radioDialog.py:4424
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to delete the %d marked station?"
 msgid_plural "Do you want to delete the %d marked stations?"
-msgstr[0] "Ви бажаєте видалити станцію \"%s\"?"
-msgstr[1] "Ви бажаєте видалити станцію \"%s\"?"
-msgstr[2] "Ви бажаєте видалити станцію \"%s\"?"
+msgstr[0] "Ви хочете видалити позначену %d станцію?"
+msgstr[1] "Ви хочете видалити позначену %d станції?"
+msgstr[2] "Ви хочете видалити позначену %d станцій?"
 
 #. Translators: Title of the bulk-delete confirmation dialog for favourite stations.
 #: addon\globalPlugins\freeradio\radioDialog.py:4429
-#, fuzzy
 msgid "Delete Stations"
-msgstr "Видалити станцію"
+msgstr "Видалити станції"
 
 #. Translators: Spoken after bulk-deleting marked favourite stations; %d is how many were removed.
 #: addon\globalPlugins\freeradio\radioDialog.py:4440
-#, fuzzy, python-format
+#, python-format
 msgid "%d station deleted"
 msgid_plural "%d stations deleted"
-msgstr[0] "Станцію видалено"
-msgstr[1] "Станцію видалено"
-msgstr[2] "Станцію видалено"
+msgstr[0] "Видалено %d станцію"
+msgstr[1] "Видалено %d станції"
+msgstr[2] "Видалено %d станцій"
 
 #: addon\globalPlugins\freeradio\radioDialog.py:4459
 msgid "Stop time (HH:MM):"
@@ -2512,18 +2509,17 @@ msgstr[1] "%d пісні"
 msgstr[2] "%d пісень"
 
 #: addon\globalPlugins\freeradio\radioDialog.py:4907
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to remove the %d marked song from liked songs?"
 msgid_plural "Do you want to remove the %d marked songs from liked songs?"
-msgstr[0] "Бажаєте видалити \"%s\" із треків, які сподобалися?"
-msgstr[1] "Бажаєте видалити \"%s\" із треків, які сподобалися?"
-msgstr[2] "Бажаєте видалити \"%s\" із треків, які сподобалися?"
+msgstr[0] "Ви хочете видалити %d позначений трек зі списку вподобаних?"
+msgstr[1] "Ви хочете видалити %d позначені треки зі списку вподобаних?"
+msgstr[2] "Ви хочете видалити %d позначених треків зі списку вподобаних?"
 
 #. Translators: Title of the bulk-remove confirmation dialog for liked songs.
 #: addon\globalPlugins\freeradio\radioDialog.py:4912
-#, fuzzy
 msgid "Remove Songs"
-msgstr "Видалити трек"
+msgstr "Видалити треки"
 
 #. Translators: Spoken if writing the updated liked-songs file back to disk fails; %s is the underlying error message.
 #: addon\globalPlugins\freeradio\radioDialog.py:4925
@@ -2534,12 +2530,12 @@ msgstr "Не вдалося видалити трек: %s"
 
 #. Translators: Spoken after bulk-removing marked liked songs; %d is how many were removed.
 #: addon\globalPlugins\freeradio\radioDialog.py:4929
-#, fuzzy, python-format
+#, python-format
 msgid "%d song removed"
 msgid_plural "%d songs removed"
-msgstr[0] "%d пісня"
-msgstr[1] "%d пісні"
-msgstr[2] "%d пісень"
+msgstr[0] "Видалено %d трек"
+msgstr[1] "Видалено %d треки"
+msgstr[2] "Видалено %d треків"
 
 #. Translators: Body of the remove-confirmation dialog; %s is the song string as stored in the liked-songs file (e.g. "Artist - Title").
 #: addon\globalPlugins\freeradio\radioDialog.py:4997
@@ -3026,27 +3022,26 @@ msgid "&Add to Library"
 msgstr "&Додати до бібліотеки"
 
 #: addon\globalPlugins\freeradio\radioDialog.py:6852
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to remove the %d marked book from the library?"
 msgid_plural "Do you want to remove the %d marked books from the library?"
-msgstr[0] "Ви хочете видалити \"%s\" з черги прослуховування?"
-msgstr[1] "Ви хочете видалити \"%s\" з черги прослуховування?"
-msgstr[2] "Ви хочете видалити \"%s\" з черги прослуховування?"
+msgstr[0] "Ви хочете видалити позначену %d книгу з бібліотеки?"
+msgstr[1] "Ви хочете видалити позначениг %d книги з бібліотеки?"
+msgstr[2] "Ви хочете видалити позначениг %d книг з бібліотеки?"
 
 #. Translators: Title of the bulk-remove confirmation dialog for audio books.
 #: addon\globalPlugins\freeradio\radioDialog.py:6857
-#, fuzzy
 msgid "Remove From Library"
-msgstr "&Видалити з бібліотеки"
+msgstr "Видалити з бібліотеки"
 
 #. Translators: Spoken after bulk-removing marked audio books from the library; %d is how many were removed.
 #: addon\globalPlugins\freeradio\radioDialog.py:6874
 #, python-format
 msgid "%d book removed"
 msgid_plural "%d books removed"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Видалено %d книгу"
+msgstr[1] "Видалено %d книги"
+msgstr[2] "Видалено %d книгг"
 
 #. Translators: Spoken while resolving a book's chapter list before playing it for the first time; %s is the book title.
 #. Translators: Spoken when starting a specific GETEM chapter/part; %s is the chapter title.
@@ -3162,17 +3157,16 @@ msgstr "Завантаження книги: %s"
 #: addon\globalPlugins\freeradio\radioDialog.py:7431
 #, python-format
 msgid ""
-"Downloaded %(saved)d of %(total)d parts of %(book.title)s. Last error: %"
-"(error)s"
+"Downloaded %(saved)d of %(total)d parts of %(book.title)s. Last error: "
+"%(error)s"
 msgstr ""
-"Завантажено %(saved)d з %(total)d частин %(book.title)s. Остання помилка: %"
-"(error)s"
+"Завантажено %(saved)d з %(total)d частин %(book.title)s. Остання помилка: "
+"%(error)s"
 
 #. Translators: Label for the jukebox device-search field.
 #: addon\globalPlugins\freeradio\radioDialog.py:7453
-#, fuzzy
 msgid "Search on devices:"
-msgstr "Пошук на диску:"
+msgstr "Пошук на пристроях:"
 
 #. Translators: Accessible name/hint for the jukebox device-search field: searches local audio files by filename.
 #: addon\globalPlugins\freeradio\radioDialog.py:7456
@@ -3183,9 +3177,8 @@ msgstr ""
 
 #. Translators: Accessible name for the device-search results list.
 #: addon\globalPlugins\freeradio\radioDialog.py:7469
-#, fuzzy
 msgid "Audio files found on your devices"
-msgstr "Аудіофайли, знайдені на диску"
+msgstr "Аудіофайли, знайдені на ваших пристроях"
 
 #. --- Jukebox entries (manually added files/folders) ---
 #. Translators: Label above the list of files/folders already added to the jukebox library.
@@ -3229,9 +3222,9 @@ msgstr "&Видалити"
 
 #. Translators: Spoken when a jukebox device search starts; %s is the search text.
 #: addon\globalPlugins\freeradio\radioDialog.py:7602
-#, fuzzy, python-format
+#, python-format
 msgid "Searching devices for \"%s\"..."
-msgstr "Пошук дисків для запиту \"%s\"..."
+msgstr "Пошук пристроїв для запиту \"%s\"..."
 
 #. Translators: Placeholder row shown in the results list when a device search finds nothing.
 #. Translators: Spoken alongside the placeholder row above.
@@ -3268,12 +3261,12 @@ msgid "No playable audio in this item."
 msgstr "У цьому елементі немає відтворюваного аудіо."
 
 #: addon\globalPlugins\freeradio\radioDialog.py:8008
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to remove the %d marked entry from the jukebox?"
 msgid_plural "Do you want to remove the %d marked entries from the jukebox?"
-msgstr[0] "Ви хочете видалити \"%s\" з черги прослуховування?"
-msgstr[1] "Ви хочете видалити \"%s\" з черги прослуховування?"
-msgstr[2] "Ви хочете видалити \"%s\" з черги прослуховування?"
+msgstr[0] "Ви хочете видалити %d позначений запис з черги прослуховування?"
+msgstr[1] "Ви хочете видалити %d позначених записи з черги прослуховування?"
+msgstr[2] "Ви хочете видалити %d позначених записів з черги прослуховування?"
 
 #. Translators: Title of the bulk-remove confirmation dialog for jukebox entries.
 #. Translators: Title of the jukebox remove-confirmation dialog.
@@ -3284,12 +3277,12 @@ msgstr "Видалити з черги прослуховування"
 
 #. Translators: Spoken after bulk-removing marked jukebox entries; %d is how many were removed.
 #: addon\globalPlugins\freeradio\radioDialog.py:8020
-#, fuzzy, python-format
+#, python-format
 msgid "%d entry removed"
 msgid_plural "%d entries removed"
-msgstr[0] "Таймер видалено"
-msgstr[1] "Таймер видалено"
-msgstr[2] "Таймер видалено"
+msgstr[0] "Видалено %d запис"
+msgstr[1] "Видалено %d записи"
+msgstr[2] "Видалено %d записів"
 
 #. Translators: Context-menu item; plays the selected track from within a jukebox folder entry.
 #. Translators: Context-menu item; plays the selected jukebox file/folder.
@@ -3334,18 +3327,17 @@ msgstr[2] "Додано %d файлів."
 
 #. Translators: Title of the dialog used to add one or more folders to the jukebox at once.
 #: addon\globalPlugins\freeradio\radioDialog.py:8148
-#, fuzzy
 msgid "Add folders to the jukebox"
 msgstr "Додати папку до черги прослуховування"
 
 #. Translators: Plural forms spoken after adding several folders to the jukebox in one go (one folder picker used repeatedly); %d is how many folders were added.
 #: addon\globalPlugins\freeradio\radioDialog.py:8171
-#, fuzzy, python-format
+#, python-format
 msgid "%d folder added."
 msgid_plural "%d folders added."
-msgstr[0] "Додано %d файлів."
-msgstr[1] "Додано %d файли."
-msgstr[2] "Додано %d файлів."
+msgstr[0] "Додано %d папку."
+msgstr[1] "Додано %d папки."
+msgstr[2] "Додано %d папок."
 
 #. Translators: Body of the remove-confirmation dialog; %s is the jukebox entry title.
 #: addon\globalPlugins\freeradio\radioDialog.py:8183
@@ -3579,7 +3571,6 @@ msgstr "Не вдалося відкрити папку записів: %s"
 
 #. Translators: Checkbox label for the time-shift/rewind feature setting.
 #: addon\globalPlugins\freeradio\settingsPanel.py:89
-#, fuzzy
 msgid ""
 "&Enable time-shift buffer (rewind live radio, no effect on podcasts and "
 "audio books)"
@@ -4403,9 +4394,9 @@ msgstr "Станція більше не у улюбленому: %s"
 #. __name__ as the script identifier.
 #. Translators: Auto-generated description of a per-favourite-station shortcut, shown in NVDA's Input Gestures dialog; %s is the station name.
 #: addon\globalPlugins\freeradio\__init__.py:699
-#, fuzzy, python-format
+#, python-format
 msgid "%s playback shortcut"
-msgstr "%s комбінація клавіш для відтворення ()"
+msgstr "%s комбінація клавіш для відтворення"
 
 #. Translators: Menu item that opens the FreeRadio station browser dialog
 #: addon\globalPlugins\freeradio\__init__.py:729
@@ -4681,10 +4672,10 @@ msgid ""
 "in the playback pipeline, now key off the dedicated `media_kind` field "
 "instead of substring-matching the free-text `tags` field - which is "
 "community-assigned genre text a real live stream can legitimately carry.\n"
-"- **TuneIn stations now record and capture song titles correctly.** Ctrl+Win"
-"+E recording and song capture previously wrote the tuning response to disk "
-"instead of the actual audio; they now resolve the tuning URL first, so "
-"recordings are valid and playable.\n"
+"- **TuneIn stations now record and capture song titles correctly.** "
+"Ctrl+Win+E recording and song capture previously wrote the tuning response "
+"to disk instead of the actual audio; they now resolve the tuning URL first, "
+"so recordings are valid and playable.\n"
 "\n"
 "### Audio mirror\n"
 "- **Audio mirror now works on stations whose server caps concurrent "
