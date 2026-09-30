@@ -262,6 +262,129 @@ def _resolve_playlist_url(url, timeout=8, _hops=3):
 	return url
 
 
+# Segments at/below this go through _HlsStreamMerger (juyun.tv-style
+# feeds run 1-2s, ordinary broadcaster HLS runs 6-8s).
+_HLS_SHORT_SEGMENT_THRESHOLD = 4
+
+# How long a _should_hls_merge() decision is cached, so a stall/
+# reconnect never re-fetches the playlist mid-struggle.
+_HLS_MERGE_DECISION_TTL = 1800  # seconds
+
+
+def _get_hls_target_duration(url, timeout=4):
+	"""Return the #EXT-X-TARGETDURATION (seconds) of an HLS playlist, or
+	None if it can't be determined. Follows one hop of master-playlist
+	indirection (variants of one rendition share a segment duration, so
+	one hop is enough). Used by _should_hls_merge().
+	"""
+	# http(s) only - same SSRF guard as _resolve_playlist_url (a station
+	# URL can come from an unauthenticated source).
+	if not url or not url.lower().startswith(("http://", "https://")):
+		return None
+	try:
+		import urllib.request as _req
+		from urllib.parse import urljoin as _urljoin
+
+		def _fetch(u):
+			req = _req.Request(u, headers={"User-Agent": "freeAudio-NVDA/1.0"})
+			with _req.urlopen(req, timeout=timeout) as resp:
+				# The tag we need is always near the top of a well-formed
+				# playlist; capping the read keeps this cheap even against
+				# a media playlist listing thousands of old segments.
+				return resp.read(65536).decode("utf-8", "ignore")
+
+		def _target_duration(playlist_text):
+			for line in playlist_text.splitlines():
+				line = line.strip()
+				if line.startswith("#EXT-X-TARGETDURATION:"):
+					try:
+						return float(line.split(":", 1)[1])
+					except ValueError:
+						return None
+			return None
+
+		data = _fetch(url)
+		duration = _target_duration(data)
+		if duration is not None:
+			return duration
+
+		if "#EXT-X-STREAM-INF" in data:
+			lines = data.splitlines()
+			variant = None
+			for i, line in enumerate(lines):
+				if line.strip().startswith("#EXT-X-STREAM-INF"):
+					for candidate in lines[i + 1:]:
+						candidate = candidate.strip()
+						if candidate and not candidate.startswith("#"):
+							variant = _urljoin(url, candidate)
+							break
+					if variant:
+						break
+			if variant and variant != url:
+				return _target_duration(_fetch(variant))
+	except Exception:
+		pass
+	return None
+
+
+def _find_system_ffmpeg():
+	"""Return the path to a usable ffmpeg.exe, or None.
+
+	Search order:
+	  1. ffmpeg.exe next to this file (the add-on's own directory) -
+	     this is where the recorder and music recognizer expect to
+	     find it by default, so the merger must look here too or it
+	     will report "no ffmpeg_path configured" even though the
+	     recorder happily uses that same copy.
+	  2. Any ffmpeg.exe on PATH (shutil.which).
+	  3. A handful of common Windows install locations - the
+	     chocolatey shim directory, winget/scoop links, and the
+	     conventional unzipped-folder locations.
+
+	Used by _HlsStreamMerger.start() as a fallback when the user
+	hasn't set config.conf["freeAudio"]["ffmpeg_path"] explicitly,
+	so short-segment HLS smoothing works out of the box whenever
+	ffmpeg is already available to the rest of the add-on."""
+	import shutil as _shutil
+
+	# 1. Next to this module - matches the recorder/recognizer default.
+	try:
+		_local_ffmpeg = os.path.join(
+			os.path.dirname(os.path.abspath(__file__)), "ffmpeg.exe"
+		)
+		if os.path.isfile(_local_ffmpeg):
+			return _local_ffmpeg
+	except Exception:
+		pass
+
+	# 2. PATH.
+	try:
+		found = _shutil.which("ffmpeg")
+		if found and os.path.isfile(found):
+			return found
+	except Exception:
+		pass
+
+	# 3. Common install locations.
+	_local = os.environ.get("LOCALAPPDATA") or ""
+	_programdata = os.environ.get("ProgramData") or ""
+	_programfiles = os.environ.get("ProgramFiles") or ""
+	_programfiles_x86 = os.environ.get("ProgramFiles(x86)") or ""
+
+	candidates = [
+		os.path.join(_programdata, "chocolatey", "bin", "ffmpeg.exe"),
+		os.path.join(_local, "Microsoft", "WinGet", "Links", "ffmpeg.exe"),
+		os.path.join(_local, "Programs", "ffmpeg", "bin", "ffmpeg.exe"),
+		os.path.join(_programfiles, "ffmpeg", "bin", "ffmpeg.exe"),
+		os.path.join(_programfiles_x86, "ffmpeg", "bin", "ffmpeg.exe"),
+		r"C:\ffmpeg\bin\ffmpeg.exe",
+	]
+	for path in candidates:
+		if path and os.path.isfile(path):
+			return path
+	return None
+
+
 def _read_icy_title_via_playlist(url, timeout=_ICY_TIMEOUT):
 	"""Like _read_icy_title(), but first unwraps *url* through
 	_resolve_playlist_url() if it points at a playlist/tuning wrapper
@@ -540,7 +663,7 @@ class _BassSubprocessEngine:
 				# Send stop to host to ensure any pending stream is cancelled
 				self._send({"cmd": "stop"})
 				self._current_play_seq = None
-			
+
 			# Also clear any pending response
 			if self._pending_play:
 				seq, evt, result_slot = self._pending_play
@@ -551,7 +674,7 @@ class _BassSubprocessEngine:
 
 	def play(self, url, volume_0_1=1.0, seekable=False, rate=None, transpose=None):
 		"""Send play command and block until the host confirms success/failure.
-		
+
 		If a previous play is still pending, it is cancelled first.
 		seekable=True asks the host to open the URL without BASS_STREAM_BLOCK
 		so seek_relative() actually works (podcasts); live radio should
@@ -929,6 +1052,282 @@ class _BassEngine(_BassSubprocessEngine):
 		super().__init__(dll_dir, device_index=output_device)
 
 
+class _HlsStreamMerger:
+	"""Streams an HLS (.m3u8) source to BASS through a local HTTP server
+	whose body is ffmpeg's remuxed output, instead of handing BASS the
+	original playlist URL.
+
+	Why this exists: BASS (via basshls.dll) plays each HLS segment as
+	its own stream. On very-short-segment sources (juyun.tv camera
+	feeds, ~1-2s segments), that drains the playback buffer at every
+	boundary - heard as a repeated ~1-2s stutter. VLC and browsers avoid
+	this by remuxing segments into one continuous stream before
+	decoding; ffmpeg does the same here, and this class pipes its stdout
+	to whatever BASS connects to on the local server.
+
+	Uses "-c:a copy" (pure remux, no re-encoding, minimal CPU). A plain
+	concatenation of raw segment bytes isn't enough - each segment
+	has its own MPEG-TS PCR/continuity counters, so the result has
+	timestamp discontinuities BASS won't tolerate; ffmpeg's remux fixes
+	that without touching the codec. An earlier version re-encoded to
+	MP3 instead, because some long-segment sources (TRT2 among them)
+	weren't copy-compatible - but the merger now only runs for confirmed
+	short-segment sources (_should_hls_merge()), which those never are,
+	so it's back to a plain copy. If a short-segment source ever turns
+	out to have the same problem, re-encode just that one rather than
+	bringing MP3 back as the default.
+
+	The ffmpeg executable is resolved in this order:
+	  1. config.conf["freeAudio"]["ffmpeg_path"], if set and valid.
+	  2. _find_system_ffmpeg(), which looks next to this module (where
+	     the recorder and recognizer already expect to find it), then
+	     on PATH, then in a handful of common Windows install locations.
+
+	If neither resolves, start() returns None and the caller falls back
+	to the original (un-merged) URL - which means the original segment-
+	boundary stutter, but at least the stream still plays.
+	"""
+
+	def __init__(self):
+		self._server = None
+		self._thread = None
+		self._port = 0
+		self._source_url = None
+		self._ffmpeg_path = None
+		self._stop_event = threading.Event()
+
+	def start(self, source_url):
+		"""Start the merger for *source_url*. Returns the local URL BASS
+		should play, or None if the merger could not be started (most
+		commonly because no ffmpeg executable could be found)."""
+		import http.server
+		import socketserver
+		import config as _config
+
+		self.stop()
+		self._source_url = source_url
+		self._stop_event.clear()
+
+		# Resolve an ffmpeg executable. Prefer the user's configured
+		# path (the same one the recorder uses for format conversion);
+		# if that's empty or invalid, fall back to auto-detection -
+		# which includes the add-on's own directory, since that's where
+		# the recorder/recognizer expect ffmpeg.exe to live by default.
+		# If neither works, return None so the caller falls back to the
+		# original URL.
+		ffmpeg_path = (_config.conf["freeAudio"].get("ffmpeg_path") or "").strip()
+		if not ffmpeg_path or not os.path.isfile(ffmpeg_path):
+			ffmpeg_path = _find_system_ffmpeg()
+		if not ffmpeg_path:
+			log.warning(
+				"freeAudio: HLS merger not started - no ffmpeg found. "
+				"Place ffmpeg.exe next to radioPlayer.py, set 'ffmpeg_path' "
+				"in freeAudio settings, or install ffmpeg on PATH."
+			)
+			return None
+		self._ffmpeg_path = ffmpeg_path
+
+		merger = self
+
+		class _Handler(http.server.BaseHTTPRequestHandler):
+			def do_GET(self):
+				merger._serve_stream(self)
+
+			def log_message(self, *args):
+				pass  # silence the default stderr logging
+
+		class _Server(socketserver.ThreadingTCPServer):
+			allow_reuse_address = True
+			daemon_threads = True
+
+		try:
+			self._server = _Server(("127.0.0.1", 0), _Handler)
+			self._port = self._server.server_address[1]
+		except Exception:
+			self._server = None
+			return None
+
+		self._thread = threading.Thread(
+			target=self._server.serve_forever, daemon=True,
+			name="freeAudio-hls-merger")
+		self._thread.start()
+		return "http://127.0.0.1:%d/stream" % self._port
+
+	def local_url(self):
+		"""Return the local URL BASS should be playing, or None if the
+		merger isn't currently running. Used by the BASS stall-reconnect
+		path so it reconnects to the same merged stream instead of
+		bypassing the merger and going straight back to the original
+		.m3u8 (which would immediately re-enter the segment-boundary
+		stutter that caused the stall in the first place)."""
+		if self._server is None or self._port == 0:
+			return None
+		return "http://127.0.0.1:%d/stream" % self._port
+
+	def stop(self):
+		"""Stop the local server and clean up.
+
+		Deliberately does NOT close any in-flight client socket. The
+		handler thread started by ThreadingTCPServer owns that socket,
+		and it is the only thing allowed to close it - it exits its own
+		loop as soon as self._stop_event is set, and http.server closes
+		the socket for it when the handler returns. Closing the socket
+		from here would race with the handler thread's own writes and
+		produce "ValueError: I/O operation on closed file" tracebacks on
+		every station switch."""
+		self._stop_event.set()
+		if self._server:
+			try:
+				self._server.shutdown()
+				self._server.server_close()
+			except Exception:
+				pass
+			self._server = None
+		if self._thread:
+			try:
+				self._thread.join(timeout=2)
+			except Exception:
+				pass
+			self._thread = None
+
+	def _serve_stream(self, handler):
+		"""Handle one BASS connection: launch ffmpeg on the source URL,
+		pipe its stdout straight to the client socket. When BASS closes
+		the connection (seek, station switch, stop - all normal), ffmpeg
+		is terminated too, so the merger never leaks a subprocess."""
+		ffmpeg_path = getattr(self, "_ffmpeg_path", None)
+		if not ffmpeg_path:
+			# Shouldn't be reachable - start() already refused to start
+			# without a path - but keep this as a defensive belt.
+			try:
+				handler.send_response(500)
+				handler.end_headers()
+			except Exception:
+				pass
+			return
+
+		try:
+			handler.send_response(200)
+			# MPEG-TS is what HLS segments carry for both audio-only and
+			# audio+video live streams; BASS (via basshls/bass_aac) sniffs
+			# the actual container from the bytes themselves, so the exact
+			# Content-Type value is only cosmetic here.
+			handler.send_header("Content-Type", "video/mp2t")
+			handler.send_header("Cache-Control", "no-cache")
+			handler.send_header("Connection", "close")
+			handler.end_headers()
+		except Exception:
+			return
+
+		try:
+			handler.connection.settimeout(30.0)
+		except Exception:
+			pass
+
+		cmd = [
+			ffmpeg_path,
+			"-hide_banner",
+			"-loglevel", "error",
+			# Present a browser-like UA to the CDN - some HLS origins
+			# refuse connections from unknown clients.
+			"-user_agent", "freeAudio-NVDA/1.0",
+			# Let ffmpeg itself reconnect the input on transient network
+			# failures. This is the main reason the pipeline survives
+			# brief CDN hiccups without BASS ever seeing a stalled stream.
+			"-reconnect", "1",
+			"-reconnect_streamed", "1",
+			"-reconnect_delay_max", "5",
+			# Some HLS origins serve very small segments; ask ffmpeg to
+			# buffer a reasonable amount before starting to output, so
+			# the initial burst of segments doesn't cause an early stall
+			# on BASS's side.
+			"-probesize", "1M",
+			"-analyzeduration", "1M",
+			"-i", self._source_url,
+			# Pure remux (no re-encode) - see _HlsStreamMerger's
+			# docstring. No -ac/-ar here: those imply a filter pass,
+			# which ffmpeg refuses to combine with "-c:a copy".
+			"-map", "0:a:0",
+			"-vn",
+			"-c:a", "copy",
+			# Output format: MPEG-TS.
+			"-f", "mpegts",
+			# Write to stdout.
+			"-",
+		]
+
+		proc = None
+		try:
+			proc = subprocess.Popen(
+				cmd,
+				stdout=subprocess.PIPE,
+				stderr=subprocess.PIPE,
+				creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+				bufsize=0,
+			)
+		except Exception as e:
+			log.warning("freeAudio: HLS merger could not start ffmpeg: %s", e)
+			try:
+				handler.send_response(500)
+			except Exception:
+				pass
+			return
+
+		# Drain ffmpeg's stderr in a background thread so a chatty
+		# decode warning can never fill the pipe and block ffmpeg. The
+		# last few lines are kept around for diagnosing a stream that
+		# never produced any output.
+		stderr_tail = []
+
+		def _drain_stderr(p, tail):
+			try:
+				for line in p.stderr:
+					tail.append(line)
+					if len(tail) > 20:
+						del tail[: len(tail) - 20]
+			except Exception:
+				pass
+
+		threading.Thread(
+			target=_drain_stderr, args=(proc, stderr_tail),
+			daemon=True, name="freeAudio-hls-ffmpeg-err"
+		).start()
+
+		bytes_written = 0
+		try:
+			while not self._stop_event.is_set():
+				try:
+					chunk = proc.stdout.read(32768)
+				except Exception:
+					break
+				if not chunk:
+					break
+				bytes_written += len(chunk)
+				try:
+					handler.wfile.write(chunk)
+					handler.wfile.flush()
+				except (ValueError, OSError, BrokenPipeError):
+					# BASS closed the connection (seek, switch, stop) -
+					# normal, just end this handler quietly.
+					break
+		except Exception:
+			pass
+		finally:
+			try:
+				proc.terminate()
+				proc.wait(timeout=2)
+			except Exception:
+				try:
+					proc.kill()
+				except Exception:
+					pass
+			if bytes_written == 0 and stderr_tail:
+				log.warning(
+					"freeAudio: HLS merger ffmpeg produced no output for %s; "
+					"last stderr: %s",
+					self._source_url, b"".join(stderr_tail[-5:]).decode("utf-8", "replace")
+				)
+
 
 class RadioPlayer:
 	"""
@@ -957,6 +1356,13 @@ class RadioPlayer:
 		self._backend = self.BACKEND_NONE
 
 		self._audio_device_refresh_mode = "reliable"
+
+		# Local HLS stream merger - created lazily for the first
+		# short-segment HLS station played (_should_hls_merge()). See
+		# _HlsStreamMerger's docstring.
+		self._hls_merger = None
+		# url -> (should_merge, decided_at) - see _should_hls_merge().
+		self._hls_merge_decision_cache = {}
 
 		dll_dir = os.path.dirname(os.path.abspath(__file__))
 		self._bass_engine = _BassEngine(dll_dir, output_device=output_device)
@@ -1123,6 +1529,32 @@ class RadioPlayer:
 			except Exception:
 				pass
 
+	def _should_hls_merge(self, url, timeout=4):
+		"""Whether *url* (an HLS .m3u8) should route through
+		_HlsStreamMerger - only short-segment sources need it (see
+		_HlsStreamMerger's docstring). Cached per URL for
+		_HLS_MERGE_DECISION_TTL so a stall/reconnect never re-fetches
+		the playlist mid-struggle. Unknown (fetch failed/timed out/no
+		TARGETDURATION) defaults to False - stay on the cheaper plain
+		path unless the merger is positively confirmed needed.
+		"""
+		now = time.time()
+		cached = self._hls_merge_decision_cache.get(url)
+		if cached and now - cached[1] < _HLS_MERGE_DECISION_TTL:
+			return cached[0]
+		duration = _get_hls_target_duration(url, timeout=timeout)
+		decision = duration is not None and duration <= _HLS_SHORT_SEGMENT_THRESHOLD
+		self._hls_merge_decision_cache[url] = (decision, now)
+		if duration is not None:
+			log.info(
+				"freeAudio: HLS target duration for %s = %.0fs (%s merger)",
+				url, duration, "using" if decision else "skipping",
+			)
+		else:
+			log.info("freeAudio: could not determine HLS target duration for "
+					 "%s, leaving merger off", url)
+		return decision
+
 	def _on_bass_stall(self):
 		"""Called when bass_host.py sends a stall event."""
 		if not self._is_playing or self._intentional_stop:
@@ -1177,7 +1609,13 @@ class RadioPlayer:
 		if not url:
 			return
 		log.warning("freeAudio: BASS stall detected, reconnecting: %s", url)
-		# ... (rest of the method stays same)
+
+		# If this is a merged HLS station, reconnect to the merger's
+		# local URL, not the original .m3u8, or we'd re-enter the same
+		# stutter that caused the stall. _should_hls_merge() hits cache
+		# here (decided at launch), so no playlist re-fetch mid-struggle.
+		_is_hls = url.lower().split("?")[0].endswith(".m3u8")
+		_use_merger = _is_hls and self._should_hls_merge(url)
 
 		# Capture generation at the moment of stall so reconnect thread
 		# can detect if a newer play() has already taken over.
@@ -1201,7 +1639,31 @@ class RadioPlayer:
 					return  # User selected a different station
 				if self._current_url != url:
 					return
-				log.info("freeAudio: BASS stall reconnect attempt: %s", url)
+
+				# Decide which URL this reconnect attempt should use.
+				# For HLS, prefer the merger's current local URL; if the
+				# merger isn't running any more (rare - it's only stopped
+				# by stop() or by switching to a non-HLS station), try to
+				# restart it from the original source URL.
+				reconnect_url = url
+				if _use_merger:
+					local = self._hls_merger.local_url() if self._hls_merger is not None else None
+					if not local:
+						try:
+							if self._hls_merger is None:
+								self._hls_merger = _HlsStreamMerger()
+							local = self._hls_merger.start(url)
+						except Exception:
+							local = None
+					if local:
+						reconnect_url = local
+					else:
+						log.warning(
+							"freeAudio: HLS merger unavailable on reconnect, "
+							"falling back to original URL (stream may stutter)"
+						)
+
+				log.info("freeAudio: BASS stall reconnect attempt: %s", reconnect_url)
 				with self._play_lock:
 					# Double-check generation under lock before bumping
 					if self._play_gen != captured_gen:
@@ -1209,7 +1671,7 @@ class RadioPlayer:
 					self._play_gen += 1
 					captured_gen = self._play_gen
 				try:
-					if self._launch_bass(url, vol):
+					if self._launch_bass(reconnect_url, vol):
 						log.info("freeAudio: BASS stall reconnect OK")
 						# The time-shift capture connection is independent of
 						# BASS playback and was never interrupted by this
@@ -1223,7 +1685,7 @@ class RadioPlayer:
 								if self._play_gen == captured_gen:
 									self._timeshift_buffer_gen = captured_gen
 						return
-				except Exception as e:
+				except Exception:
 					pass
 			log.warning("freeAudio: BASS stall reconnect exhausted")
 
@@ -1807,6 +2269,38 @@ class RadioPlayer:
 						self._abort_tuning_transition()
 					return
 
+			# Route confirmed short-segment HLS (.m3u8) stations through
+			# the merger so BASS gets one continuous stream instead of
+			# draining its buffer at every segment boundary. See
+			# _should_hls_merge()/_HlsStreamMerger's docstring.
+			#
+			# The mirror output deliberately keeps using the original
+			# stream_url: the merger serves a single client, the mirror
+			# is a second, independent subprocess.
+			launch_url = stream_url
+			if stream_url.lower().split("?")[0].endswith(".m3u8") and self._should_hls_merge(stream_url):
+				try:
+					if self._hls_merger is None:
+						self._hls_merger = _HlsStreamMerger()
+					merger_url = self._hls_merger.start(stream_url)
+				except Exception:
+					merger_url = None
+				if merger_url:
+					log.warning("freeAudio: routing HLS stream through built-in merger (short segments): %s",
+								merger_url)
+					launch_url = merger_url
+				else:
+					log.warning("freeAudio: HLS merger failed to start, using original URL")
+			else:
+				# Not merged (not HLS, or _should_hls_merge() said no) -
+				# stop any merger left over from a previous station so it
+				# doesn't keep running/downloading unused.
+				if self._hls_merger is not None:
+					try:
+						self._hls_merger.stop()
+					except Exception:
+						pass
+
 			# If a mirror output is active, kick off its (re)connect on a
 			# separate thread at the same time as the main stream below,
 			# instead of waiting for the main connect to finish first.
@@ -1855,7 +2349,7 @@ class RadioPlayer:
 				mirror_thread.start()
 
 			try:
-				self._launch(stream_url, vol, gen=gen)
+				self._launch(launch_url, vol, gen=gen)
 			except Exception:
 				if self._play_gen == gen:
 					self._is_playing = False
@@ -1894,7 +2388,7 @@ class RadioPlayer:
 			# place. Treat this exactly like the exception branch above.
 			if self._backend != self.BACKEND_BASS:
 				reason = getattr(self._bass_engine, "last_play_error", None) or "unknown reason"
-				log.warning("freeAudio: BASS connection failed for %s, giving up (%s)", stream_url, reason)
+				log.warning("freeAudio: BASS connection failed for %s, giving up (%s)", launch_url, reason)
 				self._is_playing = False
 				if xfade:
 					try:
@@ -1907,7 +2401,7 @@ class RadioPlayer:
 				cb = self.on_play_failed
 				if cb:
 					try:
-						cb(self._current_station, stream_url, reason)
+						cb(self._current_station, launch_url, reason)
 					except Exception:
 						pass
 				return
@@ -1976,7 +2470,21 @@ class RadioPlayer:
 					# the newer, correct capture session.
 					if self._play_gen == gen:
 						is_podcast = _is_seekable_media(self._current_station)
-						if is_podcast:
+						# HLS streams are excluded from capture for the same
+						# two reasons podcast-like media is (see the comment
+						# just below): (1) opening a second connection to
+						# the same HLS origin from the always-on capture
+						# buffer can make the origin throttle or briefly
+						# stall one of the two, which BASS hears as a
+						# dropout, and (2) the rewind feature can't usefully
+						# seek in an HLS stream anyway (see
+						# rewind_timeshift's "hls_unsupported" return), so
+						# there is nothing this buffer would be providing.
+						# The URL-shape check is intentionally identical to
+						# the one used at launch time above, so the two can
+						# never disagree about what counts as HLS.
+						is_hls_stream = stream_url.lower().split("?")[0].endswith(".m3u8")
+						if is_podcast or is_hls_stream:
 							# Podcasts and GETEM audio books are on-demand,
 							# already-seekable files (via seek_relative()/
 							# timeshift_seek() directly on the BASS engine -
@@ -2000,15 +2508,14 @@ class RadioPlayer:
 							self._timeshift_buffer.CAPACITY_SECONDS = (
 								self._timeshift_capacity_seconds if self._timeshift_enabled else _LIGHT_BUFFER_SECONDS
 							)
-							# HLS master playlists are not simple "one line = one
-							# audio URL" playlists - resolving them the way
-							# _resolve_playlist_url() resolves .pls/.m3u files
-							# could pick the wrong sub-stream. TimeShiftBuffer
-							# does its own HLS master/media playlist resolution
-							# internally (see timeshift.py's _run_hls), so the
-							# raw .m3u8 URL is passed through unresolved here.
-							is_hls = stream_url.lower().split("?")[0].endswith(".m3u8")
-							capture_url = stream_url if is_hls else _resolve_playlist_url(stream_url)
+							# Only non-HLS reaches here now (see the
+							# is_hls_stream check above), so the URL is
+							# resolved the normal way. HLS master playlists
+							# are not simple "one line = one audio URL"
+							# playlists anyway - resolving them the way
+							# _resolve_playlist_url() resolves .pls/.m3u
+							# files could pick the wrong sub-stream.
+							capture_url = _resolve_playlist_url(stream_url)
 
 							# If the buffer is already actively capturing this exact
 							# URL, this _bg_launch is a *reconnect* of the same
@@ -2030,11 +2537,8 @@ class RadioPlayer:
 								except Exception:
 									pass
 								try:
-									if is_hls:
-										log.info("freeAudio TimeShift: starting HLS capture for %s", capture_url)
-									else:
-										log.info("freeAudio TimeShift: starting capture for %s (resolved from %s)",
-												  capture_url, stream_url)
+									log.info("freeAudio TimeShift: starting capture for %s (resolved from %s)",
+											  capture_url, stream_url)
 									self._timeshift_buffer.start(capture_url)
 								except Exception as e:
 									log.info("freeAudio TimeShift: could not start capture: %s", e, exc_info=True)
@@ -2291,6 +2795,17 @@ class RadioPlayer:
 		except Exception:
 			pass
 		self._timeshift_active = False
+
+		# Stop the local HLS merger, if one was started for this stream.
+		# A subsequent play() of an HLS URL will lazily recreate it. This
+		# is deliberately done outside the lock and after everything else,
+		# so a merger shutdown can never block or interfere with the
+		# playback state changes above.
+		if self._hls_merger is not None:
+			try:
+				self._hls_merger.stop()
+			except Exception:
+				pass
 
 	def set_volume(self, volume):
 		with self._play_lock:
@@ -2666,7 +3181,7 @@ class RadioPlayer:
 			pos, length = self._bass_engine.timeshift_status()
 		except Exception:
 			return
-			
+
 		# If position returned 0.0 but stream was playing, check if it reached the end
 		if pos <= 0.0 and length <= 0.0:
 			return
@@ -2811,6 +3326,14 @@ class RadioPlayer:
 			# already seekable files, so there's nothing here to widen the
 			# retention window on.
 			and not _is_seekable_media(self._current_station)
+			# HLS live streams are also excluded - see the is_hls_stream
+			# check in _bg_launch for the full rationale (two connections
+			# to the same HLS origin, plus a buffer the rewind feature
+			# can't seek in anyway).
+			and not (
+				(self._current_url_resolved or self._current_url or "")
+				.lower().split("?")[0].endswith(".m3u8")
+			)
 		):
 			self._timeshift_buffer.CAPACITY_SECONDS = self._timeshift_capacity_seconds
 			stream_url = self._current_url_resolved or self._current_url
@@ -2830,8 +3353,7 @@ class RadioPlayer:
 					with self._timeshift_launch_lock:
 						if self._play_gen != gen:
 							return
-						is_hls = url.lower().split("?")[0].endswith(".m3u8")
-						resolved_for_capture = url if is_hls else _resolve_playlist_url(url)
+						resolved_for_capture = _resolve_playlist_url(url)
 						# The light (45s) buffer is already running continuously
 						# in the background for every playing station (see
 						# _LIGHT_BUFFER_SECONDS above) - turning the rewind
@@ -3304,8 +3826,7 @@ class RadioPlayer:
 		if not self._is_playing or not self._current_url:
 			return
 		stream_url = self._current_url_resolved or self._current_url
-		is_hls = stream_url.lower().split("?")[0].endswith(".m3u8")
-		resolved_for_capture = stream_url if is_hls else _resolve_playlist_url(stream_url)
+		resolved_for_capture = _resolve_playlist_url(stream_url)
 		try:
 			self._timeshift_buffer.start(resolved_for_capture)
 		except Exception:
@@ -3494,5 +4015,10 @@ class RadioPlayer:
 		self._abort_crossfade()
 		self._abort_tuning_transition()
 		self.stop()
+		if self._hls_merger is not None:
+			try:
+				self._hls_merger.stop()
+			except Exception:
+				pass
 		if self._bass_engine:
 			self._bass_engine.unload()

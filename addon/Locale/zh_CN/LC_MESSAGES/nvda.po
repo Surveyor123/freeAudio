@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-09-28 18:56+0300\n"
-"PO-Revision-Date: 2026-09-29 22:20+0800\n"
+"PO-Revision-Date: 2026-09-29 18:42+0300\n"
 "Last-Translator: Alan <alanzhangmw@outlook.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -667,14 +667,13 @@ msgid "Song not recognized"
 msgstr "歌曲未识别"
 
 #: addon\globalPlugins\freeAudio\musicRecognizer.py:732
-#, fuzzy
 msgid ""
 "ffmpeg.exe not found. Download ffmpeg from https://ffmpeg.org/download.html "
 "and place ffmpeg.exe in the freeAudio addon folder, or set the path in "
 "settings."
 msgstr ""
 "未找到 ffmpeg.exe。请从 https://ffmpeg.org/download.html 下载 ffmpeg 并将 "
-"ffmpeg.exe 放入 FreeRadio 附加组件文件夹中，或者在设置中设置路径。"
+"ffmpeg.exe 放入 FreeAudio 附加组件文件夹中，或者在设置中设置路径。"
 
 #. Translators: Title of the Obligato mode setup dialog.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:55
@@ -875,7 +874,6 @@ msgstr "正在进行的录音"
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:238
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:644
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:658
-#, fuzzy
 msgid "freeAudio stopped"
 msgstr "自由之声已停止"
 
