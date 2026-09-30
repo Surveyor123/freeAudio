@@ -53,6 +53,8 @@ Téléchargez le fichier `.nvda-addon`, appuyez dessus sur Entrée et redémarre
 
 Tous les raccourcis peuvent être réassignés depuis le Menu NVDA → Préférences → Gestes de commandes → freeAudio. Ces raccourcis fonctionnent de n'importe où, quelle que soit la fenêtre ayant le focus.
 
+Certains de ces raccourcis sont identiques à ceux utilisés par Windows lui-même. Si vous préférez conserver le raccourci Windows sans réassigner celui de freeAudio, appuyez sur `NVDA+F2` (Passer la touche suivante directement à l'application) juste avant la combinaison de touches — NVDA enverra cette combinaison de touches directement à Windows au lieu de l'intercepter pour freeAudio.
+
 | Raccourci | Fonction | Description |
 |---|---|---|
 | `Ctrl+Win+R` | Ouvrir le navigateur de stations | Ouvre la fenêtre du navigateur si elle est fermée, ou la met au premier plan si elle est déjà ouverte. |
@@ -206,6 +208,7 @@ Pour supprimer une station de la liste des favoris, sélectionnez-la et appuyez 
 Dans la liste des Favoris, des Morceaux aimés, de la bibliothèque de Livres audio et de la du Jukebox permettent tous de sélectionner plusieurs éléments et de les supprimer ensemble en une seule étape:
 
 - Appuyez sur **`.`** (point) sur un élément sélectionné pour le marquer ou le désélectionner. NVDA annonce le changement, et la ligne d'un élément marqué est étiquetée  "(marqué)" son statut reste donc clair pendant que vous parcourez la liste.
+- Appuyez sur **`Shift+Début`** pour marquer ou démarquer chaque élément depuis l'élément actuel jusqu'au premier élément de la liste, ou **`Shift+Fin`** pour faire de même jusqu'au dernier élément. Le fait que la plage soit marquée ou non dépend de l'état de l'élément courant ; ainsi, en une seule action, toute la plage se déplace de la même manière. Le focus se déplace ensuite à l'extrémité de la plage, et NVDA annonce le nombre d'éléments modifiés.
 - Appuyez sur **`Supprimer`** pour supprimer tous les éléments marqués en une seule fois. Si rien n'est marqué, `Supprimer` supprime toujours uniquement l'élément actuellement sélectionné, comme auparavant.
 - Le menu contextuel accessible par clic droit (Touche Applications / `Shift+F10`) de chaque liste comprend une commande **Supprimer la sélection**, activé uniquement lorsqu'au moins un élément est sélectionné, cela revient au même.
 - Avant toute suppression, une simple boîte de dialogue de confirmation récapitule le nombre d'éléments qui vont être supprimés.
@@ -226,6 +229,14 @@ L'onglet Favoris comprend deux boutons pour sauvegarder et restaurer votre liste
 - **Annuler** — retourne au navigateur sans effectuer de modifications.
 
 Après une importation réussie, la liste de favoris, la liste des stations à enregistrement planifié et la liste des stations du minuteur sont toutes actualisées automatiquement.
+
+### Organiser les Favoris en Groupes
+
+Les favoris peuvent appartenir à un dossier/groupe, affiché avec le suffixe "— Groupe" après le nom de la station dans la liste (par exemple, "NPR Newscast — NPR").
+
+- **Importer depuis M3U** — si le fichier utilise l'étiquette `group-title` (la convention utilisée par DVBViewer et la plupart des autres éditeurs et lecteurs M3U) Pour organiser les stations dans des dossiers, freeAudio lit ces fichiers et conserve le groupe de chaque station lors de l'importation. L'exportation de vos favoris au format M3U inscrit la même étiquette, Ainsi, la structure des dossiers est préservée lors d'un aller-retour via freeAudio.
+- **Assigner ou supprimer un groupe manuellement** — marquer un ou plusieurs favoris avec le `.` (consultez la section [Marquage et Suppression de Plusieurs Éléments](#marking-and-removing-multiple-items) ci-dessus), puis choisissez **Assigner au groupe…** dans le menu contextuel (Touche Applications / `Shift+F10`) et saisissez un nom de groupe. Laissez le champ vide pour effacer les favoris marqués de leur groupe. Si aucun favori n'est marqué, la commande s'applique au favori actuellement sélectionné.
+- **Filtrer par groupe** — le champ Filtrer situé au-dessus de la liste des favoris effectue également une correspondance avec les noms de groupes et accepte plusieurs mots, chacun pouvant correspondre à un champ différent. Par exemple, en tapant `Houston Classical` on trouve "Houston Public Media Classical" même si cette expression exacte n'apparaît jamais nulle part — "Houston" correspond au groupe et "Classical" correspond au nom de la station.
 
 ### Réorganisation des Favoris
 
@@ -393,6 +404,8 @@ Lors du choix d'une station pour une minuterie d'alarme, un champ **Filtrer** au
 **Mise en veille — arrêter la radio:** Arrête la lecture à l'heure spécifiée. Lorsque la minuterie se déclenche, le volume est progressivement réduit sur 60 secondes avant l'arrêt de la lecture. Aucune sélection de station n'est nécessaire ; entrez simplement l'heure.
 
 Pour les deux types, si l'heure saisie est déjà dépassée, l'action est planifiée pour le lendemain. L'ajout d'une minuterie est bloquée si une autre minuterie  — de n'importe quel type — existe déjà en même temps ; un message vous informe du conflit et vous invite à supprimer d'abord l'entrée existante. Les minuteries en attente sont répertoriées dans l'onglet ; sélectionnez-en un et appuyez sur le bouton Supprimer la minuterie sélectionnée pour l'annuler.
+
+**Minuteries récurrentes:** Sous **Récurrence**, choisissez  **Répéter chaque semaine** au lieu de l'option par défaut  de Seulement une fois pour que  la minuterie s'exécute chaque semaine au lieu de Seulement une fois. La liste de contrôle **Jours actifs** vous permet ensuite de choisir les jours de la semaine où la répétition a lieu ; si vous ne cochez aucune case la minuterie se répète  tous les jours. Une minuterie récurrente continue de s'exécuter selon la planification jusqu'à ce que vous la supprimiez de la liste des minuteries en attente — il ne s'agit pas d'une entrée ponctuelle qui disparaît après son exécution.
 
 ## Podcasts
 
@@ -640,6 +653,15 @@ La liste du Jukebox est votre bibliothèque personnelle permanente. Vous pouvez 
 - **Supprimer** — supprime l'entrée actuellement sélectionnée de votre Jukebox. La suppression d'une entrée de dossier ne supprime aucun fichier sur le disque ou l'appareil ; elle oublie tout simplement le dossier. Vous pouvez également marquer plusieurs entrées simultanément et les supprimer toutes ensemble — consultez la section [Marquage et Suppression de Plusieurs Éléments](#marking-and-removing-multiple-items) sous la section Favoris.
 
 Votre liste du Jukebox est automatiquement enregistrée et conservée même après le redémarrage de NVDA. Le contenu des dossiers est analysé à la demande et mis en cache, ce qui rend l'ajout d'un dossier instantané, même pour les collections volumineuses — une analyse complète est effectuée lors de la première sélection du dossier. Si vous ajoutez des fichiers à un dossier en dehors de freeAudio, utilisez l'élément **Réanalyser le dossier** du menu contextuel du dossier pour les inclure.
+
+### Ajout d'Éléments depuis l'Explorateur Windows
+
+Deux autres commandes, disponibles uniquement lorsqu'un fichier ou un dossier est focalisé dans la liste des fichiers de l'Explorateur Windows (la liste Détails/Icônes — et non la barre d'adresse, l'arborescence des dossiers, le ruban ou la zone de recherche), vous permettent de passer complètement outre les boîtes de dialogue Ajouter un fichier…/Ajouter un dossier… mentionné ci-dessus :
+
+- **Lire le fichier focalisé avec freeAudio** — permet de lire directement le fichier audio sélectionné, sans qu'il soit nécessaire qu'il figure déjà dans votre liste Jukebox. Fonctionne uniquement avec les fichiers ; si vous l'utilisez avec un dossier, vous devrez ajouter ce dossier au Jukebox.
+- **Ajouter l'élément focalisé au jukebox de freeAudio** — ajoute le fichier ou le dossier sélectionné à votre liste Jukebox, exactement comme si vous aviez utilisé **Ajouter un fichier…** ou **Ajouter un dossier…** mentionné ci-dessus.
+
+Aucune de ces commandes n'a de touche par défaut assignée. Assignez-en une depuis le menu NVDA → Préférences → Gestes de commandes **lorsque vous êtes focalisée dans une fenêtre de l'Explorateur de fichiers** — elles apparaissent sous la section dédiée à l'Explorateur et non dans "Toutes les applications", ainsi, la combinaison de touches choisie ne déclenchera ces commandes que lors de la navigation dans les fichiers de l'Explorateur ; ailleurs, elle conserve sa fonction habituelle.
 
 ### Lecture depuis le Jukebox
 

@@ -53,6 +53,8 @@ Descarga el archivo `.nvda-addon`, pulsa Intro y reinicia NVDA cuando se te soli
 
 Todos los atajos se pueden reasignar desde el Menú NVDA → Preferencias → Gestos de Entrada → freeAudio. Estos atajos funcionan desde cualquier lugar, independientemente de qué ventana tenga el foco.
 
+Algunos de estos atajos coinciden con los que usa Windows. Si prefieres conservar el atajo de Windows sin reasignar el de freeAudio, pulsa `NVDA+F2` (Dejar pasar la siguiente tecla) justo antes de la combinación de teclas — NVDA enviará esa combinación directamente a Windows en lugar de interceptarla para freeAudio.
+
 | Atajo | Función | Descripción |
 |---|---|---|
 | `Ctrl+Win+R` | Abrir el navegador de estaciones | Abre la ventana del navegador si está cerrada o la trae al segundo plano si ya está abierta. |
@@ -206,6 +208,7 @@ Para eliminar una emisora ​​de la lista de favoritos, selecciónela y pulse 
 En las lista de Favoritos, de Canciones favoritas, de la biblioteca de Audiolibros y de la del Jukebox permiten seleccionar varios elementos y eliminarlos juntos en un solo paso:
 
 - Pulsa **`.`** (punto) sobre un elemento resaltado para marcarlo o desmarcarlo. NVDA anuncia el cambio y la fila del elemento marcado se etiqueta como "(marcado)" para que su estado permanezca visible mientras sigues desplazándote por la lista.
+- Pulsa **`Shift+Inicio`** para marcar o desmarcar cada elemento desde el elemento actual hasta el primero de la lista, o **`Shift+Fin`** para hacer lo mismo hasta el último elemento. Que el rango esté marcado o no lo está depende del estado del elemento actual, por lo que todo el rango siempre se mueve de la misma manera en una sola acción. A continuación, el foco se desplaza al extremo opuesto del rango y NVDA anuncia cuántos elementos han cambiado.
 - Pulsa **`Suprimir`** para eliminar todos los elementos marcados a la vez. Si no hay nada marcado, `Suprimir` seguirá eliminando solo el elemento seleccionado, como antes.
 - El menú contextual accesible haciendo clic derecho (Tecla Aplicaciones / `Shift+F10`) de cada lista incluye un comando **Eliminar seleccionado**, habilitado solo cuando al menos un elemento está marcado, que hace lo mismo.
 - Antes de eliminar cualquier elemento, un único cuadro de diálogo de confirmación resume cuántos elementos se van a eliminar.
@@ -226,6 +229,14 @@ La pestaña Favoritos incluye dos botones para hacer copias de seguridad y resta
 - **Cancelar** — regresa al navegador sin realizar ningún cambio.
 
 Tras una importación exitosa, la lista de favoritos, la lista de estaciones de grabación programada y la lista de estaciones del temporizador se actualizan automáticamente.
+
+### Reordenar Favoritos en Grupos
+
+Los favoritos pueden pertenecer a una carpeta o grupo, que se muestra con el sufijo "— Grupo" después del nombre de la emisora ​​en la lista  (por ejemplo, "NPR Newscast — NPR").
+
+- **Importar desde M3U** — si el archivo utiliza la etiqueta  `group-title` (la convención utilizada por DVBViewer y la mayoría de los editores y reproductores de M3U) para organizar las emisoras en carpetas, freeAudio la lee y conserva el grupo de cada emisora ​​al importarla. Al exportar tus favoritos de nuevo a M3U, se escribe la misma etiqueta, por lo que la estructura de carpetas se mantiene tras el procesamiento en freeAudio.
+- **Asignar o eliminar un grupo manualmente** — marque uno o más favoritos con el `.` (consulta la sección [Marcado y Eliminación de Varios Elementos](#marking-and-removing-multiple-items) arriba), luego  seleccione  **Asignar al grupo…** en el menú contextual (Tecla Aplicaciones / `Shift+F10`) e ingrese el nombre del grupo. Deje el campo vacío para eliminar los favoritos marcados de su grupo. Si no hay nada marcado, el comando se aplicará al favorito seleccionado actualmente.
+- **Filtrado por grupo** — el campo Filtrar que aparece encima de la lista de favoritos también compara con los nombres de los grupos y acepta varias palabras, cada una de las cuales puede coincidir con un campo diferente. Por ejemplo, al escribir `Houston Classical` se encuentra  "Houston Public Media Classical" aunque esa frase exacta no aparece en ningún sitio — "Houston" coincide con el grupo y  "Classical" coincide con el nombre de la emisora.
 
 ### Reordenar Favoritos
 
@@ -393,6 +404,8 @@ Al elegir una estación para un temporizador de alarma, un campo **Filtrar** enc
 **Apagado — detener la radio:** Detiene la reproducción a la hora especificada. Cuando suena el temporizador, el volumen se reduce gradualmente durante 60 segundos antes de que se detenga la reproducción. No es necesaria ninguna selección de estación; simplemente ingrese la hora.
 
 Para ambos tipos, si la hora ingresada ya pasó, la acción se programa para el día siguiente. Si ya existe un temporizador a la misma hora (independientemente del tipo), no se permite añadir uno nuevo; se informa al usuario del conflicto y se le pide que elimine primero la entrada existente. Los temporizadores pendientes se enumeran en la pestaña; seleccione uno y pulse el botón Eliminar el temporizador seleccionado para cancelarlo.
+
+**Temporizadores recurrentes:** Bajo **Recurrencia**, elige **Repetir semanalmente** en lugar de la opción predeterminada de Solo una vez para que el temporizador se ejecute cada semana en lugar de Solo una vez. Una lista de verificación de **Días activos** luego te permite elegir los días de la semana donde se repetirá; si deja todos los días sin marcar, se repetirá todos los días. Un temporizador recurrente se seguirá  ejecutando según lo programado hasta que lo elimine de la lista de temporizadores pendientes — no se trata de una entrada única que desaparece tras su ejecución.
 
 ## Podcasts
 
@@ -640,6 +653,15 @@ La lista del Jukebox es tu biblioteca personal permanente. Se pueden añadir dos
 - **Eliminar** — elimina la entrada seleccionada actualmente de tu Jukebox. Eliminar una entrada de carpeta no elimina ningún archivo del disco o dispositivo; simplemente olvida la carpeta. También puedes marcar varias entradas a la vez y eliminarlas todas juntas — consulta la sección [Marcado y Eliminación de Varios Elementos](#marking-and-removing-multiple-items) bajo la sección Favoritos.
 
 Tu lista del Jukebox se guarda automáticamente, por lo que se conserva incluso después de reiniciar NVDA. El contenido de las carpetas se escanea bajo demanda y se almacena en caché, por lo que añadir una carpeta es instantáneo, incluso para colecciones muy grandes — el escaneo completo se realiza la primera vez que seleccionas esa carpeta. Si añades archivos a una carpeta fuera de freeAudio, usa el elemento **Volver a escanear la carpeta** en el menú contextual de la carpeta para que se incluyan.
+
+### Añadiendo Elementos desde el Explorador de Windows
+
+Otros dos comandos, disponibles únicamente cuando un archivo o carpeta está enfocada en la lista de archivos del Explorador de Windows (la lista Detalles/Iconos, no la barra de direcciones, la vista en árbol de carpetas, la cinta de opciones ni el cuadro de búsqueda), permiten omitir por completo los cuadros de diálogo Añadir un archivo…/Añadir una carpeta… mencionados anteriormente:
+
+- **Reproducir el archivo enfocado con freeAudio** — reproduce directamente el archivo de audio resaltado, sin necesidad de que esté ya en tu lista del Jukebox. Solo funciona con archivos; si lo usas en una carpeta, te indica que añadas la carpeta al Jukebox.
+- **Añadir el elemento enfocado al jukebox de freeAudio** — añade el archivo o carpeta resaltado a tu lista del Jukebox, exactamente como si hubieras usado **Añadir un archivo…** o **Añadir una carpeta…** mencionados anteriormente.
+
+Ninguno de estos comandos tiene una tecla predeterminada asignada. Asigne una desde el menú NVDA → Preferencias → Gestos de Entrada **mientras se encuentra enfocado dentro de una ventana del Explorador de archivos** — aparecen allí en la sección propia del Explorador en lugar de en "Todas las aplicaciones", por lo que la combinación de teclas que elijas solo activará estos comandos mientras estés explorando archivos en el Explorador; en cualquier otro lugar, conserva su función habitual.
 
 ### Reproduciendo desde el Jukebox
 
