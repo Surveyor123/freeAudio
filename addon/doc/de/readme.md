@@ -1,18 +1,18 @@
 # freeAudio — NVDA-Add-on
 
-freeAudio ist ein vollwertiges Add-on für Internetradio, Podcasts, Hörbücher und die eigene Musiksammlung für den Screenreader NVDA. Was als einfache Möglichkeit begann, Internetradio zu hören, ist inzwischen eine komplette, durchgängig barrierefreie Hörzentrale geworden — jedes Fenster, jeder Dialog und jedes Bedienelement ist von Grund auf für Tastatur und Screenreader entworfen, eine Maus wird an keiner Stelle gebraucht.
+freeAudio ist ein vollwertiges Add-on für Internetradio, Podcasts, Hörbücher und eine lokale Jukebox für den Screenreader NVDA. Was als einfache Möglichkeit begann, Internetradio zu hören, ist inzwischen eine komplette, durchgängig barrierefreie Hörzentrale geworden — jedes Fenster, jeder Dialog und jedes Bedienelement ist von Grund auf für Tastatur und Screenreader entworfen, eine Maus wird an keiner Stelle gebraucht.
 
 ## Was freeAudio kann
 
 - **Internetradio** — Über 50.000 Sender aus dem Verzeichnis von [Radio Browser](https://www.radio-browser.info/) durchstöbern und durchsuchen, ergänzt um Treffer von TuneIn und iHeartRadio. Favoriten speichern, neu anordnen und von überall in Windows per globalem Tastenbefehl direkt aufrufen — siehe [Das Verzeichnis von Radio Browser](#radio-browser-directory) und [Favoriten](#favourites).
 - **Podcasts** — Beliebige RSS- oder Atom-Feeds abonnieren oder das Podcast-Verzeichnis von Apple durchsuchen und Folgen schon vor dem Abonnieren anhören. Die Wiedergabeposition wird automatisch gespeichert, das Hören geht an der zuletzt gehörten Stelle weiter — siehe [Podcasts](#podcasts).
 - **Hörbücher** — Bücher aus drei Quellen suchen, streamen oder herunterladen: [GETEM](https://getem.boun.edu.tr/), die digitale Bibliothek der Boğaziçi-Universität für blinde und sehbehinderte Menschen, [LibriVox](https://librivox.org/), das von Freiwilligen eingelesene Hörbuchprojekt mit gemeinfreien Werken, und die Project Gutenberg Open Audiobook Collection — die beiden letzteren ganz ohne Konto —, mit automatischem Fortsetzen über mehrteilige Werke hinweg — siehe [Hörbücher (GETEM, LibriVox und Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg).
-- **Lokale Jukebox** — Audiodateien auf allen angeschlossenen Laufwerken nach Dateinamen durchsuchen oder eine persönliche Sammlung aus Dateien und Ordnern aufbauen und mit denselben Werkzeugen abspielen, die auch Podcasts und Hörbücher bekommen: Fortsetzen, Springen, Tempo und Tonhöhe — siehe [Lokale Jukebox](#local-jukebox).
+- **Lokale Jukebox** — Auf allen angeschlossenen Laufwerken nach Audiodateien suchen oder eine eigene Bibliothek aus Dateien und Ordnern anlegen und diese mit denselben Werkzeugen zum Fortsetzen, Springen, für Tempo und Tonhöhe abspielen, die auch Podcasts und Hörbücher nutzen — siehe [Lokale Jukebox](#local-jukebox).
 - **Aufnehmen** — Das Laufende sofort mitschneiden, einen einzelnen Titel automatisch von Anfang bis Ende aufnehmen oder einmalige und wiederkehrende Aufnahmen planen — alles, ohne die Wiedergabe zu unterbrechen — siehe [Aufnehmen](#recording).
 - **Timeshift (Live-Radio zurückspulen)** — Einen laufenden Sender wie mit einem Festplattenrekorder anhalten und zurückspulen und jederzeit wieder zum Live-Signal aufschließen — siehe [Timeshift (Live-Radio zurückspulen)](#time-shift-rewind-live-radio).
 - **Musikerkennung und Lieblingstitel** — Titel ohne Metadaten per Shazam-Erkennung bestimmen, Lieblingstitel in einer Textdatei sammeln und deren Songtexte nachschlagen — siehe [Musikerkennung](#music-recognition) und [Lieblingstitel](#liked-songs).
 - **Audioprofile und Effekte** — Lautstärke, Effekte, EQ und Wiedergabetempo je Sender, je Podcast, je Hörbuch oder je Jukebox-Titel getrennt speichern und Effekte in Echtzeit anwenden (Chorus, Hall, EQ-Anhebungen und mehr), bereitgestellt vom BASS-Backend — siehe [Audioprofil für einen Sender](#station-audio-profile).
-- **Transponieren (Tonhöhe verschieben)** — Die Tonhöhe von Podcasts, Hörbüchern und Jukebox-Titeln nach oben oder unten verschieben, ohne das Tempo zu verändern, mithilfe der Komponente `bass_fx` — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift).
+- **Transponieren (Tonhöhe verschieben)** — Die Tonhöhe von Podcasts, Hörbüchern und Jukebox-Titeln nach oben oder unten verschieben, ohne das Tempo zu ändern, mithilfe der mitgelieferten Komponente `bass_fx` — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift).
 - **Audio-Spiegelung** — Denselben Stream gleichzeitig auf zwei Ausgabegeräte legen, etwa auf Lautsprecher und Kopfhörer zugleich — siehe [Audio-Spiegelung](#audio-mirror).
 - **Obligato-Modus (Hintergrundmusik)** — Einen ausgewählten Lieblingssender leise im Hintergrund laufen lassen, mit eigenem Ausgabegerät und eigener Lautstärke, unabhängig davon, was als Hauptmedium läuft (oder eben nicht läuft) — siehe [Obligato-Modus](#obligato-mode).
 - **Timer** — Einen Lieblingssender zu einer bestimmten Zeit starten oder die Wiedergabe zu einer bestimmten Zeit beenden lassen — siehe [Timer](#timer).
@@ -41,7 +41,7 @@ Nach dem Absenden wird der Sender geprüft und ins öffentliche Verzeichnis aufg
 
 ## Voraussetzungen
 
-- NVDA 2025.1	 oder neuer
+- NVDA 2025.1 oder neuer
 - Windows 10 oder neuer
 - Internetverbindung
 
@@ -51,14 +51,16 @@ Die Datei mit der Endung `.nvda-addon` herunterladen, mit der Eingabetaste öffn
 
 ## Tastenbefehle
 
-Sämtliche Tastenbefehle lassen sich unter NVDA-Menü → Einstellungen → Eingabegesten → freeAudio neu belegen. Sie greifen von überall, unabhängig davon, welches Fenster gerade den Fokus hat.
+Sämtliche Tastenbefehle lassen sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio neu belegen. Sie greifen von überall, unabhängig davon, welches Fenster gerade den Fokus hat.
+
+Einige dieser Tastenbefehle überschneiden sich mit solchen, die Windows selbst verwendet. Soll der Windows-eigene Tastenbefehl erhalten bleiben, ohne den von freeAudio neu zu belegen, unmittelbar vor der Tastenkombination `NVDA+F2` drücken (Nächste Taste durchreichen) — NVDA reicht diese eine Tastenkombination dann direkt an Windows weiter, statt sie für freeAudio abzufangen.
 
 | Tastenbefehl | Funktion | Beschreibung |
 |---|---|---|
 | `Strg+Windows+R` | Senderbrowser öffnen | Öffnet das Browserfenster, oder holt es in den Vordergrund, falls es bereits offen ist. |
 | `Strg+Windows+O` | Registerkarte „Podcasts“ öffnen | Öffnet den Senderbrowser (falls geschlossen) oder holt ihn in den Vordergrund und wechselt direkt zur Registerkarte **Podcasts**. |
 | `Strg+Windows+L` | Registerkarte „Hörbücher“ öffnen | Öffnet den Senderbrowser (falls geschlossen) oder holt ihn in den Vordergrund und wechselt direkt zur Registerkarte **Hörbücher**. |
-| `Strg+Windows+U` | Registerkarte „Jukebox“ öffnen | Öffnet den Senderbrowser (falls geschlossen) oder holt ihn in den Vordergrund und wechselt direkt zur Registerkarte **Jukebox**, mit dem Fokus im Suchfeld für die Datenträger. |
+| `Strg+Windows+U` | Registerkarte „Jukebox“ öffnen | Öffnet den Senderbrowser (falls geschlossen) oder holt ihn in den Vordergrund und wechselt direkt zur Registerkarte **Jukebox**, mit dem Fokus im Suchfeld für Datenträger. |
 | `Strg+Windows+P` | Pause / Fortsetzen | Hält den laufenden Sender an; setzt eine Pause wieder fort. Läuft nichts, wird je nach Einstellung der zuletzt gehörte Sender gestartet oder die Favoritenliste geöffnet. Zweimal kurz hintereinander gedrückt, springt es direkt zu einer frei wählbaren Registerkarte. Dreimal gedrückt, kann es je nach Einstellung eine weitere Aktion auslösen. |
 | `Strg+Windows+S` | Stopp | Beendet den laufenden Sender vollständig und setzt den Player zurück. |
 | `Strg+Windows+→` | Nächster Favorit | Wechselt zum nächsten Sender der Favoritenliste. Am Ende der Liste geht es wieder von vorn los. |
@@ -68,25 +70,25 @@ Sämtliche Tastenbefehle lassen sich unter NVDA-Menü → Einstellungen → Eing
 | `Strg+Windows+V` | Zu den Favoriten / Medium herunterladen | Nimmt den laufenden Sender in die Favoritenliste auf oder lädt die laufende Podcast-Folge bzw. das laufende Hörbuch herunter. Sagt an, wenn der Sender bereits in der Liste steht oder das Medium schon heruntergeladen wurde. Bei einem laufenden Jukebox-Titel nicht anwendbar: freeAudio weist dann darauf hin, dass der Tastenbefehl nur für Sender, Podcasts oder Hörbücher gilt. |
 | `Strg+Windows+Umschalt+K` | Schneller abspielen | Erhöht das Wiedergabetempo einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels um 0,1× (tonhöhenerhaltend). Bereich: 0,5× bis 2,0×. Setzt voraus, dass `bass_fx.dll` im Add-on-Ordner liegt. |
 | `Strg+Windows+Umschalt+J` | Langsamer abspielen | Verringert das Wiedergabetempo einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels um 0,1×. Setzt `bass_fx.dll` voraus. |
-| `Umschalt+Windows+K` | Tonhöhe anheben | Hebt die Tonhöhe einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels in Achtelton-Schritten (0,25 Halbtöne) an, ohne das Tempo zu verändern. Bereich: −12,00 bis +12,00 Halbtöne. Setzt `bass_fx.dll` voraus. Siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). |
-| `Umschalt+Windows+J` | Tonhöhe absenken | Senkt die Tonhöhe in Achtelton-Schritten ab, ohne das Tempo zu verändern. Setzt `bass_fx.dll` voraus. |
-| `Strg+Windows+I` | Senderinfo | Sagt den Namen des laufenden Senders bzw. der laufenden Podcast-Folge, des Hörbuchs oder des Jukebox-Titels an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. |
+| `Umschalt+Windows+K` | Tonhöhe anheben | Hebt die Tonhöhe einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels in Schritten von 1/8 Ganzton (0,25 Halbtöne) an, ohne das Tempo zu ändern. Bereich: −12,00 bis +12,00 Halbtöne. Setzt `bass_fx.dll` voraus. Siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). |
+| `Umschalt+Windows+J` | Tonhöhe absenken | Senkt die Tonhöhe in Schritten von 1/8 Ganzton ab, ohne das Tempo zu ändern. Setzt `bass_fx.dll` voraus. |
+| `Strg+Windows+I` | Senderinfo | Sagt den Namen des laufenden Senders, der Podcast-Folge, des Hörbuchs oder des Jukebox-Titels an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. |
 | `Strg+Windows+M` | Audio-Spiegelung | Gibt den laufenden Stream bzw. das laufende Medium zusätzlich auf einem weiteren Audiogerät aus. Erneut gedrückt, beendet es die Spiegelung. |
 | `Strg+Windows+Umschalt+M` | Obligato-Modus (Hintergrundmusik) | Lässt einen ausgewählten Lieblingssender leise im Hintergrund laufen, mit eigenem Ausgabegerät und eigener Lautstärke, unabhängig vom Hauptmedium. Beim ersten Druck öffnet sich ein Dialog zur Wahl von Sender, Ausgabegerät und relativer Lautstärke. Erneut gedrückt, beendet es den Modus. |
 | `Strg+Windows+E` | Sofortaufnahme | Einmal gedrückt, startet die Aufnahme des laufenden Senders; erneut gedrückt, beendet sie. **Zweimal** gedrückt, startet eine **Titelaufnahme** — die Datei wird nach dem laufenden Titel benannt und die Aufnahme endet automatisch beim Titelwechsel. Erneutes zweimaliges Drücken beendet eine laufende Titelaufnahme vorzeitig. Die Wiedergabe läuft in allen Aufnahmearten ununterbrochen weiter. Nur bei Sendern verfügbar, die ICY-Metadaten senden. |
 | `Strg+Windows+W` | Aufnahmeordner öffnen | Öffnet den Ordner mit den aufgenommenen Dateien im Explorer. |
-| `Strg+Windows+J` | Timeshift zurück / in Podcast, Hörbuch und Jukebox-Titel zurückspringen | Beim Live-Radio: 15 Sekunden zurück. Der erste Druck aktiviert den Timeshift-Modus, jeder weitere geht 15 Sekunden weiter zurück, bis die in den freeAudio-Einstellungen festgelegte Puffergrenze erreicht ist. Setzt voraus, dass der Timeshift-Puffer in den Einstellungen aktiviert ist. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel springt diese Taste stattdessen innerhalb der Datei, und zwar abgestuft nach Art des Drückens: **gedrückt gehalten** geht es pro Wiederholung 5 Sekunden zurück, genau wie bisher; ein **einzelner bewusster Tastendruck** springt 12 Sekunden zurück; **zwei Tastendrücke** kurz hintereinander 1 Minute; **drei oder mehr** 5 Minuten. Pro Tastenfolge erfolgt nur ein Sprung, dessen Weite sich aus der Zahl der Tastendrücke ergibt — sie addieren sich nicht. Funktioniert unabhängig von der Timeshift-Einstellung. |
-| `Strg+Windows+K` | Timeshift vor / in Podcast, Hörbuch und Jukebox-Titel vorspringen | Beim Live-Radio: 15 Sekunden vor, solange die Wiedergabe zeitversetzt läuft. Ist das Live-Signal erreicht, kehrt die Wiedergabe automatisch dorthin zurück und die Taste bleibt wirkungslos, bis wieder zurückgespult wird. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel springt sie innerhalb der Datei vorwärts, mit derselben Abstufung wie `Strg+Windows+J` (gehalten = 5 Sekunden pro Wiederholung; 1 Druck = 12 Sekunden; 2 Drücke = 1 Minute; ab 3 Drücken = 5 Minuten). Funktioniert unabhängig von der Timeshift-Einstellung. |
+| `Strg+Windows+J` | Timeshift zurück / in Podcast, Hörbuch und Jukebox zurückspringen | Beim Live-Radio: 15 Sekunden zurück. Der erste Druck aktiviert den Timeshift-Modus, jeder weitere geht 15 Sekunden weiter zurück, bis die in den freeAudio-Einstellungen festgelegte Puffergrenze erreicht ist. Setzt voraus, dass der Timeshift-Puffer in den Einstellungen aktiviert ist. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel springt diese Taste stattdessen innerhalb der Datei, und zwar abgestuft nach Art des Drückens: **gedrückt gehalten** geht es pro Wiederholung 5 Sekunden zurück, genau wie bisher; ein **einzelner bewusster Tastendruck** springt 12 Sekunden zurück; **zwei Tastendrücke** kurz hintereinander 1 Minute; **drei oder mehr** 5 Minuten. Pro Tastenfolge erfolgt nur ein Sprung, dessen Weite sich aus der Zahl der Tastendrücke ergibt — sie addieren sich nicht. Funktioniert unabhängig von der Timeshift-Einstellung. |
+| `Strg+Windows+K` | Timeshift vor / in Podcast, Hörbuch und Jukebox vorspringen | Beim Live-Radio: 15 Sekunden vor, solange die Wiedergabe zeitversetzt läuft. Ist das Live-Signal erreicht, kehrt die Wiedergabe automatisch dorthin zurück und die Taste bleibt wirkungslos, bis wieder zurückgespult wird. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel springt sie innerhalb der Datei vorwärts, mit derselben Abstufung wie `Strg+Windows+J` (gehalten = 5 Sekunden pro Wiederholung; 1 Druck = 12 Sekunden; 2 Drücke = 1 Minute; ab 3 Drücken = 5 Minuten). Funktioniert unabhängig von der Timeshift-Einstellung. |
 | `Strg+Windows+T` | Timeshift-Puffer umschalten | Aktiviert oder deaktiviert den Timeshift-Puffer im laufenden Betrieb, entsprechend dem Kontrollfeld in den Einstellungen. Beim Deaktivieren kehrt eine zeitversetzte Wiedergabe sofort zum Live-Signal zurück und die Hintergrundaufzeichnung endet. Ohne Wirkung auf Podcasts, Hörbücher und Jukebox-Titel. |
-| *(nicht belegt)* | Ausgabegerät wählen | Öffnet bei Bedarf eine Liste der verfügbaren Haupt-Ausgabegeräte. Die Liste erscheint nur, wenn BASS mehr als ein physisches Ausgabegerät erkennt. Ein Tastenbefehl lässt sich unter NVDA-Menü → Einstellungen → Eingabegesten → freeAudio zuweisen. |
-| *(nicht belegt)* | Meldungen stummschalten | Schaltet die Einstellung „Meldungen stummschalten“ im laufenden Betrieb um. Ein Tastenbefehl lässt sich unter NVDA-Menü → Einstellungen → Eingabegesten → freeAudio zuweisen. |
-| *(nicht belegt)* | Lieblingssender direkt starten | Jeder Sender der Favoritenliste erscheint als eigener Eintrag unter NVDA-Menü → Einstellungen → Eingabegesten → **freeAudio-Sender**. Wird einem Sender dort ein Tastenbefehl zugewiesen, startet er von überall sofort, ohne dass der Browser geöffnet werden muss. |
+| *(nicht belegt)* | Ausgabegerät wählen | Öffnet bei Bedarf eine Liste der verfügbaren Haupt-Ausgabegeräte. Die Liste erscheint nur, wenn BASS mehr als ein physisches Ausgabegerät erkennt. Ein Tastenbefehl lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen. |
+| *(nicht belegt)* | Meldungen stummschalten | Schaltet die Einstellung „Meldungen stummschalten“ im laufenden Betrieb um. Ein Tastenbefehl lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen. |
+| *(nicht belegt)* | Lieblingssender direkt starten | Jeder Sender der Favoritenliste erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Sender**. Wird einem Sender dort ein Tastenbefehl zugewiesen, startet er von überall sofort, ohne dass der Browser geöffnet werden muss. |
 
 Die Tastenbefehle für den nächsten und vorherigen Sender bewegen sich nur durch die Favoritenliste, nicht durch die Liste aller Sender. Liegt im Browserfenster der Fokus auf einer Liste, übernehmen die Pfeiltasten links und rechts dieselbe Aufgabe — siehe Tastenbefehle im Dialog.
 
 ## Senderbrowser
 
-freeAudio ergänzt das Extras-Menü von NVDA außerdem um ein Untermenü **freeAudio**. Von dort lassen sich der Senderbrowser und die freeAudio-Einstellungen direkt öffnen.
+freeAudio ergänzt das Menü „Werkzeuge“ von NVDA außerdem um ein Untermenü **freeAudio**. Von dort lassen sich der Senderbrowser und die freeAudio-Einstellungen direkt öffnen.
 
 Das mit `Strg+Windows+R` geöffnete Fenster enthält acht Registerkarten: Alle Sender, Favoriten, Aufnahme, Timer, Lieblingstitel, Podcasts, Hörbücher und Jukebox. Zwischen ihnen wird mit `Strg+Tabulator` oder mit `Alt+1` bis `Alt+8` gewechselt.
 
@@ -104,13 +106,13 @@ Ebenfalls am unteren Fensterrand liegt die Schaltfläche **Wiedergabe/Pause**. L
 
 Die Schaltfläche **Senderliste aktualisieren** gleicht den lokalen Senderkatalog sofort mit der Radio-Browser-API ab, statt auf die regelmäßige Aktualisierung im Hintergrund zu warten. Während der Abgleich läuft, ist die Schaltfläche deaktiviert und NVDA meldet, dass eine Aktualisierung im Gange ist; ein erneuter Druck vor deren Ende führt zu einem entsprechenden Hinweis. Ist der Abgleich fertig, meldet NVDA die aktualisierte Senderliste, und die gerade angezeigten Suchergebnisse oder Länderlisten werden automatisch auf den neuen Stand gebracht.
 
-Ist ein Sender in der Liste ausgewählt, zeigt die Schaltfläche **Senderdetails** Angaben wie Land, Sprache, Genre, Format, Bitrate, Website und Stream-Adresse in einem eigenen Dialog. Jedes Feld steht in einem eigenen, schreibgeschützten Textfeld; mit der Tabulatortaste geht es von Feld zu Feld, und die Schaltfläche **Alles in die Zwischenablage kopieren** übernimmt sämtliche Angaben auf einmal. Diese Schaltfläche gibt es sowohl auf der Registerkarte „Alle Sender“ als auch bei den Favoriten.
+Ist ein Sender in der Liste ausgewählt, zeigt die Schaltfläche **Sender-Details** Angaben wie Land, Sprache, Genre, Format, Bitrate, Website und Stream-Adresse in einem eigenen Dialog. Jedes Feld steht in einem eigenen, schreibgeschützten Textfeld; mit der Tabulatortaste geht es von Feld zu Feld, und die Schaltfläche **Alles in die Zwischenablage kopieren** übernimmt sämtliche Angaben auf einmal. Diese Schaltfläche gibt es sowohl auf der Registerkarte „Alle Sender“ als auch bei den Favoriten.
 
 ### Kontextmenü für Sender
 
 Ein Rechtsklick auf einen Sender in der Liste „Alle Sender“ oder „Favoriten“ — oder die Kontextmenütaste bzw. `Umschalt+F10` bei ausgewähltem Sender — öffnet ein Kontextmenü mit den wichtigsten Aktionen:
 
-- **Senderdetails** — dasselbe wie die oben beschriebene Schaltfläche.
+- **Sender-Details** — dasselbe wie die oben beschriebene Schaltfläche.
 - **Zu den Favoriten** *(Registerkarte „Alle Sender“)* / **Sender löschen** *(Registerkarte „Favoriten“)*.
 - **Sender umbenennen** *(Registerkarte „Favoriten“)* — dasselbe wie `F9`.
 - **Audioprofil für diesen Sender speichern** / **Audioprofil löschen** *(Registerkarte „Favoriten“)* — siehe [Audioprofil für einen Sender](#station-audio-profile).
@@ -128,10 +130,10 @@ Die folgenden Tasten wirken nur bei aktivem Senderbrowser-Fenster.
 |---|---|---|
 | `F1` | Hilfe | Öffnet die Hilfedatei des Add-ons im Standardbrowser. Zuerst wird die Fassung für die aktive NVDA-Sprache gesucht; ist keine vorhanden, öffnet sich die Standardfassung. |
 | `F2` | Was läuft gerade | Sagt den laufenden Sender und den Titelnamen an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. |
-| `F3` | Vorheriger Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum vorherigen Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im gewählten Jukebox-Eintrag und spielt ihn ab. |
-| `F4` | Nächster Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum nächsten Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum nächsten Titel im gewählten Jukebox-Eintrag und spielt ihn ab. |
-| `Umschalt+F3` | Vorheriger Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach oben. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Teil des laufenden Buches. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag (Datei oder Ordner) nach oben. |
-| `Umschalt+F4` | Nächster Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach unten. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Teil des laufenden Buches. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag nach unten. |
+| `F3` | Vorheriger Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum vorherigen Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge der Folgenliste und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
+| `F4` | Nächster Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum nächsten Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum nächsten Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
+| `Umschalt+F3` | Vorheriger Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach oben. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Teil des laufenden Buchs. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag (Datei oder Ordner) nach oben. |
+| `Umschalt+F4` | Nächster Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach unten. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Teil des laufenden Buchs. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag nach unten. |
 | `F5` | Leiser | Verringert die Lautstärke um 5 (Mindestwert 0). |
 | `F6` | Lauter | Erhöht die Lautstärke um 5 (Höchstwert 200). |
 | `F7` | Pause / Fortsetzen | Hält einen laufenden Sender an; setzt eine Pause fort, sofern ein Medium geladen ist. |
@@ -145,10 +147,10 @@ Die folgenden Tasten wirken nur bei aktivem Senderbrowser-Fenster.
 |---|---|---|
 | `→` | Nächster Eintrag | Liegt der Fokus auf einer Senderliste („Alle Sender“ / „Favoriten“), wechselt es zum nächsten Sender und spielt ihn sofort ab. Liegt er auf der Folgenliste (Podcasts), geht es zur nächsten Folge und spielt sie ab. Am Ende der Liste geht es wieder von vorn los. |
 | `←` | Vorheriger Eintrag | Liegt der Fokus auf einer Senderliste, wechselt es zum vorherigen Sender und spielt ihn ab. Liegt er auf der Folgenliste, geht es zur vorherigen Folge und spielt sie ab. Am Anfang springt es ans Ende. |
-| `Strg+→` | Nächste Folge / nächstes Buch / nächster Titel | Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“ (Fokus auf der Bibliotheksliste): wechselt zum nächsten Buch. Auf der Registerkarte „Jukebox“ (Fokus auf der Eintrags- oder der Titelliste): wechselt zum nächsten Titel im gewählten Jukebox-Eintrag und spielt ihn ab. |
-| `Strg+←` | Vorherige Folge / vorheriges Buch / vorheriger Titel | Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im gewählten Jukebox-Eintrag und spielt ihn ab. |
-| `Eingabetaste` | Abspielen / Hinzufügen | In einer Sender- oder Folgenliste: startet den ausgewählten Eintrag sofort. In den Suchergebnissen der Registerkarte „Jukebox“: nimmt die gewählte Datei in die Jukebox auf. In der Eintrags- oder Titelliste der Registerkarte „Jukebox“: spielt den fokussierten Eintrag direkt ab. |
-| `Leertaste` | Abspielen / Pause / Vorhören | Hält eine laufende Wiedergabe an; andernfalls startet es den ausgewählten Eintrag. In den Suchergebnissen der Registerkarte „Jukebox“: schaltet das Vorhören der gewählten Datei ein und wieder aus. In der Eintrags- oder Titelliste der Registerkarte „Jukebox“: hält eine laufende Wiedergabe an, sonst spielt es den fokussierten Eintrag ab. |
+| `Strg+→` | Nächste Folge / nächstes Buch / nächster Titel | Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“ (Fokus auf der Bibliotheksliste): wechselt zum nächsten Buch. Auf der Registerkarte „Jukebox“ (Fokus auf der Eintrags- oder der Titelliste): wechselt zum nächsten Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
+| `Strg+←` | Vorherige Folge / vorheriges Buch / vorheriger Titel | Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
+| `Eingabetaste` | Abspielen / Hinzufügen | In einer Sender- oder Folgenliste: startet den ausgewählten Eintrag sofort. In den Suchergebnissen der Registerkarte „Jukebox“: nimmt die ausgewählte Datei in die Jukebox auf. In der Eintrags- oder Titelliste der Registerkarte „Jukebox“: spielt den fokussierten Eintrag direkt ab. |
+| `Leertaste` | Abspielen / Pause / Vorschau | Hält an, wenn etwas läuft; andernfalls startet es den ausgewählten Eintrag. In den Suchergebnissen der Registerkarte „Jukebox“: schaltet die Vorschau der ausgewählten Datei ein oder aus. In der Eintrags- oder Titelliste der Registerkarte „Jukebox“: hält an, wenn etwas läuft, andernfalls spielt es den fokussierten Eintrag ab. |
 | `Strg+Tabulator` | Nächste Registerkarte | Wechselt zur nächsten Registerkarte (Alle Sender → Favoriten → Aufnahme → Timer → Lieblingstitel → Podcasts → Hörbücher → Jukebox). |
 | `Strg+Umschalt+Tabulator` | Vorherige Registerkarte | Wechselt zur vorherigen Registerkarte. |
 | `Escape` | Ausblenden | Blendet das Fenster aus; das Add-on spielt im Hintergrund weiter. |
@@ -190,7 +192,7 @@ Jeder dieser Tastenbefehle entspricht dem An- oder Abwählen des zugehörigen Ei
 | `Alt+5` | Lieblingstitel | Wechselt zur Registerkarte „Lieblingstitel“. |
 | `Alt+6` | Podcasts | Wechselt zur Registerkarte „Podcasts“. |
 | `Alt+7` | Hörbücher | Wechselt zur Registerkarte „Hörbücher“. |
-| `Alt+8` | Jukebox | Wechselt zur Registerkarte „Jukebox“, mit dem Fokus im Suchfeld für die Datenträger. |
+| `Alt+8` | Jukebox | Wechselt zur Registerkarte „Jukebox“, mit dem Fokus im Suchfeld für Datenträger. |
 | `Alt+K` | Schließen | Schließt das Fenster; das Add-on spielt im Hintergrund weiter. |
 
 ## Favoriten
@@ -203,14 +205,15 @@ Zum Löschen eines Senders aus der Favoritenliste diesen auswählen und die Scha
 
 ### Mehrere Einträge markieren und entfernen
 
-Die Favoriten, die Lieblingstitel, die Hörbuchbibliothek und die Jukebox-Liste unterstützen alle das Markieren mehrerer Einträge und deren gemeinsames Entfernen in einem Schritt:
+Favoriten, Lieblingstitel, die Hörbuchbibliothek und die Jukebox-Liste erlauben es, mehrere Einträge zu markieren und in einem Schritt gemeinsam zu entfernen:
 
-- Der **Punkt** auf einem hervorgehobenen Eintrag setzt die Markierung oder hebt sie auf. NVDA sagt die Änderung an, und die Zeile eines markierten Eintrags trägt den Zusatz „(markiert)“, sodass der Zustand beim Weiterblättern durch die Liste klar bleibt.
-- **Entf** entfernt alle markierten Einträge auf einmal. Ist nichts markiert, entfernt `Entf` wie bisher nur den gerade ausgewählten Eintrag.
-- Das Kontextmenü jeder Liste (Kontextmenütaste oder `Umschalt+F10`) enthält den Befehl **Markierte entfernen**, der dasselbe tut; er ist nur aktiv, wenn mindestens ein Eintrag markiert ist.
-- Bevor irgendetwas gelöscht wird, nennt ein einziger Bestätigungsdialog die Zahl der zu entfernenden Einträge.
+- **`.`** (Punkt) auf einem hervorgehobenen Eintrag markiert ihn oder hebt die Markierung auf. NVDA sagt die Änderung an, und die Zeile eines markierten Eintrags trägt den Zusatz „(markiert)“, damit ihr Zustand auch beim Weiterblättern mit den Pfeiltasten erkennbar bleibt.
+- **`Umschalt+Pos1`** markiert alle Einträge vom aktuellen bis zum ersten der Liste oder hebt ihre Markierung auf, **`Umschalt+Ende`** tut dasselbe bis zum letzten Eintrag. Ob der Bereich markiert oder entmarkiert wird, entscheidet der Zustand des aktuellen Eintrags, sodass sich der ganze Bereich in einem Schritt stets in dieselbe Richtung ändert. Anschließend springt der Fokus ans andere Ende des Bereichs, und NVDA sagt an, wie viele Einträge sich geändert haben.
+- **`Entf`** entfernt alle markierten Einträge auf einmal. Ist nichts markiert, entfernt `Entf` wie bisher nur den gerade ausgewählten Eintrag.
+- Das Kontextmenü jeder Liste (Rechtsklick, Kontextmenütaste oder `Umschalt+F10`) enthält einen Befehl **Markierte entfernen**, der dasselbe tut und nur aktiv ist, wenn mindestens ein Eintrag markiert ist.
+- Bevor etwas gelöscht wird, nennt eine einzige Rückfrage die Zahl der Einträge, die entfernt werden sollen.
 
-Markierungen gelten je Liste und verfallen, sobald die Einträge entfernt oder einzeln wieder abgewählt werden; über Sitzungen hinweg bleiben sie nicht erhalten.
+Markierungen gelten jeweils für eine Liste und verschwinden, sobald die Einträge entfernt (oder einzeln wieder entmarkiert) werden; zwischen zwei Sitzungen bleiben sie nicht erhalten.
 
 ### Favoriten exportieren und importieren
 
@@ -227,22 +230,30 @@ Die Registerkarte „Favoriten“ enthält zwei Schaltflächen zum Sichern und W
 
 Nach einem erfolgreichen Import werden die Favoritenliste, die Senderliste der geplanten Aufnahmen und die Senderliste der Timer automatisch aktualisiert.
 
+### Favoriten in Gruppen ordnen
+
+Favoriten können zu einem Ordner bzw. einer Gruppe gehören, die in der Liste als Zusatz „— Gruppe“ hinter dem Sendernamen erscheint (zum Beispiel „NPR Newscast — NPR“).
+
+- **Import aus M3U** — ordnet die Datei die Sender über das Attribut `group-title` in Ordner (die Konvention von DVBViewer und den meisten anderen M3U-Editoren und -Playern), liest freeAudio es aus und behält die Gruppe jedes Senders beim Import bei. Ein erneuter Export der Favoriten als M3U schreibt dasselbe Attribut, sodass die Ordnerstruktur den Hin- und Rückweg durch freeAudio übersteht.
+- **Gruppe von Hand zuweisen oder entfernen** — einen oder mehrere Favoriten mit `.` markieren (siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) weiter oben), dann im Kontextmenü (Kontextmenütaste / `Umschalt+F10`) **Einer Gruppe zuweisen…** wählen und einen Gruppennamen eintippen. Bleibt das Feld leer, werden die markierten Favoriten stattdessen aus ihrer Gruppe entfernt. Ist nichts markiert, gilt der Befehl für den gerade ausgewählten Favoriten.
+- **Nach Gruppe filtern** — das Feld „Filter“ über der Favoritenliste berücksichtigt auch die Gruppennamen und nimmt mehrere Wörter an, von denen jedes ein anderes Feld treffen kann. Die Eingabe `Houston Classical` findet so etwa „Houston Public Media Classical“, obwohl genau diese Wortfolge nirgends vorkommt — „Houston“ passt zur Gruppe und „Classical“ zum Sendernamen.
+
 ### Reihenfolge der Favoriten ändern
 
 Bei ausgewähltem Sender auf der Registerkarte „Favoriten“ mit `Komma` den Verschiebemodus starten — ein Signalton bestätigt das. Mit den Pfeiltasten zur Zielposition navigieren und erneut `Komma` drücken. Der Sender wird dort eingefügt und die neue Reihenfolge sofort gespeichert. Ein erneutes `Komma` an derselben Position bricht das Verschieben ab.
 
 ### Eigene Tastenbefehle für Lieblingssender
 
-Jeder Sender der Favoritenliste ist im Dialog „Eingabegesten“ von NVDA als eigener Eintrag hinterlegt, und zwar in der Kategorie **freeAudio-Sender**. Dort lässt sich jedem Sender ein beliebiger Tastenbefehl zuweisen, der dann von überall greift — das Browserfenster muss dafür nicht geöffnet werden.
+Jeder Sender der Favoritenliste ist im Dialog „Tastenzuordnungen“ von NVDA als eigener Eintrag hinterlegt, und zwar in der Kategorie **freeAudio-Sender**. Dort lässt sich jedem Sender ein beliebiger Tastenbefehl zuweisen, der dann von überall greift — das Browserfenster muss dafür nicht geöffnet werden.
 
 So wird ein Tastenbefehl zugewiesen:
 
-1. NVDA-Menü → Einstellungen → Eingabegesten öffnen.
+1. NVDA-Menü → Optionen → Tastenzuordnungen öffnen.
 2. Die Kategorie **freeAudio-Sender** aufklappen.
 3. Den Sender am Namen erkennen, auswählen und **Hinzufügen** wählen.
 4. Die gewünschte Tastenkombination drücken und bestätigen.
 
-Der Tastenbefehl startet den Sender sofort. Wird der Sender später aus den Favoriten entfernt, verschwindet auch sein Eintrag aus der Kategorie, und NVDA löst den zugewiesenen Tastenbefehl automatisch auf. Kommt ein neuer Sender in die Favoriten, erscheint er umgehend in der Kategorie — der Dialog „Eingabegesten“ muss dafür nicht neu geöffnet werden.
+Der Tastenbefehl startet den Sender sofort. Wird der Sender später aus den Favoriten entfernt, verschwindet auch sein Eintrag aus der Kategorie, und NVDA löst den zugewiesenen Tastenbefehl automatisch auf. Kommt ein neuer Sender in die Favoriten, erscheint er umgehend in der Kategorie — der Dialog „Tastenzuordnungen“ muss dafür nicht neu geöffnet werden.
 
 ### Einen eigenen Sender hinzufügen
 
@@ -308,7 +319,7 @@ Ein erneutes `Strg+Windows+Umschalt+M` beendet den Obligato-Modus jederzeit.
 
 ## Aufnehmen
 
-Aufnahmen landen standardmäßig in `Dokumente\freeAudio Recordings\`. Der Dateiname enthält den Sendernamen (bei einer Titelaufnahme den Titel) und die Startzeit der Aufnahme. Der Aufnahmeordner lässt sich jederzeit unter NVDA-Menü → Einstellungen → Einstellungen → freeAudio → **Aufnahmeordner** ändern.
+Aufnahmen landen standardmäßig in `Dokumente\freeAudio Recordings\`. Der Dateiname enthält den Sendernamen (bei einer Titelaufnahme den Titel) und die Startzeit der Aufnahme. Der Aufnahmeordner lässt sich jederzeit unter NVDA-Menü → Optionen → Einstellungen → freeAudio → **Aufnahmeordner** ändern.
 
 Die Einstellung **Ausgabeformat der Aufnahme** bestimmt, wie fertige Aufnahmen gespeichert werden:
 - **Originalformat des Streams** schreibt den Stream genau so, wie er ankommt. Eine HLS-Übertragung ergibt damit unter Umständen eine `.ts`-Datei.
@@ -326,7 +337,7 @@ Ein **Filter**-Feld über der Senderliste engt die Favoritenliste in Echtzeit ei
 **Aktive Tage:** Einen oder mehrere Wochentage anhaken. Bei einmaliger Aufnahme entsteht für jeden gewählten Tag ein eigener Eintrag, jeweils zum nächsten Vorkommen dieses Tages. Bei wiederkehrender Aufnahme wiederholt sie sich nur an den angehakten Tagen. Ohne angehakte Tage ist die Aufnahme an keinen bestimmten Tag gebunden.
 
 **Wiederholung:**
-- **Einmal aufnehmen** — nimmt an jedem gewählten Tag ein einziges Mal auf. Jeder Eintrag liegt auf dem nächsten Vorkommen dieses Tages; ist die gewählte Zeit heute schon vorbei, rückt der Eintrag automatisch auf denselben Tag der nächsten Woche.
+- **Nur einmal** — nimmt an jedem gewählten Tag ein einziges Mal auf. Jeder Eintrag liegt auf dem nächsten Vorkommen dieses Tages; ist die gewählte Zeit heute schon vorbei, rückt der Eintrag automatisch auf denselben Tag der nächsten Woche.
 - **Wöchentlich wiederholen** — wiederholt sich jede Woche an den gewählten aktiven Tagen, bis der Eintrag aus der Liste entfernt wird.
 
 **Aufnahme speichern unter:** Für jede geplante Aufnahme lässt sich der Standard-Aufnahmeordner oder ein eigener Ordner festlegen. Die Schaltfläche **Durchsuchen...** öffnet die Ordnerauswahl. Ist der gewählte Ordner später nicht verfügbar, weicht die Aufnahme auf den Standardordner aus, und es erscheint ein Hinweis.
@@ -345,7 +356,7 @@ Wie die Musikerkennung greifen auch Sofort- und Titelaufnahme auf die bereits be
 
 Timeshift erlaubt es, im gerade laufenden Sender zurückzuspulen — wie bei einem Festplattenrekorder oder einer Kassette: den Moment anhalten, ein paar Minuten zurückgehen und jederzeit wieder zum Live-Signal aufschließen. Die Wiedergabe muss dafür nie stoppen: Zurück- und Vorspulen geschehen unmittelbar im selben Audiostream.
 
-Die Funktion ist **standardmäßig deaktiviert**. Aktivieren lässt sie sich unter NVDA-Menü → Einstellungen → Einstellungen → freeAudio → **Timeshift-Puffer aktivieren (Live-Radio zurückspulen)** oder jederzeit sofort mit `Strg+Windows+T`.
+Die Funktion ist **standardmäßig deaktiviert**. Aktivieren lässt sie sich unter NVDA-Menü → Optionen → Einstellungen → freeAudio → **Timeshift-Puffer aktivieren (Live-Radio zurückspulen)** oder jederzeit sofort mit `Strg+Windows+T`.
 
 > **Hinweis:** freeAudio hält inzwischen dauerhaft eine kleine Hintergrundaufzeichnung des laufenden Senders vor — nicht nur bei aktivierter Einstellung —, weil [Musikerkennung](#music-recognition) und [Aufnehmen](#recording) beide darauf beruhen, um die in den jeweiligen Abschnitten beschriebene Werbung zu umgehen. Ist die Einstellung **aus**, umfasst diese Hintergrundaufzeichnung etwa die letzten 45 Sekunden, und `Strg+Windows+J` bzw. `Strg+Windows+K` bleiben ohne Wirkung — es ändert sich also nur die Puffergröße, nicht die Frage, ob überhaupt aufgezeichnet wird. Mit aktivierter Einstellung wächst dieselbe Aufzeichnung auf den unten beschriebenen vollen Rückspulpuffer.
 
@@ -393,6 +404,8 @@ Bei der Senderwahl für einen Wecker engt ein **Filter**-Feld über der Senderli
 **Sleeptimer — Radio stoppen:** Beendet die Wiedergabe zur angegebenen Zeit. Beim Auslösen wird die Lautstärke über 60 Sekunden hinweg langsam heruntergefahren, bevor die Wiedergabe endet. Ein Sender muss dafür nicht gewählt werden, es genügt die Zeit.
 
 Bei beiden Arten gilt: Liegt die eingetragene Zeit heute bereits in der Vergangenheit, greift die Aktion am folgenden Tag. Ein neuer Timer wird abgelehnt, wenn zur selben Zeit schon ein anderer Timer — gleich welcher Art — vorgemerkt ist; eine Meldung weist auf den Konflikt hin und darauf, zuerst den vorhandenen Eintrag zu entfernen. Anstehende Timer stehen in der Liste der Registerkarte; ein Eintrag lässt sich auswählen und mit der Schaltfläche „Ausgewählten Timer entfernen“ abbrechen.
+
+**Wiederkehrende Timer:** Unter **Wiederholung** statt der voreingestellten einmaligen Option **Wöchentlich wiederholen** wählen, damit der Timer jede Woche auslöst statt nur einmal. Eine Liste **Aktive Tage** legt dann fest, an welchen Wochentagen er sich wiederholt; bleiben alle Tage abgewählt, wiederholt er sich täglich. Ein wiederkehrender Timer löst so lange nach Plan aus, bis er aus der Liste der anstehenden Timer entfernt wird — er ist kein einmaliger Eintrag, der nach dem Auslösen verschwindet.
 
 ## Podcasts
 
@@ -483,7 +496,7 @@ Eine Folge auswählen und die Schaltfläche **Folge herunterladen** verwenden (o
 
 Podcast-Folgen laufen über das **BASS-Backend** (dieselbe Engine wie bei Radiostreams und seit dieser Version das einzige Wiedergabe-Backend von freeAudio). Da Folgen fortlaufend geladen werden und spulbar sind, lassen sich die Timeshift-Tastenbefehle (`Strg+Windows+J`/`Strg+Windows+K`) auch bei einem Podcast zum Springen innerhalb der Folge nutzen. Die Position wird automatisch gespeichert, das Hören lässt sich also später fortsetzen.
 
-**Abgestuftes Springen:** Anders als beim festen 15-Sekunden-Sprung im Live-Radio richtet sich die Sprungweite in Podcast oder Hörbuch danach, wie die Taste gedrückt wird — kleine Korrektur oder großer Satz, ohne mehrfaches Drücken:
+**Abgestuftes Springen:** Anders als beim festen 15-Sekunden-Sprung im Live-Radio richtet sich die Sprungweite in Podcast, Hörbuch oder Jukebox-Titel danach, wie die Taste gedrückt wird — kleine Korrektur oder großer Satz, ohne mehrfaches Drücken:
 
 - **Taste gedrückt halten** (Tastenwiederholung) geht pro Wiederholung **5 Sekunden** zurück oder vor — genau der kleine Schritt, den dieser Tastenbefehl bei Dateien schon immer verwendet hat.
 - **Ein bewusster Tastendruck** springt **12 Sekunden**.
@@ -527,13 +540,13 @@ freeAudio bringt einen Hörbuch-Player mit, der Bücher aus drei Quellen sucht, 
 
 - **[GETEM](https://getem.boun.edu.tr/)** — die digitale Bibliothek des Zentrums für Blinde und Sehbehinderte der Boğaziçi-Universität. Zum Streamen oder Herunterladen des Audios ist eine kostenlose Mitgliedschaft nötig (zum bloßen Stöbern nicht) — siehe [Anmelden](#signing-in) weiter unten.
 - **[LibriVox](https://librivox.org/)** — das von Freiwilligen eingelesene Hörbuchprojekt mit gemeinfreien Werken. Ein Konto oder eine Anmeldung braucht es in keiner Form; der gesamte Katalog samt Audiodateien ist gemeinfrei und frei zugänglich.
-- **Project Gutenberg Open Audiobook Collection** — von Menschen und von Rechnern gelesene gemeinfreie Hörbücher, die auf [archive.org](https://archive.org/) liegen, als Gegenstück zur Textbibliothek von Project Gutenberg. Wie bei LibriVox ist kein Konto und keine Anmeldung nötig.
+- **Project Gutenberg Open Audiobook Collection** — von Menschen und vom Computer gelesene gemeinfreie Hörbücher, gehostet auf [archive.org](https://archive.org/), als Gegenstück zur Textbibliothek von Project Gutenberg. Wie bei LibriVox ist kein Konto und keine Anmeldung nötig.
 
 Die Treffer aller drei Quellen erscheinen zusammen in einer einzigen Liste **Suchergebnisse** und einer einzigen **Bibliothek** — es gibt keine getrennte Registerkarte und keine Auswahlliste zum Umschalten. Die Quelle jedes Buchs (GETEM, LibriVox oder Project Gutenberg) steht als Kennzeichnung neben dem Titel und in den Details, sodass sie stets erkennbar bleibt. Suchen, Anhören, Aufnehmen in die Bibliothek, Abspielen und Herunterladen funktionieren bei allen Quellen genau gleich; mehrteilige Werke laufen mit automatischem Fortsetzen über die Teile hinweg, und Bücher lassen sich zum Offline-Hören herunterladen — alles durchgängig barrierefrei.
 
-Jede Quelle lässt sich einzeln unter **NVDA-Menü → Einstellungen → Einstellungen → freeAudio** über die Liste **Hörbuch-Quellen** abschalten, wenn nur ein Teil davon durchsucht werden soll. Standardmäßig sind alle drei aktiv.
+Jede Quelle lässt sich unter **NVDA-Menü → Optionen → Einstellungen → freeAudio** über die Liste **Hörbuch-Quellen** einzeln abschalten, wenn nur ein Teil davon durchsucht werden soll. Standardmäßig sind alle drei aktiv.
 
-> **Hinweis:** Zum Hören eines GETEM-Buchs ist eine kostenlose GETEM-Mitgliedschaft nötig. Der Katalog lässt sich ohne Konto durchstöbern, das Auflösen und Abspielen des Audios eines GETEM-Buchs jedoch nicht — siehe [Anmelden](#signing-in) weiter unten. Bei Büchern von LibriVox und Project Gutenberg ist nie ein Konto erforderlich.
+> **Hinweis:** Zum Hören eines GETEM-Buchs ist eine kostenlose GETEM-Mitgliedschaft nötig. Der Katalog lässt sich ohne Konto durchstöbern, das Auflösen und Abspielen des Audios eines GETEM-Buchs jedoch nicht — siehe [Anmelden](#signing-in) weiter unten. Bücher von LibriVox und Project Gutenberg brauchen nie ein Konto.
 
 ### Die Registerkarte „Hörbücher“ erreichen
 
@@ -545,7 +558,7 @@ Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Al
 
 ### Anmelden
 
-GETEM verlangt eine registrierte Mitgliedschaft, um das eigentliche Audio eines Buchs zu streamen oder herunterzuladen, auch wenn sich der Katalog frei durchsuchen lässt. GETEM-Benutzername und -Passwort werden einmalig unter **NVDA-Menü → Einstellungen → Einstellungen → freeAudio** eingetragen; sie liegen verschlüsselt auf der Festplatte (über die Windows-Datenschutz-API, gebunden an das Windows-Benutzerkonto) und werden danach automatisch wiederverwendet. Ohne hinterlegte Zugangsdaten weist freeAudio beim Abspielen oder Herunterladen eines GETEM-Buchs darauf hin, sie zuerst in den Einstellungen einzutragen.
+GETEM verlangt eine registrierte Mitgliedschaft, um das eigentliche Audio eines Buchs zu streamen oder herunterzuladen, auch wenn sich der Katalog frei durchsuchen lässt. GETEM-Benutzername und -Passwort werden einmalig unter **NVDA-Menü → Optionen → Einstellungen → freeAudio** eingetragen; sie liegen verschlüsselt auf der Festplatte (über die Windows-Datenschutz-API, gebunden an das Windows-Benutzerkonto) und werden danach automatisch wiederverwendet. Ohne hinterlegte Zugangsdaten weist freeAudio beim Abspielen oder Herunterladen eines GETEM-Buchs darauf hin, sie zuerst in den Einstellungen einzutragen.
 
 Bei LibriVox und Project Gutenberg entfällt die Anmeldung vollständig — Treffer und Audio lassen sich sofort suchen, anhören, abspielen und herunterladen, ganz ohne Zugangsdaten.
 
@@ -557,7 +570,7 @@ Einen Suchbegriff ins Suchfeld eintragen und die `Eingabetaste` drücken. freeAu
 - **LibriVox** wird nach Titel oder Autor bzw. lesender Person in seinem gemeinfreien Katalog durchsucht.
 - **Project Gutenberg** wird nach Titel oder Autor in der Open Audiobook Collection auf archive.org durchsucht.
 
-Wird stattdessen die Adresse der Katalog- oder Detailseite eines Buchs direkt ins Suchfeld eingefügt — eine GETEM-Katalogseite oder eine „details“-Seite auf archive.org für einen LibriVox- oder Project-Gutenberg-Titel —, löst freeAudio genau dieses eine Buch auf, statt eine Stichwortsuche zu starten.
+Wird die Adresse der Katalog- bzw. Detailseite eines Buchs direkt ins Suchfeld eingefügt (eine GETEM-Katalogseite oder eine archive.org-„details“-Seite eines LibriVox- oder Project-Gutenberg-Titels), löst freeAudio genau dieses eine Buch direkt auf, statt eine Stichwortsuche zu starten.
 
 NVDA sagt an, wie viele Hörbücher insgesamt gefunden wurden.
 
@@ -582,7 +595,7 @@ Aufgenommene Bücher erscheinen in der Liste **Bibliothek**, mit Titel, Autor un
 - **Audioprofil für dieses Buch speichern** / **Audioprofil löschen** — siehe [Audioprofil für ein Hörbuch](#audio-book-audio-profile) weiter unten.
 - **Aus der Bibliothek entfernen** — das Buch aus der Bibliothek löschen.
 
-Es lassen sich auch mehrere Bücher auf einmal markieren und gemeinsam entfernen — siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) unter „Favoriten“.
+Mehrere Bücher lassen sich auch markieren und gemeinsam entfernen — siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) unter „Favoriten“.
 
 ### Wiedergabe und Fortsetzen
 
@@ -590,7 +603,7 @@ Ein mehrteiliges Werk gilt im Player als ein einziger Eintrag und nicht als eine
 
 Endet ein Teil, startet freeAudio automatisch den nächsten desselben Buchs — eine Auswahl von Hand ist nicht nötig. Das geschieht selbst dann, wenn das Senderbrowser-Fenster gerade geschlossen ist; der in der Bibliotheksliste angezeigte laufende Teil wird beim nächsten Öffnen des Fensters automatisch nachgeführt.
 
-Die Wiedergabe läuft über eine kleine lokale Weiterleitung, statt den ganzen Teil erst herunterzuladen — das Hören beginnt also, sobald die ersten Bytes eintreffen, genau wie bei Podcasts. Alle üblichen Bedienelemente (Pause, Lautstärke, Timeshift, Wiedergabetempo, Ausgabegerät usw.) wirken bei einem Hörbuch genauso wie bei einem Sender oder einer Podcast-Folge.
+Die Wiedergabe läuft über eine kleine lokale Weiterleitung, statt den ganzen Teil erst herunterzuladen — das Hören beginnt also, sobald die ersten Bytes eintreffen, genau wie bei Podcasts. Alle üblichen Bedienelemente (Pause, Lautstärke, Timeshift, Wiedergabetempo, Transponieren, Ausgabegerät usw.) wirken bei einem Hörbuch genauso wie bei einem Sender oder einer Podcast-Folge.
 
 Wie bei Podcasts erklingt beim Fortsetzen an gespeicherter Stelle kurz ein Kassetten-Ladeklang, während freeAudio dorthin springt — siehe den Absatz **Klang beim Fortsetzen** unter [Details zur Podcast-Wiedergabe](#podcast-playback-details).
 
@@ -606,84 +619,85 @@ Ein Buch in der Bibliothek auswählen und im Kontextmenü **Buch herunterladen**
 
 ### Wo die Hörbuchdaten liegen
 
-Jede Quelle führt ihre eigene Bibliotheksdatei, auch wenn alle auf der Registerkarte „Hörbücher“ zusammengeführt erscheinen. Die GETEM-Bibliothek (aufgenommene Bücher und ihr Hörfortschritt) liegt in `freeAudio_getem_library.json`, die LibriVox-Bibliothek getrennt davon in `freeAudio_librivox_library.json` und die Project-Gutenberg-Bibliothek in `freeAudio_gutenberg_library.json` — alle drei im NVDA-Benutzerkonfigurationsordner. Die verschlüsselten GETEM-Zugangsdaten liegen separat in `freeAudio_getem_credentials.bin` am selben Ort und lassen sich nur von demselben Windows-Benutzerkonto entschlüsseln, das sie gespeichert hat. Für LibriVox und Project Gutenberg gibt es keine Zugangsdatendatei, da dort kein Konto nötig ist.
+Jede Quelle führt ihre eigene Bibliotheksdatei, auch wenn alle auf der Registerkarte „Hörbücher“ zusammengeführt erscheinen. Die GETEM-Bibliothek (aufgenommene Bücher und ihr Hörfortschritt) liegt in `freeAudio_getem_library.json`, die LibriVox-Bibliothek getrennt davon in `freeAudio_librivox_library.json` und die Project-Gutenberg-Bibliothek ebenfalls getrennt in `freeAudio_gutenberg_library.json` — alle drei im NVDA-Benutzerkonfigurationsordner. Die verschlüsselten GETEM-Zugangsdaten liegen separat in `freeAudio_getem_credentials.bin` am selben Ort und lassen sich nur von demselben Windows-Benutzerkonto entschlüsseln, das sie gespeichert hat. Für LibriVox und Project Gutenberg gibt es keine Zugangsdatendatei, da keine der beiden Quellen ein Konto verlangt.
 
 ## Lokale Jukebox
 
-Die Registerkarte **Jukebox** bietet zwei Wege, Audiodateien abzuspielen, die bereits auf dem Rechner liegen: alle angeschlossenen Laufwerke nach Dateinamen durchsuchen oder eine dauerhaft gespeicherte, persönliche Sammlung aus Dateien und Ordnern aufbauen. Was von hier aus läuft, wird genauso behandelt wie ein Podcast oder ein Hörbuch — automatisches Fortsetzen, abgestuftes Zurück- und Vorspringen, Wiedergabetempo, Transponieren und Audioprofile je Eintrag funktionieren auf dieselbe Weise.
+Die Registerkarte **Jukebox** von freeAudio bietet zwei Wege, Audiodateien abzuspielen, die bereits auf dem Computer liegen: alle angeschlossenen Laufwerke nach Dateinamen durchsuchen oder eine dauerhafte eigene Bibliothek aus Dateien und Ordnern anlegen. Alles, was von hier aus abgespielt wird, behandelt freeAudio wie einen Podcast oder ein Hörbuch — automatisches Fortsetzen, abgestuftes Zurück- und Vorspringen, Wiedergabetempo, Transponieren und Audioprofile je Eintrag funktionieren genau gleich.
 
 ### Die Registerkarte „Jukebox“ erreichen
 
-Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Alt+8` zur Registerkarte **Jukebox** wechseln — oder sie von überall direkt mit dem globalen Tastenbefehl `Strg+Windows+U` aufrufen. Die Registerkarte gliedert sich in drei Bereiche:
+Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Alt+8` zur Registerkarte **Jukebox** wechseln — oder sie mit dem globalen Tastenbefehl `Strg+Windows+U` von überall direkt öffnen. Die Registerkarte gliedert sich in drei Bereiche:
 
-1. **Auf Datenträgern suchen** — ein Textfeld, das alle lokal angeschlossenen und bereiten Laufwerke nach Audiodateien durchsucht, deren Dateiname den eingegebenen Text enthält. Die Eingabetaste startet die Suche.
-2. **Suchergebnisse** — eine Liste, die erst nach einer Suche erscheint und die gefundenen Dateien zeigt. Bis dahin bleibt sie ausgeblendet, damit die Registerkarte übersichtlich bleibt.
-3. **Jukebox und Titel** — die dauerhaft gespeicherte Liste der aufgenommenen Einträge, gefolgt von der Titelliste des jeweils gewählten Eintrags (bei einer Datei nur diese eine, bei einem Ordner jede darin gefundene Audiodatei).
+1. **Auf Datenträgern suchen** — ein Textfeld, das alle lokal angeschlossenen, bereiten Laufwerke nach Audiodateien durchsucht, deren Dateiname den eingegebenen Text enthält. Die `Eingabetaste` startet die Suche.
+2. **Suchergebnisse** — eine Liste, die nach einer Suche erscheint und die passenden Dateien zeigt. Bis dahin ist sie ausgeblendet, damit die Registerkarte übersichtlich bleibt, solange nichts zu suchen ist.
+3. **Jukebox und Titel** — die dauerhafte Liste der hinzugefügten Einträge, gefolgt von der Liste der Titel im jeweils ausgewählten Eintrag (bei einem Datei-Eintrag nur diese eine Datei, bei einem Ordner-Eintrag jede darin gefundene Audiodatei).
 
-Die Schaltflächen **Datei hinzufügen…**, **Ordner hinzufügen…** und **Entfernen** stehen unter der Titelliste.
+Die Schaltflächen **Datei hinzufügen…**, **Ordner hinzufügen…** und **Entfernen** liegen unterhalb der Titelliste.
 
 ### Dateien auf Datenträgern suchen
 
-Einen beliebigen Teil eines Dateinamens in das Feld **Auf Datenträgern suchen** eingeben und die Eingabetaste drücken. freeAudio durchläuft alle lokal angeschlossenen Laufwerke — Festplatten, USB-Sticks, Speicherkarten, auf Wunsch auch verbundene Netzlaufwerke — und sucht nach Audiodateien (`.mp3`, `.wav`, `.ogg`, `.flac`, `.m4a`, `.m4b`, `.aac`, `.wma`, `.opus` und einige mehr), deren Dateiname den Suchtext enthält. Die Suche läuft im Hintergrund, NVDA bleibt also bedienbar.
+Einen beliebigen Teil eines Dateinamens ins Feld **Auf Datenträgern suchen** eintragen und die `Eingabetaste` drücken. freeAudio durchläuft alle lokal angeschlossenen Laufwerke — Festplatten, USB-Sticks, Speicherkarten, verbundene Netzlaufwerke — auf der Suche nach Audiodateien (`.mp3`, `.wav`, `.ogg`, `.flac`, `.m4a`, `.m4b`, `.aac`, `.wma`, `.opus` und einigen weiteren), deren Dateiname den Suchtext enthält. Die Suche läuft im Hintergrund, NVDA bleibt also reaktionsfähig.
 
-- Die **Leertaste** auf einem Suchergebnis hört es vor — die Wiedergabe startet über den normalen Player. Erneut gedrückt, endet das Vorhören.
-- Die **Eingabetaste** auf einem Suchergebnis nimmt die Datei in die Jukebox auf.
-- Das Kontextmenü (Kontexttaste / `Umschalt+F10` oder Rechtsklick) bietet dieselben beiden Befehle: **Vorhören** / **Vorhören beenden** und **Zur Jukebox hinzufügen**.
-- Eine neue Suche bricht eine noch laufende ab, sodass eine langsame Suche auf einem großen Laufwerk die nächste nie aufhält.
-
-> **Hinweis:** Netzlaufwerke bleiben standardmäßig außen vor, weil jeder Zugriff über SMB eine Netzwerkanfrage bedeutet und eine unerreichbare Freigabe die Suche stark verlangsamen oder hängen lassen kann. Wer sie dennoch durchsuchen möchte, aktiviert in den freeAudio-Einstellungen die Option **Bei der Jukebox-Suche auch Netzlaufwerke einbeziehen**.
+- Die **Leertaste** auf einem Suchtreffer spielt ihn zur Vorschau über den normalen Player ab. Erneut die **Leertaste** auf derselben Datei beendet die Vorschau.
+- Die **Eingabetaste** auf einem Suchtreffer nimmt ihn in die Jukebox auf.
+- Das Kontextmenü (Kontextmenütaste / `Umschalt+F10` oder Rechtsklick) bietet dieselben beiden Aktionen: **Vorschau** / **Vorschau stoppen** und **Zur Jukebox hinzufügen**.
+- Eine neue Suche bricht eine noch laufende ab, sodass eine langsame Suche auf einem großen Laufwerk eine neue nie aufhält.
 
 ### Die eigene Jukebox aufbauen
 
-Die Jukebox-Liste ist die dauerhaft gespeicherte, persönliche Sammlung. Aufnehmen lassen sich zwei Arten von Einträgen:
+Die Jukebox-Liste ist die dauerhafte persönliche Bibliothek. Zwei Arten von Einträgen lassen sich hinzufügen:
 
-- **Datei hinzufügen…** — öffnet eine Dateiauswahl für eine oder mehrere einzelne Audiodateien. Alle gewählten Dateien werden auf einmal aufgenommen.
-- **Ordner hinzufügen…** — öffnet eine Ordnerauswahl, in der sich mehrere Ordner auf einmal auswählen lassen. Jede Audiodatei in einem gewählten Ordner, auch in dessen Unterordnern, gilt als **Titel** dieses Ordners. Jeder Ordner wird als eigener Eintrag in die Jukebox-Liste aufgenommen; die Dateien darin erscheinen in der Titelliste, sobald der Ordner ausgewählt ist. Nach dem Schließen der Auswahl sagt NVDA an, wie viele Ordner hinzugekommen sind.
-- **Entfernen** — nimmt den gewählten Eintrag aus der Jukebox. Beim Entfernen eines Ordners wird nichts von Festplatte oder Datenträger gelöscht, der Ordner wird lediglich vergessen. Es lassen sich auch mehrere Einträge auf einmal markieren und gemeinsam entfernen — siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) unter „Favoriten“.
+- **Datei hinzufügen…** — öffnet eine Dateiauswahl für eine oder mehrere einzelne Audiodateien. Alle gewählten Dateien werden in einem Schritt hinzugefügt.
+- **Ordner hinzufügen…** — öffnet eine Ordnerauswahl, in der sich mehrere Ordner auf einmal wählen lassen. Jede Audiodatei in einem gewählten Ordner, auch in dessen Unterordnern, gilt als einer der **Titel** dieses Ordners. Jeder Ordner kommt als eigener, einzelner Eintrag in die Jukebox-Liste; die Dateien darin erscheinen in der Titelliste, sobald der Ordner ausgewählt ist. Nach dem Schließen der Auswahl sagt NVDA an, wie viele Ordner hinzugefügt wurden.
+- **Entfernen** — löscht den gerade ausgewählten Eintrag aus der Jukebox. Das Entfernen eines Ordner-Eintrags löscht keine Dateien auf dem Datenträger; der Ordner wird lediglich vergessen. Mehrere Einträge lassen sich auch markieren und gemeinsam entfernen — siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) unter „Favoriten“.
 
-Die Jukebox-Liste wird automatisch gespeichert und übersteht damit einen NVDA-Neustart. Ordnerinhalte werden bei Bedarf eingelesen und zwischengespeichert; das Hinzufügen eines Ordners geht deshalb auch bei sehr großen Sammlungen sofort — der vollständige Durchlauf erfolgt beim ersten Auswählen dieses Ordners. Kommen später außerhalb von freeAudio Dateien hinzu, liest der Eintrag **Ordner neu einlesen** im Kontextmenü des Ordners sie nach.
+Die Jukebox-Liste wird automatisch gespeichert und übersteht damit Neustarts von NVDA. Ordnerinhalte werden bei Bedarf eingelesen und zwischengespeichert, sodass das Hinzufügen eines Ordners selbst bei sehr großen Sammlungen sofort geschieht — das vollständige Einlesen erfolgt beim ersten Auswählen des Ordners. Kommen außerhalb von freeAudio Dateien in einen Ordner hinzu, holt der Eintrag **Ordner neu einlesen** im Kontextmenü des Ordners sie herein.
+
+### Einträge aus dem Windows-Explorer hinzufügen
+
+Zwei weitere Befehle, die nur verfügbar sind, solange eine Datei oder ein Ordner in der Dateiliste des Windows-Explorers fokussiert ist (der Details- bzw. Symbolansicht — nicht in Adressleiste, Ordnerstruktur, Menüband oder Suchfeld), machen die Dialoge „Datei hinzufügen…“ und „Ordner hinzufügen…“ oben ganz überflüssig:
+
+- **Fokussierte Datei mit freeAudio abspielen** — spielt die hervorgehobene Audiodatei direkt ab, ohne dass sie schon in der Jukebox-Liste stehen muss. Funktioniert nur bei Dateien; bei einem Ordner kommt stattdessen der Hinweis, den Ordner zur Jukebox hinzuzufügen.
+- **Fokussiertes Element zur freeAudio-Jukebox hinzufügen** — nimmt die hervorgehobene Datei oder den hervorgehobenen Ordner in die Jukebox-Liste auf, genau als wäre oben **Datei hinzufügen…** oder **Ordner hinzufügen…** verwendet worden.
+
+Keiner der beiden Befehle hat eine voreingestellte Taste. Eine lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen zuweisen, **während der Fokus in einem Explorer-Fenster liegt** — die Befehle erscheinen dort im eigenen Abschnitt des Explorers statt unter „Alle Anwendungen“. Die gewählte Tastenkombination löst diese Befehle daher nur beim Durchsuchen von Dateien im Explorer aus; überall sonst behält sie ihre normale Bedeutung.
 
 ### Aus der Jukebox abspielen
 
-- Die **Eingabetaste** auf einem Jukebox-Eintrag spielt ihn direkt ab: bei einer Datei diese selbst, bei einem Ordner dessen Titel.
-- Die **Leertaste** auf einem Jukebox-Eintrag hält eine laufende Wiedergabe an; läuft nichts, startet sie den fokussierten Eintrag.
-- **Eingabetaste** oder **Leertaste** in der Titelliste spielen den fokussierten Titel ab. Die Leertaste hält zuvor an, falls gerade etwas läuft.
-- **F3 / F4** wechseln auf der Registerkarte „Jukebox“ zwischen den Titeln des gewählten Eintrags und spielen sofort ab.
-- **Umschalt+F3 / Umschalt+F4** wechseln zwischen den Einträgen der Jukebox-Liste (Dateien und Ordner), genau wie diese Tasten auf der Registerkarte „Podcasts“ zwischen Feeds wechseln.
-- **Strg+← / Strg+→** bewirken bei Fokus auf der Eintrags- oder der Titelliste dasselbe wie F3/F4 in der Titelliste — vorheriger bzw. nächster Titel.
-
-Ein Ordner läuft von selbst weiter: Ist ein Titel zu Ende, folgt automatisch der nächste — auch dann, wenn das freeAudio-Fenster inzwischen geschlossen ist. Beim erneuten Abspielen eines Ordners setzt freeAudio bei dem Titel fort, der zuletzt lief, statt wieder bei Titel 1 zu beginnen; ist eine Auswahl in der Titelliste getroffen, hat diese Vorrang. Erst wenn der Ordner bis zum letzten Titel durchgelaufen ist, beginnt er beim nächsten Mal wieder von vorn.
+- Die **Eingabetaste** auf einem Jukebox-Eintrag spielt ihn direkt ab: bei einem Datei-Eintrag die Datei selbst, bei einem Ordner-Eintrag dessen ersten Titel.
+- Die **Leertaste** auf einem Jukebox-Eintrag hält die Wiedergabe an, wenn etwas läuft; andernfalls spielt sie den fokussierten Eintrag ab.
+- **Eingabetaste** oder **Leertaste** in der Titelliste spielen den fokussierten Titel ab. Läuft bereits etwas, hält die **Leertaste** zuerst an.
+- **F3 / F4** auf der Registerkarte „Jukebox“ wechseln zwischen den Titeln im gerade ausgewählten Eintrag und spielen sofort ab.
+- **Umschalt+F3 / Umschalt+F4** wechseln zwischen den Einträgen der Jukebox-Liste (Dateien und Ordner), so wie diese Tasten auf der Registerkarte „Podcasts“ zwischen Feeds wechseln.
+- **Strg+← / Strg+→** tun bei Fokus auf der Eintrags- oder Titelliste dasselbe wie F3/F4 in der Titelliste — vorheriger bzw. nächster Titel.
 
 ### Details zur Jukebox-Wiedergabe
 
-Jeder aus der Jukebox gespielte Titel erhält die volle Behandlung für lokale Medien:
+Jeder aus der Jukebox abgespielte Titel erhält die volle Behandlung für lokale Medien:
 
-- **Fortsetzen:** freeAudio merkt sich die Position in jedem Titel, sichert sie beim Anhalten und in regelmäßigen Abständen während der Wiedergabe und setzt beim nächsten Abspielen dort wieder ein — auch über einen NVDA-Neustart hinweg.
-- **Abgestuftes Springen:** `Strg+Windows+J` / `Strg+Windows+K` springen innerhalb des Titels, mit derselben Abstufung nach Tastendruck wie bei Podcasts und Hörbüchern — gehalten 5 Sekunden pro Wiederholung, ein Druck 12 Sekunden, zwei Drücke 1 Minute, ab drei Drücken 5 Minuten.
-- **Wiedergabetempo:** `Strg+Windows+Umschalt+J` / `Strg+Windows+Umschalt+K` ändern das Tempo in Schritten von 0,1× von 0,5× bis 2,0×, bei erhaltener Tonhöhe. Setzt `bass_fx.dll` voraus.
-- **Transponieren:** `Umschalt+Windows+J` / `Umschalt+Windows+K` verschieben die Tonhöhe, ohne das Tempo zu verändern — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). Setzt ebenfalls `bass_fx.dll` voraus.
-- **Audioprofil:** Über das Kontextmenü eines Eintrags oder eines Titels speichert **Audioprofil für diese Datei speichern** Lautstärke, Effekte, EQ, Tempo und Tonhöhe für genau diese Datei. Profile gelten je Datei, nicht je Ordner, und bleiben auch nach einem Neueinlesen oder nach dem Entfernen und späteren Wiederaufnehmen des Ordners erhalten. **Audioprofil löschen** entfernt es wieder.
+- **Fortsetzen:** freeAudio merkt sich die Position in jedem Titel, speichert sie beim Anhalten und regelmäßig während der Wiedergabe und setzt beim nächsten Abspielen dort wieder ein — auch über einen NVDA-Neustart hinweg.
+- **Abgestuftes Springen:** `Strg+Windows+J` / `Strg+Windows+K` springen innerhalb des Titels mit derselben Abstufung wie bei Podcasts und Hörbüchern — gehalten 5 Sekunden pro Wiederholung, ein Tastendruck 12 Sekunden, zwei Tastendrücke 1 Minute, drei oder mehr 5 Minuten.
+- **Wiedergabetempo:** `Strg+Windows+Umschalt+J` / `Strg+Windows+Umschalt+K` ändern das Tempo in Schritten von 0,1× zwischen 0,5× und 2,0×, die Tonhöhe bleibt erhalten. Setzt `bass_fx.dll` voraus.
+- **Transponieren:** `Umschalt+Windows+J` / `Umschalt+Windows+K` verschieben die Tonhöhe, ohne das Tempo zu ändern — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). Setzt ebenfalls `bass_fx.dll` voraus.
+- **Audioprofil:** Lautstärke, Effekte, EQ und Tempo eines Titels lassen sich global festhalten, indem ein Titel mit den passenden Einstellungen abgespielt wird — die Jukebox bietet derzeit kein Profilmenü je Titel, daher gelten die aktuellen globalen Einstellungen.
 
-> **Hinweis:** Der Timeshift-Puffer (zum Zurückspulen von Live-Radio) wird für Jukebox-Titel bewusst **nicht** gestartet — es sind ohnehin spulbare lokale Dateien, eine Hintergrundaufzeichnung hätte also keinen Zweck und würde nur Speicherplatz belegen. Zurück- und Vorspringen funktionieren trotzdem, weil sie direkt auf der abgespielten Datei arbeiten.
-
-### Wo die Jukebox-Daten liegen
-
-Die Jukebox-Liste und die Audioprofile je Datei stehen in `freeAudio_jukebox.json` im NVDA-Benutzerkonfigurationsordner. Die zuletzt gespielte Titelnummer je Ordner liegt in `jukebox_folder_positions.json`, die Position innerhalb eines Titels zusammen mit den Podcast-Positionen in `podcast_positions.json`, beide am selben Ort.
+> **Hinweis:** Der Timeshift-Puffer (zum Zurückspulen von Live-Radio) wird für Jukebox-Titel bewusst **nicht** gestartet — es sind ohnehin spulbare lokale Dateien, eine Hintergrundaufzeichnung hätte keinen Zweck und würde nur Speicherplatz belegen. Zurück- und Vorspulen funktionieren trotzdem, weil sie direkt auf der abgespielten Datei arbeiten.
 
 ## Transponieren (Tonhöhe verschieben)
 
-Das Transponieren verschiebt die **Tonhöhe** des Laufenden nach oben oder unten, ohne das **Tempo** zu verändern — also das Gegenteil des „Micky-Maus-Effekts“, der beim bloßen Beschleunigen entsteht. Das hilft, sich an die natürliche Stimmlage eines bestimmten Sprechers anzupassen, Musik in eine angenehmere Tonart zu bringen oder eine Aufnahme einfach ohrenfreundlicher zu machen.
+Transponieren verschiebt die **Tonhöhe** des Laufenden nach oben oder unten, ohne das **Tempo** zu ändern — das Gegenteil des „Micky-Maus-Effekts“, der beim bloßen Beschleunigen eines Titels entsteht. Das ist praktisch, um die Stimmlage einer bestimmten Sprecherin oder eines Sprechers anzupassen, Musik in eine angenehmere Tonart zu verschieben oder eine Aufnahme schlicht ohrenfreundlicher klingen zu lassen.
 
-Transponieren steht für **Podcasts**, **Hörbücher** und **Jukebox-Titel** zur Verfügung — dieselben lokalen, spulbaren und tempofähigen Medien, für die auch die Tastenbefehle zum Wiedergabetempo gelten. Für Live-Radiosender gibt es die Funktion nicht, dort fehlt eine feste Tonhöhe zum Verschieben.
+Transponieren steht für **Podcasts**, **Hörbücher** und **Jukebox-Titel** zur Verfügung — also für dieselben lokalen, spulbaren, tempofähigen Medien, für die schon die Tastenbefehle zum Wiedergabetempo gelten. Für Live-Radiosender gibt es die Funktion nicht, da sie keine feste Tonhöhe haben, die sich verschieben ließe.
 
 - **`Umschalt+Windows+K`** — hebt die Tonhöhe um einen Schritt an.
 - **`Umschalt+Windows+J`** — senkt die Tonhöhe um einen Schritt ab.
 
-Ein Schritt entspricht **einem Achtel Ganzton**, also **0,25 Halbtönen** (ein Ganzton sind 2 Halbtöne, 8 Schritte ergeben somit einen Ganzton und 48 Schritte eine Oktave). Der Bereich reicht von **−12,00 bis +12,00 Halbtönen**, also eine volle Oktave nach oben oder unten. Nach jedem Schritt sagt NVDA den neuen Wert an, etwa „**+1,25 Halbtöne**“; zurück auf 0,0 heißt es „**Normale Tonhöhe**“.
+Jeder Schritt beträgt **ein Achtel eines Ganztons** — also **0,25 Halbtöne** (ein Ganzton sind 2 Halbtöne, 8 Schritte ergeben also einen Ganzton und 48 Schritte eine Oktave). Der Bereich reicht von **−12,00 bis +12,00 Halbtönen**, also eine volle Oktave nach oben oder unten. Nach jedem Schritt sagt NVDA den neuen Wert an, zum Beispiel „**+1.25 Halbtöne**“; die Rückkehr auf 0,0 wird als „**Normale Tonhöhe**“ angesagt.
 
-Die Tonhöhenverschiebung bleibt über Titel hinweg erhalten, genau wie das Wiedergabetempo: Einmal während einer laufenden Wiedergabe eingestellt, startet der nächste tempofähige Titel mit derselben Verschiebung — es sei denn, dessen eigenes gespeichertes Audioprofil gibt etwas anderes vor. Ein Titel ohne gespeicherten Transponierwert setzt die Verschiebung wieder auf 0,0 (normale Tonhöhe) zurück, dieselbe Regel gilt bereits für das Tempo.
+Die Transposition bleibt wie das Wiedergabetempo über Titel hinweg erhalten: Einmal während eines Titels eingestellt, beginnt der nächste tempofähige Titel mit derselben Verschiebung, sofern dessen eigenes gespeichertes Audioprofil sie nicht überschreibt. Ein Titel ohne gespeicherten Transpositionswert setzt die Verschiebung wieder auf 0,0 (Normale Tonhöhe) zurück — dieselbe Regel, die schon für das Tempo gilt.
 
-**Voraussetzung:** Wie beim Wiedergabetempo setzt das Transponieren die optionale Bibliothek **`bass_fx.dll`** voraus, die im Ordner `bass/x64` (bei 64-Bit-NVDA) bzw. `bass` (bei 32-Bit-NVDA) des Add-ons liegen muss. Fehlt sie, weist NVDA darauf hin, dass die Funktion nicht zur Verfügung steht; der eingestellte Wert bleibt für den nächsten tempofähigen Stream trotzdem gemerkt.
+**Voraussetzung:** Wie das Wiedergabetempo setzt auch das Transponieren voraus, dass die optionale Bibliothek **`bass_fx.dll`** im Ordner `bass/x64` (64-Bit-NVDA) bzw. `bass` (32-Bit-NVDA) des Add-ons liegt. Fehlt sie, weist NVDA darauf hin, dass die Funktion nicht verfügbar ist, und der eingestellte Wert bleibt trotzdem für den nächsten tempofähigen Stream erhalten.
 
 ## Lieblingstitel
 
@@ -702,7 +716,7 @@ Ist ein Titel in der Liste ausgewählt, stehen folgende Aktionen bereit:
 - **Auf Spotify abspielen:** Versucht, die Spotify-Anwendung direkt zu öffnen. Ist sie nicht installiert, wird auf die Spotify-Website ausgewichen und der erste Treffer automatisch abgespielt.
 - **Auf YouTube abspielen (`Alt+O`):** Sucht den ausgewählten Titel bei YouTube und öffnet die Ergebnisse im Standardbrowser.
 - **Songtext anzeigen:** Holt und zeigt den Songtext zum ausgewählten Titel. Die Texte stammen von [lrclib.net](https://lrclib.net) (kostenlos, ohne Konto). Während die Suche im Hintergrund läuft, erklingt kurz die Meldung „Songtext wird abgerufen…“. Wird ein Text gefunden, öffnet er sich in einem schreibgeschützten Dialog, wo er sich mit NVDA lesen und in die Zwischenablage kopieren lässt. Findet sich keiner, sagt NVDA das an. Während ein Abruf läuft, ist die Schaltfläche vorübergehend deaktiviert, um Doppelanfragen zu vermeiden.
-- **Entfernen (`Alt+M`):** Löscht den ausgewählten Titel aus `likedSongs.txt` und aktualisiert die Liste. Die `Entf`-Taste löst bei Fokus auf der Liste dieselbe Aktion aus. Es lassen sich auch mehrere Titel auf einmal markieren und gemeinsam entfernen — siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) unter „Favoriten“.
+- **Entfernen (`Alt+F`):** Löscht den ausgewählten Titel aus `likedSongs.txt` und aktualisiert die Liste. Die `Entf`-Taste löst bei Fokus auf der Liste dieselbe Aktion aus. Mehrere Titel lassen sich auch markieren und gemeinsam entfernen — siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) unter „Favoriten“.
 - **Aktualisieren (`Alt+E`):** Lädt die Liste neu aus der Datei.
 
 Die Schaltflächen für Spotify, YouTube, Songtext und Entfernen sind nur aktiv, wenn in der Liste ein echter Titel ausgewählt ist.
@@ -721,7 +735,7 @@ Liegt ein einfacher Songtext vor, wird er unverändert angezeigt. Gibt es nur ze
 
 ## Einstellungen
 
-Die folgenden Optionen lassen sich unter NVDA-Menü → Einstellungen → Einstellungen → freeAudio anpassen:
+Die folgenden Optionen lassen sich unter NVDA-Menü → Optionen → Einstellungen → freeAudio anpassen:
 
 | Option | Beschreibung |
 |---|---|
@@ -735,7 +749,7 @@ Die folgenden Optionen lassen sich unter NVDA-Menü → Einstellungen → Einste
 | Übergang beim Senderwechsel (BASS-Backend) | Steuert das Verhalten beim Wechsel zwischen **Live-Radiosendern**. **Harter Schnitt** (Voreinstellung) beendet den vorherigen Sender unmittelbar vor dem Start des neuen. **Kurze Überblendung (1 Sekunde)** und **Normale Überblendung (2 Sekunden)** starten den neuen Sender sofort und lückenlos und blenden den vorherigen im Hintergrund langsam aus, sobald der neue Stream bestätigt läuft. **Sendersuchlauf-Geräusch** beendet den vorherigen Sender sofort und spielt vor dem Start des neuen einen Suchlaufklang ab. Bei „Harter Schnitt“ ohne Wirkung und ohne Leistungseinbußen. Nur bei aktivem BASS-Backend verfügbar. Gilt nicht für Podcasts, Hörbücher und Jukebox-Titel — deren Fortsetzen spielt unabhängig von dieser Einstellung stets den eigenen kurzen Kassettenklang ab; siehe [Details zur Podcast-Wiedergabe](#podcast-playback-details). |
 | Letzten Sender beim NVDA-Start fortsetzen | Aktiviert, startet der zuletzt gehörte Sender bei jedem NVDA-Start automatisch neu. |
 | Titelwechsel automatisch ansagen (ICY-Metadaten) | Aktiviert, liest NVDA bei Sendern mit ICY-Metadaten jeden neuen Titelnamen automatisch vor. Auch der erste Titel wird beim Wechsel zu einem neuen Sender sofort angesagt. Standardmäßig deaktiviert. |
-| Meldungen stummschalten | Aktiviert, sagt NVDA weder Senderwechsel noch Änderungen des Wiedergabezustands (Start, Pause, Stopp) noch Aufnahmeereignisse (gestartet, gestoppt, beendet) an. Fehlermeldungen, Rückmeldungen zu Favoriten, Ergebnisse der Musikerkennung und Update-Hinweise bleiben davon unberührt. Lässt sich auch im laufenden Betrieb über eine noch nicht belegte Eingabegeste umschalten. Standardmäßig deaktiviert. |
+| Meldungen stummschalten | Aktiviert, sagt NVDA weder Senderwechsel noch Änderungen des Wiedergabezustands (Start, Pause, Stopp) noch Aufnahmeereignisse (gestartet, gestoppt, beendet) an. Fehlermeldungen, Rückmeldungen zu Favoriten, Ergebnisse der Musikerkennung und Update-Hinweise bleiben davon unberührt. Lässt sich auch im laufenden Betrieb über eine noch nicht belegte Tastenzuordnung umschalten. Standardmäßig deaktiviert. |
 | Braille-Meldungen | Aktiviert, gibt freeAudio seine Meldungen zusätzlich direkt auf der Braillezeile aus. Praktisch für Titelnamen, Senderwechsel, Wiedergabezustand und Lautstärkeänderungen. Standardmäßig deaktiviert. |
 | Timeshift-Puffer aktivieren (Live-Radio zurückspulen) | Schaltet die Rückspulfunktion (`Strg+Windows+J`/`Strg+Windows+K`) ein oder aus und lässt die Hintergrundaufzeichnung von rund 45 Sekunden auf die in den Einstellungen festgelegte Dauer anwachsen. Eine kleine Hintergrundaufzeichnung des laufenden Senders läuft immer, auch bei ausgeschalteter Option — siehe den Hinweis im Abschnitt **Timeshift (Live-Radio zurückspulen)** weiter unten. Lässt sich auch sofort mit `Strg+Windows+T` umschalten. Setzt das BASS-Backend voraus. Standardmäßig deaktiviert — alle Einzelheiten stehen im Abschnitt **Timeshift (Live-Radio zurückspulen)** weiter unten. |
 | Lieblingstitel in einer Textdatei speichern | Aktiviert, werden Titelinfos, die durch dreimaliges Drücken von `Strg+Windows+I` in die Zwischenablage kopiert werden, zusätzlich an `Dokumente\freeAudio Recordings\likedSongs.txt` angehängt. Liegen keine ICY-Metadaten vor, landet das Ergebnis der Shazam-Erkennung in derselben Datei. Standardmäßig deaktiviert. |
@@ -743,9 +757,8 @@ Die folgenden Optionen lassen sich unter NVDA-Menü → Einstellungen → Einste
 | Dauer des Timeshift-Puffers | Legt die Höchstlänge des Rückspulpuffers fest. Zur Wahl stehen 10 Minuten bis 5 Stunden. Längere Puffer belegen mehr temporären Speicherplatz. |
 | Wenn Strg+Windows+P zweimal gedrückt wird | Legt fest, was bei zweimaligem Drücken kurz hintereinander geschieht: nichts tun, die Favoritenliste öffnen, die Registerkarte „Aufnahme“ oder die Registerkarte „Timer“ öffnen. Bei „Nichts tun“ reagiert schon der erste Druck ohne Verzögerung. |
 | Wenn Strg+Windows+P dreimal gedrückt wird | Legt fest, was bei dreimaligem Drücken kurz hintereinander geschieht: nichts tun, die Favoritenliste öffnen, die Sendersuche öffnen, die Registerkarte „Aufnahme“ oder die Registerkarte „Timer“ öffnen. |
-| Automatisch nach Updates suchen | Aktiviert, läuft bei jedem NVDA-Start eine Update-Prüfung im Hintergrund; bei einer neuen Version folgt ein Hinweis. Deaktiviert, unterbleiben die automatischen Prüfungen, die manuelle Prüfung bleibt aber möglich. |
+| Beim Start automatisch nach Updates suchen | Aktiviert, läuft bei jedem NVDA-Start eine Update-Prüfung im Hintergrund; bei einer neuen Version folgt ein Hinweis. Deaktiviert, unterbleiben die automatischen Prüfungen, die manuelle Prüfung bleibt aber möglich. |
 | Pfad zu ffmpeg.exe | Pfad zu der ffmpeg.exe, die für die Musikerkennung verwendet wird. Bleibt das Feld leer, wird automatisch eine ffmpeg.exe aus dem Add-on-Ordner genutzt. |
-| Bei der Jukebox-Suche auch Netzlaufwerke einbeziehen | Aktiviert, durchsucht die Dateisuche auf der Registerkarte „Jukebox“ auch verbundene Netzlaufwerke und UNC-Freigaben. Standardmäßig deaktiviert, da eine Suche über SMB deutlich langsamer ausfällt oder bei einer nicht erreichbaren Freigabe hängen bleiben kann — siehe [Lokale Jukebox](#local-jukebox). |
 | Aufnahmeordner | Legt fest, wohin aufgenommene Dateien gespeichert werden. Bleibt das Feld leer, gilt der Standardort `Dokumente\freeAudio Recordings\`. Eine Schaltfläche zum Durchsuchen öffnet die Ordnerauswahl. Änderungen greifen sofort nach dem Speichern. |
 | Hörbuch-Quellen | Eine Liste zum Anhaken, welche Hörbuchquellen (**GETEM**, **LibriVox**, **Project Gutenberg**) durchsucht und auf der Registerkarte „Hörbücher“ angezeigt werden. Standardmäßig sind alle drei aktiv. Wird eine Quelle abgewählt, verschwinden ihre Bücher aus den zusammengeführten Suchergebnissen und aus der Bibliotheksliste, ohne dass bereits Aufgenommenes gelöscht wird — siehe [Hörbücher (GETEM, LibriVox und Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg). |
 | GETEM-Benutzername / GETEM-Passwort | Die Zugangsdaten der [GETEM](https://getem.boun.edu.tr/)-Hörbuchmitgliedschaft, nötig zum Streamen oder Herunterladen des Audios eines Buchs — siehe [Anmelden](#signing-in). Sie liegen verschlüsselt auf der Festplatte, über die Windows-Datenschutz-API und gebunden an das Windows-Benutzerkonto; im Klartext werden sie nie gespeichert. Beide Felder leeren und speichern entfernt hinterlegte Zugangsdaten. LibriVox und Project Gutenberg brauchen kein Konto und haben kein entsprechendes Feld. |
@@ -765,7 +778,7 @@ Ist **Meldungen stummschalten** in den Einstellungen aktiv, unterdrückt NVDA fo
 
 Bewusst **nicht** betroffen sind: Fehlermeldungen, Rückmeldungen zu Favoriten (hinzugefügt / bereits vorhanden), Ergebnisse der Musikerkennung und Update-Hinweise.
 
-Die Einstellung lässt sich unter NVDA-Menü → Einstellungen → Einstellungen → freeAudio ändern oder jederzeit sofort über eine noch nicht belegte Eingabegeste umschalten (zuweisbar unter NVDA-Menü → Einstellungen → Eingabegesten → freeAudio). Beim Umschalten bestätigt NVDA einmalig mit „Meldungen stummgeschaltet“ bzw. „Meldungen wieder aktiv“.
+Die Einstellung lässt sich unter NVDA-Menü → Optionen → Einstellungen → freeAudio ändern oder jederzeit sofort über eine noch nicht belegte Tastenzuordnung umschalten (zuweisbar unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio). Beim Umschalten bestätigt NVDA einmalig mit „Meldungen stummgeschaltet“ bzw. „Meldungen wieder aktiv“.
 
 ## Titelwechsel automatisch ansagen
 
@@ -773,7 +786,7 @@ Ist die Option **Titelwechsel automatisch ansagen** in den Einstellungen aktiv, 
 
 Beim Wechsel zu einem neuen Sender wird die erste Titelinfo angesagt, sobald die Verbindung steht. Sendet ein Sender keine ICY-Metadaten, bleibt es still, und die Titelinfo des vorherigen Senders wird nicht wiederholt.
 
-Diese Funktion ist standardmäßig deaktiviert und lässt sich unter NVDA-Menü → Einstellungen → Einstellungen → freeAudio umschalten.
+Diese Funktion ist standardmäßig deaktiviert und lässt sich unter NVDA-Menü → Optionen → Einstellungen → freeAudio umschalten.
 
 ## Wiedergabe
 
@@ -781,7 +794,7 @@ freeAudio verwendet **BASS** als einziges Wiedergabe-Backend für alles — Inte
 
 BASS reicht den Ton direkt an den Windows-Audiostapel weiter und erscheint im Windows-Lautstärkemixer als eigenständige Audioquelle namens „pythonw.exe“, getrennt von NVDA. Der freeAudio-Ton fließt damit auf einem völlig eigenen Kanal neben der NVDA-Sprachausgabe: Das Radio setzt nicht aus, mischt sich nicht ein und wird von den Audioeinstellungen von NVDA nicht beeinflusst, während NVDA spricht. Die Radiolautstärke lässt sich im Windows-Lautstärkemixer unabhängig von NVDA regeln. Unterstützt werden HTTP, HTTPS und die meisten eingebetteten Streamformate.
 
-Podcast-Folgen, Hörbuchkapitel und Jukebox-Titel laufen über BASS, weil es den Stream als spulbare Datei öffnen kann (selbst während des Ladens). Das erlaubt genaue Positionsverfolgung, abgestuftes Zurück- und Vorspringen, das Wiedergabetempo, das Transponieren und das Fortsetzen. Audio-Spiegelung, Timeshift sowie Springen und Fortsetzen bei Podcasts, Hörbüchern und Jukebox-Titeln beruhen alle auf BASS und stehen stets zur Verfügung.
+Podcast-Folgen, Hörbuchkapitel und Jukebox-Titel laufen über BASS, weil es den Stream als spulbare Datei öffnen kann (selbst während des Ladens). Das erlaubt genaue Positionsverfolgung, abgestuftes Zurück- und Vorspringen, Wiedergabetempo, Transponieren und das Fortsetzen. Audio-Spiegelung, Timeshift sowie Springen und Fortsetzen bei Podcasts, Hörbüchern und Jukebox-Titeln beruhen alle auf BASS und stehen stets zur Verfügung.
 
 ## Update-Prüfung
 
@@ -789,24 +802,24 @@ freeAudio sucht über GitHub automatisch nach neuen Versionen.
 
 **Automatische Prüfung:** Läuft 15 Sekunden nach dem NVDA-Start unbemerkt im Hintergrund. Gibt es eine neue Version, folgt ein Hinweis; gibt es keine, erscheint keine Meldung.
 
-**Manuelle Prüfung:** Lässt sich bei Bedarf über NVDA-Extras → freeAudio → **Nach Updates suchen…** anstoßen. Auf diesem Weg wird das Ergebnis auch dann angesagt, wenn die Version bereits aktuell ist.
+**Manuelle Prüfung:** Lässt sich bei Bedarf über NVDA-Menü → Werkzeuge → freeAudio → **Nach Updates suchen…** anstoßen. Auf diesem Weg wird das Ergebnis auch dann angesagt, wenn die Version bereits aktuell ist.
 
 **Wenn ein Update gefunden wird:** Ein Dialog nennt die neue Versionsnummer und die installierte Version.
 
-- Liegt bei der GitHub-Veröffentlichung eine direkt herunterladbare `.nvda-addon`-Datei bereit, erscheint eine Schaltfläche **Herunterladen und installieren**. Nach der Bestätigung lädt die Datei im Hintergrund, NVDA meldet den Beginn des Downloads, und das Installationsfenster von NVDA öffnet sich automatisch.
+- Liegt bei der GitHub-Veröffentlichung eine direkt herunterladbare `.nvda-addon`-Datei bereit, erscheint eine Schaltfläche **Installieren**. Nach der Bestätigung lädt die Datei im Hintergrund, NVDA meldet den Beginn des Downloads, und das Installationsfenster von NVDA öffnet sich automatisch.
 - Fehlt ein direkter Downloadlink, erscheint eine Schaltfläche **Seite öffnen**, und die GitHub-Veröffentlichungsseite öffnet sich im Standardbrowser.
 
-**Automatische Prüfungen abschalten:** Die Option **Automatisch nach Updates suchen** unter NVDA-Menü → Einstellungen → Einstellungen → freeAudio deaktivieren.
+**Automatische Prüfungen abschalten:** Die Option **Beim Start automatisch nach Updates suchen** unter NVDA-Menü → Optionen → Einstellungen → freeAudio deaktivieren.
 
-## Änderungsprotokoll
+## Änderungen
 
-**Mehrere Ordner auf einmal in die Jukebox aufnehmen**
-- Die Schaltfläche **Ordner hinzufügen…** auf der Registerkarte „Jukebox“ erlaubt jetzt die Auswahl mehrerer Ordner auf einmal, statt sie einzeln aufnehmen zu müssen. Alle gewählten Ordner kommen in einem Durchgang hinzu, und eine einzige Ansage nennt anschließend ihre Zahl.
+**Mehrere Ordner auf einmal zur Jukebox hinzufügen**
+- Die Schaltfläche **Ordner hinzufügen…** auf der Registerkarte „Jukebox“ erlaubt jetzt die Auswahl mehrerer Ordner auf einmal, statt sie einzeln hinzuzufügen. Alle gewählten Ordner werden in einem Schritt hinzugefügt, mit einer einzigen zusammenfassenden Ansage, wie viele es waren.
 
 **Mehrere Einträge markieren und entfernen (Favoriten, Lieblingstitel, Hörbücher, Jukebox)**
-- In den Listen der Favoriten, der Lieblingstitel, der Hörbuchbibliothek und der Jukebox lassen sich jetzt mehrere Einträge markieren, bevor sie entfernt werden: Der **Punkt** setzt oder entfernt die Markierung des hervorgehobenen Eintrags (markierte Zeilen tragen den Zusatz „(markiert)“), anschließend entfernt **Entf** oder der Kontextmenübefehl **Markierte entfernen** alle markierten Einträge auf einmal, nach einem einzigen Bestätigungsdialog. Einzelheiten stehen unter [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) im Abschnitt „Favoriten“.
+- In den Listen Favoriten, Lieblingstitel, Hörbuchbibliothek und Jukebox lassen sich jetzt mehrere Einträge vor dem Entfernen markieren: `.` markiert den hervorgehobenen Eintrag oder hebt die Markierung auf (markierte Zeilen tragen den Zusatz „(markiert)“), danach entfernt `Entf` oder der Kontextmenübefehl **Markierte entfernen** nach einer einzigen Rückfrage alle markierten Einträge auf einmal. Einzelheiten unter [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) bei den Favoriten.
 
-## Dank und Danksagungen
+## Dank und Mitwirkende
 
 * **Ursprüngliche Grundlage und Konzepte:** Herzlicher Dank an **Gary Mp** ([GaryMp/freeradio](https://github.com/GaryMp/freeradio)) für die ursprünglichen Konzepte des Radio-Add-ons und die grundlegenden Strukturen der Favoritenverwaltung, die diesem Projekt als Fundament dienten.
 * **KI- und LLM-Werkzeuge:** Dankbare Anerkennung für moderne LLM-Werkzeuge (darunter Claude, ChatGPT und Gemini), die bei Entwicklung, Code-Überarbeitung und Umsetzung der Funktionen geholfen haben.
