@@ -450,6 +450,36 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		sHelper.addItem(_default_hint)
 		rec_dir_browse.Bind(wx.EVT_BUTTON, self._on_browse_recordings_dir)
 
+		# --- Modules (which of the optional tabs exist at all) ---
+		# Same nvdaControls.CustomCheckListBox / comma-separated-keys
+		# pattern as "Audio book sources" below (see the comment there) -
+		# just one level up: this decides whether the Podcasts/Audio
+		# Books/Jukebox tab exists in the station browser dialog at all,
+		# not what happens inside an already-existing tab. All three
+		# enabled by default (see the "enabled_modules" confspec default
+		# in __init__.py), matching the add-on's behaviour before this
+		# setting existed. A module turned off here keeps its saved data
+		# (subscriptions, library, jukebox entries) untouched on disk -
+		# only the tab and its related Input Gestures commands disappear;
+		# re-enabling it brings everything back exactly as it was. Takes
+		# effect the next time the station browser dialog is (re)built -
+		# see RadioDialog._enabled_optional_modules()/._tab_pos() in
+		# radioDialog.py - not on an already-open dialog.
+		_MODULE_KEYS = ["podcast", "audiobook", "jukebox"]
+		# Translators: Names in the modules checklist below (which optional tabs are shown in the station browser dialog).
+		_MODULE_DISPLAY = [_("Podcasts"), _("Audio Books"), _("Jukebox")]
+		self._module_keys = _MODULE_KEYS
+		self._modules_choice = sHelper.addLabeledControl(
+			# Translators: Label for the modules checklist (which optional tabs/features are shown at all).
+			_("&Modules:"),
+			nvdaControls.CustomCheckListBox,
+			choices=_MODULE_DISPLAY,
+		)
+		_saved_modules = config.conf["freeAudio"].get("enabled_modules", "podcast,audiobook,jukebox")
+		_active_modules = {m.strip() for m in _saved_modules.split(",") if m.strip()}
+		for i, key in enumerate(_MODULE_KEYS):
+			self._modules_choice.Check(i, key in _active_modules)
+
 		# --- Jukebox disk search ---
 		# Off by default - see jukebox._list_drive_roots()'s
 		# include_network parameter for why: a network share can turn a
@@ -821,6 +851,20 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		except (AttributeError, IndexError):
 			pass
 		
+		# Modules: which of Podcasts/Audio Books/Jukebox get a tab at all -
+		# see RadioDialog._enabled_optional_modules(). Same as audiobook
+		# sources below, an all-unchecked selection is saved as-is (the
+		# user turning everything off is legitimate, not an error).
+		try:
+			checked = self._modules_choice.GetCheckedItems()
+			active_modules = [
+				self._module_keys[i] for i in checked
+				if 0 <= i < len(self._module_keys)
+			]
+			config.conf["freeAudio"]["enabled_modules"] = ",".join(active_modules)
+		except (AttributeError, IndexError):
+			pass
+
 		config.conf["freeAudio"]["recordings_dir"] = self._recordings_dir.GetValue().strip()
 
 		config.conf["freeAudio"]["jukebox_search_network_drives"] = \

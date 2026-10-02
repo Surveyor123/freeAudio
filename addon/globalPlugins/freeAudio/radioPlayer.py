@@ -1455,10 +1455,25 @@ class RadioPlayer:
 		self._jukebox_folder_positions_lock = threading.Lock()
 		self._jukebox_folder_positions = self._load_jukebox_folder_positions()
 		self._podcast_autosave_stop = threading.Event()
-		self._podcast_autosave_thread = threading.Thread(
-			target=self._podcast_autosave_loop, daemon=True,
-			name="freeAudio-podcast-autosave")
-		self._podcast_autosave_thread.start()
+		self._podcast_autosave_thread = None
+		# Despite the name, this thread's periodic save covers all three
+		# "seekable media" kinds - podcast episodes, audiobook chapters,
+		# and jukebox tracks (see _is_seekable_media()) - so only start it
+		# if at least one of those modules is actually enabled; see
+		# "enabled_modules" in settingsPanel.py. A user who left all three
+		# off can never have one of these playing, so the periodic wake-up
+		# would just be dead weight.
+		try:
+			import config as _config
+			_enabled_raw = _config.conf["freeAudio"].get(
+				"enabled_modules", "podcast,audiobook,jukebox")
+		except Exception:
+			_enabled_raw = "podcast,audiobook,jukebox"
+		if {m.strip() for m in _enabled_raw.split(",") if m.strip()}:
+			self._podcast_autosave_thread = threading.Thread(
+				target=self._podcast_autosave_loop, daemon=True,
+				name="freeAudio-podcast-autosave")
+			self._podcast_autosave_thread.start()
 
 		# Time-shift buffer (rewind/fast-forward for live radio). Disabled by
 		# default — the caller enables it via set_timeshift_enabled(True)

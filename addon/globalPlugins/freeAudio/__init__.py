@@ -334,6 +334,15 @@ def _init_config():
 		# by default; freeAudioSettingsPanel's "Audio book sources" checklist
 		# is what edits this, in settingsPanel.py.
 		"audiobook_sources": "string(default='getem,librivox,gutenberg')",
+		# Comma-separated subset of {"podcast","audiobook","jukebox"} -
+		# which of those three whole tabs/modules are shown at all (see
+		# RadioDialog._enabled_optional_modules()/._tab_pos() in
+		# radioDialog.py). All three enabled by default, matching the
+		# add-on's behaviour before this setting existed. Edited by
+		# freeAudioSettingsPanel's "Modules" checklist in settingsPanel.py;
+		# takes effect the next time the station browser dialog is (re)built,
+		# not on existing open dialogs.
+		"enabled_modules": "string(default='podcast,audiobook,jukebox')",
 		# Whether the Jukebox tab's disk search walks mapped/UNC network
 		# drives as well as local ones - off by default, since a network
 		# share can make the search dramatically slower or hang if it's
@@ -1028,13 +1037,21 @@ class GlobalPlugin(ObligatoMixin, MiscTogglesMixin, TrackInfoMixin, RecordingMix
 		  None          : no tab switch; focus stays wherever the dialog left it.
 		  "favorites"   : switch to the Favourites tab (index 1).
 		  "search"      : switch to the All Stations tab and focus the search box.
-		  "podcasts"    : switch to the Podcasts tab (index 5) and focus the
-		                  subscription list.
-		  "audiobooks"  : switch to the Audio Books tab (index 6) and focus
-		                  the library list.
-		  0..6 (int)    : switch to the tab at that index.
+		  "podcasts"    : switch to the Podcasts tab and focus the subscription
+		                  list - or, if the Podcasts module is disabled (see
+		                  "enabled_modules" in settingsPanel.py), announce that
+		                  instead, since there's no tab to switch to.
+		  "audiobooks"  : same, for the Audio Books tab/library list.
+		  "jukebox"     : same, for the Jukebox tab.
+		  0..4 (int)    : switch to the tab at that fixed index - always
 		                  0=All Stations, 1=Favourites, 2=Recording,
-		                  3=Timer, 4=Liked Songs, 5=Podcasts, 6=Audio Books.
+		                  3=Timer, 4=Liked Songs regardless of which
+		                  modules are enabled.
+
+		Podcasts/Audio Books/Jukebox have no fixed integer index - whichever
+		of them are enabled are appended after index 4 in that order, so
+		their actual position shifts depending on "enabled_modules". Use
+		the string form above for those three, not a hardcoded int.
 
 		All tab switching is done here — after Show() and Raise() — so that the
 		notebook HWND is guaranteed to be fully realized before SetSelection is
@@ -1116,15 +1133,16 @@ class GlobalPlugin(ObligatoMixin, MiscTogglesMixin, TrackInfoMixin, RecordingMix
 		# hidden (last_chapter_index goes stale, since the background
 		# auto-advance persists through its own separate library object
 		# instead of this dialog's).
-		try:
-			self._dialog.refresh_getem_libraries_from_disk()
-			self._dialog._refresh_getem_library_list()
-		except Exception:
-			pass
-		try:
-			self._dialog._sync_getem_now_playing_from_player()
-		except Exception:
-			pass
+		if self._dialog._tab_pos("audiobooks") is not None:
+			try:
+				self._dialog.refresh_getem_libraries_from_disk()
+				self._dialog._refresh_getem_library_list()
+			except Exception:
+				pass
+			try:
+				self._dialog._sync_getem_now_playing_from_player()
+			except Exception:
+				pass
 
 		# Apply the requested tab/focus after yielding to the event loop once
 		# (wx.CallLater with 0 ms).  This gives wx time to render Show()/Raise()

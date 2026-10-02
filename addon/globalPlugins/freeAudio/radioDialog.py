@@ -649,6 +649,30 @@ class RadioDialog(wx.Dialog):
 		# is rebuilt), not a live-ticking value.
 
 
+	def _enabled_optional_modules(self):
+		"""Which of {"podcast", "audiobook", "jukebox"} the user has left
+		turned on - see the "enabled_modules" checklist in settingsPanel.py.
+		All three default to on, so an unset/malformed config value behaves
+		exactly like the fixed eight-tab layout did before this setting
+		existed."""
+		raw = config.conf["freeAudio"].get("enabled_modules", "podcast,audiobook,jukebox")
+		return {m.strip() for m in raw.split(",") if m.strip()}
+
+	def _tab_pos(self, key):
+		"""Return the Podcasts/Audio Books/Jukebox tab's current notebook
+		index, or None if that module is disabled (so it has no tab at
+		all). "key" is one of "podcasts"/"audiobooks"/"jukebox" - the five
+		non-optional tabs don't need this, their indices (0..4) never
+		move and are still used directly as literals."""
+		return self._optional_tab_pos.get(key)
+
+	def _is_tab(self, key):
+		"""Whether the given optional tab (see _tab_pos) is the one
+		currently selected. False (never raises) if that module is
+		disabled, since then self._tab_pos(key) is None and GetSelection()
+		is never None."""
+		return self._notebook.GetSelection() == self._tab_pos(key)
+
 	def _build_ui(self):
 		main_sizer = wx.BoxSizer(wx.VERTICAL)
 
@@ -662,8 +686,21 @@ class RadioDialog(wx.Dialog):
 		self._podcast_panel = wx.Panel(self._notebook)
 		self._getem_panel   = wx.Panel(self._notebook)
 		self._jukebox_panel = wx.Panel(self._notebook)
+		# The first five tabs (All Stations..Liked Songs) are always present,
+		# at their usual fixed indices 0..4 - those indices are still used
+		# as plain literals everywhere else in this file. Podcasts/Audio
+		# Books/Jukebox are the only ones a user can turn off (see
+		# "enabled_modules" in settingsPanel.py); whichever of them remain
+		# are appended after, in this same relative order, so THEIR indices
+		# shift depending on what's enabled and can't be hardcoded. Instead
+		# every place that needs one of their tab indices looks it up in
+		# self._optional_tab_pos (key -> index, or absent if that module is
+		# off) - see _tab_pos()/_is_tab() below.
+		enabled = self._enabled_optional_modules()
 		# Tab labels no longer carry letter accelerators; numeric shortcuts
-		# Alt+1..8 are handled in _on_char_hook via an accelerator table.
+		# Alt+1.. are handled in _on_char_hook via an accelerator table,
+		# positional over however many tabs actually exist - see
+		# _tab_order there.
 		# Translators: Tab label for the main catalog browser (all stations from Radio Browser/TuneIn/iHeart, searchable).
 		self._notebook.AddPage(self._all_panel,   _("All Stations"))
 		# Translators: Tab label for the user's saved favourite stations.
@@ -674,12 +711,19 @@ class RadioDialog(wx.Dialog):
 		self._notebook.AddPage(self._timer_panel, _("Timer"))
 		# Translators: Tab label for the list of liked/favourited songs (with lyrics lookup).
 		self._notebook.AddPage(self._liked_panel, _("Liked Songs"))
-		# Translators: Tab label for podcast subscriptions and episodes.
-		self._notebook.AddPage(self._podcast_panel, _("Podcasts"))
-		# Translators: Tab label for the audio-book library (GETEM/LibriVox/Project Gutenberg).
-		self._notebook.AddPage(self._getem_panel, _("Audio Books"))
-		# Translators: Tab label for the local jukebox (user-added audio files/folders).
-		self._notebook.AddPage(self._jukebox_panel, _("Jukebox"))
+		self._optional_tab_pos = {}
+		if "podcast" in enabled:
+			self._optional_tab_pos["podcasts"] = self._notebook.GetPageCount()
+			# Translators: Tab label for podcast subscriptions and episodes.
+			self._notebook.AddPage(self._podcast_panel, _("Podcasts"))
+		if "audiobook" in enabled:
+			self._optional_tab_pos["audiobooks"] = self._notebook.GetPageCount()
+			# Translators: Tab label for the audio-book library (GETEM/LibriVox/Project Gutenberg).
+			self._notebook.AddPage(self._getem_panel, _("Audio Books"))
+		if "jukebox" in enabled:
+			self._optional_tab_pos["jukebox"] = self._notebook.GetPageCount()
+			# Translators: Tab label for the local jukebox (user-added audio files/folders).
+			self._notebook.AddPage(self._jukebox_panel, _("Jukebox"))
 		self._notebook.SetSelection(0)  # Start on the All Stations tab
 		main_sizer.Add(self._notebook, 1, wx.EXPAND | wx.ALL, 5)
 
@@ -886,8 +930,12 @@ class RadioDialog(wx.Dialog):
 
 	def focus_tab(self, tab_index):
 		"""Switch to the specified tab and focus on the first focusable item.
-		Indices: 0=All Stations, 1=Favourites, 2=Recording, 3=Timer, 4=Liked Songs,
-		5=Podcasts, 6=Audio Books, 7=Jukebox.
+		Indices 0..4 are always All Stations/Favourites/Recording/Timer/
+		Liked Songs in that order; beyond that, use _tab_pos("podcasts"/
+		"audiobooks"/"jukebox") instead of a literal number, since those
+		three tabs only exist (and shift position) depending on which
+		modules the user has left enabled - see "enabled_modules" in
+		settingsPanel.py.
 
 		Called from _open_dialog() via wx.CallLater(0).
 		Guards against a corrupted notebook as a safety net.
@@ -912,13 +960,20 @@ class RadioDialog(wx.Dialog):
 
 		Called from _open_dialog() via wx.CallLater(0) - see script_openPodcasts
 		(Ctrl+Windows+O) in __init__.py. Guards against a corrupted notebook
-		as a safety net."""
+		as a safety net. If the user has turned Podcasts off (see
+		"enabled_modules" in settingsPanel.py), there is no tab to switch to -
+		announce that instead of silently doing nothing."""
 		if not self:
+			return
+		pos = self._tab_pos("podcasts")
+		if pos is None:
+			# Translators: Spoken when the Podcasts shortcut is pressed but the Podcasts module is disabled in settings.
+			ui.message(_("Podcasts are disabled - enable them in freeAudio settings to use this"))
 			return
 		try:
 			if self._notebook.GetPageCount() == 0:
 				return
-			self._notebook.SetSelection(5)  # Podcasts tab index
+			self._notebook.SetSelection(pos)
 		except Exception:
 			return
 		# SetSelection() here is programmatic, so it does not fire the
@@ -937,13 +992,20 @@ class RadioDialog(wx.Dialog):
 
 		Called from _open_dialog() via wx.CallLater(0) - see script_openLibrary
 		(Ctrl+Windows+L) in __init__.py. Guards against a corrupted notebook
-		as a safety net."""
+		as a safety net. If the user has turned Audio Books off (see
+		"enabled_modules" in settingsPanel.py), there is no tab to switch to -
+		announce that instead of silently doing nothing."""
 		if not self:
+			return
+		pos = self._tab_pos("audiobooks")
+		if pos is None:
+			# Translators: Spoken when the Audio Books shortcut is pressed but the Audio Books module is disabled in settings.
+			ui.message(_("Audio Books are disabled - enable them in freeAudio settings to use this"))
 			return
 		try:
 			if self._notebook.GetPageCount() == 0:
 				return
-			self._notebook.SetSelection(6)  # Audio Books tab index
+			self._notebook.SetSelection(pos)
 		except Exception:
 			return
 		# Programmatic SetSelection() bypasses _apply_tab_side_effects (see
@@ -964,13 +1026,20 @@ class RadioDialog(wx.Dialog):
 
 		Called from _open_dialog() via wx.CallLater(0) - see
 		script_openJukebox (Ctrl+Windows+U) in __init__.py. Guards against
-		a corrupted notebook as a safety net."""
+		a corrupted notebook as a safety net. If the user has turned Jukebox
+		off (see "enabled_modules" in settingsPanel.py), there is no tab to
+		switch to - announce that instead of silently doing nothing."""
 		if not self:
+			return
+		pos = self._tab_pos("jukebox")
+		if pos is None:
+			# Translators: Spoken when the Jukebox shortcut is pressed but the Jukebox module is disabled in settings.
+			ui.message(_("Jukebox is disabled - enable it in freeAudio settings to use this"))
 			return
 		try:
 			if self._notebook.GetPageCount() == 0:
 				return
-			self._notebook.SetSelection(7)  # Jukebox tab index
+			self._notebook.SetSelection(pos)
 		except Exception:
 			return
 		# Programmatic SetSelection() bypasses _apply_tab_side_effects (see
@@ -1447,7 +1516,7 @@ class RadioDialog(wx.Dialog):
 		sel = self._notebook.GetSelection()
 		if sel == 1:
 			return self._fav_list
-		if sel == 5:  # Podcasts
+		if self._is_tab("podcasts"):
 			return self._episode_list
 		return self._all_list
 
@@ -1534,7 +1603,7 @@ class RadioDialog(wx.Dialog):
 			wx.CallLater(0, self._focus_timer_action_group)
 		elif sel == 4:
 			wx.CallLater(0, self._refresh_liked_list)
-		elif sel == 5:
+		elif sel == self._tab_pos("podcasts"):
 			# Populate the list from whatever is already on disk/in memory
 			# first (fast, local, no network) so the tab never appears
 			# empty while _refresh_all_podcast_feeds()'s background network
@@ -1542,9 +1611,9 @@ class RadioDialog(wx.Dialog):
 			# still in flight.
 			wx.CallLater(0, self._refresh_podcast_list)
 			wx.CallLater(0, self._refresh_all_podcast_feeds)
-		elif sel == 6:
+		elif sel == self._tab_pos("audiobooks"):
 			wx.CallLater(0, self._refresh_getem_library_list)
-		elif sel == 7:
+		elif sel == self._tab_pos("jukebox"):
 			wx.CallLater(0, self._refresh_jukebox_list)
 		if sel != 1 and hasattr(self, "_save_audio_btn"):
 			self._save_audio_btn.Enable(False)
@@ -2988,7 +3057,7 @@ class RadioDialog(wx.Dialog):
 			if idx >= len(favs):
 				return None, -1
 			return favs[idx], idx
-		elif self._notebook.GetSelection() == 5:  # Podcasts
+		elif self._is_tab("podcasts"):
 			episodes = getattr(self, "_episode_filtered", None) or []
 			if idx >= len(episodes):
 				return None, -1
@@ -3397,7 +3466,7 @@ class RadioDialog(wx.Dialog):
 			except StopIteration:
 				real_idx = idx
 			self._play_callback(station, all_favs, real_idx)
-		elif self._notebook.GetSelection() == 5:  # Podcasts
+		elif self._is_tab("podcasts"):
 			self._play_callback(station, [station], 0)
 		else:
 			self._play_callback(station, self._stations, idx)
@@ -4145,10 +4214,18 @@ class RadioDialog(wx.Dialog):
 				self.Hide()
 				gui.mainFrame.postPopup()
 				return
-			# Numeric tab shortcuts: Alt+1..8 switch to the corresponding tab.
-			# Tab order: 1=All Stations, 2=Favourites, 3=Recording, 4=Timer, 5=Liked Songs, 6=Podcasts, 7=Audio Books, 8=Jukebox
-			if ord("1") <= key <= ord("8"):
-				tab_index = key - ord("1")   # 1->0, 2->1, ..., 8->7
+			# Numeric tab shortcuts: Alt+1.. switch to the corresponding tab,
+			# positionally. Fixed order: 1=All Stations, 2=Favourites,
+			# 3=Recording, 4=Timer, 5=Liked Songs; then whichever of
+			# Podcasts/Audio Books/Jukebox are enabled (see
+			# "enabled_modules" in settingsPanel.py) follow, in that order,
+			# so e.g. Alt+6 is Podcasts normally but becomes Audio Books if
+			# Podcasts alone is turned off. The highest working digit scales
+			# with how many tabs actually exist (never past Alt+9).
+			page_count = self._notebook.GetPageCount()
+			max_key = min(ord("9"), ord("1") + page_count - 1)
+			if ord("1") <= key <= max_key:
+				tab_index = key - ord("1")   # 1->0, 2->1, ...
 				self._notebook.SetSelection(tab_index)
 				self._on_tab_changed_index(tab_index)
 				return
@@ -4184,7 +4261,7 @@ class RadioDialog(wx.Dialog):
 		# --- Unique shortcuts to the Podcast tab ---
 		# These work anywhere on the tab — the user does not need to be
 		# focused on one of the listboxes for them to apply.
-		if self._notebook.GetSelection() == 5:  # Podcast tab
+		if self._is_tab("podcasts"):
 			focused = wx.Window.FindFocus()
 
 			# Feed selection: Shift+F3 / Shift+F4 (checked before the plain
@@ -4220,7 +4297,7 @@ class RadioDialog(wx.Dialog):
 		# "episode" switch and Shift+F3/F4 is the coarser "feed" switch):
 		# on this tab the part is the finer-grained unit, so it's the one
 		# that moves to the Shift-modified keys instead.
-		if self._notebook.GetSelection() == 6:  # Audio Books tab
+		if self._is_tab("audiobooks"):
 			focused = wx.Window.FindFocus()
 			if key == wx.WXK_F3 and event.ShiftDown():
 				self._play_prev_getem_chapter()
@@ -4247,7 +4324,7 @@ class RadioDialog(wx.Dialog):
 		# (Episode equivalent), Shift+F3/F4 = previous/next jukebox entry
 		# (feed equivalent), Ctrl+Left/Right to select previous/next in the track list.
 		# Plays the track
-		if self._notebook.GetSelection() == 7:  # Jukebox tab
+		if self._is_tab("jukebox"):
 			focused = wx.Window.FindFocus()
 			if key == wx.WXK_F3 and event.ShiftDown():
 				self._select_prev_jukebox_entry()
@@ -5614,7 +5691,12 @@ class RadioDialog(wx.Dialog):
 		rather than snapping back to whatever was selected when the refresh
 		started. If the previously-selected feed/episode is gone (e.g. removed
 		meanwhile) it falls back to index 0.
+
+		No-ops if Podcasts is disabled (self._podcast_list etc. were never
+		built - see _tab_pos()). Safe to call unconditionally; some callers do.
 		"""
+		if self._tab_pos("podcasts") is None:
+			return
 		current_feed_url = None
 		idx = self._podcast_list.GetSelection()
 		feeds_before = self._podcast_manager.get_feeds()
@@ -5657,7 +5739,11 @@ class RadioDialog(wx.Dialog):
 		preserves whatever feed/episode is selected when it runs (i.e. at
 		completion time, not when the refresh started), so switching selection
 		while the refresh is still running just works.
+
+		No-ops if Podcasts is disabled - see _refresh_podcast_list().
 		"""
+		if self._tab_pos("podcasts") is None:
+			return
 		feeds = self._podcast_manager.get_feeds()
 		if not feeds:
 			self._refresh_podcast_list()
@@ -7146,7 +7232,11 @@ class RadioDialog(wx.Dialog):
 	def _refresh_getem_library_list(self):
 		"""Populate the library listbox from the merged GETEM + LibriVox
 		library (see _merged_library_books()), preserving whichever book is
-		selected at the moment this runs (mirrors _refresh_podcast_list())."""
+		selected at the moment this runs (mirrors _refresh_podcast_list()).
+
+		No-ops if Audio Books is disabled - see _refresh_podcast_list()."""
+		if self._tab_pos("audiobooks") is None:
+			return
 		prev_key = None
 		idx = self._getem_library_ctrl.GetSelection()
 		books_before = self._merged_library_books()
@@ -8106,7 +8196,11 @@ class RadioDialog(wx.Dialog):
 		"""Populate the jukebox entries listbox, preserving whichever
 		entry is selected at the moment this runs (or selecting
 		*select_path* if given) - mirrors _refresh_podcast_list()'s
-		selection-preservation reasoning."""
+		selection-preservation reasoning.
+
+		No-ops if Jukebox is disabled - see _refresh_podcast_list()."""
+		if self._tab_pos("jukebox") is None:
+			return
 		current_path = select_path
 		if current_path is None:
 			idx = self._jukebox_list.GetSelection()
