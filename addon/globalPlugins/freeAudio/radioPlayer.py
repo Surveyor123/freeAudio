@@ -1544,6 +1544,75 @@ class RadioPlayer:
 			except Exception:
 				pass
 
+	def _ffmpeg_can_remux(self, url, timeout=6):
+		"""Return True if ffmpeg can remux *url*'s audio with "-c:a copy"
+		into MPEG-TS and produce any output within *timeout* seconds.
+
+		Used by _should_hls_merge() to avoid routing streams through
+		the merger that the merger itself cannot handle. Some
+		short-segment HLS sources - Emarat FM, for instance - use AAC
+		codec parameters that ffmpeg cannot write into a raw MPEG-TS
+		container: it reports "sample rate not set" and produces no
+		output, so BASS would receive an empty local stream and the
+		station would be silent. BASS itself can still play those
+		streams directly, so the merger must not be used for them.
+
+		The probe reads one byte from ffmpeg's stdout with a wall-clock
+		timeout: if ffmpeg can remux the stream, its first TS packets
+		arrive within a second or two; if it cannot, the process exits
+		with empty stdout almost immediately. The result is cached by
+		_should_hls_merge() alongside the segment-duration decision, so
+		this runs at most once per URL per cache lifetime.
+		"""
+		import config as _config
+		ffmpeg_path = (_config.conf["freeAudio"].get("ffmpeg_path") or "").strip()
+		if not ffmpeg_path or not os.path.isfile(ffmpeg_path):
+			ffmpeg_path = _find_system_ffmpeg()
+		if not ffmpeg_path:
+			return False
+		cmd = [
+			ffmpeg_path,
+			"-hide_banner",
+			"-loglevel", "error",
+			"-user_agent", "freeAudio-NVDA/1.0",
+			"-probesize", "1M",
+			"-analyzeduration", "1M",
+			"-i", url,
+			"-map", "0:a:0",
+			"-vn",
+			"-c:a", "copy",
+			"-f", "mpegts",
+			"-",
+		]
+		try:
+			proc = subprocess.Popen(
+				cmd,
+				stdout=subprocess.PIPE,
+				stderr=subprocess.DEVNULL,
+				creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+			)
+		except Exception:
+			return False
+
+		result = [False]
+
+		def _read_one_byte():
+			try:
+				if proc.stdout.read(1):
+					result[0] = True
+			except Exception:
+				pass
+
+		reader = threading.Thread(target=_read_one_byte, daemon=True)
+		reader.start()
+		reader.join(timeout=timeout)
+		try:
+			proc.kill()
+			proc.wait(timeout=2)
+		except Exception:
+			pass
+		return result[0]
+
 	def _should_hls_merge(self, url, timeout=4):
 		"""Whether *url* (an HLS .m3u8) should route through
 		_HlsStreamMerger - only short-segment sources need it (see
@@ -1559,6 +1628,22 @@ class RadioPlayer:
 			return cached[0]
 		duration = _get_hls_target_duration(url, timeout=timeout)
 		decision = duration is not None and duration <= _HLS_SHORT_SEGMENT_THRESHOLD
+		if decision:
+			# Short segments alone are not enough. The merger remuxes
+			# with "-c:a copy", and a few short-segment sources - Emarat
+			# FM among them - use AAC codec parameters that ffmpeg cannot
+			# write into a raw MPEG-TS container ("sample rate not set"),
+			# producing no output at all. BASS can play those streams
+			# directly, but routing them through the merger would make
+			# them silent. Probe once per URL and cache the result with
+			# the same TTL as the segment-duration decision.
+			if not self._ffmpeg_can_remux(url):
+				log.info(
+					"freeAudio: ffmpeg cannot remux %s with -c:a copy "
+					"(short segments but merger unavailable), leaving "
+					"merger off", url,
+				)
+				decision = False
 		self._hls_merge_decision_cache[url] = (decision, now)
 		if duration is not None:
 			log.info(
