@@ -1,5 +1,5 @@
---- /mnt/user-data/uploads/README25_0.md	2026-10-02 05:11:12.221406000 +0000
-+++ README25_1.md	2026-10-02 05:17:15.903928373 +0000
+--- README25_0.md
++++ README25_1.md
 @@ -68,10 +68,10 @@
  | `Ctrl+Win+↑` | Volume up | Increases volume by 5; maximum 200. |
  | `Ctrl+Win+↓` | Volume down | Decreases volume by 5; minimum 0. |
@@ -15,6 +15,27 @@
  | `Ctrl+Win+I` | Station info | Announces the currently playing station name, podcast episode, audio book or jukebox track. Press twice to show details such as country, genre and bitrate in a dialog. Press three times to copy the current track info (ICY metadata) to the clipboard if available; if no metadata is present, starts Shazam music recognition instead. Press four times to force music recognition in case of wrong ICY metadata. |
  | `Ctrl+Win+M` | Audio mirror | Mirrors the current stream or media to an additional audio output device simultaneously. Press again to stop mirroring. |
  | `Ctrl+Win+Shift+M` | Obligato mode (background music) | Loops a chosen favourite station quietly in the background, on its own output device and volume, no matter what plays as the main media. First press opens a dialog to pick the station, output device, and relative volume. Press again to stop it. |
+@@ -96,9 +96,9 @@
+ 
+ When searching, results from Radio Browser are supplemented with stations from TuneIn and iHeartRadio (when available). These external sources are searched in the background and their results are merged into the list automatically, giving you access to even more stations without any extra action.
+ 
+-The **Output Device** dropdown at the bottom of the browser window — outside the tabs — lists all BASS-recognised audio output devices. Selecting a device immediately redirects audio output to it and saves the choice permanently; the same device is used automatically in the next session. If the selected device is not connected, the add-on falls back to the system default automatically. Press `F11` to open a simpler on-demand device picker from anywhere in the Station Browser. The picker is not shown automatically and opens only when BASS detects more than one physical output device. When just one is available, no selection is needed and freeAudio uses the system default output. This feature is only functional when the BASS backend is active.
++The **Output Device** dropdown at the bottom of the browser window — outside the tabs — lists all BASS-recognised audio output devices. Selecting a device immediately redirects audio output to it and saves the choice permanently; the same device is used automatically in the next session. If the selected device is not connected, the add-on falls back to the system default automatically. Press `F11` to open a simpler on-demand device picker from anywhere in the Station Browser. The picker is not shown automatically and opens only when BASS detects more than one physical output device. When just one is available, no selection is needed and freeAudio uses the system default output.
+ 
+-The **Volume** (0–200) and **Effects** controls in the same area can be adjusted at any time while the window is open. From the Effects list, Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, EQ: Bass Boost, EQ: Treble Boost and EQ: Vocal Boost can be enabled simultaneously; changes are applied to the active stream instantly. Each effect can also be toggled instantly with `Ctrl+1` through `Ctrl+0` without leaving the keyboard — see [Effect Shortcuts](#effect-shortcuts). These controls are fully functional only when the BASS backend is active.
++The **Volume** (0–200) and **Effects** controls in the same area can be adjusted at any time while the window is open. From the Effects list, Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, EQ: Bass Boost, EQ: Treble Boost and EQ: Vocal Boost can be enabled simultaneously; changes are applied to the active stream instantly. Each effect can also be toggled instantly with `Ctrl+1` through `Ctrl+0` without leaving the keyboard — see [Effect Shortcuts](#effect-shortcuts).
+ 
+ When one or more EQ effects are enabled, a **gain control** appears for each active band. The gain can be set between −15 dB and +15 dB; the default values are Bass +9 dB, Treble +9 dB, and Vocal +6 dB. The gain controls are shown only for the EQ bands that are currently checked, and are hidden automatically when an EQ effect is unchecked. Gain values are saved globally and restored on the next session.
+ 
+@@ -177,7 +177,7 @@
+ | `Ctrl+9` | Toggle EQ: Treble Boost | Enables or disables the Treble Boost EQ band and applies it to the active stream instantly. |
+ | `Ctrl+0` | Toggle EQ: Vocal Boost | Enables or disables the Vocal Boost EQ band and applies it to the active stream instantly. |
+ 
+-Each shortcut mirrors checking or unchecking the corresponding entry in the **Effects** list: NVDA announces whether the effect was enabled or disabled, the change is saved automatically, and the EQ gain control for that band (if applicable) appears or disappears accordingly. Only available when the BASS backend is active.
++Each shortcut mirrors checking or unchecking the corresponding entry in the **Effects** list: NVDA announces whether the effect was enabled or disabled, the change is saved automatically, and the EQ gain control for that band (if applicable) appears or disappears accordingly.
+ 
+ #### Alt Key Shortcuts
+ 
 @@ -298,8 +298,6 @@
  - **Multi-room** — Play through a Bluetooth speaker and the built-in speaker simultaneously; no extra software needed to carry audio to another room.
  - **Remote monitoring** — In a screen-sharing or remote desktop session, both the local and remote sides can hear the same stream simultaneously.
@@ -35,7 +56,7 @@
  - freeAudio fetches the feed, validates it, and adds it to your subscriptions. If the feed is valid, you will hear a confirmation with the feed title. If it fails, an error message explains why.
  
  **By searching:**
-@@ -505,11 +503,9 @@
+@@ -505,19 +503,17 @@
  
  A deliberate tap is held for a brief moment before it actually seeks, in case another tap is still coming — only one seek happens per tap sequence, sized for however many taps were ultimately made, not the sum of each tap's amount. After a seek, NVDA announces the resulting elapsed/remaining position in the episode rather than just "X seconds forward/back".
  
@@ -47,9 +68,10 @@
 -> **Note:** `bass_fx.dll` is not bundled with freeAudio by default. You can download it from the [BASS FX page](https://www.un4seen.com/bass-fx.html) and place it in the add‑on's `bass/x64` (for 64‑bit NVDA) or `bass` (for 32‑bit NVDA) folder to enable these features.
 +**Transpose (pitch shift):** Independent of playback speed, you can shift the pitch of a podcast episode, audio book, or jukebox track up or down with `Shift+Win+K` / `Shift+Win+J` — see [Transpose (Pitch Shift)](#transpose-pitch-shift).
  
- **Resume sound effect:** Whenever an episode resumes from a saved position, freeAudio briefly plays a soft cassette-loading sound effect on a separate channel while it seeks back to your saved spot, instead of letting the episode's own audio play audibly from 0:00 in the meantime. This happens automatically whenever the BASS backend is active and is independent of the **Station switch transition** setting — that setting only affects switching between live radio stations, not resuming podcasts or audio books.
+-**Resume sound effect:** Whenever an episode resumes from a saved position, freeAudio briefly plays a soft cassette-loading sound effect on a separate channel while it seeks back to your saved spot, instead of letting the episode's own audio play audibly from 0:00 in the meantime. This happens automatically whenever the BASS backend is active and is independent of the **Station switch transition** setting — that setting only affects switching between live radio stations, not resuming podcasts or audio books.
++**Resume sound effect:** Whenever an episode resumes from a saved position, freeAudio briefly plays a soft cassette-loading sound effect on a separate channel while it seeks back to your saved spot, instead of letting the episode's own audio play audibly from 0:00 in the meantime. This is independent of the **Station switch transition** setting — that setting only affects switching between live radio stations, not resuming podcasts or audio books.
  
-@@ -517,7 +513,7 @@
+ ### Podcast Audio Profile
  
  Right‑click a podcast in the Subscriptions list, or right‑click any of its episodes, and choose **Save Audio Profile for This Podcast** to save the current volume, effects, EQ gains and/or playback speed as a profile tied to that podcast. Whenever any episode of that podcast plays, the saved settings are applied automatically, overriding the global defaults. Because the command is available from both the feed context menu and the episode context menu, you can reach it without switching back to the Subscriptions list — either way, it always saves one profile for the whole podcast, not a separate one per episode.
  
@@ -102,6 +124,30 @@
  ## Liked Songs
  
  When the **Save liked songs to a text file** option is enabled, track info copied to the clipboard by pressing `Ctrl+Win+I` three times is also appended line by line to `Documents\freeAudio Recordings\likedSongs.txt`.
+@@ -741,17 +743,17 @@
+ |---|---|
+ | Track change voice | Choose whether auto‑announced track changes are spoken using the NVDA synthesizer or a selected SAPI5 voice. |
+ | SAPI5 voice | When **Track change voice** is set to SAPI5, selects which installed SAPI5 voice is used to announce track changes. The list is populated in the background from the voices installed on the system. |
+-| Audio output device (BASS backend) | Sets the audio output device for radio playback. The list includes all BASS-compatible devices on the system plus a "System default" option. Changes are applied immediately on save; if the selected device is disconnected, the add-on automatically falls back to the system default and announces the change. Only active when the BASS backend is in use. |
+-| Audio device refresh mode (BASS backend) | Controls how freeAudio refreshes BASS output-device numbers. **Reliable** mode (default) probes devices live and tracks Bluetooth/USB changes more accurately, but can make device changes slightly slower. **Fast** mode uses the current BASS device list and is quicker, but device numbers may stay stale until BASS or NVDA is restarted. |
++| Audio output device | Sets the audio output device for radio playback. The list includes all BASS-compatible devices on the system plus a "System default" option. Changes are applied immediately on save; if the selected device is disconnected, the add-on automatically falls back to the system default and announces the change. |
++| Audio device refresh mode | Controls how freeAudio refreshes BASS output-device numbers. **Reliable** mode (default) probes devices live and tracks Bluetooth/USB changes more accurately, but can make device changes slightly slower. **Fast** mode uses the current BASS device list and is quicker, but device numbers may stay stale until BASS or NVDA is restarted. |
+ | Volume | Sets the add-on's starting volume (0–200). Changes made during playback with `Ctrl+Win+↑` / `Ctrl+Win+↓` are also reflected here. |
+-| Audio effects | Sets which effects (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, and the three EQ boosts) are active when NVDA starts or a station begins playing. Multiple effects can be checked at once, matching the Effects list in the Station Browser. Only active when the BASS backend is in use. |
+-| EQ gain (Bass / Treble / Vocal) | Sets the gain level in dB for each EQ band (−15 to +15). These values apply when the corresponding EQ effect is active and are saved globally. Per-station overrides can be stored using the **Save Audio Profile** button in the Favourites tab. Only active when the BASS backend is in use. |
+-| Station switch transition (BASS backend) | Controls the transition behaviour when switching between **live radio stations**. **Instant cut** (default) stops the previous station immediately before the new one starts. **Short crossfade (1 second)** and **Normal crossfade (2 seconds)** start the new station immediately with no gap, then gradually fade out the previous station in the background once the new stream is confirmed active. **Station tuning sound effect** stops the previous station immediately and plays a station tuner sound effect before the new one starts. Has no effect and no performance impact when set to Instant cut. Only available when the BASS backend is in use. Does not apply to podcasts, audio books, or jukebox tracks — resuming those always plays its own brief cassette sound effect regardless of this setting; see [Podcast Playback Details](#podcast-playback-details). |
++| Audio effects | Sets which effects (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, and the three EQ boosts) are active when NVDA starts or a station begins playing. Multiple effects can be checked at once, matching the Effects list in the Station Browser. |
++| EQ gain (Bass / Treble / Vocal) | Sets the gain level in dB for each EQ band (−15 to +15). These values apply when the corresponding EQ effect is active and are saved globally. Per-station overrides can be stored using the **Save Audio Profile** button in the Favourites tab. |
++| Station switch transition | Controls the transition behaviour when switching between **live radio stations**. **Instant cut** (default) stops the previous station immediately before the new one starts. **Short crossfade (1 second)** and **Normal crossfade (2 seconds)** start the new station immediately with no gap, then gradually fade out the previous station in the background once the new stream is confirmed active. **Station tuning sound effect** stops the previous station immediately and plays a station tuner sound effect before the new one starts. Has no effect and no performance impact when set to Instant cut. Does not apply to podcasts, audio books, or jukebox tracks — resuming those always plays its own brief cassette sound effect regardless of this setting; see [Podcast Playback Details](#podcast-playback-details). |
+ | Resume last station on NVDA startup | When enabled, the last played station automatically restarts every time NVDA starts. |
+ | Auto-announce track changes (ICY metadata) | When enabled, NVDA automatically reads the new track name each time it changes on a station that broadcasts ICY metadata. The first track is also announced immediately when switching to a new station. Disabled by default. |
+ | Mute notifications | When enabled, NVDA does not announce station changes, playback state changes (play, pause, stop), or recording events (started, stopped, finished). Error messages, favourites feedback, music recognition results, and update notifications are not affected. Can also be toggled on the fly via an unassigned input gesture. Disabled by default. |
+ | Braille messages | When enabled, freeAudio also sends its notifications directly to the braille display. This is useful for track titles, station changes, playback state and volume changes. Disabled by default. |
+-| Enable time-shift buffer (rewind live radio) | Turns the rewind controls (`Ctrl+Win+J`/`Ctrl+Win+K`) on or off and grows the background capture from ~45 seconds up to the time determined in the settings. A small background capture of the currently playing station always runs, even when this is off — see the note in the **Time-Shift (Rewind Live Radio)** section below. Can also be toggled instantly with `Ctrl+Win+T`. Requires the BASS backend. Disabled by default — see the **Time-Shift (Rewind Live Radio)** section below for full details. |
++| Enable time-shift buffer (rewind live radio) | Turns the rewind controls (`Ctrl+Win+J`/`Ctrl+Win+K`) on or off and grows the background capture from ~45 seconds up to the time determined in the settings. A small background capture of the currently playing station always runs, even when this is off — see the note in the **Time-Shift (Rewind Live Radio)** section below. Can also be toggled instantly with `Ctrl+Win+T`. Disabled by default — see the **Time-Shift (Rewind Live Radio)** section below for full details. |
+ | Save liked songs to a text file | When enabled, track info copied to the clipboard by pressing `Ctrl+Win+I` three times is also appended to `Documents\freeAudio Recordings\likedSongs.txt`. If no ICY metadata is available, the Shazam recognition result is saved to the same file. Disabled by default. |
+ | When Ctrl+Win+P is pressed with no active playback | Determines what happens when this shortcut is pressed and nothing is playing: start the last station or open the favourites list. |
+ | Time-shift buffer duration | Sets the maximum length of the rewind buffer. Options range from 10 minutes up to 5 hours. Longer buffers consume more temporary disk space. |
 @@ -811,14 +813,6 @@
  
  **To disable automatic checks:** Turn off the **Check for updates automatically** option from NVDA Menu → Preferences → Settings → freeAudio.
