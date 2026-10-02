@@ -68,10 +68,10 @@ Algunos de estos atajos coinciden con los que usa Windows. Si prefieres conserva
 | `Ctrl+Win+↑` | Aumentar el volumen | Aumenta el volumen de 5 ; máximo 100. |
 | `Ctrl+Win+↓` | Disminuir el volumen | Disminuye el volumen de 5 ; mínimo 0. |
 | `Ctrl+Win+V` | Añadir a favoritos / Descargar el Medio | Añade la estación que se está reproduciendo actualmente a la lista de favoritos o descarga el episodio del podcast  o el audiolibro que se está reproduciendo. Anuncia si la emisora ya está en la lista o si el medio ya se había descargado. No aplicable cuando se está reproduciendo una pista del jukebox: freeAudio indica que el acceso directo solo sirve para emisoras, podcasts o audiolibros. |
-| `Ctrl+Win+Shift+K` | Aumentar la velocidad de reproducción | Aumenta la velocidad de reproducción de un episodio de podcast, de un audiolibro o de una pista del jukebox de 0.1x (preservación de la altura). Rango: 0.5x a 2.0x. Requiere el `bass_fx.dll` para colocarlo en la carpeta del complemento. |
-| `Ctrl+Win+Shift+J` | Disminuir la velocidad de reproducción | Disminuye la velocidad de reproducción de un episodio de podcast, de un audiolibro o de una pista del jukebox de 0.1x. Requiere el `bass_fx.dll`. |
-| `Shift+Win+K` | Transposición hacia arriba | Sube el tono de un episodio de podcast, audiolibro o pista del jukebox en pasos de 1/8 de tono completo (0.25 semitonos), sin cambiar su velocidad. Rango: -12.00 a +12.00 semitonos. Requiere el `bass_fx.dll`. Consulta la sección [Transposición (Cambio de Tono)](#transpose-pitch-shift). |
-| `Shift+Win+J` | Transposición hacia abajo | Baja el tono en pasos de 1/8 de tono completo, sin cambiar la velocidad. Requiere el `bass_fx.dll`. |
+| `Ctrl+Win+Shift+K` | Aumentar la velocidad de reproducción | Aumenta la velocidad de reproducción de un episodio de podcast, de un audiolibro o de una pista del jukebox de 0.1x (preservación de la altura). Rango: 0.5x a 2.0x. |
+| `Ctrl+Win+Shift+J` | Disminuir la velocidad de reproducción | Disminuye la velocidad de reproducción de un episodio de podcast, de un audiolibro o de una pista del jukebox de 0.1x. |
+| `Shift+Win+K` | Transposición hacia arriba | Sube el tono de un episodio de podcast, audiolibro o pista del jukebox en pasos de 1/8 de tono completo (0.25 semitonos), sin cambiar su velocidad. Rango: -12.00 a +12.00 semitonos. Consulta la sección [Transposición (Cambio de Tono)](#transpose-pitch-shift). |
+| `Shift+Win+J` | Transposición hacia abajo | Baja el tono en pasos de 1/8 de tono completo, sin cambiar la velocidad. |
 | `Ctrl+Win+I` | Información de la Estación | Anuncia el nombre de la estación que se está reproduciendo actualmente, episodio de podcast, audiolibro o pista del jukebox. Pulsa dos veces para mostrar los detalles como el país, el género y el bitrate en un diálogo. Pulsa tres veces para copiar la información de la pista actual (metadatos ICY) al portapapeles si está disponible; Si no hay metadatos presentes, inicia el reconocimiento de música de Shazam en su lugar. Pulsa cuatro veces para forzar el reconocimiento de música en caso de metadatos ICY incorrectos. |
 | `Ctrl+Win+M` | Espejo de audio | Poner en espejo el flujo actual o medio hacia un dispositivo de salida de audio adicional simultáneamente. Pulsa nuevamente para detener la puesta en espejo. |
 | `Ctrl+Win+Shift+M` | Modo Obligato (música de fondo) | Reproduce en bucle una emisora ​​favorita de forma silenciosa en segundo plano, con su propio dispositivo de salida y volumen, independientemente de lo que esté sonando como medio principal. Al pulsar por primera vez, se abrirá un cuadro de diálogo para seleccionar la emisora, el dispositivo de salida y el volumen. Vuelva a pulsar para detenerlo. |
@@ -298,8 +298,6 @@ Al pulsar por primera vez, aparece un cuadro de diálogo de selección que enume
 - **Multihabitación** — Reproduzca simultáneamente a través de un altavoz Bluetooth y el altavoz incorporado; no se necesita software adicional para transportar el audio a otra habitación.
 - **Monitoreo remoto** — En una sesión de pantalla compartida o de escritorio remoto, tanto el lado local como el remoto pueden escuchar el mismo flujo simultáneamente.
 
-> **Nota:** La puesta en espejo de audio solo está disponible cuando el BASS backend está activo. Si se cambia el volumen mientras la puesta en espejo está activo, ambas salidas se actualizan simultáneamente.
-
 ## Modo Obligato
 
 El atajo `Ctrl+Win+Shift+M` reproduce tu emisora favorita en segundo plano, con un motor de audio completamente independiente del reproductor principal, como una suave música de fondo que suena de fondo mientras haces lo que haces.
@@ -424,8 +422,8 @@ Abra el navegador de estaciones con `Ctrl+Win+R` y cambia a la pestaña **Podcas
 Puedes añadir un feed de podcast de dos maneras:
 
 **Por URL:**
-- En el campo **"O ingrese la URL del podcast"**, pegue la URL completa del feed RSS o Atom (por ejemplo `https://example.com/feed.xml`).
-- Pulse Intro o haga clic en el botón **Añadir Feed**.
+- En el campo **Buscar**, pegue la URL completa del feed RSS o Atom (por ejemplo `https://example.com/feed.xml`).
+- Pulse Intro.
 - freeAudio busca el feed, lo valida y lo añade a tus suscripciones. Si el feed es válido, escuchará una confirmación con el título del feed. Si falla, un mensaje de error explica el motivo.
 
 **Por búsqueda:**
@@ -505,11 +503,9 @@ Los episodios de podcast se reproducen utilizando el **BASS backend** (el mismo 
 
 Se mantiene pulsado un instante antes de realizar la búsqueda, por si acaso se produce otra pulsación; solo se realiza una búsqueda por secuencia de pulsaciones, cuyo tamaño depende del número total de pulsaciones, no de la suma de las pulsaciones individuales. Tras la búsqueda, NVDA anuncia la posición transcurrida/restante del episodio, en lugar de simplemente indicar "X segundos hacia adelante/atrás".
 
-**Velocidad de reproducción:** Puede ajustar la velocidad de reproducción de los episodios del podcast, audiolibros y pistas del jukebox usando `Ctrl+Win+Shift+K` (más rápido) y `Ctrl+Win+Shift+J` (más lento). La velocidad cambia por incrementos de 0.1x, desde 0.5x hasta 2.0x, con la altura preservada. Esto requiere que la biblioteca opcional `bass_fx.dll` se coloque en la carpeta del complemento. Si falta la biblioteca, NVDA te informará que la función no está disponible.
+**Velocidad de reproducción:** Puede ajustar la velocidad de reproducción de los episodios del podcast, audiolibros y pistas del jukebox usando `Ctrl+Win+Shift+K` (más rápido) y `Ctrl+Win+Shift+J` (más lento). La velocidad cambia por incrementos de 0.1x, desde 0.5x hasta 2.0x, con la altura preservada.
 
-**Transposición (cambio de tono):** Independientemente de la velocidad de reproducción, puede cambiar el tono de un episodio de podcast, audiolibro o pista del jukebox hacia arriba o hacia abajo con `Shift+Win+K` / `Shift+Win+J` — consulta la sección [Transposición (Cambio de Tono)](#transpose-pitch-shift). La transposición también requiere el `bass_fx.dll`.
-
-> **Nota:** `bass_fx.dll` no está incluido con freeAudio por defecto. Puedes descargarlo desde la [página BASS FX](https://www.un4seen.com/bass-fx.html) y colóquelo en la carpeta del complemento `bass/x64` (para NVDA de 64 bits) o `bass` (para NVDA de 32 bits) para habilitar esta característica.
+**Transposición (cambio de tono):** Independientemente de la velocidad de reproducción, puede cambiar el tono de un episodio de podcast, audiolibro o pista del jukebox hacia arriba o hacia abajo con `Shift+Win+K` / `Shift+Win+J` — consulta la sección [Transposición (Cambio de Tono)](#transpose-pitch-shift).
 
 **Reanudar efecto de sonido:** Siempre que un episodio se reanuda desde una posición guardada, freeAudio reproduce brevemente un suave efecto de sonido de carga de casete en un canal separado mientras busca el punto guardado, en lugar de dejar que el audio del episodio se reproduzca audiblemente desde 0:00 mientras tanto. Esto sucede automáticamente siempre que el BASS backend está activo y es independiente del ajuste de la **Transición de cambio de estación** — ese ajuste solo afecta al cambio entre emisoras de radio en directo, y no la reanudación de podcasts o audiolibros.
 
@@ -517,7 +513,7 @@ Se mantiene pulsado un instante antes de realizar la búsqueda, por si acaso se 
 
 Haz clic con el botón derecho en un podcast de la Lista de suscripciones, o haga clic con el botón derecho en cualquiera de sus episodios y elija **Guardar perfil de audio para este podcast** para guardar el volumen actual, efectos, ganancias EQ y/o velocidad de reproducción como un perfil vinculado a ese podcast. Cada vez que se reproduce un episodio de ese podcast, la configuración guardada se aplica automáticamente, anulando los valores predeterminados globales. Debido a que la órden está disponible tanto en el menú contextual del feed como en el menú contextual del episodio, puedes acceder a ella sin volver a la Lista de suscripciones — de cualquier forma, siempre guarda un perfil para todo el podcast, no uno separado para cada episodio.
 
-Un cuadro de diálogo te permite elegir exactamente qué guardar:
+Un cuadro de diálogo con 15 opciones te permite elegir exactamente qué guardar:
 - **Solo volumen**
 - **Solo efectos**
 - **Volumen y efectos**
@@ -525,6 +521,14 @@ Un cuadro de diálogo te permite elegir exactamente qué guardar:
 - **Efectos y velocidad de reproducción**
 - **Solo velocidad de reproducción**
 - **Volumen, efectos y velocidad de reproducción**
+- **Solo transposición de tono**
+- **Volumen y transposición de tono**
+- **Efectos y transposición de tono**
+- **Velocidad de reproducción y transposición de tono**
+- **Volumen, efectos y transposición de tono**
+- **Volumen, velocidad de reproducción y transposición de tono**
+- **Efectos, velocidad de reproducción y transposición de tono**
+- **Volumen, efectos, velocidad de reproducción y transposición de tono**
 
 Solo los elementos que elijas se escribirán en el perfil; lo que se omita conservará lo que ya estaba guardado para ello. Por ejemplo, al elegir **Solo velocidad de reproducción** en un podcast que ya tiene un perfil de volumen/efectos guardado, solo se actualiza la velocidad y el resto permanece sin cambios.
 
@@ -661,7 +665,7 @@ Otros dos comandos, disponibles únicamente cuando un archivo o carpeta está en
 - **Reproducir el archivo enfocado con freeAudio** — reproduce directamente el archivo de audio resaltado, sin necesidad de que esté ya en tu lista del Jukebox. Solo funciona con archivos; si lo usas en una carpeta, te indica que añadas la carpeta al Jukebox.
 - **Añadir el elemento enfocado al jukebox de freeAudio** — añade el archivo o carpeta resaltado a tu lista del Jukebox, exactamente como si hubieras usado **Añadir un archivo…** o **Añadir una carpeta…** mencionados anteriormente.
 
-Ninguno de estos comandos tiene una tecla predeterminada asignada. Asigne una desde el menú NVDA → Preferencias → Gestos de Entrada **mientras se encuentra enfocado dentro de una ventana del Explorador de archivos** — aparecen allí en la sección propia del Explorador en lugar de en "Todas las aplicaciones", por lo que la combinación de teclas que elijas solo activará estos comandos mientras estés explorando archivos en el Explorador; en cualquier otro lugar, conserva su función habitual.
+Ninguno de estos comandos tiene una tecla predeterminada asignada. Asigne una desde el menú NVDA → Preferencias → Gestos de Entrada → freeAudio **mientras se encuentra enfocado dentro de una ventana del Explorador de archivos**.
 
 ### Reproduciendo desde el Jukebox
 
@@ -678,8 +682,8 @@ Cada pista reproducida desde el Jukebox recibe el tratamiento completo de los me
 
 - **Reanudar:** freeAudio recuerda tu posición en cada pista , la guarda al pausarla y periódicamente durante la reproducción, y reanuda la reproducción desde ese punto cuando la reproduces de nuevo — incluso después de reiniciar NVDA.
 - **Búsqueda por niveles:** `Ctrl+Win+J` / `Ctrl+Win+K` permite buscar dentro de la pista con la misma escala  de pulsación/mantener pulsado que los podcasts y audiolibros — mantén pulsado para 5 segundos por repetición, una pulsación para 12 segundos, dos pulsaciones para 1 minuto, tres o más pulsaciones para 5 minutos.
-- **Velocidad de reproducción:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` ajusta la velocidad en pasos de 0.1x desde 0.5x hasta 2.0x, conservando el tono. Requiere el `bass_fx.dll`.
-- **Transposición:** `Shift+Win+J` / `Shift+Win+K` cambia el tono sin modificar la velocidad — consulta la sección [Transposición (Cambio de Tono)](#transpose-pitch-shift). También requiere el `bass_fx.dll`.
+- **Velocidad de reproducción:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` ajusta la velocidad en pasos de 0.1x desde 0.5x hasta 2.0x, conservando el tono.
+- **Transposición:** `Shift+Win+J` / `Shift+Win+K` cambia el tono sin modificar la velocidad — consulta la sección [Transposición (Cambio de Tono)](#transpose-pitch-shift).
 - **Perfil de audio:** El volumen, los efectos, la ecualización y la velocidad de una pista se pueden guardar globalmente reproduciéndola con la configuración adecuada — actualmente, el Jukebox no ofrece un menú de perfil por pista, por lo que se aplican los ajustes globales actuales.
 
 > **Nota:** El búfer de desplazamiento temporal (utilizado para rebobinar la radio en directo) **no** se inicia para las pistas del Jukebox — estas ya son archivos locales con capacidad de búsqueda, por lo que una captura en segundo plano no tiene sentido y solo consumiría espacio en disco. El rebobinado y el avance rápido siguen funcionando porque actúan directamente sobre el archivo que se está reproduciendo.
@@ -696,8 +700,6 @@ La transposición está disponible para **podcasts**, **audiolibros** y **pistas
 Cada paso equivale a **un octavo de tono completo** — es decir, **0.25 semitonos** (un tono completo son  2 semitonos, por lo que  8 pasos forman un tono completo, y 48 pasos forman una octava). El rango es de **−12.00 a +12.00 semitonos**, es decir, una octava completa hacia arriba o hacia abajo. NVDA anuncia el nuevo valor después de cada paso, por ejemplo, "**+1.25 semitonos**"; al volver a 0.0 se anuncia "**Tono normal**".
 
 La transposición se recuerda en todas las pistas, de la misma manera que se recuerda la velocidad de reproducción: configurarla una vez mientras se reproduce una pista significa que la siguiente pista con capacidad de tempo que reproduzcas comenzará con el mismo cambio, a menos que el perfil de audio guardado de esa pista lo anule. Reproducir una pista sin un valor de transposición guardado restablece el cambio hacia atrás a 0.0 (Tono normal), al igual que la misma regla que ya se aplica a la velocidad.
-
-**Requisito:** Al igual que la velocidad de reproducción, la transposición requiere que la biblioteca opcional **`bass_fx.dll`** se coloque en la carpeta `bass/x64` (NVDA de 64 bits) o `bass` (NVDA de 32 bits) del complemento. Si falta la biblioteca, NVDA indica que la función no está disponible, y el valor que hayas establecido se recordará para el siguiente flujo con capacidad de tempo.
 
 ## Canciones favoritas
 
@@ -810,14 +812,6 @@ freeAudio busca automáticamente nuevas versiones a través de GitHub.
 - Si no hay ningún enlace de descarga directa disponible,, un botón **Abrir la página** se muestra y la página de la release en GitHub se abre en el navegador predeterminado.
 
 **Para desactivar las comprobaciones automáticas:** Deshabilitar la opción **Buscar actualizaciones automáticamente al iniciar** desde el Menú NVDA → Preferencias → Opciones → freeAudio.
-
-## Registro de cambios
-
-**Añadir carpetas en lote para el Jukebox**
-- El botón **Añadir carpeta…** en la pestaña Jukebox ahora permite seleccionar varias carpetas a la vez en lugar de añadirlas una por una. Todas las carpetas seleccionadas se añaden en una sola operación, con un mensaje resumen que indica cuántas se añadieron.
-
-**Marcar y eliminar varios elementos (Favoritos, Canciones favoritas, Audiolibros, Jukebox)**
-- En las listas de Favoritos, Canciones  favoritas, biblioteca de Audiolibros y Jukebox, ahora puedes marcar varios elementos antes de eliminarlos: pulsa `.` para marcar/desmarcar el elemento resaltado (las filas marcadas se etiquetan como  "(marcado)"), luego pulsa `Suprimir` o utilice el comando **Eliminar seleccionado** del menú contextual para eliminar todos los elementos marcados a la vez, tras un único cuadro de diálogo de confirmación. Consulta la sección [Marcado y Eliminación de Varios Elementos](#marking-and-removing-multiple-items) bajo la sección Favoritos para más detalles.
 
 ## Agradecimientos & Créditos
 

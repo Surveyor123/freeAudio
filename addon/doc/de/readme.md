@@ -68,10 +68,10 @@ Einige dieser Tastenbefehle überschneiden sich mit solchen, die Windows selbst 
 | `Strg+Windows+↑` | Lauter | Erhöht die Lautstärke um 5; Höchstwert 200. |
 | `Strg+Windows+↓` | Leiser | Verringert die Lautstärke um 5; Mindestwert 0. |
 | `Strg+Windows+V` | Zu den Favoriten / Medium herunterladen | Nimmt den laufenden Sender in die Favoritenliste auf oder lädt die laufende Podcast-Folge bzw. das laufende Hörbuch herunter. Sagt an, wenn der Sender bereits in der Liste steht oder das Medium schon heruntergeladen wurde. Bei einem laufenden Jukebox-Titel nicht anwendbar: freeAudio weist dann darauf hin, dass der Tastenbefehl nur für Sender, Podcasts oder Hörbücher gilt. |
-| `Strg+Windows+Umschalt+K` | Schneller abspielen | Erhöht das Wiedergabetempo einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels um 0,1× (tonhöhenerhaltend). Bereich: 0,5× bis 2,0×. Setzt voraus, dass `bass_fx.dll` im Add-on-Ordner liegt. |
-| `Strg+Windows+Umschalt+J` | Langsamer abspielen | Verringert das Wiedergabetempo einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels um 0,1×. Setzt `bass_fx.dll` voraus. |
-| `Umschalt+Windows+K` | Tonhöhe anheben | Hebt die Tonhöhe einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels in Schritten von 1/8 Ganzton (0,25 Halbtöne) an, ohne das Tempo zu ändern. Bereich: −12,00 bis +12,00 Halbtöne. Setzt `bass_fx.dll` voraus. Siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). |
-| `Umschalt+Windows+J` | Tonhöhe absenken | Senkt die Tonhöhe in Schritten von 1/8 Ganzton ab, ohne das Tempo zu ändern. Setzt `bass_fx.dll` voraus. |
+| `Strg+Windows+Umschalt+K` | Schneller abspielen | Erhöht das Wiedergabetempo einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels um 0,1× (tonhöhenerhaltend). Bereich: 0,5× bis 2,0×. |
+| `Strg+Windows+Umschalt+J` | Langsamer abspielen | Verringert das Wiedergabetempo einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels um 0,1×. |
+| `Umschalt+Windows+K` | Tonhöhe anheben | Hebt die Tonhöhe einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels in Schritten von 1/8 Ganzton (0,25 Halbtöne) an, ohne das Tempo zu ändern. Bereich: −12,00 bis +12,00 Halbtöne. Siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). |
+| `Umschalt+Windows+J` | Tonhöhe absenken | Senkt die Tonhöhe in Schritten von 1/8 Ganzton ab, ohne das Tempo zu ändern. |
 | `Strg+Windows+I` | Senderinfo | Sagt den Namen des laufenden Senders, der Podcast-Folge, des Hörbuchs oder des Jukebox-Titels an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. |
 | `Strg+Windows+M` | Audio-Spiegelung | Gibt den laufenden Stream bzw. das laufende Medium zusätzlich auf einem weiteren Audiogerät aus. Erneut gedrückt, beendet es die Spiegelung. |
 | `Strg+Windows+Umschalt+M` | Obligato-Modus (Hintergrundmusik) | Lässt einen ausgewählten Lieblingssender leise im Hintergrund laufen, mit eigenem Ausgabegerät und eigener Lautstärke, unabhängig vom Hauptmedium. Beim ersten Druck öffnet sich ein Dialog zur Wahl von Sender, Ausgabegerät und relativer Lautstärke. Erneut gedrückt, beendet es den Modus. |
@@ -298,8 +298,6 @@ Beim ersten Druck erscheint ein Auswahldialog mit den verfügbaren Ausgabegerät
 - **Mehrere Räume** — Gleichzeitige Ausgabe über einen Bluetooth-Lautsprecher und den eingebauten Lautsprecher; zusätzliche Software, um den Ton in einen anderen Raum zu bringen, ist nicht nötig.
 - **Fernüberwachung** — Bei Bildschirmfreigabe oder Remotedesktop hören beide Seiten denselben Stream gleichzeitig.
 
-> **Hinweis:** Die Audio-Spiegelung steht nur bei aktivem BASS-Backend zur Verfügung. Wird während der Spiegelung die Lautstärke geändert, ändern sich beide Ausgänge gleichzeitig.
-
 ## Obligato-Modus
 
 Der Tastenbefehl `Strg+Windows+Umschalt+M` lässt einen Lieblingssender leise im Hintergrund laufen, und zwar über eine vom Hauptplayer völlig getrennte Audio-Engine — wie eine sanfte musikalische Kulisse unter allem, was gerade sonst geschieht.
@@ -424,8 +422,8 @@ Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Al
 Dafür gibt es zwei Wege:
 
 **Über die Adresse:**
-- Im Feld **„Oder Podcast-Adresse eingeben“** die vollständige RSS- oder Atom-Feed-Adresse einfügen (z. B. `https://example.com/feed.xml`).
-- Die Eingabetaste drücken oder die Schaltfläche **Feed hinzufügen** wählen.
+- Im Feld **Suche** die vollständige RSS- oder Atom-Feed-Adresse einfügen (z. B. `https://example.com/feed.xml`).
+- Die Eingabetaste drücken.
 - freeAudio holt den Feed, prüft ihn und nimmt ihn in die Abos auf. Ist der Feed in Ordnung, folgt eine Bestätigung mit dem Feed-Titel. Schlägt es fehl, erklärt eine Fehlermeldung den Grund.
 
 **Über die Suche:**
@@ -505,11 +503,9 @@ Podcast-Folgen laufen über das **BASS-Backend** (dieselbe Engine wie bei Radios
 
 Ein bewusster Tastendruck wartet einen kurzen Moment ab, bevor er tatsächlich springt, falls noch ein weiterer folgt — pro Tastenfolge erfolgt nur ein Sprung, dessen Weite sich aus der Gesamtzahl der Tastendrücke ergibt und nicht aus deren Summe. Nach dem Sprung sagt NVDA die erreichte Position aus verstrichener und verbleibender Zeit an, statt bloß „X Sekunden vor/zurück“.
 
-**Wiedergabetempo:** Das Tempo von Podcast-Folgen, Hörbüchern und Jukebox-Titeln lässt sich mit `Strg+Windows+Umschalt+K` (schneller) und `Strg+Windows+Umschalt+J` (langsamer) anpassen. Die Schrittweite beträgt 0,1×, der Bereich reicht von 0,5× bis 2,0×, die Tonhöhe bleibt erhalten. Dafür muss die optionale Bibliothek `bass_fx.dll` im Ordner des Add-ons liegen. Fehlt sie, weist NVDA darauf hin, dass die Funktion nicht zur Verfügung steht.
+**Wiedergabetempo:** Das Tempo von Podcast-Folgen, Hörbüchern und Jukebox-Titeln lässt sich mit `Strg+Windows+Umschalt+K` (schneller) und `Strg+Windows+Umschalt+J` (langsamer) anpassen. Die Schrittweite beträgt 0,1×, der Bereich reicht von 0,5× bis 2,0×, die Tonhöhe bleibt erhalten.
 
-**Transponieren (Tonhöhe verschieben):** Unabhängig vom Wiedergabetempo lässt sich die Tonhöhe einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels mit `Umschalt+Windows+K` / `Umschalt+Windows+J` nach oben oder unten verschieben — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). Auch das Transponieren setzt `bass_fx.dll` voraus.
-
-> **Hinweis:** `bass_fx.dll` liegt freeAudio standardmäßig nicht bei. Sie steht auf der [BASS-FX-Seite](https://www.un4seen.com/bass-fx.html) bereit und gehört für diese Funktionen in den Ordner `bass/x64` (bei 64-Bit-NVDA) bzw. `bass` (bei 32-Bit-NVDA) des Add-ons.
+**Transponieren (Tonhöhe verschieben):** Unabhängig vom Wiedergabetempo lässt sich die Tonhöhe einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels mit `Umschalt+Windows+K` / `Umschalt+Windows+J` nach oben oder unten verschieben — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift).
 
 **Klang beim Fortsetzen:** Setzt eine Folge an einer gespeicherten Stelle wieder ein, spielt freeAudio währenddessen kurz einen leisen Kassetten-Ladeklang auf einem eigenen Kanal ab, statt in der Zwischenzeit hörbar bei 0:00 zu beginnen. Das geschieht bei aktivem BASS-Backend von selbst und ist unabhängig von der Einstellung **Übergang beim Senderwechsel** — diese betrifft nur den Wechsel zwischen Live-Radiosendern, nicht das Fortsetzen von Podcasts oder Hörbüchern.
 
@@ -517,7 +513,7 @@ Ein bewusster Tastendruck wartet einen kurzen Moment ab, bevor er tatsächlich s
 
 Ein Rechtsklick auf einen Podcast in der Aboliste oder auf eine seiner Folgen und die Wahl von **Audioprofil für diesen Podcast speichern** sichert die aktuelle Lautstärke, die Effekte, die EQ-Verstärkungen und/oder das Wiedergabetempo als Profil für diesen Podcast. Bei jeder Folge dieses Podcasts greifen die gespeicherten Werte dann automatisch und setzen die globalen Vorgaben außer Kraft. Da der Befehl sowohl im Kontextmenü des Feeds als auch in dem der Folge steht, ist kein Rückweg zur Aboliste nötig — in beiden Fällen entsteht ein Profil für den gesamten Podcast, nicht eines je Folge.
 
-Ein Dialog bestimmt, was genau gespeichert wird:
+Ein Dialog mit 15 Optionen bestimmt, was genau gespeichert wird:
 - **Nur Lautstärke**
 - **Nur Effekte**
 - **Lautstärke und Effekte**
@@ -525,6 +521,14 @@ Ein Dialog bestimmt, was genau gespeichert wird:
 - **Effekte und Wiedergabetempo**
 - **Nur Wiedergabetempo**
 - **Lautstärke, Effekte und Wiedergabetempo**
+- **Nur Transponieren**
+- **Lautstärke und Transponieren**
+- **Effekte und Transponieren**
+- **Wiedergabetempo und Transponieren**
+- **Lautstärke, Effekte und Transponieren**
+- **Lautstärke, Wiedergabetempo und Transponieren**
+- **Effekte, Wiedergabetempo und Transponieren**
+- **Lautstärke, Effekte, Wiedergabetempo und Transponieren**
 
 Nur das Gewählte wandert ins Profil; alles Übrige behält, was dort bereits hinterlegt war. Die Wahl **Nur Wiedergabetempo** bei einem Podcast mit bereits gespeichertem Lautstärke- und Effektprofil ändert also allein das Tempo und lässt den Rest unangetastet.
 
@@ -661,7 +665,7 @@ Zwei weitere Befehle, die nur verfügbar sind, solange eine Datei oder ein Ordne
 - **Fokussierte Datei mit freeAudio abspielen** — spielt die hervorgehobene Audiodatei direkt ab, ohne dass sie schon in der Jukebox-Liste stehen muss. Funktioniert nur bei Dateien; bei einem Ordner kommt stattdessen der Hinweis, den Ordner zur Jukebox hinzuzufügen.
 - **Fokussiertes Element zur freeAudio-Jukebox hinzufügen** — nimmt die hervorgehobene Datei oder den hervorgehobenen Ordner in die Jukebox-Liste auf, genau als wäre oben **Datei hinzufügen…** oder **Ordner hinzufügen…** verwendet worden.
 
-Keiner der beiden Befehle hat eine voreingestellte Taste. Eine lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen zuweisen, **während der Fokus in einem Explorer-Fenster liegt** — die Befehle erscheinen dort im eigenen Abschnitt des Explorers statt unter „Alle Anwendungen“. Die gewählte Tastenkombination löst diese Befehle daher nur beim Durchsuchen von Dateien im Explorer aus; überall sonst behält sie ihre normale Bedeutung.
+Keiner der beiden Befehle hat eine voreingestellte Taste. Eine lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen, **während der Fokus in einem Explorer-Fenster liegt**.
 
 ### Aus der Jukebox abspielen
 
@@ -678,8 +682,8 @@ Jeder aus der Jukebox abgespielte Titel erhält die volle Behandlung für lokale
 
 - **Fortsetzen:** freeAudio merkt sich die Position in jedem Titel, speichert sie beim Anhalten und regelmäßig während der Wiedergabe und setzt beim nächsten Abspielen dort wieder ein — auch über einen NVDA-Neustart hinweg.
 - **Abgestuftes Springen:** `Strg+Windows+J` / `Strg+Windows+K` springen innerhalb des Titels mit derselben Abstufung wie bei Podcasts und Hörbüchern — gehalten 5 Sekunden pro Wiederholung, ein Tastendruck 12 Sekunden, zwei Tastendrücke 1 Minute, drei oder mehr 5 Minuten.
-- **Wiedergabetempo:** `Strg+Windows+Umschalt+J` / `Strg+Windows+Umschalt+K` ändern das Tempo in Schritten von 0,1× zwischen 0,5× und 2,0×, die Tonhöhe bleibt erhalten. Setzt `bass_fx.dll` voraus.
-- **Transponieren:** `Umschalt+Windows+J` / `Umschalt+Windows+K` verschieben die Tonhöhe, ohne das Tempo zu ändern — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). Setzt ebenfalls `bass_fx.dll` voraus.
+- **Wiedergabetempo:** `Strg+Windows+Umschalt+J` / `Strg+Windows+Umschalt+K` ändern das Tempo in Schritten von 0,1× zwischen 0,5× und 2,0×, die Tonhöhe bleibt erhalten.
+- **Transponieren:** `Umschalt+Windows+J` / `Umschalt+Windows+K` verschieben die Tonhöhe, ohne das Tempo zu ändern — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift).
 - **Audioprofil:** Lautstärke, Effekte, EQ und Tempo eines Titels lassen sich global festhalten, indem ein Titel mit den passenden Einstellungen abgespielt wird — die Jukebox bietet derzeit kein Profilmenü je Titel, daher gelten die aktuellen globalen Einstellungen.
 
 > **Hinweis:** Der Timeshift-Puffer (zum Zurückspulen von Live-Radio) wird für Jukebox-Titel bewusst **nicht** gestartet — es sind ohnehin spulbare lokale Dateien, eine Hintergrundaufzeichnung hätte keinen Zweck und würde nur Speicherplatz belegen. Zurück- und Vorspulen funktionieren trotzdem, weil sie direkt auf der abgespielten Datei arbeiten.
@@ -696,8 +700,6 @@ Transponieren steht für **Podcasts**, **Hörbücher** und **Jukebox-Titel** zur
 Jeder Schritt beträgt **ein Achtel eines Ganztons** — also **0,25 Halbtöne** (ein Ganzton sind 2 Halbtöne, 8 Schritte ergeben also einen Ganzton und 48 Schritte eine Oktave). Der Bereich reicht von **−12,00 bis +12,00 Halbtönen**, also eine volle Oktave nach oben oder unten. Nach jedem Schritt sagt NVDA den neuen Wert an, zum Beispiel „**+1.25 Halbtöne**“; die Rückkehr auf 0,0 wird als „**Normale Tonhöhe**“ angesagt.
 
 Die Transposition bleibt wie das Wiedergabetempo über Titel hinweg erhalten: Einmal während eines Titels eingestellt, beginnt der nächste tempofähige Titel mit derselben Verschiebung, sofern dessen eigenes gespeichertes Audioprofil sie nicht überschreibt. Ein Titel ohne gespeicherten Transpositionswert setzt die Verschiebung wieder auf 0,0 (Normale Tonhöhe) zurück — dieselbe Regel, die schon für das Tempo gilt.
-
-**Voraussetzung:** Wie das Wiedergabetempo setzt auch das Transponieren voraus, dass die optionale Bibliothek **`bass_fx.dll`** im Ordner `bass/x64` (64-Bit-NVDA) bzw. `bass` (32-Bit-NVDA) des Add-ons liegt. Fehlt sie, weist NVDA darauf hin, dass die Funktion nicht verfügbar ist, und der eingestellte Wert bleibt trotzdem für den nächsten tempofähigen Stream erhalten.
 
 ## Lieblingstitel
 
@@ -810,14 +812,6 @@ freeAudio sucht über GitHub automatisch nach neuen Versionen.
 - Fehlt ein direkter Downloadlink, erscheint eine Schaltfläche **Seite öffnen**, und die GitHub-Veröffentlichungsseite öffnet sich im Standardbrowser.
 
 **Automatische Prüfungen abschalten:** Die Option **Beim Start automatisch nach Updates suchen** unter NVDA-Menü → Optionen → Einstellungen → freeAudio deaktivieren.
-
-## Änderungen
-
-**Mehrere Ordner auf einmal zur Jukebox hinzufügen**
-- Die Schaltfläche **Ordner hinzufügen…** auf der Registerkarte „Jukebox“ erlaubt jetzt die Auswahl mehrerer Ordner auf einmal, statt sie einzeln hinzuzufügen. Alle gewählten Ordner werden in einem Schritt hinzugefügt, mit einer einzigen zusammenfassenden Ansage, wie viele es waren.
-
-**Mehrere Einträge markieren und entfernen (Favoriten, Lieblingstitel, Hörbücher, Jukebox)**
-- In den Listen Favoriten, Lieblingstitel, Hörbuchbibliothek und Jukebox lassen sich jetzt mehrere Einträge vor dem Entfernen markieren: `.` markiert den hervorgehobenen Eintrag oder hebt die Markierung auf (markierte Zeilen tragen den Zusatz „(markiert)“), danach entfernt `Entf` oder der Kontextmenübefehl **Markierte entfernen** nach einer einzigen Rückfrage alle markierten Einträge auf einmal. Einzelheiten unter [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) bei den Favoriten.
 
 ## Dank und Mitwirkende
 

@@ -68,10 +68,10 @@ Některé z těchto zkratek se překrývají se zkratkami, které používá sá
 | `Ctrl+Win+↑` | Zvýšení hlasitosti | Zvýší hlasitost o 5; maximálně 200. |
 | `Ctrl+Win+↓` | Snížení hlasitosti | Sníží hlasitost o 5; minimálně 0. |
 | `Ctrl+Win+V` | Přidat k oblíbeným / stáhnout médium | Přidá aktuálně přehrávanou stanici do seznamu oblíbených nebo stáhne aktuálně přehrávanou epizodu podcastu či audioknihu. Oznámí, pokud je stanice již v seznamu nebo pokud bylo médium již staženo. Neplatí, když se přehrává skladba z jukeboxu: freeAudio oznámí, že zkratka je určena pouze pro stanice, podcasty nebo audioknihy. |
-| `Ctrl+Win+Shift+K` | Zvýšit rychlost přehrávání | Zvýší rychlost přehrávání epizody podcastu, audioknihy nebo skladby jukeboxu o 0,1× (se zachováním výšky tónu). Rozsah: 0,5× až 2,0×. Vyžaduje `bass_fx.dll` umístěnou ve složce doplňku. |
-| `Ctrl+Win+Shift+J` | Snížit rychlost přehrávání | Sníží rychlost přehrávání epizody podcastu, audioknihy nebo skladby jukeboxu o 0,1×. Vyžaduje `bass_fx.dll`. |
-| `Shift+Win+K` | Transponovat nahoru | Zvýší výšku tónu epizody podcastu, audioknihy nebo skladby jukeboxu v krocích 1/8 celého tónu (0,25 půltónu), bez změny rychlosti. Rozsah: −12,00 až +12,00 půltónu. Vyžaduje `bass_fx.dll`. Viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu). |
-| `Shift+Win+J` | Transponovat dolů | Sníží výšku tónu v krocích 1/8 celého tónu, bez změny rychlosti. Vyžaduje `bass_fx.dll`. |
+| `Ctrl+Win+Shift+K` | Zvýšit rychlost přehrávání | Zvýší rychlost přehrávání epizody podcastu, audioknihy nebo skladby jukeboxu o 0,1× (se zachováním výšky tónu). Rozsah: 0,5× až 2,0×. |
+| `Ctrl+Win+Shift+J` | Snížit rychlost přehrávání | Sníží rychlost přehrávání epizody podcastu, audioknihy nebo skladby jukeboxu o 0,1×. |
+| `Shift+Win+K` | Transponovat nahoru | Zvýší výšku tónu epizody podcastu, audioknihy nebo skladby jukeboxu v krocích 1/8 celého tónu (0,25 půltónu), bez změny rychlosti. Rozsah: −12,00 až +12,00 půltónu. Viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu). |
+| `Shift+Win+J` | Transponovat dolů | Sníží výšku tónu v krocích 1/8 celého tónu, bez změny rychlosti. |
 | `Ctrl+Win+I` | Informace o stanici | Oznámí název aktuálně přehrávané stanice, epizody podcastu, audioknihy nebo skladby jukeboxu. Dvojím stisknutím zobrazíte v dialogovém okně podrobnosti, jako je země, žánr a datový tok. Třikrát stiskněte pro zkopírování informací o aktuální skladbě (metadata ICY) do schránky, pokud jsou k dispozici; pokud metadata nejsou k dispozici, spustí se místo toho rozpoznávání hudby Shazam. Čtyřnásobným stisknutím vynutíte rozpoznání hudby v případě nesprávných metadat ICY. |
 | `Ctrl+Win+M` | Zrcadlení zvuku | Zrcadlí aktuální datový tok nebo médium na další výstupní zvukové zařízení současně. Dalším stisknutím zrcadlení zastavíte. |
 | `Ctrl+Win+Shift+M` | Režim Obligato (hudba na pozadí) | Opakovaně přehrává zvolenou oblíbenou stanici tiše na pozadí, na vlastním výstupním zařízení a s vlastní hlasitostí, bez ohledu na to, co hraje v hlavním přehrávači. První stisknutí otevře dialog pro výběr stanice, výstupního zařízení a relativní hlasitosti. Dalším stisknutím jej zastavíte. |
@@ -298,8 +298,6 @@ Při prvním stisknutí se zobrazí dialogové okno výběru se seznamem dostupn
 - **Více místností** - Přehrávejte současně přes reproduktor Bluetooth a vestavěný reproduktor; k přenosu zvuku do jiné místnosti není třeba žádný další software.
 - **Vzdálené monitorování** - Při sdílení obrazovky nebo relaci vzdálené plochy může místní i vzdálená strana slyšet stejný stream současně.
 
-> **Poznámka:** Zrcadlení zvuku je k dispozici pouze v případě, že je aktivní backend BASS. Pokud dojde ke změně hlasitosti při aktivním zrcadlení, aktualizují se oba výstupy současně.
-
 ## Režim hudby na pozadí (Obligato)
 
 Klávesová zkratka `Ctrl+Win+Shift+M` přehrává oblíbenou stanici tiše na pozadí, a to na zcela samostatném zvukovém enginu odděleném od hlavního přehrávače - jako jemná hudební kulisa běžící pod tím, co právě děláte.
@@ -423,8 +421,8 @@ Otevřete Průzkumníka stanic pomocí `Ctrl+Win+R` a přepněte na kartu **Podc
 Kanál podcastu můžete přidat dvěma způsoby:
 
 **Podle adresy URL:**
-- Do pole **„Nebo zadejte adresu URL podcastu"** vložte úplnou adresu URL kanálu RSS nebo Atom (např. `https://example.com/feed.xml`).
-- Stiskněte Enter nebo klikněte na tlačítko **Přidat kanál**.
+- **Hledat** vložte úplnou adresu URL kanálu RSS nebo Atom (např. `https://example.com/feed.xml`).
+- Stiskněte Enter.
 - freeAudio kanál načte, ověří a přidá jej do vašich odběrů. Pokud je kanál platný, uslyšíte potvrzení s názvem kanálu. Pokud se to nezdaří, chybová zpráva vysvětlí důvod.
 
 **Vyhledáváním:**
@@ -504,11 +502,9 @@ Epizody podcastů se přehrávají pomocí **backendu BASS** (stejný engine, kt
 
 Záměrné stisknutí se krátce podrží, než se posun skutečně provede, pro případ, že přijde další stisknutí - k posunu dojde pouze jednou za sérii stisknutí, o velikosti odpovídající celkovému počtu stisknutí, nikoli součtu jednotlivých hodnot. Po posunu NVDA oznámí výslednou uplynulou/zbývající pozici v epizodě, nikoli jen „X sekund vpřed/vzad".
 
-**Rychlost přehrávání:** Rychlost přehrávání epizod podcastů, audioknih a skladeb jukeboxu můžete upravit pomocí `Ctrl+Win+Shift+K` (rychleji) a `Ctrl+Win+Shift+J` (pomaleji). Rychlost se mění v krocích po 0,1× v rozsahu od 0,5× do 2,0×, se zachováním výšky tónu. Tato funkce vyžaduje volitelnou knihovnu `bass_fx.dll` umístěnou ve složce doplňku. Pokud knihovna chybí, NVDA vás informuje, že funkce není k dispozici.
+**Rychlost přehrávání:** Rychlost přehrávání epizod podcastů, audioknih a skladeb jukeboxu můžete upravit pomocí `Ctrl+Win+Shift+K` (rychleji) a `Ctrl+Win+Shift+J` (pomaleji). Rychlost se mění v krocích po 0,1× v rozsahu od 0,5× do 2,0×, se zachováním výšky tónu.
 
-**Transpozice (posun výšky tónu):** Nezávisle na rychlosti přehrávání můžete posunout výšku tónu epizody podcastu, audioknihy nebo skladby jukeboxu nahoru nebo dolů pomocí `Shift+Win+K` / `Shift+Win+J` — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu). Transpozice také vyžaduje `bass_fx.dll`.
-
-> **Poznámka:** Knihovna `bass_fx.dll` není součástí FreeRadia ve výchozím stavu. Můžete ji stáhnout ze stránky [BASS FX](https://www.un4seen.com/bass-fx.html) a umístit do složky doplňku `bass/x64` (pro 64bitové NVDA) nebo `bass` (pro 32bitové NVDA), abyste tuto funkci zapnuli.
+**Transpozice (posun výšky tónu):** Nezávisle na rychlosti přehrávání můžete posunout výšku tónu epizody podcastu, audioknihy nebo skladby jukeboxu nahoru nebo dolů pomocí `Shift+Win+K` / `Shift+Win+J` — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu).
 
 **Zvukový efekt při pokračování:** Kdykoli epizoda pokračuje z uložené pozice, freeAudio krátce přehraje na samostatném kanálu jemný zvukový efekt připomínající zavádění kazety, zatímco se posouvá zpět na vaše uložené místo, místo aby nechalo mezitím slyšitelně hrát vlastní zvuk epizody od 0:00. To se děje automaticky, kdykoli je aktivní backend BASS, a je to nezávislé na nastavení **Přechod při přepnutí stanice** - to nastavení ovlivňuje pouze přepínání mezi živými rozhlasovými stanicemi, nikoli pokračování podcastů nebo audioknih.
 
@@ -516,7 +512,7 @@ Záměrné stisknutí se krátce podrží, než se posun skutečně provede, pro
 
 Klepněte pravým tlačítkem na podcast v seznamu Odběry, nebo klepněte pravým tlačítkem na kteroukoli z jeho epizod, a zvolte **Uložit zvukový profil pro tento podcast**, čímž uložíte aktuální hlasitost, efekty, zisk ekvalizéru a/nebo rychlost přehrávání jako profil svázaný s tímto podcastem. Kdykoli se přehraje jakákoli epizoda tohoto podcastu, uložená nastavení se automaticky použijí a přepíší globální výchozí hodnoty. Protože je příkaz dostupný jak z kontextové nabídky kanálu, tak z kontextové nabídky epizody, můžete se k němu dostat, aniž byste se museli vracet do seznamu odběrů - v obou případech se vždy ukládá jeden profil pro celý podcast, ne samostatný profil pro každou epizodu.
 
-Dialogové okno vám umožní vybrat přesně, co chcete uložit:
+Dialogové okno s 15 možnostmi vám umožní vybrat přesně, co chcete uložit:
 - **Pouze hlasitost**
 - **Pouze efekty**
 - **Hlasitost a efekty**
@@ -524,6 +520,14 @@ Dialogové okno vám umožní vybrat přesně, co chcete uložit:
 - **Efekty a rychlost přehrávání**
 - **Pouze rychlost přehrávání**
 - **Hlasitost, efekty a rychlost přehrávání**
+- **Pouze transpozice**
+- **Hlasitost a transpozice**
+- **Efekty a transpozice**
+- **Rychlost přehrávání a transpozice**
+- **Hlasitost, efekty a transpozice**
+- **Hlasitost, rychlost přehrávání a transpozice**
+- **Efekty, rychlost přehrávání a transpozice**
+- **Hlasitost, efekty, rychlost přehrávání a transpozice**
 
 Do profilu se zapíší pouze vybrané položky; cokoli, co vynecháte, si ponechá to, co v něm již bylo uloženo. Například výběrem možnosti **Pouze rychlost přehrávání** u podcastu, který již má uložený profil hlasitosti/efektů, aktualizujete pouze rychlost a zbytek zůstane nedotčen.
 
@@ -660,7 +664,7 @@ Dva další příkazy, dostupné pouze tehdy, když je v seznamu souborů Průzk
 - **Přehrát zaměřený soubor ve freeAudio** — přehraje zvýrazněný zvukový soubor přímo, aniž by musel být již ve vašem seznamu Jukebox. Funguje pouze na soubory; při použití na složku vám sdělí, abyste složku přidali do jukeboxu místo toho.
 - **Přidat zaměřenou položku do jukeboxu freeAudio** — přidá zvýrazněný soubor nebo složku do vašeho seznamu Jukebox, přesně jako kdybyste použili **Přidat soubor…** nebo **Přidat složku…** výše.
 
-Ani jeden z příkazů nemá ve výchozím stavu přiřazenou klávesu. Přiřaďte ji z nabídky NVDA → Předvolby → Vstupní gesta **při zaměření uvnitř okna Průzkumníka souborů** — zobrazí se tam v sekci samotného Průzkumníka, nikoli v části „Všechny aplikace", takže zvolená kombinace kláves tyto příkazy spustí pouze při procházení souborů v Průzkumníku; všude jinde si zachovává svůj obvyklý význam.
+Ani jeden z příkazů nemá ve výchozím stavu přiřazenou klávesu. Přiřaďte ji z nabídky NVDA → Předvolby → Vstupní gesta → freeAudio **při zaměření uvnitř okna Průzkumníka souborů**.
 
 ### Přehrávání z jukeboxu
 
@@ -677,8 +681,8 @@ Každá skladba přehraná z jukeboxu dostane plné zacházení místního médi
 
 - **Pokračování:** freeAudio si pamatuje vaši pozici v každé skladbě, ukládá ji při pozastavení a pravidelně během přehrávání, a při dalším přehrání z ní pokračuje — dokonce i po restartu NVDA.
 - **Odstupňované posouvání:** `Ctrl+Win+J` / `Ctrl+Win+K` posouvají v rámci skladby se stejným škálováním stisknutí/podržení jako podcasty a audioknihy — podržení na 5 sekund za opakování, jedno stisknutí na 12 sekund, dvě stisknutí na 1 minutu, tři nebo více stisknutí na 5 minut.
-- **Rychlost přehrávání:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` upravují rychlost v krocích po 0,1× od 0,5× do 2,0×, se zachováním výšky tónu. Vyžaduje `bass_fx.dll`.
-- **Transpozice:** `Shift+Win+J` / `Shift+Win+K` mění výšku tónu bez změny rychlosti — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu). Také vyžaduje `bass_fx.dll`.
+- **Rychlost přehrávání:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` upravují rychlost v krocích po 0,1× od 0,5× do 2,0×, se zachováním výšky tónu.
+- **Transpozice:** `Shift+Win+J` / `Shift+Win+K` mění výšku tónu bez změny rychlosti — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu).
 - **Zvukový profil:** Hlasitost, efekty, ekvalizér a rychlost skladby lze uložit globálně přehráním skladby s příslušně nastavenými hodnotami — Jukebox v současnosti neposkytuje nabídku profilu pro jednotlivé skladby, takže platí aktuální globální nastavení.
 
 > **Poznámka:** Vyrovnávací paměť časového posunu (používaná pro přetáčení živého rádia) se pro skladby jukeboxu záměrně **nespouští** — jsou to již lokální soubory s možností posouvání, takže zachytávání na pozadí nemá žádný účel a pouze by spotřebovávalo místo na disku. Přetáčení vpřed i vzad stále funguje, protože působí přímo na přehrávaný soubor.
@@ -695,8 +699,6 @@ Transpozice je k dispozici pro **podcasty**, **audioknihy** a **skladby jukeboxu
 Každý krok je **osmina celého tónu** — tedy **0,25 půltónu** (celý tón jsou 2 půltóny, takže 8 kroků tvoří celý tón a 48 kroků tvoří oktávu). Rozsah je **−12,00 až +12,00 půltónu**, tj. jedna celá oktáva nahoru nebo dolů. NVDA po každém kroku oznámí novou hodnotu, například „**+1,25 půltónu**"; návrat na 0,0 oznámí „**Normální výška tónu**".
 
 Transpozice se pamatuje napříč skladbami, stejně jako rychlost přehrávání: nastavení jednou při přehrávání skladby znamená, že další skladba schopná tempa, kterou přehrajete, začne se stejným posunem, pokud to její vlastní uložený zvukový profil nepřepíše. Přehrání skladby bez uložené hodnoty transpozice resetuje posun zpět na 0,0 (Normální výška tónu), stejně jako stejné pravidlo již platí pro rychlost.
-
-**Požadavek:** Stejně jako rychlost přehrávání vyžaduje transpozice volitelnou knihovnu **`bass_fx.dll`** umístěnou ve složce doplňku `bass/x64` (64bitové NVDA) nebo `bass` (32bitové NVDA). Pokud knihovna chybí, NVDA vám sdělí, že funkce není k dispozici, a hodnota, kterou jste nastavili, je stále zapamatována pro příští stream schopný tempa.
 
 ## Oblíbené skladby
 
@@ -809,14 +811,6 @@ freeAudio automaticky kontroluje nové verze prostřednictvím služby GitHub.
 - Pokud není k dispozici přímý odkaz ke stažení, zobrazí se tlačítko **Otevřít stránku** a v výchozím prohlížeči se otevře stránka release na GitHubu.
 
 **Vypnutí automatických kontrol:** Vypněte možnost **Automaticky kontrolovat aktualizace** v NVDA Menu → Předvolby → Nastavení → freeAudio.
-
-## Změny
-
-**Hromadné přidávání složek do jukeboxu**
-- Tlačítko **Přidat složku…** na kartě Jukebox nyní umožňuje vybrat více složek najednou místo přidávání po jedné. Všechny vybrané složky se přidají v jedné operaci s jedním souhrnným oznámením o tom, kolik jich bylo přidáno.
-
-**Označení a odstranění více položek (Oblíbené, Oblíbené skladby, Audioknihy, Jukebox)**
-- V seznamech Oblíbené, Oblíbené skladby, knihovna audioknih a Jukebox nyní můžete před odstraněním označit více položek: stiskněte `.` pro označení/odznačení zvýrazněné položky (označené řádky jsou označeny „(označeno)“), poté stiskněte `Delete` nebo použijte příkaz kontextové nabídky **Odstranit vybrané** pro odstranění všech označených položek najednou po jednom potvrzovacím dialogu. Podrobnosti viz [Označení a odstranění více položek](#označení-a-odstranění-více-položek) v části Oblíbené.
 
 ## Poděkování a zásluhy
 

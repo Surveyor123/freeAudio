@@ -68,10 +68,10 @@ Certains de ces raccourcis sont identiques à ceux utilisés par Windows lui-mê
 | `Ctrl+Win+↑` | Augmenter le volume | Augmente le volume de 5 ; maximum 200. |
 | `Ctrl+Win+↓` | Diminuer le volume | Diminue le volume de 5 ; minimum 0. |
 | `Ctrl+Win+V` | Ajouter aux favoris / Télécharger le média | Ajoute la station en cours de lecture à la liste des favoris ou télécharge l'épisode de podcast ou le livre audio en cours de lecture. Annonce si la station est déjà dans la liste ou si le média avait déjà été téléchargé. Non applicable lorsqu'un morceau du jukebox est en cours de lecture: freeAudio vous indique que ce raccourci est uniquement valable pour les stations, les podcasts ou les livres audio. |
-| `Ctrl+Win+Shift+K` | Augmenter la vitesse de lecture | Augmente la vitesse de lecture d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox de 0.1x (préservation de la hauteur). Gamme: 0.5x à 2.0x. Nécessite le `bass_fx.dll` pour le placer dans le dossier de l'extension. |
-| `Ctrl+Win+Shift+J` | Diminuer la vitesse de lecture | Diminue la vitesse de lecture d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox de 0.1x. Nécessite le `bass_fx.dll`. |
-| `Shift+Win+K` | Transposition vers le haut | Augmente la hauteur d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox par pas de 1/8 de ton entier (0.25 demi-ton), sans changer sa vitesse. Gamme: −12.00 à +12.00 demi-tons. Nécessite le `bass_fx.dll`. Consultez la section [Transposition (Changement de la Hauteur)](#transpose-pitch-shift). |
-| `Shift+Win+J` | Transposition vers le bas | Diminue la hauteur par pas de 1/8 de ton entier, sans modifier la vitesse. Nécessite le `bass_fx.dll`. |
+| `Ctrl+Win+Shift+K` | Augmenter la vitesse de lecture | Augmente la vitesse de lecture d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox de 0.1x (préservation de la hauteur). Gamme: 0.5x à 2.0x. |
+| `Ctrl+Win+Shift+J` | Diminuer la vitesse de lecture | Diminue la vitesse de lecture d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox de 0.1x. |
+| `Shift+Win+K` | Transposition vers le haut | Augmente la hauteur d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox par pas de 1/8 de ton entier (0.25 demi-ton), sans changer sa vitesse. Gamme: −12.00 à +12.00 demi-tons. Consultez la section [Transposition (Changement de la Hauteur)](#transpose-pitch-shift). |
+| `Shift+Win+J` | Transposition vers le bas | Diminue la hauteur par pas de 1/8 de ton entier, sans modifier la vitesse. |
 | `Ctrl+Win+I` | Informations sur la Station | Annonce le nom de la station en cours de lecture, épisode de podcast, livre audio ou morceau du jukebox. Appuyez deux fois pour afficher des détails tels que le pays, le genre et le bitrate dans un dialogue. Appuyez trois fois pour copier les informations de la piste actuelle (métadonnées ICY) dans le presse-papiers si disponible ; si aucune métadonnée n'est présente, démarre la reconnaissance musicale Shazam à la place. Appuyez quatre fois pour forcer la reconnaissance musicale en cas de métadonnées ICY erronées. |
 | `Ctrl+Win+M` | Miroir audio | Mettre en miroir le flux actuel ou média vers un périphérique de sortie audio supplémentaire simultanément. Appuyez à nouveau pour arrêter la mise en miroir. |
 | `Ctrl+Win+Shift+M` | Mode Obligato (musique de fond) | Diffuse en boucle une station favorite choisie en arrière-plan, discrètement, sur son propre périphérique de sortie et à son propre volume, quel que soit le média principal diffusé. Lorsque vous appuyez  pour la première fois, une boîte de dialogue s'ouvrira permettant de sélectionner la station, le périphérique de sortie et le volume. Appuyez de nouveau pour l'arrêter. |
@@ -298,8 +298,6 @@ Au premier appui, une boîte de dialogue de sélection répertoriant les périph
 - **Multi-pièces** — Jouez simultanément via un haut-parleur Bluetooth et le haut-parleur intégré ; aucun logiciel supplémentaire n'est nécessaire pour transporter l'audio dans une autre pièce.
 - **Surveillance à distance** — Dans une session de partage d'écran ou de bureau à distance, les côtés local et distant peuvent entendre le même flux simultanément.
 
-> **Remarque:** La mise en miroir audio n'est disponible que lorsque le BASS backend est actif. Si le volume est modifié alors que la mise en miroir est active, les deux sorties sont mises à jour simultanément.
-
 ## Mode Obligato
 
 Le raccourci `Ctrl+Win+Shift+M` permet de diffuser discrètement une station favorite en arrière-plan, via un moteur audio distinct du lecteur principal — ainsi, vous profitez d'une douce musique de fond, quelle que soit votre activité.
@@ -424,8 +422,8 @@ Ouvrez le navigateur de stations avec `Ctrl+Win+R` et passez à l'onglet **Podca
 Vous pouvez ajouter un flux de podcast de deux manières:
 
 **Par URL:**
-- Dans le champ **"Ou saisissez l'URL du podcast"**, collez l'URL complète du flux RSS ou Atom (par exemple `https://example.com/feed.xml`).
-- Appuyez sur Entrée ou cliquez sur le bouton **Ajouter un flux**.
+- Dans le champ **Recherche**, collez l'URL complète du flux RSS ou Atom (par exemple `https://example.com/feed.xml`).
+- Appuyez sur Entrée.
 - freeAudio récupère le flux, le valide et l'ajoute à vos abonnements. Si le flux est valide, vous entendrez une confirmation avec le titre du flux. En cas d'échec, un message d'erreur explique pourquoi.
 
 **Par recherche:**
@@ -505,11 +503,9 @@ Les épisodes de podcast sont lus à l'aide du **BASS backend** (le même moteur
 
 Un appui long est maintenu un bref instant avant le lancement de la recherche, au cas où un autre appui serait encore nécessaire. Une seule recherche est effectuée par séquence d'appuis, sa durée étant adaptée au nombre d'appuis réalisés, et non à la somme de leurs durées respectives. Après une recherche, NVDA annonce la position écoulée/restante dans l'épisode, et non simplement "X secondes en avant/en arrière".
 
-**Vitesse de lecture:** Vous pouvez régler la vitesse de lecture des épisodes du podcast, des livres audio et des morceaux du jukebox en utilisant `Ctrl+Win+Shift+K` (plus rapide) et `Ctrl+Win+Shift+J` (plus lent). La vitesse change par incréments de 0.1x, allant de 0.5x à 2.0x, avec la hauteur préservée. Cela nécessite que la bibliothèque facultative `bass_fx.dll` soit placée dans le dossier de l'extension. Si la bibliothèque est manquante, NVDA vous informera que la fonctionnalité n'est pas disponible.
+**Vitesse de lecture:** Vous pouvez régler la vitesse de lecture des épisodes du podcast, des livres audio et des morceaux du jukebox en utilisant `Ctrl+Win+Shift+K` (plus rapide) et `Ctrl+Win+Shift+J` (plus lent). La vitesse change par incréments de 0.1x, allant de 0.5x à 2.0x, avec la hauteur préservée.
 
-**Transposition (changement de la hauteur):** Indépendamment de la vitesse de lecture, vous pouvez modifier la hauteur d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox vers le haut ou vers le bas avec `Shift+Win+K` / `Shift+Win+J` — consultez la section [Transposition (Changement de la Hauteur)](#transpose-pitch-shift). La transposition nécessite également le `bass_fx.dll`.
-
-> **Remarque:** `bass_fx.dll` n'est pas fourni avec freeAudio par défaut. Vous pouvez le télécharger depuis la [page BASS FX](https://www.un4seen.com/bass-fx.html) et placez-le dans le dossier  de l'extension `bass/x64` (pour NVDA 64 bits) ou `bass` (pour NVDA 32 bits) pour activer cette fonctionnalité.
+**Transposition (changement de la hauteur):** Indépendamment de la vitesse de lecture, vous pouvez modifier la hauteur d'un épisode de podcast, d'un livre audio ou d'un morceau du jukebox vers le haut ou vers le bas avec `Shift+Win+K` / `Shift+Win+J` — consultez la section [Transposition (Changement de la Hauteur)](#transpose-pitch-shift).
 
 **Reprise de l'effet sonore:** Lorsqu'un épisode reprend à partir d'une position enregistrée, freeAudio diffuse brièvement un léger bruitage de chargement de cassette sur un canal séparé pendant qu'il retrouve votre point de lecture, au lieu de laisser l'audio de l'épisode se poursuivre normalement depuis 0:00. Ce comportement est automatique lorsque le BASS backend est actif et est indépendant du paramètre **Transition de changement de station** — ce paramètre uniquement affecte le passage entre les stations de radio en direct, et non la reprise des podcasts ou des livres audio.
 
@@ -517,7 +513,7 @@ Un appui long est maintenu un bref instant avant le lancement de la recherche, a
 
 Faites un clic droit sur un podcast dans la Liste des abonnements, ou cliquez avec le bouton droit sur n'importe lequel de ses épisodes, et choisissez **Enregistrer le profil audio de ce podcast** pour sauvegarder le volume actuel, effets, gains EQ et/ou la vitesse de lecture en tant que profil lié à ce podcast. À chaque fois qu'un épisode de ce podcast est diffusé, les paramètres enregistrés sont appliqués automatiquement, remplaçant les valeurs par défaut globales. Comme la commande est disponible à la fois dans le menu contextuel du flux et dans le menu contextuel de l'épisode, vous pouvez y accéder sans revenir à la Liste des abonnements — dans tous les cas, conservez toujours un seul profil pour l'ensemble du podcast, et non un profil distinct pour chaque épisode.
 
-Une boîte de dialogue vous permet de choisir précisément ce que vous souhaitez enregistrer:
+Une boîte de dialogue à 15 options vous permet de choisir précisément ce que vous souhaitez enregistrer:
 - **Volume uniquement**
 - **Effets uniquement**
 - **Volume et effets**
@@ -525,6 +521,14 @@ Une boîte de dialogue vous permet de choisir précisément ce que vous souhaite
 - **Effets et vitesse de lecture**
 - **Vitesse de lecture uniquement**
 - **Volume, effets et vitesse de lecture**
+- **Transposition de la hauteur uniquement**
+- **Volume et transposition de la hauteur**
+- **Effets et transposition de la hauteur**
+- **Vitesse de lecture et transposition de la hauteur**
+- **Volume, effets et transposition de la hauteur**
+- **Volume, vitesse de lecture et transposition de la hauteur**
+- **Effets, vitesse de lecture et transposition de la hauteur**
+- **Volume, effets, vitesse de lecture et transposition de la hauteur**
 
 Seuls les éléments que vous sélectionnez sont enregistrés dans le profil ; tout ce qui est laissé de côté conserve les données déjà enregistrées. Par exemple, en choisissant **Vitesse de lecture uniquement** sur un podcast qui possède déjà un profil de volume/effets enregistré, seule la vitesse est mise à jour, le reste restant inchangé.
 
@@ -661,7 +665,7 @@ Deux autres commandes, disponibles uniquement lorsqu'un fichier ou un dossier es
 - **Lire le fichier focalisé avec freeAudio** — permet de lire directement le fichier audio sélectionné, sans qu'il soit nécessaire qu'il figure déjà dans votre liste Jukebox. Fonctionne uniquement avec les fichiers ; si vous l'utilisez avec un dossier, vous devrez ajouter ce dossier au Jukebox.
 - **Ajouter l'élément focalisé au jukebox de freeAudio** — ajoute le fichier ou le dossier sélectionné à votre liste Jukebox, exactement comme si vous aviez utilisé **Ajouter un fichier…** ou **Ajouter un dossier…** mentionné ci-dessus.
 
-Aucune de ces commandes n'a de touche par défaut assignée. Assignez-en une depuis le menu NVDA → Préférences → Gestes de commandes **lorsque vous êtes focalisée dans une fenêtre de l'Explorateur de fichiers** — elles apparaissent sous la section dédiée à l'Explorateur et non dans "Toutes les applications", ainsi, la combinaison de touches choisie ne déclenchera ces commandes que lors de la navigation dans les fichiers de l'Explorateur ; ailleurs, elle conserve sa fonction habituelle.
+Aucune de ces commandes n'a de touche par défaut assignée. Assignez-en une depuis le menu NVDA → Préférences → Gestes de commandes → freeAudio **lorsque vous êtes focalisée dans une fenêtre de l'Explorateur de fichiers**.
 
 ### Lecture depuis le Jukebox
 
@@ -678,8 +682,8 @@ Chaque morceau lue  depuis le Jukebox bénéficie d'un traitement du médias loc
 
 - **Reprendre:** freeAudio mémorise votre position dans chaque morceau, la sauvegarde lors de la pause et périodiquement pendant la lecture, et reprend à partir de ce point quand vous y rejouez — même après le redémarrage de NVDA.
 - **Recherche par niveaux:** `Ctrl+Win+J` / `Ctrl+Win+K` permet de rechercher dans le morceau en utilisant la même échelle de pulsation/maintenir enfoncée comme pour les podcasts et les livres audio — maintenir pour 5 secondes par répétition, une pulsation pour 12 secondes, deux pulsations pour 1 minute, trois pulsations ou plus pour 5 minutes.
-- **Vitesse de lecture:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` ajuste la vitesse par incréments de 0.1x depuis 0.5x à 2.0x, en conservant la hauteur. Nécessite le `bass_fx.dll`.
-- **Transposition:** `Shift+Win+J` / `Shift+Win+K` modifie la hauteur sans changer la vitesse — consultez la section [Transposition (Changement de la Hauteur)](#transpose-pitch-shift). Nécessite également le `bass_fx.dll`.
+- **Vitesse de lecture:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` ajuste la vitesse par incréments de 0.1x depuis 0.5x à 2.0x, en conservant la hauteur.
+- **Transposition:** `Shift+Win+J` / `Shift+Win+K` modifie la hauteur sans changer la vitesse — consultez la section [Transposition (Changement de la Hauteur)](#transpose-pitch-shift).
 - **Profil audio:** Le volume, les effets, l'égalisation et la vitesse d'un morceau peuvent être enregistrés globalement en jouant un morceau pendant que les paramètres appropriés sont définis — le Jukebox ne propose actuellement pas de menu de profil par morceau, les paramètres globaux actuels sont donc appliqués.
 
 > **Remarque:** La mémoire tampon de décalage temporel (utilisée pour rembobiner la radio en direct) **n'est pas** initialisée pour les morceaux du Jukebox — ces derniers étant déjà des fichiers locaux consultables, la capture en arrière-plan est inutile et consommerait inutilement de l'espace disque. Le retour en arrière et avance rapide fonctionnent toujours car ils agissent directement sur le fichier en cours de lecture.
@@ -696,8 +700,6 @@ La transposition est disponible pour les **podcasts**, les **livres audio** et l
 Chaque pas correspond à **un huitième de ton entier** — soit, **0.25 demi-tons** (un ton entier équivaut à 2 demi-tons, soit, 8 pas constituent un ton entier, et 48 pas constituent une octave). La gamme est de **−12.00 à +12.00 demi-tons**, c'est-à-dire une octave complète vers le haut ou vers le bas. NVDA annonce la nouvelle valeur après chaque pas, par exemple, "**+1.25 demi-tons**" ; lors du retour à 0.0 il annonce  "**Hauteur normale**".
 
 La transposition est mémorisée pour tous les morceaux, de la même manière que la vitesse de lecture: la définir une fois pendant la lecture d'un  morceau signifie que le prochain morceau avec capacité de tempo que vous jouerez commencera par le même changement, sauf si le profil audio enregistré propre à ce morceau le remplace. La lecture d'un morceau sans valeur de transposition enregistrée réinitialise le changement à 0.0 (Hauteur normale), tout comme la même règle s'applique déjà à la vitesse.
-
-**Exigence:** Comme pour la vitesse de lecture, la transposition nécessite la présence de la bibliothèque optionnelle **`bass_fx.dll`** laquel doit être placé dans le dossier `bass/x64` (NVDA 64 bits) ou `bass` (NVDA 32 bits) de l'extension. Si la bibliothèque est manquante, NVDA vous indique que la fonctionnalité est indisponible, mais la valeur que vous avez définie est tout de même mémorisée pour le prochain flux avec capacité de tempo.
 
 ## Morceaux aimés
 
@@ -810,14 +812,6 @@ freeAudio vérifie automatiquement les nouvelles versions via GitHub.
 - Si aucun lien de téléchargement direct n'est disponible, un bouton **Ouvrir la page** s'affiche et la page de la release sur GitHub s'ouvre dans le navigateur par défaut.
 
 **Pour désactiver les vérifications automatiques:** Désactivez l'option **Rechercher automatiquement les mises à jour au démarrage** depuis NVDA Menu → Préférences  → Paramètres → freeAudio.
-
-## Journal des modifications
-
-**Ajouter des dossiers par lots pour le Jukebox**
-- Le bouton **Ajouter un dossier…** de l'onglet Jukebox vous permet désormais de sélectionner plusieurs dossiers simultanément au lieu de les ajouter un par un. Tous les dossiers sélectionnés sont ajoutés en une seule opération, avec un message récapitulatif indiquant combien ont été ajoutés.
-
-**Marquer et supprimer plusieurs éléments (Favoris, Morceaux aimés, Livres audio, Jukebox)**
-- Dans les listes Favoris, Morceaux aimés, bibliothèque de Livres audio et Jukebox, vous pouvez désormais marquer plusieurs éléments avant de les supprimer: appuyez sur `.` pour marquer/démarquer l'élément surligné (les lignes marquées sont étiquetées "(marqué)"), puis appuyez sur `Supprimer` ou utilisez la commande **Supprimer la sélection** du menu contextuel pour supprimer tous les éléments marqués en une seule fois, après une seule boîte de dialogue de confirmation. Consultez la section [Marquage et Suppression de Plusieurs Éléments](#marking-and-removing-multiple-items) sous la section Favoris pour plus de détails.
 
 ## Remerciements & Crédits
 

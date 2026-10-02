@@ -1,0 +1,119 @@
+--- /mnt/user-data/uploads/README25_0.md	2026-10-02 05:11:12.221406000 +0000
++++ README25_1.md	2026-10-02 05:17:15.903928373 +0000
+@@ -68,10 +68,10 @@
+ | `Ctrl+Win+↑` | Volume up | Increases volume by 5; maximum 200. |
+ | `Ctrl+Win+↓` | Volume down | Decreases volume by 5; minimum 0. |
+ | `Ctrl+Win+V` | Add to favourites / Download the Media | Adds the currently playing station to the favourites list or downloads the currently playing podcast episode or audio book. Announces if the station is already in the list or if the media was already downloaded. Not applicable when a jukebox track is playing: freeAudio tells you the shortcut is only for stations, podcasts or audio books. |
+-| `Ctrl+Win+Shift+K` | Increase playback speed | Increases the playback speed of a podcast episode, audio book, or jukebox track by 0.1x (pitch-preserving). Range: 0.5x to 2.0x. Requires `bass_fx.dll` to be placed in the add‑on folder. |
+-| `Ctrl+Win+Shift+J` | Decrease playback speed | Decreases the playback speed of a podcast episode, audio book, or jukebox track by 0.1x. Requires `bass_fx.dll`. |
+-| `Shift+Win+K` | Transpose up | Raises the pitch of a podcast episode, audio book, or jukebox track in 1/8 whole-tone (0.25 semitone) steps, without changing its speed. Range: −12.00 to +12.00 semitones. Requires `bass_fx.dll`. See [Transpose (Pitch Shift)](#transpose-pitch-shift). |
+-| `Shift+Win+J` | Transpose down | Lowers the pitch by 1/8 whole-tone steps, without changing speed. Requires `bass_fx.dll`. |
++| `Ctrl+Win+Shift+K` | Increase playback speed | Increases the playback speed of a podcast episode, audio book, or jukebox track by 0.1x (pitch-preserving). Range: 0.5x to 2.0x. |
++| `Ctrl+Win+Shift+J` | Decrease playback speed | Decreases the playback speed of a podcast episode, audio book, or jukebox track by 0.1x. |
++| `Shift+Win+K` | Transpose up | Raises the pitch of a podcast episode, audio book, or jukebox track in 1/8 whole-tone (0.25 semitone) steps, without changing its speed. Range: −12.00 to +12.00 semitones. See [Transpose (Pitch Shift)](#transpose-pitch-shift). |
++| `Shift+Win+J` | Transpose down | Lowers the pitch by 1/8 whole-tone steps, without changing speed. |
+ | `Ctrl+Win+I` | Station info | Announces the currently playing station name, podcast episode, audio book or jukebox track. Press twice to show details such as country, genre and bitrate in a dialog. Press three times to copy the current track info (ICY metadata) to the clipboard if available; if no metadata is present, starts Shazam music recognition instead. Press four times to force music recognition in case of wrong ICY metadata. |
+ | `Ctrl+Win+M` | Audio mirror | Mirrors the current stream or media to an additional audio output device simultaneously. Press again to stop mirroring. |
+ | `Ctrl+Win+Shift+M` | Obligato mode (background music) | Loops a chosen favourite station quietly in the background, on its own output device and volume, no matter what plays as the main media. First press opens a dialog to pick the station, output device, and relative volume. Press again to stop it. |
+@@ -298,8 +298,6 @@
+ - **Multi-room** — Play through a Bluetooth speaker and the built-in speaker simultaneously; no extra software needed to carry audio to another room.
+ - **Remote monitoring** — In a screen-sharing or remote desktop session, both the local and remote sides can hear the same stream simultaneously.
+ 
+-> **Note:** Audio mirroring is only available when the BASS backend is active. If the volume is changed while mirroring is active, both outputs are updated simultaneously.
+-
+ ## Obligato Mode
+ 
+ The `Ctrl+Win+Shift+M` shortcut plays a favourite station quietly in the background on a completely separate audio engine from the main player — like a soft musical backdrop running underneath whatever you're actually doing.
+@@ -424,8 +422,8 @@
+ You can add a podcast feed in two ways:
+ 
+ **By URL:**
+-- In the **"Or enter podcast URL"** field, paste the full RSS or Atom feed URL (e.g. `https://example.com/feed.xml`).
+-- Press Enter or click the **Add Feed** button.
++- In the **Search** field, paste the full RSS or Atom feed URL (e.g. `https://example.com/feed.xml`).
++- Press Enter.
+ - freeAudio fetches the feed, validates it, and adds it to your subscriptions. If the feed is valid, you will hear a confirmation with the feed title. If it fails, an error message explains why.
+ 
+ **By searching:**
+@@ -505,11 +503,9 @@
+ 
+ A deliberate tap is held for a brief moment before it actually seeks, in case another tap is still coming — only one seek happens per tap sequence, sized for however many taps were ultimately made, not the sum of each tap's amount. After a seek, NVDA announces the resulting elapsed/remaining position in the episode rather than just "X seconds forward/back".
+ 
+-**Playback speed:** You can adjust the playback speed of podcast episodes, audio books, and jukebox tracks using `Ctrl+Win+Shift+K` (faster) and `Ctrl+Win+Shift+J` (slower). The speed changes in 0.1x increments, ranging from 0.5x to 2.0x, with pitch preserved. This requires the optional `bass_fx.dll` library to be placed in the add‑on's folder. If the library is missing, NVDA will inform you that the feature is unavailable.
+-
+-**Transpose (pitch shift):** Independent of playback speed, you can shift the pitch of a podcast episode, audio book, or jukebox track up or down with `Shift+Win+K` / `Shift+Win+J` — see [Transpose (Pitch Shift)](#transpose-pitch-shift). Transpose also requires `bass_fx.dll`.
++**Playback speed:** You can adjust the playback speed of podcast episodes, audio books, and jukebox tracks using `Ctrl+Win+Shift+K` (faster) and `Ctrl+Win+Shift+J` (slower). The speed changes in 0.1x increments, ranging from 0.5x to 2.0x, with pitch preserved.
+ 
+-> **Note:** `bass_fx.dll` is not bundled with freeAudio by default. You can download it from the [BASS FX page](https://www.un4seen.com/bass-fx.html) and place it in the add‑on's `bass/x64` (for 64‑bit NVDA) or `bass` (for 32‑bit NVDA) folder to enable these features.
++**Transpose (pitch shift):** Independent of playback speed, you can shift the pitch of a podcast episode, audio book, or jukebox track up or down with `Shift+Win+K` / `Shift+Win+J` — see [Transpose (Pitch Shift)](#transpose-pitch-shift).
+ 
+ **Resume sound effect:** Whenever an episode resumes from a saved position, freeAudio briefly plays a soft cassette-loading sound effect on a separate channel while it seeks back to your saved spot, instead of letting the episode's own audio play audibly from 0:00 in the meantime. This happens automatically whenever the BASS backend is active and is independent of the **Station switch transition** setting — that setting only affects switching between live radio stations, not resuming podcasts or audio books.
+ 
+@@ -517,7 +513,7 @@
+ 
+ Right‑click a podcast in the Subscriptions list, or right‑click any of its episodes, and choose **Save Audio Profile for This Podcast** to save the current volume, effects, EQ gains and/or playback speed as a profile tied to that podcast. Whenever any episode of that podcast plays, the saved settings are applied automatically, overriding the global defaults. Because the command is available from both the feed context menu and the episode context menu, you can reach it without switching back to the Subscriptions list — either way, it always saves one profile for the whole podcast, not a separate one per episode.
+ 
+-A dialog lets you choose exactly what to save:
++A dialog with 15 options lets you choose exactly what to save:
+ - **Volume only**
+ - **Effects only**
+ - **Volume and effects**
+@@ -525,6 +521,14 @@
+ - **Effects and playback speed**
+ - **Playback speed only**
+ - **Volume, effects, and playback speed**
++- **Pitch transpose only**
++- **Volume and pitch transpose**
++- **Effects and pitch transpose**
++- **Playback speed and pitch transpose**
++- **Volume, effects, and pitch transpose**
++- **Volume, playback speed, and pitch transpose**
++- **Effects, playback speed, and pitch transpose**
++- **Volume, effects, playback speed, and pitch transpose**
+ 
+ Only the pieces you pick are written to the profile; anything left out keeps whatever was already saved for it. For example, choosing **Playback speed only** on a podcast that already has a saved volume/effects profile updates just the speed and leaves the rest untouched.
+ 
+@@ -661,7 +665,7 @@
+ - **Play the focused file with freeAudio** — plays the highlighted audio file directly, without needing it to already be in your Jukebox list. Works only on files; using it on a folder tells you to add the folder to the jukebox instead.
+ - **Add the focused item to the freeAudio jukebox** — adds the highlighted file or folder to your Jukebox list, exactly as if you'd used **Add File…** or **Add Folder…** above.
+ 
+-Neither command has a default key assigned. Assign one from NVDA Menu → Preferences → Input Gestures **while focused inside a File Explorer window** — they appear there under Explorer's own section rather than "All applications", so the key combination you choose only triggers these commands while you're browsing files in Explorer; everywhere else, it keeps its normal meaning.
++Neither command has a default key assigned. Assign one from NVDA Menu → Preferences → Input Gestures → freeAudio **while focused inside a File Explorer window**.
+ 
+ ### Playing from the Jukebox
+ 
+@@ -678,8 +682,8 @@
+ 
+ - **Resume:** freeAudio remembers your position in each track, saves it on pause and periodically while playing, and resumes from that point when you play it again — even across an NVDA restart.
+ - **Tiered seeking:** `Ctrl+Win+J` / `Ctrl+Win+K` seek within the track using the same tap/hold scaling as podcasts and audio books — hold for 5 seconds per repeat, one tap for 12 seconds, two taps for 1 minute, three or more taps for 5 minutes.
+-- **Playback speed:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` adjust speed in 0.1x steps from 0.5x to 2.0x, with pitch preserved. Requires `bass_fx.dll`.
+-- **Transpose:** `Shift+Win+J` / `Shift+Win+K` shift pitch without changing speed — see [Transpose (Pitch Shift)](#transpose-pitch-shift). Also requires `bass_fx.dll`.
++- **Playback speed:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` adjust speed in 0.1x steps from 0.5x to 2.0x, with pitch preserved.
++- **Transpose:** `Shift+Win+J` / `Shift+Win+K` shift pitch without changing speed — see [Transpose (Pitch Shift)](#transpose-pitch-shift).
+ - **Audio profile:** A track's volume, effects, EQ and speed can be saved globally by playing a track while the appropriate settings are set — the Jukebox does not currently expose a per-track profile menu, so the current global settings apply.
+ 
+ > **Note:** The time-shift buffer (used for rewinding live radio) is deliberately **not** started for Jukebox tracks — they're already seekable local files, so a background capture has no purpose and would only consume disk space. Rewind and fast-forward still work because they act directly on the file being played.
+@@ -697,8 +701,6 @@
+ 
+ Transpose is remembered across tracks, the same way playback speed is: setting it once while a track is playing means the next tempo-capable track you play starts with the same shift, unless that track's own saved audio profile overrides it. Playing a track with no saved transpose value resets the shift back to 0.0 (Normal pitch), just like the same rule already applies to speed.
+ 
+-**Requirement:** Like playback speed, transpose requires the optional **`bass_fx.dll`** library to be placed in the add-on's `bass/x64` (64-bit NVDA) or `bass` (32-bit NVDA) folder. If the library is missing, NVDA tells you the feature is unavailable, and the value you set is still remembered for the next tempo-capable stream.
+-
+ ## Liked Songs
+ 
+ When the **Save liked songs to a text file** option is enabled, track info copied to the clipboard by pressing `Ctrl+Win+I` three times is also appended line by line to `Documents\freeAudio Recordings\likedSongs.txt`.
+@@ -811,14 +813,6 @@
+ 
+ **To disable automatic checks:** Turn off the **Check for updates automatically** option from NVDA Menu → Preferences → Settings → freeAudio.
+ 
+-## Changelog
+-
+-**Bulk folder adding for the Jukebox**
+-- The **Add Folder…** button in the Jukebox tab now lets you select multiple folders at once instead of adding them one at a time. All selected folders are added in a single operation, with one summary announcement reporting how many were added.
+-
+-**Mark and remove multiple items (Favourites, Liked Songs, Audio Books, Jukebox)**
+-- In the Favourites, Liked Songs, Audio Books library, and Jukebox lists, you can now mark multiple items before removing them: press `.` to mark/unmark the highlighted item (marked rows are labelled "(marked)"), then press `Delete` or use the **Remove Selected** context-menu command to remove every marked item at once, after a single confirmation dialog. See [Marking and Removing Multiple Items](#marking-and-removing-multiple-items) under Favourites for details.
+-
+ ## Acknowledgments & Credits
+ 
+ * **Original Foundation & Concepts:** Sincere thanks to **Gary Mp** ([GaryMp/freeradio](https://github.com/GaryMp/freeradio)) for the original radio add-on concepts and core favorite management structures that served as a foundational base for this project.

@@ -241,8 +241,6 @@ Bij de eerste keer drukken verschijnt een selectiedialoogvenster met de beschikb
 - **Multi-room** — Speel tegelijkertijd af via een Bluetooth-luidspreker en de ingebouwde luidspreker; geen extra software nodig om audio naar een andere kamer te brengen.
 - **Monitoring op afstand** — In een sessie voor het delen van schermen of extern bureaublad kunnen zowel de lokale als de externe kant tegelijkertijd naar dezelfde stream luisteren.
 
-> **Opmerking:** Audio duplicatie is alleen beschikbaar wanneer de BASS-backend actief is. Als het volume wordt gewijzigd terwijl dupliceren actief is, worden beide uitvoeren tegelijkertijd bijgewerkt.
-
 ## Opname
 
 Opnames worden standaard opgeslagen in `Documents\freeAudio Recordings\`. De bestandsnaam bevat de stationnaam (of nummer titel, in nummer-opnamemodus) en de starttijd van de opname. De opnamemap kan op elk moment worden gewijzigd via NVDA-menu → Opties → Instellingen → freeAudio → **Opnamemap**. Omdat de opname-engine direct verbinding maakt met de stream, wordt de audio naar schijf geschreven zoals ontvangen — er wordt geen verwerking of her-codering toegepast; de opnamekwaliteit is identiek aan de uitzendkwaliteit.

@@ -68,10 +68,10 @@ Bu kısayolların bazıları Windows'un kendi kullandığı kısayollarla çakı
 | `Ctrl+Win+↑` | Ses artır | Ses seviyesini 5 birim artırır; azami 200. |
 | `Ctrl+Win+↓` | Ses azalt | Ses seviyesini 5 birim düşürür; asgari 0. |
 | `Ctrl+Win+V` | Favorilere ekle / Medyayı İndir | O an çalan istasyonu favoriler listesine ekler veya çalan podcast bölümünü ya da sesli kitabı indirir. İstasyon zaten listedeyse veya medya zaten indirilmişse bildirir. Bir müzik kutusu parçası çalarken uygulanamaz; freeAudio, bu kısayolun yalnızca istasyonlar, podcastler veya sesli kitaplar için olduğunu bildirir. |
-| `Ctrl+Win+Shift+K` | Oynatma hızını artır | Bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının oynatma hızını 0.1x artırır (perde korunarak). Aralık: 0.5x ila 2.0x. Eklenti klasörüne `bass_fx.dll` yerleştirilmesini gerektirir. |
-| `Ctrl+Win+Shift+J` | Oynatma hızını azalt | Bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının oynatma hızını 0.1x azaltır. `bass_fx.dll` gerektirir. |
-| `Shift+Win+K` | Perdeyi yükselt (transpose up) | Bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının perdesini, hızını değiştirmeden bir tam sesin sekizde biri (0.25 yarım ton) adımlarla yükseltir. Aralık: −12.00 ile +12.00 yarım ton. `bass_fx.dll` gerektirir. Bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma). |
-| `Shift+Win+J` | Perdeyi düşür (transpose down) | Perdeyi, hızı değiştirmeden 1/8 tam ses adımlarıyla düşürür. `bass_fx.dll` gerektirir. |
+| `Ctrl+Win+Shift+K` | Oynatma hızını artır | Bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının oynatma hızını 0.1x artırır (perde korunarak). Aralık: 0.5x ila 2.0x. |
+| `Ctrl+Win+Shift+J` | Oynatma hızını azalt | Bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının oynatma hızını 0.1x azaltır. |
+| `Shift+Win+K` | Perdeyi yükselt (transpose up) | Bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının perdesini, hızını değiştirmeden bir tam sesin sekizde biri (0.25 yarım ton) adımlarla yükseltir. Aralık: −12.00 ile +12.00 yarım ton. Bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma). |
+| `Shift+Win+J` | Perdeyi düşür (transpose down) | Perdeyi, hızı değiştirmeden 1/8 tam ses adımlarıyla düşürür. |
 | `Ctrl+Win+İ` | İstasyon bilgisi | O an çalan istasyon adını, podcast bölümünü, sesli kitabı veya müzik kutusu parçasını seslendirir. İki kez basıldığında ülke, tür, bit hızı gibi ayrıntıları bir iletişim kutusunda gösterir. Üç kez basıldığında çalan parça bilgisi (ICY metadata) varsa panoya kopyalar; yoksa Shazam ile müzik tanıma başlatır. Dört kez basıldığında çalan parça bilgisi (ICY metadata) yanlışsa müzik tanıma servisini başlatmaya zorlar. |
 | `Ctrl+Win+M` | Ses yansıtma | O an çalan akışı veya medyayı eş zamanlı olarak ek bir ses çıkış aygıtına yansıtır. Yansıtmayı durdurmak için tekrar basın. |
 | `Ctrl+Win+Shift+M` | Obligato modu (fon müziği) | Seçtiğiniz bir favori istasyonu, ana medyada ne çalarsa çalsın, kendi çıkış aygıtında ve kendi ses seviyesinde fonda çalar. İlk basışta istasyon, çıkış aygıtı ve göreli ses seviyesini seçebileceğiniz bir iletişim kutusu açılır. Durdurmak için tekrar basın. |
@@ -298,8 +298,6 @@ Tanıma şu şekilde çalışır: ffmpeg kullanılarak akıştan kısa bir ses �
 - **Çok odalı** — Bluetooth hoparlör ve dahili hoparlörden eş zamanlı çalın; sesi başka bir odaya taşımak için ek yazılım gerekmez.
 - **Uzaktan izleme** — Ekran paylaşımı veya uzak masaüstü oturumunda hem yerel hem de uzak taraf aynı akışı eş zamanlı duyabilir.
 
-> **Not:** Ses yansıtma yalnızca BASS arka ucu aktifken kullanılabilir. Yansıtma aktifken ses seviyesi değiştirilirse her iki çıkış da eş zamanlı güncellenir.
-
 ## Obligato Modu
 
 `Ctrl+Win+Shift+M` kısayolu, favori bir istasyonu ana oynatıcıdan tamamen ayrı bir ses motorunda fonda çalar — yaptığınız asıl işin altında akan yumuşak bir müzik zemini gibi.
@@ -423,8 +421,8 @@ freeAudio, tam donanımlı bir podcast oynatıcısı içerir. Herhangi bir RSS v
 Bir podcast akışını iki şekilde ekleyebilirsiniz:
 
 **URL ile:**
-- **"Ya da podcast URL'si girin"** alanına tam RSS veya Atom Akış URL'sini yapıştırın (örn. `https://example.com/feed.xml`).
-- Enter'a basın veya **Akış Ekle** düğmesine tıklayın.
+- **Arama** alanına tam RSS veya Atom Akış URL'sini yapıştırın (örn. `https://example.com/feed.xml`).
+- Enter'a basın.
 - freeAudio akışı getirir, doğrular ve aboneliklerinize ekler. Geçerliyse akış başlığıyla bir onay duyulur. Başarısız olursa bir hata mesajı nedenini açıklar.
 
 **Arayarak:**
@@ -504,11 +502,9 @@ Podcast bölümleri, **BASS arka ucu** kullanılarak çalınır (radyo akışlar
 
 Bir dokunuş, başka bir dokunuşun daha gelip gelmeyeceğini beklemek için gerçek atlamayı yapmadan önce kısa bir süre tutulur — bir dokunuş dizisinde yalnızca bir atlama gerçekleşir ve bu, ulaşılan son dokunuş sayısına göre boyutlandırılır; her dokunuşun miktarı toplanmaz. Bir atlamadan sonra NVDA, sadece "X saniye ileri/geri" demek yerine bölümdeki güncel geçen/kalan süreyi bildirir.
 
-**Oynatma hızı:** Podcast bölümlerinin, sesli kitapların ve müzik kutusu parçalarının oynatma hızını `Ctrl+Win+Shift+K` (hızlandır) ve `Ctrl+Win+Shift+J` (yavaşlat) ile ayarlayabilirsiniz. Hız, perde korunarak 0.1x artışlarla 0.5x ile 2.0x arasında değişir. Bu, eklenti klasörüne yerleştirilen isteğe bağlı `bass_fx.dll` kütüphanesini gerektirir. Kütüphane eksikse NVDA bu özelliğin kullanılamadığını bildirir.
+**Oynatma hızı:** Podcast bölümlerinin, sesli kitapların ve müzik kutusu parçalarının oynatma hızını `Ctrl+Win+Shift+K` (hızlandır) ve `Ctrl+Win+Shift+J` (yavaşlat) ile ayarlayabilirsiniz. Hız, perde korunarak 0.1x artışlarla 0.5x ile 2.0x arasında değişir.
 
-**Transpose (perde kaydırma):** Oynatma hızından bağımsız olarak, bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının perdesini `Shift+Win+K` / `Shift+Win+J` ile yukarı veya aşağı kaydırabilirsiniz — bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma). Transpose da `bass_fx.dll` gerektirir.
-
-> **Not:** `bass_fx.dll` varsayılan olarak freeAudio ile birlikte gelmez. Bu özellikleri etkinleştirmek için [BASS FX sayfasından](https://www.un4seen.com/bass-fx.html) indirip eklentinin `bass/x64` (64-bit NVDA için) veya `bass` (32-bit NVDA için) klasörüne yerleştirebilirsiniz.
+**Transpose (perde kaydırma):** Oynatma hızından bağımsız olarak, bir podcast bölümünün, sesli kitabın veya müzik kutusu parçasının perdesini `Shift+Win+K` / `Shift+Win+J` ile yukarı veya aşağı kaydırabilirsiniz — bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma).
 
 **Devam ettirme ses efekti:** Bir bölüm kaydedilmiş konumundan devam ederken freeAudio, kaydedilen noktaya atlarken ayrı bir kanalda kısa bir kaset yükleme sesi çalar; böylece bu sırada bölümün kendi sesi 0:00'dan itibaren duyulur şekilde çalmaz. Bu, BASS arka ucu aktif olduğunda otomatik olarak gerçekleşir ve **İstasyon geçiş efekti** ayarından bağımsızdır — o ayar yalnızca canlı radyo istasyonları arasında geçişi etkiler, podcast, sesli kitap veya müzik kutusu parçalarının devam ettirilmesini değil.
 
@@ -516,7 +512,7 @@ Bir dokunuş, başka bir dokunuşun daha gelip gelmeyeceğini beklemek için ger
 
 Abonelikler listesinde bir podcaste ya da onun herhangi bir bölümüne sağ tıklayıp **Bu Podcast İçin Ses Profili Kaydet**'i seçerek mevcut ses seviyesini, efektleri, EQ kazançlarını ve/veya oynatma hızını o podcaste özgü bir profil olarak kaydedebilirsiniz. O podcastin herhangi bir bölümü çaldığında kaydedilen ayarlar otomatik olarak uygulanır; global varsayılanların yerine geçer. Komut hem akışın hem de bölümün bağlam menüsünden erişilebilir olduğundan, Abonelikler listesine geri dönmeden ulaşabilirsiniz — her iki durumda da her zaman tüm podcast için tek bir profil kaydedilir, bölüm başına ayrı bir profil değil.
 
-Bir iletişim kutusu tam olarak neyin kaydedileceğini seçmenizi sağlar:
+15 seçenekli bir iletişim kutusu tam olarak neyin kaydedileceğini seçmenizi sağlar:
 - **Yalnızca ses seviyesi**
 - **Yalnızca efektler**
 - **Ses seviyesi ve efektler**
@@ -524,6 +520,14 @@ Bir iletişim kutusu tam olarak neyin kaydedileceğini seçmenizi sağlar:
 - **Efektler ve oynatma hızı**
 - **Yalnızca oynatma hızı**
 - **Ses seviyesi, efektler ve oynatma hızı**
+- **Yalnızca perde kaydırma**
+- **Ses seviyesi ve perde kaydırma**
+- **Efektler ve perde kaydırma**
+- **Oynatma hızı ve perde kaydırma**
+- **Ses seviyesi, efektler ve perde kaydırma**
+- **Ses seviyesi, oynatma hızı ve perde kaydırma**
+- **Efektler, oynatma hızı ve perde kaydırma**
+- **Ses seviyesi, efektler, oynatma hızı ve perde kaydırma**
 
 Yalnızca seçtiğiniz parçalar profile yazılır; dışarıda bıraktığınız her şey daha önce kaydedilmiş haliyle kalır. Örneğin, ses seviyesi/efekt profili zaten kayıtlı bir podcastte **Yalnızca oynatma hızı**'nı seçmek yalnızca hızı günceller, geri kalanına dokunmaz.
 
@@ -660,7 +664,7 @@ Yalnızca Windows Gezgini'nin dosya listesinde bir dosya veya klasör odaklanmı
 - **Odaklanan dosyayı freeAudio ile çal** — vurgulanan ses dosyasını, halihazırda Müzik Kutusu listenizde olmasına gerek kalmadan doğrudan çalar. Yalnızca dosyalarda çalışır; bir klasörde kullanıldığında size klasörü bunun yerine müzik kutusuna eklemenizi söyler.
 - **Odaklanan öğeyi freeAudio müzik kutusuna ekle** — vurgulanan dosya veya klasörü, yukarıdaki **Dosya Ekle…** veya **Klasör Ekle…** seçeneklerini kullanmışsınız gibi Müzik Kutusu listenize ekler.
 
-Her iki komuta da varsayılan olarak atanmış bir tuş yoktur. Bir tuş atamak için, **bir Dosya Gezgini penceresi içinde odaklanmışken** NVDA Menüsü → Tercihler → Girdi Hareketleri'ni açın — bu komutlar "Tüm uygulamalar" yerine Explorer'ın kendi bölümünde görünür; böylece seçtiğiniz tuş kombinasyonu yalnızca Explorer'da dosyalara göz atarken bu komutları tetikler, başka her yerde normal anlamını korur.
+Her iki komuta da varsayılan olarak atanmış bir tuş yoktur. NVDA Menüsü → Tercihler → Girdi Hareketleri → freeAudio bölümünden **bir Dosya Gezgini penceresi içinde odaklanmışken** bir tuş atayın.
 
 ### Müzik Kutusu'ndan Çalma
 
@@ -677,8 +681,8 @@ Müzik Kutusu'ndan çalınan her parça, tam yerel-medya davranışına sahiptir
 
 - **Devam etme:** freeAudio her parçadaki konumunuzu hatırlar; duraklattığınızda ve çalma sırasında düzenli aralıklarla kaydeder ve aynı parçayı yeniden çaldığınızda oradan devam eder — NVDA'yı yeniden başlatsanız bile.
 - **Kademeli atlama:** `Ctrl+Win+J` / `Ctrl+Win+K`, parça içinde podcast ve sesli kitaplardakiyle aynı dokunuş/basılı-tutma ölçeklemesiyle atlar — basılı tutma tekrar başına 5 saniye, bir dokunuş 12 saniye, iki dokunuş 1 dakika, üç veya daha fazla dokunuş 5 dakika.
-- **Oynatma hızı:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K`, hızı 0.5x ile 2.0x arasında 0.1x adımlarla, perde korunarak ayarlar. `bass_fx.dll` gerektirir.
-- **Transpose:** `Shift+Win+J` / `Shift+Win+K`, hızı değiştirmeden perdeyi kaydırır — bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma). Aynı zamanda `bass_fx.dll` gerektirir.
+- **Oynatma hızı:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K`, hızı 0.5x ile 2.0x arasında 0.1x adımlarla, perde korunarak ayarlar.
+- **Transpose:** `Shift+Win+J` / `Shift+Win+K`, hızı değiştirmeden perdeyi kaydırır — bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma).
 - **Ses profili:** Bir parçanın ses seviyesi, efektleri, EQ'u ve hızı, uygun ayarlar yapılıyken parça çalınarak genel olarak kaydedilebilir — Müzik Kutusu şu anda parça başına profil menüsü sunmaz; geçerli genel ayarlar uygulanır.
 
 > **Not:** Zaman kaydırma tamponu (canlı radyoyu geri sarmak için kullanılır) Müzik Kutusu parçaları için kasıtlı olarak **başlatılmaz** — bunlar zaten atlanabilir yerel dosyalardır, dolayısıyla arka plan yakalamanın bir amacı yoktur ve yalnızca disk alanı tüketir. Geri ve ileri sarma yine de çalışır, çünkü doğrudan çalınan dosya üzerinde işlem yaparlar.
@@ -695,8 +699,6 @@ Transpose, **podcastler**, **sesli kitaplar** ve **müzik kutusu parçaları** i
 Her adım **bir tam sesin sekizde biri** — yani **0.25 yarım ton** kadardır (bir tam ses 2 yarım ton olduğundan, 8 adım bir tam ses ve 48 adım bir oktav yapar). Aralık **−12.00 ile +12.00 yarım ton**, yani bir tam oktav yukarı veya aşağıdır. NVDA her adımdan sonra yeni değeri bildirir; örneğin "**+1.25 yarım ton**"; 0.0'a dönüldüğünde ise "**Normal perde**" duyurulur.
 
 Transpose, oynatma hızının hatırlanması gibi parçalar arasında da hatırlanır: bir parça çalarken bir kez ayarlanması, sonraki tempo yetenekli parçanın da aynı kaydırmayla başlamasına neden olur — o parçanın kendi kayıtlı ses profili bunu geçersiz kılmadığı sürece. Kayıtlı transposu olmayan bir parça çalmak, perdeyi 0.0'a (Normal perde) geri döndürür — tıpkı aynı kuralın zaten oynatma hızı için de geçerli olması gibi.
-
-**Gereksinim:** Oynatma hızı gibi, transpose da eklenti klasörünün `bass/x64` (64-bit NVDA için) veya `bass` (32-bit NVDA için) dizinine yerleştirilmiş isteğe bağlı **`bass_fx.dll`** kütüphanesini gerektirir. Kütüphane eksikse NVDA bu özelliğin kullanılamadığını bildirir ve ayarladığınız değer bir sonraki tempo yetenekli akış için hatırlanır.
 
 ## Beğenilen Şarkılar
 
@@ -809,14 +811,6 @@ freeAudio, yeni sürüm olup olmadığını GitHub üzerinden otomatik olarak ko
 - Doğrudan indirme bağlantısı mevcut değilse **Sayfayı Aç** düğmesi gösterilir ve GitHub release sayfası varsayılan tarayıcıda açılır.
 
 **Otomatik kontrolü devre dışı bırakmak için:** NVDA Menüsü → Tercihler → Ayarlar → freeAudio bölümünden **Güncellemeleri otomatik denetle** seçeneği kapatılabilir.
-
-## Sürüm Notları
-
-**Müzik Kutusu'nda toplu klasör ekleme**
-- Müzik Kutusu sekmesindeki **Klasör Ekle…** düğmesi artık klasörleri tek tek eklemek yerine tek seferde birden fazla klasör seçmenize olanak tanır. Seçilen tüm klasörler tek bir işlemde eklenir ve kaç tanesinin eklendiğini bildiren tek bir özet anonsu yapılır.
-
-**Birden fazla öğeyi işaretleme ve kaldırma (Favoriler, Beğenilen Şarkılar, Sesli Kitaplar, Müzik Kutusu)**
-- Favoriler, Beğenilen Şarkılar, Sesli Kitaplar kitaplığı ve Müzik Kutusu listelerinde artık kaldırmadan önce birden fazla öğeyi işaretleyebilirsiniz: vurgulanan öğeyi işaretlemek/işaretini kaldırmak için `.` tuşuna basın (işaretli satırlar "(işaretli)" olarak etiketlenir), ardından `Delete` tuşuna basın veya **Seçilenleri Kaldır** bağlam menüsü komutunu kullanarak tüm işaretli öğeleri tek bir onay iletişim kutusundan sonra tek seferde kaldırın. Ayrıntılar için Favoriler altındaki [Birden Fazla Öğeyi İşaretleme ve Kaldırma](#birden-fazla-öğeyi-i̇şaretleme-ve-kaldırma) bölümüne bakın.
 
 ## Teşekkürler ve Katkıda Bulunanlar
 

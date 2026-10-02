@@ -244,8 +244,6 @@ Po pierwszym naciśnięciu pojawia się dialog wyboru z listą dostępnych urzą
 - **Kilka pomieszczeń** - odtwarzaj równocześnie przez głośnik Bluetooth i wbudowany głośnik; bez dodatkowego oprogramowania.
 - **Monitorowanie zdalne** - podczas udostępniania ekranu albo pracy przez zdalny pulpit strumień może być słyszany po obu stronach.
 
-> **Uwaga:** kopia dźwięku jest dostępna tylko wtedy, gdy aktywny jest backend BASS. Zmiana głośności podczas aktywnego kopiowania aktualizuje oba wyjścia jednocześnie.
-
 ## Nagrywanie
 
 Nagrania są domyślnie zapisywane w `Documents\freeAudio Recordings\`. Nazwa pliku zawiera nazwę stacji albo tytuł utworu w trybie nagrywania utworu oraz czas rozpoczęcia nagrywania. Folder nagrań można w dowolnej chwili zmienić w menu NVDA -> Preferencje -> Ustawienia -> freeAudio -> **Folder nagrań**.

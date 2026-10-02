@@ -1,830 +1,825 @@
-# freeAudio - doplněk NVDA
+# freeAudio — កម្មវិធីបន្ថែម NVDA
 
-freeAudio je plnohodnotný doplněk internetového rádia, podcastů, audioknih a místního jukeboxu pro čtečku obrazovky NVDA. Z jednoduchého způsobu poslechu internetových rozhlasových stanic se postupně vyvinul v kompletní, plně přístupné centrum poslechu - každá obrazovka, dialog a ovládací prvek je od základu navržen pro použití s klávesnicí a čtečkou obrazovky, bez nutnosti myši v kterémkoli kroku.
+freeAudio គឺជាកម្មវិធីបន្ថែមពេញលក្ខណៈសម្រាប់វិទ្យុអ៊ីនធឺណិត ផតខាស្ត សៀវភៅសំឡេង និង jukebox ក្នុងតំបន់សម្រាប់កម្មវិធីអានអេក្រង់ NVDA។ អ្វីដែលចាប់ផ្តើមជាមធ្យោបាយសាមញ្ញក្នុងការស្តាប់ស្ថានីយ៍វិទ្យុអ៊ីនធឺណិត បានវិវត្តទៅជាមជ្ឈមណ្ឌលស្តាប់ដ៏ពេញលេញ និងអាចចូលប្រើបានទាំងស្រុង — រាល់អេក្រង់ ប្រអប់ និងឧបករណ៍បញ្ជាត្រូវបានរចនាឡើងតាំងពីដើមសម្រាប់ការប្រើប្រាស់ដោយក្តារចុច និងកម្មវិធីអានអេក្រង់ ដោយមិនត្រូវការកណ្តុរនៅពេលណាមួយឡើយ។
 
-## Co freeAudio umí
+## អ្វីដែល freeAudio អាចធ្វើបាន
 
-- **Internetové rádio** - Procházejte a vyhledávejte mezi více než 50 000 stanicemi z adresáře [Radio Browser](https://www.radio-browser.info/), doplněného o výsledky z TuneIn a iHeartRadio. Ukládejte oblíbené stanice, měňte jejich pořadí a přejděte přímo na kteroukoli z nich globální klávesovou zkratkou odkudkoli ve Windows - viz [Adresář Radio Browser](#adresář-radio-browser) a [Oblíbené](#oblíbené).
-- **Podcasty** - Přihlaste se k odběru libovolného kanálu RSS/Atom, nebo vyhledávejte v adresáři podcastů Apple a před přihlášením k odběru si poslechněte náhled epizod. Pozice přehrávání se ukládá automaticky a pokračuje tam, kde jste skončili - viz [Podcasty](#podcasty).
-- **Audioknihy** - Vyhledávejte a přehrávejte nebo stahujte knihy ze tří zdrojů: [GETEM](https://getem.boun.edu.tr/), digitální knihovny Univerzity Boğaziçi pro zrakově postižené, [LibriVox](https://librivox.org/), projektu audioknih z veřejné domény čtených dobrovolníky, a kolekce otevřených audioknih Project Gutenberg - poslední dva nevyžadují účet - s automatickým pokračováním napříč vícedílnými díly - viz [Audioknihy (GETEM, LibriVox a Project Gutenberg)](#audioknihy-getem-librivox-a-project-gutenberg).
-- **Místní jukebox** - Prohledávejte zvukové soubory uložené na jakémkoli připojeném disku podle názvu, nebo si vytvořte osobní knihovnu souborů a složek, a přehrávejte je se stejnými nástroji pro pokračování, posouvání, rychlost a transpozici, jaké používají podcasty a audioknihy - viz [Místní jukebox](#místní-jukebox).
-- **Nahrávání** - Nahrávejte právě hrající obsah okamžitě, automaticky zachyťte jednu skladbu při jejím začátku a konci, nebo naplánujte jednorázová či opakovaná nahrávání - to vše bez přerušení přehrávání - viz [Nahrávání](#nahrávání).
-- **Časový posun (přetočení živého rádia)** - Pozastavte a přetočte živou stanici jako DVR, a poté se kdykoli vraťte zpět k živému vysílání - viz [Časový posun (přetočení živého rádia)](#časový-posun-přetočení-živého-rádia).
-- **Rozpoznávání hudby a oblíbené skladby** - Rozpoznávejte skladby bez metadat pomocí technologie Shazam, ukládejte oblíbené skladby do textového souboru a vyhledávejte jejich texty - viz [Rozpoznávání hudby](#rozpoznávání-hudby) a [Oblíbené skladby](#oblíbené-skladby).
-- **Zvukové profily a efekty** - Ukládejte samostatná nastavení hlasitosti, efektů, ekvalizéru a rychlosti přehrávání pro každou stanici, podcast, audioknihu nebo skladbu jukeboxu, a používejte efekty v reálném čase (Chorus, Reverb, zesílení ekvalizéru a další) prostřednictvím backendu BASS - viz [Zvukový profil stanice](#zvukový-profil-stanice).
-- **Transpozice (posun výšky tónu)** - Posuňte výšku tónu podcastů, audioknih a skladeb jukeboxu nahoru nebo dolů bez změny jejich rychlosti pomocí přibalené komponenty `bass_fx` - viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu).
-- **Zrcadlení zvuku** - Odesílejte stejný datový tok do dvou zvukových výstupních zařízení najednou, například do reproduktorů i sluchátek zároveň - viz [Zrcadlo zvuku](#zrcadlo-zvuku).
-- **Režim Obligato (hudba na pozadí)** - Opakovaně přehrávejte zvolenou oblíbenou stanici tiše na pozadí, na vlastním výstupním zařízení a s vlastní hlasitostí, bez ohledu na to, co (nebo zda vůbec něco) hraje jako hlavní médium - viz [Režim hudby na pozadí (Obligato)](#režim-hudby-na-pozadí-obligato).
-- **Časovače** - Naplánujte spuštění přehrávání oblíbené stanice, nebo naplánujte zastavení přehrávání, v konkrétní čas - viz [Časovač](#časovač).
-- **Rozsáhlý přístup z klávesnice a přes braillský řádek** - Ke každé funkci se dostanete zcela z klávesnice, s globálními zkratkami fungujícími odkudkoli ve Windows, přímými klávesovými zkratkami pro jednotlivé oblíbené stanice a volitelným braillským výstupem pro všechna mluvená oznámení FreeRadia.
+- **វិទ្យុអ៊ីនធឺណិត** — រុករក និងស្វែងរកស្ថានីយ៍ជាង 50,000 ពីថត [Radio Browser](https://www.radio-browser.info/) ដោយមានលទ្ធផលបន្ថែមពី TuneIn និង iHeartRadio។ រក្សាទុកស្ថានីយ៍សំណព្វ រៀបចំលំដាប់ឡើងវិញ និងលោតទៅកាន់ស្ថានីយ៍ណាមួយដោយផ្ទាល់ដោយប្រើគ្រាប់ចុចរហ័សសកលពីគ្រប់ទីកន្លែងក្នុង Windows — សូមមើល [ថត Radio Browser](#ថត-radio-browser) និង [សំណព្វ](#សំណព្វ)។
+- **ផតខាស្ត** — ជាវព័ត៌មាន RSS/Atom ណាមួយ ឬស្វែងរកក្នុងថតផតខាស្តរបស់ Apple និងមើលវគ្គជាមុនមុនពេលជាវ។ ទីតាំងចាក់ត្រូវបានរក្សាទុកដោយស្វ័យប្រវត្តិ និងបន្តពីកន្លែងដែលអ្នកឈប់ — សូមមើល [ផតខាស្ត](#ផតខាស្ត)។
+- **សៀវភៅសំឡេង** — ស្វែងរក និងបញ្ជូន ឬទាញយកសៀវភៅពីប្រភពបី៖ [GETEM](https://getem.boun.edu.tr/) បណ្ណាល័យឌីជីថលរបស់សាកលវិទ្យាល័យ Boğaziçi សម្រាប់អ្នកមានបញ្ហាការមើលឃើញ [LibriVox](https://librivox.org/) គម្រោងសៀវភៅសំឡេងសាធារណៈដែលអានដោយអ្នកស្ម័គ្រចិត្ត និងបណ្ណាល័យសៀវភៅសំឡេងបើកចំហ Project Gutenberg — ពីរចុងក្រោយមិនត្រូវការគណនី — ដោយមានការបន្តស្វ័យប្រវត្តិឆ្លងកាត់ការងារពហុផ្នែក — សូមមើល [សៀវភៅសំឡេង (GETEM, LibriVox និង Project Gutenberg)](#សៀវភៅសំឡេង-getem-librivox-និង-project-gutenberg)។
+- **Jukebox ក្នុងតំបន់** — ស្វែងរកឯកសារសំឡេងដែលរក្សាទុកនៅលើដ្រាយណាមួយដែលបានភ្ជាប់តាមឈ្មោះឯកសារ ឬបង្កើតបណ្ណាល័យផ្ទាល់ខ្លួននៃឯកសារ និងថត ហើយចាក់វាឡើងវិញជាមួយឧបករណ៍បន្ត ស្វែងរក ល្បឿន និងការផ្លាស់ប្តូរសំនៀងដូចគ្នាដែលផតខាស្ត និងសៀវភៅសំឡេងប្រើ — សូមមើល [Jukebox ក្នុងតំបន់](#jukebox-ក្នុងតំបន់)។
+- **ការថតសំឡេង** — ថតអ្វីដែលកំពុងចាក់ភ្លាមៗ ចាប់យកបទចម្រៀងតែមួយដោយស្វ័យប្រវត្តិនៅពេលវាចាប់ផ្តើម និងបញ្ចប់ ឬកំណត់ពេលថតតែម្តង ឬថតម្តងហើយម្តងទៀត — ទាំងអស់ដោយមិនរំខានដល់ការចាក់ — សូមមើល [ការថតសំឡេង](#ការថតសំឡេង)។
+- **ការរំកិលពេលវេលា (ថយក្រោយវិទ្យុផ្ទាល់)** — ផ្អាក និងថយក្រោយស្ថានីយ៍ផ្ទាល់ដូច DVR បន្ទាប់មកត្រឡប់ទៅការផ្សាយផ្ទាល់វិញនៅពេលណាក៏បាន — សូមមើល [ការរំកិលពេលវេលា](#ការរំកិលពេលវេលា-ថយក្រោយវិទ្យុផ្ទាល់)។
+- **ការស្គាល់តន្ត្រី និងបទចម្រៀងសំណព្វ** — កំណត់អត្តសញ្ញាណបទដែលគ្មានទិន្នន័យមេតាដោយប្រើការស្គាល់ផ្អែកលើ Shazam រក្សាទុកបទចម្រៀងសំណព្វទៅជាឯកសារអត្ថបទ និងរកមើលអត្ថបទចម្រៀង — សូមមើល [ការស្គាល់តន្ត្រី](#ការស្គាល់តន្ត្រី) និង [បទចម្រៀងសំណព្វ](#បទចម្រៀងសំណព្វ)។
+- **ទម្រង់សំឡេង និងបែបផែន** — រក្សាទុកការកំណត់កម្រិតសំឡេង បែបផែន អេក្វាល័យ និងល្បឿនចាក់ដោយឡែកសម្រាប់ស្ថានីយ៍ ផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox នីមួយៗ ហើយអនុវត្តបែបផែនពេលវេលាពិត (Chorus, Reverb, ការបង្កើន EQ និងផ្សេងទៀត) តាមរយៈម៉ាស៊ីន BASS — សូមមើល [ទម្រង់សំឡេងស្ថានីយ៍](#ទម្រង់សំឡេងស្ថានីយ៍)។
+- **ការផ្លាស់ប្តូរសំនៀង (Transpose)** — ផ្លាស់ប្តូរសំនៀងផតខាស្ត សៀវភៅសំឡេង និងបទ jukebox ឡើងលើ ឬចុះក្រោមដោយមិនផ្លាស់ប្តូរល្បឿន ដោយប្រើសមាសធាតុ `bass_fx` ដែលរួមបញ្ចូល — សូមមើល [ការផ្លាស់ប្តូរសំនៀង](#ការផ្លាស់ប្តូរសំនៀង-transpose)។
+- **ការចម្លងសំឡេង (Audio Mirror)** — ផ្ញើស្ទ្រីមដូចគ្នាទៅឧបករណ៍បញ្ចេញសំឡេងពីរក្នុងពេលតែមួយ ដូចជាឧបករណ៍បំពងសំឡេង និងកាសក្នុងពេលតែមួយ — សូមមើល [ការចម្លងសំឡេង](#ការចម្លងសំឡេង)។
+- **របៀប Obligato (តន្ត្រីផ្ទៃខាងក្រោយ)** — លេងស្ថានីយ៍សំណព្វដែលបានជ្រើសរើសស្ងាត់ៗនៅផ្ទៃខាងក្រោយ នៅលើឧបករណ៍បញ្ចេញសំឡេង និងកម្រិតសំឡេងផ្ទាល់ខ្លួន ដោយមិនគិតពីអ្វីដែលកំពុងចាក់ (ឬមិនចាក់) ជាមេឌៀមេ — សូមមើល [របៀប Obligato](#របៀប-obligato)។
+- **កម្មវិធីកំណត់ម៉ោង** — កំណត់ពេលស្ថានីយ៍សំណព្វចាប់ផ្តើមចាក់ ឬកំណត់ពេលបញ្ឈប់ការចាក់ នៅពេលជាក់លាក់ — សូមមើល [កម្មវិធីកំណត់ម៉ោង](#កម្មវិធីកំណត់ម៉ោង)។
+- **ការចូលប្រើដោយក្តារចុច និងអក្សរស្ទាបយ៉ាងស៊ីជម្រៅ** — រាល់មុខងារអាចចូលប្រើបានទាំងស្រុងពីក្តារចុច ដោយមានគ្រាប់ចុចរហ័សសកលដែលដំណើរការពីគ្រប់ទីកន្លែងក្នុង Windows គ្រាប់ចុចផ្ទាល់សម្រាប់ស្ថានីយ៍សំណព្វនីមួយៗ និងការបញ្ចេញអក្សរស្ទាបជាជម្រើសសម្រាប់ការជូនដំណឹងសំឡេងទាំងអស់របស់ freeAudio។
 
-## Adresář Radio Browser
+## ថត Radio Browser
 
-freeAudio používá pro svůj katalog stanic otevřenou databázi [Radio Browser](https://www.radio-browser.info/). Radio Browser je komunitou spravovaný bezplatný katalog, který obsahuje více než 50 000 internetových rozhlasových stanic z celého světa. Nevyžaduje žádnou registraci ani účet a jeho rozhraní API je přístupné všem. Každá stanice obsahuje adresu, zemi, žánr, jazyk a informace o datovém toku; stanice jsou řazeny podle hlasů uživatelů. freeAudio se k tomuto API připojuje prostřednictvím zrcadlových serverů umístěných v Německu, Nizozemsku a Rakousku; pokud je jeden server nedostupný, automaticky se přepne na další.
+freeAudio ប្រើប្រាស់មូលដ្ឋានទិន្នន័យបើកចំហ [Radio Browser](https://www.radio-browser.info/) សម្រាប់កាតាឡុកស្ថានីយ៍របស់វា។ Radio Browser គឺជាថតឥតគិតថ្លៃដែលគ្រប់គ្រងដោយសហគមន៍ ដែលមានស្ថានីយ៍វិទ្យុអ៊ីនធឺណិតជាង 50,000 ពីជុំវិញពិភពលោក។ មិនត្រូវការការចុះឈ្មោះ ឬគណនីទេ ហើយ API របស់វាបើកចំហសម្រាប់មនុស្សគ្រប់គ្នា។ ស្ថានីយ៍នីមួយៗរួមមានអាសយដ្ឋាន ប្រទេស ប្រភេទ ភាសា និងព័ត៌មានអត្រាប៊ីត។ ស្ថានីយ៍ត្រូវបានចាត់ថ្នាក់តាមការបោះឆ្នោតរបស់អ្នកប្រើប្រាស់។ freeAudio ភ្ជាប់ទៅ API នេះតាមរយៈម៉ាស៊ីនមេចម្លងដែលមានទីតាំងនៅប្រទេសអាល្លឺម៉ង់ ហូឡង់ និងអូទ្រីស; ប្រសិនបើម៉ាស៊ីនមេមួយមិនអាចទៅដល់បានទេ វាប្តូរទៅបន្ទាប់ដោយស្វ័យប្រវត្តិ។
 
-Aby prohlížeč zůstal responzivní a nebylo nutné zatěžovat API při každém vyhledávání nebo změně země, udržuje freeAudio na disku místní mezipaměť (cache) katalogu stanic. Tato mezipaměť se automaticky obnovuje na pozadí v pravidelných intervalech, takže zobrazený seznam je obvykle již aktuální bez jakéhokoli zásahu z vaší strany. Okamžitou opětovnou synchronizaci můžete kdykoli vynutit tlačítkem **Aktualizovat seznam stanic** – viz Prohlížeč stanic níže.
+ដើម្បីរក្សាកម្មវិធីរុករកឱ្យឆ្លើយតប និងជៀសវាងការទាក់ទង API រាល់ពេលស្វែងរក ឬផ្លាស់ប្តូរប្រទេស freeAudio រក្សាទុកឃ្លាំងសម្ងាត់ក្នុងតំបន់នៃកាតាឡុកស្ថានីយ៍នៅលើដ្រាយ។ ឃ្លាំងសម្ងាត់នេះត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិនៅផ្ទៃខាងក្រោយតាមកាលវិភាគតាមកាលកំណត់ ដូច្នេះបញ្ជីដែលអ្នកឃើញជាធម្មតាទាន់សម័យរួចហើយដោយមិនចាំបាច់មានសកម្មភាពណាមួយពីអ្នក។ អ្នកក៏អាចបង្ខំឱ្យធ្វើសមកាលកម្មឡើងវិញភ្លាមៗបានគ្រប់ពេលដោយប្រើប៊ូតុង **ធ្វើបច្ចុប្បន្នភាពបញ្ជីស្ថានីយ៍** — សូមមើល [កម្មវិធីរុករកស្ថានីយ៍](#កម្មវិធីរុករកស្ថានីយ៍) ខាងក្រោម។
 
-## Přidání stanice do aplikace Radio Browser
+## ការបន្ថែមស្ថានីយ៍ទៅ Radio Browser
 
-Pokud se vámi hledaná stanice nenachází v adresáři Radio Browser, můžete ji sami odeslat na adrese [https://www.radio-browser.info/add](https://www.radio-browser.info/add). Není potřeba žádný účet ani registrace.
+ប្រសិនបើស្ថានីយ៍ដែលអ្នកកំពុងស្វែងរកមិនមាននៅក្នុងថត Radio Browser អ្នកអាចដាក់ស្នើវាដោយខ្លួនឯងនៅ [https://www.radio-browser.info/add](https://www.radio-browser.info/add)។ មិនចាំបាច់មានគណនី ឬចុះឈ្មោះទេ។
 
-Vyplňte formulář na této stránce:
+បំពេញទម្រង់នៅលើទំព័រនោះ៖
 
-- **URL streamu** *(povinný údaj)* - přímá adresa URL audio streamu, končící na `.mp3`, `.aac`, `.ogg` nebo podobně. Nejedná se o adresu webové stránky stanice, ale o adresu surového streamu, kterou byste vložili do přehrávače médií. Většina stanic zveřejňuje adresu URL svého streamu na svých webových stránkách nebo v sekci "Poslouchat živě".
-- **Název stanice** *(povinný údaj)* - název stanice, jak by se měl zobrazovat v adresáři.
-- **Homepage** - adresa webové stránky stanice.
-- **Země a jazyk** - vyberte zemi a jazyk vysílání z rozevíracích seznamů.
-- **Štítky** - žánrová nebo tematická klíčová slova oddělená čárkami, například `news`, `jazz`, `classical`. Používají se pro vyhledávání a filtrování.
-- **URL loga** - přímý odkaz na obrázek loga stanice, pokud je k dispozici.
+- **Stream URL** *(ចាំបាច់)* — អាសយដ្ឋាន URL ផ្ទាល់នៃស្ទ្រីមសំឡេង ដែលបញ្ចប់ដោយ `.mp3`, `.aac`, `.ogg` ឬស្រដៀងគ្នា។ នេះមិនមែនជាអាសយដ្ឋានគេហទំព័ររបស់ស្ថានីយ៍ឡើយ វាគឺជាអាសយដ្ឋានស្ទ្រីមផ្ទាល់ដែលអ្នកនឹងចម្លងដាក់ក្នុងកម្មវិធីចាក់មេឌៀ។ ស្ថានីយ៍ភាគច្រើនផ្សព្វផ្សាយ URL ស្ទ្រីមរបស់ពួកគេនៅលើគេហទំព័ររបស់ពួកគេ ឬនៅក្នុងផ្នែក "ស្តាប់ផ្ទាល់"។
+- **ឈ្មោះស្ថានីយ៍** *(ចាំបាច់)* — ឈ្មោះស្ថានីយ៍ដូចដែលគួរបង្ហាញក្នុងថត។
+- **ទំព័រដើម** — អាសយដ្ឋានគេហទំព័ររបស់ស្ថានីយ៍។
+- **ប្រទេស និងភាសា** — ជ្រើសរើសប្រទេស និងភាសាផ្សាយពីបញ្ជីទម្លាក់ចុះ។
+- **ស្លាក** — ពាក្យគន្លឹះប្រភេទ ឬប្រធានបទដែលបំបែកដោយសញ្ញាក្បៀស ឧទាហរណ៍ `news`, `jazz`, `classical`។ ទាំងនេះត្រូវបានប្រើសម្រាប់ការស្វែងរក និងការចម្រោះ។
+- **URL ឡូហ្គោ** — តំណភ្ជាប់ផ្ទាល់ទៅរូបភាពឡូហ្គោរបស់ស្ថានីយ៍ ប្រសិនបើមាន។
 
-Po odeslání je stanice zkontrolována a přidána do veřejného adresáře. Po přijetí se automaticky objeví ve vyhledávání freeAudio a v seznamu zemí, protože adresář je obnovován z živého API.
+បន្ទាប់ពីដាក់ស្នើ ស្ថានីយ៍ត្រូវបានពិនិត្យ និងបន្ថែមទៅថតសាធារណៈ។ នៅពេលទទួលយក វានឹងបង្ហាញនៅក្នុងការស្វែងរក និងបញ្ជីប្រទេសរបស់ freeAudio ដោយស្វ័យប្រវត្តិ ព្រោះថតត្រូវបានធ្វើបច្ចុប្បន្នភាពពី API ផ្ទាល់។
 
-## Požadavky
+## តម្រូវការ
 
-- NVDA 2025.1	 nebo novější
-- Windows 10 nebo novější
-- Připojení k internetu
+- NVDA 2025.1	 ឬថ្មីជាងនេះ
+- Windows 10 ឬថ្មីជាងនេះ
+- ការតភ្ជាប់អ៊ីនធឺណិត
 
-## Instalace
+## ការដំឡើង
 
-Stáhněte si soubor `.nvda-addon`, stiskněte na něm Enter a po výzvě restartujte NVDA.
+ទាញយកឯកសារ `.nvda-addon` ចុច Enter លើវា ហើយចាប់ផ្តើម NVDA ឡើងវិញនៅពេលត្រូវបានសួរ។
 
-## Klávesové zkratky
+## គ្រាប់ចុចរហ័ស
 
-Všechny klávesové zkratky lze znovu přiřadit v nabídce NVDA → Předvolby → Vstupní gesta → freeAudio. Tyto zkratky fungují odkudkoli, bez ohledu na to, které okno má fokus.
+គ្រាប់ចុចរហ័សទាំងអស់អាចកំណត់ឡើងវិញពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ចលនាថ្នាក់បញ្ចូល → freeAudio។ គ្រាប់ចុចទាំងនេះដំណើរការពីគ្រប់ទីកន្លែង ដោយមិនគិតពីវីនដូណាដែលកំពុងមានការផ្តោត។
 
-Některé z těchto zkratek se překrývají se zkratkami, které používá sám systém Windows. Pokud chcete zachovat vlastní zkratku Windows bez opětovného přiřazení zkratky freeAudio, stiskněte těsně před kombinací kláves `NVDA+F2` (Předat další klávesu) — NVDA odešle tuto jednu kombinaci kláves přímo do Windows místo toho, aby ji zachytila pro freeAudio.
+គ្រាប់ចុចរហ័សមួយចំនួនទាំងនេះត្រួតស៊ីគ្នាជាមួយគ្រាប់ចុចដែល Windows ខ្លួនឯងប្រើ។ ប្រសិនបើអ្នកចូលចិត្តរក្សាគ្រាប់ចុចរបស់ Windows ដោយមិនកំណត់គ្រាប់ចុចរបស់ freeAudio ឡើងវិញ សូមចុច `NVDA+F2` (បញ្ជូនគ្រាប់ចុចបន្ទាប់ឆ្លងកាត់) ភ្លាមៗមុនពេលបន្សំគ្រាប់ចុច — NVDA នឹងផ្ញើបន្សំគ្រាប់ចុចតែមួយនោះត្រង់ទៅ Windows ជំនួសឱ្យការស្ទាក់ចាប់វាសម្រាប់ freeAudio។
 
-| Zkratka | Funkce | Popis |
+| គ្រាប់ចុច | មុខងារ | ការពិពណ៌នា |
 |---|---|---|
-| `Ctrl+Win+R` | Otevřít prohlížeč stanic | Otevře okno prohlížeče, pokud je zavřené, nebo jej přenese do popředí, pokud je již otevřené. |
-| `Ctrl+Win+O` | Otevřít kartu Podcasty | Otevře prohlížeč stanic (pokud je zavřený) nebo jej přenese do popředí a přepne přímo na kartu **Podcasty**. |
-| `Ctrl+Win+L` | Otevřít kartu Audioknihy | Otevře prohlížeč stanic (pokud je zavřený) nebo jej přenese do popředí a přepne přímo na kartu **Audioknihy**. |
-| `Ctrl+Win+U` | Otevřít kartu Jukebox | Otevře prohlížeč stanic (pokud je zavřený) nebo jej přenese do popředí a přepne přímo na kartu **Jukebox**, zaměřenou na vyhledávací pole disku. |
-| `Ctrl+Win+P` | Pozastavit / obnovit | Pozastaví aktuální stanici, pokud se přehrává; obnoví, pokud je pozastavena. Pokud nic nepřehrává, spustí poslední stanici nebo otevře seznam oblíbených stanic v závislosti na vašem nastavení. Dvěma rychlými stisky za sebou přejdete přímo na zvolenou kartu. Třikrát stisknout tlačítko může v závislosti na nastavení spustit samostatnou akci. |
-| `Ctrl+Win+S` | Stop | Úplně zastaví aktuální stanici a resetuje přehrávač. |
-| `Ctrl+Win+→` | Další oblíbená stanice | Přesune na další stanici v seznamu oblíbených. Na konci seznamu se vrátí na začátek. |
-| `Ctrl+Win+←` | Předchozí oblíbená stanice | Přesune na předchozí stanici v seznamu oblíbených. Přeskočí na konec, když je na začátku. |
-| `Ctrl+Win+↑` | Zvýšení hlasitosti | Zvýší hlasitost o 5; maximálně 200. |
-| `Ctrl+Win+↓` | Snížení hlasitosti | Sníží hlasitost o 5; minimálně 0. |
-| `Ctrl+Win+V` | Přidat k oblíbeným / stáhnout médium | Přidá aktuálně přehrávanou stanici do seznamu oblíbených nebo stáhne aktuálně přehrávanou epizodu podcastu či audioknihu. Oznámí, pokud je stanice již v seznamu nebo pokud bylo médium již staženo. Neplatí, když se přehrává skladba z jukeboxu: freeAudio oznámí, že zkratka je určena pouze pro stanice, podcasty nebo audioknihy. |
-| `Ctrl+Win+Shift+K` | Zvýšit rychlost přehrávání | Zvýší rychlost přehrávání epizody podcastu, audioknihy nebo skladby jukeboxu o 0,1× (se zachováním výšky tónu). Rozsah: 0,5× až 2,0×. Vyžaduje `bass_fx.dll` umístěnou ve složce doplňku. |
-| `Ctrl+Win+Shift+J` | Snížit rychlost přehrávání | Sníží rychlost přehrávání epizody podcastu, audioknihy nebo skladby jukeboxu o 0,1×. Vyžaduje `bass_fx.dll`. |
-| `Shift+Win+K` | Transponovat nahoru | Zvýší výšku tónu epizody podcastu, audioknihy nebo skladby jukeboxu v krocích 1/8 celého tónu (0,25 půltónu), bez změny rychlosti. Rozsah: −12,00 až +12,00 půltónu. Vyžaduje `bass_fx.dll`. Viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu). |
-| `Shift+Win+J` | Transponovat dolů | Sníží výšku tónu v krocích 1/8 celého tónu, bez změny rychlosti. Vyžaduje `bass_fx.dll`. |
-| `Ctrl+Win+I` | Informace o stanici | Oznámí název aktuálně přehrávané stanice, epizody podcastu, audioknihy nebo skladby jukeboxu. Dvojím stisknutím zobrazíte v dialogovém okně podrobnosti, jako je země, žánr a datový tok. Třikrát stiskněte pro zkopírování informací o aktuální skladbě (metadata ICY) do schránky, pokud jsou k dispozici; pokud metadata nejsou k dispozici, spustí se místo toho rozpoznávání hudby Shazam. Čtyřnásobným stisknutím vynutíte rozpoznání hudby v případě nesprávných metadat ICY. |
-| `Ctrl+Win+M` | Zrcadlení zvuku | Zrcadlí aktuální datový tok nebo médium na další výstupní zvukové zařízení současně. Dalším stisknutím zrcadlení zastavíte. |
-| `Ctrl+Win+Shift+M` | Režim Obligato (hudba na pozadí) | Opakovaně přehrává zvolenou oblíbenou stanici tiše na pozadí, na vlastním výstupním zařízení a s vlastní hlasitostí, bez ohledu na to, co hraje v hlavním přehrávači. První stisknutí otevře dialog pro výběr stanice, výstupního zařízení a relativní hlasitosti. Dalším stisknutím jej zastavíte. |
-| `Ctrl+Win+E` | Okamžité nahrávání | Jedním stisknutím spustíte nahrávání aktuální stanice; dalším stisknutím nahrávání zastavíte. Stisknutím **dvakrát** spustíte **nahrávání skladby** - soubor je pojmenován podle aktuální skladby a nahrávání se automaticky zastaví při změně skladby. Dalším dvojím stisknutím v době, kdy je nahrávání skladby aktivní, jej předčasně zastavíte. Přehrávání pokračuje bez přerušení ve všech režimech nahrávání. K dispozici pouze pro stanice, které vysílají metadata ICY. |
-| `Ctrl+Win+W` | Otevřít složku s nahrávkami | Otevře složku s nahranými soubory v Průzkumníku souborů. |
-| `Ctrl+Win+J` | Časový posun zpět / posun vzad v podcastu, audioknize a jukeboxu | Pro živé rádio: přetočí o 15 sekund zpět. První stisknutí vstoupí do režimu časového posunu; každé další stisknutí posune o dalších 15 sekund zpět, až do limitu vyrovnávací paměti nastaveného v nastavení FreeRadia. Vyžaduje povolení vyrovnávací paměti časového posunu v Nastavení. Pro epizodu podcastu, audioknihu nebo skladbu jukeboxu tento klíč posouvá v rámci souboru, a škáluje se podle způsobu stisku: **podržení** posouvá o 5 sekund za opakování; **jedno záměrné stisknutí** posune o 12 sekund zpět; **dvě stisknutí** rychle za sebou posunou o 1 minutu; **tři a více stisknutí** posune o 5 minut. Na jednu sekvenci stisknutí proběhne pouze jedno posunutí, velikostně odpovídající počtu stisknutí - stisknutí se nesčítají. Funguje bez ohledu na nastavení časového posunu. |
-| `Ctrl+Win+K` | Časový posun vpřed / posun vpřed v podcastu, audioknize a jukeboxu | Pro živé rádio: posune o 15 sekund vpřed v režimu časového posunu. Po dosažení živého vysílání se přehrávání automaticky vrátí na přímý přenos a tento příkaz nebude mít žádný efekt, dokud znovu nepřetočíte zpět. Pro epizodu podcastu, audioknihu nebo skladbu jukeboxu tento klíč posouvá vpřed v rámci souboru se stejným škálováním stisknutí/podržení jako `Ctrl+Win+J` výše (podržení = 5 sekund za opakování; 1 stisknutí = 12 sekund; 2 stisknutí = 1 minuta; 3+ stisknutí = 5 minut). Funguje bez ohledu na nastavení časového posunu. |
-| `Ctrl+Win+T` | Přepnout vyrovnávací paměť časového posunu | Okamžitě zapne nebo vypne vyrovnávací paměť časového posunu, v souladu se zaškrtávacím políčkem v Nastavení. Vypnutí okamžitě vrátí zpět na živé vysílání a zastaví zachytávání na pozadí. Nemá vliv na přehrávání podcastů, audioknih nebo jukeboxu. |
-| *(nepřiřazeno)* | Vybrat výstupní zařízení | Otevře na vyžádání seznam dostupných hlavních výstupních zařízení. Seznam se zobrazí pouze v případě, že BASS rozpozná více než jedno fyzické výstupní zařízení. Přiřazení kombinace kláves pomocí NVDA Menu → Předvolby → Vstupní gesta → freeAudio. |
-| *(nepřiřazeno)* | Přepnout oznámení o ztlumení | Přepíná nastavení oznámení o ztlumení za chodu. Přiřazení kombinace kláves pomocí NVDA Menu → Předvolby → Vstupní gesta → freeAudio. |
-| *(nepřiřazeno)* | Přehrát oblíbenou stanici přímo | Každá stanice v seznamu oblíbených se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Stations**. Přiřaďte klávesovou zkratku libovolné stanici a spusťte ji okamžitě odkudkoli bez nutnosti otevírat prohlížeč. |
+| `Ctrl+Win+R` | បើកកម្មវិធីរុករកស្ថានីយ៍ | បើកវីនដូកម្មវិធីរុករកប្រសិនបើបិទ ឬនាំវាទៅខាងមុខប្រសិនបើបើករួចហើយ។ |
+| `Ctrl+Win+O` | បើកផ្ទាំងផតខាស្ត | បើកកម្មវិធីរុករកស្ថានីយ៍ (ប្រសិនបើបិទ) ឬនាំវាទៅខាងមុខ និងប្តូរទៅផ្ទាំង **ផតខាស្ត** ដោយផ្ទាល់។ |
+| `Ctrl+Win+L` | បើកផ្ទាំងសៀវភៅសំឡេង | បើកកម្មវិធីរុករកស្ថានីយ៍ (ប្រសិនបើបិទ) ឬនាំវាទៅខាងមុខ និងប្តូរទៅផ្ទាំង **សៀវភៅសំឡេង** ដោយផ្ទាល់។ |
+| `Ctrl+Win+U` | បើកផ្ទាំង Jukebox | បើកកម្មវិធីរុករកស្ថានីយ៍ (ប្រសិនបើបិទ) ឬនាំវាទៅខាងមុខ និងប្តូរទៅផ្ទាំង **Jukebox** ដោយផ្ទាល់ ដោយផ្តោតលើប្រអប់ស្វែងរកឌីស។ |
+| `Ctrl+Win+P` | ផ្អាក / បន្ត | ផ្អាកស្ថានីយ៍បច្ចុប្បន្នប្រសិនបើកំពុងចាក់; បន្តប្រសិនបើផ្អាក។ ប្រសិនបើគ្មានអ្វីកំពុងចាក់ ចាប់ផ្តើមស្ថានីយ៍ចុងក្រោយ ឬបើកបញ្ជីសំណព្វអាស្រ័យលើការកំណត់របស់អ្នក។ ចុចពីរដងជាប់ៗគ្នាលោតទៅផ្ទាំងដែលអ្នកជ្រើសរើស។ ចុចបីដងអាចបង្កឱ្យមានសកម្មភាពដាច់ដោយឡែកអាស្រ័យលើការកំណត់របស់អ្នក។ |
+| `Ctrl+Win+S` | បញ្ឈប់ | បញ្ឈប់ស្ថានីយ៍បច្ចុប្បន្នទាំងស្រុង និងកំណត់កម្មវិធីចាក់ឡើងវិញ។ |
+| `Ctrl+Win+→` | សំណព្វបន្ទាប់ | ផ្លាស់ទីទៅស្ថានីយ៍បន្ទាប់ក្នុងបញ្ជីសំណព្វ។ វិលត្រឡប់ទៅដើមវិញនៅចុងបញ្ជី។ |
+| `Ctrl+Win+←` | សំណព្វមុន | ផ្លាស់ទីទៅស្ថានីយ៍មុនក្នុងបញ្ជីសំណព្វ។ លោតទៅចុងបញ្ចប់នៅពេលនៅដើមបញ្ជី។ |
+| `Ctrl+Win+↑` | បង្កើនកម្រិតសំឡេង | បង្កើនកម្រិតសំឡេង 5; អតិបរមា 200។ |
+| `Ctrl+Win+↓` | បន្ថយកម្រិតសំឡេង | បន្ថយកម្រិតសំឡេង 5; អប្បបរមា 0។ |
+| `Ctrl+Win+V` | បន្ថែមទៅសំណព្វ / ទាញយកមេឌៀ | បន្ថែមស្ថានីយ៍ដែលកំពុងចាក់ទៅបញ្ជីសំណព្វ ឬទាញយកវគ្គផតខាស្ត ឬសៀវភៅសំឡេងបច្ចុប្បន្ន។ ជូនដំណឹងប្រសិនបើស្ថានីយ៍មាននៅក្នុងបញ្ជីរួចហើយ ឬប្រសិនបើមេឌៀត្រូវបានទាញយករួចហើយ។ មិនអនុវត្តនៅពេលបទ jukebox កំពុងចាក់៖ freeAudio ប្រាប់អ្នកថាគ្រាប់ចុចនេះសម្រាប់តែស្ថានីយ៍ ផតខាស្ត ឬសៀវភៅសំឡេងប៉ុណ្ណោះ។ |
+| `Ctrl+Win+Shift+K` | បង្កើនល្បឿនចាក់ | បង្កើនល្បឿនចាក់វគ្គផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox 0.1× (រក្សាសំនៀង)។ ជួរ៖ 0.5× ដល់ 2.0×។ |
+| `Ctrl+Win+Shift+J` | បន្ថយល្បឿនចាក់ | បន្ថយល្បឿនចាក់វគ្គផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox 0.1×។ |
+| `Shift+Win+K` | ផ្លាស់ប្តូរសំនៀងឡើងលើ | បង្កើនសំនៀងវគ្គផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox ជា 1/8 សំនៀងពេញ (0.25 ពាក់កណ្តាលសំនៀង) ដោយមិនផ្លាស់ប្តូរល្បឿន។ ជួរ៖ −12.00 ដល់ +12.00 ពាក់កណ្តាលសំនៀង។ សូមមើល [ការផ្លាស់ប្តូរសំនៀង](#ការផ្លាស់ប្តូរសំនៀង-transpose)។ |
+| `Shift+Win+J` | ផ្លាស់ប្តូរសំនៀងចុះក្រោម | បន្ថយសំនៀងជា 1/8 សំនៀងពេញ ដោយមិនផ្លាស់ប្តូរល្បឿន។ |
+| `Ctrl+Win+I` | ព័ត៌មានស្ថានីយ៍ | ប្រកាសឈ្មោះស្ថានីយ៍ វគ្គផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox ដែលកំពុងចាក់។ ចុចពីរដងដើម្បីបង្ហាញព័ត៌មានលម្អិតដូចជាប្រទេស ប្រភេទ និងអត្រាប៊ីតក្នុងប្រអប់។ ចុចបីដងដើម្បីចម្លងព័ត៌មានបទបច្ចុប្បន្ន (ទិន្នន័យមេតា ICY) ទៅ clipboard ប្រសិនបើមាន; ប្រសិនបើគ្មានទិន្នន័យមេតា ចាប់ផ្តើមការស្គាល់តន្ត្រី Shazam ជំនួសវិញ។ ចុចបួនដងដើម្បីបង្ខំការស្គាល់តន្ត្រីក្នុងករណីទិន្នន័យមេតា ICY ខុស។ |
+| `Ctrl+Win+M` | ការចម្លងសំឡេង | ចម្លងស្ទ្រីម ឬមេឌៀបច្ចុប្បន្នទៅឧបករណ៍បញ្ចេញសំឡេងបន្ថែមក្នុងពេលតែមួយ។ ចុចម្តងទៀតដើម្បីបញ្ឈប់ការចម្លង។ |
+| `Ctrl+Win+Shift+M` | របៀប Obligato (តន្ត្រីផ្ទៃខាងក្រោយ) | លេងស្ថានីយ៍សំណព្វដែលបានជ្រើសរើសស្ងាត់ៗនៅផ្ទៃខាងក្រោយ នៅលើឧបករណ៍បញ្ចេញសំឡេង និងកម្រិតសំឡេងផ្ទាល់ខ្លួន ដោយមិនគិតពីអ្វីដែលកំពុងចាក់ជាមេឌៀមេ។ ការចុចដំបូងបើកប្រអប់ដើម្បីជ្រើសរើសស្ថានីយ៍ ឧបករណ៍បញ្ចេញសំឡេង និងកម្រិតសំឡេងទាក់ទង។ ចុចម្តងទៀតដើម្បីបញ្ឈប់វា។ |
+| `Ctrl+Win+E` | ការថតភ្លាមៗ | ចុចម្តងដើម្បីចាប់ផ្តើមថតស្ថានីយ៍បច្ចុប្បន្ន; ចុចម្តងទៀតដើម្បីបញ្ឈប់។ ចុច **ពីរដង** ដើម្បីចាប់ផ្តើម **ការថតបទចម្រៀង** — ឯកសារត្រូវបានដាក់ឈ្មោះតាមបទបច្ចុប្បន្ន ហើយការថតឈប់ដោយស្វ័យប្រវត្តិនៅពេលបទផ្លាស់ប្តូរ។ ចុចពីរដងម្តងទៀតនៅពេលការថតបទកំពុងសកម្ម ដើម្បីបញ្ឈប់វាមុនកំណត់។ ការចាក់បន្តដោយមិនរំខាននៅក្នុងរបៀបថតទាំងអស់។ មានសម្រាប់តែស្ថានីយ៍ដែលផ្សាយទិន្នន័យមេតា ICY ប៉ុណ្ណោះ។ |
+| `Ctrl+Win+W` | បើកថតឯកសារថត | បើកថតដែលមានឯកសារដែលបានថតនៅក្នុង File Explorer។ |
+| `Ctrl+Win+J` | រំកិលពេលវេលាថយក្រោយ / ស្វែងរកថយក្រោយក្នុងផតខាស្ត សៀវភៅសំឡេង និង jukebox | សម្រាប់វិទ្យុផ្ទាល់៖ ថយក្រោយ 15 វិនាទី។ ចុចដំបូងចូលរបៀបរំកិលពេលវេលា; ការចុចបន្ថែមនីមួយៗផ្លាស់ទីថយក្រោយ 15 វិនាទីបន្ថែមទៀត រហូតដល់ដែនកំណត់ឃ្លាំងសតិបណ្ដោះអាសន្នដែលកំណត់ក្នុងការកំណត់ freeAudio។ ត្រូវការបើកឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលាក្នុងការកំណត់។ សម្រាប់វគ្គផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox គ្រាប់ចុចនេះស្វែងរកក្នុងឯកសារជំនួសវិញ ហើយធ្វើមាត្រដ្ឋានតាមរបៀបដែលអ្នកចុចវា៖ **ចុចជាប់** ផ្លាស់ទី 5 វិនាទីក្នុងមួយដង; **ចុចម្តងដោយចេតនា** ថយក្រោយ 12 វិនាទី; **ចុចពីរដង** ជាប់ៗគ្នាថយក្រោយ 1 នាទី; **ចុចបីដង ឬច្រើនជាង** ថយក្រោយ 5 នាទី។ មានតែការស្វែងរកមួយប៉ុណ្ណោះក្នុងមួយលំដាប់ការចុច ដែលមានទំហំសមស្របនឹងចំនួនការចុច — ការចុចមិនបូកបញ្ចូលគ្នាទេ។ ដំណើរការដោយមិនគិតពីការកំណត់រំកិលពេលវេលា។ |
+| `Ctrl+Win+K` | រំកិលពេលវេលាទៅមុខ / ស្វែងរកទៅមុខក្នុងផតខាស្ត សៀវភៅសំឡេង និង jukebox | សម្រាប់វិទ្យុផ្ទាល់៖ ផ្លាស់ទីទៅមុខ 15 វិនាទីក្នុងរបៀបរំកិលពេលវេលា។ នៅពេលឈានដល់គែមផ្ទាល់ ការចាក់ត្រឡប់ទៅស្ទ្រីមផ្ទាល់វិញដោយស្វ័យប្រវត្តិ ហើយពាក្យបញ្ជានេះគ្មានប្រសិទ្ធភាពរហូតដល់អ្នកថយក្រោយម្តងទៀត។ សម្រាប់វគ្គផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox គ្រាប់ចុចនេះស្វែងរកទៅមុខក្នុងឯកសារដោយប្រើមាត្រដ្ឋានចុច/ចុចជាប់ដូចគ្នានឹង `Ctrl+Win+J` ខាងលើ (ចុចជាប់ = 5 វិនាទីក្នុងមួយដង; ចុច 1 ដង = 12 វិនាទី; ចុច 2 ដង = 1 នាទី; ចុច 3+ ដង = 5 នាទី)។ ដំណើរការដោយមិនគិតពីការកំណត់រំកិលពេលវេលា។ |
+| `Ctrl+Win+T` | បិទ/បើកឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលា | បើក ឬបិទឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលាភ្លាមៗ ដោយឆ្លុះបញ្ចាំងប្រអប់ធីកក្នុងការកំណត់។ ការបិទត្រឡប់ទៅការចាក់ផ្ទាល់វិញភ្លាមៗប្រសិនបើកំពុងរំកិលពេលវេលា និងបញ្ឈប់ការចាប់យកនៅផ្ទៃខាងក្រោយ។ គ្មានប្រសិទ្ធភាពលើការចាក់ផតខាស្ត សៀវភៅសំឡេង ឬ jukebox ទេ។ |
+| *(មិនបានកំណត់)* | ជ្រើសរើសឧបករណ៍បញ្ចេញសំឡេង | បើកបញ្ជីតាមតម្រូវការនៃឧបករណ៍បញ្ចេញសំឡេងមេដែលមាន។ បញ្ជីបង្ហាញតែនៅពេល BASS រកឃើញឧបករណ៍បញ្ចេញសំឡេងរូបវន្តច្រើនជាងមួយ។ កំណត់បន្សំគ្រាប់ចុចតាមរយៈម៉ឺនុយ NVDA → ចំណូលចិត្ត → ចលនាថ្នាក់បញ្ចូល → freeAudio។ |
+| *(មិនបានកំណត់)* | បិទ/បើកការបិទសំឡេងជូនដំណឹង | បិទ/បើកការកំណត់បិទសំឡេងជូនដំណឹងភ្លាមៗ។ កំណត់បន្សំគ្រាប់ចុចតាមរយៈម៉ឺនុយ NVDA → ចំណូលចិត្ត → ចលនាថ្នាក់បញ្ចូល → freeAudio។ |
+| *(មិនបានកំណត់)* | លេងស្ថានីយ៍សំណព្វដោយផ្ទាល់ | ស្ថានីយ៍នីមួយៗក្នុងបញ្ជីសំណព្វរបស់អ្នកបង្ហាញជាកំណត់ត្រាដាច់ដោយឡែកនៅក្នុងម៉ឺនុយ NVDA → ចំណូលចិត្ត → ចលនាថ្នាក់បញ្ចូល → **freeAudio Stations**។ កំណត់គ្រាប់ចុចណាមួយទៅស្ថានីយ៍ដើម្បីចាប់ផ្តើមវាភ្លាមៗពីគ្រប់ទីកន្លែង ដោយមិនចាំបាច់បើកកម្មវិធីរុករក។ |
 
-Další / předchozí zkratky navigují pouze v seznamu oblíbených stanic; nefungují se seznamem všech stanic. Když je seznam zaměřen v okně prohlížeče, slouží ke stejnému účelu klávesy se šipkou doleva a doprava - viz Zkratky v dialogu.
+គ្រាប់ចុចបន្ទាប់ / មុន រុករកតែក្នុងបញ្ជីសំណព្វប៉ុណ្ណោះ; ពួកវាមិនដំណើរការជាមួយបញ្ជីស្ថានីយ៍ទាំងអស់ទេ។ នៅពេលបញ្ជីមួយមានការផ្តោតក្នុងវីនដូកម្មវិធីរុករក គ្រាប់ចុចព្រួញឆ្វេង និងស្តាំបម្រើគោលបំណងដូចគ្នា — សូមមើល គ្រាប់ចុចក្នុងប្រអប់។
 
-## Prohlížeč stanic
+## កម្មវិធីរុករកស្ថានីយ៍
 
-Aplikace freeAudio přidává do nabídky NVDA menu nástroje také podnabídku **freeAudio**. Z ní můžete přímo otevřít Průzkumníka stanic a Nastavení FreeRadia.
+freeAudio ក៏បន្ថែមម៉ឺនុយរង **freeAudio** ទៅម៉ឺនុយឧបករណ៍ NVDA ផងដែរ។ ពីទីនោះ អ្នកអាចបើកកម្មវិធីរុករកស្ថានីយ៍ និងការកំណត់ freeAudio ដោយផ្ទាល់។
 
-Okno otevřené pomocí `Ctrl+Win+R` obsahuje osm záložek: Všechny stanice, Oblíbené, Nahrávání, Časovač, Oblíbené skladby, Podcasty, Audioknihy a Jukebox. Mezi kartami můžete přecházet pomocí `Ctrl+Tab` nebo pomocí kláves `Alt+1` až `Alt+8`.
+វីនដូដែលបើកដោយ `Ctrl+Win+R` មានប្រាំបីផ្ទាំង៖ ស្ថានីយ៍ទាំងអស់ សំណព្វ ការថត កម្មវិធីកំណត់ម៉ោង បទចម្រៀងសំណព្វ ផតខាស្ត សៀវភៅសំឡេង និង Jukebox។ អ្នកអាចរុករករវាងផ្ទាំងដោយប្រើ `Ctrl+Tab` ឬប្រើ `Alt+1` ដល់ `Alt+8`។
 
-Po otevření karty Všechny stanice se automaticky načte 1 000 nejčastěji volených stanic z Prohlížeče rádií. Výběrem země z rozbalovacího seznamu se seznam aktualizuje a zobrazí se stanice dané země. Zadáním do vyhledávacího pole se okamžitě provede kompletní vyhledávání v celé databázi aplikace Radio Browser současně podle názvu, země a žánru.
+នៅពេលផ្ទាំងស្ថានីយ៍ទាំងអស់បើក ស្ថានីយ៍ចំនួន 1,000 ដែលមានការបោះឆ្នោតច្រើនជាងគេត្រូវបានផ្ទុកដោយស្វ័យប្រវត្តិពី Radio Browser។ ការជ្រើសរើសប្រទេសពីបញ្ជីទម្លាក់ចុះធ្វើបច្ចុប្បន្នភាពបញ្ជីដើម្បីបង្ហាញស្ថានីយ៍របស់ប្រទេសនោះ។ ការវាយបញ្ចូលក្នុងប្រអប់ស្វែងរកធ្វើការស្វែងរកពេញលេញក្នុងមូលដ្ឋានទិន្នន័យ Radio Browser ទាំងមូលក្នុងពេលតែមួយតាមឈ្មោះ ប្រទេស និងប្រភេទ។
 
-Při vyhledávání jsou výsledky z Radio Browser doplněny o stanice z TuneIn a iHeartRadio (jsou-li k dispozici). Tyto externí zdroje jsou prohledávány na pozadí a jejich výsledky jsou automaticky sloučeny do seznamu, což vám poskytuje přístup k ještě více stanicím bez jakékoli další akce.
+នៅពេលស្វែងរក លទ្ធផលពី Radio Browser ត្រូវបានបំពេញបន្ថែមដោយស្ថានីយ៍ពី TuneIn និង iHeartRadio (នៅពេលមាន)។ ប្រភពខាងក្រៅទាំងនេះត្រូវបានស្វែងរកនៅផ្ទៃខាងក្រោយ ហើយលទ្ធផលរបស់ពួកវាត្រូវបានបញ្ចូលទៅក្នុងបញ្ជីដោយស្វ័យប្រវត្តិ ផ្តល់ឱ្យអ្នកនូវស្ថានីយ៍បន្ថែមទៀតដោយមិនចាំបាច់មានសកម្មភាពបន្ថែម។
 
-V rozbalovacím seznamu **Výstupní zařízení** v dolní části okna prohlížeče - mimo karty - jsou uvedena všechna výstupní zvuková zařízení rozpoznaná rozhraním BASS. Výběrem zařízení se na něj okamžitě přesměruje zvukový výstup a volba se trvale uloží; stejné zařízení se automaticky použije při příští relaci. Pokud vybrané zařízení není připojeno, doplněk se automaticky vrátí k výchozímu nastavení systému. Stisknutím `F11` kdekoli v Prohlížeči stanic otevřete jednodušší výběr zařízení na vyžádání. Tento výběr se nezobrazuje automaticky a otevře se pouze v případě, že BASS rozpozná více než jedno fyzické výstupní zařízení. Pokud je k dispozici pouze jedno zařízení, výběr není potřeba a freeAudio použije výchozí systémový výstup. Tato funkce je funkční pouze v případě, že je aktivní backend BASS.
+បញ្ជីទម្លាក់ចុះ **ឧបករណ៍បញ្ចេញសំឡេង** នៅផ្នែកខាងក្រោមនៃវីនដូកម្មវិធីរុករក — នៅខាងក្រៅផ្ទាំង — រាយឧបករណ៍បញ្ចេញសំឡេងទាំងអស់ដែលស្គាល់ដោយ BASS។ ការជ្រើសរើសឧបករណ៍បញ្ជូនសំឡេងទៅវាភ្លាមៗ និងរក្សាទុកជម្រើសជាអចិន្ត្រៃយ៍; ឧបករណ៍ដូចគ្នាត្រូវបានប្រើដោយស្វ័យប្រវត្តិក្នុងវគ្គបន្ទាប់។ ប្រសិនបើឧបករណ៍ដែលបានជ្រើសរើសមិនត្រូវបានភ្ជាប់ កម្មវិធីបន្ថែមត្រឡប់ទៅលំនាំដើមប្រព័ន្ធដោយស្វ័យប្រវត្តិ។ ចុច `F11` ដើម្បីបើកកម្មវិធីជ្រើសរើសឧបករណ៍សាមញ្ញជាងនេះតាមតម្រូវការពីគ្រប់ទីកន្លែងក្នុងកម្មវិធីរុករកស្ថានីយ៍។ កម្មវិធីជ្រើសរើសមិនត្រូវបានបង្ហាញដោយស្វ័យប្រវត្តិទេ ហើយបើកតែនៅពេល BASS រកឃើញឧបករណ៍បញ្ចេញសំឡេងរូបវន្តច្រើនជាងមួយ។ នៅពេលមានតែមួយ មិនចាំបាច់ជ្រើសរើសទេ freeAudio ប្រើលទ្ធផលលំនាំដើមប្រព័ន្ធ។ មុខងារនេះដំណើរការតែនៅពេលម៉ាស៊ីន BASS សកម្មប៉ុណ្ណោះ។
 
-Ovládací prvky **Hlasitosti** (0-200) a **Efekty** ve stejné oblasti lze nastavit kdykoli, když je okno otevřené. V seznamu efektů lze současně aktivovat funkce Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, EQ: Bass Boost, EQ: Treble Boost a EQ: Vocal Boost; změny se okamžitě aplikují na aktivní proud. Každý efekt lze také okamžitě přepnout klávesovými zkratkami `Ctrl+1` až `Ctrl+0`, aniž byste museli opustit klávesnici – viz Klávesové zkratky pro efekty níže. Tyto ovládací prvky jsou plně funkční pouze v případě, že je aktivní backend BASS.
+ឧបករណ៍បញ្ជា **កម្រិតសំឡេង** (0–200) និង **បែបផែន** ក្នុងតំបន់ដូចគ្នាអាចកែតម្រូវបានគ្រប់ពេលនៅពេលវីនដូបើក។ ពីបញ្ជីបែបផែន Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, EQ: Bass Boost, EQ: Treble Boost និង EQ: Vocal Boost អាចបើកក្នុងពេលតែមួយ; ការផ្លាស់ប្តូរត្រូវបានអនុវត្តទៅស្ទ្រីមសកម្មភ្លាមៗ។ បែបផែននីមួយៗក៏អាចបិទ/បើកភ្លាមៗដោយប្រើ `Ctrl+1` ដល់ `Ctrl+0` ដោយមិនចាំបាច់ចាកចេញពីក្តារចុច — សូមមើល [គ្រាប់ចុចបែបផែន](#គ្រាប់ចុចបែបផែន)។ ឧបករណ៍បញ្ជាទាំងនេះដំណើរការពេញលេញតែនៅពេលម៉ាស៊ីន BASS សកម្មប៉ុណ្ណោះ។
 
-Pokud je aktivován jeden nebo více EQ efektů, automaticky se zobrazí **ovládací prvek zesílení** pro každé aktivní pásmo. Zesílení lze nastavit v rozsahu od −15 dB do +15 dB; výchozí hodnoty jsou basy +9 dB, výšky +9 dB a vokál +6 dB. Ovládací prvky se zobrazují pouze pro zaškrtnutá EQ pásma a automaticky se skryjí, když je efekt odznačen. Hodnoty se trvale ukládají a obnoví se při příštím spuštění.
+នៅពេលបែបផែន EQ មួយ ឬច្រើនត្រូវបានបើក **ឧបករណ៍បញ្ជាការទទួល** លេចឡើងសម្រាប់ក្រុមសកម្មនីមួយៗ។ ការទទួលអាចកំណត់បានចន្លោះ −15 dB ដល់ +15 dB; តម្លៃលំនាំដើមគឺ Bass +9 dB, Treble +9 dB, និង Vocal +6 dB។ ឧបករណ៍បញ្ជាការទទួលបង្ហាញតែសម្រាប់ក្រុម EQ ដែលបានធីកប៉ុណ្ណោះ ហើយលាក់ដោយស្វ័យប្រវត្តិនៅពេលបែបផែនត្រូវបានដោះធីក។ តម្លៃការទទួលត្រូវបានរក្សាទុកជាសកល និងស្តារឡើងវិញក្នុងវគ្គបន្ទាប់។
 
-V dolní části okna se nachází také tlačítko **Přehrát/Pozastavit**. Pokud není přehrávána žádná stanice, spustí vybranou stanici; pokud je již přehrávána stanice, pozastaví přehrávání.
+ប៊ូតុង **ចាក់/ផ្អាក** ក៏ស្ថិតនៅផ្នែកខាងក្រោមនៃវីនដូដែរ។ ប្រសិនបើគ្មានស្ថានីយ៍កំពុងចាក់ វាចាប់ផ្តើមស្ថានីយ៍ដែលបានជ្រើសរើស; ប្រសិនបើស្ថានីយ៍កំពុងចាក់រួចហើយ វាផ្អាកការចាក់។
 
-Tlačítko **Aktualizovat seznam stanic** okamžitě znovu synchronizuje místní katalog stanic s API Radio Browser, místo aby se čekalo na pravidelnou aktualizaci na pozadí. Během aktualizace je tlačítko deaktivováno a NVDA oznámí, že aktualizace probíhá; pokud jej stisknete znovu ještě před dokončením aktuální aktualizace, NVDA vás upozorní, že již jedna probíhá. Po dokončení aktualizace NVDA oznámí, že seznam stanic byl aktualizován, a aktuálně zobrazené výsledky vyhledávání nebo seznam podle země se automaticky obnoví, aby odrážely nová data.
+ប៊ូតុង **ធ្វើបច្ចុប្បន្នភាពបញ្ជីស្ថានីយ៍** ធ្វើសមកាលកម្មឡើងវិញកាតាឡុកស្ថានីយ៍ក្នុងតំបន់ជាមួយ API Radio Browser ភ្លាមៗ ជំនួសឱ្យការរង់ចាំការធ្វើបច្ចុប្បន្នភាពតាមកាលកំណត់នៅផ្ទៃខាងក្រោយ។ នៅពេលធ្វើបច្ចុប្បន្នភាព ប៊ូតុងត្រូវបានបិទ ហើយ NVDA ប្រកាសថាកំពុងធ្វើបច្ចុប្បន្នភាព; ប្រសិនបើអ្នកចុចវាម្តងទៀតមុនពេលការធ្វើបច្ចុប្បន្នភាពបច្ចុប្បន្នបញ្ចប់ NVDA ជូនដំណឹងថាមានមួយកំពុងដំណើរការរួចហើយ។ នៅពេលការធ្វើបច្ចុប្បន្នភាពបញ្ចប់ NVDA ប្រកាសថាបញ្ជីស្ថានីយ៍ត្រូវបានធ្វើបច្ចុប្បន្នភាព ហើយលទ្ធផលស្វែងរក ឬបញ្ជីប្រទេសដែលបានបង្ហាញបច្ចុប្បន្នត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិដើម្បីឆ្លុះបញ្ចាំងទិន្នន័យថ្មី។
 
-Je-li v seznamu vybrána stanice, tlačítko **Podrobnosti o stanici** zobrazí v samostatném dialogovém okně informace, jako je země, jazyk, žánr, formát, datový tok, webová stránka a adresa URL streamu. Každé pole se zobrazuje ve vlastním textovém poli určeném pouze pro čtení; mezi poli se můžete pohybovat pomocí klávesy Tab a všechny informace najednou zkopírovat do schránky pomocí tlačítka **Kopírovat vše do schránky**. Toto tlačítko je k dispozici na kartách Všechny stanice i Oblíbené.
+នៅពេលស្ថានីយ៍មួយត្រូវបានជ្រើសរើសក្នុងបញ្ជី ប៊ូតុង **ព័ត៌មានលម្អិតស្ថានីយ៍** បង្ហាញព័ត៌មានដូចជាប្រទេស ភាសា ប្រភេទ ទម្រង់ អត្រាប៊ីត គេហទំព័រ និង URL ស្ទ្រីមក្នុងប្រអប់ដាច់ដោយឡែក។ វាលនីមួយៗបង្ហាញក្នុងប្រអប់អត្ថបទអានតែប៉ុណ្ណោះផ្ទាល់ខ្លួន; អ្នកអាចផ្លាស់ទីរវាងវាលដោយ Tab និងចម្លងព័ត៌មានទាំងអស់ទៅ clipboard ក្នុងពេលតែមួយដោយប៊ូតុង **ចម្លងទាំងអស់ទៅ clipboard**។ ប៊ូតុងនេះមានទាំងក្នុងផ្ទាំងស្ថានីយ៍ទាំងអស់ និងផ្ទាំងសំណព្វ។
 
-### Kontextová nabídka stanice
+### ម៉ឺនុយបរិបទស្ថានីយ៍
 
-Klepnutím pravým tlačítkem na stanici v seznamu Všechny stanice nebo Oblíbené, případně jejím vybráním a stiskem klávesy Nabídka nebo `Shift+F10`, otevřete kontextovou nabídku s rychlými akcemi:
+ចុចខាងស្តាំលើស្ថានីយ៍ក្នុងបញ្ជីស្ថានីយ៍ទាំងអស់ ឬសំណព្វ ឬជ្រើសរើសវា ហើយចុចគ្រាប់ចុចកម្មវិធី ឬ `Shift+F10` ដើម្បីបើកម៉ឺនុយបរិបទជាមួយសកម្មភាពរហ័ស៖
 
-- **Podrobnosti o stanici** — totéž jako tlačítko Podrobnosti o stanici popsané výše.
-- **Přidat do oblíbených** *(karta Všechny stanice)* / **Odstranit stanici** *(karta Oblíbené)*.
-- **Přejmenovat stanici** *(karta Oblíbené)* — totéž jako `F9`.
-- **Uložit zvukový profil pro tuto stanici** / **Vymazat zvukový profil** *(karta Oblíbené)* — viz Zvukový profil stanice.
-- **Otestovat adresu URL** — zkontroluje, zda je datový tok vybrané stanice aktuálně dostupný, aniž by spustil přehrávání, a oznámí výsledek (dostupné, nebo důvod selhání, například chybu HTTP nebo vypršení časového limitu).
+- **ព័ត៌មានលម្អិតស្ថានីយ៍** — ដូចគ្នានឹងប៊ូតុងព័ត៌មានលម្អិតស្ថានីយ៍ដែលបានពិពណ៌នាខាងលើ។
+- **បន្ថែមទៅសំណព្វ** *(ផ្ទាំងស្ថានីយ៍ទាំងអស់)* / **លុបស្ថានីយ៍** *(ផ្ទាំងសំណព្វ)*។
+- **ប្តូរឈ្មោះស្ថានីយ៍** *(ផ្ទាំងសំណព្វ)* — ដូចគ្នានឹង `F9`។
+- **រក្សាទុកទម្រង់សំឡេងសម្រាប់ស្ថានីយ៍នេះ** / **សម្អាតទម្រង់សំឡេង** *(ផ្ទាំងសំណព្វ)* — សូមមើល [ទម្រង់សំឡេងស្ថានីយ៍](#ទម្រង់សំឡេងស្ថានីយ៍)។
+- **សាកល្បង URL** — ពិនិត្យថាតើស្ទ្រីមរបស់ស្ថានីយ៍ដែលបានជ្រើសរើសអាចចូលប្រើបានបច្ចុប្បន្នដោយមិនចាប់ផ្តើមការចាក់ ហើយប្រកាសលទ្ធផល (អាចចូលប្រើបាន ឬមូលហេតុបរាជ័យ ដូចជាកំហុស HTTP ឬការផុតពេលបណ្តាញ)។
 
-Zobrazí se pouze položky relevantní pro aktuální kartu a výběr.
+មានតែធាតុពាក់ព័ន្ធនឹងផ្ទាំង និងការជ្រើសរើសបច្ចុប្បន្នប៉ុណ្ណោះដែលបង្ហាញ។
 
-### Zkratky v dialogovém okně
+### គ្រាប់ចុចក្នុងប្រអប់
 
-Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
+គ្រាប់ចុចខាងក្រោមដំណើរការតែនៅពេលវីនដូកម្មវិធីរុករកស្ថានីយ៍សកម្មប៉ុណ្ណោះ។
 
-### Klávesy F
+#### គ្រាប់ចុច F
 
-| Zkratka | Funkce | Popis |
+| គ្រាប់ចុច | មុខងារ | ការពិពណ៌នា |
 |---|---|---|
-| `F1` | Průvodce nápovědou | Otevře soubor nápovědy doplňku ve výchozím prohlížeči. Nejprve se vyhledá průvodce pro aktivní jazyk NVDA; pokud není nalezen, otevře se výchozí průvodce. |
-| `F2` | co se přehrává | Oznámí aktuálně přehrávanou stanici a název skladby. Dvojím stisknutím zobrazíte v dialogovém okně podrobnosti, jako je země, žánr a datový tok. Třikrát stiskněte pro zkopírování informací o aktuální skladbě (metadata ICY) do schránky, pokud jsou k dispozici; pokud metadata nejsou k dispozici, spustí se místo toho rozpoznávání hudby Shazam. Čtyřnásobným stisknutím vynutíte rozpoznání hudby v případě nesprávných metadat ICY. |
-| `F3` | Předchozí položka | Na kartě Všechny stanice nebo Oblíbené: přesune na předchozí stanici a okamžitě zahájí přehrávání. Na kartě Podcasty: přesune na předchozí epizodu v seznamu epizod a přehraje ji. Na kartě Audioknihy: přesune na předchozí knihu a začne ji přehrávat. Na kartě Jukebox: přesune na předchozí skladbu ve vybrané položce jukeboxu a přehraje ji. |
-| `F4` | Další položka | Na kartě Všechny stanice nebo Oblíbené: přesune na další stanici a okamžitě zahájí přehrávání. Na kartě Podcasty: přesune na další epizodu a přehraje ji. Na kartě Audioknihy: přesune na další knihu a začne ji přehrávat. Na kartě Jukebox: přesune na další skladbu ve vybrané položce jukeboxu a přehraje ji. |
-| `Shift+F3` | Předchozí kanál / část / položka | Na kartě Podcasty: přejde o jeden kanál výše v seznamu odběrů. Na kartě Audioknihy: přesune na předchozí část aktuálně přehrávané knihy. Na kartě Jukebox: přejde o jednu položku jukeboxu (soubor nebo složku) výše v hlavním seznamu. |
-| `Shift+F4` | Další kanál / část / položka | Na kartě Podcasty: přejde o jeden kanál níže v seznamu odběrů. Na kartě Audioknihy: přesune na další část aktuálně přehrávané knihy. Na kartě Jukebox: přejde o jednu položku jukeboxu níže v hlavním seznamu. |
-| `F5` | Snížení hlasitosti | Sníží hlasitost o 5 (minimálně 0). |
-| `F6` | Zvýšení hlasitosti | Zvýší hlasitost o 5 (maximálně 200). |
-| `F7` | Pozastavení / obnovení | Pozastaví přehrávání stanice; obnoví přehrávání, pokud je pozastaveno a je načteno médium. |
-| `F8` | Stop | Úplně zastaví aktuální stanici a resetuje přehrávač. |
-| `F9` | Přejmenovat | Otevře dialogové okno pro přejmenování zaměřené stanice na kartě oblíbené. |
-| `F11` | Vybrat výstupní zařízení | Otevře výběr hlavního výstupního zařízení, pokud BASS rozpozná více než jedno fyzické výstupní zařízení. Aktuální zařízení je předem vybráno; Enter volbu použije a uloží. |
+| `F1` | មគ្គុទ្ទេសក៍ជំនួយ | បើកឯកសារជំនួយរបស់កម្មវិធីបន្ថែមក្នុងកម្មវិធីរុករកលំនាំដើម។ មគ្គុទ្ទេសក៍សម្រាប់ភាសា NVDA សកម្មត្រូវបានស្វែងរកមុន; ប្រសិនបើរកមិនឃើញ មគ្គុទ្ទេសក៍លំនាំដើមត្រូវបានបើក។ |
+| `F2` | អ្វីដែលកំពុងចាក់ | ប្រកាសស្ថានីយ៍ និងឈ្មោះបទដែលកំពុងចាក់។ ចុចពីរដងដើម្បីបង្ហាញព័ត៌មានលម្អិតដូចជាប្រទេស ប្រភេទ និងអត្រាប៊ីតក្នុងប្រអប់។ ចុចបីដងដើម្បីចម្លងព័ត៌មានបទបច្ចុប្បន្ន (ទិន្នន័យមេតា ICY) ទៅ clipboard ប្រសិនបើមាន; ប្រសិនបើគ្មានទិន្នន័យមេតា ចាប់ផ្តើមការស្គាល់តន្ត្រី Shazam ជំនួសវិញ។ ចុចបួនដងដើម្បីបង្ខំការស្គាល់តន្ត្រីក្នុងករណីទិន្នន័យមេតា ICY ខុស។ |
+| `F3` | ធាតុមុន | នៅផ្ទាំងស្ថានីយ៍ទាំងអស់ ឬសំណព្វ៖ ផ្លាស់ទីទៅស្ថានីយ៍មុន និងចាប់ផ្តើមចាក់ភ្លាមៗ។ នៅផ្ទាំងផតខាស្ត៖ ផ្លាស់ទីទៅវគ្គមុនក្នុងបញ្ជីវគ្គ និងចាក់វា។ នៅផ្ទាំងសៀវភៅសំឡេង៖ ផ្លាស់ទីទៅសៀវភៅមុន និងចាប់ផ្តើមចាក់វា។ នៅផ្ទាំង Jukebox៖ ផ្លាស់ទីទៅបទមុនក្នុងធាតុ jukebox ដែលបានជ្រើសរើស និងចាក់វា។ |
+| `F4` | ធាតុបន្ទាប់ | នៅផ្ទាំងស្ថានីយ៍ទាំងអស់ ឬសំណព្វ៖ ផ្លាស់ទីទៅស្ថានីយ៍បន្ទាប់ និងចាប់ផ្តើមចាក់ភ្លាមៗ។ នៅផ្ទាំងផតខាស្ត៖ ផ្លាស់ទីទៅវគ្គបន្ទាប់ និងចាក់វា។ នៅផ្ទាំងសៀវភៅសំឡេង៖ ផ្លាស់ទីទៅសៀវភៅបន្ទាប់ និងចាប់ផ្តើមចាក់វា។ នៅផ្ទាំង Jukebox៖ ផ្លាស់ទីទៅបទបន្ទាប់ក្នុងធាតុ jukebox ដែលបានជ្រើសរើស និងចាក់វា។ |
+| `Shift+F3` | ព័ត៌មាន / ផ្នែក / ធាតុមុន | នៅផ្ទាំងផតខាស្ត៖ ផ្លាស់ទីឡើងលើមួយព័ត៌មានក្នុងបញ្ជីការជាវ។ នៅផ្ទាំងសៀវភៅសំឡេង៖ ផ្លាស់ទីទៅផ្នែកមុននៃសៀវភៅដែលកំពុងចាក់។ នៅផ្ទាំង Jukebox៖ ផ្លាស់ទីឡើងលើមួយធាតុ jukebox (ឯកសារ ឬថត) ក្នុងបញ្ជីមេ។ |
+| `Shift+F4` | ព័ត៌មាន / ផ្នែក / ធាតុបន្ទាប់ | នៅផ្ទាំងផតខាស្ត៖ ផ្លាស់ទីចុះក្រោមមួយព័ត៌មានក្នុងបញ្ជីការជាវ។ នៅផ្ទាំងសៀវភៅសំឡេង៖ ផ្លាស់ទីទៅផ្នែកបន្ទាប់នៃសៀវភៅដែលកំពុងចាក់។ នៅផ្ទាំង Jukebox៖ ផ្លាស់ទីចុះក្រោមមួយធាតុ jukebox ក្នុងបញ្ជីមេ។ |
+| `F5` | បន្ថយកម្រិតសំឡេង | បន្ថយកម្រិតសំឡេង 5 (អប្បបរមា 0)។ |
+| `F6` | បង្កើនកម្រិតសំឡេង | បង្កើនកម្រិតសំឡេង 5 (អតិបរមា 200)។ |
+| `F7` | ផ្អាក / បន្ត | ផ្អាកប្រសិនបើស្ថានីយ៍កំពុងចាក់; បន្តប្រសិនបើផ្អាក និងមេឌៀត្រូវបានផ្ទុក។ |
+| `F8` | បញ្ឈប់ | បញ្ឈប់ស្ថានីយ៍បច្ចុប្បន្នទាំងស្រុង និងកំណត់កម្មវិធីចាក់ឡើងវិញ។ |
+| `F9` | ប្តូរឈ្មោះ | បើកប្រអប់ប្តូរឈ្មោះសម្រាប់ស្ថានីយ៍ដែលមានការផ្តោតក្នុងផ្ទាំងសំណព្វ។ |
+| `F11` | ជ្រើសរើសឧបករណ៍បញ្ចេញសំឡេង | បើកកម្មវិធីជ្រើសរើសឧបករណ៍បញ្ចេញសំឡេងមេនៅពេល BASS រកឃើញឧបករណ៍បញ្ចេញសំឡេងរូបវន្តច្រើនជាងមួយ។ ឧបករណ៍បច្ចុប្បន្នត្រូវបានជ្រើសរើសជាមុន; Enter អនុវត្ត និងរក្សាទុកជម្រើស។ |
 
-### Seznam a navigační zkratky
+#### គ្រាប់ចុចបញ្ជី និងការរុករក
 
-| Zkratka | Funkce | Popis |
+| គ្រាប់ចុច | មុខងារ | ការពិពណ៌នា |
 |---|---|---|
-| `→` | Další položka | Když je zaměřen seznam stanic (Všechny stanice / Oblíbené), přejde na další stanici a okamžitě ji přehraje. Když je zaměřen seznam epizod (Podcasty), přejde na další epizodu a přehraje ji. Na konci seznamu se nabalí na začátek. |
-| `←` | Předchozí položka | Když je zaměřen seznam stanic, přejde na předchozí stanici a přehraje ji. Když je zaměřen seznam epizod, přejde na předchozí epizodu a přehraje ji. Přeskočí na konec, když je na začátku. |
-| `Ctrl+→` | Další epizoda / kniha / skladba | Na kartě Podcasty: přejde na další epizodu a přehraje ji. Na kartě Audioknihy (zaměřen seznam knihovny): přejde na další knihu. Na kartě Jukebox (zaměřen seznam položek nebo skladeb): přejde na další skladbu ve vybrané položce jukeboxu a přehraje ji. |
-| `Ctrl+←` | Předchozí epizoda / kniha / skladba | Na kartě Podcasty: přejde na předchozí epizodu a přehraje ji. Na kartě Audioknihy: přejde na předchozí knihu. Na kartě Jukebox: přejde na předchozí skladbu ve vybrané položce jukeboxu a přehraje ji. |
-| `Enter` | Přehrát / Přidat | V seznamu stanic nebo epizod: začne okamžitě přehrávat vybranou položku. Ve výsledcích vyhledávání na kartě Jukebox: přidá vybraný soubor do jukeboxu. V seznamu položek nebo skladeb na kartě Jukebox: přehraje zaměřenou položku přímo. |
-| `Mezerník` | Přehrát / Pozastavit / Náhled | Pozastaví, pokud se něco přehrává; v opačném případě spustí přehrávání vybrané položky. Ve výsledcích vyhledávání na kartě Jukebox: přepne náhled (přehrát/zastavit) vybraného souboru. V seznamu položek nebo skladeb na kartě Jukebox: pozastaví, pokud se přehrává, jinak přehraje zaměřenou položku. |
-| `Ctrl+Tab` | Další karta | Přepne na další kartu (Všechny stanice → Oblíbené → Nahrávání → Časovač → Oblíbené skladby → Podcasty → Audioknihy → Jukebox). |
-| `Ctrl+Shift+Tab` | Předchozí karta | Přepne na předchozí kartu. |
-| `Escape` | Skrýt | Skryje okno; doplněk pokračuje v přehrávání na pozadí. |
+| `→` | ធាតុបន្ទាប់ | នៅពេលបញ្ជីស្ថានីយ៍មានការផ្តោត (ស្ថានីយ៍ទាំងអស់ / សំណព្វ) ផ្លាស់ទីទៅស្ថានីយ៍បន្ទាប់ និងចាក់វាភ្លាមៗ។ នៅពេលបញ្ជីវគ្គមានការផ្តោត (ផតខាស្ត) ផ្លាស់ទីទៅវគ្គបន្ទាប់ និងចាក់វា។ វិលត្រឡប់ទៅដើមនៅចុងបញ្ជី។ |
+| `←` | ធាតុមុន | នៅពេលបញ្ជីស្ថានីយ៍មានការផ្តោត ផ្លាស់ទីទៅស្ថានីយ៍មុន និងចាក់វា។ នៅពេលបញ្ជីវគ្គមានការផ្តោត ផ្លាស់ទីទៅវគ្គមុន និងចាក់វា។ លោតទៅចុងបញ្ចប់នៅពេលនៅដើមបញ្ជី។ |
+| `Ctrl+→` | វគ្គ / សៀវភៅ / បទបន្ទាប់ | នៅផ្ទាំងផតខាស្ត៖ ផ្លាស់ទីទៅវគ្គបន្ទាប់ និងចាក់វា។ នៅផ្ទាំងសៀវភៅសំឡេង (បញ្ជីបណ្ណាល័យមានការផ្តោត)៖ ផ្លាស់ទីទៅសៀវភៅបន្ទាប់។ នៅផ្ទាំង Jukebox (បញ្ជីធាតុ ឬបញ្ជីបទមានការផ្តោត)៖ ផ្លាស់ទីទៅបទបន្ទាប់ក្នុងធាតុ jukebox ដែលបានជ្រើសរើស និងចាក់វា។ |
+| `Ctrl+←` | វគ្គ / សៀវភៅ / បទមុន | នៅផ្ទាំងផតខាស្ត៖ ផ្លាស់ទីទៅវគ្គមុន និងចាក់វា។ នៅផ្ទាំងសៀវភៅសំឡេង៖ ផ្លាស់ទីទៅសៀវភៅមុន។ នៅផ្ទាំង Jukebox៖ ផ្លាស់ទីទៅបទមុនក្នុងធាតុ jukebox ដែលបានជ្រើសរើស និងចាក់វា។ |
+| `Enter` | ចាក់ / បន្ថែម | នៅបញ្ជីស្ថានីយ៍ ឬវគ្គ៖ ចាប់ផ្តើមចាក់ធាតុដែលបានជ្រើសរើសភ្លាមៗ។ នៅលទ្ធផលស្វែងរករបស់ផ្ទាំង Jukebox៖ បន្ថែមឯកសារដែលបានជ្រើសរើសទៅ jukebox។ នៅបញ្ជីធាតុ ឬបញ្ជីបទរបស់ផ្ទាំង Jukebox៖ ចាក់ធាតុដែលមានការផ្តោតដោយផ្ទាល់។ |
+| `Space` | ចាក់ / ផ្អាក / មើលជាមុន | ផ្អាកប្រសិនបើមានអ្វីកំពុងចាក់; បើមិនដូច្នេះ ចាប់ផ្តើមចាក់ធាតុដែលបានជ្រើសរើស។ នៅលទ្ធផលស្វែងរករបស់ផ្ទាំង Jukebox៖ បិទ/បើកការមើលជាមុន (ចាក់/បញ្ឈប់) នៃឯកសារដែលបានជ្រើសរើស។ នៅបញ្ជីធាតុ ឬបញ្ជីបទរបស់ផ្ទាំង Jukebox៖ ផ្អាកប្រសិនបើកំពុងចាក់ បើមិនដូច្នេះ ចាក់ធាតុដែលមានការផ្តោត។ |
+| `Ctrl+Tab` | ផ្ទាំងបន្ទាប់ | ប្តូរទៅផ្ទាំងបន្ទាប់ (ស្ថានីយ៍ទាំងអស់ → សំណព្វ → ការថត → កម្មវិធីកំណត់ម៉ោង → បទចម្រៀងសំណព្វ → ផតខាស្ត → សៀវភៅសំឡេង → Jukebox)។ |
+| `Ctrl+Shift+Tab` | ផ្ទាំងមុន | ប្តូរទៅផ្ទាំងមុន។ |
+| `Escape` | លាក់ | លាក់វីនដូ; កម្មវិធីបន្ថែមបន្តចាក់នៅផ្ទៃខាងក្រោយ។ |
 
-### Klávesové zkratky pro hlasitost
+#### គ្រាប់ចុចកម្រិតសំឡេង
 
-| Zkratka | Funkce | Popis |
+| គ្រាប់ចុច | មុខងារ | ការពិពណ៌នា |
 |---|---|---|
-| `Ctrl+↑` | Zvýšení hlasitosti | Zvýší hlasitost o 5. Funguje pouze při otevřeném okně prohlížeče. |
-| `Ctrl+↓` | Snížení hlasitosti | Sníží hlasitost o 5. Funguje pouze při otevřeném okně prohlížeče. |
+| `Ctrl+↑` | បង្កើនកម្រិតសំឡេង | បង្កើនកម្រិតសំឡេង 5។ ដំណើរការតែនៅពេលវីនដូកម្មវិធីរុករកបើក។ |
+| `Ctrl+↓` | បន្ថយកម្រិតសំឡេង | បន្ថយកម្រិតសំឡេង 5។ ដំណើរការតែនៅពេលវីនដូកម្មវិធីរុករកបើក។ |
 
-### Klávesové zkratky pro efekty
+#### គ្រាប់ចុចបែបផែន
 
-| Zkratka | Funkce | Popis |
+| គ្រាប់ចុច | មុខងារ | ការពិពណ៌នា |
 |---|---|---|
-| `Ctrl+1` | Přepnout Chorus | Zapne nebo vypne efekt Chorus a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+2` | Přepnout Compressor | Zapne nebo vypne efekt Compressor a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+3` | Přepnout Distortion | Zapne nebo vypne efekt Distortion a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+4` | Přepnout Echo | Zapne nebo vypne efekt Echo a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+5` | Přepnout Flanger | Zapne nebo vypne efekt Flanger a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+6` | Přepnout Gargle | Zapne nebo vypne efekt Gargle a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+7` | Přepnout Reverb | Zapne nebo vypne efekt Reverb a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+8` | Přepnout EQ: Bass Boost | Zapne nebo vypne pásmo EQ: Bass Boost a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+9` | Přepnout EQ: Treble Boost | Zapne nebo vypne pásmo EQ: Treble Boost a okamžitě jej použije na aktivní datový tok. |
-| `Ctrl+0` | Přepnout EQ: Vocal Boost | Zapne nebo vypne pásmo EQ: Vocal Boost a okamžitě jej použije na aktivní datový tok. |
+| `Ctrl+1` | បិទ/បើក Chorus | បើក ឬបិទបែបផែន Chorus និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+2` | បិទ/បើក Compressor | បើក ឬបិទបែបផែន Compressor និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+3` | បិទ/បើក Distortion | បើក ឬបិទបែបផែន Distortion និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+4` | បិទ/បើក Echo | បើក ឬបិទបែបផែន Echo និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+5` | បិទ/បើក Flanger | បើក ឬបិទបែបផែន Flanger និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+6` | បិទ/បើក Gargle | បើក ឬបិទបែបផែន Gargle និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+7` | បិទ/បើក Reverb | បើក ឬបិទបែបផែន Reverb និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+8` | បិទ/បើក EQ: Bass Boost | បើក ឬបិទក្រុម EQ: Bass Boost និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+9` | បិទ/បើក EQ: Treble Boost | បើក ឬបិទក្រុម EQ: Treble Boost និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
+| `Ctrl+0` | បិទ/បើក EQ: Vocal Boost | បើក ឬបិទក្រុម EQ: Vocal Boost និងអនុវត្តវាទៅស្ទ្រីមសកម្មភ្លាមៗ។ |
 
-Každá zkratka odpovídá zaškrtnutí nebo odškrtnutí příslušné položky v seznamu **Efekty**: NVDA oznámí, zda byl efekt zapnut nebo vypnut, změna se automaticky uloží a ovládací prvek zesílení pro dané pásmo (pokud existuje) se podle toho zobrazí nebo skryje. K dispozici pouze v případě, že je aktivní backend BASS.
+គ្រាប់ចុចនីមួយៗឆ្លុះបញ្ចាំងការធីក ឬដោះធីកធាតុដែលត្រូវគ្នាក្នុងបញ្ជី **បែបផែន**៖ NVDA ប្រកាសថាតើបែបផែនត្រូវបានបើក ឬបិទ ការផ្លាស់ប្តូរត្រូវបានរក្សាទុកដោយស្វ័យប្រវត្តិ ហើយឧបករណ៍បញ្ជាការទទួលសម្រាប់ក្រុមនោះ (ប្រសិនបើអនុវត្ត) លេចឡើង ឬបាត់ទៅតាម។ មានតែនៅពេលម៉ាស៊ីន BASS សកម្មប៉ុណ្ណោះ។
 
-### Klávesové zkratky Alt
+#### គ្រាប់ចុច Alt
 
-| Zkratka | Funkce | Popis |
+| គ្រាប់ចុច | មុខងារ | ការពិពណ៌នា |
 |---|---|---|
-| `Alt+R` | Přejít na vyhledávací pole | Přesune fokus na textové pole pro vyhledávání. Vyhledá v rádiovém prohlížeči text ve vyhledávacím poli; současně se vyhledává název, země a žánr. |
-| `Alt+V` | Přidat / odebrat oblíbené | Přidá vybranou stanici do oblíbených; pokud již v seznamu je, odebere ji. |
-| `Alt+1` | Všechny stanice | Přepne na kartu Všechny stanice. |
-| `Alt+2` | Oblíbené | Přepne na kartu Oblíbené. |
-| `Alt+3` | Nahrávání | Přepne na kartu Nahrávání. |
-| `Alt+4` | Časovač | Přepne na kartu Časovač. |
-| `Alt+5` | Oblíbené skladby | Přepne na kartu Oblíbené skladby. |
-| `Alt+6` | Podcasty | Přepne na kartu Podcasty. |
-| `Alt+7` | Audioknihy | Přepne na kartu Audioknihy. |
-| `Alt+8` | Jukebox | Přepne na kartu Jukebox, zaměřenou na vyhledávací pole disku. |
-| `Alt+K` | Zavřít | Zavře okno; doplněk pokračuje v přehrávání na pozadí. |
+| `Alt+R` | ទៅកាន់ប្រអប់ស្វែងរក | ផ្លាស់ទីការផ្តោតទៅប្រអប់អត្ថបទស្វែងរក។ ស្វែងរក Radio Browser ជាមួយអត្ថបទក្នុងប្រអប់ស្វែងរក; ឈ្មោះ ប្រទេស និងប្រភេទត្រូវបានស្វែងរកក្នុងពេលតែមួយ។ |
+| `Alt+V` | បន្ថែម / លុបសំណព្វ | បន្ថែមស្ថានីយ៍ដែលបានជ្រើសរើសទៅសំណព្វ; លុបវាប្រសិនបើមានក្នុងបញ្ជីរួចហើយ។ |
+| `Alt+1` | ស្ថានីយ៍ទាំងអស់ | ប្តូរទៅផ្ទាំងស្ថានីយ៍ទាំងអស់។ |
+| `Alt+2` | សំណព្វ | ប្តូរទៅផ្ទាំងសំណព្វ។ |
+| `Alt+3` | ការថត | ប្តូរទៅផ្ទាំងការថត។ |
+| `Alt+4` | កម្មវិធីកំណត់ម៉ោង | ប្តូរទៅផ្ទាំងកម្មវិធីកំណត់ម៉ោង។ |
+| `Alt+5` | បទចម្រៀងសំណព្វ | ប្តូរទៅផ្ទាំងបទចម្រៀងសំណព្វ។ |
+| `Alt+6` | ផតខាស្ត | ប្តូរទៅផ្ទាំងផតខាស្ត។ |
+| `Alt+7` | សៀវភៅសំឡេង | ប្តូរទៅផ្ទាំងសៀវភៅសំឡេង។ |
+| `Alt+8` | Jukebox | ប្តូរទៅផ្ទាំង Jukebox ដោយផ្តោតលើប្រអប់ស្វែងរកឌីស។ |
+| `Alt+K` | បិទ | បិទវីនដូ; កម្មវិធីបន្ថែមបន្តចាក់នៅផ្ទៃខាងក្រោយ។ |
 
-## Oblíbené
+## សំណព្វ
 
-Seznam oblíbených stanic je trvale uložená osobní sbírka stanic. Chcete-li přidat stanici, vyberte ji v seznamu a stiskněte tlačítko Přidat do oblíbených nebo použijte klávesovou zkratku `Alt+V`. Stejná klávesová zkratka odstraní stanici, která je již v seznamu, když je vybrána.
+បញ្ជីសំណព្វគឺជាបណ្តុំស្ថានីយ៍ផ្ទាល់ខ្លួនដែលរក្សាទុកជាអចិន្ត្រៃយ៍។ ដើម្បីបន្ថែមស្ថានីយ៍ សូមជ្រើសរើសវាក្នុងបញ្ជី ហើយចុចប៊ូតុង បន្ថែមទៅសំណព្វ ឬប្រើគ្រាប់ចុច `Alt+V`។ គ្រាប់ចុចដូចគ្នាលុបស្ថានីយ៍ដែលមានក្នុងបញ្ជីរួចហើយនៅពេលវាត្រូវបានជ្រើសរើស។
 
-Oblíbené lze přehrávat pomocí kláves `Ctrl+Win+→` a `Ctrl+Win+←`; tyto klávesové zkratky fungují, i když není otevřeno okno prohlížeče.
+សំណព្វអាចចាក់បានដោយ `Ctrl+Win+→` និង `Ctrl+Win+←`; គ្រាប់ចុចទាំងនេះដំណើរការទោះបីជាវីនដូកម្មវិធីរុករកមិនបើកក៏ដោយ។
 
-Chcete-li stanici ze seznamu oblíbených odstranit, vyberte ji a stiskněte tlačítko **Odstranit stanici** nebo klávesu `Odstranit`. Po odstranění se zaměření a výběr automaticky přesunou na další stanici v seznamu. Pokud byla odstraněná stanice poslední, přesune se fokus na předchozí stanici. Pokud se seznam vyprázdní, fokus se přesune na tlačítko Play.
+ដើម្បីលុបស្ថានីយ៍ចេញពីបញ្ជីសំណព្វ សូមជ្រើសរើសវា ហើយចុចប៊ូតុង **លុបស្ថានីយ៍** ឬគ្រាប់ចុច `Delete`។ បន្ទាប់ពីលុប ការផ្តោត និងការជ្រើសរើសផ្លាស់ទីទៅស្ថានីយ៍បន្ទាប់ក្នុងបញ្ជីដោយស្វ័យប្រវត្តិ។ ប្រសិនបើស្ថានីយ៍ដែលបានលុបគឺជាចុងក្រោយ ការផ្តោតផ្លាស់ទីទៅស្ថានីយ៍មុន។ ប្រសិនបើបញ្ជីទទេ ការផ្តោតផ្លាស់ទីទៅប៊ូតុង ចាក់។
 
-### Označení a odstranění více položek
+### ការដាក់សញ្ញាសម្គាល់ និងការលុបធាតុច្រើន
 
-Oblíbené, oblíbené skladby, knihovna audioknih a seznam jukeboxu podporují označení několika položek a jejich společné odstranění v jednom kroku:
+សំណព្វ បទចម្រៀងសំណព្វ បណ្ណាល័យសៀវភៅសំឡេង និងបញ្ជី Jukebox ទាំងអស់គាំទ្រការដាក់សញ្ញាសម្គាល់ធាតុច្រើន និងការលុបពួកវាជាមួយគ្នាក្នុងជំហានតែមួយ៖
 
-- Stiskněte **`.`** (tečku) na zvýrazněné položce pro její označení nebo zrušení označení. NVDA oznámí změnu a řádek označené položky je označen jako „(označeno)“, aby byl její stav jasný při procházení seznamu.
-- Stisknutím **`Shift+Home`** označíte nebo odznačíte všechny položky od aktuální až po první položku v seznamu, nebo **`Shift+End`** totéž dolů po poslední položku. Zda bude rozsah označen nebo odznačen, se rozhoduje podle aktuálního stavu aktuální položky, takže se celý rozsah vždy v jednom kroku pohybuje stejným směrem. Fokus se poté přesune na vzdálenější konec rozsahu a NVDA oznámí, kolik položek se změnilo.
-- Stiskněte **`Delete`** pro odstranění všech označených položek najednou. Pokud není nic označeno, `Delete` stále odstraní pouze aktuálně vybranou položku, jako dříve.
-- Kontextová nabídka pravého tlačítka (klávesa Nabídka / `Shift+F10`) každého seznamu obsahuje příkaz **Odstranit vybrané**, aktivní pouze tehdy, je-li označena alespoň jedna položka, který dělá totéž.
-- Před jakýmkoli odstraněním se zobrazí jedno potvrzovací dialogové okno shrnující, kolik položek bude odstraněno.
+- ចុច **`.`** (ចុច) លើធាតុដែលបានបន្លិចដើម្បីដាក់សញ្ញាសម្គាល់ ឬដោះសញ្ញាសម្គាល់វា។ NVDA ប្រកាសការផ្លាស់ប្តូរ ហើយជួរដេករបស់ធាតុដែលបានសម្គាល់ត្រូវបានដាក់ស្លាកថា "(បានសម្គាល់)" ដូច្នេះស្ថានភាពរបស់វានៅតែច្បាស់លាស់ខណៈអ្នកបន្តរុករកក្នុងបញ្ជី។
+- ចុច **`Shift+Home`** ដើម្បីដាក់សញ្ញាសម្គាល់ ឬដោះសញ្ញាសម្គាល់ធាតុនីមួយៗចាប់ពីធាតុបច្ចុប្បន្នរហូតដល់ធាតុដំបូងក្នុងបញ្ជី ឬ **`Shift+End`** ដើម្បីធ្វើដូចគ្នារហូតដល់ធាតុចុងក្រោយ។ ការដាក់សញ្ញាសម្គាល់ ឬដោះសញ្ញាសម្គាល់លើជួរទាំងមូលត្រូវបានកំណត់ដោយស្ថានភាពរបស់ធាតុបច្ចុប្បន្ន ដូច្នេះជួរទាំងមូលតែងតែផ្លាស់ប្តូរតាមរបៀបដូចគ្នាក្នុងសកម្មភាពតែមួយ។ បន្ទាប់ពីនោះការផ្តោតផ្លាស់ទីទៅចុងម្ខាងទៀតនៃជួរ ហើយ NVDA ប្រកាសចំនួនធាតុដែលបានផ្លាស់ប្តូរ។
+- ចុច **`Delete`** ដើម្បីលុបធាតុដែលបានសម្គាល់ទាំងអស់ក្នុងពេលតែមួយ។ ប្រសិនបើគ្មានអ្វីត្រូវបានសម្គាល់ `Delete` នៅតែលុបតែធាតុដែលបានជ្រើសរើសបច្ចុប្បន្នប៉ុណ្ណោះ ដូចពីមុន។
+- ម៉ឺនុយបរិបទចុចខាងស្តាំ (គ្រាប់ចុចកម្មវិធី / `Shift+F10`) នៃបញ្ជីនីមួយៗរួមមានពាក្យបញ្ជា **លុបអ្វីដែលបានជ្រើសរើស** ដែលសកម្មតែនៅពេលធាតុយ៉ាងហោចណាស់មួយត្រូវបានសម្គាល់ ហើយដែលធ្វើដូចគ្នា។
+- មុនពេលលុបអ្វី ប្រអប់បញ្ជាក់តែមួយសង្ខេបចំនួនធាតុដែលនឹងត្រូវលុប។
 
-Označení jsou specifická pro každý seznam a po odstranění položek (nebo jejich jednotlivém odznačení) se vymažou; mezi relacemi se neukládají.
+សញ្ញាសម្គាល់គឺតាមបញ្ជី ហើយត្រូវបានលុបនៅពេលអ្នកលុបធាតុ (ឬដោះសញ្ញាសម្គាល់វាជាលក្ខណៈបុគ្គល); ពួកវាមិនត្រូវបានរក្សាទុករវាងវគ្គទេ។
 
-### Export a import oblíbených stanic
+### នាំចេញ និងនាំចូលសំណព្វ
 
-Záložka Oblíbené obsahuje dvě tlačítka pro zálohu a obnovu seznamu stanic:
+ផ្ទាំងសំណព្វរួមមានប៊ូតុងពីរសម្រាប់បម្រុងទុក និងស្តារបញ្ជីស្ថានីយ៍របស់អ្នក៖
 
-**Exportovat oblíbené…** — uloží celý seznam oblíbených do souboru. V dialogu uložení si můžete vybrat ze dvou formátů:
-- **JSON** (`.json`) — úplná záloha zachovávající názvy stanic, adresy URL streamů a veškerá metadata. Doporučeno pro pozdější obnovu seznamu nebo jeho přenos na jiný počítač.
-- **Playlist M3U** (`.m3u`) — standardní formát playlistu kompatibilní s většinou mediálních přehrávačů a rozhlasových aplikací. Upozorňujeme, že M3U neukládá všechna metadata stanice, takže obnova z M3U může mít méně podrobností než záloha JSON.
+**នាំចេញសំណព្វ…** — រក្សាទុកបញ្ជីសំណព្វទាំងមូលទៅជាឯកសារ។ ប្រអប់រក្សាទុកអនុញ្ញាតឱ្យអ្នកជ្រើសរើសរវាងទម្រង់ពីរ៖
+- **JSON** (`.json`) — ការបម្រុងទុកពេញលេញដែលរក្សាឈ្មោះស្ថានីយ៍ URL ស្ទ្រីម និងទិន្នន័យមេតាទាំងអស់។ ណែនាំសម្រាប់ការស្តារបញ្ជីឡើងវិញនៅពេលក្រោយ ឬផ្លាស់ទីវាទៅកុំព្យូទ័រផ្សេង។
+- **បញ្ជីចាក់ M3U** (`.m3u`) — ទម្រង់បញ្ជីចាក់ស្តង់ដារដែលត្រូវគ្នាជាមួយកម្មវិធីចាក់មេឌៀ និងកម្មវិធីវិទ្យុភាគច្រើន។ ចំណាំថា M3U មិនរក្សាទុកទិន្នន័យមេតាស្ថានីយ៍ទាំងអស់ទេ ដូច្នេះការស្តារពី M3U អាចផ្តល់ព័ត៌មានលម្អិតតិចជាងការបម្រុងទុក JSON។
 
-**Importovat oblíbené…** — načte stanice z dříve exportovaného souboru JSON nebo M3U. Po výběru souboru se zobrazí dotaz, jak stanice přidat:
-- **Ano (sloučit)** — přidá importované stanice do stávajícího seznamu bez odebrání aktuálních oblíbených. Duplicitní stanice se nepřidávají dvakrát.
-- **Ne (nahradit)** — zcela vymaže aktuální seznam oblíbených a nahradí ho obsahem importovaného souboru.
-- **Zrušit** — vrátí se do prohlížeče bez provedení jakýchkoli změn.
+**នាំចូលសំណព្វ…** — ផ្ទុកស្ថានីយ៍ពីឯកសារ JSON ឬ M3U ដែលបាននាំចេញពីមុន។ បន្ទាប់ពីជ្រើសរើសឯកសារ អ្នកត្រូវបានសួរពីរបៀបបន្ថែមស្ថានីយ៍៖
+- **បាទ/ចាស (បញ្ចូលគ្នា)** — បន្ថែមស្ថានីយ៍ដែលបាននាំចូលទៅបញ្ជីដែលមានស្រាប់ដោយមិនលុបសំណព្វបច្ចុប្បន្ន។ ស្ថានីយ៍ស្ទួនមិនត្រូវបានបន្ថែមពីរដងទេ។
+- **ទេ (ជំនួស)** — សម្អាតបញ្ជីសំណព្វបច្ចុប្បន្នទាំងស្រុង និងជំនួសវាដោយមាតិកានៃឯកសារដែលបាននាំចូល។
+- **បោះបង់** — ត្រឡប់ទៅកម្មវិធីរុករកដោយមិនធ្វើការផ្លាស់ប្តូរណាមួយ។
 
-Po úspěšném importu se automaticky obnoví seznam oblíbených, seznam stanic naplánovaných nahrávání a seznam stanic časovače.
+បន្ទាប់ពីការនាំចូលជោគជ័យ បញ្ជីសំណព្វ បញ្ជីស្ថានីយ៍ថតដែលបានកំណត់ពេល និងបញ្ជីស្ថានីយ៍កម្មវិធីកំណត់ម៉ោងត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ។
 
-### Organizace oblíbených do skupin
+### ការរៀបចំសំណព្វជាក្រុម
 
-Oblíbené mohou patřit do složky/skupiny, což se v seznamu zobrazuje jako přípona „— Skupina" za názvem stanice (například „NPR Newscast — NPR").
+សំណព្វអាចជាកម្មសិទ្ធិរបស់ថត/ក្រុមមួយ ដែលបង្ហាញជាបច្ច័យ "— ក្រុម" បន្ទាប់ពីឈ្មោះស្ថានីយ៍ក្នុងបញ្ជី (ឧទាហរណ៍ "NPR Newscast — NPR")។
 
-- **Import z M3U** — pokud soubor používá značku `group-title` (konvence používaná programem DVBViewer a většinou ostatních editorů a přehrávačů M3U) k organizaci stanic do složek, freeAudio ji přečte a při importu zachová skupinu každé stanice. Export oblíbených zpět do M3U zapíše stejnou značku, takže struktura složek přežije cestu tam i zpět přes freeAudio.
-- **Ruční přiřazení nebo odebrání skupiny** — označte jednu nebo více oblíbených stanic pomocí `.` (viz [Označení a odstranění více položek](#označení-a-odstranění-více-položek) výše), poté zvolte **Přiřadit ke skupině…** z kontextové nabídky (klávesa Nabídka / `Shift+F10`) a zadejte název skupiny. Ponechte pole prázdné, chcete-li označené oblíbené ze skupiny odebrat. Pokud není nic označeno, příkaz se použije na aktuálně vybranou oblíbenou stanici.
-- **Filtrování podle skupiny** — pole Filtr nad seznamem oblíbených odpovídá také názvům skupin a přijímá více slov, z nichž každé může odpovídat jinému poli. Například zadání `Houston Classical` najde „Houston Public Media Classical", i když se tato přesná fráze nikde nevyskytuje — „Houston" odpovídá skupině a „Classical" odpovídá názvu stanice.
+- **ការនាំចូលពី M3U** — ប្រសិនបើឯកសារប្រើស្លាក `group-title` (ទំនៀមទម្លាប់ដែលប្រើដោយ DVBViewer និងកម្មវិធីកែសម្រួល និងកម្មវិធីចាក់ M3U ផ្សេងទៀតភាគច្រើន) ដើម្បីរៀបចំស្ថានីយ៍ទៅក្នុងថត freeAudio អានវា ហើយរក្សាក្រុមរបស់ស្ថានីយ៍នីមួយៗនៅពេលនាំចូល។ ការនាំចេញសំណព្វរបស់អ្នកត្រឡប់ទៅ M3U វិញសរសេរស្លាកដូចគ្នា ដូច្នេះរចនាសម្ព័ន្ធថតនៅតែរក្សាបានតាមរយៈដំណើរទៅ-មកតាម freeAudio។
+- **ការកំណត់ ឬលុបក្រុមដោយដៃ** — សម្គាល់សំណព្វមួយ ឬច្រើនដោយ `.` (សូមមើល [ការដាក់សញ្ញាសម្គាល់ និងការលុបធាតុច្រើន](#ការដាក់សញ្ញាសម្គាល់-និងការលុបធាតុច្រើន) ខាងលើ) បន្ទាប់មកជ្រើសរើស **កំណត់ទៅក្រុម…** ពីម៉ឺនុយបរិបទ (គ្រាប់ចុចកម្មវិធី / `Shift+F10`) ហើយវាយឈ្មោះក្រុម។ ទុកប្រអប់ឱ្យនៅទទេ ដើម្បីលុបសំណព្វដែលបានសម្គាល់ចេញពីក្រុមរបស់ពួកវាជំនួសវិញ។ ប្រសិនបើគ្មានអ្វីត្រូវបានសម្គាល់ ពាក្យបញ្ជាអនុវត្តចំពោះសំណព្វដែលបានជ្រើសរើសបច្ចុប្បន្ន។
+- **ការចម្រោះតាមក្រុម** — ប្រអប់ **ចម្រោះ** ខាងលើបញ្ជីសំណព្វក៏ផ្គូផ្គងនឹងឈ្មោះក្រុមផងដែរ ហើយទទួលយកពាក្យច្រើនដែលនីមួយៗអាចផ្គូផ្គងវាលផ្សេងគ្នា។ ឧទាហរណ៍ ការវាយ `Houston Classical` រកឃើញ "Houston Public Media Classical" ទោះបីជាឃ្លាពិតប្រាកដនោះមិនលេចឡើងនៅកន្លែងណាក៏ដោយ — "Houston" ផ្គូផ្គងក្រុម ហើយ "Classical" ផ្គូផ្គងឈ្មោះស្ថានីយ៍។
 
-### Změna pořadí oblíbených stanic
+### រៀបចំលំដាប់សំណព្វឡើងវិញ
 
-Když je na kartě Oblíbené vybrána stanice, stisknutím tlačítka `čárka` přejděte do režimu přesunu - ozve se pípnutí. Pomocí šipek přejděte na cílovou pozici a znovu stiskněte `čárku`. Stanice se umístí na zvolenou pozici a nové nastavení se okamžitě uloží. Dalším stisknutím `čárky` na stejné pozici se přesun zruší.
+ដោយមានស្ថានីយ៍ដែលបានជ្រើសរើសនៅក្នុងផ្ទាំងសំណព្វ សូមចុច `comma` ដើម្បីចូលរបៀបផ្លាស់ទី — អ្នកនឹងឮសំឡេងប៊ីប។ រុករកទៅទីតាំងគោលដៅដោយគ្រាប់ចុចព្រួញ បន្ទាប់មកចុច `comma` ម្តងទៀត។ ស្ថានីយ៍ត្រូវបានដាក់នៅទីតាំងដែលបានជ្រើសរើស ហើយលំដាប់ថ្មីត្រូវបានរក្សាទុកភ្លាមៗ។ ការចុច `comma` ម្តងទៀតនៅទីតាំងដូចគ្នាបោះបង់ការផ្លាស់ទី។
 
-### Přímé klávesové zkratky pro oblíbené stanice
+### គ្រាប់ចុចផ្ទាល់សម្រាប់ស្ថានីយ៍សំណព្វ
 
-Každá stanice v seznamu oblíbených je zaregistrována jako samostatný skript v dialogovém okně Vstupní gesta NVDA, v kategorii **freeAudio Stations**. Libovolné stanici můžete přiřadit klávesovou zkratku a stisknout ji odkudkoli — bez nutnosti otevírat okno prohlížeče.
+ស្ថានីយ៍នីមួយៗក្នុងបញ្ជីសំណព្វរបស់អ្នកត្រូវបានចុះឈ្មោះជាស្គ្រីបដាច់ដោយឡែកនៅក្នុងប្រអប់ចលនាថ្នាក់បញ្ចូលរបស់ NVDA ក្រោមប្រភេទ **freeAudio Stations**។ អ្នកអាចកំណត់គ្រាប់ចុចណាមួយទៅស្ថានីយ៍ណាមួយ ហើយចុចវាពីគ្រប់ទីកន្លែង — ដោយមិនចាំបាច់បើកវីនដូកម្មវិធីរុករកជាមុន។
 
-Přiřazení klávesové zkratky:
+ដើម្បីកំណត់គ្រាប់ចុច៖
 
-1. Otevřete nabídku NVDA → Předvolby → Vstupní gesta.
-2. Rozbalte kategorii **freeAudio Stations**.
-3. Vyhledejte stanici podle názvu, vyberte ji a stiskněte **Přidat**.
-4. Stiskněte požadovanou kombinaci kláves a potvrďte.
+1. បើកម៉ឺនុយ NVDA → ចំណូលចិត្ត → ចលនាថ្នាក់បញ្ចូល។
+2. ពង្រីកប្រភេទ **freeAudio Stations**។
+3. រកស្ថានីយ៍តាមឈ្មោះ ជ្រើសរើសវា ហើយចុច **បន្ថែម**។
+4. ចុចបន្សំគ្រាប់ចុចដែលចង់បាន ហើយបញ្ជាក់។
 
-Po stisknutí zkratky se stanice okamžitě spustí. Pokud stanici odeberete z oblíbených, její položka z kategorie zmizí a případná přiřazená zkratka se automaticky odstraní. Když do oblíbených přidáte novou stanici, ihned se v kategorii zobrazí — není třeba znovu otevírat dialog Vstupní gesta.
+គ្រាប់ចុចធ្វើឱ្យស្ថានីយ៍សកម្មភ្លាមៗ។ ប្រសិនបើស្ថានីយ៍ត្រូវបានលុបចេញពីសំណព្វនៅពេលក្រោយ កំណត់ត្រារបស់វាបាត់ពីប្រភេទ ហើយគ្រាប់ចុចដែលបានកំណត់ត្រូវបានលុបដោយស្វ័យប្រវត្តិដោយ NVDA។ នៅពេលស្ថានីយ៍ថ្មីត្រូវបានបន្ថែមទៅសំណព្វ វាលេចឡើងក្នុងប្រភេទភ្លាមៗ — មិនចាំបាច់បើកប្រអប់ចលនាថ្នាក់បញ្ចូលឡើងវិញទេ។
 
-### Přidání vlastní stanice
+### ការបន្ថែមស្ថានីយ៍ផ្ទាល់ខ្លួន
 
-Chcete-li přidat stanici, která se nenachází v Prohlížeči rádií, použijte tlačítko Přidat vlastní stanici. V zobrazeném dialogovém okně zadejte název stanice a adresu URL streamu a přidejte ji přímo mezi oblíbené. Vlastní stanice lze přehrávat a měnit jejich pořadí stejně jako ostatní oblíbené stanice.
+ដើម្បីបន្ថែមស្ថានីយ៍ដែលមិនមានក្នុង Radio Browser សូមប្រើប៊ូតុង បន្ថែមស្ថានីយ៍ផ្ទាល់ខ្លួន។ នៅក្នុងប្រអប់ដែលលេចឡើង សូមបញ្ចូលឈ្មោះស្ថានីយ៍ និង URL ស្ទ្រីម ដើម្បីបន្ថែមវាដោយផ្ទាល់ទៅសំណព្វរបស់អ្នក។ ស្ថានីយ៍ផ្ទាល់ខ្លួនអាចចាក់ និងរៀបចំលំដាប់ឡើងវិញដូចសំណព្វផ្សេងទៀត។
 
-V tomto dialogovém okně jsou k dispozici dvě další tlačítka:
+ប៊ូតុងបន្ថែមពីរមាននៅក្នុងប្រអប់នេះ៖
 
-- **Otestovat adresu URL** — před přidáním stanice zkontroluje zadanou adresu URL streamu a oznámí, zda je dostupná. Užitečné pro zachycení překlepu nebo nefunkčního odkazu dříve, než skončí ve vašem seznamu oblíbených.
-- **Přidat do adresáře Radio Browser…** — otevře [stránku pro odeslání do Radio Browser](https://www.radio-browser.info/add) ve výchozím prohlížeči, abyste mohli stanici po ověření její funkčnosti sdílet se širší komunitou Radio Browser. Co formulář pro odeslání očekává, najdete výše v části Přidání stanice do aplikace Radio Browser.
+- **សាកល្បង URL** — ពិនិត្យ URL ស្ទ្រីមដែលអ្នកបានបញ្ចូលមុនពេលបន្ថែមស្ថានីយ៍ ហើយប្រកាសថាតើអាចចូលប្រើបានឬអត់។ មានប្រយោជន៍សម្រាប់ចាប់កំហុសអក្ខរាវិរុទ្ធ ឬតំណភ្ជាប់ដែលខូច មុនពេលវាបញ្ចប់នៅក្នុងបញ្ជីសំណព្វរបស់អ្នក។
+- **បន្ថែមទៅថត Radio Browser…** — បើក [ទំព័រដាក់ស្នើ Radio Browser](https://www.radio-browser.info/add) នៅក្នុងកម្មវិធីរុករកលំនាំដើម ដើម្បីឱ្យអ្នកអាចចែករំលែកស្ថានីយ៍ជាមួយសហគមន៍ Radio Browser ធំទូលាយ នៅពេលអ្នកបានបញ្ជាក់ថាវាដំណើរការ។ សូមមើល [ការបន្ថែមស្ថានីយ៍ទៅ Radio Browser](#ការបន្ថែមស្ថានីយ៍ទៅ-radio-browser) ខាងលើសម្រាប់អ្វីដែលទម្រង់ដាក់ស្នើរំពឹង។
 
-### Zvukový profil stanice
+### ទម្រង់សំឡេងស្ថានីយ៍
 
-Karta Oblíbené obsahuje dvě tlačítka pro správu nastavení zvuku jednotlivých stanic:
+ផ្ទាំងសំណព្វរួមមានប៊ូតុងពីរសម្រាប់គ្រប់គ្រងការកំណត់សំឡេងតាមស្ថានីយ៍៖
 
-**Uložit zvukový profil pro tuto stanici** - uloží aktuální úroveň hlasitosti, aktivní efekty a hodnoty zesílení EQ jako profil vázaný na danou stanici. Kdykoli tato stanice začne přehrávat, automaticky se použijí její uložené hlasitost, efekty a nastavení zesílení, které jsou nadřazeny globálnímu výchozímu nastavení.
+**រក្សាទុកទម្រង់សំឡេងសម្រាប់ស្ថានីយ៍នេះ** — រក្សាទុកកម្រិតសំឡេងបច្ចុប្បន្ន បែបផែនសកម្ម និងតម្លៃការទទួល EQ ជាទម្រង់ភ្ជាប់នឹងស្ថានីយ៍ជាក់លាក់នោះ។ នៅពេលស្ថានីយ៍នោះចាប់ផ្តើមចាក់ កម្រិតសំឡេង បែបផែន និងការកំណត់ការទទួលដែលបានរក្សាទុករបស់វាត្រូវបានអនុវត្តដោយស្វ័យប្រវត្តិ ដោយជំនួសលើលំនាំដើមសកល។
 
-**Vymazat zvukový profil** - odstraní uložený zvukový profil z vybrané stanice. Po vymazání se stanice vrátí ke globálnímu nastavení hlasitosti, efektů a zesílení EQ. Toto tlačítko je aktivní pouze v případě, že vybraná stanice již má uložený profil.
+**សម្អាតទម្រង់សំឡេង** — លុបទម្រង់សំឡេងដែលបានរក្សាទុកចេញពីស្ថានីយ៍ដែលបានជ្រើសរើស។ បន្ទាប់ពីសម្អាត ស្ថានីយ៍ត្រឡប់ទៅការកំណត់កម្រិតសំឡេង បែបផែន និងការទទួល EQ សកលវិញ។ ប៊ូតុងនេះសកម្មតែនៅពេលស្ថានីយ៍ដែលបានជ្រើសរើសមានទម្រង់ដែលបានរក្សាទុករួចហើយប៉ុណ្ណោះ។
 
-Obě tlačítka se nacházejí pod seznamem oblíbených stanic a jsou aktivní pouze v případě, že je vybrána stanice ze seznamu.
+ប៊ូតុងទាំងពីរស្ថិតនៅក្រោមបញ្ជីសំណព្វ ហើយសកម្មតែនៅពេលស្ថានីយ៍ក្នុងបញ្ជីត្រូវបានជ្រើសរើសប៉ុណ្ណោះ។
 
-## Rozpoznávání hudby
+## ការស្គាល់តន្ត្រី
 
-Třikrát stisknete klávesy `Ctrl+Win+I`, čímž spustíte rozpoznávání hudby založené na technologii Shazam pro aktuálně přehrávaný stream. Rozpoznávání se spustí pouze v případě, že nejsou k dispozici metadata ICY (informace o skladbě vysílané stanicí); pokud jsou metadata přítomna, zkopírují se místo toho do schránky.
+ការចុច `Ctrl+Win+I` បីដងបង្កឱ្យមានការស្គាល់តន្ត្រីផ្អែកលើ Shazam សម្រាប់ស្ទ្រីមដែលកំពុងចាក់។ ការស្គាល់ចាប់ផ្តើមតែនៅពេលគ្មានទិន្នន័យមេតា ICY (ព័ត៌មានបទដែលផ្សាយដោយស្ថានីយ៍) ប៉ុណ្ណោះ; ប្រសិនបើទិន្នន័យមេតាមាន វាត្រូវបានចម្លងទៅ clipboard ជំនួសវិញ។
 
-Rozpoznávání funguje následovně: pomocí ffmpeg se ze streamu zachytí krátký zvukový vzorek, aplikuje se algoritmus otisků Shazam a výsledek se odešle na servery Shazam. Pokud je rozpoznání úspěšné, NVDA oznámí název skladby, interpreta, album a rok vydání a automaticky je zkopíruje do schránky. Pokud je povolena možnost **Uložit oblíbené skladby do textového souboru**, je výsledek rozpoznání rovněž připojen do souboru `likedSongs.txt`.
+ការស្គាល់ដំណើរការដូចខាងក្រោម៖ គំរូសំឡេងខ្លីត្រូវបានចាប់យកពីស្ទ្រីមដោយប្រើ ffmpeg ក្បួនដោះស្រាយស្នាមម្រាមដៃ Shazam ត្រូវបានអនុវត្ត ហើយលទ្ធផលត្រូវបានផ្ញើទៅម៉ាស៊ីនមេ Shazam។ ប្រសិនបើការស្គាល់ជោគជ័យ ចំណងជើងបទ សិល្បករ អាល់ប៊ុម និងឆ្នាំចេញផ្សាយត្រូវបានប្រកាសដោយ NVDA និងចម្លងទៅ clipboard ដោយស្វ័យប្រវត្តិ។ ប្រសិនបើជម្រើស **រក្សាទុកបទចម្រៀងសំណព្វទៅជាឯកសារអត្ថបទ** ត្រូវបានបើក លទ្ធផលនៃការស្គាល់ក៏ត្រូវបានបន្ថែមទៅ `likedSongs.txt` ផងដែរ។
 
-**Zvuková zpětná vazba:** Při zahájení rozpoznávání zazní dvě stoupající pípnutí a při jeho ukončení dvě klesající pípnutí. Během procesu se každé 2 sekundy ozve krátké pípnutí.
+**មតិកែលម្អជាសំឡេង៖** សំឡេងប៊ីបកើនឡើងពីរនៅពេលការស្គាល់ចាប់ផ្តើម និងសំឡេងប៊ីបចុះក្រោមពីរនៅពេលវាបញ្ចប់។ សំឡេងប៊ីបខ្លីបន្លឺឡើងរៀងរាល់ 2 វិនាទី ខណៈពេលដំណើរការកំពុងដំណើរការ។
 
-**Požadavky:** Je vyžadován soubor ffmpeg.exe. Automaticky se použije soubor ffmpeg.exe umístěný ve složce doplňku; pokud je v jiném umístění, cestu k němu lze nastavit v Nastavení. Stáhněte si soubor ffmpeg ze stránek [ffmpeg.org](https://ffmpeg.org/download.html).
+**តម្រូវការ៖** ត្រូវការ ffmpeg.exe។ ffmpeg.exe ដែលដាក់ក្នុងថតកម្មវិធីបន្ថែមត្រូវបានប្រើដោយស្វ័យប្រវត្តិ; ប្រសិនបើវានៅទីតាំងផ្សេង ផ្លូវអាចកំណត់ក្នុងការកំណត់។ ទាញយក ffmpeg ពី [ffmpeg.org](https://ffmpeg.org/download.html)។
 
-**Poznámka ke stanicím vkládajícím reklamy:** některé stanice přehrávají krátkou reklamu při každém novém připojení ke svému streamu, oddělenou od vysílání, které již posloucháte. Rozpoznávání se vyhýbá vzorkování této reklamy tím, že místo otevření nového připojení znovu použije stávající připojení FreeRadia k datovému toku na pozadí (stejné, jaké se používá pro Časový posun) — díky tomu rozpozná to, co skutečně hraje, a ne reklamu. Toto funguje automaticky a nevyžaduje žádné nastavení.
+**កំណត់ចំណាំអំពីស្ថានីយ៍ដែលបញ្ចូលការផ្សាយពាណិជ្ជកម្ម៖** ស្ថានីយ៍មួយចំនួនលេងការផ្សាយពាណិជ្ជកម្មខ្លីលើរាល់ការតភ្ជាប់ថ្មីទៅស្ទ្រីមរបស់ពួកគេ ដោយឡែកពីការផ្សាយដែលអ្នកកំពុងស្តាប់រួចហើយ។ ការស្គាល់ជៀសវាងការយកគំរូនៃការផ្សាយពាណិជ្ជកម្មនោះដោយប្រើការតភ្ជាប់ស្ទ្រីមផ្ទៃខាងក្រោយដែលមានស្រាប់របស់ freeAudio (ដូចគ្នានឹងដែលប្រើសម្រាប់ការរំកិលពេលវេលា) ជំនួសឱ្យការបើកការតភ្ជាប់ថ្មី ដូច្នេះវាកំណត់អ្វីដែលកំពុងចាក់ពិតប្រាកដ ជាជាងការផ្សាយពាណិជ្ជកម្ម។ វាដំណើរការដោយស្វ័យប្រវត្តិ ហើយមិនត្រូវការការកំណត់ណាមួយទេ។
 
-## Zrcadlo zvuku
+## ការចម្លងសំឡេង (Audio Mirror)
 
-Klávesová zkratka `Ctrl+Win+M` zrcadlí aktuálně přehrávaný datový tok na druhé výstupní zvukové zařízení současně. To je užitečné pro poslech na dvou různých zařízeních současně, například na reproduktorech a sluchátkách.
+គ្រាប់ចុច `Ctrl+Win+M` ចម្លងស្ទ្រីមដែលកំពុងចាក់ទៅឧបករណ៍បញ្ចេញសំឡេងទីពីរក្នុងពេលតែមួយ។ នេះមានប្រយោជន៍សម្រាប់ការស្តាប់លើឧបករណ៍ពីរផ្សេងគ្នាក្នុងពេលតែមួយ ដូចជាឧបករណ៍បំពងសំឡេង និងកាស។
 
-Při prvním stisknutí se zobrazí dialogové okno výběru se seznamem dostupných výstupních zařízení. Po výběru zařízení se zahájí zrcadlení a hlavní přehrávání pokračuje bez přerušení. Dalším stisknutím zkratky se zrcadlení zastaví.
+នៅពេលចុចដំបូង ប្រអប់ជ្រើសរើសដែលរាយឧបករណ៍បញ្ចេញសំឡេងដែលមានលេចឡើង។ នៅពេលជ្រើសរើសឧបករណ៍ ការចម្លងចាប់ផ្តើម ហើយការចាក់មេបន្តដោយមិនរំខាន។ ការចុចគ្រាប់ចុចម្តងទៀតបញ្ឈប់ការចម្លង។
 
-**Případy použití:**
-- **Reproduktory + sluchátka** - Nechte hosta sledovat stejné vysílání na sluchátkách, zatímco vy budete poslouchat přes reproduktory počítače.
-- **Nastavení nahrávání** - Hlavní výstup nasměrujte do reproduktorů a druhý výstup do externího rekordéru nebo zvukového rozhraní pro externí nahrávání.
-- **Více místností** - Přehrávejte současně přes reproduktor Bluetooth a vestavěný reproduktor; k přenosu zvuku do jiné místnosti není třeba žádný další software.
-- **Vzdálené monitorování** - Při sdílení obrazovky nebo relaci vzdálené plochy může místní i vzdálená strana slyšet stejný stream současně.
+**ករណីប្រើប្រាស់៖**
+- **ឧបករណ៍បំពងសំឡេង + កាស** — ទុកឱ្យភ្ញៀវតាមដានការផ្សាយដូចគ្នានៅលើកាស ខណៈអ្នកស្តាប់តាមរយៈឧបករណ៍បំពងសំឡេងកុំព្យូទ័រ។
+- **ការកំណត់ការថត** — បញ្ជូនលទ្ធផលមេទៅឧបករណ៍បំពងសំឡេង និងលទ្ធផលទីពីរទៅឧបករណ៍ថតខាងក្រៅ ឬចំណុចប្រទាក់សំឡេងសម្រាប់ការចាប់យកខាងក្រៅ។
+- **បន្ទប់ច្រើន** — ចាក់តាមឧបករណ៍បំពងសំឡេង Bluetooth និងឧបករណ៍បំពងសំឡេងដែលភ្ជាប់មកជាមួយក្នុងពេលតែមួយ; មិនត្រូវការកម្មវិធីបន្ថែមដើម្បីផ្ទេរសំឡេងទៅបន្ទប់ផ្សេង។
+- **ការត្រួតពិនិត្យពីចម្ងាយ** — នៅក្នុងវគ្គចែករំលែកអេក្រង់ ឬផ្ទៃតុពីចម្ងាយ ទាំងភាគីក្នុងតំបន់ និងពីចម្ងាយអាចស្តាប់ស្ទ្រីមដូចគ្នាក្នុងពេលតែមួយ។
 
-> **Poznámka:** Zrcadlení zvuku je k dispozici pouze v případě, že je aktivní backend BASS. Pokud dojde ke změně hlasitosti při aktivním zrcadlení, aktualizují se oba výstupy současně.
+## របៀប Obligato (តន្ត្រីផ្ទៃខាងក្រោយ)
 
-## Režim hudby na pozadí (Obligato)
+គ្រាប់ចុច `Ctrl+Win+Shift+M` លេងស្ថានីយ៍សំណព្វស្ងាត់ៗនៅផ្ទៃខាងក្រោយ នៅលើម៉ាស៊ីនសំឡេងដែលបំបែកទាំងស្រុងពីកម្មវិធីចាក់មេ — ដូចជាផ្ទៃខាងក្រោយតន្ត្រីទន់ភ្លន់ដែលដំណើរការនៅក្រោមអ្វីដែលអ្នកកំពុងធ្វើពិតប្រាកដ។
 
-Klávesová zkratka `Ctrl+Win+Shift+M` přehrává oblíbenou stanici tiše na pozadí, a to na zcela samostatném zvukovém enginu odděleném od hlavního přehrávače - jako jemná hudební kulisa běžící pod tím, co právě děláte.
+នៅពេលចុចដំបូង ប្រអប់បើកជាមួយឧបករណ៍បញ្ជាបី៖
 
-Při prvním stisknutí se otevře dialogové okno se třemi ovládacími prvky:
+- **ស្ថានីយ៍ផ្ទៃខាងក្រោយ** — បញ្ជីស្ថានីយ៍សំណព្វរបស់អ្នកដើម្បីជ្រើសរើសថាតើមួយណាលេងជារង្វង់នៅផ្ទៃខាងក្រោយ។ ត្រូវការយ៉ាងហោចណាស់សំណព្វមួយ; ប្រសិនបើបញ្ជីសំណព្វរបស់អ្នកទទេ freeAudio ប្រាប់ឱ្យអ្នកបន្ថែមស្ថានីយ៍ជាមុន (`Ctrl+Win+V` ខណៈស្ថានីយ៍កំពុងចាក់)។
+- **លទ្ធផលសំឡេង** — ឧបករណ៍ដែលស្ថានីយ៍ផ្ទៃខាងក្រោយលេងតាម៖ **ដូចលទ្ធផលមេ** (លំនាំដើម), **លំនាំដើមប្រព័ន្ធ**, ឬឧបករណ៍ជាក់លាក់ណាមួយដែល freeAudio អាចមើលឃើញ។
+- **កម្រិតសំឡេងផ្ទៃខាងក្រោយ** — តើស្ថានីយ៍ផ្ទៃខាងក្រោយលេងខ្លាំងប៉ុណ្ណា ជាភាគរយនៃកម្រិតសំឡេងបច្ចុប្បន្នរបស់កម្មវិធីចាក់មេ (25%, 50%, 75%, 100%, 125%, ឬ 150%)។ ជម្រើសរបស់អ្នកត្រូវបានចងចាំសម្រាប់លើកក្រោយ។
 
-- **Stanice na pozadí** - seznam vašich oblíbených stanic, ze kterého vyberete, která se bude na pozadí opakovaně přehrávat. Vyžaduje alespoň jednu oblíbenou položku; pokud je váš seznam oblíbených prázdný, freeAudio vás vyzve, abyste nejprve přidali stanici (`Ctrl+Win+V` během přehrávání stanice).
-- **Zvukový výstup** - přes které zařízení se stanice na pozadí přehrává: **Stejné jako hlavní výstup** (výchozí), **Výchozí zařízení systému**, nebo libovolné konkrétní zařízení, které freeAudio dokáže rozpoznat.
-- **Hlasitost na pozadí** - jak hlasitě se stanice na pozadí přehrává, vyjádřeno jako procento aktuální hlasitosti hlavního přehrávače (25 %, 50 %, 75 %, 100 %, 125 % nebo 150 %). Vaše volby se uloží pro příště.
+នៅពេលចាប់ផ្តើម ស្ថានីយ៍ផ្ទៃខាងក្រោយបន្តលេងដោយឯករាជ្យពីកម្មវិធីចាក់មេ — ការប្តូរស្ថានីយ៍ ផតខាស្ត ឬសៀវភៅសំឡេងនៅលើកម្មវិធីចាក់មេ ឬការបញ្ឈប់វាទាំងស្រុង មិនរំខានដល់របៀប Obligato ទេ។ រឿងពីរនៅតែភ្ជាប់ទៅកម្មវិធីចាក់មេដោយស្វ័យប្រវត្តិ៖
 
-Po spuštění pokračuje stanice na pozadí v přehrávání nezávisle na hlavním přehrávači - přepnutí stanice, podcastu nebo audioknihy v hlavním přehrávači, nebo jeho úplné zastavení, režim Obligato nijak nepřeruší. Automaticky zůstávají s hlavním přehrávačem propojené dvě věci:
+- **កម្រិតសំឡេង** — កម្រិតសំឡេងផ្ទៃខាងក្រោយត្រូវបានរក្សាជាបន្តបន្ទាប់នៅភាគរយដែលបានជ្រើសរើសនៃកម្រិតសំឡេងបច្ចុប្បន្នរបស់កម្មវិធីចាក់មេ ដូច្នេះការបង្កើន ឬបន្ថយកម្រិតសំឡេងមេ (`Ctrl+Win+↑`/`↓`) ធ្វើមាត្រដ្ឋានតន្ត្រីផ្ទៃខាងក្រោយដូចគ្នា។
+- **ការផ្អាក** — ការផ្អាកកម្មវិធីចាក់មេ (`Ctrl+Win+P`) ក៏ផ្អាកស្ថានីយ៍ផ្ទៃខាងក្រោយដែរ ហើយការបន្តកម្មវិធីចាក់មេក៏បន្តវាដែរ។ ការបញ្ឈប់ទាំងស្រុងនៃកម្មវិធីចាក់មេមិនត្រូវបានចាត់ទុកជាការផ្អាកទេ ដូច្នេះស្ថានីយ៍ផ្ទៃខាងក្រោយបន្តលេង។
 
-- **Hlasitost** - hlasitost na pozadí je průběžně udržována na zvoleném procentu aktuální hlasitosti hlavního přehrávače, takže zvýšení nebo snížení hlavní hlasitosti (`Ctrl+Win+↑`/`↓`) stejným poměrem změní i hudbu na pozadí.
-- **Pozastavení** - pozastavení hlavního přehrávače (`Ctrl+Win+P`) pozastaví i stanici na pozadí a obnovení hlavního přehrávače ji zase obnoví. Úplné zastavení hlavního přehrávače se za pozastavení nepovažuje, takže stanice na pozadí hraje dál.
+ចុច `Ctrl+Win+Shift+M` ម្តងទៀតគ្រប់ពេលដើម្បីបញ្ឈប់របៀប Obligato។
 
-Kdykoli režim Obligato zastavíte opětovným stisknutím `Ctrl+Win+Shift+M`.
+## ការថតសំឡេង
 
-## Nahrávání
+ការថតត្រូវបានរក្សាទុកទៅ `Documents\freeAudio Recordings\` តាមលំនាំដើម។ ឈ្មោះឯកសាររួមមានឈ្មោះស្ថានីយ៍ (ឬចំណងជើងបទ ក្នុងរបៀបថតបទចម្រៀង) និងពេលវេលាចាប់ផ្តើមថត។ ថតឯកសារថតអាចផ្លាស់ប្តូរបានគ្រប់ពេលពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio → **ថតឯកសារថត**។
 
-Nahrávky se ve výchozím nastavení ukládají do složky `Dokumenty\freeAudio Recordings\`. Název souboru obsahuje název stanice (nebo název skladby v režimu nahrávání skladeb) a čas zahájení nahrávání. Složku nahrávek lze kdykoli změnit v nabídce NVDA → Předvolby → Nastavení → freeAudio → **Složka nahrávek**.
+ការកំណត់ **ទម្រង់លទ្ធផលថត** គ្រប់គ្រងរបៀបដែលការថតដែលបានបញ្ចប់ត្រូវបានរក្សាទុក៖
+- **ទម្រង់ស្ទ្រីមដើម** សរសេរស្ទ្រីមដូចដែលបានទទួលពិតប្រាកដ។ ការផ្សាយ HLS អាចបង្កើតឯកសារ `.ts`។
+- **សំឡេងតែប៉ុណ្ណោះ កូដេកដើម** លុបស្រទាប់វីដេអូ/កុងតឺន័រដោយមិនអ៊ិនកូដសំឡេងឡើងវិញ។ ឧទាហរណ៍ សំឡេង AAC ពីការថត HLS `.ts` ជាធម្មតាត្រូវបានរក្សាទុកជា `.m4a` ដោយរក្សាគុណភាពផ្សាយ។
+- **MP3** បម្លែងសំឡេងបន្ទាប់ពីការថតដោយប្រើអត្រាប៊ីតដែលបានជ្រើសរើស។ ការបម្លែងប្រើ `ffmpeg.exe` ដែលរួមបញ្ចូលជាមួយ freeAudio ហើយដំណើរការនៅផ្ទៃខាងក្រោយ ដូច្នេះ NVDA នៅតែឆ្លើយតប។ ប្រសិនបើការបម្លែងបរាជ័យ ការថតដើមត្រូវបានរក្សាទុក។
 
-Nastavení **Výstupní formát nahrávky** určuje, jak se dokončené nahrávky ukládají:
-- **Původní formát streamu** zapíše stream přesně tak, jak byl přijat. Vysílání HLS tak může vytvořit soubor `.ts`.
-- **Pouze zvuk, původní kodek** odstraní vrstvu videa/kontejneru, aniž by přeekódoval zvuk. Například zvuk AAC z nahrávky HLS `.ts` se obvykle uloží jako `.m4a` při zachování kvality vysílání.
-- **MP3** převede zvuk po nahrání pomocí zvoleného datového toku. Převod používá `ffmpeg.exe` dodávaný s FreeRadiem a probíhá na pozadí, aby NVDA zůstalo responzivní. Pokud převod selže, zachová se původní nahrávka.
+**ការថតភ្លាមៗ៖** ខណៈស្ថានីយ៍កំពុងចាក់ សូមចុច `Ctrl+Win+E` ម្តង។ ចុចម្តងទៀតដើម្បីបញ្ឈប់។ ការចាក់បន្តដោយមិនរំខានពេញមួយដំណើរការ។
 
-**Okamžité nahrávání:** Během přehrávání stanice stiskněte jednou klávesy `Ctrl+Win+E`. Dalším stisknutím nahrávání zastavíte. Přehrávání pokračuje po celou dobu bez přerušení.
+**ការថតបទចម្រៀង៖** ចុច `Ctrl+Win+E` **ពីរដង** ជាប់ៗគ្នាខណៈស្ថានីយ៍ដែលផ្សាយទិន្នន័យមេតា ICY កំពុងចាក់។ ការថតចាប់ផ្តើមភ្លាមៗ ហើយត្រូវបានដាក់ឈ្មោះតាមចំណងជើងបទបច្ចុប្បន្ន។ នៅពេលបទផ្លាស់ប្តូរ ការថតឈប់ដោយស្វ័យប្រវត្តិ ហើយ NVDA ប្រកាសឈ្មោះឯកសារដែលបានរក្សាទុក។ ប្រសិនបើអ្នកចង់បញ្ចប់ការថតមុនពេលបទបញ្ចប់ សូមចុច `Ctrl+Win+E` ពីរដងម្តងទៀត។ ប្រសិនបើស្ថានីយ៍បច្ចុប្បន្នមិនផ្សាយទិន្នន័យមេតា ICY ការថតបទមិនអាចប្រើបានទេ ហើយ NVDA នឹងជូនដំណឹងដល់អ្នក។
 
-**Nahrávání skladby:** Během přehrávání stanice, která vysílá metadata ICY, stiskněte dvakrát po sobě tlačítko `Ctrl+Win+E`. Nahrávání se spustí okamžitě a je pojmenováno podle názvu aktuální skladby. Při změně skladby se nahrávání automaticky zastaví a NVDA oznámí název uloženého souboru. Pokud chcete nahrávání ukončit dříve, než skladba skončí, stiskněte znovu dvakrát klávesy `Ctrl+Win+E`. Pokud aktuální stanice nevysílá metadata ICY, nahrávání skladby není k dispozici a NVDA vás o tom informuje.
+**ការថតតាមកាលវិភាគ៖** បើកផ្ទាំងការថតក្នុងកម្មវិធីរុករក។ ជ្រើសរើសស្ថានីយ៍ពីសំណព្វរបស់អ្នក បញ្ចូលពេលវេលាចាប់ផ្តើមក្នុងទម្រង់ HH:MM និងរយៈពេលជានាទី ជ្រើសរើសថ្ងៃសកម្មមួយ ឬច្រើន បន្ទាប់មកជ្រើសរើសរបៀបធ្វើម្តងទៀត និងរបៀបថត។
 
-**Naplánované nahrávání:** V prohlížeči otevřete kartu Nahrávání. Vyberte stanici z oblíbených, zadejte čas začátku ve formátu HH:MM a dobu trvání v minutách, vyberte jeden nebo více aktivních dnů a nastavte režim opakování a nahrávání:
+ប្រអប់ **ចម្រោះ** ខាងលើបញ្ជីស្ថានីយ៍អនុញ្ញាតឱ្យអ្នកបង្រួមបញ្ជីសំណព្វក្នុងពេលវេលាពិត ដូច្នេះអ្នកអាចរកស្ថានីយ៍ដែលអ្នកចង់កំណត់ពេលបានយ៉ាងឆាប់រហ័ស។
 
-Pole **Filtr** nad seznamem stanic vám umožní v reálném čase zúžit seznam oblíbených, takže rychle najdete stanici, kterou chcete naplánovat.
+**ថ្ងៃសកម្ម៖** ធីកថ្ងៃមួយ ឬច្រើនក្នុងសប្តាហ៍។ ក្នុងរបៀបថតតែម្តង កំណត់ត្រាដាច់ដោយឡែកត្រូវបានបង្កើតសម្រាប់ថ្ងៃដែលបានជ្រើសរើសនីមួយៗ ហើយកំណត់ត្រានីមួយៗត្រូវបានដាក់នៅការកើតឡើងបន្ទាប់ដ៏ជិតបំផុតនៃថ្ងៃនោះ។ ក្នុងរបៀបធ្វើម្តងទៀត ការថតធ្វើម្តងទៀតតែនៅថ្ងៃដែលបានធីកប៉ុណ្ណោះ។ ប្រសិនបើគ្មានថ្ងៃត្រូវបានធីក ការថតមិនត្រូវបានដាក់កំហិតទៅថ្ងៃជាក់លាក់ទេ។
 
-**Aktivní dny:** Zaškrtněte jeden nebo více dní v týdnu. V jednorázovém režimu se pro každý vybraný den vytvoří samostatná položka plánování; každá položka se nastaví na nejbližší příští výskyt daného dne. V opakujícím se režimu se nahrávání opakuje pouze ve vybraných dnech. Pokud nejsou vybrány žádné dny, nahrávání není omezeno na konkrétní dny.
+**របៀបធ្វើម្តងទៀត៖**
+- **ថតតែម្តង** — ថតតែម្តងលើថ្ងៃដែលបានជ្រើសរើសនីមួយៗ។ កំណត់ត្រានីមួយៗត្រូវបានដាក់នៅការកើតឡើងបន្ទាប់ដ៏ជិតបំផុតនៃថ្ងៃនោះ; ប្រសិនបើពេលវេលាដែលបានជ្រើសរើសបានកន្លងផុតទៅថ្ងៃនេះហើយ កំណត់ត្រាផ្លាស់ទីទៅថ្ងៃដូចគ្នានៅសប្តាហ៍ក្រោយដោយស្វ័យប្រវត្តិ។
+- **ធ្វើម្តងទៀតប្រចាំសប្តាហ៍** — ធ្វើម្តងទៀតរៀងរាល់សប្តាហ៍នៅថ្ងៃសកម្មដែលបានជ្រើសរើស រហូតដល់លុបចេញពីបញ្ជីកាលវិភាគ។
 
-**Režim opakování:**
-- **Nahrát jednou** — vytvoří jednorázové nahrávání pro každý vybraný den. Každá položka se nastaví na nejbližší příští výskyt daného dne; pokud dnešní čas již uplynul, položka se automaticky přesune na příští týden.
-- **Opakovat každý týden** — opakuje se každý týden ve vybraných aktivních dnech, dokud není odstraněno ze seznamu plánování.
+**រក្សាទុកការថតទៅ៖** សម្រាប់ការថតតាមកាលវិភាគនីមួយៗ អ្នកអាចជ្រើសរើសរក្សាទុកទៅថតការថតលំនាំដើម ឬថតផ្ទាល់ខ្លួន។ ប្រើប៊ូតុង **រុករក...** ដើម្បីជ្រើសរើសថតដោយអន្តរកម្ម។ ប្រសិនបើថតដែលបានជ្រើសរើសមិនអាចប្រើបាន ការថតត្រឡប់ទៅថតលំនាំដើម ហើយអ្នកត្រូវបានជូនដំណឹង។
 
-**Uložit nahrávku do:** Pro každé naplánované nahrávání si můžete vybrat uložení do výchozí složky nahrávek nebo do vlastní složky. Pomocí tlačítka **Procházet...** vyberte složku interaktivně. Pokud se zvolená složka stane nedostupnou, nahrávka se uloží do výchozí složky a budete o tom informováni.
+**របៀបថត៖**
+- **ថតខណៈស្តាប់** — ចាក់ និងថតក្នុងពេលតែមួយតាមរយៈម៉ាស៊ីន BASS។
+- **ថតតែប៉ុណ្ណោះ** — ថតស្ងាត់ៗនៅផ្ទៃខាងក្រោយដោយគ្មានលទ្ធផលសំឡេង; ម៉ាស៊ីនថតភ្ជាប់ដោយផ្ទាល់ទៅស្ទ្រីម។
 
-**Režim nahrávání:**
-- **Nahrávat při poslechu** — přehrává a nahrává současně prostřednictvím backendu BASS.
-- **Pouze nahrávání** — nahrává tiše na pozadí bez jakéhokoli zvukového výstupu; nahrávací engine se připojuje přímo ke streamu.
+នៅពេលកាលវិភាគត្រូវបានបន្ថែម វាលេចឡើងក្នុងបញ្ជីខាងក្រោម។ ប្រើប៊ូតុង **លុបអ្វីដែលបានជ្រើសរើស** ដើម្បីលុបកាលវិភាគ ឬ **កែសម្រួលអ្វីដែលបានជ្រើសរើស** ដើម្បីកែប្រែពេលវេលា រយៈពេល ការធ្វើម្តងទៀត ថ្ងៃសកម្ម របៀបថត ឬថតលទ្ធផលរបស់វា។
 
-Po přidání plánu se zobrazí v seznamu níže. Pomocí tlačítka **Odebrat vybrané** smažete plán, nebo **Upravit vybrané** upravíte jeho čas, trvání, opakování, aktivní dny, režim nahrávání nebo výstupní složku.
+NVDA ប្រកាសនៅពេលការថតចាប់ផ្តើម និងនៅពេលវាបញ្ចប់។ ប្រសិនបើ NVDA ត្រូវបានចាប់ផ្តើមឡើងវិញខណៈការថតតាមកាលវិភាគសកម្ម ការថតបន្តដោយស្វ័យប្រវត្តិនៅពេលចាប់ផ្តើម។
 
-NVDA oznámí, kdy nahrávání začne a kdy skončí. Pokud je NVDA restartována v průběhu plánovaného nahrávání, nahrávání se při spuštění automaticky obnoví.
+ដូចការស្គាល់តន្ត្រី ការថតភ្លាមៗ និងការថតបទប្រើការតភ្ជាប់ស្ទ្រីមផ្ទៃខាងក្រោយដែលមានស្រាប់របស់ freeAudio នៅពេលអាចប្រើបាន ជំនួសឱ្យការបើកមួយថ្មី ដូច្នេះការថតចាប់យកអ្វីដែលកំពុងផ្សាយពិតប្រាកដ ទោះបីជានៅស្ថានីយ៍ដែលអាចផ្តល់ការផ្សាយពាណិជ្ជកម្មថ្មីទៅការតភ្ជាប់ថ្មីក៏ដោយ។ វាមិនអនុវត្តចំពោះការថតតាមកាលវិភាគក្នុងរបៀប **ថតតែប៉ុណ្ណោះ** ទេ ព្រោះគ្មានស្ថានីយ៍កំពុងចាក់នៅពេលពួកវាចាប់ផ្តើម។
 
-Stejně jako u rozpoznávání hudby, i okamžité nahrávání a nahrávání skladby znovu použijí stávající připojení FreeRadia k datovému toku na pozadí, pokud je k dispozici, místo otevření nového — nahrávka tak zachytí to, co skutečně hraje, i u stanic, které by jinak novému připojení nabídly čerstvou reklamu. Toto se nevztahuje na plánovaná nahrávání v režimu **Pouze nahrávání**, protože v okamžiku jejich spuštění ještě žádná stanice nehraje.
+## ការរំកិលពេលវេលា (ថយក្រោយវិទ្យុផ្ទាល់)
 
-## Časový posun (přetočení živého rádia)
+ការរំកិលពេលវេលាអនុញ្ញាតឱ្យអ្នកថយក្រោយស្ថានីយ៍ដែលអ្នកកំពុងស្តាប់ ដូច DVR ឬកាសែត — ផ្អាកពេលនេះ ត្រឡប់ទៅពីរបីនាទីមុន ហើយចាប់ឡើងវិញទៅការផ្សាយផ្ទាល់នៅពេលណាក៏បាន។ ការចាក់មិនចាំបាច់ឈប់ទេ៖ ការថយក្រោយ និងការទៅមុខកើតឡើងភ្លាមៗនៅលើស្ទ្រីមសំឡេងដូចគ្នា។
 
-Časový posun umožňuje přetočit aktuálně poslouchanou stanici jako DVR nebo kazetový přehrávač — zastavte okamžik, vraťte se o několik minut zpět a dožeňte živé vysílání, kdy chcete. Přehrávání se přitom nemusí zastavit: přetočení zpět i dopředu probíhá okamžitě na stejném zvukovém streamu.
+មុខងារនេះ **ត្រូវបានបិទតាមលំនាំដើម**។ បើកវាពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio → **បើកឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលា (ថយក្រោយវិទ្យុផ្ទាល់)** ឬបិទ/បើកភ្លាមៗគ្រប់ពេលដោយ `Ctrl+Win+T`។
 
-Tato funkce je **ve výchozím nastavení vypnutá**. Zapněte ji v NVDA Menu → Předvolby → Nastavení → freeAudio → **Zapnout vyrovnávací paměť časového posunu (přetočení živého rádia)**, nebo ji kdykoli okamžitě přepněte pomocí `Ctrl+Win+T`.
+> **ចំណាំ៖** freeAudio ឥឡូវរក្សាការចាប់យកផ្ទៃខាងក្រោយតូចមួយនៃស្ថានីយ៍ដែលកំពុងចាក់ដំណើរការគ្រប់ពេល — មិនត្រឹមតែនៅពេលការកំណត់នេះត្រូវបានបើកទេ — ព្រោះទាំង [ការស្គាល់តន្ត្រី](#ការស្គាល់តន្ត្រី) និង [ការថតសំឡេង](#ការថតសំឡេង) ពឹងផ្អែកលើវាសម្រាប់ឥរិយាបថជៀសវាងការផ្សាយពាណិជ្ជកម្មដែលបានពិពណ៌នានៅក្នុងផ្នែកទាំងនោះ។ នៅពេលការកំណត់នេះ **បិទ** ការចាប់យកផ្ទៃខាងក្រោយនោះត្រូវបានរក្សាទុកប្រហែល 45 វិនាទីចុងក្រោយ ហើយ `Ctrl+Win+J`/`Ctrl+Win+K` នៅតែមិនអាចប្រើបាន — មានតែទំហំឃ្លាំងសតិបណ្ដោះអាសន្នប៉ុណ្ណោះដែលផ្លាស់ប្តូរ មិនមែនថាតើវាដំណើរការឬអត់។ ការបើកការកំណត់បង្កើនការចាប់យកដូចគ្នាទៅឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលាពេញលេញដែលបានពិពណ៌នាខាងក្រោម។
 
-> **Poznámka:** freeAudio nyní neustále udržuje malé zachytávání aktuálně přehrávané stanice na pozadí — nejen když je toto nastavení zapnuté — protože Rozpoznávání hudby i Nahrávání se na něj spoléhají kvůli chování vyhýbajícímu se reklamám popsanému v těchto částech. Když je toto nastavení **vypnuté**, toto zachytávání na pozadí se drží na přibližně posledních 45 sekundách a `Ctrl+Win+J`/`Ctrl+Win+K` zůstávají nedostupné — mění se pouze velikost vyrovnávací paměti, ne to, zda běží. Zapnutím tohoto nastavení se stejné zachytávání zvětší na plnou vyrovnávací paměť pro přetáčení popsanou níže.
+### របៀបដែលវាដំណើរការ
 
-### Jak to funguje
+នៅពេលបើក freeAudio ចាប់យកស្ថានីយ៍ដែលកំពុងចាក់ជាបន្តបន្ទាប់ទៅឃ្លាំងសតិបណ្ដោះអាសន្នក្នុងតំបន់វិលនៅផ្ទៃខាងក្រោយ ដោយឯករាជ្យពីការចាក់ធម្មតា។ ឃ្លាំងសតិបណ្ដោះអាសន្នផ្ទុកប្រហែល **10 នាទីចុងក្រោយ** នៃសំឡេង; សំឡេងចាស់ត្រូវបានបោះបង់ចោលពីខាងមុខដោយស្វ័យប្រវត្តិនៅពេលសំឡេងថ្មីមកដល់ ដូច្នេះឃ្លាំងសតិបណ្ដោះអាសន្នតំណាងឱ្យ "អតីតកាលថ្មីៗ" ទាក់ទងនឹងគែមផ្ទាល់ជានិច្ច។
+ពេលវេលាឃ្លាំងសតិបណ្ដោះអាសន្នត្រូវបានកំណត់នៅក្នុងការកំណត់។
 
-Po zapnutí freeAudio nepřetržitě zachytává aktuálně přehrávanou stanici do místní průběžné vyrovnávací paměti na pozadí. Ta pojme zhruba **posledních 10 minut** zvuku; starší audio je automaticky odstraňováno z čela fronty s příchodem nového, takže vyrovnávací paměť vždy představuje „nedávnou minulost" vzhledem k živé hraně. Doba vyrovnávací paměti je určena v nastavení.
+- **`Ctrl+Win+J`** — ថយក្រោយ 15 វិនាទី។ ការចុចដំបូងប្តូរអ្នកពីការចាក់ផ្ទាល់ទៅការចាក់រំកិលពេលវេលា ដោយចាប់ផ្តើម 15 វិនាទីនៅពីក្រោយគែមផ្ទាល់។ ការចុចបន្ថែមនីមួយៗផ្លាស់ទី 15 វិនាទីបន្ថែមទៀតថយក្រោយ រហូតដល់ដែនកំណត់ឃ្លាំងសតិបណ្ដោះអាសន្ន។
+- **`Ctrl+Win+K`** — ទៅមុខ 15 វិនាទីខណៈរំកិលពេលវេលា។ នៅពេលអ្នកឈានដល់គែមផ្ទាល់ ការចាក់ប្តូរត្រឡប់ទៅស្ទ្រីមផ្ទាល់វិញដោយស្វ័យប្រវត្តិ ហើយ NVDA ប្រកាស "ត្រឡប់ទៅផ្ទាល់" — អ្នកមិនចាំបាច់ធ្វើអ្វីបន្ថែមដើម្បីបន្តការស្តាប់ធម្មតាទេ។
+- **`Ctrl+Win+T`** — បើក ឬបិទមុខងារទាំងមូល។ ការបិទខណៈរំកិលពេលវេលាត្រឡប់អ្នកទៅការចាក់ផ្ទាល់វិញភ្លាមៗ និងបញ្ឈប់ការចាប់យកផ្ទៃខាងក្រោយសម្រាប់ស្ថានីយ៍បច្ចុប្បន្ន។
 
-- **`Ctrl+Win+J`** — Přetočit o 15 sekund zpět. První stisk přepne z živého přehrávání do přehrávání s časovým posunem, přičemž začíná 15 sekund za živou hranou. Každý další stisk posune o dalších 15 sekund zpět, až do limitu vyrovnávací paměti.
-- **`Ctrl+Win+K`** — Přetočit o 15 sekund dopředu v režimu časového posunu. Po dosažení živé hrany se přehrávání automaticky přepne zpět na živý stream a NVDA oznámí „Zpět na živé vysílání".
-- **`Ctrl+Win+T`** — Celou funkci zapne nebo vypne. Vypnutí v režimu časového posunu okamžitě vrátí na živé vysílání a zastaví zachytávání na pozadí pro aktuální stanici.
+ការចាប់យកផ្ទៃខាងក្រោយបន្តដំណើរការពេញមួយពេលដែលអ្នករំកិលពេលវេលា ដូច្នេះគែមផ្ទាល់បន្តផ្លាស់ទីទៅមុខ ទោះបីជាអ្នកកំពុងស្តាប់អ្វីដែលមានពីរបីនាទីមុនក៏ដោយ — ដូច DVR ពិតប្រាកដ។
 
-Zachytávání na pozadí běží celou dobu, kdy je aktivní časový posun, takže živá hrana pokračuje dopředu, i když posloucháte něco z několik minut staré záznamu — přesně jako skutečný DVR.
+### ការបើក និងការឡើងកម្តៅឃ្លាំងសតិបណ្ដោះអាសន្ន
 
-### Zapnutí a zahřátí vyrovnávací paměti
+ឃ្លាំងសតិបណ្ដោះអាសន្នចាប់ផ្តើមបំពេញនៅពេលស្ថានីយ៍ចាប់ផ្តើមចាក់ (នៅពេលមុខងារត្រូវបានបើក) ឬនៅពេលអ្នកបើកមុខងារខណៈកំពុងស្តាប់ស្ថានីយ៍។ ដោយសារតែនេះ ការថយក្រោយអាចធ្វើទៅបានតែបន្ទាប់ពីប៉ុន្មានវិនាទីនៃសំឡេងត្រូវបានចាប់យកពិតប្រាកដ — ប្រសិនបើអ្នកចុច `Ctrl+Win+J` ភ្លាមៗបន្ទាប់ពីប្តូរស្ថានីយ៍ NVDA នឹងជូនដំណឹងថាមិនទាន់មានសំឡេងគ្រប់គ្រាន់ក្នុងឃ្លាំងសតិបណ្ដោះអាសន្នទេ។ គ្រាន់តែរង់ចាំប៉ុន្មានវិនាទី ហើយព្យាយាមម្តងទៀត។
 
-Vyrovnávací paměť se začne plnit, jakmile stanice začne hrát (pokud je funkce zapnuta), nebo v okamžiku, kdy funkci zapnete za poslechu stanice. Proto je přetočení možné teprve po skutečném zachycení několika sekund zvuku — pokud stisknete `Ctrl+Win+J` ihned po přepnutí stanic, NVDA vás upozorní, že ve vyrovnávací paměti zatím není dostatek zvuku. Stačí chvíli počkat a zkusit znovu.
+ការប្តូរទៅស្ថានីយ៍ផ្សេងចាប់ផ្តើមឃ្លាំងសតិបណ្ដោះអាសន្នថ្មីសម្រាប់ស្ថានីយ៍ថ្មីជានិច្ច; សំឡេងដែលបានរក្សាទុករបស់ស្ថានីយ៍មុនត្រូវបានបោះបង់ចោល។
 
-Přepnutí na jinou stanici vždy restartuje vyrovnávací paměť pro novou stanici; zvuk předchozí stanice je zahozen.
+### ស្ទ្រីមដែលគាំទ្រ
 
-### Podporované streamy
+ការរំកិលពេលវេលាដំណើរការជាមួយជួរស្ទ្រីមដូចគ្នាដែល freeAudio គាំទ្ររួចហើយ៖
 
-Časový posun funguje se stejným rozsahem streamů, které freeAudio již podporuje:
+- ស្ទ្រីម HTTP/HTTPS ធម្មតា (MP3, AAC, OGG ។ល។) រួមទាំងម៉ាស៊ីនមេបែប Shoutcast/Icecast។
+- **ស្ទ្រីម HLS (`.m3u8`)** — freeAudio ដោះស្រាយបញ្ជីចាក់មេរបស់ស្ថានីយ៍ តាមដានបញ្ជីចាក់មេឌៀ និងទាញយកចម្រៀកនៅផ្ទៃខាងក្រោយដើម្បីរក្សាឃ្លាំងសតិបណ្ដោះអាសន្នឱ្យពេញ ដូចគ្នានឹងវាដំណើរការសម្រាប់ស្ទ្រីមធម្មតា។
 
-- Obyčejné HTTP/HTTPS streamy (MP3, AAC, OGG atd.), včetně serverů ve stylu Shoutcast/Icecast.
-- **HLS (`.m3u8`) streamy** — freeAudio přeloží hlavní playlist stanice, sleduje mediální playlist a stahuje segmenty na pozadí, aby udržela vyrovnávací paměť plnou.
+ក្នុងករណីកម្រ ដែលបញ្ជីចាក់របស់ស្ថានីយ៍មិនអាចអានបានទាល់តែសោះ (ឧទាហរណ៍ ឯកសារ `.m3u8` ខូច ឬមិនអាចចូលប្រើបាន) NVDA នឹងប្រាប់អ្នកថាការថយក្រោយមិនអាចប្រើបានសម្រាប់ស្ថានីយ៍ជាក់លាក់នោះទេ។
 
-V ojedinělém případě, kdy playlist stanice vůbec nelze přečíst (například poškozený nebo nedostupný manifest `.m3u8`), NVDA sdělí, že přetočení pro danou stanici není k dispozici.
+### តម្រូវការ និងដែនកំណត់
 
-### Požadavky a omezení
+- **ត្រូវការម៉ាស៊ីន BASS** ដែល freeAudio ប្រើជានិច្ចសម្រាប់ការចាក់ (សូមមើល [ការចាក់](#ការចាក់))។
+- ពេលវេលាឃ្លាំងសតិបណ្ដោះអាសន្នត្រូវបានកំណត់នៅក្នុងការកំណត់។
+- ឃ្លាំងសតិបណ្ដោះអាសន្នគឺតាមស្ថានីយ៍៖ ការប្តូរស្ថានីយ៍ ការបញ្ឈប់ការចាក់ ឬការចាប់ផ្តើម NVDA ឡើងវិញលុបវា ហើយចាប់ផ្តើមថ្មី។
+- ការចាក់រំកិលពេលវេលាប្រើឯកសារឃ្លាំងសតិបណ្ដោះអាសន្នក្នុងតំបន់ផ្ទាល់ខ្លួន ហើយមិនបង្កើតការថតដែលបានរក្សាទុកទេ — ប្រសិនបើអ្នកចង់រក្សាសំឡេងជាអចិន្ត្រៃយ៍ សូមប្រើការថតភ្លាមៗ (`Ctrl+Win+E`) ផងដែរ។
 
-- **Vyžaduje backend BASS**, který freeAudio vždy používá pro přehrávání (viz [Přehrávání](#přehrávání)).
-- Doba vyrovnávací paměti je určena v nastavení.
-- Vyrovnávací paměť je na každou stanici zvlášť: přepnutí stanic, zastavení přehrávání nebo restart NVDA ji vynuluje.
-- Přehrávání s časovým posunem používá vlastní místní soubor vyrovnávací paměti a nevytváří uloženou nahrávku — pokud chcete zvuk trvale uchovat, použijte zároveň Okamžité nahrávání (`Ctrl+Win+E`).
+## កម្មវិធីកំណត់ម៉ោង
 
-## Časovač
+បើកផ្ទាំងកម្មវិធីកំណត់ម៉ោងក្នុងកម្មវិធីរុករកស្ថានីយ៍ (`Alt+4`)។ កម្មវិធីកំណត់ម៉ោងពីរប្រភេទអាចត្រូវបានបន្ថែម៖
 
-Otevřete kartu Časovač v prohlížeči stanice (`Alt+4`). Lze přidat dva typy časovače:
+នៅពេលជ្រើសរើសស្ថានីយ៍សម្រាប់កម្មវិធីកំណត់ម៉ោងរោទិ៍ ប្រអប់ **ចម្រោះ** ខាងលើបញ្ជីស្ថានីយ៍អនុញ្ញាតឱ្យអ្នកបង្រួមបញ្ជីសំណព្វក្នុងពេលវេលាពិត។
 
-Při výběru stanice pro časovač alarmu vám pole **Filtr** nad seznamem stanic umožní v reálném čase zúžit seznam oblíbených.
+**រោទិ៍ — ចាប់ផ្តើមវិទ្យុ៖** ចាប់ផ្តើមចាក់ស្ថានីយ៍ដែលបានជ្រើសរើសពីសំណព្វរបស់អ្នកនៅពេលដែលបានកំណត់ដោយស្វ័យប្រវត្តិ។ ជ្រើសរើសស្ថានីយ៍ ហើយបញ្ចូលពេលវេលាក្នុងទម្រង់ HH:MM។
 
-**Alarm - spuštění rádia:** Automaticky začne v zadaný čas přehrávat vybranou stanici z oblíbených. Vyberte stanici a zadejte čas ve formátu HH:MM.
+**ដំណេក — បញ្ឈប់វិទ្យុ៖** បញ្ឈប់ការចាក់នៅពេលដែលបានកំណត់។ នៅពេលកម្មវិធីកំណត់ម៉ោងបាញ់ កម្រិតសំឡេងត្រូវបានបន្ថយបន្តិចម្តងៗក្នុងរយៈពេល 60 វិនាទី មុនពេលការចាក់ឈប់។ មិនចាំបាច់ជ្រើសរើសស្ថានីយ៍ទេ; គ្រាន់តែបញ្ចូលពេលវេលា។
 
-**Sleep - zastavení rádia:** Zastaví přehrávání v zadaný čas. Po spuštění časovače se hlasitost postupně snižuje po dobu 60 sekund, než se přehrávání zastaví. Není třeba vybírat žádnou stanici, stačí zadat čas.
+សម្រាប់ប្រភេទទាំងពីរ ប្រសិនបើពេលវេលាដែលបានបញ្ចូលបានកន្លងផុតទៅហើយ សកម្មភាពត្រូវបានកំណត់ពេលសម្រាប់ថ្ងៃបន្ទាប់។ ការបន្ថែមកម្មវិធីកំណត់ម៉ោងត្រូវបានរារាំងប្រសិនបើកម្មវិធីកំណត់ម៉ោងផ្សេងទៀត — ប្រភេទណាក៏ដោយ — មាននៅពេលដូចគ្នារួចហើយ; សារជូនដំណឹងអំពីជម្លោះ ហើយស្នើឱ្យអ្នកលុបកំណត់ត្រាដែលមានស្រាប់ជាមុន។ កម្មវិធីកំណត់ម៉ោងដែលកំពុងរង់ចាំត្រូវបានរាយក្នុងផ្ទាំង; ជ្រើសរើសមួយ ហើយចុចប៊ូតុង លុបកម្មវិធីកំណត់ម៉ោងដែលបានជ្រើសរើស ដើម្បីបោះបង់វា។
 
-Platí pro oba typy, pokud zadaný čas již uplynul, je akce naplánována na následující den. Pokud již existuje časovač ve stejnou dobu (bez ohledu na typ), přidání nového časovače je zablokováno; uživatel je informován o konfliktu a vyzván k odebrání stávající položky. Na kartě jsou uvedeny čekající časovače; vyberte jeden z nich a stisknutím tlačítka Odebrat vybraný časovač jej zrušte.
+**កម្មវិធីកំណត់ម៉ោងដែលធ្វើម្តងទៀត៖** នៅក្រោម **របៀបធ្វើម្តងទៀត** សូមជ្រើសរើស **ធ្វើម្តងទៀតប្រចាំសប្តាហ៍** ជំនួសជម្រើសមួយដងលំនាំដើម ដើម្បីឱ្យកម្មវិធីកំណត់ម៉ោងបាញ់រៀងរាល់សប្តាហ៍ជាជាងម្តង។ បញ្ជីធីក **ថ្ងៃសកម្ម** បន្ទាប់មកអនុញ្ញាតឱ្យអ្នកជ្រើសរើសថ្ងៃណាក្នុងសប្តាហ៍ដែលវាធ្វើម្តងទៀត; ការទុកគ្រប់ថ្ងៃមិនបានធីកនឹងធ្វើម្តងទៀតរៀងរាល់ថ្ងៃ។ កម្មវិធីកំណត់ម៉ោងដែលធ្វើម្តងទៀតបន្តបាញ់តាមកាលវិភាគរហូតដល់អ្នកលុបវាចេញពីបញ្ជីកម្មវិធីកំណត់ម៉ោងដែលកំពុងរង់ចាំ — វាមិនមែនជាកំណត់ត្រាម្តងមួយដងដែលរលាយបាត់បន្ទាប់ពីបាញ់ទេ។
 
-**Opakované časovače:** V části **Opakování** zvolte **Opakovat každý týden** místo výchozí jednorázové možnosti, aby se časovač spouštěl každý týden, nikoli jednou. Seznam zaškrtávacích políček **Aktivní dny** vám pak umožní vybrat, ve které dny v týdnu se opakuje; pokud necháte všechny dny nezaškrtnuté, opakuje se každý den. Opakovaný časovač se spouští podle plánu, dokud jej neodstraníte ze seznamu čekajících časovačů — nejde o jednorázovou položku, která po spuštění zmizí.
+## ផតខាស្ត
 
-## Podcasty
+freeAudio រួមមានកម្មវិធីចាក់ផតខាស្តពេញលក្ខណៈ។ អ្នកអាចជាវព័ត៌មានផតខាស្ត RSS ឬ Atom ណាមួយ រុករកវគ្គ ចាក់ពួកវា ទាញយកពួកវា និងបន្តការចាក់ពីកន្លែងដែលអ្នកឈប់ — ទាំងអស់អាចចូលប្រើបានទាំងស្រុង។
 
-freeAudio obsahuje plnohodnotný přehrávač podcastů. Můžete se přihlásit k odběru libovolného RSS nebo Atom kanálu podcastu, procházet epizody, přehrávat je, stahovat je a pokračovat v přehrávání tam, kde jste skončili — to vše plně přístupně.
+### ការចូលប្រើផ្ទាំងផតខាស្ត
 
-### Přístup na kartu Podcasty
+បើកកម្មវិធីរុករកស្ថានីយ៍ដោយ `Ctrl+Win+R` ហើយប្តូរទៅផ្ទាំង **ផតខាស្ត** ដោយប្រើ `Ctrl+Tab` ឬ `Alt+6`។ ផ្ទាំងត្រូវបានរៀបចំជាតំបន់សំខាន់បី៖
 
-Otevřete Průzkumníka stanic pomocí `Ctrl+Win+R` a přepněte na kartu **Podcasty** pomocí `Ctrl+Tab` nebo `Alt+6`. Karta je rozdělena do tří hlavních oblastí:
+1. **ស្វែងរក និងបន្ថែម** — ផ្នែកខាងលើសម្រាប់ការស្វែងរកផតខាស្តថ្មី រួមទាំងបញ្ជីមើលជាមុនដែលបង្ហាញវគ្គនៃលទ្ធផលស្វែងរកដែលបានជ្រើសរើសបច្ចុប្បន្ន។
+2. **ការជាវ** — បញ្ជីព័ត៌មានដែលអ្នកបានជាវ។
+3. **វគ្គ** — បញ្ជីវគ្គសម្រាប់ព័ត៌មានដែលបានជ្រើសរើស ជាមួយឧបករណ៍បញ្ជាការចាក់។
 
-1. **Hledat a přidat** — horní část pro objevování nových podcastů, včetně seznamu náhledu, který zobrazuje epizody právě vybraného výsledku hledání.
-2. **Odběry** — seznam kanálů, které odebíráte.
-3. **Epizody** — seznam epizod vybraného kanálu s ovládacími prvky přehrávání.
+### ការបន្ថែមព័ត៌មានផតខាស្ត
 
-### Přidání kanálu podcastu
+អ្នកអាចបន្ថែមព័ត៌មានផតខាស្តតាមពីរវិធី៖
 
-Kanál podcastu můžete přidat dvěma způsoby:
+**តាម URL៖**
+- នៅក្នុងប្រអប់ **ស្វែងរក** បិទភ្ជាប់ URL ព័ត៌មាន RSS ឬ Atom ពេញលេញ (ឧ. `https://example.com/feed.xml`)។
+- ចុច Enter។
+- freeAudio ទាញយកព័ត៌មាន ផ្ទៀងផ្ទាត់វា និងបន្ថែមវាទៅការជាវរបស់អ្នក។ ប្រសិនបើព័ត៌មានត្រឹមត្រូវ អ្នកនឹងឮការបញ្ជាក់ជាមួយចំណងជើងព័ត៌មាន។ ប្រសិនបើបរាជ័យ សារកំហុសពន្យល់មូលហេតុ។
 
-**Podle adresy URL:**
-- Do pole **„Nebo zadejte adresu URL podcastu"** vložte úplnou adresu URL kanálu RSS nebo Atom (např. `https://example.com/feed.xml`).
-- Stiskněte Enter nebo klikněte na tlačítko **Přidat kanál**.
-- freeAudio kanál načte, ověří a přidá jej do vašich odběrů. Pokud je kanál platný, uslyšíte potvrzení s názvem kanálu. Pokud se to nezdaří, chybová zpráva vysvětlí důvod.
+**តាមការស្វែងរក៖**
+- នៅក្នុងប្រអប់ **ស្វែងរក** វាយពាក្យគន្លឹះ (ចំណងជើងផតខាស្ត ប្រធានបទ ឬឈ្មោះពិធីករ) ហើយចុច Enter។
+- freeAudio ស្វែងរកក្នុងថតផតខាស្ត iTunes និងបង្ហាញផតខាស្តដែលត្រូវគ្នាក្នុងបញ្ជី **លទ្ធផលស្វែងរក**។
+- ការជ្រើសរើសលទ្ធផលទាញយកព័ត៌មាននោះនៅផ្ទៃខាងក្រោយ និងរាយវគ្គរបស់វានៅក្នុងបញ្ជី **វគ្គក្នុងលទ្ធផលដែលបានជ្រើសរើស** នៅខាងក្រោមភ្លាមៗ ដូច្នេះអ្នកអាចមើលជាមុននូវអ្វីដែលកម្មវិធីពិតជាមាន មុនពេលសម្រេចចិត្តជាវ — សូមមើល [ការមើលវគ្គជាមុនមុនពេលជាវ](#ការមើលវគ្គជាមុនមុនពេលជាវ) ខាងក្រោម។
+- នៅពេលអ្នកពេញចិត្តនឹងអ្វីដែលអ្នកឃើញ សូមជ្រើសរើសលទ្ធផល ហើយចុច `Enter` ឬបើកម៉ឺនុយបរិបទរបស់វា (គ្រាប់ចុចកម្មវិធី / `Shift+F10` ឬចុចខាងស្តាំ) ហើយជ្រើសរើស **ជាវ** ដើម្បីបន្ថែមវាទៅការជាវរបស់អ្នក។ ព័ត៌មានត្រូវបានបន្ថែមភ្លាមៗ និងលេចឡើងក្នុងបញ្ជីការជាវរបស់អ្នក។ មិនមានប៊ូតុង "បន្ថែមអ្វីដែលបានជ្រើសរើសពីការស្វែងរក" ដាច់ដោយឡែកទេ — `Enter` ឬម៉ឺនុយបរិបទគឺជាវិធីតែមួយគត់ក្នុងការជាវពីលទ្ធផលស្វែងរក ដោយរក្សាចំណុចប្រទាក់ឱ្យស្អាត និងអាចចូលប្រើបាន។
 
-**Vyhledáváním:**
-- Do pole **Hledat** zadejte klíčové slovo (název podcastu, téma nebo jméno moderátora) a stiskněte Enter.
-- freeAudio prohledá adresář podcastů iTunes a zobrazí odpovídající podcasty v seznamu **Výsledky hledání**.
-- Výběrem výsledku se daný kanál na pozadí načte a jeho epizody se zobrazí v seznamu **Epizody vybraného výsledku** hned pod ním, takže si můžete prohlédnout, co pořad skutečně obsahuje, než se rozhodnete pro odběr — viz níže část Náhled epizod před přihlášením k odběru.
-- Jakmile jste s tím, co vidíte, spokojeni, vyberte výsledek a buď stiskněte `Enter`, nebo otevřete jeho kontextovou nabídku (klávesa Nabídka / `Shift+F10`, případně kliknutí pravým tlačítkem) a zvolte **Přihlásit k odběru**, čímž jej přidáte do svých odběrů. Kanál se přidá okamžitě a zobrazí se v seznamu odběrů. Neexistuje samostatné tlačítko „Přidat vybrané z hledání" — jediným způsobem přihlášení k odběru z výsledků hledání je `Enter` nebo kontextová nabídka, což udržuje rozhraní jednoduché a přístupné.
+> **គន្លឹះ៖** អ្នកក៏អាចវាយ URL ព័ត៌មានដោយផ្ទាល់ទៅក្នុងប្រអប់ស្វែងរកបានដែរ — ប្រសិនបើវាមើលទៅដូចជា URL ត្រឹមត្រូវ កម្មវិធីបន្ថែមនឹងព្យាយាមបន្ថែមវាជាព័ត៌មានដោយមិនស្វែងរក។
 
-> **Tip:** Do pole hledání můžete zadat i přímo adresu URL kanálu — pokud vypadá jako platná adresa URL, doplněk se ji pokusí přidat jako kanál bez hledání.
+**ម៉ឺនុយបរិបទសម្រាប់លទ្ធផលស្វែងរក៖** ចុចខាងស្តាំលើលទ្ធផលស្វែងរក ឬជ្រើសរើសវា ហើយចុចគ្រាប់ចុចកម្មវិធី / `Shift+F10` ដើម្បីបើកម៉ឺនុយជាមួយសកម្មភាពតែមួយ **ជាវ** ដែលដូចគ្នានឹងការចុច `Enter` លើលទ្ធផលនោះ។
 
-**Kontextová nabídka pro výsledky hledání:** Klepnutím pravým tlačítkem na výsledek hledání, případně jeho vybráním a stiskem klávesy Nabídka / `Shift+F10`, otevřete nabídku s jedinou akcí **Přihlásit k odběru**, totožnou se stisknutím `Enter` na daném výsledku.
+### ការមើលវគ្គជាមុនមុនពេលជាវ
 
-### Náhled epizod před přihlášením k odběru
+មុនពេលប្តេជ្ញាជាវ អ្នកអាចស្តាប់វគ្គផតខាស្តដោយផ្ទាល់ពីលទ្ធផលស្វែងរក។ នៅពេលអ្នកជ្រើសរើសផតខាស្តក្នុងបញ្ជី **លទ្ធផលស្វែងរក** freeAudio ទាញយកព័ត៌មាននោះ និងបង្ហាញវគ្គរបស់វា — ចំណងជើង និងកាលបរិច្ឆេទបោះពុម្ពផ្សាយ — នៅក្នុងបញ្ជី **វគ្គក្នុងលទ្ធផលដែលបានជ្រើសរើស** ខាងក្រោម។
 
-Před přihlášením k odběru si můžete poslechnout epizody podcastu přímo z výsledků hledání. Kdykoli vyberete podcast v seznamu **Výsledky hledání**, freeAudio daný kanál načte a jeho epizody — název a datum vydání — zobrazí v seznamu **Epizody vybraného výsledku** níže.
+- ជ្រើសរើសវគ្គក្នុងបញ្ជីមើលជាមុននោះ ហើយចុច `Enter` ឬបើកម៉ឺនុយបរិបទរបស់វា (គ្រាប់ចុចកម្មវិធី / `Shift+F10` ឬចុចខាងស្តាំ) ហើយជ្រើសរើស **មើលជាមុន** ដើម្បីចាប់ផ្តើមចាក់វាតាមរយៈកម្មវិធីចាក់ធម្មតា។ ឧបករណ៍បញ្ជាការចាក់ធម្មតាទាំងអស់ (ផ្អាក កម្រិតសំឡេង រំកិលពេលវេលា ។ល។) ដំណើរការលើវាដូចគ្នានឹងស្ថានីយ៍ ឬវគ្គផ្សេងទៀត។
+- ខណៈវគ្គកំពុងមើលជាមុន ម៉ឺនុយបរិបទដូចគ្នាបង្ហាញ **បញ្ឈប់ការមើលជាមុន** ជំនួស **មើលជាមុន** — ជ្រើសរើសវា ឬចុច `Enter` ម្តងទៀតលើវគ្គនោះ ដើម្បីបញ្ឈប់។
+- ការមើលជាមុនមិនធ្វើឱ្យអ្នកជាវអ្វីទេ; វាសម្រាប់ការស្តាប់មុនពេលសម្រេចចិត្តតែប៉ុណ្ណោះ។ បញ្ជីមើលជាមុនខ្លួនវាបណ្តោះអាសន្ន — វាត្រូវបានជំនួសនៅពេលអ្នកជ្រើសរើសលទ្ធផលស្វែងរកផ្សេង ហើយមិនត្រូវបានរក្សាទុកនៅកន្លែងណាដូចការជាវពិតរបស់អ្នកទេ។
 
-- Vyberte epizodu v tomto náhledovém seznamu a stiskněte `Enter`, nebo otevřete její kontextovou nabídku (klávesa Nabídka / `Shift+F10`, případně kliknutí pravým tlačítkem) a zvolte **Náhled**, čímž ji začnete přehrávat pomocí běžného přehrávače. Všechny obvyklé ovládací prvky přehrávání (pozastavení, hlasitost, časový posun atd.) na ní fungují stejně jako na jakékoli jiné stanici nebo epizodě.
-- Během náhledu epizody se ve stejné kontextové nabídce místo **Náhled** zobrazí **Zastavit náhled** — zvolte jej, nebo znovu stiskněte `Enter` na dané epizodě, čímž náhled zastavíte.
-- Náhled vás k ničemu nepřihlašuje; slouží čistě k poslechu před rozhodnutím. Samotný seznam náhledu je dočasný — nahradí se, jakmile vyberete jiný výsledek hledání, a neukládá se nikam trvale tak jako vaše skutečné odběry.
+### ការគ្រប់គ្រងការជាវ
 
-### Správa odběrů
+នៅពេលអ្នកបន្ថែមព័ត៌មានខ្លះ ពួកវាលេចឡើងក្នុងបញ្ជី **ការជាវ**។ កំណត់ត្រានីមួយៗបង្ហាញចំណងជើងព័ត៌មាន និងចំនួនវគ្គដែលមាន។
 
-Jakmile přidáte několik kanálů, zobrazí se v seznamu **Odběry**. Každá položka zobrazuje název kanálu a počet dostupných epizod.
+- **ជ្រើសរើសព័ត៌មាន** ដើម្បីមើលវគ្គរបស់វានៅក្នុងបញ្ជីខាងក្រោម។ ប្រអប់អត្ថបទអានតែប៉ុណ្ណោះ **ព័ត៌មានលម្អិតព័ត៌មាន** ខាងក្រោមបញ្ជីការជាវបង្ហាញចំណងជើងព័ត៌មាន អ្នកនិពន្ធ ការពិពណ៌នា ចំនួនវគ្គ និង URL។
+- **ធ្វើបច្ចុប្បន្នភាពព័ត៌មាន** — ជ្រើសរើសវា ហើយចុចប៊ូតុង **ធ្វើបច្ចុប្បន្នភាពព័ត៌មាន** (អាចប្រើតាមម៉ឺនុយបរិបទ សូមមើលខាងក្រោម) ដើម្បីទាញយកវគ្គចុងក្រោយ។ ព័ត៌មានទាំងអស់ក៏ត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិនៅផ្ទៃខាងក្រោយនៅពេលអ្នកបើកផ្ទាំងផតខាស្ត ដូច្នេះអ្នកតែងតែឃើញវគ្គថ្មីៗបំផុតដោយមិនចាំបាច់អន្តរាគមន៍ដោយដៃ។
+- **លុបព័ត៌មាន** — ជ្រើសរើសវា ហើយចុច `Delete` ឬប្រើម៉ឺនុយបរិបទដើម្បីលុបវាចេញពីការជាវរបស់អ្នក។ អ្នកនឹងត្រូវបានសួរឱ្យបញ្ជាក់មុនពេលលុប។
 
-- **Vyberte kanál**, chcete-li zobrazit jeho epizody ve spodním seznamu. Textové pole pouze pro čtení **Podrobnosti o kanálu** pod seznamem odběrů zobrazuje název kanálu, autora, popis, počet epizod a adresu URL.
-- **Obnovte kanál** — vyberte jej a stiskněte tlačítko **Obnovit kanál** (dostupné také přes kontextovou nabídku, viz níže), abyste načetli nejnovější epizody. Všechny kanály se také automaticky obnovují na pozadí při otevření karty Podcasty, takže obvykle vidíte nejnovější epizody bez ručního zásahu.
-- **Odeberte kanál** — vyberte jej a stiskněte `Delete`, nebo jej odeberte ze svých odběrů pomocí kontextové nabídky. Před odebráním budete požádáni o potvrzení.
+**ម៉ឺនុយបរិបទសម្រាប់ព័ត៌មាន៖** ចុចខាងស្តាំលើព័ត៌មាន ឬជ្រើសរើសវា ហើយចុចគ្រាប់ចុចកម្មវិធី / `Shift+F10` ដើម្បីបើកម៉ឺនុយជាមួយ៖
+- **ធ្វើបច្ចុប្បន្នភាពព័ត៌មាន** — ទាញយកវគ្គថ្មីឥឡូវនេះ។
+- **រក្សាទុកទម្រង់សំឡេងសម្រាប់ផតខាស្តនេះ** / **សម្អាតទម្រង់សំឡេង** — សូមមើល [ទម្រង់សំឡេងផតខាស្ត](#ទម្រង់សំឡេងផតខាស្ត)។
+- **លុបព័ត៌មាន** — លុបការជាវ។
+- **ចម្លង URL ព័ត៌មាន** — ចម្លង URL ព័ត៌មានទៅ clipboard។
 
-**Kontextová nabídka pro kanály:** Klepnutím pravým tlačítkem na kanál, případně jeho vybráním a stiskem klávesy Nabídka / `Shift+F10`, otevřete nabídku s těmito položkami:
-- **Obnovit kanál** — nyní načte nové epizody.
-- **Uložit zvukový profil pro tento podcast** / **Vymazat zvukový profil** — viz [Zvukový profil podcastu](#zvukový-profil-podcastu) níže.
-- **Odebrat kanál** — smaže odběr.
-- **Kopírovat adresu URL kanálu** — zkopíruje adresu URL kanálu do schránky.
+### ការរុករក និងការចាក់វគ្គ
 
-### Procházení a přehrávání epizod
+ជ្រើសរើសព័ត៌មានក្នុងបញ្ជីការជាវ; វគ្គរបស់វាលេចឡើងក្នុងបញ្ជី **វគ្គ** ខាងក្រោម។ វគ្គនីមួយៗបង្ហាញ៖
+- លេខវគ្គរបស់វា (1 = វគ្គចាស់បំផុតក្នុងព័ត៌មាន រាប់ឡើងទៅថ្មីបំផុត)។
+- កាលបរិច្ឆេទបោះពុម្ពផ្សាយរបស់វា (ប្រសិនបើមាន)។
+- ចំណងជើងរបស់វា។
+- បុព្វបទ **"បានស្តាប់"** ប្រសិនបើវគ្គត្រូវបានចាក់ពេញលេញ។
+- បច្ច័យរយៈពេល គឺរយៈពេលសរុប (ប្រសិនបើមិនធ្លាប់ចាក់) ឬការវិវត្តដែលកន្លងផុត/សរុប (ប្រសិនបើចាក់ដោយផ្នែក)។
 
-Vyberte kanál v seznamu odběrů; jeho epizody se zobrazí v seznamu **Epizody** níže. Každá epizoda zobrazuje:
-- Své číslo epizody (1 = nejstarší epizoda v kanálu, číslováno vzestupně k nejnovější).
-- Datum vydání (je-li k dispozici).
-- Svůj název.
-- Předponu **„Přehráno"**, pokud byla epizoda přehrána celá.
-- Příponu s délkou: buď celkovou délku (pokud ještě nebyla přehrána), nebo uplynulý/celkový průběh (pokud byla přehrána částečně).
+**ការចាក់៖**
+- ជ្រើសរើសវគ្គ ហើយចុច `Enter` ឬ `Space` ដើម្បីចាប់ផ្តើមចាក់វា។ ប្រសិនបើវគ្គត្រូវបានចាក់ដោយផ្នែកពីមុន វាបន្តពីកន្លែងដែលអ្នកឈប់។
+- ជួរដេក *មិន* ធ្វើបច្ចុប្បន្នភាពខណៈវគ្គកំពុងចាក់ — នេះគឺដោយចេតនា ដូច្នេះ NVDA មិនប្រកាសជួរដេកម្តងហើយម្តងទៀតខណៈអ្នកកំពុងអង្គុយលើវា។ ទង់ "បានស្តាប់" និងរយៈពេលរបស់វាត្រូវបានធ្វើបច្ចុប្បន្នភាពភ្លាមៗនៅពេលអ្នកផ្អាកវគ្គ ឬវាចាប់ផ្តើមបញ្ចប់ ដូច្នេះការបង្ហាញត្រឹមត្រូវជានិច្ចនៅពេលវាសំខាន់; វាគ្រាន់តែមិនកើនឡើងវិនាទីម្តងៗក្នុងអំឡុងពេលចាក់។
+- ប្រើ `F3` / `F4` នៅលើផ្ទាំងផតខាស្ត ដើម្បីផ្លាស់ទីទៅវគ្គមុន / បន្ទាប់ និងចាក់វាភ្លាមៗ។ អ្នកក៏អាចប្រើ `←` / `→` ខណៈបញ្ជីវគ្គមានការផ្តោត ឬ `Ctrl+←` / `Ctrl+→` គ្រប់ទីកន្លែងនៅលើផ្ទាំងផតខាស្ត — ទាំងពីរដំណើរការដូចគ្នា។
+- ប្រើ `Shift+F3` / `Shift+F4` ដើម្បីផ្លាស់ទីរវាងព័ត៌មានដោយមិនចាក់វគ្គ។
+- ចុច `Space` ខណៈវគ្គកំពុងចាក់ ដើម្បីផ្អាក ឬបន្តការចាក់។
 
-**Přehrávání:**
-- Vyberte epizodu a stiskněte `Enter` nebo `Mezerník` pro zahájení přehrávání. Pokud byla epizoda dříve přehrána částečně, pokračuje tam, kde jste skončili.
-- Řádek se během přehrávání epizody *neaktualizuje* — to je záměrné, aby NVDA opakovaně neohlašoval řádek, zatímco na něm setrváváte. Jeho příznak „Přehráno" a délka se aktualizují okamžitě ve chvíli, kdy epizodu pozastavíte nebo skončí přehrávání, takže zobrazení je vždy přesné právě ve chvíli, kdy na tom záleží; jen se neaktualizuje vteřinu po vteřině během přehrávání.
-- Použijte `F3` / `F4` na kartě Podcasty pro přechod na předchozí / další epizodu a její okamžité přehrání. Můžete také použít `←` / `→`, když je zaměřen seznam epizod, nebo `Ctrl+←` / `Ctrl+→` kdekoli na kartě Podcasty — obojí funguje stejně.
-- Použijte `Shift+F3` / `Shift+F4` pro přechod mezi kanály bez přehrávání epizod.
-- Stiskněte `Mezerník` během přehrávání epizody pro pozastavení nebo obnovení přehrávání.
+**ការបន្តការចាក់៖** freeAudio រក្សាទុកទីតាំងរបស់អ្នកក្នុងវគ្គផតខាស្តនីមួយៗដោយស្វ័យប្រវត្តិ — ភ្លាមៗនៅពេលអ្នកផ្អាក ឬវគ្គបញ្ចប់ និងរៀងរាល់ 15 វិនាទីនៅផ្ទៃខាងក្រោយខណៈអ្នកបន្តស្តាប់ ដូច្នេះការគាំង ឬការចាប់ផ្តើមឡើងវិញដែលមិនបានរំពឹងទុកនឹងមិនបាត់បង់ការវិវត្តច្រើនទេ។ ប្រសិនបើអ្នកឈប់ ឬផ្អាកការចាក់ ហើយត្រឡប់មកវិញនៅពេលក្រោយ វគ្គបន្តពីទីតាំងដែលបានរក្សាទុក។ ប្រសិនបើអ្នកចាក់វគ្គដល់ចប់ (ក្នុងរយៈពេល 3 វិនាទីចុងក្រោយ) វាត្រូវបានសម្គាល់ថា "បានស្តាប់" ហើយនឹងមិនបន្តទេ — វាចាប់ផ្តើមពីដើមនៅលើកក្រោយ ហើយបុព្វបទ "បានស្តាប់" លេចឡើងក្នុងបញ្ជី។
 
-**Pokračování v přehrávání:** freeAudio automaticky ukládá vaši pozici v každé epizodě podcastu — okamžitě při pozastavení nebo dokončení epizody a dále každých 15 sekund na pozadí, dokud posloucháte, takže pád nebo neočekávané restartování nezpůsobí velkou ztrátu postupu. Pokud přehrávání zastavíte nebo pozastavíte a vrátíte se později, epizoda pokračuje od uložené pozice. Pokud epizodu přehrajete až do samého konce (v posledních 3 sekundách), označí se jako **„Přehráno"** a nebude pokračovat — příště začne od začátku a v seznamu se zobrazí předpona „Přehráno".
+**ម៉ឺនុយបរិបទសម្រាប់វគ្គ៖** ចុចខាងស្តាំលើវគ្គ ឬជ្រើសរើសវា ហើយចុចគ្រាប់ចុចកម្មវិធី / `Shift+F10` ដើម្បីបើកម៉ឺនុយជាមួយ៖
+- **ចាក់វគ្គ** — ចាប់ផ្តើមការចាក់។
+- **ទាញយកវគ្គ** — ទាញយកឯកសារវគ្គទៅថតការថតរបស់អ្នក។
+- **រក្សាទុកទម្រង់សំឡេងសម្រាប់ផតខាស្តនេះ** / **សម្អាតទម្រង់សំឡេង** — ពាក្យបញ្ជាដូចគ្នានឹងម៉ឺនុយបរិបទព័ត៌មាន ដែលរួមបញ្ចូលនៅទីនេះដើម្បីភាពងាយស្រួល ដូច្នេះអ្នកមិនចាំបាច់ត្រឡប់ទៅបញ្ជីការជាវវិញទេ។ ពួកវានៅតែរក្សាទុកទម្រង់មួយសម្រាប់ផតខាស្តទាំងមូល មិនមែនទម្រង់ដាច់ដោយឡែកសម្រាប់វគ្គនេះទេ — សូមមើល [ទម្រង់សំឡេងផតខាស្ត](#ទម្រង់សំឡេងផតខាស្ត)។
+- **ចម្លង URL វគ្គ** — ចម្លង URL សំឡេងផ្ទាល់ទៅ clipboard។
 
-**Kontextová nabídka pro epizody:** Klepnutím pravým tlačítkem na epizodu, případně jejím vybráním a stiskem klávesy Nabídka / `Shift+F10`, otevřete nabídku s těmito položkami:
-- **Přehrát epizodu** — zahájí přehrávání.
-- **Stáhnout epizodu** — stáhne soubor epizody do vaší složky nahrávek.
-- **Uložit zvukový profil pro tento podcast** / **Vymazat zvukový profil** — stejné příkazy jako ve vlastní kontextové nabídce kanálu, dostupné i zde pro pohodlí, abyste se nemuseli vracet do seznamu odběrů. Vždy ukládají jeden profil pro celý podcast, ne samostatný profil pro tuto epizodu — viz [Zvukový profil podcastu](#zvukový-profil-podcastu) níže.
-- **Kopírovat adresu URL epizody** — zkopíruje přímou adresu URL zvuku do schránky.
+### ការទាញយកវគ្គ
 
-### Stahování epizod
+ជ្រើសរើសវគ្គ ហើយចុចប៊ូតុង **ទាញយកវគ្គ** (ឬប្រើម៉ឺនុយបរិបទ)។ វគ្គត្រូវបានទាញយកទៅថតការថតរបស់អ្នក (`Documents\freeAudio Recordings\` តាមលំនាំដើម)។ ឈ្មោះឯកសារផ្អែកលើចំណងជើងវគ្គ និងផ្នែកបន្ថែមឯកសារដែលបានរកឃើញ (`.mp3`, `.m4a`, `.ogg` ។ល។)។ NVDA ប្រកាសនៅពេលការទាញយកចាប់ផ្តើម និងបញ្ចប់។ ប្រសិនបើឯកសារមានរួចហើយ អ្នកត្រូវបានជូនដំណឹង ហើយការទាញយកត្រូវបានរំលង។
 
-Vyberte epizodu a klikněte na tlačítko **Stáhnout epizodu** (nebo použijte kontextovou nabídku). Epizoda se stáhne do vaší složky nahrávek (`Dokumenty\freeAudio Recordings\` ve výchozím nastavení). Název souboru vychází z názvu epizody a zjištěné přípony souboru (`.mp3`, `.m4a`, `.ogg` atd.). NVDA oznámí zahájení a dokončení stahování. Pokud soubor již existuje, budete informováni a stahování se přeskočí.
+### ការចម្រោះវគ្គ
 
-### Filtrování epizod
+ខាងលើបញ្ជីវគ្គមានប្រអប់ **ចម្រោះ**។ នៅពេលអ្នកវាយ បញ្ជីវគ្គត្រូវបានចម្រោះក្នុងពេលវេលាពិតដើម្បីបង្ហាញវគ្គដែលចំណងជើងរបស់វាមានអត្ថបទដែលបានវាយ ឬលេខវគ្គរបស់វាត្រូវគ្នាយ៉ាងពិតប្រាកដ — ដូច្នេះការវាយ `47` លោតដោយផ្ទាល់ទៅវគ្គ 47 ទោះបីជា "47" មិនលេចឡើងនៅកន្លែងណាក្នុងចំណងជើងរបស់វាក៏ដោយ។ NVDA ប្រកាសចំនួនវគ្គដែលត្រូវគ្នាបន្ទាប់ពីការផ្លាស់ប្តូរនីមួយៗ។ ចុចព្រួញ `Down` ពីប្រអប់ចម្រោះដើម្បីផ្លាស់ទីការផ្តោតដោយផ្ទាល់ទៅបញ្ជីដែលបានចម្រោះ។
 
-Nad seznamem epizod je pole **Filtr**. Během psaní se seznam epizod okamžitě filtruje tak, aby zobrazoval epizody, jejichž název obsahuje zadaný text, nebo jejichž číslo epizody se s ním přesně shoduje — takže zadání `47` vás okamžitě přesune na epizodu 47, i když se „47" v jejím názvu nikde neobjevuje. NVDA po každé změně oznámí počet odpovídajících epizod. Stisknutím šipky dolů v poli filtru přesunete fokus přímo do filtrovaného seznamu.
+### ព័ត៌មានលម្អិតនៃការចាក់ផតខាស្ត
 
-### Podrobnosti o přehrávání podcastů
+វគ្គផតខាស្តត្រូវបានចាក់ដោយប្រើ **ម៉ាស៊ីន BASS** (ម៉ាស៊ីនដូចគ្នាដែលប្រើសម្រាប់ស្ទ្រីមវិទ្យុ និងគិតត្រឹមកំណែនេះ ជាម៉ាស៊ីនចាក់តែមួយគត់ដែល freeAudio ប្រើ)។ ដោយសារវគ្គត្រូវបានទាញយកជាបន្តបន្ទាប់ និងអាចស្វែងរកបាន អ្នកអាចប្រើគ្រាប់ចុចរំកិលពេលវេលាថយក្រោយ/ទៅមុខ (`Ctrl+Win+J`/`Ctrl+Win+K`) ខណៈចាក់ផតខាស្ត ដើម្បីស្វែងរកក្នុងវគ្គ។ ទីតាំងត្រូវបានរក្សាទុកដោយស្វ័យប្រវត្តិ ដូច្នេះអ្នកអាចបន្តនៅពេលក្រោយ។
 
-Epizody podcastů se přehrávají pomocí **backendu BASS** (stejný engine, který se používá pro rozhlasové streamy a od této verze jediný backend, který freeAudio používá). Protože se epizody stahují postupně a lze v nich posouvat, můžete při přehrávání podcastu použít klávesové zkratky časového posunu vzad/vpřed (`Ctrl+Win+J`/`Ctrl+Win+K`) k posouvání v rámci epizody. Pozice se automaticky ukládá, takže můžete později pokračovat.
+**ការស្វែងរកជាថ្នាក់៖** ខុសពីការថយក្រោយ 15 វិនាទីថេររបស់វិទ្យុផ្ទាល់ ការស្វែងរកក្នុងផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox ធ្វើមាត្រដ្ឋានតាមរបៀបដែលអ្នកចុចគ្រាប់ចុច ដូច្នេះអ្នកអាចធ្វើការកែតម្រូវតូច ឬលោតចម្ងាយឆ្ងាយដោយមិនចាំបាច់ចុចម្តងហើយម្តងទៀត៖
 
-**Odstupňované posouvání:** Na rozdíl od pevného 15sekundového přetočení u živého rádia se posouvání v rámci podcastu, audioknihy nebo skladby jukeboxu odstupňovává podle způsobu stisku klávesy, takže můžete provést malou opravu nebo skočit o velký kus bez opakovaného stiskávání:
+- **ចុចជាប់** (ការធ្វើម្តងទៀតដោយស្វ័យប្រវត្តិ) ផ្លាស់ទី **5 វិនាទី** ក្នុងមួយដង — ចំនួនតូចដូចគ្នាដែលគ្រាប់ចុចនេះតែងតែប្រើសម្រាប់ឯកសារ។
+- **ចុចម្តងដោយចេតនា** ស្វែងរក **12 វិនាទី**។
+- **ចុចពីរដង** ជាប់ៗគ្នាស្វែងរក **1 នាទី**។
+- **ចុចបីដង ឬច្រើនជាង** ស្វែងរក **5 នាទី**; ការចុចបន្ថែមក្នុងក្រុមតែមួយមិនកើនឡើងបន្ថែមទេ។
 
-- **Podržení klávesy** (automatické opakování) posouvá o **5 sekund** za opakování — stejné malé množství, jaké tato zkratka vždy používala u souborů.
-- **Jedno záměrné stisknutí** posune o **12 sekund**.
-- **Dvě stisknutí** za sebou v rychlém sledu posunou o **1 minutu**.
-- **Tři a více stisknutí** posune o **5 minut**; další stisknutí ve stejné sérii už dál neeskalují.
+ការចុចដោយចេតនាត្រូវបានរក្សាទុកបន្តិចមុនពេលវាស្វែងរកពិតប្រាកដ ក្នុងករណីមានការចុចមួយទៀតកំពុងមក — មានតែការស្វែងរកមួយប៉ុណ្ណោះកើតឡើងក្នុងមួយលំដាប់ការចុច ដែលមានទំហំសមស្របនឹងចំនួនការចុចចុងក្រោយ មិនមែនជាផលបូកនៃចំនួនការចុចនីមួយៗទេ។ បន្ទាប់ពីការស្វែងរក NVDA ប្រកាសទីតាំងដែលកន្លងផុត/នៅសល់ក្នុងវគ្គ ជំនួសឱ្យគ្រាន់តែ "X វិនាទីទៅមុខ/ថយក្រោយ"។
 
-Záměrné stisknutí se krátce podrží, než se posun skutečně provede, pro případ, že přijde další stisknutí - k posunu dojde pouze jednou za sérii stisknutí, o velikosti odpovídající celkovému počtu stisknutí, nikoli součtu jednotlivých hodnot. Po posunu NVDA oznámí výslednou uplynulou/zbývající pozici v epizodě, nikoli jen „X sekund vpřed/vzad".
+**ល្បឿនចាក់៖** អ្នកអាចកែតម្រូវល្បឿនចាក់វគ្គផតខាស្ត សៀវភៅសំឡេង និងបទ jukebox ដោយប្រើ `Ctrl+Win+Shift+K` (លឿនជាង) និង `Ctrl+Win+Shift+J` (យឺតជាង)។ ល្បឿនផ្លាស់ប្តូរក្នុងការកើនឡើង 0.1× ចន្លោះពី 0.5× ដល់ 2.0× ដោយរក្សាសំនៀង។
 
-**Rychlost přehrávání:** Rychlost přehrávání epizod podcastů, audioknih a skladeb jukeboxu můžete upravit pomocí `Ctrl+Win+Shift+K` (rychleji) a `Ctrl+Win+Shift+J` (pomaleji). Rychlost se mění v krocích po 0,1× v rozsahu od 0,5× do 2,0×, se zachováním výšky tónu. Tato funkce vyžaduje volitelnou knihovnu `bass_fx.dll` umístěnou ve složce doplňku. Pokud knihovna chybí, NVDA vás informuje, že funkce není k dispozici.
+**ការផ្លាស់ប្តូរសំនៀង (Transpose)៖** ដោយឯករាជ្យពីល្បឿនចាក់ អ្នកអាចផ្លាស់ប្តូរសំនៀងវគ្គផតខាស្ត សៀវភៅសំឡេង ឬបទ jukebox ឡើងលើ ឬចុះក្រោមដោយ `Shift+Win+K` / `Shift+Win+J` — សូមមើល [ការផ្លាស់ប្តូរសំនៀង](#ការផ្លាស់ប្តូរសំនៀង-transpose)។
 
-**Transpozice (posun výšky tónu):** Nezávisle na rychlosti přehrávání můžete posunout výšku tónu epizody podcastu, audioknihy nebo skladby jukeboxu nahoru nebo dolů pomocí `Shift+Win+K` / `Shift+Win+J` — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu). Transpozice také vyžaduje `bass_fx.dll`.
+**បែបផែនសំឡេងបន្ត៖** នៅពេលវគ្គបន្តពីទីតាំងដែលបានរក្សាទុក freeAudio លេងសង្ខេបបែបផែនសំឡេងដូចការផ្ទុកកាសែតនៅលើឆានែលដាច់ដោយឡែក ខណៈវាស្វែងរកត្រឡប់ទៅទីតាំងដែលបានរក្សាទុករបស់អ្នក ជំនួសឱ្យការទុកឱ្យសំឡេងវគ្គខ្លួនឯងឮចាប់ពី 0:00 នៅក្នុងពេលនោះ។ វាកើតឡើងដោយស្វ័យប្រវត្តិនៅពេលម៉ាស៊ីន BASS សកម្ម ហើយឯករាជ្យពីការកំណត់ **ការផ្លាស់ប្តូរពេលប្តូរស្ថានីយ៍** — ការកំណត់នោះប៉ះពាល់តែការប្តូររវាងស្ថានីយ៍វិទ្យុផ្ទាល់ប៉ុណ្ណោះ មិនមែនការបន្តផតខាស្ត ឬសៀវភៅសំឡេងទេ។
 
-> **Poznámka:** Knihovna `bass_fx.dll` není součástí FreeRadia ve výchozím stavu. Můžete ji stáhnout ze stránky [BASS FX](https://www.un4seen.com/bass-fx.html) a umístit do složky doplňku `bass/x64` (pro 64bitové NVDA) nebo `bass` (pro 32bitové NVDA), abyste tuto funkci zapnuli.
+### ទម្រង់សំឡេងផតខាស្ត
 
-**Zvukový efekt při pokračování:** Kdykoli epizoda pokračuje z uložené pozice, freeAudio krátce přehraje na samostatném kanálu jemný zvukový efekt připomínající zavádění kazety, zatímco se posouvá zpět na vaše uložené místo, místo aby nechalo mezitím slyšitelně hrát vlastní zvuk epizody od 0:00. To se děje automaticky, kdykoli je aktivní backend BASS, a je to nezávislé na nastavení **Přechod při přepnutí stanice** - to nastavení ovlivňuje pouze přepínání mezi živými rozhlasovými stanicemi, nikoli pokračování podcastů nebo audioknih.
+ចុចខាងស្តាំលើផតខាស្តក្នុងបញ្ជីការជាវ ឬចុចខាងស្តាំលើវគ្គណាមួយរបស់វា ហើយជ្រើសរើស **រក្សាទុកទម្រង់សំឡេងសម្រាប់ផតខាស្តនេះ** ដើម្បីរក្សាទុកកម្រិតសំឡេង បែបផែន ការទទួល EQ និង/ឬល្បឿនចាក់បច្ចុប្បន្នជាទម្រង់ភ្ជាប់នឹងផតខាស្តនោះ។ នៅពេលវគ្គណាមួយរបស់ផតខាស្តនោះលេង ការកំណត់ដែលបានរក្សាទុកត្រូវបានអនុវត្តដោយស្វ័យប្រវត្តិ ដោយជំនួសលើលំនាំដើមសកល។ ដោយសារពាក្យបញ្ជាអាចប្រើបានទាំងពីម៉ឺនុយបរិបទព័ត៌មាន និងម៉ឺនុយបរិបទវគ្គ អ្នកអាចចូលប្រើវាដោយមិនចាំបាច់ត្រឡប់ទៅបញ្ជីការជាវវិញ — ទាំងពីររក្សាទុកទម្រង់មួយសម្រាប់ផតខាស្តទាំងមូល មិនមែនទម្រង់ដាច់ដោយឡែកក្នុងមួយវគ្គទេ។
 
-### Zvukový profil podcastu
+ប្រអប់ដែលមានជម្រើស 15 អនុញ្ញាតឱ្យអ្នកជ្រើសរើសអ្វីដែលត្រូវរក្សាទុកពិតប្រាកដ៖
+- **កម្រិតសំឡេងតែប៉ុណ្ណោះ**
+- **បែបផែនតែប៉ុណ្ណោះ**
+- **កម្រិតសំឡេង និងបែបផែន**
+- **កម្រិតសំឡេង និងល្បឿនចាក់**
+- **បែបផែន និងល្បឿនចាក់**
+- **ល្បឿនចាក់តែប៉ុណ្ណោះ**
+- **កម្រិតសំឡេង បែបផែន និងល្បឿនចាក់**
+- **ការផ្លាស់ប្តូរសំនៀងតែប៉ុណ្ណោះ**
+- **កម្រិតសំឡេង និងការផ្លាស់ប្តូរសំនៀង**
+- **បែបផែន និងការផ្លាស់ប្តូរសំនៀង**
+- **ល្បឿនចាក់ និងការផ្លាស់ប្តូរសំនៀង**
+- **កម្រិតសំឡេង បែបផែន និងការផ្លាស់ប្តូរសំនៀង**
+- **កម្រិតសំឡេង ល្បឿនចាក់ និងការផ្លាស់ប្តូរសំនៀង**
+- **បែបផែន ល្បឿនចាក់ និងការផ្លាស់ប្តូរសំនៀង**
+- **កម្រិតសំឡេង បែបផែន ល្បឿនចាក់ និងការផ្លាស់ប្តូរសំនៀង**
 
-Klepněte pravým tlačítkem na podcast v seznamu Odběry, nebo klepněte pravým tlačítkem na kteroukoli z jeho epizod, a zvolte **Uložit zvukový profil pro tento podcast**, čímž uložíte aktuální hlasitost, efekty, zisk ekvalizéru a/nebo rychlost přehrávání jako profil svázaný s tímto podcastem. Kdykoli se přehraje jakákoli epizoda tohoto podcastu, uložená nastavení se automaticky použijí a přepíší globální výchozí hodnoty. Protože je příkaz dostupný jak z kontextové nabídky kanálu, tak z kontextové nabídky epizody, můžete se k němu dostat, aniž byste se museli vracet do seznamu odběrů - v obou případech se vždy ukládá jeden profil pro celý podcast, ne samostatný profil pro každou epizodu.
+មានតែផ្នែកដែលអ្នកជ្រើសរើសប៉ុណ្ណោះត្រូវបានសរសេរទៅទម្រង់; អ្វីដែលទុកចោលនឹងរក្សាអ្វីដែលបានរក្សាទុករួចហើយ។ ឧទាហរណ៍ ការជ្រើសរើស **ល្បឿនចាក់តែប៉ុណ្ណោះ** លើផតខាស្តដែលមានទម្រង់កម្រិតសំឡេង/បែបផែនដែលបានរក្សាទុករួចហើយ ធ្វើបច្ចុប្បន្នភាពតែល្បឿនប៉ុណ្ណោះ ហើយទុកអ្វីដែលនៅសល់ដោយមិនប៉ះពាល់។
 
-Dialogové okno vám umožní vybrat přesně, co chcete uložit:
-- **Pouze hlasitost**
-- **Pouze efekty**
-- **Hlasitost a efekty**
-- **Hlasitost a rychlost přehrávání**
-- **Efekty a rychlost přehrávání**
-- **Pouze rychlost přehrávání**
-- **Hlasitost, efekty a rychlost přehrávání**
+**សម្អាតទម្រង់សំឡេង** លុបទម្រង់ដែលបានរក្សាទុកចេញពីផតខាស្ត ពីម៉ឺនុយបរិបទទាំងពីរ។ វាសកម្មតែនៅពេលផតខាស្តបច្ចុប្បន្នមានទម្រង់ដែលបានរក្សាទុកប៉ុណ្ណោះ។
 
-Do profilu se zapíší pouze vybrané položky; cokoli, co vynecháte, si ponechá to, co v něm již bylo uloženo. Například výběrem možnosti **Pouze rychlost přehrávání** u podcastu, který již má uložený profil hlasitosti/efektů, aktualizujete pouze rychlost a zbytek zůstane nedotčen.
+### ការផ្ទុកទិន្នន័យផតខាស្ត
 
-**Vymazat zvukový profil** odstraní uložený profil z podcastu, z kterékoli z obou nabídek. Je aktivní pouze tehdy, když má podcast aktuálně uložený profil.
+ការជាវរបស់អ្នកត្រូវបានផ្ទុកក្នុង `freeAudio_podcasts.json` នៅក្នុងថតកំណត់រចនាសម្ព័ន្ធអ្នកប្រើ NVDA។ ទីតាំងវគ្គត្រូវបានផ្ទុកដោយឡែកក្នុង `podcast_positions.json` នៅទីតាំងតែមួយ។ ឯកសារទាំងពីរជា JSON ធម្មតា ហើយអាចបម្រុងទុក ឬផ្ទេរទៅកុំព្យូទ័រផ្សេង។
 
-### Ukládání dat podcastů
+## សៀវភៅសំឡេង (GETEM, LibriVox និង Project Gutenberg)
 
-Vaše odběry se ukládají do souboru `freeAudio_podcasts.json` ve složce uživatelské konfigurace NVDA. Pozice epizod se ukládají samostatně do souboru `podcast_positions.json` na stejném místě. Oba soubory jsou ve formátu prostého JSON a lze je zálohovat nebo přenést do jiného počítače.
+freeAudio រួមមានកម្មវិធីចាក់សៀវភៅសំឡេងដែលស្វែងរក ចាក់ និងទាញយកសៀវភៅពីប្រភពបី៖
 
-## Audioknihy (GETEM, LibriVox a Project Gutenberg)
+- **[GETEM](https://getem.boun.edu.tr/)** — បណ្ណាល័យឌីជីថលដែលគ្រប់គ្រងដោយមជ្ឈមណ្ឌលសម្រាប់អ្នកមានបញ្ហាការមើលឃើញនៃសាកលវិទ្យាល័យ Boğaziçi។ ត្រូវការសមាជិកភាពឥតគិតថ្លៃដើម្បីបញ្ជូន ឬទាញយកសំឡេងសៀវភៅ (ការរុករកមិនត្រូវការ) — សូមមើល [ការចូលប្រើ](#ការចូលប្រើ) ខាងក្រោម។
+- **[LibriVox](https://librivox.org/)** — គម្រោងសៀវភៅសំឡេងសាធារណៈដែលអានដោយអ្នកស្ម័គ្រចិត្ត។ មិនត្រូវការគណនី ឬការចូលប្រើណាមួយទេ; កាតាឡុកទាំងមូលរបស់វា រួមទាំងឯកសារសំឡេងខ្លួនឯង គឺជាសាធារណៈ និងអាចចូលប្រើបានដោយបើកចំហ។
+- **បណ្ណាល័យសៀវភៅសំឡេងបើកចំហ Project Gutenberg** — សៀវភៅសំឡេងសាធារណៈដែលអានដោយមនុស្ស និងកុំព្យូទ័រ ដែលរៀបចំនៅលើ [archive.org](https://archive.org/) ជាដៃគូនៃបណ្ណាល័យអត្ថបទ Project Gutenberg។ ដូច LibriVox វាមិនត្រូវការគណនី ឬការចូលប្រើទេ។
 
-freeAudio obsahuje přehrávač audioknih, který vyhledává, přehrává a stahuje knihy ze tří zdrojů:
+លទ្ធផលពីប្រភពទាំងបីលេចឡើងជាមួយគ្នានៅក្នុងបញ្ជី **លទ្ធផលស្វែងរក** រួមមួយ និងបញ្ជី **បណ្ណាល័យ** រួមមួយ — មិនមានផ្ទាំង ឬបញ្ជីទម្លាក់ចុះដាច់ដោយឡែកដើម្បីប្តូររវាងពួកវាទេ។ ប្រភពរបស់សៀវភៅនីមួយៗ (GETEM, LibriVox ឬ Project Gutenberg) ត្រូវបានបង្ហាញជាស្លាកនៅជាប់ចំណងជើងរបស់វា និងនៅក្នុងព័ត៌មានលម្អិតរបស់វា ដូច្នេះអ្នកតែងតែដឹងថាអ្នកកំពុងមើលមួយណា។ អ្នកអាចស្វែងរក មើលជាមុន បន្ថែម ចាក់ និងទាញយកសៀវភៅពីប្រភពណាមួយតាមរបៀបដូចគ្នា; ចាក់ការងារពហុផ្នែកជាមួយការបន្តស្វ័យប្រវត្តិឆ្លងកាត់ផ្នែក; និងទាញយកសៀវភៅសម្រាប់ការស្តាប់ក្រៅបណ្តាញ — ទាំងអស់អាចចូលប្រើបានទាំងស្រុង។
 
-- **[GETEM](https://getem.boun.edu.tr/)** - digitální knihovna provozovaná Centrem pro zrakově postižené Univerzity Boğaziçi. Ke streamování nebo stažení zvuku knihy vyžaduje bezplatné členství (procházení nikoli) - viz [Přihlášení](#přihlášení) níže.
-- **[LibriVox](https://librivox.org/)** - projekt audioknih z veřejné domény čtených dobrovolníky. Není potřeba žádný účet ani přihlášení; celý jeho katalog, včetně samotných zvukových souborů, je veřejnou doménou a volně dostupný.
-- **Kolekce otevřených audioknih Project Gutenberg** - audioknihy z veřejné domény namluvené lidmi i počítačem, hostované na [archive.org](https://archive.org/), doplněk textové knihovny Project Gutenberg. Stejně jako LibriVox nevyžaduje žádný účet ani přihlášení.
+ប្រភពណាមួយអាចបិទដោយឡែកពី **ម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio** ជាមួយបញ្ជីធីក **ប្រភពសៀវភៅសំឡេង** ប្រសិនបើអ្នកចង់ស្វែងរកតែមួយចំនួនក្នុងចំណោមពួកវា។ ទាំងបីត្រូវបានបើកតាមលំនាំដើម។
 
-Výsledky ze všech tří zdrojů se zobrazují společně v jednom sloučeném seznamu **Výsledky hledání** a jednom sloučeném seznamu **Knihovna** - není zde žádná samostatná karta ani rozevírací nabídka pro přepínání mezi nimi. Zdroj každé knihy (GETEM, LibriVox nebo Project Gutenberg) je zobrazen jako popisek vedle jejího názvu a v jejích podrobnostech, takže vždy poznáte, na kterou se díváte. Knihy z kteréhokoli zdroje můžete vyhledávat, prohlížet náhled, přidávat, přehrávat a stahovat úplně stejným způsobem; přehrávat vícedílná díla s automatickým pokračováním napříč díly; a stahovat knihy pro poslech offline - to vše plně přístupně.
+> **ចំណាំ៖** ការស្តាប់សៀវភៅពី GETEM ត្រូវការសមាជិកភាពឥតគិតថ្លៃក្នុង GETEM។ ការរុករកកាតាឡុក GETEM មិនត្រូវការគណនីទេ ប៉ុន្តែការដោះស្រាយ និងចាក់សំឡេងសៀវភៅ GETEM ត្រូវការ — សូមមើល [ការចូលប្រើ](#ការចូលប្រើ) ខាងក្រោម។ សៀវភៅ LibriVox និង Project Gutenberg មិនត្រូវការគណនីឡើយ។
 
-Kterýkoli ze zdrojů lze vypnout jednotlivě v **NVDA Menu → Předvolby → Nastavení → freeAudio** pomocí seznamu zaškrtávacích políček **Zdroje audioknih**, pokud chcete prohledávat pouze některé z nich. Všechny tři jsou ve výchozím nastavení zapnuté.
+### ការចូលប្រើផ្ទាំងសៀវភៅសំឡេង
 
-> **Poznámka:** Poslech knihy z GETEM vyžaduje bezplatné členství v GETEM. Procházení katalogu GETEM účet nevyžaduje, ale přeložení a přehrání zvuku knihy z GETEM ano - viz [Přihlášení](#přihlášení) níže. Knihy z LibriVox a Project Gutenberg nikdy nevyžadují účet.
+បើកកម្មវិធីរុករកស្ថានីយ៍ដោយ `Ctrl+Win+R` ហើយប្តូរទៅផ្ទាំង **សៀវភៅសំឡេង** ដោយប្រើ `Ctrl+Tab` ឬ `Alt+7`។ ផ្ទាំងមានតំបន់សំខាន់បី៖
 
-### Přístup na kartu Audioknihy
+1. **ស្វែងរក** — ប្រអប់អត្ថបទដើម្បីស្វែងរកកាតាឡុកដែលបានបើកទាំងអស់ក្នុងពេលតែមួយ ជាមួយបញ្ជីលទ្ធផលដែលលេចឡើងនៅពេលការស្វែងរកត្រូវបានដំណើរការ។
+2. **បណ្ណាល័យ** — បញ្ជីសៀវភៅដែលអ្នកបានបន្ថែមពីប្រភពណាមួយ ដែលអ្នកចាក់ ទាញយក និងគ្រប់គ្រងពួកវា។
+3. **ព័ត៌មានលម្អិត** — ប្រអប់អានតែប៉ុណ្ណោះដែលបង្ហាញប្រភព ចំណងជើង អ្នកនិពន្ធ អ្នកនិទាន អ្នកបោះពុម្ពផ្សាយ ទម្រង់ ចំនួនផ្នែក ការពិពណ៌នា និង URL កាតាឡុករបស់សៀវភៅដែលបានជ្រើសរើសក្នុងបញ្ជីណាមួយ។
 
-Otevřete Průzkumníka stanic pomocí `Ctrl+Win+R` a přepněte na kartu **Audioknihy** pomocí `Ctrl+Tab` nebo `Alt+7`. Karta má tři hlavní oblasti:
+### ការចូលប្រើ
 
-1. **Hledat** - textové pole pro prohledání všech zapnutých katalogů najednou, se seznamem výsledků, který se zobrazí po spuštění hledání.
-2. **Knihovna** - seznam knih, které jste přidali z kteréhokoli zdroje, kde je přehráváte, stahujete a spravujete.
-3. **Podrobnosti** - pole pouze pro čtení zobrazující zdroj, název, autora, vypravěče, vydavatele, formát, počet dílů, popis a adresu URL katalogu vybrané knihy, v kterémkoli ze seznamů.
+GETEM ត្រូវការការចុះឈ្មោះជាសមាជិកដើម្បីបញ្ជូន ឬទាញយកសំឡេងពិតរបស់សៀវភៅ ទោះបីជាកាតាឡុកខ្លួនឯងអាចស្វែងរកបានដោយសេរីក៏ដោយ។ បញ្ចូលឈ្មោះអ្នកប្រើ និងពាក្យសម្ងាត់ GETEM របស់អ្នកម្តងនៅ **ម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio**; ពួកវាត្រូវបានផ្ទុកអ៊ិនគ្រីបនៅលើដ្រាយ (តាមរយៈ Windows Data Protection API ដែលភ្ជាប់នឹងគណនីអ្នកប្រើ Windows របស់អ្នក) ហើយប្រើឡើងវិញដោយស្វ័យប្រវត្តិបន្ទាប់ពីនោះ។ ប្រសិនបើអ្នកព្យាយាមចាក់ ឬទាញយកសៀវភៅ GETEM មុនពេលបញ្ចូលព័ត៌មានសម្គាល់ freeAudio ប្រាប់ឱ្យអ្នកបន្ថែមពួកវានៅក្នុងការកំណត់ជាមុន។
 
-### Přihlášení
+LibriVox និង Project Gutenberg មិនត្រូវការជំហានចូលប្រើណាមួយទេ — លទ្ធផល និងសំឡេងរបស់ពួកវាអាចត្រូវបានស្វែងរក មើលជាមុន ចាក់ និងទាញយកភ្លាមៗ ដោយមិនចាំបាច់បញ្ចូលព័ត៌មានសម្គាល់ណាមួយ។
 
-GETEM vyžaduje registrované členství pro streamování nebo stahování skutečného zvuku knihy, ačkoli samotný katalog lze volně prohledávat. Zadejte své uživatelské jméno a heslo GETEM jednou v **NVDA Menu → Předvolby → Nastavení → freeAudio**; uloží se zašifrovaně na disk (prostřednictvím Windows Data Protection API, svázané s vaším uživatelským účtem Windows) a poté se automaticky znovu použijí. Pokud se pokusíte přehrát nebo stáhnout knihu z GETEM před zadáním přihlašovacích údajů, freeAudio vás vyzve, abyste je nejprve přidali v Nastavení.
+### ការស្វែងរកសៀវភៅសំឡេង
 
-LibriVox a Project Gutenberg nevyžadují žádný krok přihlášení - jejich výsledky a zvuk lze okamžitě vyhledávat, poslechnout jako náhled, přehrávat a stahovat, bez zadávání jakýchkoli přihlašovacích údajů.
+វាយពាក្យស្វែងរកទៅក្នុងប្រអប់ស្វែងរក ហើយចុច `Enter`។ freeAudio ស្វែងរកប្រភពដែលបានបើកក្នុងការកំណត់ ហើយបញ្ចូលលទ្ធផលទៅជាបញ្ជីមួយ៖
 
-### Vyhledávání audioknih
+- **GETEM** ត្រូវបានស្វែងរកតាមចំណងជើង អ្នកនិពន្ធ អ្នកនិទាន ប្រធានបទ និងអ្នកបោះពុម្ពផ្សាយក្នុងពេលតែមួយ ដោយសារទម្រង់ស្វែងរកផ្ទាល់ខ្លួនរបស់ GETEM គាំទ្រតែការបង្រួមដោយវាលទាំងអស់នោះជាមួយគ្នា ជាជាងការស្វែងរកតែមួយឆ្លងកាត់ណាមួយក្នុងចំណោមពួកវា។ មានតែការងារដែលអាចប្រើបានជាទម្រង់សំឡេងពិតប្រាកដ (ការអានដោយមនុស្ស ឬកុំព្យូទ័រ ការពិពណ៌នាសំឡេង រឿងល្ខោនវិទ្យុ សៀវភៅនិយាយ DAISY ។ល។) ប៉ុណ្ណោះដែលត្រូវបានបង្ហាញ; អក្សរស្ទាប អក្សរធំ និងទម្រង់មិនមែនសំឡេងផ្សេងទៀតត្រូវបានចម្រោះចេញដោយស្វ័យប្រវត្តិ។
+- **LibriVox** ត្រូវបានស្វែងរកតាមចំណងជើង ឬអ្នកនិពន្ធ/អ្នកអានប្រឆាំងនឹងកាតាឡុកសាធារណៈរបស់វា។
+- **Project Gutenberg** ត្រូវបានស្វែងរកតាមចំណងជើង ឬអ្នកនិពន្ធប្រឆាំងនឹងបណ្ណាល័យសៀវភៅសំឡេងបើកចំហនៅលើ archive.org។
 
-Zadejte hledaný výraz do pole hledání a stiskněte `Enter`. freeAudio prohledá zdroje zapnuté v Nastavení a sloučí výsledky do jednoho seznamu:
+ការបិទភ្ជាប់ URL ទំព័រកាតាឡុក/ព័ត៌មានលម្អិតរបស់សៀវភៅដោយផ្ទាល់ទៅក្នុងប្រអប់ស្វែងរក (ទំព័រកាតាឡុក GETEM ឬទំព័រ "details" របស់ archive.org សម្រាប់ចំណងជើង LibriVox ឬ Project Gutenberg) ដោះស្រាយសៀវភៅតែមួយនោះដោយផ្ទាល់ ជំនួសឱ្យការដំណើរការការស្វែងរកតាមពាក្យគន្លឹះ។
 
-- **GETEM** se prohledává podle názvu, autora, vypravěče, tématu a vydavatele najednou, protože vlastní vyhledávací formulář GETEM podporuje zúžení podle všech těchto polí dohromady, nikoli jediné hledání napříč jedním z nich. Zobrazují se pouze díla skutečně dostupná ve zvukové podobě (lidské nebo počítačové čtení, audiopopis, rozhlasová hra, mluvené knihy DAISY atd.); braillské, velkotiskové a jiné nezvukové formáty se automaticky vyfiltrují.
-- **LibriVox** se prohledává podle názvu nebo autora/čtenáře ve svém katalogu veřejné domény.
-- **Project Gutenberg** se prohledává podle názvu nebo autora v kolekci otevřených audioknih na archive.org.
+NVDA ប្រកាសចំនួនសៀវភៅសំឡេងដែលបានរកឃើញសរុប។
 
-Vložení adresy URL stránky katalogu/podrobností knihy přímo do pole hledání (stránka katalogu GETEM nebo stránka „details“ archive.org pro knihu z LibriVox nebo Project Gutenberg) vyřeší tuto jednu knihu přímo namísto spuštění vyhledávání podle klíčových slov.
+ការជ្រើសរើសលទ្ធផលបង្ហាញព័ត៌មានលម្អិតរបស់វា — អ្នកនិពន្ធ អ្នកនិទាន អ្នកបោះពុម្ពផ្សាយ ទម្រង់ និងចំនួនផ្នែក — នៅក្នុងប្រអប់ព័ត៌មានលម្អិតខាងក្រោម។
 
-NVDA oznámí, kolik audioknih bylo celkem nalezeno.
+**ការមើលជាមុន៖** ជ្រើសរើសលទ្ធផល ហើយចុច `Space` ឬបើកម៉ឺនុយបរិបទរបស់វា (គ្រាប់ចុចកម្មវិធី / `Shift+F10` ឬចុចខាងស្តាំ) ហើយជ្រើសរើស **មើលជាមុន** ដើម្បីចាប់ផ្តើមចាក់វាពីផ្នែកដំបូងដោយមិនបន្ថែមវាទៅបណ្ណាល័យរបស់អ្នក។ ខណៈសៀវភៅកំពុងមើលជាមុន ម៉ឺនុយបរិបទដូចគ្នាបង្ហាញ **បញ្ឈប់ការមើលជាមុន** ជំនួសវិញ — ជ្រើសរើសវា ឬចុច `Space` ម្តងទៀត ដើម្បីបញ្ឈប់។ ការមើលជាមុនសៀវភៅមិនរក្សាទុកទីតាំងស្តាប់របស់អ្នកទេ ព្រោះវាត្រូវបានតាមដានតែសម្រាប់សៀវភៅដែលមាននៅក្នុងបណ្ណាល័យរបស់អ្នករួចហើយប៉ុណ្ណោះ។
 
-Výběrem výsledku se zobrazí jeho podrobnosti - autor, vypravěč, vydavatel, formát a počet dílů - v poli podrobností níže.
+**ការបន្ថែមទៅបណ្ណាល័យរបស់អ្នក៖** ជ្រើសរើសលទ្ធផល ហើយចុច `Enter` ឬប្រើម៉ឺនុយបរិបទរបស់វា ហើយជ្រើសរើស **បន្ថែមទៅបណ្ណាល័យ** ដើម្បីបន្ថែមវា។ freeAudio ប្រាប់អ្នកប្រសិនបើសៀវភៅមាននៅទីនោះរួចហើយ។
 
-**Náhled:** Vyberte výsledek a stiskněte `Mezerník`, nebo otevřete jeho kontextovou nabídku (klávesa Nabídka / `Shift+F10`, případně kliknutí pravým tlačítkem) a zvolte **Náhled**, čímž ji začnete přehrávat od prvního dílu, aniž byste ji přidali do knihovny. Během náhledu knihy se ve stejné kontextové nabídce místo toho zobrazí **Zastavit náhled** - zvolte jej, nebo znovu stiskněte `Mezerník`, čímž náhled zastavíte. Náhled neukládá vaši pozici poslechu, protože ta se sleduje pouze u knih již ve vaší knihovně.
+### បណ្ណាល័យរបស់អ្នក
 
-**Přidání do knihovny:** Vyberte výsledek a stiskněte `Enter`, nebo použijte jeho kontextovou nabídku a zvolte **Přidat do knihovny**. freeAudio vás informuje, pokud tam kniha již je.
+សៀវភៅដែលអ្នកបានបន្ថែមលេចឡើងក្នុងបញ្ជី **បណ្ណាល័យ** ដោយបង្ហាញចំណងជើង អ្នកនិពន្ធ និងទម្រង់។ ការជ្រើសរើសមួយបង្ហាញព័ត៌មានលម្អិតរបស់វាខាងក្រោម។
 
-### Vaše knihovna
+- ចុច `Enter` ឬ `Space` ដើម្បីចាក់សៀវភៅដែលបានជ្រើសរើស។ ប្រសិនបើគ្មានអ្វីត្រូវបានផ្ទុក `Space` ចាប់ផ្តើមវា; ប្រសិនបើមានអ្វីកំពុងចាក់រួចហើយ `Space` ផ្អាកវាជំនួសវិញ ដោយផ្គូផ្គងនឹងកម្មវិធីចាក់ដទៃទៀត។
+- ប្រើ `F3` / `F4` នៅលើផ្ទាំងសៀវភៅសំឡេង ដើម្បីផ្លាស់ទីទៅ **សៀវភៅ** មុន / បន្ទាប់ក្នុងបណ្ណាល័យរបស់អ្នក និងចាប់ផ្តើមចាក់វា។ `Ctrl+←` / `Ctrl+→` ធ្វើដូចគ្នាខណៈបញ្ជីបណ្ណាល័យមានការផ្តោត។
+- ប្រើ `Shift+F3` / `Shift+F4` ដើម្បីផ្លាស់ទីរវាង **ផ្នែក** នៃសៀវភៅដែលកំពុងចាក់ជំនួសវិញ — ផ្ទុយពីផ្ទាំងផតខាស្ត ដែល F3/F4 ផ្លាស់ទីរវាងវគ្គ និង Shift+F3/F4 ផ្លាស់ទីរវាងព័ត៌មាន។ នេះគឺដោយសារសៀវភៅជាកំណត់ត្រាបណ្ណាល័យតែមួយ ទោះបីជាវាមានផ្នែកជាច្រើនក៏ដោយ ដូច្នេះការរុករក "តាមផ្នែក" ដែលលម្អិតជាងនេះស្ថិតនៅលើគ្រាប់ចុចដែលកែប្រែដោយ Shift នៅទីនេះ។
 
-Knihy, které jste přidali, se zobrazují v seznamu **Knihovna**, s názvem, autorem a formátem. Výběrem jedné se zobrazí její podrobnosti níže.
+**ម៉ឺនុយបរិបទសម្រាប់កំណត់ត្រាបណ្ណាល័យ៖** ចុចខាងស្តាំលើសៀវភៅ ឬជ្រើសរើសវា ហើយចុចគ្រាប់ចុចកម្មវិធី / `Shift+F10` ដើម្បីបើកម៉ឺនុយជាមួយ៖
+- **ចាក់មេឌៀ** — ចាប់ផ្តើមចាក់ ដូចគ្នានឹង `Enter`។
+- **ទាញយកសៀវភៅ** — ទាញយកគ្រប់ផ្នែកនៃសៀវភៅ; សូមមើល [ការទាញយកសៀវភៅសំឡេង](#ការទាញយកសៀវភៅសំឡេង) ខាងក្រោម។
+- **ចម្លង URL** — ចម្លង URL ទំព័រកាតាឡុករបស់សៀវភៅទៅ clipboard (ទំព័រកាតាឡុក GETEM សម្រាប់សៀវភៅ GETEM ឬទំព័រព័ត៌មានលម្អិត archive.org សម្រាប់សៀវភៅ LibriVox ឬ Project Gutenberg)។
+- **រក្សាទុកទម្រង់សំឡេងសម្រាប់សៀវភៅនេះ** / **សម្អាតទម្រង់សំឡេង** — សូមមើល [ទម្រង់សំឡេងសៀវភៅសំឡេង](#ទម្រង់សំឡេងសៀវភៅសំឡេង) ខាងក្រោម។
+- **លុបចេញពីបណ្ណាល័យ** — លុបសៀវភៅចេញពីបណ្ណាល័យរបស់អ្នក។
 
-- Stiskněte `Enter` nebo `Mezerník` pro přehrání vybrané knihy. Pokud není nic načteno, `Mezerník` ji spustí; pokud již něco hraje, `Mezerník` to místo toho pozastaví, v souladu se zbytkem přehrávače.
-- Použijte `F3` / `F4` na kartě Audioknihy pro přechod na předchozí / další **knihu** ve vaší knihovně a její spuštění. `Ctrl+←` / `Ctrl+→` dělají totéž, když je zaměřen seznam knihovny.
-- Použijte `Shift+F3` / `Shift+F4` pro přechod mezi **díly** aktuálně přehrávané knihy - opak karty Podcasty, kde F3/F4 přecházejí mezi epizodami a Shift+F3/F4 mezi kanály. Je to proto, že kniha je jedinou položkou knihovny i tehdy, když má více dílů, takže jemnější navigace „po dílech" je zde umístěna na klávesách se Shift.
+អ្នកក៏អាចដាក់សញ្ញាសម្គាល់សៀវភៅច្រើនក្នុងពេលតែមួយ និងលុបពួកវាទាំងអស់ជាមួយគ្នា — សូមមើល [ការដាក់សញ្ញាសម្គាល់ និងការលុបធាតុច្រើន](#ការដាក់សញ្ញាសម្គាល់-និងការលុបធាតុច្រើន) ក្រោម សំណព្វ។
 
-**Kontextová nabídka pro položky knihovny:** Klepnutím pravým tlačítkem na knihu, případně jejím vybráním a stiskem klávesy Nabídka / `Shift+F10`, otevřete nabídku s těmito položkami:
-- **Přehrát médium** - zahájí přehrávání, totéž co `Enter`.
-- **Stáhnout knihu** - stáhne všechny díly knihy; viz [Stahování audioknih](#stahování-audioknih) níže.
-- **Kopírovat adresu URL** - zkopíruje adresu URL stránky katalogu knihy do schránky (stránku katalogu GETEM u knihy z GETEM, nebo stránku podrobností archive.org u knihy z LibriVox nebo Project Gutenberg).
-- **Uložit zvukový profil pro tuto knihu** / **Vymazat zvukový profil** - viz [Zvukový profil audioknihy](#zvukový-profil-audioknihy) níže.
-- **Odebrat z knihovny** - smaže knihu z vaší knihovny.
+### ការចាក់ និងការបន្ត
 
-Můžete také označit několik knih najednou a odstranit je všechny společně — viz [Označení a odstranění více položek](#označení-a-odstranění-více-položek) v části Oblíbené.
+ការងារពហុផ្នែកត្រូវបានចាត់ទុកជាធាតុតែមួយនៅក្នុងកម្មវិធីចាក់ មិនមែនជួរដេកដាច់ដោយឡែកក្នុងមួយផ្នែកទេ — ដូចគ្នានឹងវគ្គផតខាស្តជាធាតុតែមួយដោយមិនគិតពីរបៀបដែលវាត្រូវបានផ្តល់។ freeAudio ចងចាំផ្នែកដែលអ្នកស្តាប់ចុងក្រោយ និងបន្តនៅទីនោះដោយស្វ័យប្រវត្តិនៅពេលអ្នកចាក់សៀវភៅនោះម្តងទៀត សូម្បីតែបន្ទាប់ពីការចាប់ផ្តើម NVDA ឡើងវិញ។
 
-### Přehrávání a pokračování
+នៅពេលផ្នែកមួយបញ្ចប់ freeAudio ចាប់ផ្តើមផ្នែកបន្ទាប់នៃសៀវភៅដូចគ្នាដោយស្វ័យប្រវត្តិ — អ្នកមិនចាំបាច់ជ្រើសរើសវាដោយដៃទេ។ វាកើតឡើងទោះបីជាវីនដូកម្មវិធីរុករកស្ថានីយ៍បិទនៅពេលនោះក៏ដោយ; ផ្នែក "កំពុងចាក់ឥឡូវនេះ" ដែលបង្ហាញក្នុងបញ្ជីបណ្ណាល័យត្រូវបានធ្វើសមកាលកម្មឡើងវិញដោយស្វ័យប្រវត្តិនៅពេលវីនដូបើកលើកក្រោយ។
 
-Vícedílné dílo je v přehrávači považováno za jedinou položku, ne za samostatný řádek pro každý díl - stejně jako je epizoda podcastu jedinou položkou bez ohledu na to, jak je doručena. freeAudio si pamatuje, který díl jste naposledy poslouchali, a při příštím přehrání této knihy v něm automaticky pokračuje, dokonce i po restartu NVDA.
+ការចាក់ត្រូវបានបញ្ជូនតាមរយៈអ្នកបញ្ជូនក្នុងតំបន់តូចមួយ ជាជាងការទាញយកផ្នែកទាំងមូលជាមុន ដូច្នេះការស្តាប់ចាប់ផ្តើមភ្លាមៗនៅពេលបៃដំបូងមកដល់ — ឥរិយាបថចាប់ផ្តើមភ្លាមៗដូចគ្នាដែលផតខាស្តប្រើ។ ឧបករណ៍បញ្ជាការចាក់ធម្មតាទាំងអស់ (ផ្អាក កម្រិតសំឡេង រំកិលពេលវេលា ល្បឿនចាក់ ការផ្លាស់ប្តូរសំនៀង ឧបករណ៍បញ្ចេញសំឡេង ។ល។) ដំណើរការលើសៀវភៅសំឡេងដូចគ្នានឹងស្ថានីយ៍ ឬវគ្គផតខាស្ត។
 
-Když jeden díl skončí, freeAudio automaticky spustí další díl téže knihy - nemusíte jej vybírat ručně. To se stane, i když je v danou chvíli okno Průzkumníka stanic zavřené; díl „nyní hraje" zobrazený v seznamu Knihovna se automaticky znovu synchronizuje při příštím otevření okna.
+ដូចផតខាស្ត ការបន្តសៀវភៅពីទីតាំងដែលបានរក្សាទុកលេងបែបផែនសំឡេងផ្ទុកកាសែតសង្ខេប ខណៈ freeAudio ស្វែងរកត្រឡប់ទៅទីតាំងដែលបានរក្សាទុករបស់អ្នក — សូមមើលកំណត់ចំណាំ **បែបផែនសំឡេងបន្ត** ក្នុង [ព័ត៌មានលម្អិតនៃការចាក់ផតខាស្ត](#ព័ត៌មានលម្អិតនៃការចាក់ផតខាស្ត)។
 
-Přehrávání probíhá prostřednictvím malého lokálního relé namísto stažení celého dílu předem, takže poslech začne, jakmile dorazí první bajty - stejné chování okamžitého startu jako u podcastů. Všechny obvyklé ovládací prvky přehrávače (pozastavení, hlasitost, časový posun, rychlost přehrávání, transpozice, výstupní zařízení atd.) fungují u audioknihy stejně jako u stanice nebo epizody podcastu.
+### ទម្រង់សំឡេងសៀវភៅសំឡេង
 
-Stejně jako u podcastů přehraje pokračování knihy z uložené pozice krátký zvukový efekt zavádění kazety, zatímco freeAudio posouvá zpět na vaše uložené místo - viz poznámka **Zvukový efekt při pokračování** v [Podrobnosti o přehrávání podcastů](#podrobnosti-o-přehrávání-podcastů).
+ចុចខាងស្តាំលើសៀវភៅក្នុងបញ្ជីបណ្ណាល័យរបស់អ្នក ហើយជ្រើសរើស **រក្សាទុកទម្រង់សំឡេងសម្រាប់សៀវភៅនេះ** ដើម្បីរក្សាទុកកម្រិតសំឡេង បែបផែន ការទទួល EQ និង/ឬល្បឿនចាក់បច្ចុប្បន្នជាទម្រង់ភ្ជាប់នឹងសៀវភៅនោះ។ នៅពេលសៀវភៅ (ឬផ្នែកណាមួយរបស់វា) លេង ការកំណត់ដែលបានរក្សាទុកត្រូវបានអនុវត្តដោយស្វ័យប្រវត្តិ ដោយជំនួសលើលំនាំដើមសកល។ វាដំណើរការដូចគ្នាទៅនឹង [ទម្រង់សំឡេងផតខាស្ត](#ទម្រង់សំឡេងផតខាស្ត) ខាងលើ រួមទាំងសំណុំជម្រើសរក្សាទុកដូចគ្នា (កម្រិតសំឡេង បែបផែន និង/ឬល្បឿនចាក់ ក្នុងការរួមបញ្ចូលគ្នាណាមួយ) និងឥរិយាបថធ្វើបច្ចុប្បន្នភាពដោយផ្នែកដូចគ្នា។
 
-### Zvukový profil audioknihy
+**សម្អាតទម្រង់សំឡេង** លុបទម្រង់ដែលបានរក្សាទុកចេញពីសៀវភៅ; វាសកម្មតែនៅពេលសៀវភៅបច្ចុប្បន្នមានទម្រង់ដែលបានរក្សាទុកប៉ុណ្ណោះ។
 
-Klepněte pravým tlačítkem na knihu v seznamu Knihovna a zvolte **Uložit zvukový profil pro tuto knihu**, čímž uložíte aktuální hlasitost, efekty, zisk ekvalizéru a/nebo rychlost přehrávání jako profil svázaný s touto knihou. Kdykoli se kniha (nebo kterýkoli z jejích dílů) přehraje, uložená nastavení se automaticky použijí a přepíší globální výchozí hodnoty. Funguje to úplně stejně jako [Zvukový profil podcastu](#zvukový-profil-podcastu) výše, včetně stejné sady možností uložení (hlasitost, efekty a/nebo rychlost přehrávání, v jakékoli kombinaci) a stejného chování dílčí aktualizace.
+### ការទាញយកសៀវភៅសំឡេង
 
-**Vymazat zvukový profil** odstraní uložený profil z knihy; je aktivní pouze tehdy, když má kniha aktuálně uložený profil.
+ជ្រើសរើសសៀវភៅក្នុងបណ្ណាល័យរបស់អ្នក ហើយជ្រើសរើស **ទាញយកសៀវភៅ** ពីម៉ឺនុយបរិបទរបស់វា ដើម្បីរក្សាទុកគ្រប់ផ្នែកទៅថតដាច់ដោយឡែករបស់វា (ដាក់ឈ្មោះតាមសៀវភៅ) នៅក្នុងថតការថតរបស់អ្នក (`Documents\freeAudio Recordings\` តាមលំនាំដើម)។ ឯកសារត្រូវបានដាក់លេខ ដូច្នេះផ្នែកតែងតែតម្រៀបត្រឡប់ទៅតាមលំដាប់ស្តាប់ ដោយមិនគិតពីអ្វីដែល GETEM ហៅពួកវា។ NVDA ប្រកាសចំនួនផ្នែកដែលបានរក្សាទុកនៅពេលការទាញយកបញ្ចប់; ប្រសិនបើផ្នែកមួយបរាជ័យ កំហុសចុងក្រោយត្រូវបានរាយការណ៍ជាមួយចំនួន។
 
-### Stahování audioknih
+### ការផ្ទុកទិន្នន័យសៀវភៅសំឡេង
 
-Vyberte knihu ve své knihovně a zvolte **Stáhnout knihu** z její kontextové nabídky, čímž uložíte každý díl do vlastní složky (pojmenované podle knihy) uvnitř vaší složky nahrávek (ve výchozím nastavení `Dokumenty\freeAudio Recordings\`). Soubory jsou očíslovány tak, aby se díly vždy řadily zpět do pořadí poslechu, bez ohledu na to, jak je pojmenovává samotný GETEM. NVDA po dokončení stahování oznámí, kolik dílů bylo uloženo; pokud se některý díl nezdaří, spolu s počtem se oznámí i poslední chyba.
+ប្រភពនីមួយៗរក្សាឯកសារបណ្ណាល័យផ្ទាល់ខ្លួន ទោះបីជាពួកវាត្រូវបានបង្ហាញបញ្ចូលគ្នានៅក្នុងផ្ទាំងសៀវភៅសំឡេងក៏ដោយ។ បណ្ណាល័យ GETEM របស់អ្នក (សៀវភៅដែលបានបន្ថែម និងការវិវត្តស្តាប់របស់ពួកវា) ត្រូវបានផ្ទុកក្នុង `freeAudio_getem_library.json` បណ្ណាល័យ LibriVox របស់អ្នកត្រូវបានផ្ទុកដោយឡែកក្នុង `freeAudio_librivox_library.json` ហើយបណ្ណាល័យ Project Gutenberg របស់អ្នកត្រូវបានផ្ទុកដោយឡែកក្នុង `freeAudio_gutenberg_library.json` — ទាំងបីនៅក្នុងថតកំណត់រចនាសម្ព័ន្ធអ្នកប្រើ NVDA។ ព័ត៌មានសម្គាល់ GETEM ដែលបានអ៊ិនគ្រីបរបស់អ្នកត្រូវបានផ្ទុកដោយឡែកក្នុង `freeAudio_getem_credentials.bin` នៅទីតាំងតែមួយ ហើយអាចត្រូវបានឌិគ្រីបតែដោយគណនីអ្នកប្រើ Windows ដូចគ្នាដែលបានរក្សាទុកពួកវាប៉ុណ្ណោះ។ LibriVox និង Project Gutenberg គ្មានឯកសារព័ត៌មានសម្គាល់ទេ ព្រោះទាំងពីរមិនត្រូវការគណនី។
 
-### Ukládání dat audioknih
+## Jukebox ក្នុងតំបន់
 
-Každý zdroj si vede vlastní soubor knihovny, i když se na kartě Audioknihy zobrazují sloučené. Vaše knihovna GETEM (přidané knihy a postup poslechu) se ukládá do `freeAudio_getem_library.json`, vaše knihovna LibriVox se ukládá samostatně do `freeAudio_librivox_library.json` a vaše knihovna Project Gutenberg se ukládá samostatně do `freeAudio_gutenberg_library.json` — všechny tři ve složce uživatelské konfigurace NVDA. Vaše zašifrované přihlašovací údaje GETEM se ukládají samostatně do `freeAudio_getem_credentials.bin` na stejném místě a lze je dešifrovat pouze stejným uživatelským účtem Windows, který je uložil. LibriVox a Project Gutenberg nemají žádný soubor s přihlašovacími údaji, protože ani jeden nevyžaduje účet.
+ផ្ទាំង **Jukebox** របស់ freeAudio ផ្តល់ឱ្យអ្នកនូវវិធីពីរក្នុងការចាក់ឯកសារសំឡេងដែលមាននៅលើកុំព្យូទ័ររបស់អ្នករួចហើយ៖ ស្វែងរកគ្រប់ដ្រាយដែលបានភ្ជាប់សម្រាប់ឯកសារតាមឈ្មោះ ឬបង្កើតបណ្ណាល័យផ្ទាល់ខ្លួនជាប់លាប់នៃឯកសារ និងថត។ អ្វីក៏ដោយដែលអ្នកចាក់ពីទីនេះទទួលបានការព្យាបាលដូចគ្នានឹងផតខាស្ត ឬសៀវភៅសំឡេង — ការបន្តស្វ័យប្រវត្តិ ការរំកិលពេលវេលាជាថ្នាក់ ល្បឿនចាក់ ការផ្លាស់ប្តូរសំនៀង និងទម្រង់សំឡេងតាមធាតុទាំងអស់ដំណើរការដូចគ្នា។
 
-## Místní jukebox
+### ការចូលប្រើផ្ទាំង Jukebox
 
-Karta **Jukebox** ve FreeRadiu vám dává dva způsoby přehrávání zvukových souborů, které již máte v počítači: prohledávání všech připojených disků podle názvu souboru, nebo vytvoření trvalé osobní knihovny souborů a složek. Cokoli odtud přehrajete, dostane stejné zacházení jako podcast nebo audiokniha — automatické pokračování, odstupňované přetáčení vpřed/vzad, rychlost přehrávání, transpozice výšky tónu a zvukové profily pro jednotlivé položky fungují úplně stejně.
+បើកកម្មវិធីរុករកស្ថានីយ៍ដោយ `Ctrl+Win+R` ហើយប្តូរទៅផ្ទាំង **Jukebox** ដោយ `Ctrl+Tab` ឬ `Alt+8` ឬបើកវាដោយផ្ទាល់ពីគ្រប់ទីកន្លែងដោយគ្រាប់ចុចសកល `Ctrl+Win+U`។ ផ្ទាំងត្រូវបានរៀបចំជាតំបន់សំខាន់បី៖
 
-### Přístup na kartu Jukebox
+1. **ស្វែងរកឌីស** — ប្រអប់អត្ថបទដែលស្វែងរកគ្រប់ដ្រាយក្នុងតំបន់ដែលបានភ្ជាប់ និងរួចរាល់សម្រាប់ឯកសារសំឡេងដែលឈ្មោះឯកសារមានអត្ថបទដែលបានវាយ។ ចុច `Enter` ដើម្បីចាប់ផ្តើមស្វែងរក។
+2. **លទ្ធផលស្វែងរក** — បញ្ជីដែលលេចឡើងនៅពេលការស្វែងរកត្រូវបានដំណើរការ ដោយបង្ហាញឯកសារដែលត្រូវគ្នា។ លាក់រហូតដល់ពេលនោះ ដូច្នេះផ្ទាំងនៅតែមានរបៀបរៀបរយនៅពេលគ្មានអ្វីត្រូវស្វែងរក។
+3. **Jukebox និងបទ** — បញ្ជីជាប់លាប់នៃធាតុដែលអ្នកបានបន្ថែម បន្ទាប់មកបញ្ជីបទក្នុងធាតុដែលបានជ្រើសរើស (សម្រាប់ធាតុឯកសារ គ្រាន់តែឯកសារនោះ; សម្រាប់ធាតុថត រាល់ឯកសារសំឡេងដែលរកឃើញនៅខាងក្នុងវា)។
 
-Otevřete prohlížeč stanic pomocí `Ctrl+Win+R` a přepněte na kartu **Jukebox** pomocí `Ctrl+Tab` nebo `Alt+8`, nebo ji otevřete přímo odkudkoli globální zkratkou `Ctrl+Win+U`. Karta je rozdělena do tří hlavních oblastí:
+ប៊ូតុង **បន្ថែមឯកសារ…** **បន្ថែមថត…** និង **លុប** ស្ថិតនៅខាងក្រោមបញ្ជីបទ។
 
-1. **Hledat na disku** — textové pole, které prohledává všechny místně připojené, připravené disky a hledá zvukové soubory, jejichž název obsahuje zadaný text. Stisknutím `Enter` spustíte hledání.
-2. **Výsledky hledání** — seznam, který se zobrazí po spuštění hledání a zobrazuje odpovídající soubory. Do té doby je skrytý, takže karta zůstává přehledná, když není co hledat.
-3. **Jukebox a skladby** — trvalý seznam položek, které jste přidali, následovaný seznamem skladeb ve vybrané položce (u položky souboru pouze tento jeden soubor; u položky složky každý zvukový soubor v ní nalezený).
+### ការស្វែងរកឯកសារនៅលើដ្រាយ
 
-Tlačítka **Přidat soubor…**, **Přidat složku…** a **Odebrat** se nacházejí pod seznamem skladeb.
+វាយផ្នែកណាមួយនៃឈ្មោះឯកសារទៅក្នុងប្រអប់ **ស្វែងរកឌីស** ហើយចុច `Enter`។ freeAudio ដើរឆ្លងកាត់គ្រប់ដ្រាយក្នុងតំបន់ដែលបានភ្ជាប់ — ដ្រាយរឹង ដ្រាយ USB កាតអង្គចងចាំ ដ្រាយបណ្តាញដែលបានភ្ជាប់ — ដោយស្វែងរកឯកសារសំឡេង (`.mp3`, `.wav`, `.ogg`, `.flac`, `.m4a`, `.m4b`, `.aac`, `.wma`, `.opus` និងផ្សេងទៀត) ដែលឈ្មោះឯកសារមានអត្ថបទស្វែងរក។ ការស្វែងរកដំណើរការនៅផ្ទៃខាងក្រោយ ដូច្នេះ NVDA នៅតែឆ្លើយតប។
 
-### Hledání souborů na disku
+- **Space** លើលទ្ធផលស្វែងរកមើលវាជាមុន — ចាប់ផ្តើមការចាក់តាមរយៈកម្មវិធីចាក់ធម្មតា។ ចុច **Space** ម្តងទៀតលើឯកសារដូចគ្នាដើម្បីបញ្ឈប់ការមើលជាមុន។
+- **Enter** លើលទ្ធផលស្វែងរកបន្ថែមវាទៅ jukebox របស់អ្នក។
+- ម៉ឺនុយបរិបទ (គ្រាប់ចុចកម្មវិធី / `Shift+F10` ឬចុចខាងស្តាំ) ផ្តល់សកម្មភាពពីរដូចគ្នា៖ **មើលជាមុន** / **បញ្ឈប់ការមើលជាមុន** និង **បន្ថែមទៅ Jukebox**។
+- ការចាប់ផ្តើមការស្វែងរកថ្មីបោះបង់ការស្វែងរកណាមួយដែលកំពុងដំណើរការ ដូច្នេះការស្វែងរកយឺតលើដ្រាយធំមិនពន្យារការស្វែងរកថ្មីឡើយ។
 
-Zadejte libovolnou část názvu souboru do pole **Hledat na disku** a stiskněte `Enter`. freeAudio prochází všechny místně připojené disky — pevné disky, USB disky, paměťové karty, připojené síťové disky — a hledá zvukové soubory (`.mp3`, `.wav`, `.ogg`, `.flac`, `.m4a`, `.m4b`, `.aac`, `.wma`, `.opus` a několik dalších), jejichž název souboru obsahuje hledaný text. Hledání probíhá na pozadí, takže NVDA zůstává responzivní.
+### ការកសាង Jukebox របស់អ្នក
 
-- **Mezerník** na výsledku hledání jej zobrazí jako náhled — spustí přehrávání přes normální přehrávač. Opětovným stisknutím **Mezerníku** na stejném souboru náhled zastavíte.
-- **Enter** na výsledku hledání jej přidá do vašeho jukeboxu.
-- Kontextová nabídka (klávesa Nabídka / `Shift+F10`, případně kliknutí pravým tlačítkem) nabízí stejné dvě akce: **Náhled** / **Zastavit náhled** a **Přidat do jukeboxu**.
-- Spuštění nového hledání zruší jakékoli dosud běžící hledání, takže pomalé hledání na velkém disku nikdy nezdrží nové.
+បញ្ជី Jukebox គឺជាបណ្ណាល័យផ្ទាល់ខ្លួនជាប់លាប់របស់អ្នក។ ធាតុពីរប្រភេទអាចត្រូវបានបន្ថែម៖
 
-### Budování vašeho jukeboxu
+- **បន្ថែមឯកសារ…** — បើកកម្មវិធីជ្រើសរើសឯកសារដែលអនុញ្ញាតឱ្យអ្នកបន្ថែមឯកសារសំឡេងមួយ ឬច្រើន។ ឯកសារដែលបានជ្រើសរើសទាំងអស់ត្រូវបានបន្ថែមក្នុងពេលតែមួយ។
+- **បន្ថែមថត…** — បើកកម្មវិធីជ្រើសរើសថតដែលអនុញ្ញាតឱ្យអ្នកជ្រើសរើសថតច្រើនក្នុងពេលតែមួយ។ រាល់ឯកសារសំឡេងដែលរកឃើញនៅខាងក្នុងថតនីមួយៗដែលបានជ្រើសរើស រួមទាំងនៅក្នុងថតរងរបស់វា ត្រូវបានចាត់ទុកជាមួយក្នុងចំណោម **បទ** របស់ថតនោះ។ ថតនីមួយៗត្រូវបានបន្ថែមជាធាតុផ្ទាល់ខ្លួននៅក្នុងបញ្ជី Jukebox របស់អ្នក; ឯកសារនៅខាងក្នុងវាត្រូវបានរាយក្នុងបញ្ជីបទនៅពេលថតត្រូវបានជ្រើសរើស។ NVDA ប្រកាសចំនួនថតដែលបានបន្ថែមនៅពេលកម្មវិធីជ្រើសរើសបិទ។
+- **លុប** — លុបធាតុដែលបានជ្រើសរើសបច្ចុប្បន្នចេញពី Jukebox របស់អ្នក។ ការលុបធាតុថតមិនលុបឯកសារណាមួយចេញពីដ្រាយទេ; វាគ្រាន់តែបំភ្លេចថតប៉ុណ្ណោះ។ អ្នកក៏អាចដាក់សញ្ញាសម្គាល់ធាតុច្រើនក្នុងពេលតែមួយ និងលុបពួកវាទាំងអស់ជាមួយគ្នា — សូមមើល [ការដាក់សញ្ញាសម្គាល់ និងការលុបធាតុច្រើន](#ការដាក់សញ្ញាសម្គាល់-និងការលុបធាតុច្រើន) ក្រោម សំណព្វ។
 
-Seznam Jukebox je vaše trvalá osobní knihovna. Lze přidat dva druhy položek:
+បញ្ជី Jukebox របស់អ្នកត្រូវបានរក្សាទុកដោយស្វ័យប្រវត្តិ ដូច្នេះវារស់រានពីការចាប់ផ្តើម NVDA ឡើងវិញ។ មាតិកាថតត្រូវបានស្កេនតាមតម្រូវការ និងដាក់ក្នុងឃ្លាំងសម្ងាត់ ដូច្នេះការបន្ថែមថតគឺភ្លាមៗ សូម្បីតែសម្រាប់បណ្តុំធំខ្លាំង — ការស្កេនពេញលេញកើតឡើងនៅពេលអ្នកជ្រើសរើសថតនោះជាលើកដំបូង។ ប្រសិនបើអ្នកបន្ថែមឯកសារទៅថតខាងក្រៅ freeAudio សូមប្រើធាតុ **ស្កេនថតឡើងវិញ** ក្នុងម៉ឺនុយបរិបទរបស់ថត ដើម្បីចាប់យកពួកវា។
 
-- **Přidat soubor…** — otevře výběr souborů, který vám umožní přidat jeden nebo více jednotlivých zvukových souborů. Všechny vybrané soubory se přidají najednou.
-- **Přidat složku…** — otevře výběr složek, který vám umožní vybrat více složek najednou. Každý zvukový soubor nalezený v každé zvolené složce, včetně jejích podsložek, je považován za jednu ze **skladeb** této složky. Každá složka se přidá jako vlastní samostatná položka v seznamu Jukebox; soubory v ní jsou uvedeny v seznamu Skladby, když je složka vybrána. NVDA po zavření výběru oznámí, kolik složek bylo přidáno.
-- **Odebrat** — smaže aktuálně vybranou položku z vašeho jukeboxu. Odebrání položky složky neodstraní žádné soubory z disku; pouze zapomene složku. Můžete také označit několik položek najednou a odstranit je všechny společně — viz [Označení a odstranění více položek](#označení-a-odstranění-více-položek) v části Oblíbené.
+### ការបន្ថែមធាតុពី Windows Explorer
 
-Seznam Jukebox se ukládá automaticky, takže přežije restartování NVDA. Obsah složky se skenuje na vyžádání a ukládá do mezipaměti, takže přidání složky je okamžité i u velmi velkých sbírek — úplné skenování proběhne při prvním výběru této složky. Pokud přidáte soubory do složky mimo freeAudio, použijte položku **Znovu prohledat složku** v kontextové nabídce složky, abyste je zachytili.
+ពាក្យបញ្ជាពីរបន្ថែមទៀត ដែលអាចប្រើបានតែនៅពេលឯកសារ ឬថតមួយមានការផ្តោតក្នុងបញ្ជីឯកសាររបស់ Windows Explorer (បញ្ជីព័ត៌មានលម្អិត/រូបតំណាង — មិនមែនរបារអាសយដ្ឋាន មែកធាងថត ខ្សែបូ ឬប្រអប់ស្វែងរកទេ) អនុញ្ញាតឱ្យអ្នករំលងប្រអប់ បន្ថែមឯកសារ…/បន្ថែមថត… ខាងលើទាំងស្រុង៖
 
-### Přidávání položek z Průzkumníka Windows
+- **ចាក់ឯកសារដែលមានការផ្តោតជាមួយ freeAudio** — ចាក់ឯកសារសំឡេងដែលបានបន្លិចដោយផ្ទាល់ ដោយមិនចាំបាច់ឱ្យវានៅក្នុងបញ្ជី Jukebox របស់អ្នករួចហើយ។ ដំណើរការតែលើឯកសារប៉ុណ្ណោះ; ការប្រើវាលើថតប្រាប់អ្នកឱ្យបន្ថែមថតទៅ Jukebox ជំនួសវិញ។
+- **បន្ថែមធាតុដែលមានការផ្តោតទៅ Jukebox របស់ freeAudio** — បន្ថែមឯកសារ ឬថតដែលបានបន្លិចទៅបញ្ជី Jukebox របស់អ្នក ដូចគ្នាបេះបិទនឹងការប្រើ **បន្ថែមឯកសារ…** ឬ **បន្ថែមថត…** ខាងលើ។
 
-Dva další příkazy, dostupné pouze tehdy, když je v seznamu souborů Průzkumníka Windows (seznam Podrobnosti/ikony — nikoli adresní řádek, strom složek, pás karet nebo vyhledávací pole) zaměřen soubor nebo složka, vám umožní zcela přeskočit dialogy Přidat soubor…/Přidat složku… výše:
+ពាក្យបញ្ជាទាំងពីរមិនមានគ្រាប់ចុចលំនាំដើមដែលបានកំណត់ទេ។ កំណត់មួយពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ចលនាថ្នាក់បញ្ចូល → freeAudio **ខណៈមានការផ្តោតក្នុងបង្អួច File Explorer**។
 
-- **Přehrát zaměřený soubor ve freeAudio** — přehraje zvýrazněný zvukový soubor přímo, aniž by musel být již ve vašem seznamu Jukebox. Funguje pouze na soubory; při použití na složku vám sdělí, abyste složku přidali do jukeboxu místo toho.
-- **Přidat zaměřenou položku do jukeboxu freeAudio** — přidá zvýrazněný soubor nebo složku do vašeho seznamu Jukebox, přesně jako kdybyste použili **Přidat soubor…** nebo **Přidat složku…** výše.
+### ការចាក់ពី Jukebox
 
-Ani jeden z příkazů nemá ve výchozím stavu přiřazenou klávesu. Přiřaďte ji z nabídky NVDA → Předvolby → Vstupní gesta **při zaměření uvnitř okna Průzkumníka souborů** — zobrazí se tam v sekci samotného Průzkumníka, nikoli v části „Všechny aplikace", takže zvolená kombinace kláves tyto příkazy spustí pouze při procházení souborů v Průzkumníku; všude jinde si zachovává svůj obvyklý význam.
+- **Enter** លើធាតុ Jukebox ចាក់វាដោយផ្ទាល់៖ សម្រាប់ធាតុឯកសារ ឯកសារខ្លួនឯង; សម្រាប់ធាតុថត បទដំបូងរបស់វា។
+- **Space** លើធាតុ Jukebox ផ្អាកការចាក់ប្រសិនបើមានអ្វីកំពុងចាក់; បើមិនដូច្នេះ ចាក់ធាតុដែលមានការផ្តោត។
+- **Enter** ឬ **Space** លើបញ្ជីបទ ចាក់បទដែលមានការផ្តោត។ **Space** ផ្អាកជាមុនប្រសិនបើមានអ្វីកំពុងចាក់រួចហើយ។
+- **F3 / F4** នៅលើផ្ទាំង Jukebox ផ្លាស់ទីរវាងបទក្នុងធាតុដែលបានជ្រើសរើសបច្ចុប្បន្ន និងចាក់ភ្លាមៗ។
+- **Shift+F3 / Shift+F4** ផ្លាស់ទីរវាងធាតុក្នុងបញ្ជី Jukebox (ឯកសារ និងថត) ដោយឆ្លុះបញ្ចាំងពីរបៀបដែលគ្រាប់ចុចទាំងនេះផ្លាស់ទីរវាងព័ត៌មាននៅលើផ្ទាំងផតខាស្ត។
+- **Ctrl+← / Ctrl+→** ខណៈបញ្ជីធាតុ ឬបទមានការផ្តោត ធ្វើដូច F3/F4 លើបញ្ជីបទ — បទមុន / បន្ទាប់។
 
-### Přehrávání z jukeboxu
+### ព័ត៌មានលម្អិតនៃការចាក់ Jukebox
 
-- **Enter** na položce Jukebox ji přehraje přímo: u položky souboru soubor samotný; u položky složky její první skladbu.
-- **Mezerník** na položce Jukebox pozastaví přehrávání, pokud něco hraje; v opačném případě přehraje zaměřenou položku.
-- **Enter** nebo **Mezerník** v seznamu Skladby přehraje zaměřenou skladbu. **Mezerník** nejprve pozastaví, pokud již něco hraje.
-- **F3 / F4** na kartě Jukebox přecházejí mezi skladbami v aktuálně vybrané položce a přehrávají okamžitě.
-- **Shift+F3 / Shift+F4** přecházejí mezi položkami v seznamu Jukebox (soubory a složky), což odpovídá tomu, jak tyto klávesy přecházejí mezi kanály na kartě Podcasty.
-- **Ctrl+← / Ctrl+→** při zaměření seznamu položek nebo skladeb dělají totéž co F3/F4 v seznamu skladeb — předchozí / další skladba.
+រាល់បទដែលចាក់ពី Jukebox ទទួលបានការព្យាបាលមេឌៀក្នុងតំបន់ពេញលេញ៖
 
-### Podrobnosti o přehrávání v jukeboxu
+- **ការបន្ត៖** freeAudio ចងចាំទីតាំងរបស់អ្នកក្នុងបទនីមួយៗ រក្សាទុកវានៅពេលផ្អាក និងតាមកាលកំណត់ខណៈចាក់ និងបន្តពីចំណុចនោះនៅពេលអ្នកចាក់វាម្តងទៀត — សូម្បីតែបន្ទាប់ពីការចាប់ផ្តើម NVDA ឡើងវិញ។
+- **ការស្វែងរកជាថ្នាក់៖** `Ctrl+Win+J` / `Ctrl+Win+K` ស្វែងរកក្នុងបទដោយប្រើមាត្រដ្ឋានចុច/ចុចជាប់ដូចគ្នានឹងផតខាស្ត និងសៀវភៅសំឡេង — ចុចជាប់ 5 វិនាទីក្នុងមួយដង ចុចម្តង 12 វិនាទី ចុចពីរដង 1 នាទី ចុចបីដង ឬច្រើនជាង 5 នាទី។
+- **ល្បឿនចាក់៖** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` កែតម្រូវល្បឿនជា 0.1× ពី 0.5× ដល់ 2.0× ដោយរក្សាសំនៀង។
+- **ការផ្លាស់ប្តូរសំនៀង៖** `Shift+Win+J` / `Shift+Win+K` ផ្លាស់ប្តូរសំនៀងដោយមិនផ្លាស់ប្តូរល្បឿន — សូមមើល [ការផ្លាស់ប្តូរសំនៀង](#ការផ្លាស់ប្តូរសំនៀង-transpose)។
+- **ទម្រង់សំឡេង៖** កម្រិតសំឡេង បែបផែន EQ និងល្បឿនរបស់បទអាចត្រូវបានរក្សាទុកជាសកលដោយការចាក់បទជាមួយការកំណត់សមស្រប — Jukebox បច្ចុប្បន្នមិនបង្ហាញម៉ឺនុយទម្រង់តាមបទទេ ដូច្នេះការកំណត់សកលបច្ចុប្បន្នអនុវត្ត។
 
-Každá skladba přehraná z jukeboxu dostane plné zacházení místního média:
+> **ចំណាំ៖** ឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលា (ដែលប្រើសម្រាប់ការថយក្រោយវិទ្យុផ្ទាល់) ត្រូវបាន **មិន** ចាប់ផ្តើមដោយចេតនាសម្រាប់បទ Jukebox — ពួកវាជាឯកសារក្នុងតំបន់ដែលអាចស្វែងរករួចហើយ ដូច្នេះការចាប់យកផ្ទៃខាងក្រោយគ្មានគោលបំណង ហើយគ្រាន់តែនឹងប្រើប្រាស់ទំហំឌីស។ ការថយក្រោយ និងការទៅមុខនៅតែដំណើរការ ព្រោះពួកវាធ្វើសកម្មភាពដោយផ្ទាល់លើឯកសារដែលកំពុងចាក់។
 
-- **Pokračování:** freeAudio si pamatuje vaši pozici v každé skladbě, ukládá ji při pozastavení a pravidelně během přehrávání, a při dalším přehrání z ní pokračuje — dokonce i po restartu NVDA.
-- **Odstupňované posouvání:** `Ctrl+Win+J` / `Ctrl+Win+K` posouvají v rámci skladby se stejným škálováním stisknutí/podržení jako podcasty a audioknihy — podržení na 5 sekund za opakování, jedno stisknutí na 12 sekund, dvě stisknutí na 1 minutu, tři nebo více stisknutí na 5 minut.
-- **Rychlost přehrávání:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` upravují rychlost v krocích po 0,1× od 0,5× do 2,0×, se zachováním výšky tónu. Vyžaduje `bass_fx.dll`.
-- **Transpozice:** `Shift+Win+J` / `Shift+Win+K` mění výšku tónu bez změny rychlosti — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu). Také vyžaduje `bass_fx.dll`.
-- **Zvukový profil:** Hlasitost, efekty, ekvalizér a rychlost skladby lze uložit globálně přehráním skladby s příslušně nastavenými hodnotami — Jukebox v současnosti neposkytuje nabídku profilu pro jednotlivé skladby, takže platí aktuální globální nastavení.
+## ការផ្លាស់ប្តូរសំនៀង (Transpose)
 
-> **Poznámka:** Vyrovnávací paměť časového posunu (používaná pro přetáčení živého rádia) se pro skladby jukeboxu záměrně **nespouští** — jsou to již lokální soubory s možností posouvání, takže zachytávání na pozadí nemá žádný účel a pouze by spotřebovávalo místo na disku. Přetáčení vpřed i vzad stále funguje, protože působí přímo na přehrávaný soubor.
+ការផ្លាស់ប្តូរសំនៀងផ្លាស់ប្តូរ **សំនៀង** នៃអ្វីដែលកំពុងចាក់ឡើងលើ ឬចុះក្រោមដោយមិនផ្លាស់ប្តូរ **ល្បឿន** របស់វា — ផ្ទុយពី "បែបផែនកំប្រុក" ដែលអ្នកនឹងទទួលបានដោយគ្រាន់តែបង្កើនល្បឿនបទ។ វាមានប្រយោជន៍សម្រាប់ការផ្គូផ្គងជួរធម្មជាតិរបស់អ្នកនិទានជាក់លាក់ ការផ្លាស់ប្តូរតន្ត្រីទៅសំនៀងដែលស្រួលជាង ឬគ្រាន់តែកែតម្រូវការថតឱ្យស្រួលត្រចៀកអ្នក។
 
-## Transpozice (posun výšky tónu)
+ការផ្លាស់ប្តូរសំនៀងមានសម្រាប់ **ផតខាស្ត** **សៀវភៅសំឡេង** និង **បទ Jukebox** — "មេឌៀក្នុងតំបន់ ដែលអាចស្វែងរក និងសមត្ថភាព tempo" ដូចគ្នាដែលគ្រាប់ចុចល្បឿនចាក់បានអនុវត្តរួចហើយ។ វាមិនមានសម្រាប់ស្ថានីយ៍វិទ្យុផ្ទាល់ទេ ដែលគ្មានសំនៀងថេរត្រូវផ្លាស់ប្តូរ។
 
-Transpozice posouvá **výšku tónu** přehrávaného obsahu nahoru nebo dolů bez změny jeho **rychlosti** — opak „efektu čipmanka", který byste získali pouhým zrychlením skladby. Je užitečná pro přizpůsobení přirozeného rozsahu konkrétního vypravěče, transponování hudby do příjemnějšího klíče, nebo jen úpravu nahrávky, aby vám pohodlněji seděla v uších.
+- **`Shift+Win+K`** — បង្កើនសំនៀងមួយជំហាន។
+- **`Shift+Win+J`** — បន្ថយសំនៀងមួយជំហាន។
 
-Transpozice je k dispozici pro **podcasty**, **audioknihy** a **skladby jukeboxu** — stejné „lokální, posouvatelné médium schopné tempa", na které se již vztahují zkratky rychlosti přehrávání. Není k dispozici pro živé rozhlasové stanice, které nemají pevnou výšku tónu k posunu.
+ជំហាននីមួយៗគឺ **មួយភាគប្រាំបីនៃសំនៀងពេញ** — នោះគឺ **0.25 ពាក់កណ្តាលសំនៀង** (សំនៀងពេញគឺ 2 ពាក់កណ្តាលសំនៀង ដូច្នេះ 8 ជំហានបង្កើតសំនៀងពេញ ហើយ 48 ជំហានបង្កើត octave)។ ជួរគឺ **−12.00 ដល់ +12.00 ពាក់កណ្តាលសំនៀង** នោះគឺ octave ពេញមួយឡើងលើ ឬចុះក្រោម។ NVDA ប្រកាសតម្លៃថ្មីបន្ទាប់ពីជំហាននីមួយៗ ឧទាហរណ៍ "**+1.25 ពាក់កណ្តាលសំនៀង**"; ការត្រឡប់ទៅ 0.0 ប្រកាស "**សំនៀងធម្មតា**"។
 
-- **`Shift+Win+K`** — Zvýší výšku tónu o jeden krok.
-- **`Shift+Win+J`** — Sníží výšku tónu o jeden krok.
+ការផ្លាស់ប្តូរសំនៀងត្រូវបានចងចាំឆ្លងកាត់បទ ដូចគ្នានឹងល្បឿនចាក់៖ ការកំណត់វាម្តងខណៈបទកំពុងចាក់មានន័យថាបទបន្ទាប់ដែលមានសមត្ថភាព tempo ដែលអ្នកចាក់ចាប់ផ្តើមជាមួយការផ្លាស់ប្តូរដូចគ្នា លុះត្រាតែទម្រង់សំឡេងដែលបានរក្សាទុកផ្ទាល់ខ្លួនរបស់បទនោះជំនួសវា។ ការចាក់បទដោយគ្មានតម្លៃការផ្លាស់ប្តូរសំនៀងដែលបានរក្សាទុកកំណត់ការផ្លាស់ប្តូរត្រឡប់ទៅ 0.0 (សំនៀងធម្មតា) ដូចគ្នានឹងច្បាប់ដូចគ្នាដែលបានអនុវត្តចំពោះល្បឿនរួចហើយ។
 
-Každý krok je **osmina celého tónu** — tedy **0,25 půltónu** (celý tón jsou 2 půltóny, takže 8 kroků tvoří celý tón a 48 kroků tvoří oktávu). Rozsah je **−12,00 až +12,00 půltónu**, tj. jedna celá oktáva nahoru nebo dolů. NVDA po každém kroku oznámí novou hodnotu, například „**+1,25 půltónu**"; návrat na 0,0 oznámí „**Normální výška tónu**".
+## បទចម្រៀងសំណព្វ
 
-Transpozice se pamatuje napříč skladbami, stejně jako rychlost přehrávání: nastavení jednou při přehrávání skladby znamená, že další skladba schopná tempa, kterou přehrajete, začne se stejným posunem, pokud to její vlastní uložený zvukový profil nepřepíše. Přehrání skladby bez uložené hodnoty transpozice resetuje posun zpět na 0,0 (Normální výška tónu), stejně jako stejné pravidlo již platí pro rychlost.
+នៅពេលជម្រើស **រក្សាទុកបទចម្រៀងសំណព្វទៅជាឯកសារអត្ថបទ** ត្រូវបានបើក ព័ត៌មានបទដែលបានចម្លងទៅ clipboard ដោយចុច `Ctrl+Win+I` បីដងក៏ត្រូវបានបន្ថែមបន្ទាត់ម្តងមួយទៅ `Documents\freeAudio Recordings\likedSongs.txt` ផងដែរ។
 
-**Požadavek:** Stejně jako rychlost přehrávání vyžaduje transpozice volitelnou knihovnu **`bass_fx.dll`** umístěnou ve složce doplňku `bass/x64` (64bitové NVDA) nebo `bass` (32bitové NVDA). Pokud knihovna chybí, NVDA vám sdělí, že funkce není k dispozici, a hodnota, kterou jste nastavili, je stále zapamatována pro příští stream schopný tempa.
+នៅលើស្ថានីយ៍ដែលផ្សាយទិន្នន័យមេតា ICY ចំណងជើងបទ និងសិល្បករត្រូវបានរក្សាទុកដោយផ្ទាល់។ នៅលើស្ថានីយ៍ដែលគ្មានទិន្នន័យមេតា ICY លទ្ធផលស្គាល់ Shazam ត្រូវបានរក្សាទុកទៅឯកសារដូចគ្នា — ប្រភពទាំងពីរចែករំលែកបញ្ជីដូចគ្នា។ ឯកសារត្រូវបានបង្កើតដោយស្វ័យប្រវត្តិប្រសិនបើវាមិនមាន; កំណត់ត្រានីមួយៗត្រូវបានបន្ថែមទៅចុងបញ្ចប់នៃឯកសារ ហើយកំណត់ត្រាមុនៗមិនត្រូវបានលុបឡើយ។
 
-## Oblíbené skladby
+## ផ្ទាំងបទចម្រៀងសំណព្វ
 
-Pokud je povolena možnost **Uložit oblíbené skladby do textového souboru**, informace o skladbě zkopírované do schránky trojím stisknutím kláves `Ctrl+Win+I` se také přidají po řádcích do souboru `Dokumenty\freeAudio Recordings\likedSongs.txt`.
+ផ្ទាំង **បទចម្រៀងសំណព្វ** នៅក្នុងកម្មវិធីរុករកស្ថានីយ៍បង្ហាញបទទាំងអស់ដែលបានរក្សាទុកក្នុង `likedSongs.txt`។ បញ្ជីត្រូវបានផ្ទុកឡើងវិញដោយស្វ័យប្រវត្តិពីឯកសាររាល់ពេលផ្ទាំងត្រូវបានបើក។ ចុចខាងស្តាំលើបទចម្រៀង ឬជ្រើសរើសវា ហើយចុចគ្រាប់ចុចកម្មវិធី ឬ `Shift+F10` ដើម្បីបើកម៉ឺនុយបរិបទជាមួយសកម្មភាពដូចគ្នាដែលបានពិពណ៌នាខាងក្រោម។
 
-U stanic, které vysílají metadata ICY, se název skladby a interpret uloží přímo. Na stanicích bez metadat ICY se do stejného souboru uloží výsledek rozpoznání Shazam - oba zdroje sdílejí stejný seznam. Soubor se vytvoří automaticky, pokud neexistuje; každý záznam se připojí na konec souboru a předchozí záznamy se nikdy nemažou.
+ប្រអប់ **ចម្រោះ** ខាងលើបញ្ជីអនុញ្ញាតឱ្យអ្នកបង្រួមបទដែលបានបង្ហាញក្នុងពេលវេលាពិត។ វាយផ្នែកណាមួយនៃចំណងជើងបទ ឬឈ្មោះសិល្បករ ហើយបញ្ជីធ្វើបច្ចុប្បន្នភាពភ្លាមៗនៅរាល់ការចុចគ្រាប់ចុច។ NVDA ប្រកាសចំនួនលទ្ធផលដែលត្រូវគ្នាបន្ទាប់ពីការផ្លាស់ប្តូរនីមួយៗ។ ចុចព្រួញ `Down` ពីប្រអប់ចម្រោះដើម្បីផ្លាស់ទីការផ្តោតដោយផ្ទាល់ទៅបញ្ជី។
 
-## Karta Oblíbené skladby
+ការជ្រើសរើសបទពីបញ្ជីធ្វើឱ្យសកម្មសកម្មភាពខាងក្រោម៖
 
-Karta **Oblíbené skladby** v prohlížeči stanic zobrazuje všechny stopy uložené v `likedSongs.txt`. Seznam se automaticky znovu načte ze souboru pokaždé, když se karta otevře. Klepnutím pravým tlačítkem na skladbu, případně jejím vybráním a stiskem klávesy Nabídka / `Shift+F10`, otevřete kontextovou nabídku se stejnými akcemi popsanými níže.
+- **ចាក់នៅ Spotify៖** ព្យាយាមបើកកម្មវិធី Spotify ផ្ទៃតុដោយផ្ទាល់។ ប្រសិនបើកម្មវិធីមិនត្រូវបានដំឡើង វាត្រឡប់ទៅគេហទំព័រ Spotify ហើយចាប់ផ្តើមចាក់លទ្ធផលដំបូងដោយស្វ័យប្រវត្តិ។
+- **ចាក់នៅ YouTube (`Alt+O`)៖** ស្វែងរកបទដែលបានជ្រើសរើសនៅលើ YouTube ហើយបើកលទ្ធផលនៅក្នុងកម្មវិធីរុករកលំនាំដើម។
+- **បង្ហាញអត្ថបទចម្រៀង៖** ទាញយក និងបង្ហាញអត្ថបទចម្រៀងសម្រាប់បទដែលបានជ្រើសរើស។ អត្ថបទចម្រៀងត្រូវបានទាញយកពី [lrclib.net](https://lrclib.net) (ឥតគិតថ្លៃ មិនត្រូវការគណនី)។ សារខ្លី "កំពុងទាញយកអត្ថបទចម្រៀង…" ត្រូវបានប្រកាសខណៈការស្វែងរកដំណើរការនៅផ្ទៃខាងក្រោយ។ ប្រសិនបើរកឃើញអត្ថបទចម្រៀង ពួកវាបើកក្នុងប្រអប់អានតែប៉ុណ្ណោះ ដែលអ្នកអាចអានវាដោយ NVDA និងចម្លងទៅ clipboard។ ប្រសិនបើរកមិនឃើញអត្ថបទចម្រៀង NVDA ប្រកាសបែបនេះ។ ប៊ូតុងត្រូវបានបិទជាបណ្តោះអាសន្នខណៈការទាញយកកំពុងដំណើរការ ដើម្បីការពារការស្នើសុំស្ទួន។
+- **លុប (`Alt+M`)៖** លុបបទដែលបានជ្រើសរើសចេញពី `likedSongs.txt` និងធ្វើបច្ចុប្បន្នភាពបញ្ជី។ គ្រាប់ចុច `Delete` ក៏បង្កឱ្យប៊ូតុងនេះដំណើរការដែរ នៅពេលបញ្ជីមានការផ្តោត។ អ្នកក៏អាចដាក់សញ្ញាសម្គាល់បទចម្រៀងច្រើនក្នុងពេលតែមួយ និងលុបពួកវាទាំងអស់ជាមួយគ្នា — សូមមើល [ការដាក់សញ្ញាសម្គាល់ និងការលុបធាតុច្រើន](#ការដាក់សញ្ញាសម្គាល់-និងការលុបធាតុច្រើន) ក្រោម សំណព្វ។
+- **ធ្វើបច្ចុប្បន្នភាព (`Alt+E`)៖** ផ្ទុកបញ្ជីឡើងវិញពីឯកសារ។
 
-Pole **Filtr** nad seznamem umožňuje v reálném čase zúžit zobrazené stopy. Zadejte libovolnou část názvu skladby nebo jména interpreta a seznam se okamžitě aktualizuje po každém stisknutí klávesy. NVDA po každé změně oznamuje počet nalezených výsledků. Stisknutím šipky `dolů` v poli filtru přesunete fokus přímo do seznamu.
+ប៊ូតុង Spotify, YouTube, បង្ហាញអត្ថបទចម្រៀង និង លុប សកម្មតែនៅពេលបទពិតប្រាកដត្រូវបានជ្រើសរើសក្នុងបញ្ជីប៉ុណ្ណោះ។
 
-Po výběru stopy ze seznamu jsou k dispozici následující akce:
+### សេវាអត្ថបទចម្រៀង
 
-- **Přehrát na Spotify:** Pokusí se přímo otevřít desktopovou aplikaci Spotify. Pokud aplikace není nainstalována, přejde na web Spotify a automaticky přehraje první výsledek.
-- **Přehrát na YouTube (`Alt+O`):** Vyhledá vybranou stopu na YouTube a otevře výsledky ve výchozím prohlížeči.
-- **Zobrazit text písně:** Načte a zobrazí text vybrané skladby. Text písně je načítán z [lrclib.net](https://lrclib.net) (zdarma, bez nutnosti účtu). Během probíhajícího vyhledávání na pozadí je oznámena krátká zpráva „Načítání textu písně…". Pokud je text nalezen, otevře se v dialogu pouze pro čtení, kde jej můžete číst pomocí NVDA a zkopírovat do schránky. Pokud text není nalezen, NVDA to oznámí. Tlačítko je po dobu probíhající akce dočasně deaktivováno, aby se zabránilo duplicitním požadavkům.
-- **Odebrat (`Alt+M`):** Odstraní vybranou stopu z `likedSongs.txt` a aktualizuje seznam. Klávesa `Delete` toto tlačítko také spustí, je-li fokus na seznamu. Můžete také označit několik skladeb najednou a odstranit je všechny společně — viz [Označení a odstranění více položek](#označení-a-odstranění-více-položek) v části Oblíbené.
-- **Obnovit (`Alt+E`):** Znovu načte seznam ze souboru.
+freeAudio ប្រើ [lrclib.net](https://lrclib.net) ដើម្បីទាញយកអត្ថបទចម្រៀង — មូលដ្ឋានទិន្នន័យឥតគិតថ្លៃ និងបើកចំហដែលមិនត្រូវការកូនសោ API ឬគណនី។ ដំណើរការស្វែងរកញែកខ្សែអក្សរបទដែលផ្ទុកក្នុង `likedSongs.txt` ហើយព្យាយាមសំណួរដែលធូរស្រាលជាបន្តបន្ទាប់រហូតដល់រកឃើញអត្ថបទចម្រៀង៖
 
-Tlačítka Spotify, YouTube, Zobrazit text písně a Odebrat jsou aktivní pouze tehdy, když je v seznamu vybrána skutečná skladba.
+1. ការផ្គូផ្គងពិតប្រាកដដោយប្រើឈ្មោះសិល្បករពេញលេញ និងចំណងជើងដែលបានសម្អាត (ផ្នែកបន្ថែមរំខានដូចជា "Remastered", "Live" ឬស្លាកឆ្នាំត្រូវបានដកចេញមុនពេលស្វែងរក)។
+2. ការផ្គូផ្គងពិតប្រាកដដោយប្រើឈ្មោះសិល្បករពេញលេញ និងចំណងជើងដើម (ប្រសិនបើការសម្អាតបានផ្លាស់ប្តូរវា)។
+3. ការផ្គូផ្គងពិតប្រាកដដោយប្រើតែឈ្មោះសិល្បករទីមួយ និងចំណងជើងដែលបានសម្អាត (សម្រាប់ខ្សែអក្សរពហុសិល្បករ ដូចជា "សិល្បករ A និង សិល្បករ B")។
+4. ការស្វែងរកមិនច្បាស់លាស់ដោយប្រើឈ្មោះសិល្បករទីមួយ និងចំណងជើងដែលបានសម្អាត។
+5. ការស្វែងរកមិនច្បាស់លាស់ដោយប្រើខ្សែអក្សរបទដើមជាមធ្យោបាយចុងក្រោយ។
 
-### Služba textů písní
+នៅពេលអត្ថបទចម្រៀងធម្មតាមាន ពួកវាត្រូវបានបង្ហាញដូចដែលមាន។ នៅពេលអត្ថបទចម្រៀង LRC ដែលធ្វើសមកាលកម្មពេលវេលាមាន ត្រាពេលវេលាត្រូវបានដកចេញ ហើយអត្ថបទធម្មតាត្រូវបានបង្ហាញ។ បទឧបករណ៍ត្រូវបានរាយការណ៍ថារកមិនឃើញ។
 
-freeAudio používá [lrclib.net](https://lrclib.net) k načítání textů písní — bezplatná, otevřená databáze nevyžadující klíč API ani účet. Proces vyhledávání analyzuje řetězec stopy uložený v `likedSongs.txt` a postupně zkouší volnější dotazy, dokud nenajde text písně:
+## ការកំណត់
 
-1. Přesná shoda s celým jménem interpreta a vyčištěným názvem (rušivé přípony jako „Remastered", „Live" nebo roční tagy se před vyhledáváním odstraní).
-2. Přesná shoda s celým jménem interpreta a původním názvem (pokud čištění název změnilo).
-3. Přesná shoda pouze s prvním jménem interpreta a vyčištěným názvem (pro řetězce s více interprety, např. „Interpret A & Interpret B").
-4. Fuzzy vyhledávání s prvním jménem interpreta a vyčištěným názvem.
-5. Fuzzy vyhledávání se surým řetězcem stopy jako poslední možnost.
+ជម្រើសខាងក្រោមអាចកំណត់រចនាសម្ព័ន្ធបានពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio៖
 
-Jsou-li dostupné textové verze textu, zobrazí se tak, jak jsou. Jsou-li dostupné pouze časově synchronizované LRC texty, odstraní se časová razítka a zobrazí se prostý text. O instrumentálních skladbách se hlásí, že text nebyl nalezen.
-
-## Nastavení
-
-Následující možnosti lze konfigurovat v nabídce NVDA → Předvolby → Nastavení → freeAudio:
-
-| Volba | Popis |
+| ជម្រើស | ការពិពណ៌នា |
 |---|---|
-| Hlas pro změnu skladby | Zvolte, zda se automaticky oznamované změny skladeb vyslovují pomocí syntetizátoru NVDA nebo vybraného hlasu SAPI5. |
-| Hlas SAPI5 | Když je **Hlas pro změnu skladby** nastaven na SAPI5, vybere, který nainstalovaný hlas SAPI5 se používá k oznamování změn skladeb. Seznam se naplňuje na pozadí z hlasů nainstalovaných v systému. |
-| Zvukové výstupní zařízení (BASS backend) | Nastavuje zvukové výstupní zařízení pro přehrávání rádia. Seznam obsahuje všechna zařízení kompatibilní s BASS v systému a možnost "Výchozí systém". Změny se použijí okamžitě po uložení; pokud je vybrané zařízení odpojeno, doplněk se automaticky vrátí k výchozímu nastavení systému a oznámí změnu. Aktivní pouze v případě, že je používán backend BASS. |
-| Režim obnovení zvukových zařízení (BASS backend) | Řídí, jak freeAudio obnovuje čísla výstupních zařízení BASS. Režim **Spolehlivý** (výchozí) zkoumá zařízení živě a přesněji sleduje změny Bluetooth/USB, ale může mírně zpomalit změny zařízení. Režim **Rychlý** používá aktuální seznam zařízení BASS a je rychlejší, ale čísla zařízení mohou zůstat zastaralá, dokud není BASS nebo NVDA restartováno. |
-| Hlasitost | Nastavuje počáteční hlasitost doplňku (0-200). Zde se také projeví změny provedené během přehrávání pomocí `Ctrl+Win+↑` / `Ctrl+Win+↓`. |
-| Zvukové efekty | Nastavuje, které efekty (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb a tři zesílení EQ) jsou aktivní při spuštění NVDA nebo zahájení přehrávání stanice. Lze zaškrtnout více efektů současně, v souladu se seznamem Efekty v Prohlížeči stanic. Aktivní pouze při použití backendu BASS. |
-| Zesílení EQ (basy / výšky / vokál) | Nastavuje úroveň zesílení v dB pro každé pásmo EQ (od −15 do +15). Tyto hodnoty se použijí, když je příslušný EQ efekt aktivní, a ukládají se globálně. Pro každou stanici lze nastavit vlastní hodnoty pomocí tlačítka **Uložit zvukový profil** na záložce Oblíbené. Aktivní pouze při použití backendu BASS. |
-| Přechod mezi stanicemi (backend BASS) | Ovládá chování přechodu při přepínání mezi **živými rozhlasovými stanicemi**. **Instant cut** (výchozí nastavení) zastaví předchozí stanici bezprostředně před spuštěním nové. **Krátký přechod (1 sekunda)** a **Normální přechod (2 sekundy)** spustí novou stanici okamžitě bez mezery a poté postupně ukončí předchozí stanici na pozadí, jakmile je potvrzena aktivita nového streamu. **Zvukový efekt ladění stanice** okamžitě zastaví předchozí stanici a před spuštěním nové přehraje zvukový efekt ladění stanice. Nemá žádný účinek a žádný vliv na výkon, pokud je nastaveno na okamžitý střih. K dispozici pouze při použití backendu BASS. Nevztahuje se na podcasty, audioknihy ani skladby jukeboxu — jejich pokračování vždy přehraje vlastní krátký zvukový efekt kazety bez ohledu na toto nastavení; viz [Podrobnosti o přehrávání podcastů](#podrobnosti-o-přehrávání-podcastů). |
-| Obnovit poslední stanici při spuštění NVDA | Je-li tato funkce povolena, při každém spuštění NVDA se automaticky obnoví naposledy přehrávaná stanice. |
-| Automatické oznamování změn skladeb (metadata ICY) | Je-li povoleno, NVDA automaticky načte nový název skladby při každé změně na stanici, která vysílá metadata ICY. Při přepnutí na novou stanici se také okamžitě ohlásí první stopa. Ve výchozím nastavení zakázáno. |
-| Ztlumení oznámení | Je-li povoleno, NVDA neoznamuje změny stanic, změny stavu přehrávání (přehrávání, pozastavení, zastavení) ani události nahrávání (spuštěno, zastaveno, ukončeno). Chybová hlášení, zpětná vazba oblíbených položek, výsledky rozpoznávání hudby a oznámení o aktualizacích nejsou ovlivněny. Lze přepínat i za běhu pomocí nepřiřazeného vstupního gesta. Ve výchozím nastavení vypnuto. |
-| Braillské zprávy | Je-li povoleno, freeAudio také odesílá svá oznámení přímo na braillský displej. To je užitečné pro názvy skladeb, změny stanic, stav přehrávání a změny hlasitosti. Ve výchozím nastavení vypnuto. |
-| Zapnout vyrovnávací paměť časového posunu (přetočení živého rádia) | Zapíná nebo vypíná ovládací prvky přetáčení (`Ctrl+Win+J`/`Ctrl+Win+K`) a zvětšuje zachytávání na pozadí z ~45 sekund až na dobu určenou v nastavení. Malé zachytávání aktuálně přehrávané stanice na pozadí běží vždy, i když je tato volba vypnutá — viz poznámka v části Časový posun níže. Lze také okamžitě přepnout pomocí `Ctrl+Win+T`. Vyžaduje backend BASS. Ve výchozím nastavení zakázáno — úplné podrobnosti najdete v části Časový posun níže. |
-| Uložení oblíbených skladeb do textového souboru | Pokud je tato funkce povolena, informace o skladbě zkopírované do schránky trojím stisknutím kláves `Ctrl+Win+I` se také připojí do souboru `Dokumenty\freeAudio Recordings\likedSongs.txt`. Pokud nejsou k dispozici žádná metadata ICY, uloží se výsledek rozpoznání Shazam do stejného souboru. Ve výchozím nastavení vypnuto. |
-| Při stisknutí klávesové zkratky Ctrl+Win+P bez aktivního přehrávání | Určuje, co se stane, když je tato klávesová zkratka stisknuta a nic se nepřehrává: spustí poslední stanici nebo otevře seznam oblíbených. |
-| Trvání vyrovnávací paměti časového posunu | Nastavuje maximální délku vyrovnávací paměti pro přetáčení. Možnosti se pohybují od 10 minut do 5 hodin. Delší vyrovnávací paměti spotřebovávají více dočasného místa na disku. |
-| Při dvojím stisknutí klávesové zkratky Ctrl+Win+P | Určuje, co se stane, když je tato klávesová zkratka stisknuta dvakrát za sebou: nic nedělat, otevřít seznam oblíbených položek, otevřít kartu nahrávání nebo otevřít kartu časovače. Pokud je vybrána možnost "nedělat nic", první stisknutí reaguje okamžitě bez zpoždění. |
-| Při trojím stisknutí klávesové zkratky Ctrl+Win+P | Vybírá, co se stane při trojím stisknutí klávesové zkratky v rychlém sledu za sebou: neudělat nic, otevřít seznam oblíbených položek, otevřít kartu vyhledávání, otevřít kartu záznamu nebo otevřít kartu časovače. |
-| Automatická kontrola aktualizací | Je-li tato volba povolena, spustí se při každém spuštění aplikace NVDA kontrola aktualizací na pozadí; pokud je nalezena nová verze, jste o tom informováni. Pokud je zakázána, automatická kontrola se zastaví, ale ruční kontrola zůstane k dispozici. |
-| Cesta k souboru ffmpeg.exe | Cesta k souboru ffmpeg.exe, který se používá pro rozpoznávání hudby. Pokud zůstane prázdná, použije se automaticky soubor ffmpeg.exe ve složce doplňku. |
-| Složka nahrávek | Nastaví složku, do které se ukládají nahrané soubory. Pokud zůstane prázdná, použije se výchozí umístění `Documents\freeAudio Recordings\`. Tlačítko Procházet umožňuje interaktivní výběr složky. Změny se projeví okamžitě po uložení. |
-| Zdroje audioknih | Seznam zaškrtávacích políček vybírající, které zdroje audioknih (**GETEM**, **LibriVox**, **Project Gutenberg**) se prohledávají a zobrazují na kartě Audioknihy. Všechny tři jsou ve výchozím nastavení zapnuté. Odškrtnutím zdroje skryjete jeho knihy ze sloučených výsledků hledání a seznamu knihovny, aniž byste smazali cokoli, co jste z něj již přidali — viz [Audioknihy (GETEM, LibriVox a Project Gutenberg)](#audioknihy-getem-librivox-a-project-gutenberg). |
-| Uživatelské jméno GETEM / Heslo GETEM | Vaše přihlašovací údaje pro členství v audioknihách [GETEM](https://getem.boun.edu.tr/), potřebné ke streamování nebo stažení zvuku knihy — viz [Přihlášení](#přihlášení). Ukládají se zašifrovaně na disk prostřednictvím Windows Data Protection API, svázané s vaším uživatelským účtem Windows; nikdy se neukládají jako prostý text. Ponecháním obou polí prázdných a uložením odstraníte všechny uložené přihlašovací údaje. LibriVox a Project Gutenberg nevyžadují žádný účet a nemají žádné ekvivalentní pole. |
-| Výstupní formát nahrávky | Zachová původní stream, extrahuje zvuk beze změny kodeku nebo převede dokončené nahrávky na MP3. Výchozí hodnotou je původní formát streamu. |
-| Datový tok nahrávání MP3 | Nastaví datový tok použitý, když je výstupní formát nahrávky MP3. Výchozí hodnota je 128 kb/s. |
-| Zakázat kontrolu připojení k internetu před přehráváním | Doporučeno pro uživatele, u kterých dochází ke zpoždění před zahájením přehrávání stanice. Užitečné také v případě blokování DNS. |
+| សំឡេងផ្លាស់ប្តូរបទ | ជ្រើសរើសថាតើការផ្លាស់ប្តូរបទដែលប្រកាសដោយស្វ័យប្រវត្តិត្រូវបាននិយាយដោយប្រើសំឡេងសំយោគ NVDA ឬសំឡេង SAPI5 ដែលបានជ្រើសរើស។ |
+| សំឡេង SAPI5 | នៅពេល **សំឡេងផ្លាស់ប្តូរបទ** ត្រូវបានកំណត់ជា SAPI5 ជ្រើសរើសសំឡេង SAPI5 ដែលបានដំឡើងណាមួយត្រូវបានប្រើដើម្បីប្រកាសការផ្លាស់ប្តូរបទ។ បញ្ជីត្រូវបានបំពេញនៅផ្ទៃខាងក្រោយពីសំឡេងដែលបានដំឡើងនៅលើប្រព័ន្ធ។ |
+| ឧបករណ៍បញ្ចេញសំឡេង (ម៉ាស៊ីន BASS) | កំណត់ឧបករណ៍បញ្ចេញសំឡេងសម្រាប់ការចាក់វិទ្យុ។ បញ្ជីរួមមានឧបករណ៍ដែលត្រូវគ្នានឹង BASS ទាំងអស់នៅលើប្រព័ន្ធ បូកនឹងជម្រើស "លំនាំដើមប្រព័ន្ធ"។ ការផ្លាស់ប្តូរត្រូវបានអនុវត្តភ្លាមៗនៅពេលរក្សាទុក; ប្រសិនបើឧបករណ៍ដែលបានជ្រើសរើសត្រូវបានផ្តាច់ កម្មវិធីបន្ថែមត្រឡប់ទៅលំនាំដើមប្រព័ន្ធដោយស្វ័យប្រវត្តិ និងប្រកាសការផ្លាស់ប្តូរ។ សកម្មតែនៅពេលម៉ាស៊ីន BASS កំពុងប្រើប៉ុណ្ណោះ។ |
+| របៀបធ្វើបច្ចុប្បន្នភាពឧបករណ៍សំឡេង (ម៉ាស៊ីន BASS) | គ្រប់គ្រងរបៀបដែល freeAudio ធ្វើបច្ចុប្បន្នភាពលេខឧបករណ៍បញ្ចេញសំឡេង BASS។ របៀប **អាចទុកចិត្តបាន** (លំនាំដើម) ពិនិត្យឧបករណ៍ផ្ទាល់ និងតាមដានការផ្លាស់ប្តូរ Bluetooth/USB បានត្រឹមត្រូវជាង ប៉ុន្តែអាចធ្វើឱ្យការផ្លាស់ប្តូរឧបករណ៍យឺតជាងបន្តិច។ របៀប **លឿន** ប្រើបញ្ជីឧបករណ៍ BASS បច្ចុប្បន្ន និងលឿនជាង ប៉ុន្តែលេខឧបករណ៍អាចនៅតែចាស់រហូតដល់ BASS ឬ NVDA ត្រូវបានចាប់ផ្តើមឡើងវិញ។ |
+| កម្រិតសំឡេង | កំណត់កម្រិតសំឡេងចាប់ផ្តើមរបស់កម្មវិធីបន្ថែម (0–200)។ ការផ្លាស់ប្តូរដែលបានធ្វើឡើងខណៈចាក់ដោយ `Ctrl+Win+↑` / `Ctrl+Win+↓` ក៏ត្រូវបានឆ្លុះបញ្ចាំងនៅទីនេះដែរ។ |
+| បែបផែនសំឡេង | កំណត់បែបផែនណាមួយ (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb និងការបង្កើន EQ បី) សកម្មនៅពេល NVDA ចាប់ផ្តើម ឬស្ថានីយ៍ចាប់ផ្តើមចាក់។ បែបផែនច្រើនអាចធីកក្នុងពេលតែមួយ ដោយផ្គូផ្គងនឹងបញ្ជីបែបផែនក្នុងកម្មវិធីរុករកស្ថានីយ៍។ សកម្មតែនៅពេលម៉ាស៊ីន BASS កំពុងប្រើប៉ុណ្ណោះ។ |
+| ការទទួល EQ (Bass / Treble / Vocal) | កំណត់កម្រិតការទទួលជា dB សម្រាប់ក្រុម EQ នីមួយៗ (−15 ដល់ +15)។ តម្លៃទាំងនេះអនុវត្តនៅពេលបែបផែន EQ ដែលត្រូវគ្នាសកម្ម ហើយត្រូវបានរក្សាទុកជាសកល។ ការជំនួសតាមស្ថានីយ៍អាចត្រូវបានរក្សាទុកដោយប្រើប៊ូតុង **រក្សាទុកទម្រង់សំឡេង** ក្នុងផ្ទាំងសំណព្វ។ សកម្មតែនៅពេលម៉ាស៊ីន BASS កំពុងប្រើប៉ុណ្ណោះ។ |
+| ការផ្លាស់ប្តូរពេលប្តូរស្ថានីយ៍ (ម៉ាស៊ីន BASS) | គ្រប់គ្រងឥរិយាបថផ្លាស់ប្តូរនៅពេលប្តូររវាង **ស្ថានីយ៍វិទ្យុផ្ទាល់**។ **កាត់ភ្លាមៗ** (លំនាំដើម) បញ្ឈប់ស្ថានីយ៍មុនភ្លាមៗមុនពេលស្ថានីយ៍ថ្មីចាប់ផ្តើម។ **Crossfade ខ្លី (1 វិនាទី)** និង **Crossfade ធម្មតា (2 វិនាទី)** ចាប់ផ្តើមស្ថានីយ៍ថ្មីភ្លាមៗដោយគ្មានចន្លោះ បន្ទាប់មកបន្ថយសំឡេងស្ថានីយ៍មុនបន្តិចម្តងៗនៅផ្ទៃខាងក្រោយនៅពេលស្ទ្រីមថ្មីត្រូវបានបញ្ជាក់ថាសកម្ម។ **បែបផែនសំឡេងលៃតម្រូវស្ថានីយ៍** បញ្ឈប់ស្ថានីយ៍មុនភ្លាមៗ និងលេងបែបផែនសំឡេងលៃតម្រូវវិទ្យុមុនពេលស្ថានីយ៍ថ្មីចាប់ផ្តើម។ គ្មានប្រសិទ្ធភាព និងគ្មានផលប៉ះពាល់ដល់ការអនុវត្តនៅពេលកំណត់ជា កាត់ភ្លាមៗ។ មានតែនៅពេលម៉ាស៊ីន BASS កំពុងប្រើប៉ុណ្ណោះ។ មិនអនុវត្តចំពោះផតខាស្ត សៀវភៅសំឡេង ឬបទ Jukebox — ការបន្តទាំងនោះតែងតែលេងបែបផែនសំឡេងកាសែតខ្លីផ្ទាល់ខ្លួនរបស់វា ដោយមិនគិតពីការកំណត់នេះ; សូមមើល [ព័ត៌មានលម្អិតនៃការចាក់ផតខាស្ត](#ព័ត៌មានលម្អិតនៃការចាក់ផតខាស្ត)។ |
+| បន្តស្ថានីយ៍ចុងក្រោយនៅពេលចាប់ផ្តើម NVDA | នៅពេលបើក ស្ថានីយ៍ដែលបានចាក់ចុងក្រោយចាប់ផ្តើមឡើងវិញដោយស្វ័យប្រវត្តិរាល់ពេល NVDA ចាប់ផ្តើម។ |
+| ប្រកាសការផ្លាស់ប្តូរបទដោយស្វ័យប្រវត្តិ (ទិន្នន័យមេតា ICY) | នៅពេលបើក NVDA អានឈ្មោះបទថ្មីដោយស្វ័យប្រវត្តិរាល់ពេលវាផ្លាស់ប្តូរនៅលើស្ថានីយ៍ដែលផ្សាយទិន្នន័យមេតា ICY។ បទដំបូងក៏ត្រូវបានប្រកាសភ្លាមៗនៅពេលប្តូរទៅស្ថានីយ៍ថ្មី។ បិទតាមលំនាំដើម។ |
+| បិទសំឡេងការជូនដំណឹង | នៅពេលបើក NVDA មិនប្រកាសការផ្លាស់ប្តូរស្ថានីយ៍ ការផ្លាស់ប្តូរស្ថានភាពចាក់ (ចាក់ ផ្អាក បញ្ឈប់) ឬព្រឹត្តិការណ៍ថត (ចាប់ផ្តើម បញ្ឈប់ បញ្ចប់)។ សារកំហុស មតិកែលម្អសំណព្វ លទ្ធផលស្គាល់តន្ត្រី និងការជូនដំណឹងធ្វើបច្ចុប្បន្នភាពមិនត្រូវបានប៉ះពាល់ទេ។ អាចបិទ/បើកភ្លាមៗតាមរយៈចលនាថ្នាក់បញ្ចូលដែលមិនបានកំណត់។ បិទតាមលំនាំដើម។ |
+| សារអក្សរស្ទាប | នៅពេលបើក freeAudio ក៏ផ្ញើការជូនដំណឹងរបស់វាដោយផ្ទាល់ទៅអេក្រង់អក្សរស្ទាបដែរ។ នេះមានប្រយោជន៍សម្រាប់ចំណងជើងបទ ការផ្លាស់ប្តូរស្ថានីយ៍ ស្ថានភាពចាក់ និងការផ្លាស់ប្តូរកម្រិតសំឡេង។ បិទតាមលំនាំដើម។ |
+| បើកឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលា (ថយក្រោយវិទ្យុផ្ទាល់) | បើក ឬបិទឧបករណ៍បញ្ជាថយក្រោយ (`Ctrl+Win+J`/`Ctrl+Win+K`) និងបង្កើនការចាប់យកផ្ទៃខាងក្រោយពី ~45 វិនាទីដល់ពេលវេលាដែលកំណត់ក្នុងការកំណត់។ ការចាប់យកផ្ទៃខាងក្រោយតូចនៃស្ថានីយ៍ដែលកំពុងចាក់ដំណើរការជានិច្ច ទោះបីជាការកំណត់នេះបិទក៏ដោយ — សូមមើលកំណត់ចំណាំក្នុងផ្នែក **ការរំកិលពេលវេលា** ខាងក្រោម។ អាចបិទ/បើកភ្លាមៗដោយ `Ctrl+Win+T`។ ត្រូវការម៉ាស៊ីន BASS។ បិទតាមលំនាំដើម — សូមមើលផ្នែក **ការរំកិលពេលវេលា** ខាងក្រោមសម្រាប់ព័ត៌មានលម្អិតពេញលេញ។ |
+| រក្សាទុកបទចម្រៀងសំណព្វទៅជាឯកសារអត្ថបទ | នៅពេលបើក ព័ត៌មានបទដែលបានចម្លងទៅ clipboard ដោយចុច `Ctrl+Win+I` បីដងក៏ត្រូវបានបន្ថែមទៅ `Documents\freeAudio Recordings\likedSongs.txt` ផងដែរ។ ប្រសិនបើគ្មានទិន្នន័យមេតា ICY លទ្ធផលស្គាល់ Shazam ត្រូវបានរក្សាទុកទៅឯកសារដូចគ្នា។ បិទតាមលំនាំដើម។ |
+| នៅពេល Ctrl+Win+P ត្រូវបានចុចដោយគ្មានការចាក់សកម្ម | កំណត់អ្វីដែលកើតឡើងនៅពេលគ្រាប់ចុចនេះត្រូវបានចុច ហើយគ្មានអ្វីកំពុងចាក់៖ ចាប់ផ្តើមស្ថានីយ៍ចុងក្រោយ ឬបើកបញ្ជីសំណព្វ។ |
+| រយៈពេលឃ្លាំងសតិបណ្ដោះអាសន្នរំកិលពេលវេលា | កំណត់រយៈពេលអតិបរមានៃឃ្លាំងសតិបណ្ដោះអាសន្នថយក្រោយ។ ជម្រើសមានចាប់ពី 10 នាទីដល់ 5 ម៉ោង។ ឃ្លាំងសតិបណ្ដោះអាសន្នវែងជាងប្រើប្រាស់ទំហំឌីសបណ្តោះអាសន្នច្រើនជាង។ |
+| នៅពេល Ctrl+Win+P ត្រូវបានចុចពីរដង | ជ្រើសរើសអ្វីដែលកើតឡើងនៅពេលគ្រាប់ចុចត្រូវបានចុចពីរដងជាប់ៗគ្នា៖ មិនធ្វើអ្វី បើកបញ្ជីសំណព្វ បើកផ្ទាំងការថត ឬបើកផ្ទាំងកម្មវិធីកំណត់ម៉ោង។ នៅពេលជ្រើសរើស "មិនធ្វើអ្វី" ការចុចដំបូងឆ្លើយតបភ្លាមៗដោយគ្មានការពន្យារ។ |
+| នៅពេល Ctrl+Win+P ត្រូវបានចុចបីដង | ជ្រើសរើសអ្វីដែលកើតឡើងនៅពេលគ្រាប់ចុចត្រូវបានចុចបីដងជាប់ៗគ្នា៖ មិនធ្វើអ្វី បើកបញ្ជីសំណព្វ បើកការស្វែងរកស្ថានីយ៍ បើកផ្ទាំងការថត ឬបើកផ្ទាំងកម្មវិធីកំណត់ម៉ោង។ |
+| ពិនិត្យការធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ | នៅពេលបើក ការត្រួតពិនិត្យធ្វើបច្ចុប្បន្នភាពផ្ទៃខាងក្រោយដំណើរការរាល់ពេល NVDA ចាប់ផ្តើម; អ្នកត្រូវបានជូនដំណឹងប្រសិនបើរកឃើញកំណែថ្មី។ នៅពេលបិទ ការត្រួតពិនិត្យស្វ័យប្រវត្តិឈប់ ប៉ុន្តែការត្រួតពិនិត្យដោយដៃនៅតែអាចប្រើបាន។ |
+| ផ្លូវ ffmpeg.exe | ផ្លូវទៅ ffmpeg.exe ដែលប្រើសម្រាប់ការស្គាល់តន្ត្រី។ ប្រសិនបើទុកទទេ ffmpeg.exe ក្នុងថតកម្មវិធីបន្ថែមត្រូវបានប្រើដោយស្វ័យប្រវត្តិ។ |
+| ថតការថត | កំណត់ថតដែលឯកសារថតត្រូវបានរក្សាទុក។ ប្រសិនបើទុកទទេ ទីតាំងលំនាំដើម `Documents\freeAudio Recordings\` ត្រូវបានប្រើ។ ប៊ូតុង រុករក អនុញ្ញាតឱ្យអ្នកជ្រើសរើសថតដោយអន្តរកម្ម។ ការផ្លាស់ប្តូរមានប្រសិទ្ធភាពភ្លាមៗបន្ទាប់ពីរក្សាទុក។ |
+| ប្រភពសៀវភៅសំឡេង | បញ្ជីធីកដែលជ្រើសរើសប្រភពសៀវភៅសំឡេងណាមួយ (**GETEM**, **LibriVox**, **Project Gutenberg**) ត្រូវបានស្វែងរក និងបង្ហាញក្នុងផ្ទាំងសៀវភៅសំឡេង។ ទាំងបីបើកតាមលំនាំដើម។ ការដោះធីកប្រភពលាក់សៀវភៅរបស់វាពីលទ្ធផលស្វែងរកបញ្ចូលគ្នា និងបញ្ជីបណ្ណាល័យ ដោយមិនលុបអ្វីដែលអ្នកបានបន្ថែមពីវារួចហើយ — សូមមើល [សៀវភៅសំឡេង (GETEM, LibriVox និង Project Gutenberg)](#សៀវភៅសំឡេង-getem-librivox-និង-project-gutenberg)។ |
+| ឈ្មោះអ្នកប្រើ GETEM / ពាក្យសម្ងាត់ GETEM | ព័ត៌មានសម្គាល់សមាជិកភាពសៀវភៅសំឡេង [GETEM](https://getem.boun.edu.tr/) របស់អ្នក ដែលត្រូវការដើម្បីបញ្ជូន ឬទាញយកសំឡេងសៀវភៅ — សូមមើល [ការចូលប្រើ](#ការចូលប្រើ)។ ផ្ទុកអ៊ិនគ្រីបនៅលើដ្រាយតាមរយៈ Windows Data Protection API ភ្ជាប់នឹងគណនីអ្នកប្រើ Windows របស់អ្នក; មិនដែលផ្ទុកជាអត្ថបទធម្មតា។ ការទុកវាលទាំងពីរទទេ និងរក្សាទុកលុបព័ត៌មានសម្គាល់ដែលបានរក្សាទុកណាមួយ។ LibriVox និង Project Gutenberg មិនត្រូវការគណនី និងគ្មានវាលសមមូលទេ។ |
+| ទម្រង់លទ្ធផលថត | រក្សាស្ទ្រីមដើម ទាញយកសំឡេងដោយមិនផ្លាស់ប្តូរកូដេករបស់វា ឬបម្លែងការថតដែលបានបញ្ចប់ទៅ MP3។ លំនាំដើមគឺទម្រង់ស្ទ្រីមដើម។ |
+| អត្រាប៊ីតថត MP3 | កំណត់អត្រាប៊ីតដែលប្រើនៅពេលទម្រង់លទ្ធផលថតគឺ MP3។ លំនាំដើមគឺ 128 kb/s។ |
+| បិទការពិនិត្យការតភ្ជាប់អ៊ីនធឺណិតមុនពេលចាក់ | ណែនាំសម្រាប់អ្នកប្រើដែលជួបប្រទះការពន្យារមុនពេលស្ថានីយ៍ចាប់ផ្តើមចាក់។ ក៏មានប្រយោជន៍នៅពេល DNS ត្រូវបានរារាំង។ |
 
-## Ztlumit oznámení
+## បិទសំឡេងការជូនដំណឹង
 
-Pokud je v Nastavení povoleno **Ztlumit oznámení**, NVDA ztiší následující automatická oznámení:
+នៅពេល **បិទសំឡេងការជូនដំណឹង** ត្រូវបានបើកក្នុងការកំណត់ NVDA បិទសំឡេងការប្រកាសស្វ័យប្រវត្តិខាងក្រោម៖
 
-- Název stanice, když se začne přehrávat nová stanice
-- Změny stavu přehrávání: přehrávání, pozastavení, zastavení
-- Režim Obligato: spuštěn / zastaven
-- události nahrávání: spuštěno, zastaveno, dokončeno (okamžité nahrávání, nahrávání skladeb a plánované nahrávání)
-- Oznámení o změně skladby ICY, i když je povolena také funkce **Automatické oznamování změn skladeb**.
+- ឈ្មោះស្ថានីយ៍នៅពេលស្ថានីយ៍ថ្មីចាប់ផ្តើមចាក់
+- ការផ្លាស់ប្តូរស្ថានភាពចាក់៖ ចាក់ ផ្អាក បញ្ឈប់
+- របៀប Obligato៖ ចាប់ផ្តើម / បញ្ឈប់
+- ព្រឹត្តិការណ៍ថត៖ ចាប់ផ្តើម បញ្ឈប់ បញ្ចប់ (ការថតភ្លាមៗ ការថតបទ និងការថតតាមកាលវិភាគ)
+- ការប្រកាសការផ្លាស់ប្តូរបទ ICY ទោះបីជា **ប្រកាសការផ្លាស់ប្តូរបទដោយស្វ័យប្រវត្តិ** ក៏ត្រូវបានបើកដែរ
 
-Záměrně nejsou **ovlivněna** následující oznámení: chybová hlášení, zpětná vazba oblíbených položek (přidáno / již v seznamu), výsledky rozpoznávání hudby a oznámení o aktualizacích.
+ការប្រកាសខាងក្រោម **មិន** ត្រូវបានប៉ះពាល់ដោយចេតនាទេ៖ សារកំហុស មតិកែលម្អសំណព្វ (បានបន្ថែម / មាននៅក្នុងបញ្ជីរួចហើយ) លទ្ធផលស្គាល់តន្ត្រី និងការជូនដំណឹងធ្វើបច្ចុប្បន្នភាព។
 
-Nastavení lze přepnout v nabídce NVDA → Předvolby → Nastavení → freeAudio nebo kdykoli okamžitě prostřednictvím nepřiřazeného vstupního gesta (přiřaďte je v nabídce NVDA → Předvolby → Vstupní gesta → freeAudio). Při přepínání NVDA jednou oznámí "Notifications muted" (Oznámení ztlumena) nebo "Notifications unmuted" (Oznámení odtlumena), aby potvrdila změnu.
+ការកំណត់អាចបិទ/បើកពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio ឬភ្លាមៗគ្រប់ពេលតាមរយៈចលនាថ្នាក់បញ្ចូលដែលមិនបានកំណត់ (កំណត់មួយពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ចលនាថ្នាក់បញ្ចូល → freeAudio)។ នៅពេលបិទ/បើក NVDA ប្រកាស "ការជូនដំណឹងត្រូវបានបិទសំឡេង" ឬ "ការជូនដំណឹងត្រូវបានបើកសំឡេង" ម្តងដើម្បីបញ្ជាក់ការផ្លាស់ប្តូរ។
 
-## Automatické oznamování změn stopy
+## ការប្រកាសការផ្លាស់ប្តូរបទដោយស្វ័យប្រវត្តិ
 
-Pokud je v Nastavení povolena možnost **Auto-announce track changes**, freeAudio přibližně každých 5 sekund na pozadí kontroluje tok metadat ICY aktivní stanice. Když se skladba změní, nový název se automaticky načte pomocí NVDA - není nutné stisknout klávesu.
+នៅពេលជម្រើស **ប្រកាសការផ្លាស់ប្តូរបទដោយស្វ័យប្រវត្តិ** ត្រូវបានបើកក្នុងការកំណត់ freeAudio ពិនិត្យស្ទ្រីមទិន្នន័យមេតា ICY របស់ស្ថានីយ៍សកម្មនៅផ្ទៃខាងក្រោយប្រហែលរៀងរាល់ 5 វិនាទី។ នៅពេលបទផ្លាស់ប្តូរ ចំណងជើងថ្មីត្រូវបានអានដោយស្វ័យប្រវត្តិដោយ NVDA — មិនចាំបាច់ចុចគ្រាប់ចុចទេ។
 
-Při přepnutí na novou stanici se informace o první skladbě oznámí ihned po navázání spojení. Pokud přepnete na stanici, která nevysílá metadata ICY, systém zůstane zticha a informace o skladbě předchozí stanice se neopakují.
+នៅពេលប្តូរទៅស្ថានីយ៍ថ្មី ព័ត៌មានបទដំបូងត្រូវបានប្រកាសភ្លាមៗនៅពេលការតភ្ជាប់ត្រូវបានបង្កើត។ ប្រសិនបើអ្នកប្តូរទៅស្ថានីយ៍ដែលមិនផ្សាយទិន្នន័យមេតា ICY ប្រព័ន្ធនៅស្ងាត់ ហើយព័ត៌មានបទរបស់ស្ថានីយ៍មុនមិនត្រូវបានធ្វើម្តងទៀតទេ។
 
-Tato funkce je ve výchozím nastavení vypnutá a lze ji přepnout v nabídce NVDA → Předvolby → Nastavení → freeAudio.
+មុខងារនេះបិទតាមលំនាំដើម ហើយអាចបិទ/បើកពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio។
 
-## Přehrávání
+## ការចាក់
 
-freeAudio používá **BASS** jako svůj jediný backend přehrávání pro vše — internetové rádio, podcasty, audioknihy a skladby jukeboxu. Není nutná samostatná instalace; je dodáván spolu s doplňkem. Podpora VLC, PotPlayer a Windows Media Player jako záložních backendů byla odstraněna; vždy se používá BASS.
+freeAudio ប្រើ **BASS** ជាម៉ាស៊ីនចាក់តែមួយគត់របស់វាសម្រាប់អ្វីៗទាំងអស់ — វិទ្យុអ៊ីនធឺណិត ផតខាស្ត សៀវភៅសំឡេង និងបទ Jukebox។ មិនត្រូវការការដំឡើងដាច់ដោយឡែកទេ; វាត្រូវបានរួមបញ្ចូលជាមួយកម្មវិធីបន្ថែម។ ការគាំទ្រសម្រាប់ VLC, PotPlayer និង Windows Media Player ជាម៉ាស៊ីនបម្រុងត្រូវបានដកចេញ; BASS ត្រូវបានប្រើជានិច្ច។
 
-BASS odesílá zvuk přímo do zvukového zásobníku systému Windows a zobrazuje se ve směšovači hlasitosti systému Windows jako nezávislý zdroj zvuku s názvem "pythonw.exe", odděleně od NVDA. To znamená, že zvuk FreeRadia proudí na zcela odděleném kanálu od řeči NVDA: rádio se během řeči NVDA nevypíná, nemísí se s ním ani není ovlivněno vlastním nastavením zvuku NVDA. Uživatel může nastavit hlasitost rádia nezávisle na NVDA ve směšovači hlasitosti systému Windows. Podporuje protokoly HTTP, HTTPS a většinu formátů vložených streamů.
+BASS ផ្ញើសំឡេងដោយផ្ទាល់ទៅ stack សំឡេង Windows និងបង្ហាញនៅក្នុងឧបករណ៍លាយកម្រិតសំឡេង Windows ជាប្រភពសំឡេងឯករាជ្យឈ្មោះ "pythonw.exe" ដោយឡែកពី NVDA។ នេះមានន័យថាសំឡេង freeAudio ហូរនៅក្នុងឆានែលដាច់ដោយឡែកទាំងស្រុងពីសំឡេងនិយាយ NVDA៖ វិទ្យុមិនកាត់ចេញ មិនលាយជាមួយ ឬមិនត្រូវបានប៉ះពាល់ដោយការកំណត់សំឡេងផ្ទាល់ខ្លួនរបស់ NVDA ខណៈ NVDA កំពុងនិយាយ។ អ្នកប្រើអាចកែតម្រូវកម្រិតសំឡេងវិទ្យុដោយឯករាជ្យពី NVDA នៅក្នុងឧបករណ៍លាយកម្រិតសំឡេង Windows។ គាំទ្រ HTTP, HTTPS និងទម្រង់ស្ទ្រីមបង្កប់ភាគច្រើន។
 
-Epizody podcastů, kapitoly audioknih a skladby jukeboxu se přehrávají přes BASS, protože dokáže otevřít stream jako soubor, ve kterém lze posouvat (i během stahování), což umožňuje přesné sledování pozice, odstupňované přetáčení vpřed/vzad, rychlost přehrávání, transpozici výšky tónu a pokračování. Zrcadlení zvuku, časový posun a posouvání/pokračování podcastů/audioknih/jukeboxu všechny závisí na BASS a jsou vždy k dispozici.
+វគ្គផតខាស្ត ជំពូកសៀវភៅសំឡេង និងបទ Jukebox ត្រូវបានចាក់តាមរយៈ BASS ព្រោះវាអាចបើកស្ទ្រីមជាឯកសារដែលអាចស្វែងរក (សូម្បីតែខណៈទាញយក) ដោយអនុញ្ញាតឱ្យតាមដានទីតាំងយ៉ាងជាក់លាក់ ការរំកិលពេលវេលាជាថ្នាក់ ល្បឿនចាក់ ការផ្លាស់ប្តូរសំនៀង និងការបន្ត។ ការចម្លងសំឡេង ការរំកិលពេលវេលា និងការស្វែងរក/បន្តផតខាស្ត/សៀវភៅសំឡេង/Jukebox ទាំងអស់ពឹងផ្អែកលើ BASS ហើយមានជានិច្ច។
 
-## Kontrola aktualizací
+## ការពិនិត្យការធ្វើបច្ចុប្បន្នភាព
 
-freeAudio automaticky kontroluje nové verze prostřednictvím služby GitHub.
+freeAudio ពិនិត្យកំណែថ្មីដោយស្វ័យប្រវត្តិតាមរយៈ GitHub។
 
-**Automatická kontrola:** Probíhá tiše na pozadí 15 sekund po spuštění NVDA. Pokud je nalezena nová verze, jste o tom informováni; pokud není nalezena žádná, nezobrazí se žádná zpráva.
+**ការពិនិត្យស្វ័យប្រវត្តិ៖** ដំណើរការស្ងាត់ៗនៅផ្ទៃខាងក្រោយ 15 វិនាទីបន្ទាប់ពី NVDA ចាប់ផ្តើម។ ប្រសិនបើរកឃើញកំណែថ្មី អ្នកត្រូវបានជូនដំណឹង; ប្រសិនបើរកមិនឃើញ គ្មានសារត្រូវបានបង្ហាញទេ។
 
-**Ruční kontrola:** Lze spustit na vyžádání z NVDA Nástroje → freeAudio → **Zkontrolovat aktualizace...**. Při spuštění tímto způsobem se výsledek oznámí i v případě, že je verze aktuální.
+**ការពិនិត្យដោយដៃ៖** អាចត្រូវបានកេះតាមតម្រូវការពី NVDA → ឧបករណ៍ → freeAudio → **ពិនិត្យការធ្វើបច្ចុប្បន្នភាព…**។ នៅពេលចាប់ផ្តើមតាមរបៀបនេះ លទ្ធផលត្រូវបានប្រកាសទោះបីជាកំណែទាន់សម័យក៏ដោយ។
 
-**Když je nalezena aktualizace:** Otevře se dialogové okno zobrazující číslo verze a vaši nainstalovanou verzi.
+**នៅពេលរកឃើញការធ្វើបច្ចុប្បន្នភាព៖** ប្រអប់បើកដោយបង្ហាញលេខកំណែ និងកំណែដែលបានដំឡើងរបស់អ្នក។
 
-- Pokud je na GitHub release k dispozici přímo stažitelný soubor `.nvda-addon`, zobrazí se tlačítko **Stáhnout a nainstalovat**. Po potvrzení se soubor stáhne na pozadí, NVDA oznámí zahájení stahování a automaticky se otevře vlastní instalační obrazovka NVDA.
-- Pokud není k dispozici přímý odkaz ke stažení, zobrazí se tlačítko **Otevřít stránku** a v výchozím prohlížeči se otevře stránka release na GitHubu.
+- ប្រសិនបើឯកសារ `.nvda-addon` ដែលអាចទាញយកបានដោយផ្ទាល់មាននៅលើ GitHub release ប៊ូតុង **ទាញយក និងដំឡើង** ត្រូវបានបង្ហាញ។ នៅពេលបញ្ជាក់ ឯកសារត្រូវបានទាញយកនៅផ្ទៃខាងក្រោយ NVDA ប្រកាសនៅពេលការទាញយកចាប់ផ្តើម ហើយអេក្រង់ដំឡើងផ្ទាល់ខ្លួនរបស់ NVDA បើកដោយស្វ័យប្រវត្តិ។
+- ប្រសិនបើគ្មានតំណភ្ជាប់ទាញយកដោយផ្ទាល់ ប៊ូតុង **បើកទំព័រ** ត្រូវបានបង្ហាញ ហើយទំព័រ release GitHub បើកក្នុងកម្មវិធីរុករកលំនាំដើម។
 
-**Vypnutí automatických kontrol:** Vypněte možnost **Automaticky kontrolovat aktualizace** v NVDA Menu → Předvolby → Nastavení → freeAudio.
+**ដើម្បីបិទការពិនិត្យស្វ័យប្រវត្តិ៖** បិទជម្រើស **ពិនិត្យការធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ** ពីម៉ឺនុយ NVDA → ចំណូលចិត្ត → ការកំណត់ → freeAudio។
 
-## Změny
+## ការទទួលស្គាល់ និងសេចក្តីថ្លែងអំណរគុណ
 
-**Hromadné přidávání složek do jukeboxu**
-- Tlačítko **Přidat složku…** na kartě Jukebox nyní umožňuje vybrat více složek najednou místo přidávání po jedné. Všechny vybrané složky se přidají v jedné operaci s jedním souhrnným oznámením o tom, kolik jich bylo přidáno.
+* **មូលដ្ឋាន និងគំនិតដើម៖** សូមថ្លែងអំណរគុណយ៉ាងស្មោះចំពោះ **Gary Mp** ([GaryMp/freeradio](https://github.com/GaryMp/freeradio)) សម្រាប់គំនិតដើមនៃកម្មវិធីបន្ថែមវិទ្យុ និងរចនាសម្ព័ន្ធគ្រប់គ្រងសំណព្វស្នូលដែលបានបម្រើជាមូលដ្ឋានគ្រឹះសម្រាប់គម្រោងនេះ។
+* **ឧបករណ៍ AI និង LLM៖** ការទទួលស្គាល់ដោយកតញ្ញូចំពោះឧបករណ៍គំរូភាសាធំ (LLM) ទំនើប (រួមទាំង Claude, ChatGPT និង Gemini) សម្រាប់ជំនួយក្នុងដំណាក់កាលអភិវឌ្ឍន៍ ការធ្វើកំណត់សំគាល់កូដឡើងវិញ និងការអនុវត្តមុខងារ។
+* **សេវាថត៖** ថតស្ថានីយ៍ដំណើរការដោយ [Radio Browser API](https://www.radio-browser.info/)។
+* **សហគមន៍៖** សូមថ្លែងអំណរគុណយ៉ាងស្មោះចំពោះសមាជិកសហគមន៍ NVDA ទាំងអស់ និងអ្នកបកប្រែសម្រាប់ការគាំទ្រ មតិកែលម្អ និងការរួមចំណែកក្នុងការធ្វើមូលដ្ឋានីយកម្មរបស់ពួកគេជាបន្តបន្ទាប់។
 
-**Označení a odstranění více položek (Oblíbené, Oblíbené skladby, Audioknihy, Jukebox)**
-- V seznamech Oblíbené, Oblíbené skladby, knihovna audioknih a Jukebox nyní můžete před odstraněním označit více položek: stiskněte `.` pro označení/odznačení zvýrazněné položky (označené řádky jsou označeny „(označeno)“), poté stiskněte `Delete` nebo použijte příkaz kontextové nabídky **Odstranit vybrané** pro odstranění všech označených položek najednou po jednom potvrzovacím dialogu. Podrobnosti viz [Označení a odstranění více položek](#označení-a-odstranění-více-položek) v části Oblíbené.
-
-## Poděkování a zásluhy
-
-* **Původní základ a koncepty:** Upřímné díky **Gary Mp** ([GaryMp/freeradio](https://github.com/GaryMp/freeradio)) za původní koncepty rádiového doplňku a základní struktury pro správu oblíbených, které posloužily jako výchozí základ tohoto projektu.
-* **Nástroje AI a LLM:** Vděčné poděkování moderním nástrojům velkých jazykových modelů (LLM), včetně Claude, ChatGPT a Gemini, za pomoc během vývoje, refaktoringu kódu a implementace funkcí.
-* **Adresářová služba:** Adresář stanic je poháněn pomocí [Radio Browser API](https://www.radio-browser.info/).
-* **Komunita:** Upřímné díky všem členům komunity NVDA a překladatelům za jejich trvalou podporu, zpětnou vazbu a příspěvky k lokalizaci.
-
-## Licence
+## អាជ្ញាបណ្ណ
 
 GPL v2
