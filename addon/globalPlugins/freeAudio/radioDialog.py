@@ -709,6 +709,11 @@ class RadioDialog(wx.Dialog):
 		self._notebook.AddPage(self._rec_panel,   _("Recording"))
 		# Translators: Tab label for scheduled recording timers.
 		self._notebook.AddPage(self._timer_panel, _("Timer"))
+		# Only the first visit to the Timer tab forces focus to the
+		# Start/Stop radio group (see _focus_timer_action_group). Every
+		# later visit instead leaves wx's own per-page focus memory alone,
+		# like every other tab already does.
+		self._timer_tab_focus_done = False
 		# Translators: Tab label for the list of liked/favourited songs (with lyrics lookup).
 		self._notebook.AddPage(self._liked_panel, _("Liked Songs"))
 		self._optional_tab_pos = {}
@@ -1597,10 +1602,13 @@ class RadioDialog(wx.Dialog):
 		elif sel == 3:
 			wx.CallLater(0, self._refresh_timer_stations)
 			wx.CallLater(0, self._refresh_timer_list)
-			# Defer focus change until after the tab panel is fully shown and
-			# the refresh calls above have been queued, so focus isn't stolen
-			# back by those refreshes.
-			wx.CallLater(0, self._focus_timer_action_group)
+			if not self._timer_tab_focus_done:
+				self._timer_tab_focus_done = True
+				# Defer focus change until after the tab panel is fully shown
+				# and the refresh calls above have been queued, so focus
+				# isn't stolen back by those refreshes. Only done once - see
+				# _timer_tab_focus_done.
+				wx.CallLater(0, self._focus_timer_action_group)
 		elif sel == 4:
 			wx.CallLater(0, self._refresh_liked_list)
 		elif sel == self._tab_pos("podcasts"):
@@ -1619,8 +1627,9 @@ class RadioDialog(wx.Dialog):
 			self._save_audio_btn.Enable(False)
 
 	def _focus_timer_action_group(self):
-		"""When the Timer tab is opened, move focus to the Timer action
-		(Start/Stop) radio buttons instead of the recurrence options."""
+		"""When the Timer tab is opened for the first time, move focus to
+		the Timer action (Start/Stop) radio buttons instead of wherever
+		wx would otherwise restore focus to."""
 		if not self:
 			return
 		try:
