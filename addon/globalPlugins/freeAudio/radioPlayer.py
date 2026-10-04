@@ -264,7 +264,7 @@ def _resolve_playlist_url(url, timeout=8, _hops=3):
 
 # Segments at/below this go through _HlsStreamMerger (juyun.tv-style
 # feeds run 1-2s, ordinary broadcaster HLS runs 6-8s).
-_HLS_SHORT_SEGMENT_THRESHOLD = 4
+_HLS_SHORT_SEGMENT_THRESHOLD = 2
 
 # How long a _should_hls_merge() decision is cached, so a stall/
 # reconnect never re-fetches the playlist mid-struggle.
