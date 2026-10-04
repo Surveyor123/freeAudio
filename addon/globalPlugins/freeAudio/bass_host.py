@@ -70,6 +70,7 @@ _BASS_CONFIG_NET_SSL	  = 73
 _BASS_CONFIG_NET_SSL_VERIFY = 74
 _BASS_CONFIG_NET_PLAYLIST = 21
 _BASS_CONFIG_NET_PREBUF   = 15
+_BASS_CONFIG_NET_AGENT	  = 16
 _BASS_CONFIG_NET_READTIMEOUT = 37
 _BASS_ERROR_ALREADY	   = 8
 _BASS_ERROR_FILEFORM	  = 40
@@ -414,6 +415,13 @@ class BassHost:
 		# exposed to a man-in-the-middle substituting the stream.
 		dll.BASS_SetConfig(_BASS_CONFIG_NET_SSL_VERIFY, 1)
 		dll.BASS_SetConfig(_BASS_CONFIG_NET_PLAYLIST, 1)
+
+		# BASS's default User-Agent ("BASS/2.4") gets 403'd by some servers
+		# (confirmed on qingting.fm) that block known library signatures.
+		try:
+			dll.BASS_SetConfigPtr(_BASS_CONFIG_NET_AGENT, b"VLC/3.0.20 LibVLC/3.0.20")
+		except Exception:
+			pass
 
 		# Plugin list: only existing ones are loaded
 		for plugin in ['bass_aac', 'basshls', 'bassopus', 'bassflac', 'basswma']:
