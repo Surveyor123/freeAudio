@@ -980,14 +980,24 @@ class JukeboxEntry:
 	Storing per file also means a profile survives a folder rescan and a
 	folder being removed and later re-added."""
 
-	def __init__(self, path, kind, added=None):
+	def __init__(self, path, kind, added=None, group="", custom_name=None):
 		self.path = path
 		self.kind = kind  # "file" | "folder"
 		self.added = added if added is not None else time.time()
+		# User-assigned folder/group name (mirrors favourites' "group" field
+		# in stationManager - see RadioDialog._on_jukebox_assign_group()).
+		# Display-only, like favourites: never changes anything on disk.
+		self.group = group or ""
+		# User-assigned display name, overriding the name derived from the
+		# path (mirrors favourites' rename - see JukeboxManager.rename_entry()).
+		# None means "no override, use the derived name".
+		self.custom_name = custom_name or None
 		self._tracks = None  # lazily scanned for folders; see tracks()
 
 	@property
 	def title(self):
+		if self.custom_name:
+			return self.custom_name
 		if self.kind == "folder":
 			return os.path.basename(os.path.normpath(self.path)) or self.path
 		return _display_name(self.path)
@@ -1026,15 +1036,29 @@ class JukeboxEntry:
 		if self.kind == "folder":
 			count = len(self.tracks())
 			# Translators: %(name)s = folder name, %(count)d = number of audio files found in it
-			return _("%(name)s (folder, %(count)d tracks)") % {"name": self.title, "count": count}
-		return self.title
+			label = _("%(name)s (folder, %(count)d tracks)") % {"name": self.title, "count": count}
+		else:
+			label = self.title
+		# Mirrors RadioDialog._fav_display_label()'s " — Group" suffix for
+		# favourites - display-only, never touches self.path/title.
+		if self.group:
+			label += " — " + self.group
+		return label
 
 	def to_dict(self):
-		return {"path": self.path, "kind": self.kind, "added": self.added}
+		d = {"path": self.path, "kind": self.kind, "added": self.added}
+		if self.group:
+			d["group"] = self.group
+		if self.custom_name:
+			d["custom_name"] = self.custom_name
+		return d
 
 	@classmethod
 	def from_dict(cls, data):
-		return cls(data["path"], data.get("kind", "file"), data.get("added", 0.0))
+		return cls(
+			data["path"], data.get("kind", "file"), data.get("added", 0.0),
+			group=data.get("group", ""), custom_name=data.get("custom_name"),
+		)
 
 
 class JukeboxManager:
@@ -1238,6 +1262,185 @@ class JukeboxManager:
 			if e.kind == "folder" and os.path.normcase(os.path.normpath(e.path)) == norm:
 				return e.tracks(force_rescan=True)
 		return []
+
+	def rename_entry(self, path, new_name):
+		"""Give the entry at *path* a custom display name (JukeboxEntry.
+		custom_name), mirroring favourites' rename - see
+		RadioDialog._on_rename_station(). Never touches the file/folder on
+		disk itself. Passing an empty/None *new_name* clears the override,
+		reverting to the name derived from the path. Returns True if an
+		entry was found and changed."""
+		norm = os.path.normcase(os.path.normpath(path))
+		for e in self._entries:
+			if os.path.normcase(os.path.normpath(e.path)) == norm:
+				e.custom_name = (new_name or "").strip() or None
+				self._save()
+				return True
+		return False
+
+	def set_entry_group(self, path, group):
+		"""Assign (or, with an empty *group*, clear) the folder/group name
+		for the entry at *path* - mirrors favourites' Assign to Group, see
+		RadioDialog._on_fav_assign_group(). Returns True if an entry was
+		found and changed."""
+		norm = os.path.normcase(os.path.normpath(path))
+		for e in self._entries:
+			if os.path.normcase(os.path.normpath(e.path)) == norm:
+				e.group = (group or "").strip()
+				self._save()
+				return True
+		return False
+
+	def set_order(self, entries):
+		"""Replace the entry list with *entries* (the same JukeboxEntry
+		objects, reordered) and persist - used by the Jukebox tab's
+		comma-key move/reorder command (mirrors favourites' own reordering
+		in RadioDialog._handle_fav_move_x(), which manipulates
+		StationManager's list directly; this does the equivalent through a
+		proper method since JukeboxManager's entry list isn't a plain list
+		of dicts)."""
+		self._entries = list(entries)
+		self._save()
+
+	def export_entries_json(self, path):
+		"""Write every entry (path/kind/group/custom name) and every saved
+		per-file audio profile to a JSON file - mirrors
+		StationManager.export_favorites_json(). The full-fidelity format:
+		see export_entries_m3u() for the lighter alternative, which drops
+		the group and the per-file audio profiles."""
+		data = {
+			"entries": [e.to_dict() for e in self._entries],
+			"track_profiles": self._track_profiles,
+		}
+		with open(path, "w", encoding="utf-8") as f:
+			json.dump(data, f, ensure_ascii=False, indent=2)
+
+	def export_entries_m3u(self, path):
+		"""Write every entry's path (file or folder) to an M3U playlist,
+		with a preceding #EXTINF line carrying the entry's custom name
+		where one was set - mirrors StationManager.export_favorites_m3u().
+		Deliberately lighter than export_entries_json(): the group and any
+		per-file audio profiles aren't representable in M3U and are left
+		out, same as import_entries_m3u() never restores them. A folder
+		entry is written as its own single line (its own path, not each
+		track inside it) - import_entries_m3u() tells files and folders
+		apart again by checking the path on disk."""
+		lines = ["#EXTM3U"]
+		for e in self._entries:
+			if e.custom_name:
+				# Translators: not shown to the user - "-1" is the M3U #EXTINF duration field (meaning "unknown/not applicable", since this is a local file or folder, not a timed stream), kept untranslated; only the following entry name is ever seen (in the file itself, if opened).
+				lines.append("#EXTINF:-1,%s" % e.custom_name)
+			lines.append(e.path)
+		with open(path, "w", encoding="utf-8") as f:
+			f.write("\n".join(lines) + "\n")
+
+	def import_entries_json(self, path, merge=True):
+		"""Load entries (and their profiles) from a file written by
+		export_entries_json(). With merge=True, entries already present
+		(by path) are skipped and existing profiles are kept unless the
+		import provides one; merge=False replaces the whole library.
+		Returns how many entries were newly added. Raises ValueError if
+		the file isn't in the expected format."""
+		with open(path, "r", encoding="utf-8") as f:
+			data = json.load(f)
+		if not isinstance(data, dict) or "entries" not in data:
+			raise ValueError(_("Not a valid jukebox export file."))
+		imported_entries = [JukeboxEntry.from_dict(item) for item in data.get("entries", [])]
+		imported_profiles = {
+			self._profile_key(k): v for k, v in dict(data.get("track_profiles", {})).items()
+		}
+
+		if not merge:
+			self._entries = imported_entries
+			self._track_profiles = dict(imported_profiles)
+			self._save()
+			return len(self._entries)
+
+		existing_norms = {os.path.normcase(os.path.normpath(e.path)) for e in self._entries}
+		added = 0
+		for entry in imported_entries:
+			norm = os.path.normcase(os.path.normpath(entry.path))
+			if norm in existing_norms:
+				continue
+			self._entries.append(entry)
+			existing_norms.add(norm)
+			added += 1
+		for key, profile in imported_profiles.items():
+			self._track_profiles.setdefault(key, profile)
+		self._save()
+		return added
+
+	def import_entries_m3u(self, path, merge=True):
+		"""Load entries from an M3U playlist written by
+		export_entries_m3u() (or any plain M3U of local file/folder paths).
+		Only the path and, where a preceding #EXTINF line gave one, a
+		custom name are restored - there's no group or per-file audio
+		profile to bring back, since M3U never carries them in the first
+		place (see export_entries_m3u()'s docstring). A listed path is
+		added as a folder entry if it's currently a directory on disk,
+		otherwise as a file entry - same validation as add_file()/
+		add_folder() (a missing/unreadable/non-audio path is silently
+		skipped, same as a dedupe'd path already in the library).
+
+		With merge=True (the default), existing entries are kept and only
+		new paths are added. With merge=False, the existing entries are
+		replaced outright - but unlike import_entries_json()'s replace,
+		the saved per-file audio profiles are left untouched: M3U has
+		nothing to replace them *with*, so clearing them here would just
+		be silent data loss with no corresponding data gained.
+
+		Returns how many entries were newly added. Raises ValueError if
+		the file doesn't look like an M3U playlist at all."""
+		with open(path, "r", encoding="utf-8") as f:
+			raw_lines = f.read().splitlines()
+		if not raw_lines or not raw_lines[0].strip().upper().startswith("#EXTM3U"):
+			raise ValueError(_("Not a valid M3U playlist file."))
+
+		parsed = []   # list of (path, custom_name_or_None)
+		pending_name = None
+		for line in raw_lines[1:]:
+			line = line.strip()
+			if not line:
+				continue
+			if line.startswith("#EXTINF:"):
+				# Everything after the first comma is the title; the field
+				# before it (duration, "-1" in our own exports) is ignored.
+				_duration, _sep, title = line.partition(",")
+				pending_name = title.strip() or None
+				continue
+			if line.startswith("#"):
+				continue
+			parsed.append((line, pending_name))
+			pending_name = None
+
+		if not merge:
+			self._entries = []
+
+		existing_norms = {os.path.normcase(os.path.normpath(e.path)) for e in self._entries}
+		added = 0
+		for entry_path, custom_name in parsed:
+			norm = os.path.normcase(os.path.normpath(entry_path))
+			if norm in existing_norms:
+				continue
+			if os.path.isdir(entry_path):
+				entry, error = self.add_folder(entry_path)
+			elif os.path.isfile(entry_path):
+				entry, error = self.add_file(entry_path)
+			else:
+				entry, error = None, None   # Gone from disk - skip quietly, like a dedupe.
+			if error or entry is None:
+				continue
+			if custom_name:
+				entry.custom_name = custom_name
+				self._save()
+			existing_norms.add(norm)
+			added += 1
+		if not merge:
+			# Persist even if the playlist turned out to add nothing (e.g.
+			# every path was missing from disk) - the clear-out itself
+			# still happened and must stick.
+			self._save()
+		return added
 
 
 # --- Disk search -----------------------------------------------------------

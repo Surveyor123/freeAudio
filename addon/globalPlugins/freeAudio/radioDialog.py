@@ -614,6 +614,7 @@ class RadioDialog(wx.Dialog):
 		self._stations        = []
 		self._combo_fetch_id = 0
 		self._moving_station_index = -1  # Index of the item picked for X-based reordering
+		self._moving_jukebox_index = -1  # Same, for the jukebox entries list (see _handle_jukebox_move_x)
 		self._combo_debounce_timer = None  # wx.CallLater for country combo debounce
 		self._search_debounce_timer = None
 		self._search_fetch_id = 0
@@ -3907,6 +3908,10 @@ class RadioDialog(wx.Dialog):
 			self._handle_fav_move_x()
 			return
 
+		if key == ord(",") and focused == self._jukebox_list:
+			self._handle_jukebox_move_x()
+			return
+
 		# '.' marks/unmarks the focused row for the "mark several items,
 		# then remove them all at once" flow in the Favourites, Liked
 		# Songs, Audio Books library, and Jukebox lists - handled globally
@@ -4430,6 +4435,42 @@ class RadioDialog(wx.Dialog):
 			# Translators: Spoken after successfully reordering a favourite station; %s is the station name.
 			ui.message(_("Moved: %s") % station.get("name", "").strip())
 
+	def _handle_jukebox_move_x(self):
+		"""Reorder jukebox entries via comma+comma - same pick/drop scheme
+		as _handle_fav_move_x(), but simpler since the jukebox list has no
+		text filter to resolve visible indices through."""
+		idx = self._jukebox_list.GetSelection()
+		entries = self._jukebox_manager.get_entries()
+		if idx == wx.NOT_FOUND or idx >= len(entries):
+			return
+
+		if self._moving_jukebox_index == -1:
+			self._moving_jukebox_index = idx
+			entry_name = entries[idx].title
+			winsound.Beep(440, 100)  # Mid tone: item picked
+			# Translators: Spoken when the 'move jukebox entry' keyboard command (comma) is pressed the first time on an entry, picking it up for reordering; %s is the entry title. Press comma again elsewhere in the list to drop it there.
+			ui.message(_("%s selected. Navigate to the target position and press comma again to drop.") % entry_name)
+			return
+
+		if self._moving_jukebox_index == idx:
+			self._moving_jukebox_index = -1
+			winsound.Beep(330, 150)  # Low tone: cancelled
+			# Translators: Spoken if the move-in-progress is cancelled before a drop position is chosen.
+			ui.message(_("Move cancelled"))
+			return
+
+		source = self._moving_jukebox_index
+		entry = entries.pop(source)
+		insert_at = idx if idx <= source else idx - 1
+		entries.insert(insert_at, entry)
+
+		self._jukebox_manager.set_order(entries)
+		self._refresh_jukebox_list(select_path=entry.path)
+		self._moving_jukebox_index = -1
+		winsound.Beep(880, 100)  # High tone: successfully moved
+		# Translators: Spoken after successfully reordering a jukebox entry; %s is the entry title.
+		ui.message(_("Moved: %s") % entry.title)
+
 	def _on_search_key(self, event):
 		key = event.GetKeyCode()
 		if key == wx.WXK_DOWN:
@@ -4837,6 +4878,225 @@ class RadioDialog(wx.Dialog):
 				"Removed %(count)d favourites from their groups",
 				count,
 			) % {"count": count})
+
+	def _on_jukebox_rename(self, event=None):
+		"""Rename the selected jukebox entry - mirrors _on_rename_station().
+		Only changes the display label (JukeboxEntry.custom_name); never
+		touches the file/folder on disk."""
+		entry = self._get_selected_jukebox_entry()
+		if not entry:
+			return
+		current_name = entry.title
+
+		dlg = wx.TextEntryDialog(
+			self,
+			# Translators: Prompt of the rename dialog for a jukebox entry.
+			_("Enter a new name for this entry:"),
+			# Translators: Title of the jukebox rename dialog.
+			_("Rename Entry"),
+			current_name,
+		)
+		if dlg.ShowModal() != wx.ID_OK:
+			dlg.Destroy()
+			return
+		new_name = dlg.GetValue().strip()
+		dlg.Destroy()
+
+		if not new_name:
+			# Translators: Spoken if the user submits an empty name in the rename dialog.
+			ui.message(_("Name cannot be empty"))
+			return
+		if new_name == current_name:
+			return
+
+		self._jukebox_manager.rename_entry(entry.path, new_name)
+		self._refresh_jukebox_list(select_path=entry.path)
+		# Translators: Spoken after successfully renaming a jukebox entry; %s is the new name.
+		ui.message(_("Renamed to: %s") % new_name)
+
+	def _on_jukebox_assign_group(self, entry):
+		"""Assign a user-typed folder/group name to every jukebox entry
+		marked with '.' (or just *entry* if nothing is marked) - mirrors
+		_on_fav_assign_group(). An empty name clears the group."""
+		entries = self._jukebox_manager.get_entries()
+		marked = self._jukebox_marked
+		if marked:
+			targets = [e for e in entries if e.path in marked]
+		else:
+			targets = [entry] if entry else []
+		if not targets:
+			return
+
+		current = entry.group if entry else ""
+		dlg = wx.TextEntryDialog(
+			self,
+			# Translators: Prompt of the dialog that assigns a folder/group name to the marked jukebox entry/entries; leaving the field empty removes them from a group instead.
+			_("Enter a group name (leave empty to remove from a group):"),
+			# Translators: Title of the jukebox assign-to-group dialog.
+			_("Assign to Group"),
+			current,
+		)
+		if dlg.ShowModal() != wx.ID_OK:
+			dlg.Destroy()
+			return
+		new_group = dlg.GetValue().strip()
+		dlg.Destroy()
+
+		for e in targets:
+			self._jukebox_manager.set_entry_group(e.path, new_group)
+		self._jukebox_marked.clear()
+		self._refresh_jukebox_list()
+
+		count = len(targets)
+		if new_group:
+			# Translators: Spoken after assigning marked jukebox entry/entries to a group; %(count)d is how many entries, %(group)s the group name.
+			ui.message(ngettext(
+				"Assigned %(count)d entry to group \"%(group)s\"",
+				"Assigned %(count)d entries to group \"%(group)s\"",
+				count,
+			) % {"count": count, "group": new_group})
+		else:
+			# Translators: Spoken after clearing the group from marked jukebox entry/entries; %(count)d is how many entries.
+			ui.message(ngettext(
+				"Removed %(count)d entry from its group",
+				"Removed %(count)d entries from their groups",
+				count,
+			) % {"count": count})
+
+	def _on_jukebox_export(self, event=None):
+		"""Show a file-save dialog and export the jukebox library as JSON
+		(entries + per-file audio profiles) or M3U (paths and custom names
+		only, no group/profiles - see JukeboxManager.export_entries_m3u())
+		- mirrors _on_fav_export()."""
+		# Translators: File-type filter list ('wildcard') for the jukebox-export file-save dialog; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
+		wildcard = _(
+			"JSON jukebox library (*.json)|*.json"
+			"|M3U playlist (*.m3u)|*.m3u"
+		)
+		dlg = wx.FileDialog(
+			self,
+			# Translators: Title of the file-save dialog for exporting the jukebox library.
+			message=_("Export Jukebox"),
+			wildcard=wildcard,
+			style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT,
+			defaultFile="freeAudio_jukebox_export",
+		)
+		if dlg.ShowModal() != wx.ID_OK:
+			dlg.Destroy()
+			return
+		path = dlg.GetPath()
+		fmt  = dlg.GetFilterIndex()   # 0 = JSON, 1 = M3U
+		dlg.Destroy()
+
+		ext = ".json" if fmt == 0 else ".m3u"
+		if not path.lower().endswith(ext):
+			path += ext
+
+		try:
+			if fmt == 0:
+				self._jukebox_manager.export_entries_json(path)
+			else:
+				self._jukebox_manager.export_entries_m3u(path)
+		except Exception as exc:
+			wx.MessageBox(
+				# Translators: Body of the error dialog shown when writing the jukebox export file fails; %(error)s is the underlying error message.
+				_("Export failed: %(error)s") % {"error": str(exc)},
+				# Translators: Title of the export-error dialog.
+				_("Export Error"),
+				wx.OK | wx.ICON_ERROR,
+				self,
+			)
+			return
+
+		count = len(self._jukebox_manager.get_entries())
+		wx.MessageBox(
+			# Translators: Plural forms of the success message after exporting the jukebox library; %(count)d is how many entries were exported, %(path)s the file path.
+			ngettext(
+				"Exported %(count)d entry to:\n%(path)s",
+				"Exported %(count)d entries to:\n%(path)s",
+				count,
+			) % {"count": count, "path": path},
+			# Translators: Title of the export-success dialog.
+			_("Export Complete"),
+			wx.OK | wx.ICON_INFORMATION,
+			self,
+		)
+
+	def _on_jukebox_import(self, event=None):
+		"""Show a file-open dialog, ask merge/replace, then import jukebox
+		entries from a file written by _on_jukebox_export() (JSON or M3U,
+		picked here by the chosen file's extension) - mirrors
+		_on_fav_import()."""
+		# Translators: File-type filter list ('wildcard') for the jukebox-import file picker; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
+		wildcard = _(
+			"Supported files (*.json;*.m3u)|*.json;*.m3u"
+			"|JSON jukebox library (*.json)|*.json"
+			"|M3U playlist (*.m3u)|*.m3u"
+		)
+		dlg = wx.FileDialog(
+			self,
+			# Translators: Title of the file-picker dialog for importing a jukebox library.
+			message=_("Import Jukebox"),
+			wildcard=wildcard,
+			style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST,
+		)
+		if dlg.ShowModal() != wx.ID_OK:
+			dlg.Destroy()
+			return
+		path = dlg.GetPath()
+		dlg.Destroy()
+		is_m3u = path.lower().endswith((".m3u", ".m3u8"))
+
+		choice = wx.MessageBox(
+			# Translators: Body of the merge-vs-replace confirmation dialog shown after choosing a jukebox file to import.
+			_(
+				"How should the imported entries be added?\n\n"
+				"Yes  — Merge: add new entries without removing existing ones.\n"
+				"No   — Replace: clear the current library and load from file."
+			),
+			# Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
+			_("Import Jukebox"),
+			wx.YES_NO | wx.CANCEL | wx.ICON_QUESTION,
+			self,
+		)
+		if choice == wx.CANCEL:
+			return
+		merge = (choice == wx.YES)
+
+		try:
+			if is_m3u:
+				added = self._jukebox_manager.import_entries_m3u(path, merge=merge)
+			else:
+				added = self._jukebox_manager.import_entries_json(path, merge=merge)
+		except (ValueError, OSError) as exc:
+			wx.MessageBox(
+				# Translators: Body of the error dialog shown when the jukebox import file exists but its content is invalid; %(error)s is the underlying error message.
+				_("Import failed: %(error)s") % {"error": str(exc)},
+				# Translators: Title of the import-error dialog.
+				_("Import Error"),
+				wx.OK | wx.ICON_ERROR,
+				self,
+			)
+			return
+
+		self._refresh_jukebox_list()
+		if merge:
+			# Translators: Plural forms of the success message after merge-importing jukebox entries; %(count)d is how many NEW entries were added.
+			msg = ngettext(
+				"Import complete: %(count)d new entry added.",
+				"Import complete: %(count)d new entries added.",
+				added,
+			) % {"count": added}
+		else:
+			total = len(self._jukebox_manager.get_entries())
+			# Translators: Plural forms of the success message after replacing the jukebox library outright; %(count)d is the total number of entries now in the library.
+			msg = ngettext(
+				"Jukebox replaced with %(count)d entry from the file.",
+				"Jukebox replaced with %(count)d entries from the file.",
+				total,
+			) % {"count": total}
+		# Translators: Title of the final import-success dialog.
+		wx.MessageBox(msg, _("Import Complete"), wx.OK | wx.ICON_INFORMATION, self)
 
 	def _on_fav_remove_selected(self, event=None):
 		"""Bulk-remove every favourite station currently marked with '.',
@@ -8522,6 +8782,11 @@ class RadioDialog(wx.Dialog):
 			self._jukebox_manager.remove_entry(entry.path)
 			self._player.clear_jukebox_folder_position(entry.path)
 		self._jukebox_marked.clear()
+		if self._plugin is not None:
+			try:
+				self._plugin._rebuild_jukebox_scripts()
+			except Exception:
+				pass
 		# Translators: Spoken after bulk-removing marked jukebox entries; %d is how many were removed.
 		ui.message(ngettext("%d entry removed", "%d entries removed", count) % count)
 		self._refresh_jukebox_list()
@@ -8619,6 +8884,11 @@ class RadioDialog(wx.Dialog):
 				last_path = entry.path
 		if added:
 			self._refresh_jukebox_list(select_path=last_path)
+			if self._plugin is not None:
+				try:
+					self._plugin._rebuild_jukebox_scripts()
+				except Exception:
+					pass
 		if errors:
 			ui.message("; ".join(errors))
 		elif added:
@@ -8667,6 +8937,11 @@ class RadioDialog(wx.Dialog):
 
 		if added_entries:
 			self._refresh_jukebox_list(select_path=added_entries[-1].path)
+			if self._plugin is not None:
+				try:
+					self._plugin._rebuild_jukebox_scripts()
+				except Exception:
+					pass
 		if errors:
 			ui.message("; ".join(errors))
 		elif len(added_entries) == 1:
@@ -8701,6 +8976,11 @@ class RadioDialog(wx.Dialog):
 		self._jukebox_manager.remove_entry(entry.path)
 		self._jukebox_marked.discard(entry.path)
 		self._player.clear_jukebox_folder_position(entry.path)
+		if self._plugin is not None:
+			try:
+				self._plugin._rebuild_jukebox_scripts()
+			except Exception:
+				pass
 		# Translators: Spoken after successfully removing a jukebox entry; %s is its title.
 		ui.message(_("Removed from jukebox: %s") % title)
 		self._refresh_jukebox_list()
@@ -8814,6 +9094,24 @@ class RadioDialog(wx.Dialog):
 		item_remove_selected = menu.Append(wx.ID_ANY, _("Remove &Selected"))
 		item_remove_selected.Enable(bool(self._jukebox_marked))
 		self.Bind(wx.EVT_MENU, self._on_jukebox_remove_selected, item_remove_selected)
+
+		# Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
+		item_rename = menu.Append(wx.ID_ANY, _("Re&name..."))
+		self.Bind(wx.EVT_MENU, self._on_jukebox_rename, item_rename)
+
+		# Translators: Context-menu item; assigns a user-typed group name to every '.'-marked jukebox entry (or just the focused one if none are marked), mirroring the same feature for favourites.
+		item_assign_group = menu.Append(wx.ID_ANY, _("Assign to &Group..."))
+		self.Bind(wx.EVT_MENU, lambda e: self._on_jukebox_assign_group(entry), item_assign_group)
+
+		menu.AppendSeparator()
+
+		# Translators: Context-menu item; exports the jukebox library (entries and per-file audio profiles) to a file.
+		item_export = menu.Append(wx.ID_ANY, _("&Export Jukebox..."))
+		self.Bind(wx.EVT_MENU, self._on_jukebox_export, item_export)
+
+		# Translators: Context-menu item; imports jukebox entries (and per-file audio profiles) from a previously exported file.
+		item_import = menu.Append(wx.ID_ANY, _("&Import Jukebox..."))
+		self.Bind(wx.EVT_MENU, self._on_jukebox_import, item_import)
 
 		menu.AppendSeparator()
 

@@ -3,6 +3,7 @@
 import base64
 import braille
 import config
+import hashlib
 import os
 import tempfile
 import globalPluginHandler
@@ -285,7 +286,7 @@ except KeyError:
 		return text
 
 
-from . import radioPlayer, stationManager, recorder as recorderModule
+from . import radioPlayer, stationManager, recorder as recorderModule, jukebox
 
 
 _AUDIO_DEVICE_REFRESH_MODE_KEYS = ["reliable", "fast"]
@@ -651,6 +652,17 @@ class GlobalPlugin(ObligatoMixin, MiscTogglesMixin, TrackInfoMixin, RecordingMix
 		self._station_script_names = []   # track names for cleanup
 		self._rebuild_station_scripts()
 
+		# Same idea for jukebox entries, under "freeAudio Jukebox" - see
+		# _rebuild_jukebox_scripts(). JukeboxManager is cheap to construct
+		# (it just reloads the small library JSON from disk, the same way
+		# StationManager does for favourites), so it's instantiated fresh
+		# here and inside each generated script rather than kept as a
+		# long-lived attribute on GlobalPlugin - the dialog's own
+		# _jukebox_manager, built the same way, is always the one actually
+		# mutated by the UI.
+		self._jukebox_script_names = []   # track names for cleanup
+		self._rebuild_jukebox_scripts()
+
 	def _rebuild_station_scripts(self):
 		"""Create or refresh one script per favourite station.
 
@@ -733,6 +745,132 @@ class GlobalPlugin(ObligatoMixin, MiscTogglesMixin, TrackInfoMixin, RecordingMix
 	def _sanitise_uuid(uid):
 		"""Return a string safe to use as part of a Python identifier."""
 		return uid.replace("-", "_").replace(".", "_")
+
+	def _rebuild_jukebox_scripts(self):
+		"""Create or refresh one script per jukebox entry (file or folder).
+
+		Mirrors _rebuild_station_scripts() above: each script is named
+		script_playJukeboxEntry_<sanitised_path> and appears in the
+		"freeAudio Jukebox" category of NVDA's Input Gestures dialog, with
+		no default gesture so the user assigns one there.
+
+		Call this whenever the jukebox library changes (add / remove /
+		import, or a bulk-remove).
+		"""
+		import inputCore
+
+		# ── 1. Remove scripts that no longer correspond to an entry ──────────
+		entries      = jukebox.JukeboxManager().get_entries()
+		entry_hashes = {self._sanitise_path(e.path) for e in entries}
+
+		stale = [n for n in self._jukebox_script_names if n not in
+		         {"script_playJukeboxEntry_" + h for h in entry_hashes}]
+		for name in stale:
+			try:
+				delattr(self.__class__, name)
+			except AttributeError:
+				pass
+		self._jukebox_script_names = [
+			n for n in self._jukebox_script_names if n not in stale
+		]
+
+		# ── 2. Create / refresh a script for every entry ─────────────────────
+		# Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this jukebox entry' shortcuts separately from freeAudio's main commands.
+		_CATEGORY = _("freeAudio Jukebox")
+
+		for entry in entries:
+			path_hash = self._sanitise_path(entry.path)
+			if not path_hash:
+				continue
+			script_name  = "script_playJukeboxEntry_" + path_hash
+			entry_path   = entry.path
+			entry_title  = entry.title
+
+			# Build the script function with a closure over *entry_path*.
+			def _make_script(path, title):
+				def _script(self_plugin, gesture):
+					manager = jukebox.JukeboxManager()
+					match = next(
+						(e for e in manager.get_entries() if e.path == path),
+						None,
+					)
+					if match is None:
+						ui.message(
+							# Translators: Spoken if a per-jukebox-entry shortcut is triggered after that entry was removed from the jukebox since the shortcut was created; %s is the entry's display title.
+							_("Entry no longer in the jukebox: %s") % title
+						)
+						return
+					self_plugin._play_jukebox_entry_headless(match)
+				# NVDA reads __doc__ as the script description and
+				# __name__ as the script identifier.
+				# Translators: Auto-generated description of a per-jukebox-entry shortcut, shown in NVDA's Input Gestures dialog; %s is the entry's display title.
+				_script.__doc__      = _("%s playback shortcut") % title
+				_script.__name__     = script_name
+				_script.category     = _CATEGORY
+				# No default gesture — user assigns one via Input Gestures dialog.
+				_script.__gestures__ = {}
+				return _script
+
+			fn = _make_script(entry_path, entry_title)
+			# Attach to the class so NVDA discovers it via introspection.
+			if not hasattr(self.__class__, script_name):
+				setattr(self.__class__, script_name, fn)
+				self._jukebox_script_names.append(script_name)
+			else:
+				# Update description in case the entry was renamed/regrouped.
+				existing = getattr(self.__class__, script_name)
+				existing.__doc__ = fn.__doc__
+
+	@staticmethod
+	def _sanitise_path(path):
+		"""Return a string safe to use as part of a Python identifier for a
+		filesystem path (which, unlike a station UUID, may contain '/',
+		'\\', ':' and other characters that aren't valid there). Hashed
+		rather than character-replaced, since paths can also be far longer
+		than is reasonable for an identifier."""
+		if not path:
+			return ""
+		norm = os.path.normcase(os.path.normpath(path))
+		return hashlib.md5(norm.encode("utf-8", "surrogateescape")).hexdigest()
+
+	def _play_jukebox_entry_headless(self, entry):
+		"""Play a jukebox entry (file or folder) the same way
+		RadioDialog._on_jukebox_entry_play() does, but without needing the
+		dialog to be open - used by the per-entry Input Gestures shortcuts
+		built in _rebuild_jukebox_scripts(). For a folder, starts from
+		wherever that folder was last actually played to (see
+		RadioPlayer.get_jukebox_folder_position()), or the first track if
+		it's never been played; auto-advance to later tracks keeps working
+		afterwards purely through _advance_jukebox_folder_headless(),
+		exactly as it already does when a track finishes with the dialog
+		closed."""
+		manager = jukebox.JukeboxManager()
+		tracks = entry.tracks()
+		if not tracks:
+			# Translators: Spoken when a jukebox entry's Input Gestures shortcut is triggered but the entry has no usable audio files.
+			ui.message(_("No playable audio in this item."))
+			return
+		if entry.kind == "folder":
+			start = 0
+			saved = self._player.get_jukebox_folder_position(entry.path)
+			if saved is not None:
+				saved_index, _saved_path = saved
+				if 0 <= saved_index < len(tracks):
+					start = saved_index
+			track = tracks[start]
+			station_dict = track.to_dict()
+			profile = manager.get_track_profile(track.path)
+			if profile:
+				station_dict["station_audio"] = profile
+			station_dict["jukebox_folder_path"]  = entry.path
+			station_dict["jukebox_track_index"]  = start
+		else:
+			track = tracks[0]
+			station_dict = track.to_dict()
+			profile = manager.get_track_profile(track.path)
+			if profile:
+				station_dict["station_audio"] = profile
+		self._play_station(station_dict)
 
 	def _build_tools_menu(self):
 		"""Add a freeAudio submenu under NVDA's Tools menu."""
