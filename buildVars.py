@@ -19,55 +19,28 @@ addon_info = AddonInfo(
 	addon_description=_("""freeAudio is an internet radio, podcast, audio-book, and local music add-on for NVDA that provides seamless access to thousands of internet radio stations via the Radio Browser open directory, RSS/Atom podcast feeds, the libriVox + GETEM digital library for the visually impaired, and your own local audio files and folders through its built-in jukebox. It features a fully accessible station browser with search, country filter, favourites management, and per-station, per-podcast, per-audio-book, and per-jukebox-track audio profiles. Podcast episodes, audio book chapters, and jukebox tracks resume automatically from where you left off - jukebox folders even pick up on the last track you were playing - with adjustable pitch-preserving playback speed and independent pitch-shift (semitone transpose). Playback is handled by BASS, with support for volume control, audio effects, output device selection, and simultaneous audio mirroring to a second device. Additional features include instant and scheduled recording, time-shift rewind of live radio, sleep and alarm timers, automatic ICY metadata announcements, Shazam-based music recognition, and a liked-songs log with lyrics lookup. All controls and shortcuts are designed for NVDA accessibility."""),
 	
 	# version
-	addon_version="2026.25.0",
+	addon_version="2026.25.1",
 	
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version
 	addon_changelog=_("""
-# freeAudio: What's New
+## New Features
 
-## FreeRadio is now freeAudio
+- **Jukebox now has the same feature set as Favourites:** Jukebox entries can now be reordered in-place (comma-key pick/drop), renamed (custom display name, doesn't touch the file/folder on disk), assigned to groups, and exported/imported as JSON (full fidelity: groups + per-file audio profiles) or M3U (path + custom name only). An auto-generated NVDA Input Gestures shortcut is also created per entry under a new "freeAudio Jukebox" category — works even when the dialog is closed.
 
-- Your settings, favourites, podcasts, jukebox library and recordings location are carried over automatically on first start.
-- Custom shortcuts assigned in Input Gestures must be set again.
-- Uninstall the old FreeRadio add-on to avoid conflicts.
+- **Per-module enable/disable:** A new "Modules" checklist in settings lets users turn the Podcasts, Audio Books, and/or Jukebox tabs off entirely. All three remain enabled by default, so existing users see no change. Disabling a module hides its tab and related gestures but never touches its saved data (subscriptions, library, jukebox entries) — re-enabling restores everything as it was.
 
-## Added
+- **Plain Left/Right for seeking in Jukebox/Audio Books/Podcasts lists:** Left/Right in these tabs' item lists now seeks within the currently playing item, calling the same methods as the global Ctrl+Win+J/K commands. Episode/chapter/track switching still works via Ctrl+Left/Right and F3/F4; the old plain Left/Right episode-switch behavior only remains as a fallback when nothing is playing yet.
 
-### Favourite groups (folders)
+## Improvements
 
-- **M3U import:** reads the `group-title` attribute. If only the first station in a folder carries the tag, as common exporters such as DVBViewer write it, the group is carried forward to the stations that follow.
-- **M3U export:** writes `group-title` again, so a round trip through freeAudio no longer drops the folder structure. JSON import and export keep the same group field.
-- **List display:** each favourite shows its folder as a trailing "— Group" suffix. This is display only, and the station's name is never changed.
-- **Filter box:** now also matches the group and splits your text on whitespace, so each word can match a different field. For example, "Houston Classical" finds "Houston Public Media Classical", even though that phrase never appears in one piece.
-- **Assign to Group…** (new context-menu command): mark favourites with `.`, then type a group name to organise them by hand, or leave the name empty to clear the group. It works for hand-made favourites too, not only imported M3U ones.
-- **Backward compatible:** favourites without a group default to an empty group, and the list looks and behaves exactly as before until you import a grouped playlist or use Assign to Group.
+- **Timer tab focus behaviour fixed:** Switching to the Timer tab now forces focus to the Start/Stop action radio buttons only on first open. On every later switch, focus stays where you left it — matching every other tab.
 
-### Mark a range of items
+- **HLS short-segment merger removed:** The ffmpeg-based `_HlsStreamMerger` and its detection helpers have been dropped. HLS streams now always play directly through BASS, and stall reconnects use the original URL.
 
-Favourites, Liked Songs, Audio Books and Jukebox already let you mark single rows with `.` for bulk removal. You can now mark whole ranges:
+## Bug Fixes
 
-- **Shift+End:** marks or unmarks from the focused row to the last row.
-- **Shift+Home:** marks or unmarks from the focused row to the first row.
-
-The focused row's current state decides the direction: if it is unmarked, the whole range gets marked, and if it is marked, the whole range gets unmarked. This mirrors how Shift+Home and Shift+End extend a selection in a text field. Afterwards focus moves to the far end of the range and the number of rows changed is announced. The placeholder rows in Liked Songs ("No liked songs yet.", "No results found.") are never marked.
-
-### Timers
-
-- New **recurring** option for timers.
-
-### Windows Explorer integration
-
-A new `appModules/explorer.py`, active only in the file list of `explorer.exe`, not in the address bar, tree view, ribbon, search box or other Explorer controls. It adds two commands, both unassigned by default:
-
-- **Play the focused file with freeAudio**
-- **Add the focused file or folder to the freeAudio jukebox**
-
-Assign a key (for example `.` or `,`) in Input Gestures while focused in Explorer. It is bound only there and still works as itself everywhere else.
-
-## Fixed
-
-- **The freeAudio window sometimes failed to come to the foreground**, requiring an NVDA restart. If you minimized the window instead of closing it, it stayed in the taskbar and could not be brought back. Reopening it now restores a minimized window before raising it.
+- **Wrong duration in fMP4 (HLS) recordings fixed:** Fragmented MP4 recordings had no header duration and carried the stream's absolute clock, so players showed absurd lengths. After recording, files are remuxed to a standard MP4 with ffmpeg (stream copy); when ffmpeg is unavailable, fragment timestamps are rebased to zero as a fallback.
 """),
 	
 	# Author(s)
