@@ -13,6 +13,7 @@ import hashlib
 import logging
 import os
 import ssl
+import struct
 import subprocess
 import threading
 import urllib.request
@@ -421,6 +422,201 @@ def _replace_converted_file(source_path, temporary_path, destination_path):
 	else:
 		os.replace(temporary_path, destination_path)
 	return True
+
+
+def _mp4_children(buf, start, end):
+	"""Yield (type, body_start, box_end) for each box in buf[start:end]."""
+	pos = start
+	while pos + 8 <= end:
+		size, typ = struct.unpack_from(">I4s", buf, pos)
+		hdr = 8
+		if size == 1:
+			if pos + 16 > end:
+				return
+			size = struct.unpack_from(">Q", buf, pos + 8)[0]
+			hdr = 16
+		elif size == 0:
+			size = end - pos
+		if size < hdr or pos + size > end:
+			return
+		yield typ, pos + hdr, pos + size
+		pos += size
+
+
+def _rebase_fmp4_timestamps(path):
+	"""Make a recorded fragmented-MP4 file start at time zero, in place.
+
+	HLS/fMP4 live streams stamp every fragment with the encoder's absolute
+	clock (tfdt = time since the stream started, often many hours), while the
+	init segment's movie duration is 0. Players that derive the duration from
+	the last fragment then report the whole stream uptime (e.g. 154 hours for
+	a one-minute recording). The tfdt boxes are rewritten so the first
+	fragment starts at 0. Each box keeps its size, so no data is moved. If
+	the stream re-sends an init segment mid-file (which restarts the timeline)
+	the new section is chained onto the end of the previous one.
+
+	No ffmpeg is needed. Returns True if anything was changed.
+	"""
+	state = {}      # track_id -> [timeline offset, end of previous fragment]
+	pending = set()  # tracks whose timeline restarted after a new init segment
+	trex_default = {}
+	changed = False
+	total = os.path.getsize(path)
+	with open(path, "r+b") as f:
+		pos = 0
+		while pos + 8 <= total:
+			f.seek(pos)
+			head = f.read(16)
+			size, typ = struct.unpack(">I4s", head[:8])
+			hdr = 8
+			if size == 1 and len(head) == 16:
+				size = struct.unpack(">Q", head[8:16])[0]
+				hdr = 16
+			elif size == 0:
+				size = total - pos
+			if size < hdr:
+				break
+			if typ == b"moov" and size < (8 << 20):
+				if state:
+					pending.update(state)
+				f.seek(pos)
+				moov = f.read(size)
+				for t1, s1, e1 in _mp4_children(moov, hdr, len(moov)):
+					if t1 != b"mvex":
+						continue
+					for t2, s2, e2 in _mp4_children(moov, s1, e1):
+						if t2 == b"trex" and e2 - s2 >= 16:
+							tid, _idx, dur = struct.unpack_from(">III", moov, s2 + 4)
+							trex_default[tid] = dur
+			elif typ == b"moof" and size < (8 << 20):
+				f.seek(pos)
+				moof = bytearray(f.read(size))
+				dirty = False
+				for t1, s1, e1 in _mp4_children(moof, hdr, len(moof)):
+					if t1 != b"traf":
+						continue
+					tid = None
+					default_dur = None
+					tfdt_at = None
+					tfdt_ver = 0
+					durations = 0
+					for t2, s2, e2 in _mp4_children(moof, s1, e1):
+						if t2 == b"tfhd":
+							flags = struct.unpack_from(">I", moof, s2)[0] & 0xFFFFFF
+							tid = struct.unpack_from(">I", moof, s2 + 4)[0]
+							p = s2 + 8
+							if flags & 0x1: p += 8
+							if flags & 0x2: p += 4
+							if flags & 0x8:
+								default_dur = struct.unpack_from(">I", moof, p)[0]
+						elif t2 == b"tfdt":
+							tfdt_ver = moof[s2]
+							tfdt_at = s2 + 4
+						elif t2 == b"trun":
+							flags = struct.unpack_from(">I", moof, s2)[0] & 0xFFFFFF
+							count = struct.unpack_from(">I", moof, s2 + 4)[0]
+							p = s2 + 8
+							if flags & 0x1: p += 4
+							if flags & 0x4: p += 4
+							step = 4 * sum(1 for bit in (0x100, 0x200, 0x400, 0x800) if flags & bit)
+							if flags & 0x100:
+								for _i in range(count):
+									if p + 4 > e2:
+										break
+									durations += struct.unpack_from(">I", moof, p)[0]
+									p += step
+							else:
+								dd = default_dur if default_dur is not None else trex_default.get(tid, 0)
+								durations += dd * count
+					if tid is None or tfdt_at is None:
+						continue
+					if tfdt_ver == 1:
+						src = struct.unpack_from(">Q", moof, tfdt_at)[0]
+					else:
+						src = struct.unpack_from(">I", moof, tfdt_at)[0]
+					if tid not in state:
+						state[tid] = [src, 0]
+					elif tid in pending:
+						pending.discard(tid)
+						state[tid][0] = src - state[tid][1]
+					new = max(0, src - state[tid][0])
+					state[tid][1] = new + durations
+					if new != src:
+						if tfdt_ver == 1:
+							struct.pack_into(">Q", moof, tfdt_at, new)
+						else:
+							struct.pack_into(">I", moof, tfdt_at, new)
+						dirty = True
+				if dirty:
+					f.seek(pos)
+					f.write(moof)
+					changed = True
+			pos += size
+	return changed
+
+
+def _is_fragmented_mp4(path):
+	"""True if the MP4 file has movie fragments (moof boxes) at top level."""
+	try:
+		total = os.path.getsize(path)
+		with open(path, "rb") as f:
+			pos = 0
+			while pos + 8 <= total:
+				f.seek(pos)
+				head = f.read(16)
+				size, typ = struct.unpack(">I4s", head[:8])
+				if typ == b"moof":
+					return True
+				if size == 1 and len(head) == 16:
+					size = struct.unpack(">Q", head[8:16])[0]
+				elif size == 0:
+					return False
+				if size < 8:
+					return False
+				pos += size
+	except Exception:
+		pass
+	return False
+
+
+def _remux_fmp4_to_standard(path, ffmpeg_path):
+	"""Losslessly rewrite a fragmented-MP4 recording as a standard MP4/M4A.
+
+	Fragmented MP4 (what HLS/fMP4 stations deliver) has no duration or seek
+	index in its header, so many players show a wrong length or cannot seek.
+	Stream-copying through ffmpeg writes a normal file whose header carries
+	the real duration. The original is kept if anything fails. Returns True
+	when the file was replaced.
+	"""
+	if not path or not _is_fragmented_mp4(path):
+		return False
+	ffmpeg_path = ffmpeg_path or "ffmpeg.exe"
+	if not os.path.isfile(ffmpeg_path) and os.path.dirname(ffmpeg_path):
+		return False
+	temporary = path + ".fixing"
+	try:
+		os.remove(temporary)
+	except FileNotFoundError:
+		pass
+	args = [
+		ffmpeg_path, "-hide_banner", "-loglevel", "error", "-y",
+		"-i", path, "-map", "0:a:0", "-vn", "-c:a", "copy",
+		"-movflags", "+faststart", "-f", "mp4", temporary,
+	]
+	ok, error = _run_ffmpeg(args)
+	if ok and os.path.isfile(temporary) and os.path.getsize(temporary) > 0:
+		try:
+			os.replace(temporary, path)
+			return True
+		except OSError:
+			pass
+	elif error:
+		log.warning("freeAudio Recorder: fMP4 remux failed: %s", error)
+	try:
+		os.remove(temporary)
+	except OSError:
+		pass
+	return False
 
 
 def convert_recording(source_path, mode="original", ffmpeg_path="ffmpeg.exe", mp3_bitrate=128):
@@ -1589,6 +1785,18 @@ class Recorder:
 		"""
 		writer.stop()
 		path = writer.output_path
+		# Fragmented-MP4 (HLS) recordings have no duration in their header and
+		# carry the stream's absolute clock in every fragment, so players show
+		# absurd lengths. Preferably rewrite them as a standard MP4 (lossless
+		# stream copy); without a usable ffmpeg, at least rebase the timestamps.
+		if path and os.path.splitext(path)[1].lower() in (".m4a", ".mp4") and os.path.isfile(path):
+			try:
+				if _remux_fmp4_to_standard(path, self._ffmpeg_path):
+					log.info("freeAudio Recorder: rewrote fMP4 recording as standard MP4: %s", path)
+				elif _rebase_fmp4_timestamps(path):
+					log.info("freeAudio Recorder: rebased fMP4 timestamps in %s", path)
+			except Exception:
+				log.warning("freeAudio Recorder: could not fix fMP4 recording", exc_info=True)
 		converted_path, error = convert_recording(
 			path,
 			mode=self._recording_format,
