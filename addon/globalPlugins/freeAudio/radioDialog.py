@@ -3895,6 +3895,36 @@ class RadioDialog(wx.Dialog):
 		# Translators: Spoken if the bundled help document can't be located on disk.
 		ui.message(_("Help file not found."))
 
+	def _seek_like_global_timeshift(self, direction):
+		"""Make a plain Left/Right press on one of the Podcasts/Audio Books/
+		Jukebox item lists do exactly what the global Ctrl+Win+J/Ctrl+Win+K
+		commands do - TimeshiftMixin.script_timeshiftRewind()/
+		script_timeshiftForward() on the plugin - rather than inventing a
+		separate, parallel seek implementation here. *direction* is -1
+		(Left, rewind) or +1 (Right, forward).
+
+		Those two scripts are called directly (not re-dispatched through
+		NVDA's gesture system, since there's no real gesture object here)
+		with gesture=None. That's only safe because the one branch in
+		script_timeshiftRewind() that would touch a non-None gesture
+		(gesture.send(), to pass an unhandled key straight through) is
+		reached only when self._player.has_media() is False - already
+		excluded by the check below, so gesture is never actually touched.
+
+		Returns True if this handled the key - caller should treat it as
+		consumed and do nothing further. Returns False if nothing is
+		currently loaded to seek/rewind at all, in which case the global
+		commands themselves would equally have had nothing useful to do -
+		the caller should fall through to whatever else (if anything) that
+		list normally does with a plain Left/Right press."""
+		if self._plugin is None or not self._player.has_media():
+			return False
+		if direction < 0:
+			self._plugin.script_timeshiftRewind(None)
+		else:
+			self._plugin.script_timeshiftForward(None)
+		return True
+
 	def _on_char_hook(self, event):
 		key     = event.GetKeyCode()
 		focused = wx.Window.FindFocus()
@@ -4302,6 +4332,18 @@ class RadioDialog(wx.Dialog):
 				if key == wx.WXK_RIGHT and event.ControlDown():
 					self._play_next_episode()
 					return
+				# Plain Left/Right (no Ctrl): seek within whatever's
+				# currently playing, exactly like the global Ctrl+Win+J/K
+				# commands - see _seek_like_global_timeshift(). This takes
+				# over the plain Left/Right keys on the episode list, which
+				# previously switched to the previous/next episode there
+				# (_on_episode_key) - that's still available via Ctrl+Left/
+				# Ctrl+Right just above, or F3/F4, so nothing is lost, only
+				# un-shadowed from the plain arrow keys.
+				if key == wx.WXK_LEFT and self._seek_like_global_timeshift(-1):
+					return
+				if key == wx.WXK_RIGHT and self._seek_like_global_timeshift(1):
+					return
 
 		# --- Unique shortcuts to the Audio Books tab ---
 		# A book is a single source even though it's split into parts -
@@ -4332,6 +4374,13 @@ class RadioDialog(wx.Dialog):
 				if key == wx.WXK_RIGHT and event.ControlDown():
 					self._play_next_getem_book()
 					return
+				# Plain Left/Right: seek within the currently playing part,
+				# same as the global Ctrl+Win+J/K commands - see
+				# _seek_like_global_timeshift().
+				if key == wx.WXK_LEFT and self._seek_like_global_timeshift(-1):
+					return
+				if key == wx.WXK_RIGHT and self._seek_like_global_timeshift(1):
+					return
 
 		# --- Unique shortcuts to the Jukebox tab ---
 		# It's the same logic as in the Podcasts tab: F3/F4 = previous/next track
@@ -4358,6 +4407,13 @@ class RadioDialog(wx.Dialog):
 					return
 				if key == wx.WXK_RIGHT and event.ControlDown():
 					self._play_next_jukebox_track()
+					return
+				# Plain Left/Right: seek within the currently playing
+				# track, same as the global Ctrl+Win+J/K commands - see
+				# _seek_like_global_timeshift().
+				if key == wx.WXK_LEFT and self._seek_like_global_timeshift(-1):
+					return
+				if key == wx.WXK_RIGHT and self._seek_like_global_timeshift(1):
 					return
 
 		event.Skip()
@@ -6381,6 +6437,14 @@ class RadioDialog(wx.Dialog):
 			else:
 				self._on_episode_play(None)
 			return
+		# Plain Left/Right normally never reach here at all: whenever
+		# something's actually playing, _on_char_hook()'s EVT_CHAR_HOOK
+		# handler (which runs first) intercepts them for
+		# _seek_like_global_timeshift() instead and doesn't event.Skip(),
+		# so this EVT_KEY_DOWN handler is never even invoked. The blocks
+		# below are purely the no-media fallback - nothing loaded yet to
+		# seek within, so Left/Right instead switches to the previous/
+		# next episode and starts it, same as before this existed.
 		if key == wx.WXK_RIGHT:
 			count = self._episode_list.GetCount()
 			if count == 0:
