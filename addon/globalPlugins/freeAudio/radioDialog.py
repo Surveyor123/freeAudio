@@ -8270,7 +8270,20 @@ class RadioDialog(wx.Dialog):
 			add_btn_sizer.Add(btn, 0, wx.RIGHT, 8)
 		sizer.Add(add_btn_sizer, 0, wx.LEFT | wx.BOTTOM, 8)
 
-
+		# Second button row: export and import the jukebox library. Separate
+		# buttons rather than context-menu-only (like Favorites' own
+		# _fav_export_btn/_fav_import_btn) - the context menu needs a
+		# selected entry to open at all (see _show_jukebox_entry_context_menu()),
+		# so Import would otherwise be unreachable whenever the library is
+		# empty, which is exactly when importing is most needed.
+		io_btn_sizer = wx.BoxSizer(wx.HORIZONTAL)
+		# Translators: Button label; opens a file-save dialog to export the jukebox library (JSON or M3U).
+		self._jukebox_export_btn = wx.Button(panel, label=_("E&xport Jukebox..."))
+		io_btn_sizer.Add(self._jukebox_export_btn, 0, wx.RIGHT, 8)
+		# Translators: Button label; opens a file-picker to import jukebox entries from a JSON or M3U file.
+		self._jukebox_import_btn = wx.Button(panel, label=_("&Import Jukebox..."))
+		io_btn_sizer.Add(self._jukebox_import_btn, 0)
+		sizer.Add(io_btn_sizer, 0, wx.LEFT | wx.BOTTOM, 8)
 
 		panel.SetSizer(sizer)
 
@@ -8286,6 +8299,8 @@ class RadioDialog(wx.Dialog):
 		self._jukebox_add_file_btn.Bind(wx.EVT_BUTTON, self._on_jukebox_add_file)
 		self._jukebox_add_folder_btn.Bind(wx.EVT_BUTTON, self._on_jukebox_add_folder)
 		self._jukebox_remove_btn.Bind(wx.EVT_BUTTON, self._on_jukebox_remove_entry)
+		self._jukebox_export_btn.Bind(wx.EVT_BUTTON, self._on_jukebox_export)
+		self._jukebox_import_btn.Bind(wx.EVT_BUTTON, self._on_jukebox_import)
 
 		# Remember whichever control in this tab last had focus, so
 		# focus_jukebox() can restore it on the next open instead of always
@@ -9102,16 +9117,6 @@ class RadioDialog(wx.Dialog):
 		# Translators: Context-menu item; assigns a user-typed group name to every '.'-marked jukebox entry (or just the focused one if none are marked), mirroring the same feature for favourites.
 		item_assign_group = menu.Append(wx.ID_ANY, _("Assign to &Group..."))
 		self.Bind(wx.EVT_MENU, lambda e: self._on_jukebox_assign_group(entry), item_assign_group)
-
-		menu.AppendSeparator()
-
-		# Translators: Context-menu item; exports the jukebox library (entries and per-file audio profiles) to a file.
-		item_export = menu.Append(wx.ID_ANY, _("&Export Jukebox..."))
-		self.Bind(wx.EVT_MENU, self._on_jukebox_export, item_export)
-
-		# Translators: Context-menu item; imports jukebox entries (and per-file audio profiles) from a previously exported file.
-		item_import = menu.Append(wx.ID_ANY, _("&Import Jukebox..."))
-		self.Bind(wx.EVT_MENU, self._on_jukebox_import, item_import)
 
 		menu.AppendSeparator()
 

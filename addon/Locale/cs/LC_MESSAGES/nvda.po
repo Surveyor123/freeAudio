@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: freeAudio 2026.25.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-10-05 12:55+0300\n"
-"PO-Revision-Date: 2026-09-28 19:40+0300\n"
+"POT-Creation-Date: 2026-10-05 17:16+0300\n"
+"PO-Revision-Date: 2026-10-05 20:27+0300\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ../../../..\n"
@@ -23,7 +23,7 @@ msgstr ""
 #. Translators: Name of an NVDA command in the Input Gestures dialog; opens a list to pick freeAudio's main audio output device.
 #: addon\globalPlugins\freeAudio\audioDeviceMixin.py:30
 msgid "Select the main freeAudio output device"
-msgstr "Vyberte hlavní výstupní zařízení freeAudio"
+msgstr "Vyberte hlavní výstupní zařízení freeAudia"
 
 #. Translators: Title of the warning about the old FreeRadio add-on still being installed.
 #. Translators: Title of this settings category as it appears in NVDA's own Settings dialog category tree.
@@ -81,8 +81,8 @@ msgid ""
 "Only one physical audio output device is available. freeAudio uses the "
 "system default output."
 msgstr ""
-"K dispozici je pouze jedno fyzické zvukové výstupní zařízení. freeAudio "
-"používá výchozí výstup systému."
+"K dispozici je pouze jedno fyzické zvukové výstupní zařízení. Používá se "
+"výchozí."
 
 #. Translators: First entry in the output-device list; means 'use whatever Windows currently has as its default output'.
 #. Translators: Same meaning as 'System default' above; label shown when announcing the currently active output device.
@@ -94,7 +94,7 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\radioDialog.py:1708
 #: addon\globalPlugins\freeAudio\settingsPanel.py:645
 msgid "System default"
-msgstr "Výchozí systémové"
+msgstr "Výchozí"
 
 #. Translators: Prompt of the dialog listing devices to choose as freeAudio's main playback output.
 #: addon\globalPlugins\freeAudio\audioDeviceMixin.py:96
@@ -104,7 +104,7 @@ msgstr "Vyberte hlavní výstupní zařízení:"
 #. Translators: Title of the dialog for choosing freeAudio's main output device.
 #: addon\globalPlugins\freeAudio\audioDeviceMixin.py:98
 msgid "freeAudio Output Device"
-msgstr "Výstupní zařízení freeAudio"
+msgstr "výstupní zařízení freeAudia"
 
 #. Translators: Spoken when switching the main output device fails; %s is the device name.
 #: addon\globalPlugins\freeAudio\audioDeviceMixin.py:123
@@ -170,7 +170,7 @@ msgstr ""
 #. Translators: Name of an NVDA command; raises freeAudio's playback volume by 5 (of 200 max, capped at 100 when saved).
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:33
 msgid "Increase freeAudio volume by 5"
-msgstr "Zvýšit hlasitost freeAudio o 5"
+msgstr "Zvýšit hlasitost freeAudia o 5"
 
 #. Translators: Spoken after volume is changed with the volume-up/down commands; %d is the new volume level.
 #. Translators: Spoken after volume is changed; %d is the new volume level.
@@ -191,7 +191,7 @@ msgstr "Hlasitost %d"
 #. Translators: Name of an NVDA command; lowers freeAudio's playback volume by 5.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:47
 msgid "Decrease freeAudio volume by 5"
-msgstr "Snížit hlasitost freeAudio o 5"
+msgstr "Snížit hlasitost freeAudia o 5"
 
 #. Translators: Name of an NVDA command; speeds up playback rate, podcasts/audiobooks/GETEM chapters only.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:61
@@ -220,13 +220,13 @@ msgid ""
 "Playback speed control needs the bass_fx add-on library — see the freeAudio "
 "docs."
 msgstr ""
-"Ovládání rychlosti přehrávání vyžaduje knihovnu bass_fx — viz dokumentace "
-"freeAudio."
+"Ovládání rychlosti přehrávání vyžaduje base_fix knihovnu — více info v "
+"manuálu."
 
 #. Translators: Spoken when the user tries to change playback rate while playing a live radio station rather than a podcast/audiobook.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:91
 msgid "Playback speed control is only available for podcasts."
-msgstr "Rychlost přehrávání je dostupná pouze pro podcasty."
+msgstr "Změna rychlosti přehrávání je dostupná pouze pro podcasty."
 
 #. Translators: Generic fallback spoken when the playback-rate change fails for an unrecognised reason.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:94
@@ -320,32 +320,32 @@ msgstr "vypnuto"
 #. Translators: Name of an NVDA command; cycles the sound effect played when switching stations (crossfade/instant cut/tuning effect).
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:229
 msgid "Toggle station switch transition (crossfade)"
-msgstr "Přepnout přechod při změně stanice (crossfade)"
+msgstr "Při přepínání stanic použít prolínání (crossfade)"
 
 #. Translators: One of the station-transition modes cycled by the crossfade command: plays no transition sound, cuts instantly.
 #. Translators: Choices for the crossfade setting, same wording and order as the in-app toggleStationTransition command's cycle (audioFxMixin.py) - continues for the next three lines.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:237
 #: addon\globalPlugins\freeAudio\settingsPanel.py:222
 msgid "Instant cut (no crossfade)"
-msgstr "Okamžité přerušení (bez crossfade)"
+msgstr "Bez prolínání"
 
 #. Translators: One of the station-transition modes: a brief 1-second audio crossfade between the old and new station.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:239
 #: addon\globalPlugins\freeAudio\settingsPanel.py:223
 msgid "Short crossfade (1 second)"
-msgstr "Krátký crossfade (1 sekunda)"
+msgstr "Krátké (1 sekunda)"
 
 #. Translators: One of the station-transition modes: a longer 2-second audio crossfade between the old and new station.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:241
 #: addon\globalPlugins\freeAudio\settingsPanel.py:224
 msgid "Normal crossfade (2 seconds)"
-msgstr "Normální crossfade (2 sekundy)"
+msgstr "Běžné (2 sekundy)"
 
 #. Translators: One of the station-transition modes: plays a radio-tuning sound effect instead of a crossfade.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:243
 #: addon\globalPlugins\freeAudio\settingsPanel.py:225
 msgid "Station tuning sound effect"
-msgstr "Zvukový efekt ladění stanice"
+msgstr "Zvukový efekt přelaďování stanic"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -380,27 +380,28 @@ msgstr "Neznámý"
 #: addon\globalPlugins\freeAudio\radioDialog.py:7011
 #: addon\globalPlugins\freeAudio\settingsPanel.py:516
 msgid "GETEM"
-msgstr "GETEM"
+msgstr "GETEM, pouze turečtina"
 
 #. Translators: Error returned by GetemSession.login() when freeAudio has no saved GETEM credentials at all.
 #: addon\globalPlugins\freeAudio\getem.py:652
 msgid "Please enter your GETEM username and password in freeAudio's settings."
 msgstr ""
-"Zadejte prosím své uživatelské jméno a heslo GETEM v nastavení freeAudio."
+"Zadejte prosím vaše přihlašovací údaje k účtu GETEM do nastavení freeAudia."
 
 #. Translators: Error returned by GetemSession.login() when the GETEM server rejects the saved username/password.
 #: addon\globalPlugins\freeAudio\getem.py:686
 msgid "GETEM login failed. Please check your username and password."
 msgstr ""
-"Přihlášení do GETEM se nezdařilo. Zkontrolujte uživatelské jméno a heslo."
+"Přihlášení do GETEM se nezdařilo. Zkontrolujte správnost přihlašovacích "
+"údajů."
 
 #. Translators: Error returned before attempting login when the settings dialog's GETEM username/password fields are empty.
 #: addon\globalPlugins\freeAudio\getem.py:720
 msgid ""
 "Please enter your GETEM username and password in freeAudio's settings first."
 msgstr ""
-"Nejprve prosím zadejte své uživatelské jméno a heslo GETEM v nastavení "
-"freeAudio."
+"Nejprve prosím zadejte vaše přihlašovací údaje k účtu GETEM do nastavení "
+"freeAudia."
 
 #. Translators: Error returned by search_getem() when the user submits an empty search box.
 #. Translators: Error returned by search_gutenberg_audiobooks() when the user submits an empty search box.
@@ -411,7 +412,7 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:231
 #: addon\globalPlugins\freeAudio\librivox.py:197
 #: addon\globalPlugins\freeAudio\radioDialog.py:7252
-#: addon\globalPlugins\freeAudio\radioDialog.py:8348
+#: addon\globalPlugins\freeAudio\radioDialog.py:8363
 msgid "Please enter a search term."
 msgstr "Zadejte prosím hledaný výraz."
 
@@ -419,7 +420,7 @@ msgstr "Zadejte prosím hledaný výraz."
 #: addon\globalPlugins\freeAudio\getem.py:763
 msgid "Could not reach GETEM's catalog. Please check your internet connection."
 msgstr ""
-"Nelze se připojit ke katalogu GETEM. Zkontrolujte připojení k internetu."
+"Nepodařilo se zobrazit GETEM katalog. Zkontrolujte připojení k internetu."
 
 #. Translators: Fallback chapter title for a multi-part work whose parts have no individual names; '{0}' is the book title, '{1}' the 1-based part number.
 #: addon\globalPlugins\freeAudio\getem.py:886
@@ -432,30 +433,30 @@ msgid ""
 "No playable audio file was found on this work's GETEM page. It may require "
 "manual download from the site."
 msgstr ""
-"Na stránce tohoto díla na GETEM nebyl nalezen žádný přehratelný zvukový "
-"soubor. Může být nutné stáhnout jej ručně z webu."
+"Na této GETEM stránce nebyl nalezen žádný přehratelný soubor, nejspíše je "
+"nutné jej stáhnout ručně z webu."
 
 #. Translators: Error returned by get_book_by_url() when the pasted URL doesn't look like a GETEM work page link.
 #: addon\globalPlugins\freeAudio\getem.py:1115
 msgid "This doesn't look like a GETEM work link."
-msgstr "Toto nevypadá jako odkaz na dílo GETEM."
+msgstr "Toto nevypadá jako odkaz na knihu z GETEM."
 
 #. Translators: Raised when a chapter download completes but produced a zero-byte file, usually because the GETEM session was not actually logged in.
 #: addon\globalPlugins\freeAudio\getem.py:1249
 msgid "The downloaded file was empty. Please check your GETEM login."
 msgstr ""
-"Stažený soubor byl prázdný. Zkontrolujte prosím své přihlášení do GETEM."
+"Stažený soubor je prázdný. Zkontrolujte prosím vaše GETEM přihlašovací údaje."
 
 #. Translators: Raised when the URL fetched for a chapter returns a response that is not audio at all (e.g. an HTML error/login page).
 #: addon\globalPlugins\freeAudio\getem.py:1267
 #, python-format
 msgid "GETEM did not return audio for this part: %s"
-msgstr "GETEM nevrátil zvuk pro tuto část: %s"
+msgstr "Žádné audio na GETEMU pro tuhle část: %s"
 
 #. Translators: Same failure as the message above (no valid audio came back for this part), used when there is no response snippet available to show.
 #: addon\globalPlugins\freeAudio\getem.py:1269
 msgid "GETEM did not return a playable audio file for this part."
-msgstr "GETEM nevrátil přehratelný zvukový soubor pro tuto část."
+msgstr "Žádné přehratelné audio na GETEMU pro tuhle část."
 
 #. Translators: Fallback download folder name used when saving a book, if the book's title is empty or has no usable characters.
 #. Translators: Fallback folder name used when saving a downloaded book, if the book's title is empty or has no usable characters.
@@ -480,23 +481,22 @@ msgstr "Bez názvu"
 #. Translators: Fixed narrator label shown for every book in this AI-narrated collection, in place of a per-book human reader's name.
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:137
 msgid "AI-generated narration (Microsoft neural text-to-speech)"
-msgstr "Vyprávění generované AI (neuronální převod textu na řeč Microsoft)"
+msgstr "AI generovaný dubbing (Microsoft neural text-to-speech)"
 
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:215
 #, python-format
 msgid "AI narration, %s"
-msgstr "Vyprávění AI, %s"
+msgstr "AI dubbing, %s"
 
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:217
 msgid "AI narration"
-msgstr "Vyprávění AI"
+msgstr "AI dubbing"
 
 #. Translators: %s = the specific AI voice name, e.g. "SteffanNeural"
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:300
 #, python-format
 msgid "AI-generated narration (Microsoft neural text-to-speech, %s voice)"
-msgstr ""
-"Vyprávění generované AI (neuronální převod textu na řeč Microsoft, hlas %s)"
+msgstr "AI generovaný dubbing (Microsoft neural text-to-speech), hlas %s)"
 
 #. Translators: shown as this book's source in the station-details
 #. dialog and the Audio Books tab - kept distinct from bare
@@ -505,13 +505,14 @@ msgstr ""
 #. volunteer-read or library-hosted human-narrated catalog.
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:354
 msgid "Project Gutenberg (AI narration)"
-msgstr "Projekt Gutenberg (vyprávění AI)"
+msgstr "Projekt Gutenberg (Audio knihy vyprávěné pomocí AI)"
 
 #. Translators: Error returned by resolve_media() when the book has no linked archive.org item id, so no audio files can be looked up.
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:401
 msgid "This book has no archive.org item to read audio files from."
 msgstr ""
-"Tato kniha nemá na archive.org žádnou položku pro čtení zvukových souborů."
+"U této knihy na archive.org nebyly nalezeny žádné položky ze kterých by se "
+"daly přehrát zvukové soubory."
 
 #. Translators: Error returned by get_book_by_url() when the pasted URL doesn't match archive.org's book-details link pattern.
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:424
@@ -546,7 +547,7 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:579
 #: addon\globalPlugins\freeAudio\librivox.py:621
 msgid "The downloaded file was empty."
-msgstr "Stažený soubor byl prázdný."
+msgstr "Stažený soubor je prázdný."
 
 #. Translators: %(name)s = folder name, %(count)d = number of audio files found in it
 #: addon\globalPlugins\freeAudio\jukebox.py:1039
@@ -586,11 +587,11 @@ msgstr "V této složce nebyly nalezeny žádné zvukové soubory."
 
 #: addon\globalPlugins\freeAudio\jukebox.py:1347
 msgid "Not a valid jukebox export file."
-msgstr ""
+msgstr "Neplatný soubor exportu jukeboxu"
 
 #: addon\globalPlugins\freeAudio\jukebox.py:1397
 msgid "Not a valid M3U playlist file."
-msgstr ""
+msgstr "Neplatný soubor m3u playlistu"
 
 #: addon\globalPlugins\freeAudio\legacyMigration.py:179
 msgid ""
@@ -601,10 +602,10 @@ msgid ""
 "Manage add-ons) and restart NVDA."
 msgstr ""
 "Předchozí verze tohoto doplňku, FreeRadio, je stále nainstalována spolu s "
-"freeAudio. Spuštění obou současně způsobí, že soutěží o stejné klávesové "
+"freeAudio. Pokud běží obě verze současně, mohou soupeřit o stejné klávesové "
 "zkratky a zvukové zařízení. Vaše nastavení a data byla zkopírována do "
-"freeAudio. Odinstalujte prosím FreeRadio (Nabídka NVDA, Nástroje, Obchod s "
-"doplňky nebo Správa doplňků) a restartujte NVDA."
+"freeAudia. Odinstalujte prosím FreeRadio (nabídka NVDA, Nástroje, katalog "
+"doplňků) a restartujte NVDA."
 
 #. Translators: Fixed source label for LibriVox audiobooks, shown in the station-details dialog and the Audio Books tab (same role as getem.py's/gutenberg_audiobooks.py's 'audiobook_source').
 #. Translators: Source-name label for a book from the LibriVox catalog, shown alongside the audio-book details.
@@ -617,7 +618,8 @@ msgstr "LibriVox"
 #. Translators: Error returned when a LibriVox book has no linked RSS feed (used as a fallback path when archive.org's own file listing didn't work) to read chapters from.
 #: addon\globalPlugins\freeAudio\librivox.py:536
 msgid "This book has no LibriVox RSS feed to read chapters from."
-msgstr "Tato kniha nemá kanál RSS LibriVox pro čtení kapitol."
+msgstr ""
+"Tato kniha nemá LibriVox RSS kanál ze kterého by se daly číst kapitoly."
 
 #. Translators: Error returned when a LibriVox RSS feed contains XML entity declarations, which are rejected as a security measure against entity-expansion attacks.
 #: addon\globalPlugins\freeAudio\librivox.py:545
@@ -627,7 +629,7 @@ msgstr "Kanál obsahuje deklarace entit XML a byl odmítnut."
 #. Translators: Error returned when the book's LibriVox RSS feed could not be fetched or parsed.
 #: addon\globalPlugins\freeAudio\librivox.py:555
 msgid "Could not read this book's chapter list."
-msgstr "Nelze přečíst seznam kapitol této knihy."
+msgstr "U této knihy nelze přečíst seznam kapitol."
 
 #. Translators: Error returned when the LibriVox RSS feed was read successfully but contains no playable audio items.
 #: addon\globalPlugins\freeAudio\librivox.py:569
@@ -641,19 +643,19 @@ msgid ""
 "Toggle mute notifications (station changes, playback, recording, volume "
 "level)"
 msgstr ""
-"Zapnout/vypnout ztlumení oznámení (změny stanice, přehrávání, nahrávání, "
-"úroveň hlasitosti)"
+"Zapnout/vypnout oznámení (změna stanice, přehrávání, nahrávání, úroveň "
+"hlasitosti)"
 
 #. Notifications are now muted — speak this final confirmation before silencing.
 #. Translators: Spoken once, right before notifications go silent, to confirm the toggle happened (further notifications are suppressed after this).
 #: addon\globalPlugins\freeAudio\miscTogglesMixin.py:44
 msgid "Notifications muted"
-msgstr "Oznámení ztlumena"
+msgstr "Oznámení vypnuta"
 
 #. Translators: Spoken when notifications are turned back on.
 #: addon\globalPlugins\freeAudio\miscTogglesMixin.py:47
 msgid "Notifications unmuted"
-msgstr "Oznámení odtlumena"
+msgstr "Oznámení zapnuta"
 
 #. Translators: Name of an NVDA command; toggles whether freeAudio announces a station's track/song changes from ICY stream metadata.
 #: addon\globalPlugins\freeAudio\miscTogglesMixin.py:53
@@ -700,9 +702,9 @@ msgid ""
 "and place ffmpeg.exe in the freeAudio addon folder, or set the path in "
 "settings."
 msgstr ""
-"Soubor ffmpeg.exe nebyl nalezen. Stáhněte si ffmpeg z adresy https://ffmpeg."
-"org/download.html a umístěte jej do složky doplňku freeAudio, případně "
-"zvolte cestu k souboru v nastavení."
+"Soubor ffmpeg.exe nebyl nalezen. Stáhněte si ffmpeg z adresy https://"
+"ffmpeg.org/download.html a umístěte jej do složky doplňku freeAudio, "
+"případně zvolte cestu k souboru v nastavení."
 
 #. Translators: Title of the Obligato mode setup dialog.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:55
@@ -721,12 +723,12 @@ msgstr "Stanice na pozadí:"
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:89
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:102
 msgid "Audio output:"
-msgstr "Zvukový výstup:"
+msgstr "Výstupní zařízení:"
 
 #. Translators: The two fixed entries in the Obligato output-device choice: play through the same device as the main player, or through a separately chosen device.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:95
 msgid "Same as main output"
-msgstr "Stejný jako hlavní výstup"
+msgstr "Stejné jako hlavní výstupní zařízení"
 
 #. Translators: Static label above the background-volume choice in the Obligato setup dialog.
 #. Translators: Accessible name for the background-volume choice control.
@@ -756,12 +758,12 @@ msgstr "&Spustit"
 #. Translators: Spoken if the user presses Start without selecting a background station.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:176
 msgid "Please select a station for the background music."
-msgstr "Vyberte prosím stanici pro hudbu na pozadí."
+msgstr "Vyberte prosím stanici na pozadí."
 
 #. Translators: Name of an NVDA command (default Ctrl+Shift+Windows+M); starts or stops Obligato background-music mode.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:205
 msgid "Toggle Obligato background music mode"
-msgstr "Přepnout režim hudby na pozadí Obligato"
+msgstr "Zapnout/vypnout režim obligato (stanice napozadí)"
 
 #. Translators: Spoken when the toggle command is pressed but the favourites list is empty, since Obligato can only play a saved favourite station.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:221
@@ -769,8 +771,8 @@ msgid ""
 "No favourite stations. Add a station to favourites first to use Obligato "
 "mode."
 msgstr ""
-"Nejsou žádné oblíbené stanice. Nejprve přidejte stanici do oblíbených, "
-"abyste mohli použít režim Obligato."
+"Žádné stanice v oblíbených. Chcete-li použít režim obligato, nejprve "
+"přidejte stanici."
 
 #. Translators: Spoken when the chosen background station has no resolvable stream URL to play.
 #. Translators: Spoken when trying to play a station that has no resolvable stream URL at all.
@@ -812,7 +814,7 @@ msgstr "Režim Obligato zastaven"
 #. Translators: Name of an NVDA command; pauses playback (single press), with double/triple-press doing other actions - see the docstring above.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:83
 msgid "Pause or resume freeAudio playback"
-msgstr "Pozastavit nebo obnovit přehrávání freeAudio"
+msgstr "Pozastavit nebo obnovit přehrávání freeAudia"
 
 #. Translators: Spoken when the pause/resume command pauses playback.
 #. Translators: Same "Paused" wording as the F7 shortcut and the NVDA pause command; spoken here when the Play/Pause button pauses playback.
@@ -830,8 +832,8 @@ msgstr "Pozastavit nebo obnovit přehrávání freeAudio"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4591
 #: addon\globalPlugins\freeAudio\radioDialog.py:6380
 #: addon\globalPlugins\freeAudio\radioDialog.py:7566
-#: addon\globalPlugins\freeAudio\radioDialog.py:8727
-#: addon\globalPlugins\freeAudio\radioDialog.py:8817
+#: addon\globalPlugins\freeAudio\radioDialog.py:8742
+#: addon\globalPlugins\freeAudio\radioDialog.py:8832
 msgid "Paused"
 msgstr "Pozastaveno"
 
@@ -840,12 +842,12 @@ msgstr "Pozastaveno"
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:165
 #: addon\globalPlugins\freeAudio\radioDialog.py:4035
 msgid "Playing"
-msgstr "Přehrává se"
+msgstr "Spuštěno"
 
 #. Translators: Name of an NVDA command; stops freeAudio playback outright (as opposed to pausing).
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:183
 msgid "Stop freeAudio playback"
-msgstr "Zastavit přehrávání freeAudio"
+msgstr "Zastavit přehrávání freeAudia"
 
 #. Translators: Line in the stop-confirmation dialog listing an in-progress, immediately-started recording that will be cut off; %s is the station name.
 #. Translators: Line listing an in-progress instant recording in the F8 stop-confirmation dialog; %s is the station name.
@@ -880,10 +882,10 @@ msgid ""
 "\n"
 "Stop radio and end all recordings?"
 msgstr ""
-"Následující nahrávky jsou aktivní a budou zastaveny:\n"
+"Následující nahrávky jsou právě v chodu a budou zastaveny:\n"
 "%s\n"
 "\n"
-"Zastavit rádio a ukončit všechny nahrávky?"
+"Chcete zastavit rádio a ukončit všechny nahrávky?"
 
 #. Translators: Title of the confirmation dialog shown when stopping playback would cut off active recordings.
 #. Translators: Title of the F8 stop-confirmation dialog.
@@ -901,7 +903,7 @@ msgstr "Aktivní nahrávky"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:644
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:658
 msgid "freeAudio stopped"
-msgstr "freeAudio zastaveno"
+msgstr "zastaveno"
 
 #. Translators: Name of an NVDA command; skips to the next station in the favourites list.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:242
@@ -918,8 +920,8 @@ msgid ""
 "Could not resume the last audio book - it may have been removed from your "
 "library."
 msgstr ""
-"Nepodařilo se obnovit poslední audioknihu – může být odstraněna z vaší "
-"knihovny."
+"Nepodařilo se obnovit poslední přehrávanou audioknihu – pravděpodobně byla "
+"odstraněna z vaší knihovny."
 
 #. Translators: Fallback station name used in log/error contexts if the station dict has no name field.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:761
@@ -941,7 +943,7 @@ msgstr "%+.2f půltónů"
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:981
 msgid "Raise pitch transpose (podcasts, audio books and jukebox tracks)"
 msgstr ""
-"Zvýšit transpozici výšky tónu (podcasty, audioknihy a skladby jukeboxu)"
+"Zvýšit transpozici výšky tónu (podcasty, audioknihy a skladby v jukeboxu)"
 
 #. Translators: Spoken when the pitch-transpose commands are used while playing a live radio station rather than a podcast/audiobook/jukebox track.
 #. Translators: Same as the transposeUp case above: spoken when transpose is used on a live radio station.
@@ -949,21 +951,20 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1010
 msgid "Transpose only applies to podcasts, audio books and jukebox tracks"
 msgstr ""
-"Transpozice se vztahuje pouze na podcasty, audioknihy a skladby jukeboxu"
+"Transpozice se vztahuje pouze na podcasty, audioknihy a skladby v jukeboxu"
 
 #. Translators: Spoken when pitch transpose can't be applied because the optional bass_fx library isn't installed.
 #. Translators: Same as the transposeUp case above: spoken when bass_fx isn't installed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:994
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1013
 msgid "Transpose requires the bass_fx audio component, which isn't available"
-msgstr ""
-"Transpozice vyžaduje zvukovou komponentu bass_fx, která není k dispozici"
+msgstr "Transpozice vyžaduje zvukovou knihovnu bass_fx, která není k dispozici"
 
 #. Translators: Name of an NVDA command; lowers the pitch of podcasts/audio books/jukebox tracks without changing playback speed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1000
 msgid "Lower pitch transpose (podcasts, audio books and jukebox tracks)"
 msgstr ""
-"Snížit transpozici výšky tónu (podcasty, audioknihy a skladby jukeboxu)"
+"Snížit transpozici výšky tónu (podcasty, audioknihy a skladby v jukeboxu)"
 
 #. Only caller now is _play_station()'s _apply_profile_and_play()
 #. background thread (see its comment on why it calls this
@@ -1026,12 +1027,12 @@ msgstr "Uložit nahrávku do:"
 #. Translators: Radio button: save this recording to freeAudio's default recordings folder.
 #: addon\globalPlugins\freeAudio\radioDialog.py:265
 msgid "&Default recordings folder"
-msgstr "Výchozí &složka nahrávek"
+msgstr "Výchozí složka pro ukládání nahrávek"
 
 #. Translators: Radio button: save this recording to a specific folder chosen below.
 #: addon\globalPlugins\freeAudio\radioDialog.py:268
 msgid "&Selected folder:"
-msgstr "&Vybraná složka:"
+msgstr "&Vybrat jinou složku:"
 
 #. Translators: Accessible name for the custom-folder path field (same text as its radio-button label above).
 #: addon\globalPlugins\freeAudio\radioDialog.py:275
@@ -1041,14 +1042,14 @@ msgstr "Vybraná složka:"
 #. Translators: Button label; opens a folder-picker to choose where to save this recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:277
 msgid "Bro&wse..."
-msgstr "Prochá&zet..."
+msgstr "Procházet..."
 
 #. Translators: Title of the folder-picker dialog used by the Browse button next to a custom recordings-folder path.
 #. Translators: Title of the folder-picker dialog for choosing the recordings folder.
 #: addon\globalPlugins\freeAudio\radioDialog.py:297
 #: addon\globalPlugins\freeAudio\settingsPanel.py:782
 msgid "Select recordings folder"
-msgstr "Vyberte složku nahrávek"
+msgstr "Vyberte složku pro ukládání nahrávek"
 
 #. Translators: Error returned by check_stream_url() when the URL field was left blank.
 #: addon\globalPlugins\freeAudio\radioDialog.py:384
@@ -1193,7 +1194,7 @@ msgstr "Oblíbené"
 #. Translators: Tab label for the recording controls and active/past recordings list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:710
 msgid "Recording"
-msgstr "Nahrávání"
+msgstr "Záznam"
 
 #. Translators: Tab label for scheduled recording timers.
 #: addon\globalPlugins\freeAudio\radioDialog.py:712
@@ -1284,7 +1285,7 @@ msgstr "Flanger"
 #: addon\globalPlugins\freeAudio\radioDialog.py:779
 #: addon\globalPlugins\freeAudio\settingsPanel.py:179
 msgid "Gargle"
-msgstr "Kloktání"
+msgstr "Gargle"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:779
 #: addon\globalPlugins\freeAudio\settingsPanel.py:180
@@ -1324,7 +1325,7 @@ msgstr "&Odstranit stanici"
 #: addon\globalPlugins\freeAudio\radioDialog.py:827
 #: addon\globalPlugins\freeAudio\radioDialog.py:3801
 msgid "Add to Fa&vorites"
-msgstr "Přidat do oblí&bených"
+msgstr "Přidat do oblíbených"
 
 #. Translators: Button label; opens the selected station's details dialog (info, description, tags).
 #. --- Details ---
@@ -1332,19 +1333,19 @@ msgstr "Přidat do oblí&bených"
 #: addon\globalPlugins\freeAudio\radioDialog.py:829
 #: addon\globalPlugins\freeAudio\radioDialog.py:3794
 msgid "Station Detai&ls"
-msgstr "Po&drobnosti o stanici"
+msgstr "Podrobnosti o stanici"
 
 #. Translators: Button label; opens the dialog for manually adding a custom station by stream URL.
 #: addon\globalPlugins\freeAudio\radioDialog.py:832
 msgid "Add C&ustom Station..."
-msgstr "Přidat &vlastní stanici..."
+msgstr "Přidat vlastní stanici..."
 
 #. Manually re-syncs the local station list cache from the Radio Browser
 #. API, instead of waiting for the periodic background refresh.
 #. Translators: Button label; manually re-fetches the full station catalog from Radio Browser's server.
 #: addon\globalPlugins\freeAudio\radioDialog.py:836
 msgid "&Update Station List"
-msgstr "Aktualizo&vat seznam stanic"
+msgstr "&Aktualizovat seznam stanic"
 
 #. Translators: Tooltip for the Update Station List button.
 #: addon\globalPlugins\freeAudio\radioDialog.py:839
@@ -1352,38 +1353,37 @@ msgid ""
 "Re-downloads the full station list from the server, so search and browsing "
 "use the latest data."
 msgstr ""
-"Znovu stáhne úplný seznam stanic ze serveru, aby vyhledávání a prohlížení "
-"používaly nejnovější data."
+"Znovu stáhne úplný seznam stanic ze serveru, aby se při vyhledávání a "
+"prohlížení používala nejnovější data."
 
 #. Translators: Button label; closes the station browser dialog.
 #. Translators: Button label; closes the lyrics dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9169
+#: addon\globalPlugins\freeAudio\radioDialog.py:9174
 msgid "&Close"
 msgstr "&Zavřít"
 
 #. Translators: Spoken when the Podcasts shortcut is pressed but the Podcasts module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:977
-#, fuzzy
 msgid "Podcasts are disabled - enable them in freeAudio settings to use this"
 msgstr ""
-"Časová vyrovnávací paměť je zakázána. Zapněte ji v nastavení freeAudio."
+"Podcasty nejsou povoleny. Chcete-li tuto funkci používat, zaškrtněte ji v "
+"nastavení freeAudia"
 
 #. Translators: Spoken when the Audio Books shortcut is pressed but the Audio Books module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1009
-#, fuzzy
 msgid ""
 "Audio Books are disabled - enable them in freeAudio settings to use this"
 msgstr ""
-"Nejsou povoleny žádné zdroje audioknih. Povolte alespoň jeden v nastavení "
-"freeAudio."
+"Audioknihy nejsou povoleny. Chcete-li tuto funkci používat, zaškrtněte ji v "
+"nastavení freeAudia"
 
 #. Translators: Spoken when the Jukebox shortcut is pressed but the Jukebox module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1043
-#, fuzzy
 msgid "Jukebox is disabled - enable it in freeAudio settings to use this"
 msgstr ""
-"Časová vyrovnávací paměť je zakázána. Zapněte ji v nastavení freeAudio."
+"Jukebox není povolen. Chcete-li tuto funkci používat, zaškrtněte ji v "
+"nastavení freeAudia"
 
 #. Translators: Label above the field that filters the favourites list below it.
 #. Translators: Label above the filter text field that narrows the station list below it.
@@ -1409,7 +1409,7 @@ msgstr "Filtrovat oblíbené"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1089
 #: addon\globalPlugins\freeAudio\radioDialog.py:3829
 msgid "Save Audio Pr&ofile for This Station"
-msgstr "Uložit zvukový pr&ofil pro tuto stanici"
+msgstr "&Uložit zvukový profil pro tuto stanici"
 
 #. Translators: Button label; removes the saved audio profile for the selected favourite station.
 #. Translators: Context-menu item; same action as the Clear Audio Profile button.
@@ -1422,22 +1422,22 @@ msgstr "Uložit zvukový pr&ofil pro tuto stanici"
 #: addon\globalPlugins\freeAudio\radioDialog.py:6814
 #: addon\globalPlugins\freeAudio\radioDialog.py:6930
 #: addon\globalPlugins\freeAudio\radioDialog.py:7987
-#: addon\globalPlugins\freeAudio\radioDialog.py:8846
-#: addon\globalPlugins\freeAudio\radioDialog.py:9127
+#: addon\globalPlugins\freeAudio\radioDialog.py:8861
+#: addon\globalPlugins\freeAudio\radioDialog.py:9132
 msgid "Clear Audio Prof&ile"
-msgstr "Vymazat zvukový prof&il"
+msgstr "Vymazat zvukový profil"
 
 #. Translators: Button label; opens a rename prompt for the selected custom favourite station.
 #. Translators: Context-menu item; same action as the Rename Station button.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1099
 #: addon\globalPlugins\freeAudio\radioDialog.py:3816
 msgid "Re&name Station"
-msgstr "Pře&jmenovat stanici"
+msgstr "Přejmenovat stanici"
 
 #. Translators: Button label; opens a file-save dialog to export the favourites list (JSON or M3U).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1108
 msgid "E&xport Favourites..."
-msgstr "E&xportovat oblíbené..."
+msgstr "&Exportovat oblíbené..."
 
 #. Translators: Button label; opens a file-picker to import favourites from a JSON or M3U file.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1111
@@ -1450,7 +1450,7 @@ msgstr "&Importovat oblíbené..."
 #: addon\globalPlugins\freeAudio\radioDialog.py:1139
 #: addon\globalPlugins\freeAudio\radioDialog.py:1148
 msgid "Sort:"
-msgstr "Řadit:"
+msgstr "Seřadit:"
 
 #. Translators: The two sort-order choices for the All Stations list: alphabetical by name, or by the station's Radio Browser rating/votes.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1145
@@ -1500,7 +1500,7 @@ msgstr "Hledat:"
 #. Translators: Grey hint text under the search field, explaining that results filter live as you type; the '·' is a visual separator, not meant to be read as punctuation.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1189
 msgid "Type to search · results update automatically"
-msgstr "Pište pro hledání · výsledky se aktualizují automaticky"
+msgstr "Zadejte hledaný výraz; výsledky budou aktualizovány automaticky"
 
 #. Translators: Placeholder status text shown while the station catalog is being loaded from disk/network.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1195
@@ -1544,8 +1544,8 @@ msgstr "Filtrovat stanice"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1398
 #: addon\globalPlugins\freeAudio\radioDialog.py:1403
 #: addon\globalPlugins\freeAudio\radioDialog.py:5150
-#: addon\globalPlugins\freeAudio\radioDialog.py:9303
-#: addon\globalPlugins\freeAudio\radioDialog.py:9306
+#: addon\globalPlugins\freeAudio\radioDialog.py:9308
+#: addon\globalPlugins\freeAudio\radioDialog.py:9311
 msgid "Start time (HH:MM):"
 msgstr "Čas zahájení (HH:MM):"
 
@@ -1554,10 +1554,10 @@ msgstr "Čas zahájení (HH:MM):"
 #. Translators: Label for the recording-duration field (also used as its accessible name below); value is in minutes.
 #. Translators: Accessible name for the duration field (same text as its static label above).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1262
-#: addon\globalPlugins\freeAudio\radioDialog.py:9311
-#: addon\globalPlugins\freeAudio\radioDialog.py:9314
+#: addon\globalPlugins\freeAudio\radioDialog.py:9316
+#: addon\globalPlugins\freeAudio\radioDialog.py:9319
 msgid "Duration (minutes):"
-msgstr "Délka (minuty):"
+msgstr "Délka trvání (minuty):"
 
 #. Translators: Label above the two recurrence radio buttons (once vs. weekly).
 #. Translators: Label above the two recurrence radio buttons (once vs. weekly) - same wording as the Recording tab's scheduling section.
@@ -1565,7 +1565,7 @@ msgstr "Délka (minuty):"
 #. Translators: Label above the recurrence radio buttons (once vs. weekly) - same wording as the Recording tab's scheduling section.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1272
 #: addon\globalPlugins\freeAudio\radioDialog.py:1412
-#: addon\globalPlugins\freeAudio\radioDialog.py:9319
+#: addon\globalPlugins\freeAudio\radioDialog.py:9324
 msgid "Recurrence:"
 msgstr "Opakování:"
 
@@ -1574,9 +1574,9 @@ msgstr "Opakování:"
 #. Translators: Radio button: this is a single one-time recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1278
 #: addon\globalPlugins\freeAudio\radioDialog.py:1418
-#: addon\globalPlugins\freeAudio\radioDialog.py:9321
+#: addon\globalPlugins\freeAudio\radioDialog.py:9326
 msgid "Only &once"
-msgstr "Pouze &jednou"
+msgstr "Nahrát pouze jednou"
 
 #. Translators: Radio button: repeat the recording every week indefinitely, on the days chosen below.
 #. Translators: Radio button: repeat the recording every week indefinitely, on the days chosen below - same wording as the Recording tab's scheduling section.
@@ -1587,9 +1587,9 @@ msgstr "Pouze &jednou"
 #. Translators: Radio button: this recording repeats every week on the checked days.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1287
 #: addon\globalPlugins\freeAudio\radioDialog.py:1427
-#: addon\globalPlugins\freeAudio\radioDialog.py:9327
+#: addon\globalPlugins\freeAudio\radioDialog.py:9332
 msgid "Repeat &weekly"
-msgstr "Opakovat &týdně"
+msgstr "Opakovat týdně"
 
 #. Translators: Label above the day-of-week checklist, shown only for the weekly-repeat recurrence mode.
 #. Translators: Accessible name for the day-of-week checklist (same text as its static label).
@@ -1601,10 +1601,10 @@ msgstr "Opakovat &týdně"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1311
 #: addon\globalPlugins\freeAudio\radioDialog.py:1437
 #: addon\globalPlugins\freeAudio\radioDialog.py:1449
-#: addon\globalPlugins\freeAudio\radioDialog.py:9342
-#: addon\globalPlugins\freeAudio\radioDialog.py:9346
+#: addon\globalPlugins\freeAudio\radioDialog.py:9347
+#: addon\globalPlugins\freeAudio\radioDialog.py:9351
 msgid "Active days:"
-msgstr "Aktivní dny:"
+msgstr "Vybrat dny:"
 
 #. Translators: Day-of-week checklist items, Monday through Sunday (continues on the next line).
 #. Translators: Day-of-week checklist items, Monday through Sunday - same wording as the Recording tab's scheduling section.
@@ -1615,7 +1615,7 @@ msgstr "Aktivní dny:"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Monday"
 msgstr "Pondělí"
 
@@ -1624,7 +1624,7 @@ msgstr "Pondělí"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Tuesday"
 msgstr "Úterý"
 
@@ -1633,7 +1633,7 @@ msgstr "Úterý"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Wednesday"
 msgstr "Středa"
 
@@ -1642,7 +1642,7 @@ msgstr "Středa"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Thursday"
 msgstr "Čtvrtek"
 
@@ -1651,7 +1651,7 @@ msgstr "Čtvrtek"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1979
 #: addon\globalPlugins\freeAudio\radioDialog.py:5199
 #: addon\globalPlugins\freeAudio\radioDialog.py:5362
-#: addon\globalPlugins\freeAudio\radioDialog.py:9339
+#: addon\globalPlugins\freeAudio\radioDialog.py:9344
 msgid "Friday"
 msgstr "Pátek"
 
@@ -1660,7 +1660,7 @@ msgstr "Pátek"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1979
 #: addon\globalPlugins\freeAudio\radioDialog.py:5199
 #: addon\globalPlugins\freeAudio\radioDialog.py:5362
-#: addon\globalPlugins\freeAudio\radioDialog.py:9339
+#: addon\globalPlugins\freeAudio\radioDialog.py:9344
 msgid "Saturday"
 msgstr "Sobota"
 
@@ -1669,7 +1669,7 @@ msgstr "Sobota"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1979
 #: addon\globalPlugins\freeAudio\radioDialog.py:5199
 #: addon\globalPlugins\freeAudio\radioDialog.py:5362
-#: addon\globalPlugins\freeAudio\radioDialog.py:9339
+#: addon\globalPlugins\freeAudio\radioDialog.py:9344
 msgid "Sunday"
 msgstr "Neděle"
 
@@ -1677,27 +1677,27 @@ msgstr "Neděle"
 #. --- Playback mode ---
 #. Translators: Label above the two playback-mode radio buttons for this scheduled recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1319
-#: addon\globalPlugins\freeAudio\radioDialog.py:9355
+#: addon\globalPlugins\freeAudio\radioDialog.py:9360
 msgid "Playback during recording:"
-msgstr "Přehrávání během nahrávání:"
+msgstr "Chování přehrávání během nahrávání:"
 
 #. Translators: Radio button: play the station out loud while also recording it.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1324
-#: addon\globalPlugins\freeAudio\radioDialog.py:9357
+#: addon\globalPlugins\freeAudio\radioDialog.py:9362
 msgid "Record while &listening (play and record simultaneously)"
-msgstr "Nahrávat při &poslechu (přehrávat a nahrávat současně)"
+msgstr "Poslouchat a nahrávat současně"
 
 #. Translators: Radio button: record silently, without audio output, to save resources.
 #. Translators: Radio button: record silently, without audio output.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1330
-#: addon\globalPlugins\freeAudio\radioDialog.py:9359
+#: addon\globalPlugins\freeAudio\radioDialog.py:9364
 msgid "Record &only (no audio output)"
-msgstr "Pouze &nahrávat (bez zvukového výstupu)"
+msgstr "Pouze nahrávat (bez zvukového výstupu)"
 
 #. Translators: Button label; adds the configured recording to the schedule list below.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1344
 msgid "&Add to Schedule"
-msgstr "&Přidat do plánu"
+msgstr "&Přidat do rozvrhu"
 
 #. Translators: Label above the list of already-scheduled recordings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1348
@@ -1707,17 +1707,17 @@ msgstr "Nadcházející naplánované nahrávky:"
 #. Translators: Label above the two timer-action radio buttons (start vs stop) on the Timer tab.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1379
 msgid "Timer action:"
-msgstr "Akce časovače:"
+msgstr "Typ časovače:"
 
 #. Translators: Radio button: this timer's action is to start playing a station (an 'alarm' style timer).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1384
 msgid "&Start radio at specified time (alarm)"
-msgstr "&Spustit rádio v zadaný čas (budík)"
+msgstr "Spustit rádio v zadaný čas (budík)"
 
 #. Translators: Radio button: this timer's action is to stop playback (a 'sleep' style timer).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1390
 msgid "St&op radio at specified time (sleep)"
-msgstr "Za&stavit rádio v zadaný čas (spánek)"
+msgstr "Vypnout rádio v nastavený čas (časovač spánku)"
 
 #. Translators: Button label; adds the configured timer to the pending-timers list below.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1484
@@ -1727,7 +1727,7 @@ msgstr "&Přidat časovač"
 #. Translators: Label above the list of not-yet-fired timers.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1490
 msgid "Pending timers:"
-msgstr "Čekající časovače:"
+msgstr "Nadcházející časovače:"
 
 #. Translators: Button label; deletes the selected pending timer.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1496
@@ -1740,8 +1740,8 @@ msgid ""
 "Press comma to pick a station, navigate to the target position, then press "
 "comma again to drop."
 msgstr ""
-"Stisknutím čárky vyberte stanici, přejděte na cílovou pozici a dalším "
-"stisknutím čárky ji umístěte."
+"Stiskněte čárku pro výběr stanice. Následně šipkami vyberte místo, kam ji "
+"chcete přesunout. Opětovným stisknutím čárky umístění potvrdíte."
 
 #. Translators: Spoken when the favourites filter matches nothing.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1916
@@ -1773,7 +1773,7 @@ msgstr "Pouze nahrávat"
 #: addon\globalPlugins\freeAudio\radioDialog.py:2183
 #: addon\globalPlugins\freeAudio\recorder.py:1340
 msgid "Listen and record"
-msgstr "Poslouchat a nahrávat"
+msgstr "Poslouchat a nahrávat současně"
 
 #. Translators: Recurrence description shown when a weekly schedule has every day of the week checked (no day restriction).
 #. Translators: Recurrence description shown when a weekly timer has every day of the week checked (no day restriction) - same wording as the Recording tab's scheduling section.
@@ -1805,7 +1805,7 @@ msgstr "%s — %s — %s, %d min, %s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:2032
 #: addon\globalPlugins\freeAudio\radioDialog.py:5249
 msgid "No stations found"
-msgstr "Nebyly nalezeny žádné stanice"
+msgstr "Žádné stanice nenalezeny"
 
 #. Translators: Plural forms spoken after filtering the recording-schedule station list; %d is how many match.
 #. Translators: Plural forms spoken after filtering the timer station list; %d is how many match.
@@ -1821,14 +1821,14 @@ msgstr[2] "%d stanic"
 #. Translators: Spoken when adding a schedule but the recorder subsystem failed to initialise.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2062
 msgid "Recording is not available"
-msgstr "Nahrávání není k dispozici"
+msgstr "Záznam není k dispozici"
 
 #. Translators: Spoken when the typed start time doesn't parse as a valid HH:MM 24-hour time.
 #. Translators: Spoken when the typed time doesn't parse as a valid HH:MM 24-hour time; same message as the recording-schedule form.
 #. Translators: Same time-format error as the Add Schedule form, shown here when saving an edited schedule with an invalid time.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2075
 #: addon\globalPlugins\freeAudio\radioDialog.py:5280
-#: addon\globalPlugins\freeAudio\radioDialog.py:9418
+#: addon\globalPlugins\freeAudio\radioDialog.py:9423
 msgid "Invalid time format. Use HH:MM"
 msgstr "Neplatný formát času. Použijte HH:MM"
 
@@ -1843,7 +1843,7 @@ msgstr "Vyberte prosím stanici"
 #: addon\globalPlugins\freeAudio\radioDialog.py:2135
 #, python-format
 msgid "Schedule added: %(station)s at %(time)s on %(dates)s (%(mode)s)"
-msgstr "Plán přidán: %(station)s v %(time)s dne %(dates)s (%(mode)s)"
+msgstr "Naplánováno: %(station)s v %(time)s dne %(dates)s (%(mode)s)"
 
 #. Translators: Body of the warning dialog shown when one or more of the new schedule's dates overlaps an existing recording; %(names)s is a comma-joined list of the conflicting recordings' station names.
 #. Translators: Same conflict-warning message as above, used in the single-date scheduling branch; %(names)s is the conflicting recording(s).
@@ -1851,30 +1851,30 @@ msgstr "Plán přidán: %(station)s v %(time)s dne %(dates)s (%(mode)s)"
 #: addon\globalPlugins\freeAudio\radioDialog.py:2193
 #, python-format
 msgid "Time conflict with: %(names)s. Switched to record-only mode."
-msgstr "Časový konflikt s: %(names)s. Přepnuto do režimu pouze nahrávat."
+msgstr "Čas se překrývá s: %(names)s. Přepnuto do režimu pouze nahrávat."
 
 #. Translators: Title of the schedule-conflict warning dialog.
 #. Translators: Same dialog title as above, reused in the single-date scheduling branch.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2149
 #: addon\globalPlugins\freeAudio\radioDialog.py:2195
 msgid "Schedule Conflict"
-msgstr "Konflikt plánu"
+msgstr "Kolize rozvrhu"
 
 #. Translators: Confirmation spoken after adding a single (non-multi-date) schedule; %(station)s is the station, %(date)s the date, %(time)s the HH:MM time, %(mode)s the mode word from above.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2186
 #, python-format
 msgid "Schedule added: %(station)s on %(date)s at %(time)s (%(mode)s)"
-msgstr "Plán přidán: %(station)s dne %(date)s v %(time)s (%(mode)s)"
+msgstr "Naplánováno: %(station)s dne %(date)s v %(time)s (%(mode)s)"
 
 #. Translators: Spoken after deleting a scheduled recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2220
 msgid "Schedule deleted"
-msgstr "Plán smazán"
+msgstr "Rozvrh byl smazán"
 
 #. Translators: Spoken after saving changes in EditScheduleDialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2251
 msgid "Schedule updated"
-msgstr "Plán aktualizován"
+msgstr "Rozvrh byl aktualizován"
 
 #. Translators: Context-menu item; opens EditScheduleDialog for the selected scheduled recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2281
@@ -1890,7 +1890,7 @@ msgstr "&Odstranit vybrané"
 #: addon\globalPlugins\freeAudio\radioDialog.py:2348
 #, python-format
 msgid "Top stations (%d)"
-msgstr "Nejlepší stanice (%d)"
+msgstr "Nejoblíbenější stanice (%d)"
 
 #. Translators: Spoken if the Update Station List button/command is used while a refresh is already running.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2356
@@ -1900,17 +1900,17 @@ msgstr "Aktualizace seznamu stanic již probíhá"
 #. Translators: Spoken when a manual catalog refresh starts.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2360
 msgid "Refreshing station list from the server..."
-msgstr "Aktualizace seznamu stanic ze serveru..."
+msgstr "Aktualizuji seznam stanic ze serveru..."
 
 #. Translators: Status-line text (shorter than the spoken announcement above) shown while the manual refresh is running.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2362
 msgid "Refreshing station list..."
-msgstr "Aktualizace seznamu stanic..."
+msgstr "Aktualizuji seznam stanic..."
 
 #. Translators: Spoken when a manual catalog refresh finishes successfully.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2374
 msgid "Station list updated"
-msgstr "Seznam stanic aktualizován"
+msgstr "Seznam stanic byl aktualizován"
 
 #. Translators: Status-line text shown after a manual catalog refresh finishes.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2376
@@ -1951,13 +1951,13 @@ msgstr ""
 #. Translators: Appended to the status line when the result-limit cap was hit and the true total isn't known.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2506
 msgid "(limit reached — increase result limit to see more)"
-msgstr "(dosažen limit — zvýšením limitu výsledků zobrazíte více)"
+msgstr "(Byl dosažený maximální limit — pro zobrazení více výsledků jej zvyšte"
 
 #. Translators: Status-line text shown on the All Stations tab when the Radio Browser API is unreachable.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2594
 msgid "Could not connect to radio directory. Check your internet connection."
 msgstr ""
-"Nelze se připojit k adresáři rádií. Zkontrolujte připojení k internetu."
+"Nelze se připojit k adresáři stanic. Zkontrolujte připojení k internetu."
 
 #. Translators: Option in audio profile save dialog: save volume level only
 #: addon\globalPlugins\freeAudio\radioDialog.py:3125
@@ -2037,7 +2037,7 @@ msgstr "Hlasitost, efekty, rychlost přehrávání a transpozice výšky tónu"
 #. Translators: Message shown in the audio profile save dialog
 #: addon\globalPlugins\freeAudio\radioDialog.py:3164
 msgid "What would you like to save in the audio profile?"
-msgstr "Co chcete uložit do zvukového profilu?"
+msgstr "Co byste chtěli uložit do zvukového profilu?"
 
 #. Translators: Title of the audio profile save dialog
 #: addon\globalPlugins\freeAudio\radioDialog.py:3166
@@ -2108,8 +2108,8 @@ msgid ""
 "Supported files (*.json;*.m3u)|*.json;*.m3u|JSON favourites (*.json)|*.json|"
 "M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Oblíbené JSON (*.json)|*."
-"json|Playlist M3U (*.m3u)|*.m3u"
+"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Oblíbené JSON (*.json)|"
+"*.json|Playlist M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing favourites.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
@@ -2128,7 +2128,8 @@ msgstr ""
 "Jak mají být importované stanice přidány?\n"
 "\n"
 "Ano  — Sloučit: přidat nové stanice bez odstranění stávajících.\n"
-"Ne   — Nahradit: vymazat aktuální seznam a načíst ze souboru."
+"Ne   — Nahradit: vymazat aktuální seznam oblíbených stanic a načíst ze "
+"souboru."
 
 #. Translators: Body of the error dialog shown when the favourites file exists but its content is invalid; %(error)s is the underlying error message.
 #. Translators: Body of the error dialog shown when the jukebox import file exists but its content is invalid; %(error)s is the underlying error message.
@@ -2189,7 +2190,7 @@ msgstr "Přejmenovat stanici"
 #: addon\globalPlugins\freeAudio\radioDialog.py:3417
 #: addon\globalPlugins\freeAudio\radioDialog.py:4907
 msgid "Name cannot be empty"
-msgstr "Název nesmí být prázdný"
+msgstr "Textové pole pro jméno nemůže zůstat prázdné"
 
 #. Translators: Spoken after successfully renaming a station; %s is the new name.
 #. Translators: Spoken after successfully renaming a jukebox entry; %s is the new name.
@@ -2285,7 +2286,7 @@ msgstr "Hlasy"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:1005
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:1136
 msgid "No station detail available"
-msgstr "Nejsou k dispozici žádné podrobnosti o stanici"
+msgstr "Podrobnosti o stanici nejsou k dispozici"
 
 #. Translators: Title of the station-details dialog.
 #. Translators: Title of this track-info details dialog.
@@ -2300,14 +2301,14 @@ msgstr "Podrobnosti o stanici"
 #: addon\globalPlugins\freeAudio\radioDialog.py:3604
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:1044
 msgid "&Copy all to clipboard"
-msgstr "&Zkopírovat vše do schránky"
+msgstr "Z&kopírovat vše do schránky"
 
 #. Translators: Spoken after the Copy button in the station-details dialog succeeds.
 #. Translators: Spoken after the Copy All button succeeds.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3611
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:1051
 msgid "Station details copied to clipboard"
-msgstr "Podrobnosti o stanici zkopírovány do schránky"
+msgstr "Podrobnosti o stanici byly zkopírovány do schránky"
 
 #. Translators: Short suffix appended to a list row's display text
 #. when the row is marked for bulk removal (see
@@ -2323,17 +2324,17 @@ msgstr " (označeno)"
 #: addon\globalPlugins\freeAudio\radioDialog.py:3692
 #, python-format
 msgid "Do you want to delete the station \"%s\"?"
-msgstr "Opravdu chcete smazat stanici \"%s\"?"
+msgstr "Opravdu chcete odstranit stanici \"%s\" z oblíbených?"
 
 #. Translators: Title of the delete-station confirmation dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3695
 msgid "Delete Station"
-msgstr "Smazat stanici"
+msgstr "Odstranit stanici"
 
 #. Translators: Spoken after a custom station is deleted.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3706
 msgid "Station deleted"
-msgstr "Stanice smazána"
+msgstr "Stanice odstraněna"
 
 #. Translators: Spoken after successfully adding a custom station; %s is the station name.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3734
@@ -2344,18 +2345,18 @@ msgstr "Stanice přidána: %s"
 #. Translators: Spoken when the Test URL context-menu action is used with no station selected.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3749
 msgid "No station selected."
-msgstr "Není vybrána žádná stanice."
+msgstr "Žádná stanice nevybrána."
 
 #. Translators: Spoken when trying to test a station entry that has no stream URL at all.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3754
 msgid "This station has no URL."
-msgstr "Tato stanice nemá adresu URL."
+msgstr "Tato stanice nemá adresu URL streamu."
 
 #. Translators: Spoken when a station stream check starts; %s is the station name.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3758
 #, python-format
 msgid "Checking stream for %s, please wait…"
-msgstr "Kontrola streamu pro %s, čekejte prosím…"
+msgstr "Kontroluji stream %s, čekejte prosím…"
 
 #. Translators: Spoken after a background stream check confirms a station is reachable; %(name)s is the station name.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3769
@@ -2376,29 +2377,29 @@ msgstr "%(name)s: kontrola streamu se nezdařila — %(detail)s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:3811
 #: addon\globalPlugins\freeAudio\radioDialog.py:5716
 #: addon\globalPlugins\freeAudio\radioDialog.py:7998
-#: addon\globalPlugins\freeAudio\radioDialog.py:9094
+#: addon\globalPlugins\freeAudio\radioDialog.py:9109
 msgid "Remove &Selected"
 msgstr "&Odstranit vybrané"
 
 #. Translators: Context-menu item; assigns a user-typed folder/group name to every '.'-marked favourite (or just the focused one if none are marked), so favourites can be organised into groups manually - not only ones imported with a group-title tag.
 #. Translators: Context-menu item; assigns a user-typed group name to every '.'-marked jukebox entry (or just the focused one if none are marked), mirroring the same feature for favourites.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3821
-#: addon\globalPlugins\freeAudio\radioDialog.py:9103
+#: addon\globalPlugins\freeAudio\radioDialog.py:9118
 msgid "Assign to &Group..."
-msgstr "Přiřadit do &skupiny..."
+msgstr "Přidat do skupiny..."
 
 #. --- Stream test ---
 #. Translators: Context-menu item; re-checks whether the station's stream URL is currently reachable.
 #. Translators: Button label; checks whether the typed stream URL is reachable and playable before adding the station.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9210
+#: addon\globalPlugins\freeAudio\radioDialog.py:9215
 msgid "&Test URL"
-msgstr "&Otestovat URL"
+msgstr "Otestovat URL"
 
 #. Translators: Spoken if the bundled help document can't be located on disk.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3896
 msgid "Help file not found."
-msgstr "Soubor nápovědy nenalezen."
+msgstr "Soubor s nápovědou nenalezen."
 
 #. Mid tone: item picked
 #. Translators: Spoken when the 'move favourite' keyboard command (comma) is pressed the first time on a station, picking it up for reordering; %s is the station name. Press comma again elsewhere in the list to drop it there.
@@ -2410,7 +2411,8 @@ msgstr "Soubor nápovědy nenalezen."
 msgid ""
 "%s selected. Navigate to the target position and press comma again to drop."
 msgstr ""
-"%s vybráno. Přejděte na cílovou pozici a dalším stisknutím čárky ji umístěte."
+"%s je vybráno. Přejděte na cílovou pozici a stiskněte znovu čárku pro "
+"umístění."
 
 #. Low tone: cancelled
 #. Translators: Spoken if the move-in-progress is cancelled (e.g. Escape) before a drop position is chosen.
@@ -2419,7 +2421,7 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\radioDialog.py:4400
 #: addon\globalPlugins\freeAudio\radioDialog.py:4459
 msgid "Move cancelled"
-msgstr "Přesun zrušen"
+msgstr "Přesunutí zrušeno"
 
 #. High tone: successfully moved
 #. Translators: Spoken after successfully reordering a favourite station; %s is the station name.
@@ -2516,18 +2518,18 @@ msgstr[2] "Odznačeno %d knih"
 #, python-format
 msgid "Marked %d jukebox entry"
 msgid_plural "Marked %d jukebox entries"
-msgstr[0] "Označena %d položka jukeboxu"
-msgstr[1] "Označeny %d položky jukeboxu"
-msgstr[2] "Označeno %d položek jukeboxu"
+msgstr[0] "Označena %d položka v jukeboxu"
+msgstr[1] "Označeny %d položky v jukeboxu"
+msgstr[2] "Označeno %d položek v jukeboxu"
 
 #. Translators: Spoken after Shift+End/Shift+Home unmarks a range of jukebox entries; %d is how many were unmarked.
 #: addon\globalPlugins\freeAudio\radioDialog.py:4802
 #, python-format
 msgid "Unmarked %d jukebox entry"
 msgid_plural "Unmarked %d jukebox entries"
-msgstr[0] "Odznačena %d položka jukeboxu"
-msgstr[1] "Odznačeny %d položky jukeboxu"
-msgstr[2] "Odznačeno %d položek jukeboxu"
+msgstr[0] "Odznačena %d položka v jukeboxu"
+msgstr[1] "Odznačeny %d položky v jukeboxu"
+msgstr[2] "Odznačeno %d položek v jukeboxu"
 
 #. Translators: Spoken after unmarking a favourite station in the multi-select removal flow; %s is the station name.
 #. Translators: Spoken after unmarking a liked song in the multi-select removal flow; %s is the song string.
@@ -2536,7 +2538,7 @@ msgstr[2] "Odznačeno %d položek jukeboxu"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4821
 #: addon\globalPlugins\freeAudio\radioDialog.py:5634
 #: addon\globalPlugins\freeAudio\radioDialog.py:7587
-#: addon\globalPlugins\freeAudio\radioDialog.py:8752
+#: addon\globalPlugins\freeAudio\radioDialog.py:8767
 #, python-format
 msgid "Unmarked: %s"
 msgstr "Odznačeno: %s"
@@ -2548,7 +2550,7 @@ msgstr "Odznačeno: %s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4825
 #: addon\globalPlugins\freeAudio\radioDialog.py:5638
 #: addon\globalPlugins\freeAudio\radioDialog.py:7591
-#: addon\globalPlugins\freeAudio\radioDialog.py:8756
+#: addon\globalPlugins\freeAudio\radioDialog.py:8771
 #, python-format
 msgid "Marked: %s"
 msgstr "Označeno: %s"
@@ -2558,72 +2560,70 @@ msgstr "Označeno: %s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4849
 #: addon\globalPlugins\freeAudio\radioDialog.py:4934
 msgid "Enter a group name (leave empty to remove from a group):"
-msgstr "Zadejte název skupiny (ponechte prázdné pro odebrání ze skupiny):"
+msgstr ""
+"Zadejte název skupiny, (pro odstranění označených položek ze skupiny "
+"ponechte pole prázdné):"
 
 #. Translators: Title of the assign-to-group dialog.
 #. Translators: Title of the jukebox assign-to-group dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:4851
 #: addon\globalPlugins\freeAudio\radioDialog.py:4936
 msgid "Assign to Group"
-msgstr "Přiřadit do skupiny"
+msgstr "Přidat do skupiny"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:4870
 #, python-format
 msgid "Assigned %(count)d favourite to group \"%(group)s\""
 msgid_plural "Assigned %(count)d favourites to group \"%(group)s\""
-msgstr[0] "Přiřazena %(count)d oblíbená do skupiny \"%(group)s\""
-msgstr[1] "Přiřazeny %(count)d oblíbené do skupiny \"%(group)s\""
-msgstr[2] "Přiřazeno %(count)d oblíbených do skupiny \"%(group)s\""
+msgstr[0] "Přidána %(count)d oblíbená do skupiny \"%(group)s\""
+msgstr[1] "Přidány %(count)d oblíbené do skupiny \"%(group)s\""
+msgstr[2] "Přidáno %(count)d oblíbených do skupiny \"%(group)s\""
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:4877
 #, python-format
 msgid "Removed %(count)d favourite from its group"
 msgid_plural "Removed %(count)d favourites from their groups"
-msgstr[0] "Odebrána %(count)d oblíbená ze své skupiny"
-msgstr[1] "Odebrány %(count)d oblíbené ze svých skupin"
-msgstr[2] "Odebráno %(count)d oblíbených ze svých skupin"
+msgstr[0] "Odstraněna %(count)d oblíbená ze své skupiny"
+msgstr[1] "Odstraněny %(count)d oblíbené ze svých skupin"
+msgstr[2] "Odstraněno %(count)d oblíbených ze svých skupin"
 
 #. Translators: Prompt of the rename dialog for a jukebox entry.
 #: addon\globalPlugins\freeAudio\radioDialog.py:4894
-#, fuzzy
 msgid "Enter a new name for this entry:"
-msgstr "Zadejte nový název stanice:"
+msgstr "Zadejte nový název této položky:"
 
 #. Translators: Title of the jukebox rename dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:4896
-#, fuzzy
 msgid "Rename Entry"
-msgstr "Přejmenovat stanici"
+msgstr "Přejmenovat položku"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:4954
-#, fuzzy, python-format
+#, python-format
 msgid "Assigned %(count)d entry to group \"%(group)s\""
 msgid_plural "Assigned %(count)d entries to group \"%(group)s\""
-msgstr[0] "Přiřazena %(count)d oblíbená do skupiny \"%(group)s\""
-msgstr[1] "Přiřazeny %(count)d oblíbené do skupiny \"%(group)s\""
-msgstr[2] "Přiřazeno %(count)d oblíbených do skupiny \"%(group)s\""
+msgstr[0] "Přidána %(count)d oblíbená do skupiny \"%(group)s\""
+msgstr[1] "Přidány %(count)d oblíbené do skupiny \"%(group)s\""
+msgstr[2] "Přidáno %(count)d oblíbených do skupiny \"%(group)s\""
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:4961
-#, fuzzy, python-format
+#, python-format
 msgid "Removed %(count)d entry from its group"
 msgid_plural "Removed %(count)d entries from their groups"
-msgstr[0] "Odebrána %(count)d oblíbená ze své skupiny"
-msgstr[1] "Odebrány %(count)d oblíbené ze svých skupin"
-msgstr[2] "Odebráno %(count)d oblíbených ze svých skupin"
+msgstr[0] "Odstraněna %(count)d oblíbená ze své skupiny"
+msgstr[1] "Odstraněny %(count)d oblíbené ze svých skupin"
+msgstr[2] "Odstraněno %(count)d oblíbených ze svých skupin"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:4973
-#, fuzzy
 msgid "JSON jukebox library (*.json)|*.json|M3U playlist (*.m3u)|*.m3u"
-msgstr "Oblíbené JSON (*.json)|*.json|Playlist M3U (*.m3u)|*.m3u"
+msgstr "Knihovna jukeboxu JSON (*.json)|*.json|Playlist M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-save dialog for exporting the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:4979
-#, fuzzy
 msgid "Export Jukebox"
-msgstr "Jukebox"
+msgstr "Exportovat jukebox"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5015
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Exported %(count)d entry to:\n"
 "%(path)s"
@@ -2631,82 +2631,79 @@ msgid_plural ""
 "Exported %(count)d entries to:\n"
 "%(path)s"
 msgstr[0] ""
-"Exportována %(count)d stanice do:\n"
+"Exportována %(count)d položka do:\n"
 "%(path)s"
 msgstr[1] ""
-"Exportovány %(count)d stanice do:\n"
+"Exportovány %(count)d položky do:\n"
 "%(path)s"
 msgstr[2] ""
-"Exportováno %(count)d stanic do:\n"
+"Exportováno %(count)d položek do:\n"
 "%(path)s"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5032
-#, fuzzy
 msgid ""
-"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|*."
-"json|M3U playlist (*.m3u)|*.m3u"
+"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|"
+"*.json|M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Oblíbené JSON (*.json)|*."
-"json|Playlist M3U (*.m3u)|*.m3u"
+"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Knihovna jukeboxu JSON "
+"(*.json)|*.json|Playlist M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing a jukebox library.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
 #: addon\globalPlugins\freeAudio\radioDialog.py:5039
 #: addon\globalPlugins\freeAudio\radioDialog.py:5058
-#, fuzzy
 msgid "Import Jukebox"
-msgstr "Odstranit z jukeboxu"
+msgstr "Importovat jukebox"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5053
-#, fuzzy
 msgid ""
 "How should the imported entries be added?\n"
 "\n"
 "Yes  — Merge: add new entries without removing existing ones.\n"
 "No   — Replace: clear the current library and load from file."
 msgstr ""
-"Jak mají být importované stanice přidány?\n"
+"Jak mají být importované položky přidány?\n"
 "\n"
-"Ano  — Sloučit: přidat nové stanice bez odstranění stávajících.\n"
-"Ne   — Nahradit: vymazat aktuální seznam a načíst ze souboru."
+"Ano  — Sloučit: přidat nové položky bez odstranění stávajících.\n"
+"Ne   — Nahradit: vymazat aktuální seznam  položek a načíst ze souboru."
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5086
-#, fuzzy, python-format
+#, python-format
 msgid "Import complete: %(count)d new entry added."
 msgid_plural "Import complete: %(count)d new entries added."
-msgstr[0] "Import dokončen: přidána %(count)d nová stanice."
-msgstr[1] "Import dokončen: přidány %(count)d nové stanice."
-msgstr[2] "Import dokončen: přidáno %(count)d nových stanic."
+msgstr[0] "Import dokončen: přidána %(count)d nová položka."
+msgstr[1] "Import dokončen: přidány %(count)d nové položky."
+msgstr[2] "Import dokončen: přidáno %(count)d nových položek."
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5094
-#, fuzzy, python-format
+#, python-format
 msgid "Jukebox replaced with %(count)d entry from the file."
 msgid_plural "Jukebox replaced with %(count)d entries from the file."
-msgstr[0] "Oblíbené nahrazeny %(count)d stanicí ze souboru."
-msgstr[1] "Oblíbené nahrazeny %(count)d stanicemi ze souboru."
-msgstr[2] "Oblíbené nahrazeny %(count)d stanicemi ze souboru."
+msgstr[0] "Jukebox nahrazen %(count)d položkou ze souboru."
+msgstr[1] "Jukebox nahrazen %(count)d položkami ze souboru."
+msgstr[2] "Jukebox nahrazen %(count)d položkami ze souboru."
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5115
 #, python-format
 msgid "Do you want to delete the %d marked station?"
 msgid_plural "Do you want to delete the %d marked stations?"
-msgstr[0] "Opravdu chcete smazat %d označenou stanici?"
-msgstr[1] "Opravdu chcete smazat %d označené stanice?"
-msgstr[2] "Opravdu chcete smazat %d označených stanic?"
+msgstr[0] "Opravdu chcete odstranit %d označenou stanici?"
+msgstr[1] "Opravdu chcete odstranit %d označené stanice?"
+msgstr[2] "Opravdu chcete odstranit %d označených stanic?"
 
 #. Translators: Title of the bulk-delete confirmation dialog for favourite stations.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5120
 msgid "Delete Stations"
-msgstr "Smazat stanice"
+msgstr "Odstranit stanice"
 
 #. Translators: Spoken after bulk-deleting marked favourite stations; %d is how many were removed.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5131
 #, python-format
 msgid "%d station deleted"
 msgid_plural "%d stations deleted"
-msgstr[0] "Smazána %d stanice"
-msgstr[1] "Smazány %d stanice"
-msgstr[2] "Smazáno %d stanic"
+msgstr[0] "Odstraněna %d stanice"
+msgstr[1] "Odstraněny %d stanice"
+msgstr[2] "Odstraněno %d stanic"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5150
 msgid "Stop time (HH:MM):"
@@ -2729,7 +2726,7 @@ msgstr "Budík %(time)s — %(station)s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:5215
 #, python-format
 msgid "Sleep %(time)s"
-msgstr "Spánek %(time)s"
+msgstr "Časovač spánku %(time)s"
 
 #. Translators: Spoken when adding a timer but the timer subsystem failed to initialise.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5267
@@ -2740,19 +2737,19 @@ msgstr "Správce časovačů není k dispozici"
 #: addon\globalPlugins\freeAudio\radioDialog.py:5317
 #, python-format
 msgid "A timer already exists at %(time)s (%(label)s). Remove it first."
-msgstr "Časovač již existuje v %(time)s (%(label)s). Nejprve jej odstraňte."
+msgstr "Časovač v %(time)s (%(label)s) již existuje. Nejprve jej odstraňte."
 
 #. Translators: Confirmation spoken after adding an alarm (start-radio) timer; %(station)s is the station name, %(time)s the HH:MM time it will fire.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5342
 #, python-format
 msgid "Alarm added: %(station)s at %(time)s"
-msgstr "Budík přidán: %(station)s v %(time)s"
+msgstr "Budík byl přidán: %(station)s v %(time)s"
 
 #. Translators: Confirmation spoken after adding a sleep (stop-radio) timer; %s is the HH:MM time it will fire.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5349
 #, python-format
 msgid "Sleep timer added: radio will stop at %s"
-msgstr "Časovač spánku přidán: rádio se zastaví v %s"
+msgstr "Časovač spánku byl přidán: rádio se vypne v %s"
 
 #. Translators: Appended to the confirmation message when the timer's time has rolled over to the next day (e.g. it's 23:00 and the timer is set for 01:00).
 #: addon\globalPlugins\freeAudio\radioDialog.py:5353
@@ -2762,7 +2759,7 @@ msgstr "(zítra)"
 #. Translators: Spoken after deleting a pending alarm/sleep timer.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5382
 msgid "Timer removed"
-msgstr "Časovač odstraněn"
+msgstr "Časovač byl odstraněn"
 
 #. Translators: Label above the liked-songs list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5408
@@ -2779,43 +2776,43 @@ msgstr "Filtrovat oblíbené skladby"
 #: addon\globalPlugins\freeAudio\radioDialog.py:5432
 #: addon\globalPlugins\freeAudio\radioDialog.py:5694
 msgid "Play on &Spotify"
-msgstr "Přehrát na &Spotify"
+msgstr "Přehrát na Spotify"
 
 #. Translators: Button label; opens a web search for the selected song on YouTube.
 #. Translators: Context-menu item; same action as the Play on YouTube button.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5436
 #: addon\globalPlugins\freeAudio\radioDialog.py:5699
 msgid "Play on Y&ouTube"
-msgstr "Přehrát na Y&ouTube"
+msgstr "Přehrát na YouTube"
 
 #. Translators: Button label; looks up and shows lyrics for the selected song.
 #. Translators: Context-menu item; same action as the Show Lyrics button.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5440
 #: addon\globalPlugins\freeAudio\radioDialog.py:5704
 msgid "Show &Lyrics"
-msgstr "Zobrazit &text písně"
+msgstr "Zobrazit text písně"
 
 #. Translators: Button label; removes the selected song from the liked list.
 #. Translators: Context-menu item; same action as the Remove button.
 #. Translators: Context-menu item; removes the selected entry from the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5444
 #: addon\globalPlugins\freeAudio\radioDialog.py:5711
-#: addon\globalPlugins\freeAudio\radioDialog.py:9090
+#: addon\globalPlugins\freeAudio\radioDialog.py:9105
 msgid "Re&move"
-msgstr "Odst&ranit"
+msgstr "Odstranit"
 
 #. Translators: Button label; re-fetches/refreshes the liked-songs list from disk.
 #. Translators: Context-menu item; same action as the Refresh button.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5448
 #: addon\globalPlugins\freeAudio\radioDialog.py:5723
 msgid "R&efresh"
-msgstr "Obno&vit"
+msgstr "Obnovit"
 
 #. Translators: Placeholder row shown when the liked-songs text file exists but can't be read; %s is the underlying error.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5515
 #, python-format
 msgid "Could not read file: %s"
-msgstr "Nelze přečíst soubor: %s"
+msgstr "Nelze načíst soubor: %s"
 
 #. Translators: Spoken when the liked-songs filter matches nothing (list has real songs, just none matching the filter text).
 #: addon\globalPlugins\freeAudio\radioDialog.py:5537
@@ -2856,9 +2853,9 @@ msgstr "Nelze odstranit skladbu: %s"
 #, python-format
 msgid "%d song removed"
 msgid_plural "%d songs removed"
-msgstr[0] "Odstraněna %d píseň"
-msgstr[1] "Odstraněny %d písně"
-msgstr[2] "Odstraněno %d písní"
+msgstr[0] "Odstraněna píseň %d"
+msgstr[1] "Odstraněny písně %d"
+msgstr[2] "Odstraněny písně %d"
 
 #. Translators: Body of the remove-confirmation dialog; %s is the song string as stored in the liked-songs file (e.g. "Artist - Title").
 #: addon\globalPlugins\freeAudio\radioDialog.py:5741
@@ -2880,7 +2877,7 @@ msgstr "Odstraněno: %s"
 #. Translators: Spoken after the Refresh button reloads the liked-songs list from disk.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5796
 msgid "Liked songs list refreshed"
-msgstr "Seznam oblíbených skladeb aktualizován"
+msgstr "Seznam oblíbených skladeb byl obnoven"
 
 #. Translators: Spoken when a lyrics lookup starts for the selected liked song.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5804
@@ -2898,8 +2895,8 @@ msgstr "Text písně nenalezen pro: %s"
 msgid ""
 "Search podcasts, or enter a podcast feed URL. Press enter to search or add"
 msgstr ""
-"Hledejte podcasty nebo zadejte URL kanálu podcastu. Stisknutím Enter "
-"vyhledáte nebo přidáte"
+"Hledejte podcasty nebo zadejte URL podcastového kanálu. Stisknutím Enteru "
+"spustíte vyhledávání nebo přidáte podcast"
 
 #. --- Search results list ---
 #. Hidden until a search is actually performed - see
@@ -2921,12 +2918,12 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\radioDialog.py:7060
 #: addon\globalPlugins\freeAudio\radioDialog.py:8227
 msgid "Search results:"
-msgstr "Výsledky hledání:"
+msgstr "Výsledky vyhledávání:"
 
 #. Translators: Accessible name for the podcast search-results list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5853
 msgid "Podcast search results"
-msgstr "Výsledky hledání podcastů"
+msgstr "Výsledky vyhledávání podcastů"
 
 #. --- Preview episodes for the selected search result ---
 #. Lets the user browse a feed's episodes before deciding to subscribe.
@@ -2957,7 +2954,7 @@ msgstr "Odběry podcastů"
 #. Translators: Accessible name for the read-only feed-details text field.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5889
 msgid "Feed details"
-msgstr "Podrobnosti kanálu"
+msgstr "Podrobnosti o kanálu"
 
 #. Translators: Accessible name/hint for the episode filter field.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5899
@@ -2987,22 +2984,22 @@ msgstr "Podrobnosti epizody"
 #: addon\globalPlugins\freeAudio\radioDialog.py:5925
 #: addon\globalPlugins\freeAudio\radioDialog.py:6913
 msgid "&Download Episode"
-msgstr "Stá&hnout epizodu"
+msgstr "Stáhnout epizodu"
 
 #. Translators: Spoken when refreshing every subscribed podcast feed at once (as opposed to a single feed).
 #: addon\globalPlugins\freeAudio\radioDialog.py:6024
 msgid "Updating podcast feeds..."
-msgstr "Aktualizace kanálů podcastů..."
+msgstr "Aktualizuji kanály podcastů..."
 
 #. Translators: Spoken after all subscribed feeds finish refreshing.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6042
 msgid "Podcast feeds updated."
-msgstr "Kanály podcastů aktualizovány."
+msgstr "Podcastové kanály byly aktualizovány."
 
 #. Translators: Spoken when subscribing to a feed by pasted URL (as opposed to from a search result).
 #: addon\globalPlugins\freeAudio\radioDialog.py:6050
 msgid "Fetching podcast feed..."
-msgstr "Načítání kanálu podcastu..."
+msgstr "Načítání podcastových kanálů..."
 
 #. Translators: Spoken when subscribing to a feed fails; %s is the underlying error.
 #. Translators: Same error as _on_podcast_add_done, spoken here after subscribing directly from a search result instead of a pasted URL.
@@ -3124,7 +3121,7 @@ msgstr "Stažení se nezdařilo: %s"
 #. Translators: Spoken when the podcast search/subscribe field is submitted empty.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6514
 msgid "Please enter a search term or podcast feed URL."
-msgstr "Zadejte prosím hledaný výraz nebo URL kanálu podcastu."
+msgstr "Zadejte hledaný výraz nebo URL podcastového kanálu."
 
 #. Translators: Spoken when a podcast keyword search starts.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6526
@@ -3140,7 +3137,7 @@ msgstr "Nebyly nalezeny žádné podcasty."
 #: addon\globalPlugins\freeAudio\radioDialog.py:6546
 #, python-format
 msgid "%d podcasts found."
-msgstr "Nalezeno podcastů: %d."
+msgstr "Nalezeno %d podcastů."
 
 #. Translators: Placeholder row shown in the episode-preview list when the selected search result has no usable feed link.
 #. Translators: Spoken when trying to subscribe directly from a search result that has no usable feed link.
@@ -3164,15 +3161,15 @@ msgstr "Nebyly nalezeny žádné epizody."
 #. Translators: Same Preview/Stop Preview toggle pattern as the GETEM search-result context menu, applied to a jukebox device-search result.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6659
 #: addon\globalPlugins\freeAudio\radioDialog.py:7457
-#: addon\globalPlugins\freeAudio\radioDialog.py:8453
+#: addon\globalPlugins\freeAudio\radioDialog.py:8468
 msgid "&Stop Preview"
-msgstr "Za&stavit náhled"
+msgstr "Za¨stavit náhled"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:6659
 #: addon\globalPlugins\freeAudio\radioDialog.py:7457
-#: addon\globalPlugins\freeAudio\radioDialog.py:8453
+#: addon\globalPlugins\freeAudio\radioDialog.py:8468
 msgid "&Preview"
-msgstr "Ná&hled"
+msgstr "Náhled"
 
 #. Translators: Spoken when subscribing to a feed directly from a search result.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6683
@@ -3202,23 +3199,23 @@ msgstr "Již na posledním kanálu"
 #. Translators: Context-menu item; subscribes to the selected podcast search result.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6781
 msgid "&Subscribe"
-msgstr "&Odebírat"
+msgstr "Odebírat"
 
 #. Translators: Context-menu item; re-fetches the selected feed for new episodes right now.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6800
 msgid "&Refresh Feed"
-msgstr "Aktuali&zovat kanál"
+msgstr "Aktualizovat kanál"
 
 #. Translators: Context-menu item; unsubscribes from the selected feed.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6804
 msgid "Re&move Feed"
-msgstr "Odst&ranit kanál"
+msgstr "&Odstranit kanál"
 
 #. Translators: Context menu item - saves an audio profile (volume/effects/speed) that applies to every episode of this podcast
 #: addon\globalPlugins\freeAudio\radioDialog.py:6810
 #: addon\globalPlugins\freeAudio\radioDialog.py:6926
 msgid "Save Audio Pr&ofile for This Podcast"
-msgstr "Uložit zvukový pr&ofil pro tento podcast"
+msgstr "Uložit zvukový profil pro tento podcast"
 
 #. Translators: Context-menu item; copies the feed's URL to the clipboard.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6821
@@ -3248,7 +3245,7 @@ msgstr "Již na poslední položce"
 #. Translators: Context-menu item; plays the selected episode.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6909
 msgid "&Play Episode"
-msgstr "Přehrát &epizodu"
+msgstr "&Přehrát epizodu"
 
 #. Translators: Context-menu item; copies the episode's direct audio URL to the clipboard.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6937
@@ -3273,12 +3270,12 @@ msgid ""
 "enter to search"
 msgstr ""
 "Hledejte audioknihy podle názvu, autora, vypravěče, předmětu nebo "
-"nakladatelství. Stisknutím Enter vyhledáte"
+"vydavatele. Pro zahájení vyhledávání stiskněte Enter"
 
 #. Translators: Accessible name for the audio-book search-results list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7064
 msgid "Audio book search results"
-msgstr "Výsledky hledání audioknih"
+msgstr "Výsledky vyhledávání audioknih"
 
 #. --- Library list ---
 #. Translators: Label above the user's saved audio-book library list.
@@ -3303,12 +3300,12 @@ msgid ""
 "No audio book sources are enabled. Enable at least one in freeAudio settings."
 msgstr ""
 "Nejsou povoleny žádné zdroje audioknih. Povolte alespoň jeden v nastavení "
-"freeAudio."
+"freeAudia."
 
 #. Translators: Spoken while a keyword search across the enabled audio-book sources is in progress.
 #. Translators: Placeholder row shown in the results list while a device search is in progress.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7320
-#: addon\globalPlugins\freeAudio\radioDialog.py:8362
+#: addon\globalPlugins\freeAudio\radioDialog.py:8377
 msgid "Searching..."
 msgstr "Vyhledávání..."
 
@@ -3321,12 +3318,12 @@ msgstr "Nebyly nalezeny žádné audioknihy."
 #: addon\globalPlugins\freeAudio\radioDialog.py:7374
 #, python-format
 msgid "%d audio books found."
-msgstr "Nalezeno audioknih: %d."
+msgstr "Nalezeno %d audioknih."
 
 #. Translators: Spoken when trying to add a search result that is already saved.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7431
 msgid "This audio book is already in your library."
-msgstr "Tato audiokniha je již ve vaší knihovně."
+msgstr "Tato audiokniha je již v knihovně."
 
 #. Translators: Spoken after successfully adding a book to the library; %s is the book title.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7435
@@ -3342,7 +3339,7 @@ msgstr "Nelze přidat do knihovny."
 #. Translators: Context-menu item; subscribes/saves the selected search result to the audio-book library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7451
 msgid "&Add to Library"
-msgstr "&Přidat do knihovny"
+msgstr "Přidat do knihovny"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:7609
 #, python-format
@@ -3414,27 +3411,27 @@ msgstr "Již na poslední části"
 #. Translators: Context-menu item; plays the selected audio-book/chapter from the library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7965
 msgid "&Play Media"
-msgstr "Přehrát &média"
+msgstr "Přehrát média"
 
 #. Translators: Context-menu item; downloads a permanent local copy of the selected book/chapter.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7971
 msgid "&Download Book"
-msgstr "Stá&hnout knihu"
+msgstr "Stáhnout knihu"
 
 #. Translators: Context-menu item; copies the book's detail-page URL to the clipboard.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7977
 msgid "&Copy the URL"
-msgstr "&Kopírovat URL"
+msgstr "Kopírovat URL"
 
 #. Translators: Context menu item - saves an audio profile (volume/effects/speed) that applies to every part/chapter of this audio book
 #: addon\globalPlugins\freeAudio\radioDialog.py:7983
 msgid "Save Audio Pr&ofile for This Book"
-msgstr "Uložit zvukový pr&ofil pro tuto knihu"
+msgstr "Uložit zvukový profil pro tuto knihu"
 
 #. Translators: Context-menu item; removes the selected book from the saved library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7994
 msgid "&Remove from the Library"
-msgstr "&Odstranit z knihovny"
+msgstr "Odstranit z knihovny"
 
 #. Translators: Spoken after saving an audio profile that applies to every part of a GETEM audio book; %(book)s is the book title.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8023
@@ -3457,7 +3454,7 @@ msgstr "Odstraněno z knihovny: %s"
 #. Translators: Spoken when a pasted book-detail link can't be resolved to a real book.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8099
 msgid "Could not find this audio book."
-msgstr "Tuto audioknihu nelze nalézt."
+msgstr "Tuto audioknihu se nepodařilo nalézt."
 
 #. Translators: Spoken when trying to download a book whose chapter/part list resolved to nothing playable.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8136
@@ -3468,7 +3465,7 @@ msgstr "Pro tuto knihu nebyly nalezeny žádné zvukové části."
 #: addon\globalPlugins\freeAudio\radioDialog.py:8146
 #, python-format
 msgid "Already downloading: %s"
-msgstr "Již se stahuje: %s"
+msgstr "Stahování již probíhá: %s"
 
 #. Translators: Spoken when a book download starts; %s is the book title.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8151
@@ -3482,8 +3479,8 @@ msgstr "Stahování knihy: %s"
 msgid ""
 "Downloaded %(saved)d of %(total)d parts of %(title)s. Last error: %(error)s"
 msgstr ""
-"Staženo %(saved)d z %(total)d částí knihy %(title)s. Poslední chyba: %(error)"
-"s"
+"Staženo %(saved)d z %(total)d částí knihy %(title)s. Poslední chyba: "
+"%(error)s"
 
 #. Translators: Label for the jukebox device-search field.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8215
@@ -3494,8 +3491,8 @@ msgstr "Hledat v zařízeních:"
 #: addon\globalPlugins\freeAudio\radioDialog.py:8218
 msgid "Search audio files on your computer by filename. Press enter to search"
 msgstr ""
-"Hledejte zvukové soubory v počítači podle názvu souboru. Stisknutím Enter "
-"vyhledáte"
+"Hledejte audio v počítači podle názvu souboru. Stisknutím enteru vyhledávání "
+"zahájíte"
 
 #. Translators: Accessible name for the device-search results list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8231
@@ -3530,33 +3527,43 @@ msgstr "Skladby ve vybrané položce jukeboxu"
 #. Translators: Button label; adds a single audio file (via a file picker) to the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8263
 msgid "Add &File..."
-msgstr "Přidat &soubor..."
+msgstr "Přidat soubor..."
 
 #. Translators: Button label; adds a whole folder (via a folder picker) to the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8265
 msgid "Add F&older..."
-msgstr "Přidat s&ložku..."
+msgstr "Přidat složku..."
 
 #. Translators: Button label; removes the selected file/folder from the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8267
 msgid "&Remove"
-msgstr "&Odstranit"
+msgstr "Odstranit"
+
+#. Translators: Button label; opens a file-save dialog to export the jukebox library (JSON or M3U).
+#: addon\globalPlugins\freeAudio\radioDialog.py:8281
+msgid "E&xport Jukebox..."
+msgstr "Exportovat jukebox..."
+
+#. Translators: Button label; opens a file-picker to import jukebox entries from a JSON or M3U file.
+#: addon\globalPlugins\freeAudio\radioDialog.py:8284
+msgid "&Import Jukebox..."
+msgstr "Importovat jukebox..."
 
 #. Translators: Spoken when a jukebox device search starts; %s is the search text.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8364
+#: addon\globalPlugins\freeAudio\radioDialog.py:8379
 #, python-format
 msgid "Searching devices for \"%s\"..."
 msgstr "Prohledávání zařízení na \"%s\"..."
 
 #. Translators: Placeholder row shown in the results list when a device search finds nothing.
 #. Translators: Spoken alongside the placeholder row above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8384
-#: addon\globalPlugins\freeAudio\radioDialog.py:8386
+#: addon\globalPlugins\freeAudio\radioDialog.py:8399
+#: addon\globalPlugins\freeAudio\radioDialog.py:8401
 msgid "No matching audio files found."
 msgstr "Nebyly nalezeny žádné odpovídající zvukové soubory."
 
 #. Translators: Plural forms spoken after a successful device search; %d is how many audio files were found.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8392
+#: addon\globalPlugins\freeAudio\radioDialog.py:8407
 #, python-format
 msgid "%d file found."
 msgid_plural "%d files found."
@@ -3567,26 +3574,26 @@ msgstr[2] "%d nalezených souborů."
 #. Translators: Same confirmation as adding a folder; spoken here after adding a single audio file from a device-search result.
 #. Translators: Same confirmation as adding a single file; spoken here after adding a single folder to the jukebox.
 #. Translators: Spoken after successfully adding an Explorer file or folder to the jukebox; %s is its display title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8442
-#: addon\globalPlugins\freeAudio\radioDialog.py:8949
+#: addon\globalPlugins\freeAudio\radioDialog.py:8457
+#: addon\globalPlugins\freeAudio\radioDialog.py:8964
 #: addon\appModules\explorer.py:213
 #, python-format
 msgid "Added to jukebox: %s"
 msgstr "Přidáno do jukeboxu: %s"
 
 #. Translators: Context-menu item; adds the selected device-search result to the jukebox library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8458
+#: addon\globalPlugins\freeAudio\radioDialog.py:8473
 msgid "&Add to Jukebox"
 msgstr "&Přidat do jukeboxu"
 
 #. Translators: Spoken when trying to play a jukebox library entry that has no usable audio files.
 #. Translators: Spoken when a jukebox entry's Input Gestures shortcut is triggered but the entry has no usable audio files.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8693
+#: addon\globalPlugins\freeAudio\radioDialog.py:8708
 #: addon\globalPlugins\freeAudio\__init__.py:851
 msgid "No playable audio in this item."
 msgstr "V této položce není žádné přehratelné audio."
 
-#: addon\globalPlugins\freeAudio\radioDialog.py:8774
+#: addon\globalPlugins\freeAudio\radioDialog.py:8789
 #, python-format
 msgid "Do you want to remove the %d marked entry from the jukebox?"
 msgid_plural "Do you want to remove the %d marked entries from the jukebox?"
@@ -3596,13 +3603,13 @@ msgstr[2] "Opravdu chcete odstranit %d označených položek z jukeboxu?"
 
 #. Translators: Title of the bulk-remove confirmation dialog for jukebox entries.
 #. Translators: Title of the jukebox remove-confirmation dialog.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8779
-#: addon\globalPlugins\freeAudio\radioDialog.py:8966
+#: addon\globalPlugins\freeAudio\radioDialog.py:8794
+#: addon\globalPlugins\freeAudio\radioDialog.py:8981
 msgid "Remove From Jukebox"
 msgstr "Odstranit z jukeboxu"
 
 #. Translators: Spoken after bulk-removing marked jukebox entries; %d is how many were removed.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8791
+#: addon\globalPlugins\freeAudio\radioDialog.py:8806
 #, python-format
 msgid "%d entry removed"
 msgid_plural "%d entries removed"
@@ -3612,38 +3619,38 @@ msgstr[2] "Odstraněno %d položek"
 
 #. Translators: Context-menu item; plays the selected track from within a jukebox folder entry.
 #. Translators: Context-menu item; plays the selected jukebox file/folder.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8836
-#: addon\globalPlugins\freeAudio\radioDialog.py:9081
+#: addon\globalPlugins\freeAudio\radioDialog.py:8851
+#: addon\globalPlugins\freeAudio\radioDialog.py:9096
 msgid "&Play"
-msgstr "Pře&hrát"
+msgstr "Přehrát"
 
 #. Translators: Jukebox track context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
 #. Translators: Jukebox context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
-#: addon\globalPlugins\freeAudio\radioDialog.py:8842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9122
+#: addon\globalPlugins\freeAudio\radioDialog.py:8857
+#: addon\globalPlugins\freeAudio\radioDialog.py:9127
 msgid "Save Audio Pr&ofile for This File"
-msgstr "Uložit zvukový pr&ofil pro tento soubor"
+msgstr "Uložit zvukový profil pro tento soubor"
 
 #. Translators: Context-menu item; copies the selected track's file path to the clipboard.
 #. Translators: Context-menu item; copies the selected entry's file/folder path to the clipboard.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8852
-#: addon\globalPlugins\freeAudio\radioDialog.py:9133
+#: addon\globalPlugins\freeAudio\radioDialog.py:8867
+#: addon\globalPlugins\freeAudio\radioDialog.py:9138
 msgid "&Copy Path"
 msgstr "&Kopírovat cestu"
 
 #. Translators: File-type filter label for the add-audio-files picker; %s is a glob pattern of supported extensions (e.g. '*.mp3;*.ogg'), also appended raw after the '|' as required by the file-dialog format - don't translate the pattern itself.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8861
+#: addon\globalPlugins\freeAudio\radioDialog.py:8876
 #, python-format
 msgid "Audio files (%s)"
 msgstr "Zvukové soubory (%s)"
 
 #. Translators: Title of the file-picker dialog for adding files to the jukebox.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8865
+#: addon\globalPlugins\freeAudio\radioDialog.py:8880
 msgid "Add audio files to the jukebox"
 msgstr "Přidat zvukové soubory do jukeboxu"
 
 #. Translators: Plural forms spoken after adding files to the jukebox via the file picker; %d is how many were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8896
+#: addon\globalPlugins\freeAudio\radioDialog.py:8911
 #, python-format
 msgid "%d file added."
 msgid_plural "%d files added."
@@ -3652,12 +3659,12 @@ msgstr[1] "%d přidané soubory."
 msgstr[2] "%d přidaných souborů."
 
 #. Translators: Title of the dialog used to add one or more folders to the jukebox at once.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8924
+#: addon\globalPlugins\freeAudio\radioDialog.py:8939
 msgid "Add folders to the jukebox"
 msgstr "Přidat složky do jukeboxu"
 
 #. Translators: Plural forms spoken after adding several folders to the jukebox in one go (one folder picker used repeatedly); %d is how many folders were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8952
+#: addon\globalPlugins\freeAudio\radioDialog.py:8967
 #, python-format
 msgid "%d folder added."
 msgid_plural "%d folders added."
@@ -3666,146 +3673,134 @@ msgstr[1] "%d přidané složky."
 msgstr[2] "%d přidaných složek."
 
 #. Translators: Body of the remove-confirmation dialog; %s is the jukebox entry title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8964
+#: addon\globalPlugins\freeAudio\radioDialog.py:8979
 #, python-format
 msgid "Do you want to remove \"%s\" from the jukebox?"
 msgstr "Opravdu chcete odstranit \"%s\" z jukeboxu?"
 
 #. Translators: Spoken after successfully removing a jukebox entry; %s is its title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8985
+#: addon\globalPlugins\freeAudio\radioDialog.py:9000
 #, python-format
 msgid "Removed from jukebox: %s"
 msgstr "Odstraněno z jukeboxu: %s"
 
 #. Translators: Spoken after re-scanning a jukebox folder entry for changes on device; %s is the folder's title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9006
+#: addon\globalPlugins\freeAudio\radioDialog.py:9021
 #, python-format
 msgid "Rescanned: %s"
 msgstr "Znovu prohledáno: %s"
 
 #. Translators: Spoken after saving an audio profile for a single jukebox file; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9020
+#: addon\globalPlugins\freeAudio\radioDialog.py:9035
 #, python-format
 msgid "Audio profile saved for %(file)s"
 msgstr "Zvukový profil uložen pro %(file)s"
 
 #. Translators: Spoken after clearing a jukebox file's saved audio profile; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9029
+#: addon\globalPlugins\freeAudio\radioDialog.py:9044
 #, python-format
 msgid "Audio profile cleared for %(file)s"
 msgstr "Zvukový profil vymazán pro %(file)s"
 
 #. Translators: Context-menu item; re-scans a jukebox folder entry for added/removed files on device.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9086
+#: addon\globalPlugins\freeAudio\radioDialog.py:9101
 msgid "&Rescan Folder"
-msgstr "Znovu prohledat &složku"
+msgstr "Znovu prohledat složku"
 
 #. Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
-#: addon\globalPlugins\freeAudio\radioDialog.py:9099
+#: addon\globalPlugins\freeAudio\radioDialog.py:9114
 msgid "Re&name..."
-msgstr ""
-
-#. Translators: Context-menu item; exports the jukebox library (entries and per-file audio profiles) to a file.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9109
-#, fuzzy
-msgid "&Export Jukebox..."
-msgstr "E&xportovat oblíbené..."
-
-#. Translators: Context-menu item; imports jukebox entries (and per-file audio profiles) from a previously exported file.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9113
-#, fuzzy
-msgid "&Import Jukebox..."
-msgstr "&Importovat oblíbené..."
+msgstr "Přejmenovat..."
 
 #. Translators: Title of the lyrics dialog; %s is the song string (e.g. "Artist - Title").
-#: addon\globalPlugins\freeAudio\radioDialog.py:9147
+#: addon\globalPlugins\freeAudio\radioDialog.py:9152
 #, python-format
 msgid "Lyrics — %s"
 msgstr "Text písně — %s"
 
 #. Translators: Heading inside the lyrics dialog restating which song the lyrics are for; %s is the song string.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9154
+#: addon\globalPlugins\freeAudio\radioDialog.py:9159
 #, python-format
 msgid "Lyrics for: %s"
 msgstr "Text písně pro: %s"
 
 #. Translators: Accessible name for the read-only lyrics text area.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9164
+#: addon\globalPlugins\freeAudio\radioDialog.py:9169
 msgid "Lyrics"
 msgstr "Text písně"
 
 #. Translators: Title of the dialog for manually adding a custom station by stream URL.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9194
+#: addon\globalPlugins\freeAudio\radioDialog.py:9199
 msgid "Add Custom Station"
 msgstr "Přidat vlastní stanici"
 
 #. Translators: Label for the custom-station name field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9198
+#: addon\globalPlugins\freeAudio\radioDialog.py:9203
 msgid "Station name:"
 msgstr "Název stanice:"
 
 #. Translators: Label for the custom-station stream-URL field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9203
+#: addon\globalPlugins\freeAudio\radioDialog.py:9208
 msgid "Stream URL:"
 msgstr "URL streamu:"
 
 #. Translators: Button label; opens Radio Browser's own website to submit this station to their public directory (separate from just adding it locally to freeAudio).
-#: addon\globalPlugins\freeAudio\radioDialog.py:9217
+#: addon\globalPlugins\freeAudio\radioDialog.py:9222
 msgid "Add to &Radio Browser directory…"
-msgstr "Přidat do adresáře &Radio Browser…"
+msgstr "Přidat do adresáře Radio Browser…"
 
 #. Translators: Button label; confirms and adds the custom station to favourites.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9222
+#: addon\globalPlugins\freeAudio\radioDialog.py:9227
 msgid "&Add"
-msgstr "&Přidat"
+msgstr "Přidat"
 
 #. Translators: Status text shown next to the Test URL button when it's pressed with an empty URL field.
 #. Translators: Spoken alongside the status text above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9245
-#: addon\globalPlugins\freeAudio\radioDialog.py:9247
+#: addon\globalPlugins\freeAudio\radioDialog.py:9250
+#: addon\globalPlugins\freeAudio\radioDialog.py:9252
 msgid "Please enter a URL first."
 msgstr "Nejprve zadejte adresu URL."
 
 #. Translators: Status text shown next to the Test URL button while the check is in progress.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9251
+#: addon\globalPlugins\freeAudio\radioDialog.py:9256
 msgid "Checking…"
-msgstr "Kontrola…"
+msgstr "Kontroluji…"
 
 #. Translators: Spoken when the URL check starts.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9253
+#: addon\globalPlugins\freeAudio\radioDialog.py:9258
 msgid "Checking stream URL, please wait…"
-msgstr "Kontrola URL streamu, čekejte prosím…"
+msgstr "Kontroluji URL streamu, čekejte prosím…"
 
 #. Translators: Status text shown next to the Test URL button when the stream checked out as playable; the '✓' is a visual checkmark, not meant to be read as punctuation.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9267
+#: addon\globalPlugins\freeAudio\radioDialog.py:9272
 msgid "✓ Stream reachable"
-msgstr "✓ Stream dostupný"
+msgstr "Stream je dostupný"
 
 #. Translators: Spoken when the stream check succeeds.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9270
+#: addon\globalPlugins\freeAudio\radioDialog.py:9275
 msgid "Stream is reachable."
 msgstr "Stream je dostupný."
 
 #. Translators: Status text shown when the stream check failed; the '✗' is a visual cross mark, %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9273
+#: addon\globalPlugins\freeAudio\radioDialog.py:9278
 #, python-format
 msgid "✗ %s"
 msgstr "✗ %s"
 
 #. Translators: Spoken when the stream check fails; %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9276
+#: addon\globalPlugins\freeAudio\radioDialog.py:9281
 #, python-format
 msgid "Stream check failed: %s"
 msgstr "Kontrola streamu se nezdařila: %s"
 
 #. Translators: Title of the dialog for editing an existing scheduled recording; %s is the station name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9294
+#: addon\globalPlugins\freeAudio\radioDialog.py:9299
 #, python-format
 msgid "Edit Schedule — %s"
-msgstr "Upravit plán — %s"
+msgstr "Upravit rozvrh — %s"
 
 #. Translators: 'Save' button label; commits the edited schedule entry.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9378
+#: addon\globalPlugins\freeAudio\radioDialog.py:9383
 msgid "&Save"
 msgstr "&Uložit"
 
@@ -3855,7 +3850,8 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\recordingMixin.py:149
 #: addon\globalPlugins\freeAudio\recordingMixin.py:233
 msgid "Jukebox tracks are already local files and cannot be recorded."
-msgstr "Skladby v jukeboxu jsou již místní soubory a nelze je nahrávat."
+msgstr ""
+"Skladby v jukeboxu jsou již soubory v počítači a nelze je proto nahrávat."
 
 #. Translators: Spoken when trying to start song-capture recording on a station with no ICY track-title metadata, so there's no song boundary to record against.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:167
@@ -3874,7 +3870,7 @@ msgstr "Nahrávání skladby zahájeno: %s"
 #. Translators: Generic fallback spoken if starting song-capture recording raises an unexpected exception.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:185
 msgid "Could not start song recording"
-msgstr "Nelze spustit nahrávání skladby"
+msgstr "Nahrávání skladby se nepodařilo spustit"
 
 #. Translators: Spoken when the single-press gesture stops an in-progress plain instant recording; %s is the saved filename.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:215
@@ -3898,18 +3894,18 @@ msgstr "Nahrávání zahájeno: %s"
 #. Translators: Generic fallback spoken if starting an instant recording raises an unexpected exception.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:249
 msgid "Could not start recording"
-msgstr "Nelze spustit nahrávání"
+msgstr "Nahrávání se nepodařilo spustit"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+W); opens the configured recordings folder in File Explorer.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:256
 msgid "Open freeAudio recordings folder"
-msgstr "Otevřít složku nahrávek freeAudio"
+msgstr "Otevřít složku pro ukládání nahrávek"
 
 #. Translators: Spoken when the Ctrl+Win+W shortcut can't open the recordings folder in Explorer; %s is the underlying error.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:271
 #, python-format
 msgid "Could not open recordings folder: %s"
-msgstr "Nelze otevřít složku nahrávek: %s"
+msgstr "Nepodařilo se otevřít složku s nahrávkami: %s"
 
 #. Translators: Checkbox label for the time-shift/rewind feature setting.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:89
@@ -3917,13 +3913,13 @@ msgid ""
 "&Enable time-shift buffer (rewind live radio, no effect on podcasts and "
 "audio books)"
 msgstr ""
-"&Zapnout časovou vyrovnávací paměť (přetáčení živého rádia, nemá vliv na "
-"podcasty a audioknihy)"
+"&Zapnout vyrovnávací paměť časového posunu (přetáčení živého rádia, nemá "
+"vliv na podcasty a audioknihy)"
 
 #. Translators: Label for the time-shift buffer-length choice control.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:97
 msgid "Time-shift buffer duration:"
-msgstr "Délka časové vyrovnávací paměti:"
+msgstr "Délka vyrovnávací paměti časového posunu:"
 
 #. Translators: Choices for the time-shift buffer-duration control, in the same order as self._timeshift_duration_seconds just above (continues on the next line).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:103
@@ -3952,16 +3948,16 @@ msgid ""
 "Longer buffers use more temporary disk space, especially for high-bitrate "
 "stations — a 5-hour buffer can use several gigabytes."
 msgstr ""
-"Delší vyrovnávací paměti využívají více dočasného místa na disku, zejména u "
-"stanic s vysokým datovým tokem — pětihodinová vyrovnávací paměť může "
-"využívat několik gigabajtů."
+"Upozornění: delší vyrovnávací paměť časového posunu využívá více místa na "
+"disku, zejména u stanic s vysokým bitrate. Pětihodinový záznam pro "
+"předtáčení stanice může mít i několik gigabitů."
 
 #. --- Audio output device (BASS only) ---
 #. (index, name) list — populated from BASS
 #. Translators: Label for the main output-device choice in Settings (same purpose as the in-dialog device picker, but persisted here).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:126
 msgid "Audio output device (BASS backend):"
-msgstr "Zvukové výstupní zařízení (backend BASS):"
+msgstr "Zvukové výstupní zařízení (BASS backend):"
 
 #. Translators: Placeholder shown in the device choice control while devices are still being fetched from BASS in the background.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:131
@@ -3971,7 +3967,7 @@ msgstr "Načítání zařízení..."
 #. Translators: Label for the choice between the two device-list refresh strategies below.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:136
 msgid "Audio device refresh mode (BASS backend):"
-msgstr "Režim aktualizace zvukových zařízení (backend BASS):"
+msgstr "Režim aktualizace zvukových zařízení (BASS backend):"
 
 #. Translators: One of the two audio-device refresh modes: always re-query BASS for current device numbers, slower but accurate if devices changed since NVDA started.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:143
@@ -3992,7 +3988,7 @@ msgstr "Hlasitost (0–100):"
 #. Translators: Section heading above the audio-effects checklist and EQ controls.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:166
 msgid "Audio Effects (BASS backend only):"
-msgstr "Zvukové efekty (pouze backend BASS):"
+msgstr "Zvukové efekty (pouze BASS backend):"
 
 #. Translators: Label for the audio-effects checklist control.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:188
@@ -4015,17 +4011,17 @@ msgstr "&Zesílení vokálů (dB):"
 #. Translators: Label for the station-switch transition (crossfade) choice control.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:219
 msgid "Station &switch transition (BASS backend only):"
-msgstr "Přechod při &přepnutí stanice (pouze backend BASS):"
+msgstr "Přepínání mezi stanicemi (pouze BASS backend):"
 
 #. Translators: Checkbox label for auto-resuming the last-played station when NVDA starts.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:240
 msgid "&Resume last station on NVDA startup"
-msgstr "&Obnovit poslední stanici při spuštění NVDA"
+msgstr "&Při spuštění NVDA obnovit naposledy přehrávanou stanici"
 
 #. Translators: Label for the choice between NVDA's own synth and a separate SAPI5 voice for track-change announcements.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:255
 msgid "Track change &voice:"
-msgstr "&Hlas pro oznámení změny skladby:"
+msgstr "Vybrat hlas pro oznámení změny skladby:"
 
 #. Translators: The two voice-source choices for track-change announcements: NVDA's current synthesizer, or a separately selected SAPI5 voice.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:260
@@ -4040,34 +4036,34 @@ msgstr "SAPI5"
 #. Translators: Label for the specific SAPI5 voice picker, enabled only when SAPI5 is chosen above.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:272
 msgid "SAPI5 &voice:"
-msgstr "Hlas &SAPI5:"
+msgstr "SAPI5 hlas:"
 
 #. Translators: Placeholder/first entry in the SAPI5 voice list, meaning 'use whatever the system's default SAPI5 voice is' rather than a specific named voice.
 #. Translators: First entry in the SAPI5 voice list once real voices have loaded, meaning 'use the system default SAPI5 voice'.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:275
 #: addon\globalPlugins\freeAudio\settingsPanel.py:292
 msgid "Default (system)"
-msgstr "Výchozí (systémový)"
+msgstr "Výchozí"
 
 #. Translators: Checkbox label for the mute-notifications setting (same feature as the toggleMuteNotifications command).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:321
 msgid "&Mute notifications (station changes, playback, recording)"
-msgstr "&Ztlumit oznámení (změny stanice, přehrávání, nahrávání)"
+msgstr "&Vypnout oznámení (změna stanice, přehrávání, nahrávání)"
 
 #. Translators: Checkbox label for whether freeAudio notifications also show on a connected braille display.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:331
 msgid "&Show freeAudio messages on the braille display"
-msgstr "&Zobrazovat zprávy freeAudio na braillském displeji"
+msgstr "Zobrazovat zprávy freeAudia na braillském řádku"
 
 #. Translators: Label for the choice controlling what a single Ctrl+Win+P press does when nothing is currently playing.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:347
 msgid "When Ctrl+Win+P is pressed with no active playback:"
-msgstr "Když je stisknuto Ctrl+Win+P bez aktivního přehrávání:"
+msgstr "Po stisknutí Ctrl+Win+P, když se nic nepřehrává:"
 
 #. Translators: The two choices for a single Ctrl+Win+P press with nothing playing: resume where playback left off, or open the favourites list to pick something.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:350
 msgid "Resume last station"
-msgstr "Obnovit poslední stanici"
+msgstr "Obnovit naposledy přehrávanou stanici"
 
 #: addon\globalPlugins\freeAudio\settingsPanel.py:351
 #: addon\globalPlugins\freeAudio\settingsPanel.py:366
@@ -4078,23 +4074,23 @@ msgstr "Otevřít seznam oblíbených"
 #. Translators: Label for the choice controlling what a double Ctrl+Win+P press does.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:362
 msgid "When Ctrl+Win+P is pressed twice:"
-msgstr "Když je Ctrl+Win+P stisknuto dvakrát:"
+msgstr "Po dvojtém stisknutí Ctrl+Win+P:"
 
 #. Translators: Choices for what a double/triple Ctrl+Win+P press can do - each opens a different freeAudio tab or performs a quick action; this same nine-item list is reused for both the double-press and triple-press settings (continues for the next eight lines).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:365
 #: addon\globalPlugins\freeAudio\settingsPanel.py:389
 msgid "Do nothing"
-msgstr "Nic nedělat"
+msgstr "Nedělat nic"
 
 #: addon\globalPlugins\freeAudio\settingsPanel.py:367
 #: addon\globalPlugins\freeAudio\settingsPanel.py:391
 msgid "Open station search"
-msgstr "Otevřít hledání stanic"
+msgstr "Otevřít vyhledávání stanic"
 
 #: addon\globalPlugins\freeAudio\settingsPanel.py:368
 #: addon\globalPlugins\freeAudio\settingsPanel.py:392
 msgid "Open recording tab"
-msgstr "Otevřít kartu nahrávání"
+msgstr "Otevřít kartu záznamu"
 
 #: addon\globalPlugins\freeAudio\settingsPanel.py:369
 #: addon\globalPlugins\freeAudio\settingsPanel.py:393
@@ -4119,56 +4115,56 @@ msgstr "Oznámit aktuálně přehrávanou stanici"
 #: addon\globalPlugins\freeAudio\settingsPanel.py:373
 #: addon\globalPlugins\freeAudio\settingsPanel.py:397
 msgid "Stop radio"
-msgstr "Zastavit rádio"
+msgstr "Vypnout rádio"
 
 #. Translators: Label for the choice controlling what a triple Ctrl+Win+P press does; same nine choices as the double-press setting above.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:387
 msgid "When Ctrl+Win+P is pressed three times:"
-msgstr "Když je Ctrl+Win+P stisknuto třikrát:"
+msgstr "Po trojtém stisknutí Ctrl+Win+P:"
 
 #. --- Music Recognition ---
 #. Translators: Section heading above the ffmpeg-path setting used by the music-recognition feature.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:412
 msgid "Music Recognition via Shazam (Ctrl+Win+I × 3):"
-msgstr "Rozpoznávání hudby pomocí Shazam (Ctrl+Win+I × 3):"
+msgstr "Rozpoznávání hudby pomocí  Shazamu (třikrát Ctrl+Win+I ):"
 
 #. Translators: Label for the ffmpeg.exe path text field.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:414
 msgid "ffmpeg.exe path (optional; auto-used from addon folder if empty):"
 msgstr ""
-"Cesta k ffmpeg.exe (volitelné; pokud je prázdná, použije se automaticky ze "
-"složky doplňku):"
+"Cesta k souboru ffmpeg.exe (volitelné; pokud je pole prázdné, použije se "
+"automaticky cesta ze složky doplňku):"
 
 #. Translators: Button label; opens a file-picker to choose ffmpeg.exe.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:423
 msgid "Brows&e..."
-msgstr "Prochá&zet..."
+msgstr "Procházet..."
 
 #. --- Recordings folder ---
 #. Translators: Label for the custom recordings-folder path field.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:431
 msgid "Recordings folder:"
-msgstr "Složka nahrávek:"
+msgstr "Složka pro ukládání nahrávek:"
 
 #. Translators: Grey hint under the recordings-folder field explaining what happens if it's left empty.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:442
 msgid "(empty = default: Documents\\freeAudio Recordings)"
-msgstr "(prázdné = výchozí: Dokumenty\\freeAudio Recordings)"
+msgstr "(prázdné = výchozí umístění: Dokumenty\\freeAudio Recordings)"
 
 #. Translators: Button label; opens a folder-picker to choose the recordings folder.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:446
 msgid "Brow&se folder..."
-msgstr "Prochá&zet složku..."
+msgstr "Zvolit složku..."
 
 #. Translators: Label for the modules checklist (which optional tabs/features are shown at all).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:474
 msgid "&Modules:"
-msgstr ""
+msgstr "Funkce:"
 
 #. Translators: Checkbox label for whether the jukebox disk search also scans network drives (off by default - see the comment above about search time).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:491
 msgid "Include &network drives when searching the jukebox"
-msgstr "Zahrňte &síťové disky při vyhledávání v jukeboxu"
+msgstr "Zahrnout síťové disky při vyhledávání v jukeboxu"
 
 #. Translators: Label for the audio-book-sources checklist (which catalogs to search/show).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:520
@@ -4207,7 +4203,7 @@ msgstr ""
 #. Translators: Label for the recording-output-format choice control.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:561
 msgid "Recording output format:"
-msgstr "Výstupní formát nahrávky:"
+msgstr "Konečný formát nahrávek:"
 
 #. Translators: Choices for the recording output format: keep the original stream container as-is, keep the original audio codec but strip non-audio data, or convert to MP3 (continues for the next two lines).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:568
@@ -4220,12 +4216,12 @@ msgstr "Pouze zvuk, původní kodek (bez ztráty kvality)"
 
 #: addon\globalPlugins\freeAudio\settingsPanel.py:570
 msgid "MP3 (convert audio)"
-msgstr "MP3 (konverze zvuku)"
+msgstr "MP3"
 
 #. Translators: Label for the MP3 bitrate choice, shown only when MP3 output is selected above.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:580
 msgid "MP3 recording bitrate:"
-msgstr "Datový tok nahrávky MP3:"
+msgstr "Bitrate MP3 nahrávek:"
 
 #. Translators: Checkbox label for skipping the pre-playback internet reachability check.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:597
@@ -4233,8 +4229,8 @@ msgid ""
 "&Disable internet connectivity check before playing (recommended if DNS is "
 "blocked)"
 msgstr ""
-"&Zakázat kontrolu připojení k internetu před přehráváním (doporučeno, pokud "
-"je DNS blokováno)"
+"&Před spuštěním přehrávání deaktivovat kontrolu připojení k internetu "
+"(doporučeno v případě blokování DNS)"
 
 #. Translators: Checkbox label for the automatic update-check setting.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:608
@@ -4246,7 +4242,7 @@ msgstr "&Automaticky kontrolovat aktualizace při spuštění"
 #: addon\globalPlugins\freeAudio\settingsPanel.py:616
 #: addon\globalPlugins\freeAudio\settingsPanel.py:772
 msgid "Check for Updates &Now"
-msgstr "Zkontrolovat aktualizace &nyní"
+msgstr "Zkontrolovat dostupnost aktualizací"
 
 #. Translators: Title of the file-picker dialog for choosing ffmpeg.exe.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:748
@@ -4256,7 +4252,7 @@ msgstr "Vyberte ffmpeg.exe"
 #. Translators: Temporary label on the Check for Updates Now button while the check is in progress.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:759
 msgid "Checking..."
-msgstr "Kontrola..."
+msgstr "Kontroluji..."
 
 #. Use _notify so the message is suppressed when notifications are muted.
 #. Translators: Spoken when a sleep timer fires and stops playback instantly (nothing was playing to fade out).
@@ -4265,13 +4261,13 @@ msgstr "Kontrola..."
 #: addon\globalPlugins\freeAudio\timerManager.py:219
 #: addon\globalPlugins\freeAudio\timerManager.py:247
 msgid "Sleep timer: radio stopped"
-msgstr "Časovač spánku: rádio zastaveno"
+msgstr "Časovač spánku: rádio vypnuto"
 
 #. Use _notify so both fade-out messages are suppressed when notifications are muted.
 #. Translators: Spoken when a sleep timer fires while something is playing, before the 60-second volume fade-out begins.
 #: addon\globalPlugins\freeAudio\timerManager.py:231
 msgid "Sleep timer: fading out…"
-msgstr "Časovač spánku: zeslabování…"
+msgstr "Časovač spánku: Rádio se zeslabuje…"
 
 #. Translators: Spoken after a podcast/audiobook seek to report the resulting position; see this method's docstring above for why the wording is shared with TrackInfoMixin.script_whatsPlaying().
 #. Translators: Appended to the What's Playing announcement for a podcast/audiobook; same elapsed/remaining wording as TimeshiftMixin._announce_seek_position().
@@ -4322,7 +4318,7 @@ msgstr "Posunuto vpřed o %d sekund"
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:219
 #, python-format
 msgid "Rewound %d seconds"
-msgstr "Posunuto zpět o %d sekund"
+msgstr "Přetočeno zpět o %d sekund"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+J); rewinds the live time-shift buffer, or seeks backward within a podcast/audiobook file if one is playing.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:311
@@ -4339,18 +4335,19 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:365
 msgid "Time-shift buffer is disabled. Enable it in freeAudio settings."
 msgstr ""
-"Časová vyrovnávací paměť je zakázána. Zapněte ji v nastavení freeAudio."
+"Vyrovnávací paměť časového posunu je vypnuta. Zapněte ji v nastavení "
+"freeAudio."
 
 #. Translators: One of the reasons a rewind/forward can fail, mapped from rewind_timeshift()'s return reason to a spoken message (continues for the next six lines: feature disabled, wrong backend, HLS unsupported, not enough buffer yet, buffer file not ready, engine error).
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:335
 msgid ""
 "Time-shift requires the BASS audio backend, which is currently disabled."
 msgstr ""
-"Časový posun vyžaduje zvukový backend BASS, který je momentálně zakázán."
+"Časový posun vyžaduje knihovnu BASS backend, která je momentálně vypnutá."
 
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:337
 msgid "Time-shift is not available for the current playback backend."
-msgstr "Časový posun není pro aktuální backend přehrávání k dispozici."
+msgstr "Časový posun není pro aktuální přehrávání k dispozici."
 
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:338
 msgid ""
@@ -4358,7 +4355,7 @@ msgid ""
 "could be extracted)."
 msgstr ""
 "Časový posun není pro stream této stanice podporován (nelze extrahovat "
-"přetáčitelné audio)."
+"přetočitelné audio)."
 
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:339
 msgid ""
@@ -4370,7 +4367,7 @@ msgstr ""
 
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:340
 msgid "Time-shift buffer file is not ready yet."
-msgstr "Soubor časové vyrovnávací paměti ještě není připraven."
+msgstr "Soubor vyrovnávací paměti časového posunu ještě není připraven."
 
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:341
 msgid "Could not switch to time-shifted playback."
@@ -4393,7 +4390,7 @@ msgid ""
 "Time-shift: fast-forward 15 seconds, or return to live if already caught up"
 msgstr ""
 "Časový posun: posunout o 15 sekund vpřed, nebo se vrátit k živému vysílání, "
-"pokud jste již dohnáni"
+"pokud jste jej již dohnali"
 
 #. Translators: Spoken when fast-forward is pressed but playback is already at the live edge (not time-shifted).
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:369
@@ -4414,23 +4411,24 @@ msgstr "Zpět na živé vysílání"
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:383
 #, python-format
 msgid "Fast-forwarded, still %.0f seconds behind live"
-msgstr "Posunuto vpřed, stále %.0f sekund za živým vysíláním"
+msgstr "Přetočeno dopředu, stále %.0f sekund za živým vysíláním"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+T); toggles the time-shift buffer feature on/off.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:388
 msgid "Enable or disable the time-shift (rewind) buffer"
-msgstr "Zapnout nebo vypnout vyrovnávací paměť časového posunu (přetáčení)"
+msgstr ""
+"Zapnout nebo vypnout vyrovnávací paměť časového posunu (přetáčení stanice)"
 
 #. Translators: Spoken after toggling the time-shift buffer; the 'enabled'/'disabled' word is the same one used throughout freeAudio's other toggle announcements.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:413
 #, python-format
 msgid "Time-shift buffer %s"
-msgstr "Časová vyrovnávací paměť %s"
+msgstr "Vyrovnávací paměť časového posunu %s"
 
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:108
 #, python-format
 msgid "Recognition failed: %s"
-msgstr "Rozpoznávání se nezdařilo: %s"
+msgstr "Rozpoznání se nezdařilo: %s"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+I); its behaviour escalates with repeated presses as the description itself explains.
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:120
@@ -4438,16 +4436,16 @@ msgid ""
 "Announce currently playing station. Press twice for full details, three "
 "times to copy track info, four times to force music recognition."
 msgstr ""
-"Oznámit aktuálně přehrávanou stanici. Dvakrát stiskněte pro úplné "
-"podrobnosti, třikrát pro zkopírování informací o skladbě, čtyřikrát pro "
-"vynucení rozpoznání hudby."
+"Oznámí právě přehrávanou stanici. Dvojitým stisknutím zobrazíte podrobné "
+"informace, trojitým stisknutím zkopírujete informace o skladbě a "
+"čtyřnásobným stisknutím spustíte rozpoznávání skladby."
 
 #. Translators: First line of the What's Playing announcement when nothing is playing but one or more scheduled recordings are still running silently in the background; station names are appended after it, joined with two spaces.
 #. Translators: Same as the Ctrl+Win+I version, spoken here by the F2 dialog equivalent.
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:133
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:434
 msgid "Radio inactive. Active scheduled recordings:"
-msgstr "Rádio není aktivní. Aktivní naplánované nahrávky:"
+msgstr "Rádio je vypnuté. Aktivní naplánované nahrávky:"
 
 #. Translators: Spoken by What's Playing when nothing is playing and no scheduled recording is active either.
 #. Translators: Same "not active" message as What's Playing, spoken here when this standalone show-details gesture is used with nothing playing.
@@ -4474,7 +4472,7 @@ msgstr "freeAudio není aktivní"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:683
 #, python-format
 msgid "Playing: %(station)s — %(track)s"
-msgstr "Přehrává se: %(station)s — %(track)s"
+msgstr "Právě hraje: %(station)s — %(track)s"
 
 #. Translators: Same What's Playing announcement, used when no ICY track title is available - just the station name.
 #. Translators: Same fallback as script_whatsPlaying, used when no ICY track title is available.
@@ -4483,7 +4481,7 @@ msgstr "Přehrává se: %(station)s — %(track)s"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:688
 #, python-format
 msgid "Playing: %s"
-msgstr "Přehrává se: %s"
+msgstr "Právě hraje: %s"
 
 #. Translators: Appended to the What's Playing announcement when an instant recording is currently active; %s is the station being recorded.
 #. Translators: Same active-recording announcement as the playing-state case, appended here when paused.
@@ -4495,7 +4493,7 @@ msgstr "Přehrává se: %s"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:527
 #, python-format
 msgid "Recording: %s"
-msgstr "Nahrávání: %s"
+msgstr "Nahrává se: %s"
 
 #. Translators: What's Playing announcement when playback is paused rather than actively playing; %s is the station/track name.
 #. Translators: Same Paused announcement as script_whatsPlaying, spoken here by the F2 dialog equivalent.
@@ -4530,7 +4528,7 @@ msgstr "Nejsou k dispozici žádné informace o skladbě"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:381
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:580
 msgid "No track metadata found. Starting music recognition…"
-msgstr "Nebyla nalezena metadata skladby. Spouští se rozpoznávání hudby…"
+msgstr "Nebyla nalezena žádná metadata skladby. Spouštím rozpoznávání hudby…"
 
 #. Translators: Spoken when the fourth press starts forced Shazam recognition, regardless of whether ICY metadata exists.
 #. Translators: Same as elsewhere, spoken when this standalone gesture starts forced Shazam recognition.
@@ -4539,7 +4537,7 @@ msgstr "Nebyla nalezena metadata skladby. Spouští se rozpoznávání hudby…"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:410
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:600
 msgid "Starting music recognition…"
-msgstr "Spouštění rozpoznávání hudby…"
+msgstr "Spouštím rozpoznávání hudby…"
 
 #. Equivalent to pressing Control+Windows+I (or F2 in the dialog) twice.
 #. Opens the station details dialog for the currently playing station.
@@ -4578,7 +4576,7 @@ msgstr "Vynutit rozpoznání hudby pro aktuálně přehrávaný stream"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:747
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:1074
 msgid "Now playing"
-msgstr "Nyní se přehrává"
+msgstr "Právě hraje"
 
 #. Translators: Field-name row header for the parent podcast feed's URL.
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:836
@@ -4675,7 +4673,7 @@ msgstr "Zkopírováno: %s"
 #. Translators: Spoken if the system clipboard can't be opened for the copy.
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:1146
 msgid "Could not access clipboard"
-msgstr "Nelze přistoupit ke schránce"
+msgstr "Nelze získat přístup ke schránce"
 
 #. Translators: Spoken instead of saving a duplicate when the copied track is already in likedSongs.txt; %s is the track text.
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:1164
@@ -4695,8 +4693,8 @@ msgid ""
 "Time-shift buffer: running low on disk space, the oldest audio is being "
 "dropped more aggressively."
 msgstr ""
-"Časová vyrovnávací paměť: Vzhledem k nedostatku místa na disku je nejstarší "
-"audio mazáno rychleji."
+"Vyrovnávací paměť časového posunu: Vzhledem k nedostatku místa na disku je "
+"nejstarší audio mazáno rychleji."
 
 #. Translators: Spoken when a recording finishes normally; %s is the saved output filename.
 #: addon\globalPlugins\freeAudio\__init__.py:588
@@ -4730,7 +4728,7 @@ msgstr ""
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this favourite station' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:696
 msgid "freeAudio Stations"
-msgstr "Stanice freeAudio"
+msgstr "Stanice"
 
 #. Translators: Spoken if a per-favourite-station shortcut is triggered after that station was removed from favourites since the shortcut was created; %s is the station name.
 #: addon\globalPlugins\freeAudio\__init__.py:717
@@ -4753,30 +4751,29 @@ msgstr "Klávesová zkratka přehrávání %s"
 #. ── 2. Create / refresh a script for every entry ─────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this jukebox entry' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:779
-#, fuzzy
 msgid "freeAudio Jukebox"
-msgstr "Otevřít místní jukebox freeAudio"
+msgstr "Jukebox"
 
 #. Translators: Spoken if a per-jukebox-entry shortcut is triggered after that entry was removed from the jukebox since the shortcut was created; %s is the entry's display title.
 #: addon\globalPlugins\freeAudio\__init__.py:800
-#, fuzzy, python-format
+#, python-format
 msgid "Entry no longer in the jukebox: %s"
-msgstr "Stanice odstraněna z oblíbených: %s"
+msgstr "Položka již není v jukeboxu: %s"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
 #: addon\globalPlugins\freeAudio\__init__.py:883
 msgid "Station &Browser...\tCtrl+Win+R"
-msgstr "Prohlížeč &stanic...\tCtrl+Win+R"
+msgstr "Prohlížeč stanic...\tCtrl+Win+R"
 
 #. Translators: Menu item that opens freeAudio settings in NVDA preferences
 #: addon\globalPlugins\freeAudio\__init__.py:892
 msgid "freeAudio &Settings..."
-msgstr "Nastavení &freeAudio..."
+msgstr "nastavení freeAudia..."
 
 #. Translators: Menu item that manually triggers the update check
 #: addon\globalPlugins\freeAudio\__init__.py:901
 msgid "Check for &Updates..."
-msgstr "Zkontrolovat dostupnost &aktualizací..."
+msgstr "Zkontrolovat dostupnost aktualizací..."
 
 #. Translators: Label of the freeAudio submenu in NVDA Tools menu
 #: addon\globalPlugins\freeAudio\__init__.py:914
@@ -4786,22 +4783,22 @@ msgstr "&freeAudio"
 #. Translators: Name of an NVDA command; opens the freeAudio station browser dialog on its main Stations tab.
 #: addon\globalPlugins\freeAudio\__init__.py:975
 msgid "Open freeAudio station browser"
-msgstr "Otevřít prohlížeč stanic freeAudio"
+msgstr "Otevřít prohlížeč stanic"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 #: addon\globalPlugins\freeAudio\__init__.py:985
 msgid "Open freeAudio audio book library"
-msgstr "Otevřít knihovnu audioknih freeAudio"
+msgstr "Otevřít knihovnu audioknih"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Podcasts tab.
 #: addon\globalPlugins\freeAudio\__init__.py:995
 msgid "Open freeAudio podcast subscriptions"
-msgstr "Otevřít odběry podcastů freeAudio"
+msgstr "Otevřít odběry podcastů"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the local Jukebox tab.
 #: addon\globalPlugins\freeAudio\__init__.py:1005
 msgid "Open freeAudio local jukebox"
-msgstr "Otevřít místní jukebox freeAudio"
+msgstr "Otevřít jukebox"
 
 #. Translators: Name of an NVDA command whose behaviour depends on what is currently playing: adds a live station to favourites, or downloads the current audio book/podcast episode.
 #: addon\globalPlugins\freeAudio\__init__.py:1015
@@ -4878,7 +4875,7 @@ msgid ""
 "Would you like to download and install it now?"
 msgstr ""
 "Je k dispozici nová verze freeAudio: %(new)s.\n"
-"Máte verzi %(current)s.\n"
+"Aktuální verze %(current)s.\n"
 "\n"
 "Chcete ji stáhnout a nainstalovat?"
 
@@ -4902,8 +4899,8 @@ msgid ""
 "\n"
 "Would you like to open the download page?"
 msgstr ""
-"Je k dispozici nová verze freeAudio: %(new)s.\n"
-"Máte verzi %(current)s.\n"
+"Je k dispozici nová verze programu freeAudio: %(new)s.\n"
+"Aktuální verze %(current)s.\n"
 "\n"
 "Chcete otevřít stránku pro stažení doplňku?"
 
@@ -4915,7 +4912,7 @@ msgstr "&Otevřít stránku"
 #. Translators: Title of the dialog shown when a newer freeAudio version is available.
 #: addon\globalPlugins\freeAudio\__init__.py:1441
 msgid "freeAudio Update Available"
-msgstr "K dispozici je aktualizace freeAudio"
+msgstr "k dispozici je aktualizace freeAudia"
 
 #. Translators: 'Cancel' button label on the update-available dialog, paired with whichever install/open-page label is used as the other button.
 #: addon\globalPlugins\freeAudio\__init__.py:1445
@@ -4942,12 +4939,12 @@ msgstr "freeAudio je aktuální. Nainstalovaná verze: %s"
 
 #: addon\globalPlugins\freeAudio\__init__.py:1502
 msgid "freeAudio Update Check"
-msgstr "Kontrola aktualizací freeAudio"
+msgstr "kontrola aktualizací freeAudia"
 
 #. Translators: Name of an NVDA command; plays the audio file focused in Windows Explorer with freeAudio, without needing it to already be in the jukebox library.
 #: addon\appModules\explorer.py:227
 msgid "Play the focused file with freeAudio"
-msgstr "Přehrát zaměřený soubor pomocí freeAudio"
+msgstr "Přehrát zaměřený soubor pomocí freeAudia"
 
 #. Deliberately out of scope - see explorerIntegrationMixin.py's
 #. matching comment (same reasoning: folder auto-advance needs
@@ -4958,8 +4955,8 @@ msgid ""
 "This is a folder. Playing only works for files - add it to the jukebox to "
 "play the whole folder."
 msgstr ""
-"Toto je složka. Přehrávání funguje pouze pro soubory – přidejte ji do "
-"jukeboxu, chcete-li přehrát celou složku."
+"Toto je složka. Přehrávání funguje pouze pro soubory, chcete-li přehrát "
+"celou složku, přidejte ji do jukeboxu."
 
 #. Translators: Spoken when the "play focused item" Explorer shortcut is used on a file that isn't a recognized audio format.
 #: addon\appModules\explorer.py:246
@@ -4969,14 +4966,14 @@ msgstr "Nerozpoznaný zvukový soubor."
 #. Translators: Name of an NVDA command; adds the file or folder focused in Windows Explorer to the freeAudio jukebox.
 #: addon\appModules\explorer.py:260
 msgid "Add the focused item to the freeAudio jukebox"
-msgstr "Přidat zaměřenou položku do jukeboxu freeAudio"
+msgstr "Přidat zaměřenou položku do freeAudio jukeboxu"
 
 # | msgid "FreeRadio - Station Browser"
 #. Add-on summary/title, usually the user visible name of the add-on
 #. Translators: Summary/title for this add-on
 #: buildVars.py:15
 msgid "freeAudio: Radio and more"
-msgstr "freeAudio: Rádio a další"
+msgstr "freeAudio: Nejen rádio"
 
 # | msgid ""
 # | "FreeRadio is an internet radio, podcast, and audio-book add-on for NVDA "
@@ -5017,25 +5014,24 @@ msgid ""
 "lyrics lookup. All controls and shortcuts are designed for NVDA "
 "accessibility."
 msgstr ""
-"freeAudio je doplněk internetového rádia, podcastů, audioknih a místní hudby "
-"pro NVDA, který poskytuje bezproblémový přístup k tisícům internetových "
-"rozhlasových stanic prostřednictvím otevřeného adresáře Radio Browser, "
-"kanálů RSS/Atom podcastů, digitální knihovny LibriVox + GETEM pro zrakově "
-"postižené a k vašim vlastním místním zvukovým souborům a složkám "
+"freeAudio je doplněk pro NVDA, který umožňuje jednoduchý přístup k tisícům "
+"internetových rozhlasových stanic prostřednictvím otevřeného adresáře Radio "
+"Browser, kanálům RSS/Atom podcastů, digitální knihovny LibriVox + GETEM pro "
+"zrakově postižené a k vašim vlastním  zvukovým souborům a složkám v počítači "
 "prostřednictvím vestavěného jukeboxu. Nabízí plně přístupný prohlížeč stanic "
 "s vyhledáváním, filtrem podle země, správou oblíbených položek a zvukovými "
-"profily pro každou stanici, podcast, audioknihu a skladbu jukeboxu. Epizody "
-"podcastů, kapitoly audioknih a skladby jukeboxu se automaticky obnovují tam, "
-"kde jste skončili – složky jukeboxu dokonce navazují na poslední přehrávanou "
-"skladbu – s nastavitelnou rychlostí přehrávání zachovávající výšku tónu a "
-"nezávislým posunem výšky tónu (transpozice v půltónech). Přehrávání "
-"zajišťuje BASS s podporou ovládání hlasitosti, zvukových efektů, výběru "
-"výstupního zařízení a současného zrcadlení zvuku na druhé zařízení. Mezi "
-"další funkce patří okamžité a plánované nahrávání, přetáčení živého rádia v "
-"čase, časovače spánku a budíku, automatická oznámení metadat ICY, "
-"rozpoznávání hudby pomocí Shazam a protokol oblíbených skladeb s "
-"vyhledáváním textů. Všechny ovládací prvky a klávesové zkratky jsou navrženy "
-"pro přístupnost NVDA."
+"profily pro každou stanici, podcast, audioknihu či skladbu v jukeboxu. "
+"Epizody podcastů, kapitoly audioknih a skladby v jukeboxu se automaticky "
+"obnovují tam, kde jste skončili. Složky jukeboxu dokonce navazují na "
+"poslední přehrávanou skladbu. Rovněž lze měnit výšku tónu a rychlost "
+"přehrávání, ale nejen to. Lze také zrcadlit zvuk na jiné zvukové zařízení a "
+"též používat režim obligato, kdy stanice hraje v pozadí nezávisle na všem "
+"ostatním. Všechno, co se zvukových efektů a přehrávání týče, zajišťuje "
+"knihovna BASS backend. Mezi další funkce patří okamžité a plánované "
+"nahrávání, přetáčení živého rádia v čase, časovače spánku a budíku, "
+"automatická oznámení metadat ICY, rozpoznávání hudby pomocí Shazam a "
+"protokol oblíbených skladeb s vyhledáváním textů. Všechny ovládací prvky a "
+"klávesové zkratky jsou navrženy tak, aby  fungovaly s NVDA."
 
 #. Brief changelog for this version
 #. Translators: what's new content for the add-on version
@@ -5061,8 +5057,9 @@ msgid ""
 "- **M3U export:** writes `group-title` again, so a round trip through "
 "freeAudio no longer drops the folder structure. JSON import and export keep "
 "the same group field.\n"
-"- **List display:** each favourite shows its folder as a trailing \"— Group"
-"\" suffix. This is display only, and the station's name is never changed.\n"
+"- **List display:** each favourite shows its folder as a trailing \"— "
+"Group\" suffix. This is display only, and the station's name is never "
+"changed.\n"
 "- **Filter box:** now also matches the group and splits your text on "
 "whitespace, so each word can match a different field. For example, \"Houston "
 "Classical\" finds \"Houston Public Media Classical\", even though that "
@@ -5096,9 +5093,9 @@ msgid ""
 "\n"
 "### Windows Explorer integration\n"
 "\n"
-"A new `appModules/explorer.py`, active only in the file list of `explorer."
-"exe`, not in the address bar, tree view, ribbon, search box or other "
-"Explorer controls. It adds two commands, both unassigned by default:\n"
+"A new `appModules/explorer.py`, active only in the file list of "
+"`explorer.exe`, not in the address bar, tree view, ribbon, search box or "
+"other Explorer controls. It adds two commands, both unassigned by default:\n"
 "\n"
 "- **Play the focused file with freeAudio**\n"
 "- **Add the focused file or folder to the freeAudio jukebox**\n"
@@ -5122,7 +5119,8 @@ msgstr ""
 "nahrávek se při prvním spuštění přenesou automaticky.\n"
 "- Vlastní klávesové zkratky přiřazené ve Vstupních gestech je nutné nastavit "
 "znovu.\n"
-"- Odinstalujte starý doplněk FreeRadio, abyste předešli konfliktům.\n"
+"- Odinstalujte starý doplněk FreeRadio, abyste předešli konfliktům "
+"klávesových zkratek či nestandartnímu chování doplňku.\n"
 "\n"
 "## Přidáno\n"
 "\n"
@@ -5138,9 +5136,9 @@ msgstr ""
 "koncovou příponu \"— Skupina\". Jde pouze o zobrazení, název stanice se "
 "nikdy nemění.\n"
 "- **Pole filtru:** nyní odpovídá také skupině a rozděluje text na mezery, "
-"takže každé slovo může odpovídat jinému poli. Například \"Houston Classical"
-"\" najde \"Houston Public Media Classical\", i když se tato fráze nikdy "
-"nevyskytuje vcelku.\n"
+"takže každé slovo může odpovídat jinému poli. Například \"Houston "
+"Classical\" najde \"Houston Public Media Classical\", i když se tato fráze "
+"nikdy nevyskytuje vcelku.\n"
 "- **Přiřadit do skupiny…** (nový příkaz kontextové nabídky): označte "
 "oblíbené položky pomocí `.` a poté zadejte název skupiny pro ruční "
 "uspořádání, nebo ponechte název prázdný pro vymazání skupiny. Funguje i pro "
@@ -5185,19 +5183,8 @@ msgstr ""
 "\n"
 "## Opraveno\n"
 "\n"
-"- **Okno freeAudio se někdy nepodařilo přenést do popředí**, což vyžadovalo "
-"restart NVDA. Pokud jste okno místo zavření minimalizovali, zůstalo na "
-"hlavním panelu a nebylo možné je obnovit. Opětovné otevření nyní obnoví "
-"minimalizované okno před jeho vyzvednutím.\n"
+"- * Okno freeAudio se někdy nepodařilo zobrazit v popředí, takže bylo nutné "
+"restartovat NVDA. Pokud jste okno místo zavření minimalizovali, zůstalo na "
+"hlavním panelu a nebylo možné jej znovu zobrazit. Nyní jeho opětovné "
+"otevření nejprve obnoví minimalizované okno a poté jej přesune do popředí.\n"
 
-#~ msgid "FreeRadio"
-#~ msgstr "FreeRadio"
-
-#~ msgid "&FreeRadio"
-#~ msgstr "&FreeRadio"
-
-#~ msgid "Record &once"
-#~ msgstr "Nahrát &jednou"
-
-#~ msgid "Search disk:"
-#~ msgstr "Hledat:"

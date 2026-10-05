@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: freeradio2026.20.6\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-10-05 12:55+0300\n"
+"POT-Creation-Date: 2026-10-05 17:16+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Artin Dekker <contact@artin.net>\n"
 "Language-Team: \n"
@@ -411,7 +411,7 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:231
 #: addon\globalPlugins\freeAudio\librivox.py:197
 #: addon\globalPlugins\freeAudio\radioDialog.py:7252
-#: addon\globalPlugins\freeAudio\radioDialog.py:8348
+#: addon\globalPlugins\freeAudio\radioDialog.py:8363
 msgid "Please enter a search term."
 msgstr "Voer een zoekterm in."
 
@@ -844,8 +844,8 @@ msgstr "Pauzeer of hervat het afspelen van freeAudio"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4591
 #: addon\globalPlugins\freeAudio\radioDialog.py:6380
 #: addon\globalPlugins\freeAudio\radioDialog.py:7566
-#: addon\globalPlugins\freeAudio\radioDialog.py:8727
-#: addon\globalPlugins\freeAudio\radioDialog.py:8817
+#: addon\globalPlugins\freeAudio\radioDialog.py:8742
+#: addon\globalPlugins\freeAudio\radioDialog.py:8832
 msgid "Paused"
 msgstr "Gepauzeerd"
 
@@ -1374,7 +1374,7 @@ msgstr ""
 #. Translators: Button label; closes the station browser dialog.
 #. Translators: Button label; closes the lyrics dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9169
+#: addon\globalPlugins\freeAudio\radioDialog.py:9174
 msgid "&Close"
 msgstr "&Sluiten"
 
@@ -1441,8 +1441,8 @@ msgstr "Audio-pr&ofiel voor dit station opslaan"
 #: addon\globalPlugins\freeAudio\radioDialog.py:6814
 #: addon\globalPlugins\freeAudio\radioDialog.py:6930
 #: addon\globalPlugins\freeAudio\radioDialog.py:7987
-#: addon\globalPlugins\freeAudio\radioDialog.py:8846
-#: addon\globalPlugins\freeAudio\radioDialog.py:9127
+#: addon\globalPlugins\freeAudio\radioDialog.py:8861
+#: addon\globalPlugins\freeAudio\radioDialog.py:9132
 msgid "Clear Audio Prof&ile"
 msgstr "Audio-prof&iel verwijderen"
 
@@ -1563,8 +1563,8 @@ msgstr "Filter stations"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1398
 #: addon\globalPlugins\freeAudio\radioDialog.py:1403
 #: addon\globalPlugins\freeAudio\radioDialog.py:5150
-#: addon\globalPlugins\freeAudio\radioDialog.py:9303
-#: addon\globalPlugins\freeAudio\radioDialog.py:9306
+#: addon\globalPlugins\freeAudio\radioDialog.py:9308
+#: addon\globalPlugins\freeAudio\radioDialog.py:9311
 msgid "Start time (HH:MM):"
 msgstr "Starttijd (UU:MM):"
 
@@ -1573,8 +1573,8 @@ msgstr "Starttijd (UU:MM):"
 #. Translators: Label for the recording-duration field (also used as its accessible name below); value is in minutes.
 #. Translators: Accessible name for the duration field (same text as its static label above).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1262
-#: addon\globalPlugins\freeAudio\radioDialog.py:9311
-#: addon\globalPlugins\freeAudio\radioDialog.py:9314
+#: addon\globalPlugins\freeAudio\radioDialog.py:9316
+#: addon\globalPlugins\freeAudio\radioDialog.py:9319
 msgid "Duration (minutes):"
 msgstr "Duur (minuten):"
 
@@ -1584,7 +1584,7 @@ msgstr "Duur (minuten):"
 #. Translators: Label above the recurrence radio buttons (once vs. weekly) - same wording as the Recording tab's scheduling section.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1272
 #: addon\globalPlugins\freeAudio\radioDialog.py:1412
-#: addon\globalPlugins\freeAudio\radioDialog.py:9319
+#: addon\globalPlugins\freeAudio\radioDialog.py:9324
 msgid "Recurrence:"
 msgstr "Herhaling:"
 
@@ -1593,7 +1593,7 @@ msgstr "Herhaling:"
 #. Translators: Radio button: this is a single one-time recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1278
 #: addon\globalPlugins\freeAudio\radioDialog.py:1418
-#: addon\globalPlugins\freeAudio\radioDialog.py:9321
+#: addon\globalPlugins\freeAudio\radioDialog.py:9326
 msgid "Only &once"
 msgstr "Slechts &één keer"
 
@@ -1606,7 +1606,7 @@ msgstr "Slechts &één keer"
 #. Translators: Radio button: this recording repeats every week on the checked days.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1287
 #: addon\globalPlugins\freeAudio\radioDialog.py:1427
-#: addon\globalPlugins\freeAudio\radioDialog.py:9327
+#: addon\globalPlugins\freeAudio\radioDialog.py:9332
 msgid "Repeat &weekly"
 msgstr "&Wekelijks herhalen"
 
@@ -1620,8 +1620,8 @@ msgstr "&Wekelijks herhalen"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1311
 #: addon\globalPlugins\freeAudio\radioDialog.py:1437
 #: addon\globalPlugins\freeAudio\radioDialog.py:1449
-#: addon\globalPlugins\freeAudio\radioDialog.py:9342
-#: addon\globalPlugins\freeAudio\radioDialog.py:9346
+#: addon\globalPlugins\freeAudio\radioDialog.py:9347
+#: addon\globalPlugins\freeAudio\radioDialog.py:9351
 msgid "Active days:"
 msgstr "Actieve dagen:"
 
@@ -1634,7 +1634,7 @@ msgstr "Actieve dagen:"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Monday"
 msgstr "Maandag"
 
@@ -1643,7 +1643,7 @@ msgstr "Maandag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Tuesday"
 msgstr "Dinsdag"
 
@@ -1652,7 +1652,7 @@ msgstr "Dinsdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Wednesday"
 msgstr "Woensdag"
 
@@ -1661,7 +1661,7 @@ msgstr "Woensdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1978
 #: addon\globalPlugins\freeAudio\radioDialog.py:5198
 #: addon\globalPlugins\freeAudio\radioDialog.py:5361
-#: addon\globalPlugins\freeAudio\radioDialog.py:9338
+#: addon\globalPlugins\freeAudio\radioDialog.py:9343
 msgid "Thursday"
 msgstr "Donderdag"
 
@@ -1670,7 +1670,7 @@ msgstr "Donderdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1979
 #: addon\globalPlugins\freeAudio\radioDialog.py:5199
 #: addon\globalPlugins\freeAudio\radioDialog.py:5362
-#: addon\globalPlugins\freeAudio\radioDialog.py:9339
+#: addon\globalPlugins\freeAudio\radioDialog.py:9344
 msgid "Friday"
 msgstr "Vrijdag"
 
@@ -1679,7 +1679,7 @@ msgstr "Vrijdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1979
 #: addon\globalPlugins\freeAudio\radioDialog.py:5199
 #: addon\globalPlugins\freeAudio\radioDialog.py:5362
-#: addon\globalPlugins\freeAudio\radioDialog.py:9339
+#: addon\globalPlugins\freeAudio\radioDialog.py:9344
 msgid "Saturday"
 msgstr "Zaterdag"
 
@@ -1688,7 +1688,7 @@ msgstr "Zaterdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1979
 #: addon\globalPlugins\freeAudio\radioDialog.py:5199
 #: addon\globalPlugins\freeAudio\radioDialog.py:5362
-#: addon\globalPlugins\freeAudio\radioDialog.py:9339
+#: addon\globalPlugins\freeAudio\radioDialog.py:9344
 msgid "Sunday"
 msgstr "Zondag"
 
@@ -1696,20 +1696,20 @@ msgstr "Zondag"
 #. --- Playback mode ---
 #. Translators: Label above the two playback-mode radio buttons for this scheduled recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1319
-#: addon\globalPlugins\freeAudio\radioDialog.py:9355
+#: addon\globalPlugins\freeAudio\radioDialog.py:9360
 msgid "Playback during recording:"
 msgstr "Afspelen tijdens het opnemen:"
 
 #. Translators: Radio button: play the station out loud while also recording it.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1324
-#: addon\globalPlugins\freeAudio\radioDialog.py:9357
+#: addon\globalPlugins\freeAudio\radioDialog.py:9362
 msgid "Record while &listening (play and record simultaneously)"
 msgstr "Opnemen terwijl je &luistert (gelijktijdig afspelen en opnemen)"
 
 #. Translators: Radio button: record silently, without audio output, to save resources.
 #. Translators: Radio button: record silently, without audio output.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1330
-#: addon\globalPlugins\freeAudio\radioDialog.py:9359
+#: addon\globalPlugins\freeAudio\radioDialog.py:9364
 msgid "Record &only (no audio output)"
 msgstr "&Alleen opnemen (geen audio-uitvoer)"
 
@@ -1845,7 +1845,7 @@ msgstr "Opnemen is niet beschikbaar"
 #. Translators: Same time-format error as the Add Schedule form, shown here when saving an edited schedule with an invalid time.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2075
 #: addon\globalPlugins\freeAudio\radioDialog.py:5280
-#: addon\globalPlugins\freeAudio\radioDialog.py:9418
+#: addon\globalPlugins\freeAudio\radioDialog.py:9423
 msgid "Invalid time format. Use HH:MM"
 msgstr "Ongeldige tijdnotatie. Gebruik HH:MM"
 
@@ -2394,14 +2394,14 @@ msgstr "%(name)s: streamcontrole mislukt — %(detail)s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:3811
 #: addon\globalPlugins\freeAudio\radioDialog.py:5716
 #: addon\globalPlugins\freeAudio\radioDialog.py:7998
-#: addon\globalPlugins\freeAudio\radioDialog.py:9094
+#: addon\globalPlugins\freeAudio\radioDialog.py:9109
 msgid "Remove &Selected"
 msgstr "Ge&selecteerde verwijderen"
 
 #. Translators: Context-menu item; assigns a user-typed folder/group name to every '.'-marked favourite (or just the focused one if none are marked), so favourites can be organised into groups manually - not only ones imported with a group-title tag.
 #. Translators: Context-menu item; assigns a user-typed group name to every '.'-marked jukebox entry (or just the focused one if none are marked), mirroring the same feature for favourites.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3821
-#: addon\globalPlugins\freeAudio\radioDialog.py:9103
+#: addon\globalPlugins\freeAudio\radioDialog.py:9118
 msgid "Assign to &Group..."
 msgstr "Toewijzen aan &Groep..."
 
@@ -2409,7 +2409,7 @@ msgstr "Toewijzen aan &Groep..."
 #. Translators: Context-menu item; re-checks whether the station's stream URL is currently reachable.
 #. Translators: Button label; checks whether the typed stream URL is reachable and playable before adding the station.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9210
+#: addon\globalPlugins\freeAudio\radioDialog.py:9215
 msgid "&Test URL"
 msgstr "&URL testen"
 
@@ -2547,7 +2547,7 @@ msgstr[1] "Markering voor %d jukebox-items opgeheven"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4821
 #: addon\globalPlugins\freeAudio\radioDialog.py:5634
 #: addon\globalPlugins\freeAudio\radioDialog.py:7587
-#: addon\globalPlugins\freeAudio\radioDialog.py:8752
+#: addon\globalPlugins\freeAudio\radioDialog.py:8767
 #, python-format
 msgid "Unmarked: %s"
 msgstr "Niet gemarkeerd: %s"
@@ -2559,7 +2559,7 @@ msgstr "Niet gemarkeerd: %s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4825
 #: addon\globalPlugins\freeAudio\radioDialog.py:5638
 #: addon\globalPlugins\freeAudio\radioDialog.py:7591
-#: addon\globalPlugins\freeAudio\radioDialog.py:8756
+#: addon\globalPlugins\freeAudio\radioDialog.py:8771
 #, python-format
 msgid "Marked: %s"
 msgstr "Gemarkeerd: %s"
@@ -2801,7 +2801,7 @@ msgstr "&Songtekst weergeven"
 #. Translators: Context-menu item; removes the selected entry from the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5444
 #: addon\globalPlugins\freeAudio\radioDialog.py:5711
-#: addon\globalPlugins\freeAudio\radioDialog.py:9090
+#: addon\globalPlugins\freeAudio\radioDialog.py:9105
 msgid "Re&move"
 msgstr "&Verwijderen"
 
@@ -3161,13 +3161,13 @@ msgstr "Geen afleveringen gevonden."
 #. Translators: Same Preview/Stop Preview toggle pattern as the GETEM search-result context menu, applied to a jukebox device-search result.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6659
 #: addon\globalPlugins\freeAudio\radioDialog.py:7457
-#: addon\globalPlugins\freeAudio\radioDialog.py:8453
+#: addon\globalPlugins\freeAudio\radioDialog.py:8468
 msgid "&Stop Preview"
 msgstr "&Stop voorbeeld"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:6659
 #: addon\globalPlugins\freeAudio\radioDialog.py:7457
-#: addon\globalPlugins\freeAudio\radioDialog.py:8453
+#: addon\globalPlugins\freeAudio\radioDialog.py:8468
 msgid "&Preview"
 msgstr "&Voorbeeld"
 
@@ -3311,7 +3311,7 @@ msgstr ""
 #. Translators: Spoken while a keyword search across the enabled audio-book sources is in progress.
 #. Translators: Placeholder row shown in the results list while a device search is in progress.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7320
-#: addon\globalPlugins\freeAudio\radioDialog.py:8362
+#: addon\globalPlugins\freeAudio\radioDialog.py:8377
 msgid "Searching..."
 msgstr "Zoeken..."
 
@@ -3543,21 +3543,33 @@ msgstr "&Map toevoegen..."
 msgid "&Remove"
 msgstr "&Verwijderen"
 
+#. Translators: Button label; opens a file-save dialog to export the jukebox library (JSON or M3U).
+#: addon\globalPlugins\freeAudio\radioDialog.py:8281
+#, fuzzy
+msgid "E&xport Jukebox..."
+msgstr "Favorieten e&xporteren..."
+
+#. Translators: Button label; opens a file-picker to import jukebox entries from a JSON or M3U file.
+#: addon\globalPlugins\freeAudio\radioDialog.py:8284
+#, fuzzy
+msgid "&Import Jukebox..."
+msgstr "Favorieten &importeren..."
+
 #. Translators: Spoken when a jukebox device search starts; %s is the search text.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8364
+#: addon\globalPlugins\freeAudio\radioDialog.py:8379
 #, python-format
 msgid "Searching devices for \"%s\"..."
 msgstr "Apparaten doorzoeken op \"%s\"..."
 
 #. Translators: Placeholder row shown in the results list when a device search finds nothing.
 #. Translators: Spoken alongside the placeholder row above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8384
-#: addon\globalPlugins\freeAudio\radioDialog.py:8386
+#: addon\globalPlugins\freeAudio\radioDialog.py:8399
+#: addon\globalPlugins\freeAudio\radioDialog.py:8401
 msgid "No matching audio files found."
 msgstr "Geen overeenkomende audiobestanden gevonden."
 
 #. Translators: Plural forms spoken after a successful device search; %d is how many audio files were found.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8392
+#: addon\globalPlugins\freeAudio\radioDialog.py:8407
 #, python-format
 msgid "%d file found."
 msgid_plural "%d files found."
@@ -3567,26 +3579,26 @@ msgstr[1] "%d bestanden gevonden."
 #. Translators: Same confirmation as adding a folder; spoken here after adding a single audio file from a device-search result.
 #. Translators: Same confirmation as adding a single file; spoken here after adding a single folder to the jukebox.
 #. Translators: Spoken after successfully adding an Explorer file or folder to the jukebox; %s is its display title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8442
-#: addon\globalPlugins\freeAudio\radioDialog.py:8949
+#: addon\globalPlugins\freeAudio\radioDialog.py:8457
+#: addon\globalPlugins\freeAudio\radioDialog.py:8964
 #: addon\appModules\explorer.py:213
 #, python-format
 msgid "Added to jukebox: %s"
 msgstr "Toegevoegd aan jukebox: %s"
 
 #. Translators: Context-menu item; adds the selected device-search result to the jukebox library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8458
+#: addon\globalPlugins\freeAudio\radioDialog.py:8473
 msgid "&Add to Jukebox"
 msgstr "Toevoegen aan &jukebox"
 
 #. Translators: Spoken when trying to play a jukebox library entry that has no usable audio files.
 #. Translators: Spoken when a jukebox entry's Input Gestures shortcut is triggered but the entry has no usable audio files.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8693
+#: addon\globalPlugins\freeAudio\radioDialog.py:8708
 #: addon\globalPlugins\freeAudio\__init__.py:851
 msgid "No playable audio in this item."
 msgstr "Dit item bevat geen afspeelbare audio."
 
-#: addon\globalPlugins\freeAudio\radioDialog.py:8774
+#: addon\globalPlugins\freeAudio\radioDialog.py:8789
 #, python-format
 msgid "Do you want to remove the %d marked entry from the jukebox?"
 msgid_plural "Do you want to remove the %d marked entries from the jukebox?"
@@ -3595,13 +3607,13 @@ msgstr[1] "Wil je %d gemarkeerde items uit de jukebox verwijderen?"
 
 #. Translators: Title of the bulk-remove confirmation dialog for jukebox entries.
 #. Translators: Title of the jukebox remove-confirmation dialog.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8779
-#: addon\globalPlugins\freeAudio\radioDialog.py:8966
+#: addon\globalPlugins\freeAudio\radioDialog.py:8794
+#: addon\globalPlugins\freeAudio\radioDialog.py:8981
 msgid "Remove From Jukebox"
 msgstr "Verwijder uit Jukebox"
 
 #. Translators: Spoken after bulk-removing marked jukebox entries; %d is how many were removed.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8791
+#: addon\globalPlugins\freeAudio\radioDialog.py:8806
 #, python-format
 msgid "%d entry removed"
 msgid_plural "%d entries removed"
@@ -3610,38 +3622,38 @@ msgstr[1] "%d items verwijderd"
 
 #. Translators: Context-menu item; plays the selected track from within a jukebox folder entry.
 #. Translators: Context-menu item; plays the selected jukebox file/folder.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8836
-#: addon\globalPlugins\freeAudio\radioDialog.py:9081
+#: addon\globalPlugins\freeAudio\radioDialog.py:8851
+#: addon\globalPlugins\freeAudio\radioDialog.py:9096
 msgid "&Play"
 msgstr "Afs&pelen"
 
 #. Translators: Jukebox track context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
 #. Translators: Jukebox context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
-#: addon\globalPlugins\freeAudio\radioDialog.py:8842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9122
+#: addon\globalPlugins\freeAudio\radioDialog.py:8857
+#: addon\globalPlugins\freeAudio\radioDialog.py:9127
 msgid "Save Audio Pr&ofile for This File"
 msgstr "Bewaar &audioprofiel voor dit bestand"
 
 #. Translators: Context-menu item; copies the selected track's file path to the clipboard.
 #. Translators: Context-menu item; copies the selected entry's file/folder path to the clipboard.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8852
-#: addon\globalPlugins\freeAudio\radioDialog.py:9133
+#: addon\globalPlugins\freeAudio\radioDialog.py:8867
+#: addon\globalPlugins\freeAudio\radioDialog.py:9138
 msgid "&Copy Path"
 msgstr "&Kopieer pad"
 
 #. Translators: File-type filter label for the add-audio-files picker; %s is a glob pattern of supported extensions (e.g. '*.mp3;*.ogg'), also appended raw after the '|' as required by the file-dialog format - don't translate the pattern itself.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8861
+#: addon\globalPlugins\freeAudio\radioDialog.py:8876
 #, python-format
 msgid "Audio files (%s)"
 msgstr "Audiobestanden (%s)"
 
 #. Translators: Title of the file-picker dialog for adding files to the jukebox.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8865
+#: addon\globalPlugins\freeAudio\radioDialog.py:8880
 msgid "Add audio files to the jukebox"
 msgstr "Voeg audiobestanden toe aan de jukebox"
 
 #. Translators: Plural forms spoken after adding files to the jukebox via the file picker; %d is how many were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8896
+#: addon\globalPlugins\freeAudio\radioDialog.py:8911
 #, python-format
 msgid "%d file added."
 msgid_plural "%d files added."
@@ -3649,12 +3661,12 @@ msgstr[0] "%d bestand toegevoegd."
 msgstr[1] "%d bestanden toegevoegd."
 
 #. Translators: Title of the dialog used to add one or more folders to the jukebox at once.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8924
+#: addon\globalPlugins\freeAudio\radioDialog.py:8939
 msgid "Add folders to the jukebox"
 msgstr "Mappen toevoegen aan de jukebox"
 
 #. Translators: Plural forms spoken after adding several folders to the jukebox in one go (one folder picker used repeatedly); %d is how many folders were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8952
+#: addon\globalPlugins\freeAudio\radioDialog.py:8967
 #, python-format
 msgid "%d folder added."
 msgid_plural "%d folders added."
@@ -3662,146 +3674,134 @@ msgstr[0] "%d map toegevoegd."
 msgstr[1] "%d mappen toegevoegd."
 
 #. Translators: Body of the remove-confirmation dialog; %s is the jukebox entry title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8964
+#: addon\globalPlugins\freeAudio\radioDialog.py:8979
 #, python-format
 msgid "Do you want to remove \"%s\" from the jukebox?"
 msgstr "Wil je \"%s\" uit de jukebox verwijderen?"
 
 #. Translators: Spoken after successfully removing a jukebox entry; %s is its title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8985
+#: addon\globalPlugins\freeAudio\radioDialog.py:9000
 #, python-format
 msgid "Removed from jukebox: %s"
 msgstr "Verwijderd uit de jukebox: %s"
 
 #. Translators: Spoken after re-scanning a jukebox folder entry for changes on device; %s is the folder's title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9006
+#: addon\globalPlugins\freeAudio\radioDialog.py:9021
 #, python-format
 msgid "Rescanned: %s"
 msgstr "Opnieuw gescand: %s"
 
 #. Translators: Spoken after saving an audio profile for a single jukebox file; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9020
+#: addon\globalPlugins\freeAudio\radioDialog.py:9035
 #, python-format
 msgid "Audio profile saved for %(file)s"
 msgstr "Audioprofiel opgeslagen voor %(file)s"
 
 #. Translators: Spoken after clearing a jukebox file's saved audio profile; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9029
+#: addon\globalPlugins\freeAudio\radioDialog.py:9044
 #, python-format
 msgid "Audio profile cleared for %(file)s"
 msgstr "Audioprofiel gewist voor %(file)s"
 
 #. Translators: Context-menu item; re-scans a jukebox folder entry for added/removed files on device.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9086
+#: addon\globalPlugins\freeAudio\radioDialog.py:9101
 msgid "&Rescan Folder"
 msgstr "Map &opnieuw scannen"
 
 #. Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
-#: addon\globalPlugins\freeAudio\radioDialog.py:9099
+#: addon\globalPlugins\freeAudio\radioDialog.py:9114
 msgid "Re&name..."
 msgstr ""
 
-#. Translators: Context-menu item; exports the jukebox library (entries and per-file audio profiles) to a file.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9109
-#, fuzzy
-msgid "&Export Jukebox..."
-msgstr "Favorieten e&xporteren..."
-
-#. Translators: Context-menu item; imports jukebox entries (and per-file audio profiles) from a previously exported file.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9113
-#, fuzzy
-msgid "&Import Jukebox..."
-msgstr "Favorieten &importeren..."
-
 #. Translators: Title of the lyrics dialog; %s is the song string (e.g. "Artist - Title").
-#: addon\globalPlugins\freeAudio\radioDialog.py:9147
+#: addon\globalPlugins\freeAudio\radioDialog.py:9152
 #, python-format
 msgid "Lyrics — %s"
 msgstr "Songtekst — %s"
 
 #. Translators: Heading inside the lyrics dialog restating which song the lyrics are for; %s is the song string.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9154
+#: addon\globalPlugins\freeAudio\radioDialog.py:9159
 #, python-format
 msgid "Lyrics for: %s"
 msgstr "Songtekst voor: %s"
 
 #. Translators: Accessible name for the read-only lyrics text area.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9164
+#: addon\globalPlugins\freeAudio\radioDialog.py:9169
 msgid "Lyrics"
 msgstr "Songtekst"
 
 #. Translators: Title of the dialog for manually adding a custom station by stream URL.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9194
+#: addon\globalPlugins\freeAudio\radioDialog.py:9199
 msgid "Add Custom Station"
 msgstr "Aangepast station toevoegen"
 
 #. Translators: Label for the custom-station name field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9198
+#: addon\globalPlugins\freeAudio\radioDialog.py:9203
 msgid "Station name:"
 msgstr "Stationsnaam:"
 
 #. Translators: Label for the custom-station stream-URL field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9203
+#: addon\globalPlugins\freeAudio\radioDialog.py:9208
 msgid "Stream URL:"
 msgstr "Stream URL:"
 
 #. Translators: Button label; opens Radio Browser's own website to submit this station to their public directory (separate from just adding it locally to freeAudio).
-#: addon\globalPlugins\freeAudio\radioDialog.py:9217
+#: addon\globalPlugins\freeAudio\radioDialog.py:9222
 msgid "Add to &Radio Browser directory…"
 msgstr "Toevoegen aan &Radio Browser-directory…"
 
 #. Translators: Button label; confirms and adds the custom station to favourites.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9222
+#: addon\globalPlugins\freeAudio\radioDialog.py:9227
 msgid "&Add"
 msgstr "&Toevoegen"
 
 #. Translators: Status text shown next to the Test URL button when it's pressed with an empty URL field.
 #. Translators: Spoken alongside the status text above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9245
-#: addon\globalPlugins\freeAudio\radioDialog.py:9247
+#: addon\globalPlugins\freeAudio\radioDialog.py:9250
+#: addon\globalPlugins\freeAudio\radioDialog.py:9252
 msgid "Please enter a URL first."
 msgstr "Voer eerst een URL in."
 
 #. Translators: Status text shown next to the Test URL button while the check is in progress.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9251
+#: addon\globalPlugins\freeAudio\radioDialog.py:9256
 msgid "Checking…"
 msgstr "Controleren…"
 
 #. Translators: Spoken when the URL check starts.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9253
+#: addon\globalPlugins\freeAudio\radioDialog.py:9258
 msgid "Checking stream URL, please wait…"
 msgstr "Stream-URL controleren, even geduld…"
 
 #. Translators: Status text shown next to the Test URL button when the stream checked out as playable; the '✓' is a visual checkmark, not meant to be read as punctuation.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9267
+#: addon\globalPlugins\freeAudio\radioDialog.py:9272
 msgid "✓ Stream reachable"
 msgstr "✓ Stream bereikbaar"
 
 #. Translators: Spoken when the stream check succeeds.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9270
+#: addon\globalPlugins\freeAudio\radioDialog.py:9275
 msgid "Stream is reachable."
 msgstr "Stream is bereikbaar."
 
 #. Translators: Status text shown when the stream check failed; the '✗' is a visual cross mark, %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9273
+#: addon\globalPlugins\freeAudio\radioDialog.py:9278
 #, python-format
 msgid "✗ %s"
 msgstr "✗ %s"
 
 #. Translators: Spoken when the stream check fails; %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9276
+#: addon\globalPlugins\freeAudio\radioDialog.py:9281
 #, python-format
 msgid "Stream check failed: %s"
 msgstr "Streamcontrole mislukt: %s"
 
 #. Translators: Title of the dialog for editing an existing scheduled recording; %s is the station name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9294
+#: addon\globalPlugins\freeAudio\radioDialog.py:9299
 #, python-format
 msgid "Edit Schedule — %s"
 msgstr "Bewerk Planning — %s"
 
 #. Translators: 'Save' button label; commits the edited schedule entry.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9378
+#: addon\globalPlugins\freeAudio\radioDialog.py:9383
 msgid "&Save"
 msgstr "&Opslaan"
 
@@ -5193,262 +5193,3 @@ msgstr ""
 "worden gehaald. Bij het opnieuw openen wordt een geminimaliseerd venster nu "
 "eerst hersteld voordat het naar de voorgrond wordt gebracht.\n"
 
-#~ msgid "FreeRadio"
-#~ msgstr "FreeRadio"
-
-#~ msgid "&FreeRadio"
-#~ msgstr "&FreeRadio"
-
-#~ msgid ""
-#~ "\n"
-#~ "## Added\n"
-#~ "\n"
-#~ "### Jukebox\n"
-#~ "- **Bulk folder adding.** The Add Folder button in the Jukebox tab now "
-#~ "lets you select several folders at once and adds them in a single "
-#~ "operation, with one summary message reporting how many were added.\n"
-#~ "\n"
-#~ "### Bulk mark-and-remove in every list tab\n"
-#~ "- In the **Favorites**, **Liked Songs**, **Audio Books**, and **Jukebox** "
-#~ "lists you can now mark multiple items and remove them together:\n"
-#~ "  - Press **.** (period) on a highlighted item to mark or unmark it. "
-#~ "Marked items show a \"(marked)\" suffix so their state stays visible "
-#~ "while browsing.\n"
-#~ "  - Press **Delete** to remove every marked item at once. With nothing "
-#~ "marked, Delete still removes only the focused item, as before.\n"
-#~ "  - A **Remove Selected** entry was added to each list's context menu, "
-#~ "enabled only when at least one item is marked.\n"
-#~ "  - A single confirmation dialog summarises how many items will be "
-#~ "removed before anything is deleted.\n"
-#~ "\n"
-#~ "## Fixed\n"
-#~ "\n"
-#~ "### Playback and resume\n"
-#~ "- **Live stations are no longer misclassified as podcasts on startup.** A "
-#~ "live stream whose URL has no audio-file extension and no real saved "
-#~ "podcast position entry is no longer resumed as if it were a podcast "
-#~ "episode. This previously affected stations such as \"AudioBook Radio\", "
-#~ "which showed an \"Episode\" field in the details dialog and was stuck "
-#~ "behind the cassette resume-wait sound.\n"
-#~ "\n"
-#~ "### Recording\n"
-#~ "- **Live stations whose Radio Browser tags contain \"podcast\" can be "
-#~ "recorded again** with Ctrl+Win+E. Recording, and the resume/advance "
-#~ "helpers in the playback pipeline, now key off the dedicated `media_kind` "
-#~ "field instead of substring-matching the free-text `tags` field - which is "
-#~ "community-assigned genre text a real live stream can legitimately carry.\n"
-#~ "- **TuneIn stations now record and capture song titles correctly.** Ctrl"
-#~ "+Win+E recording and song capture previously wrote the tuning response to "
-#~ "disk instead of the actual audio; they now resolve the tuning URL first, "
-#~ "so recordings are valid and playable.\n"
-#~ "\n"
-#~ "### Audio mirror\n"
-#~ "- **Audio mirror now works on stations whose server caps concurrent "
-#~ "connections.** Main playback and the always-on time-shift buffer already "
-#~ "use two connections; some servers reject a third for the mirror. If a "
-#~ "mirror attempt fails and nothing is recording, the time-shift buffer's "
-#~ "connection is freed and the mirror is retried once, then restored "
-#~ "automatically when the mirror is stopped.\n"
-#~ "- Fixed a bug where `start_mirror()`'s internal cleanup (clearing a stale "
-#~ "mirror engine before opening a new one) resumed the time-shift buffer "
-#~ "prematurely, undoing the fix above on every repeat attempt.\n"
-#~ "\n"
-#~ "### Jukebox\n"
-#~ "- **Jukebox folder playback no longer makes NVDA sluggish.** The volume/"
-#~ "EQ/speed/transpose setup and the playback start now run on a background "
-#~ "thread instead of NVDA's main thread, so the blocking BASS round-trips "
-#~ "involved no longer stall speech and input during automatic track "
-#~ "transitions.\n"
-#~ "- **Track audio profiles now survive path casing and form changes.** "
-#~ "Profiles are keyed on the same normalised path form the entries list "
-#~ "already uses, with a one-time migration on load, so a profile saved under "
-#~ "one casing is still found when the same file is later referenced through "
-#~ "a different one (case-insensitive filesystems, mapped drives).\n"
-#~ "\n"
-#~ "### Music recognition\n"
-#~ "- **NVDA no longer feels sluggish while a Shazam recognition is running."
-#~ "** The pure-Python signature computation is CPU-heavy and, even though it "
-#~ "already runs on a background thread, competed with NVDA's own thread for "
-#~ "the GIL. The recognition thread's OS priority is now lowered and Python's "
-#~ "GIL switch interval is temporarily shortened during signature "
-#~ "computation, so NVDA's thread gets the CPU promptly. No change to "
-#~ "recognition accuracy and negligible effect on recognition time.\n"
-#~ "\n"
-#~ "### Timers and scheduled recordings\n"
-#~ "- **Pending sleep and alarm timers now survive add-on updates.** They are "
-#~ "stored under NVDA's own config path instead of the add-on's install "
-#~ "directory, which NVDA deletes and re-creates on every update.\n"
-#~ "- **Scheduled recordings now use the correct NVDA profile.** The "
-#~ "scheduled-recordings store resolves through `globalVars.appArgs."
-#~ "configPath` instead of `%APPDATA%\n"
-#~ "vda`, so a portable NVDA copy or an `nvda.exe -c <path>` session writes "
-#~ "to and reads from its own profile instead of the installed one.\n"
-#~ "- Fixed a race where a timer added between the timer loop's wakeup clear "
-#~ "and its wait could be delayed by up to a full minute.\n"
-#~ "\n"
-#~ "### Persistence\n"
-#~ "- **User data is now written atomically** (temp file plus `os.replace()`) "
-#~ "for favourites, timers, podcast resume positions, jukebox folder "
-#~ "positions, and the jukebox library, so a crash or power loss mid-write "
-#~ "can no longer leave a corrupted file behind.\n"
-#~ "\n"
-#~ "### UI, translations and small fixes\n"
-#~ "- `recorder.py` now calls `addonHandler.initTranslation()`, so `_()` "
-#~ "resolves against FreeRadio's own translation catalog.\n"
-#~ "- Removed a dead `globalVars.appArgs.secure` guard that never took "
-#~ "effect, and fixed an unbalanced `prePopup()` on the first dialog open.\n"
-#~ "- Fixed a \"potcasts\" typo in the time-shift checkbox label.\n"
-#~ "- Removed a stray \"()\" from the auto-generated per-favourite shortcut "
-#~ "descriptions in NVDA's Input Gestures dialog.\n"
-#~ "- Removed a duplicate \"S\" in the Turkish sort-order table (`_TR_ORDER`) "
-#~ "that shifted the sort key for every character after it.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "## Toegevoegd\n"
-#~ "\n"
-#~ "### Jukebox\n"
-#~ "- **Meerdere mappen tegelijk toevoegen.** Met de knop Map toevoegen in "
-#~ "het tabblad Jukebox kun je nu meerdere mappen tegelijk selecteren en in "
-#~ "één handeling toevoegen. Er wordt één overzichtsbericht weergegeven met "
-#~ "het aantal toegevoegde mappen.\n"
-#~ "\n"
-#~ "### Meerdere items markeren en verwijderen in alle lijsttabbladen\n"
-#~ "- In de lijsten **Favorieten**, **Gelikete nummers**, **Audioboeken** en "
-#~ "**Jukebox** kun je nu meerdere items markeren en gezamenlijk "
-#~ "verwijderen:\n"
-#~ "  - Druk op **.** (punt) op een geselecteerd item om het te markeren of "
-#~ "de markering te verwijderen. Gemarkeerde items krijgen het achtervoegsel "
-#~ "\"(gemarkeerd)\", zodat hun status tijdens het bladeren zichtbaar "
-#~ "blijft.\n"
-#~ "  - Druk op **Delete** om alle gemarkeerde items tegelijk te verwijderen. "
-#~ "Als er niets is gemarkeerd, verwijdert Delete alleen het geselecteerde "
-#~ "item, zoals voorheen.\n"
-#~ "  - Aan het contextmenu van elke lijst is de optie **Selectie "
-#~ "verwijderen** toegevoegd. Deze optie is alleen beschikbaar als ten minste "
-#~ "één item is gemarkeerd.\n"
-#~ "  - Voordat er iets wordt verwijderd, wordt in één bevestigingsvenster "
-#~ "samengevat hoeveel items worden verwijderd.\n"
-#~ "\n"
-#~ "## Opgelost\n"
-#~ "\n"
-#~ "### Afspelen en hervatten\n"
-#~ "- **Live stations worden bij het opstarten niet langer ten onrechte als "
-#~ "podcasts aangemerkt.** Een livestream waarvan de URL geen "
-#~ "bestandsextensie voor audio bevat en waarvoor geen echte opgeslagen "
-#~ "positie voor een podcast bestaat, wordt niet langer hervat alsof het een "
-#~ "podcastaflevering is. Dit had eerder gevolgen voor stations zoals "
-#~ "\"AudioBook Radio\", waarbij in het detailvenster het veld \"Aflevering\" "
-#~ "werd weergegeven en het afspelen bleef hangen achter het geluid dat "
-#~ "aangeeft dat het hervatten wordt voorbereid.\n"
-#~ "\n"
-#~ "### Opnemen\n"
-#~ "- **Live stations waarvan de Radio Browser-tags \"podcast\" bevatten, "
-#~ "kunnen weer worden opgenomen** met Ctrl+Win+E. Voor opnemen en de helpers "
-#~ "voor hervatten/doorgaan in de afspeelpijplijn wordt nu het speciale veld "
-#~ "`media_kind` gebruikt in plaats van te zoeken naar tekst in het "
-#~ "vrijetekstveld `tags`. Dat veld bevat door de community toegewezen genre-"
-#~ "informatie, die een echte livestream terecht kan bevatten.\n"
-#~ "- **TuneIn-stations worden nu correct opgenomen en muziektitels worden "
-#~ "correct vastgelegd.** Bij opnames en het vastleggen van muziektitels met "
-#~ "Ctrl+Win+E werd voorheen de afstemmingsrespons naar schijf geschreven in "
-#~ "plaats van de daadwerkelijke audio. De afstemmings-URL wordt nu eerst "
-#~ "opgelost, zodat opnames geldig zijn en kunnen worden afgespeeld.\n"
-#~ "\n"
-#~ "### Audioduplicatie\n"
-#~ "- **Audioduplicatie werkt nu ook met stations waarvan de server het "
-#~ "aantal gelijktijdige verbindingen beperkt.** De hoofdafspeelverbinding en "
-#~ "de buffer voor timeshift gebruiken al twee verbindingen; sommige servers "
-#~ "weigeren een derde verbinding voor de audioduplicatie. Als een poging tot "
-#~ "audioduplicatie mislukt en er niets wordt opgenomen, wordt de verbinding "
-#~ "van de timeshiftbuffer vrijgegeven en wordt de audioduplicatie één keer "
-#~ "opnieuw geprobeerd. De verbinding wordt automatisch hersteld wanneer de "
-#~ "audioduplicatie wordt gestopt.\n"
-#~ "- Een fout opgelost waarbij de interne opruimactie van `start_mirror()` "
-#~ "(het wissen van een verouderde mirror-engine voordat een nieuwe wordt "
-#~ "geopend) de timeshiftbuffer voortijdig hervatte. Daardoor werd de "
-#~ "bovenstaande oplossing bij elke nieuwe poging ongedaan gemaakt.\n"
-#~ "\n"
-#~ "### Jukebox\n"
-#~ "- **Het afspelen van mappen in de Jukebox maakt NVDA niet langer traag.** "
-#~ "Het instellen van volume/EQ/snelheid/transpositie en het starten van het "
-#~ "afspelen worden nu op een achtergrondthread uitgevoerd in plaats van op "
-#~ "de hoofdthread van NVDA. Hierdoor blokkeren de benodigde BASS-"
-#~ "communicaties niet langer de spraak en invoer tijdens automatische "
-#~ "overgangen tussen nummers.\n"
-#~ "- **Audio-profielen voor nummers blijven nu behouden bij wijzigingen in "
-#~ "hoofdlettergebruik en padnotatie.** Profielen gebruiken dezelfde "
-#~ "genormaliseerde padnotatie als de lijst met items. Bij het laden vindt "
-#~ "eenmalig een migratie plaats. Daardoor wordt een profiel dat onder een "
-#~ "bepaalde schrijfwijze is opgeslagen ook gevonden wanneer hetzelfde "
-#~ "bestand later via een andere schrijfwijze wordt verwezen, bijvoorbeeld "
-#~ "bij bestandssystemen die geen onderscheid maken tussen hoofdletters en "
-#~ "kleine letters of bij gekoppelde stations.\n"
-#~ "\n"
-#~ "### Muziekherkenning\n"
-#~ "- **NVDA voelt niet langer traag aan terwijl een Shazam-herkenning wordt "
-#~ "uitgevoerd.** Het berekenen van de signatuur in pure Python is CPU-"
-#~ "intensief. Hoewel dit al op een achtergrondthread gebeurde, concurreerde "
-#~ "deze thread met de eigen thread van NVDA om de GIL. De OS-prioriteit van "
-#~ "de herkenningsthread wordt nu verlaagd en tijdens het berekenen van de "
-#~ "signatuur wordt het schakelinterval van de Python-GIL tijdelijk verkort. "
-#~ "Hierdoor krijgt de thread van NVDA sneller CPU-tijd. De "
-#~ "herkenningsnauwkeurigheid verandert niet en de invloed op de "
-#~ "herkenningstijd is verwaarloosbaar.\n"
-#~ "\n"
-#~ "### Timers en geplande opnames\n"
-#~ "- **Wachtende slaap- en alarmtimers blijven nu behouden na updates van de "
-#~ "add-on.** Ze worden opgeslagen in het eigen configuratiepad van NVDA in "
-#~ "plaats van in de installatiemap van de add-on. Die map wordt bij elke "
-#~ "update door NVDA verwijderd en opnieuw aangemaakt.\n"
-#~ "- **Geplande opnames gebruiken nu het juiste NVDA-profiel.** De opslag "
-#~ "voor geplande opnames gebruikt nu `globalVars.appArgs.configPath` in "
-#~ "plaats van `%APPDATA%\\nvda`. Hierdoor leest en schrijft een draagbare "
-#~ "NVDA-installatie of een sessie met `nvda.exe -c <pad>` de gegevens in het "
-#~ "eigen profiel in plaats van in het geïnstalleerde profiel.\n"
-#~ "- Een raceconditie opgelost waarbij een timer die werd toegevoegd tussen "
-#~ "het leegmaken van de wachttijd van de timerlus en het opnieuw wachten, "
-#~ "maximaal een volledige minuut kon worden vertraagd.\n"
-#~ "\n"
-#~ "### Persistentie\n"
-#~ "- **Gebruikersgegevens worden nu atomair opgeslagen** (via een tijdelijk "
-#~ "bestand en `os.replace()`) voor favorieten, timers, posities voor het "
-#~ "hervatten van podcasts, mapposities van de Jukebox en de Jukebox-"
-#~ "bibliotheek. Hierdoor kan een crash of stroomuitval tijdens het schrijven "
-#~ "niet langer leiden tot een beschadigd bestand.\n"
-#~ "\n"
-#~ "### Gebruikersinterface, vertalingen en kleine verbeteringen\n"
-#~ "- `recorder.py` roept nu `addonHandler.initTranslation()` aan, zodat `_()"
-#~ "` verwijst naar de eigen vertalingscatalogus van FreeRadio.\n"
-#~ "- Een ongebruikte `globalVars.appArgs.secure`-controle verwijderd die "
-#~ "nooit effect had, en een niet-afgesloten `prePopup()` bij het voor het "
-#~ "eerst openen van een dialoogvenster opgelost.\n"
-#~ "- Een typefout (\"potcasts\") in het label van het timeshift-"
-#~ "selectievakje opgelost.\n"
-#~ "- Een overbodige \"()\" verwijderd uit de automatisch gegenereerde "
-#~ "beschrijvingen van sneltoetsen per favoriet in het dialoogvenster "
-#~ "Invoergebaren van NVDA.\n"
-#~ "- Een dubbele \"S\" verwijderd uit de Turkse sorteervolgordetabel "
-#~ "(`_TR_ORDER`), waardoor de sorteersleutel voor elk teken daarna "
-#~ "verschoof.\n"
-
-#~ msgid "Record &once"
-#~ msgstr "&Eenmalige opname"
-
-#, fuzzy
-#~ msgid "Search disk:"
-#~ msgstr "Zoeken:"
-
-#~ msgid "Radio paused"
-#~ msgstr "Radio gepauzeerd"
-
-#~ msgid "Or enter podcast URL:"
-#~ msgstr "Of voer de podcast-URL in:"
-
-#~ msgid "Podcast URL"
-#~ msgstr "Podcast URL"
-
-#~ msgid "&Add Feed"
-#~ msgstr "&Feed toevoegen"
-
-#~ msgid "URL must start with http:// or https://"
-#~ msgstr "URL moet beginnen met http:// of https://"
