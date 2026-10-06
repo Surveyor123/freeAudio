@@ -145,8 +145,12 @@ The following keys work only while the Station Browser window is active.
 
 | Shortcut | Function | Description |
 |---|---|---|
-| `→` | Next item | When a station list is focused (All Stations / Favourites), moves to the next station and plays it immediately. When the episode list is focused (Podcasts), moves to the next episode and plays it. Wraps to the beginning at the end of the list. |
-| `←` | Previous item | When a station list is focused, moves to the previous station and plays it. When the episode list is focused, moves to the previous episode and plays it. Jumps to the end when at the beginning. |
+| `→` | Next item / Seek forward | On a station list (All Stations / Favourites), moves to the next station and plays it immediately, wrapping to the beginning at the end of the list. On the Podcasts, Audio Books or Jukebox item lists, while something is loaded and playing, seeks forward instead — the same as the global `Ctrl+Win+K` command (see Tiered Seeking above). On the Podcasts episode list specifically, if nothing is loaded yet, it falls back to moving to the next episode and playing it. |
+| `←` | Previous item / Seek backward | On a station list, moves to the previous station and plays it, jumping to the end when at the beginning. On the Podcasts, Audio Books or Jukebox item lists, while something is loaded and playing, seeks backward instead — the same as the global `Ctrl+Win+J` command. On the Podcasts episode list, if nothing is loaded yet, it falls back to moving to the previous episode and playing it. |
+| `Shift+→` | Transpose up | On the Podcasts, Audio Books or Jukebox item lists: raises the pitch of the current playback by a semitone, the same as the global `Shift+Win+K` command. |
+| `Shift+←` | Transpose down | On the Podcasts, Audio Books or Jukebox item lists: lowers the pitch of the current playback by a semitone, the same as the global `Shift+Win+J` command. |
+| `Page Up` | Playback speed up | On the Podcasts, Audio Books or Jukebox item lists: increases playback speed, the same as the global `Ctrl+Win+Shift+K` command. |
+| `Page Down` | Playback speed down | On the Podcasts, Audio Books or Jukebox item lists: decreases playback speed, the same as the global `Ctrl+Win+Shift+J` command. |
 | `Ctrl+→` | Next episode / book / track | On Podcasts tab: moves to the next episode and plays it. On Audio Books tab (library list focused): moves to the next book. On Jukebox tab (either the entries list or the tracks list focused): moves to the next track in the selected jukebox item and plays it. |
 | `Ctrl+←` | Previous episode / book / track | On Podcasts tab: moves to the previous episode and plays it. On Audio Books tab: moves to the previous book. On Jukebox tab: moves to the previous track in the selected jukebox item and plays it. |
 | `Enter` | Play / Add | On a station or episode list: starts playing the selected item immediately. On the Jukebox tab's search results: adds the selected file to the jukebox. On the Jukebox tab's entries or tracks list: plays the focused item directly. |
@@ -637,7 +641,7 @@ Open the station browser with `Ctrl+Win+R` and switch to the **Jukebox** tab wit
 2. **Search results** — a list that appears once a search has been run, showing the matching files. Hidden until then, so the tab stays uncluttered when there's nothing to search.
 3. **Jukebox and Tracks** — the persistent list of items you've added, followed by the list of tracks in whichever entry is selected (for a file entry, just that one file; for a folder entry, every audio file found inside it).
 
-The **Add File…**, **Add Folder…** and **Remove** buttons sit below the Tracks list.
+The **Add File…**, **Add Folder…**, **Remove**, **Export Jukebox…** and **Import Jukebox…** buttons sit below the Tracks list.
 
 ### Searching for Files on Devices
 
@@ -687,6 +691,47 @@ Every track played from the Jukebox gets the full local-media treatment:
 - **Audio profile:** A track's volume, effects, EQ and speed can be saved globally by playing a track while the appropriate settings are set — the Jukebox does not currently expose a per-track profile menu, so the current global settings apply.
 
 > **Note:** The time-shift buffer (used for rewinding live radio) is deliberately **not** started for Jukebox tracks — they're already seekable local files, so a background capture has no purpose and would only consume disk space. Rewind and fast-forward still work because they act directly on the file being played.
+
+### Renaming Jukebox Entries
+
+Choose **Rename…** from a Jukebox entry's context menu (Applications key / `Shift+F10`) to give it a custom display name. The custom name replaces the file or folder name in the Jukebox list and is written into the `#EXTINF` line when the entry is exported to M3U (see [Exporting and Importing the Jukebox Library](#exporting-and-importing-the-jukebox-library) below). Leave the field empty to clear the custom name and fall back to the original file or folder name.
+
+### Organising the Jukebox into Groups
+
+Jukebox entries can belong to a group, shown as a "— Group" suffix after the entry name in the list, exactly like [Organising Favourites into Groups](#organising-favourites-into-groups):
+
+- Mark one or more entries with `.` (see [Marking and Removing Multiple Items](#marking-and-removing-multiple-items) above), then choose **Assign to Group…** from the context menu and type a group name. Leave the field empty to remove the marked entries from their group instead. If nothing is marked, the command applies to the currently selected entry.
+- The Filter field above the Jukebox list also matches against group names, the same way it does for Favourites.
+
+### Reordering the Jukebox
+
+With an entry selected in the Jukebox list, press `comma` to enter move mode — you will hear a beep. Navigate to the target position with the arrow keys, then press `comma` again. The entry is placed at the chosen position and the new order is saved immediately. Pressing `comma` again at the same position cancels the move.
+
+### Exporting and Importing the Jukebox Library
+
+The Jukebox tab includes two buttons for backing up and restoring your library, below the Tracks list:
+
+**Export Jukebox…** — saves your entire Jukebox list to a file. A save dialog lets you choose between two formats:
+- **JSON** (`.json`) — a complete backup that preserves every entry's path, custom name, group, and saved audio profile. Recommended for restoring your library later or moving it to another computer.
+- **M3U playlist** (`.m3u`) — a lighter format compatible with most media players, listing each entry's path with its custom name (if any) in a preceding `#EXTINF` line. Groups and audio profiles are not included in M3U, so restoring from M3U loses that detail.
+
+**Import Jukebox…** — loads entries from a previously exported JSON or M3U file. After selecting the file, you are asked how to add the entries:
+- **Yes (Merge)** — adds the imported entries to your existing library without removing any current entries. Entries whose path matches one already in your library are not added twice.
+- **No (Replace)** — clears your current Jukebox list entirely and replaces it with the contents of the imported file.
+- **Cancel** — returns to the browser without making any changes.
+
+### Direct Keyboard Shortcuts for Jukebox Entries
+
+Every entry in your Jukebox list is registered as a separate script in NVDA's Input Gestures dialog, under the **freeAudio Jukebox** category, exactly like [Direct Keyboard Shortcuts for Favourite Stations](#direct-keyboard-shortcuts-for-favourite-stations). You can assign any keyboard shortcut to any entry and press it from anywhere — no need to open the browser window first.
+
+To assign a shortcut:
+
+1. Open NVDA Menu → Preferences → Input Gestures.
+2. Expand the **freeAudio Jukebox** category.
+3. Find the entry by name, select it, and press **Add**.
+4. Press the desired key combination and confirm.
+
+The shortcut plays the entry immediately — for a file entry, the file itself; for a folder entry, its first track. If the entry is later removed from your Jukebox, its entry disappears from the category and any shortcut assigned to it is automatically cleared by NVDA. When a new entry is added, it appears in the category straight away — the Input Gestures dialog does not need to be reopened.
 
 ## Transpose (Pitch Shift)
 

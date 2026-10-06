@@ -710,10 +710,8 @@ class RadioDialog(wx.Dialog):
 		self._notebook.AddPage(self._rec_panel,   _("Recording"))
 		# Translators: Tab label for scheduled recording timers.
 		self._notebook.AddPage(self._timer_panel, _("Timer"))
-		# Only the first visit to the Timer tab forces focus to the
-		# Start/Stop radio group (see _focus_timer_action_group). Every
-		# later visit instead leaves wx's own per-page focus memory alone,
-		# like every other tab already does.
+		# Set once the Timer tab has been opened with Alt+4 for the first time -
+		# see _on_tab_changed_index() and _focus_timer_action_group().
 		self._timer_tab_focus_done = False
 		# Translators: Tab label for the list of liked/favourited songs (with lyrics lookup).
 		self._notebook.AddPage(self._liked_panel, _("Liked Songs"))
@@ -1603,13 +1601,6 @@ class RadioDialog(wx.Dialog):
 		elif sel == 3:
 			wx.CallLater(0, self._refresh_timer_stations)
 			wx.CallLater(0, self._refresh_timer_list)
-			if not self._timer_tab_focus_done:
-				self._timer_tab_focus_done = True
-				# Defer focus change until after the tab panel is fully shown
-				# and the refresh calls above have been queued, so focus
-				# isn't stolen back by those refreshes. Only done once - see
-				# _timer_tab_focus_done.
-				wx.CallLater(0, self._focus_timer_action_group)
 		elif sel == 4:
 			wx.CallLater(0, self._refresh_liked_list)
 		elif sel == self._tab_pos("podcasts"):
@@ -1628,9 +1619,15 @@ class RadioDialog(wx.Dialog):
 			self._save_audio_btn.Enable(False)
 
 	def _focus_timer_action_group(self):
-		"""When the Timer tab is opened for the first time, move focus to
-		the Timer action (Start/Stop) radio buttons instead of wherever
-		wx would otherwise restore focus to."""
+		"""Move focus to the Timer action (Start/Stop) radio buttons.
+
+		Only used when the Timer tab is opened programmatically (Alt+4) for the
+		first time. Without it, wx restores focus to the last radio button that
+		was created/checked on the page (the Recurrence "Only once" button)
+		instead of the first control. It is deliberately NOT used when the user
+		moves between the notebook tabs with the arrow keys / Ctrl+Tab, so focus
+		stays on the tab control there and the arrow keys keep switching tabs.
+		"""
 		if not self:
 			return
 		try:
@@ -1647,6 +1644,11 @@ class RadioDialog(wx.Dialog):
 		wx.NotebookEvent is not fired for programmatic SetSelection calls.
 		"""
 		self._apply_tab_side_effects(sel)
+		if sel == 3 and not self._timer_tab_focus_done:
+			self._timer_tab_focus_done = True
+			# Deferred so the refresh calls queued by the side effects above
+			# cannot steal focus back.
+			wx.CallLater(0, self._focus_timer_action_group)
 		ui.message(self._notebook.GetPageText(sel))
 
 	def _on_tab_changed(self, event):
