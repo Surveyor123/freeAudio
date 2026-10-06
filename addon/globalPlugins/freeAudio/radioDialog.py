@@ -3925,6 +3925,57 @@ class RadioDialog(wx.Dialog):
 			self._plugin.script_timeshiftForward(None)
 		return True
 
+	def _transpose_like_global(self, direction):
+		"""Make a Shift+Left/Right press on the same Podcasts/Audio Books/
+		Jukebox item lists do exactly what the global Shift+Win+J/
+		Shift+Win+K commands do - PlaybackCoreMixin.script_transposeDown()/
+		script_transposeUp() on the plugin - the Shift-modified counterpart
+		of _seek_like_global_timeshift() above. *direction* is -1
+		(Shift+Left, lower pitch) or +1 (Shift+Right, raise pitch).
+
+		Unlike timeshiftRewind()/timeshiftForward(), neither transpose
+		script ever touches its gesture argument at all (they only read
+		self._player.increase_transpose()/decrease_transpose() and report
+		the result via _notify), so calling them directly with gesture=None
+		is always safe - including with nothing currently playing, where
+		the script itself reports "Transpose only applies to..." rather
+		than silently doing nothing, which is arguably more useful here
+		than it would be to instead fall back to no-op list behaviour.
+
+		Always returns True (always handled) - there's no "nothing to do
+		here, let the caller's own Shift+Left/Right behaviour run instead"
+		case, since none of these lists had any Shift+Left/Right behaviour
+		of their own before this."""
+		if self._plugin is None:
+			return False
+		if direction < 0:
+			self._plugin.script_transposeDown(None)
+		else:
+			self._plugin.script_transposeUp(None)
+		return True
+
+	def _playback_rate_like_global(self, direction):
+		"""Make a PageUp/PageDown press on the same item lists do exactly
+		what the global Ctrl+Win+Shift+K/Ctrl+Win+Shift+J commands do -
+		AudioFxMixin.script_playbackRateUp()/script_playbackRateDown() on
+		the plugin. *direction* is +1 (PageUp, faster) or -1 (PageDown,
+		slower). Same gesture=None safety reasoning as
+		_transpose_like_global() above - neither playback-rate script
+		touches its gesture argument either, and both report failure
+		reasons (e.g. "only available for podcasts") via _notify rather
+		than needing it.
+
+		Always returns True (always handled): this replaces these lists'
+		native PageUp/PageDown page-scrolling, the same deliberate trade
+		_transpose_like_global() makes for Shift+Left/Right."""
+		if self._plugin is None:
+			return False
+		if direction > 0:
+			self._plugin.script_playbackRateUp(None)
+		else:
+			self._plugin.script_playbackRateDown(None)
+		return True
+
 	def _on_char_hook(self, event):
 		key     = event.GetKeyCode()
 		focused = wx.Window.FindFocus()
@@ -4332,7 +4383,15 @@ class RadioDialog(wx.Dialog):
 				if key == wx.WXK_RIGHT and event.ControlDown():
 					self._play_next_episode()
 					return
-				# Plain Left/Right (no Ctrl): seek within whatever's
+				# Shift+Left/Right: pitch transpose, like the global
+				# Shift+Win+J/K commands - see _transpose_like_global().
+				# Checked before the plain-Left/Right seek case just below,
+				# since Shift+Left/Right also matches "key == WXK_LEFT/RIGHT".
+				if key == wx.WXK_LEFT and event.ShiftDown() and self._transpose_like_global(-1):
+					return
+				if key == wx.WXK_RIGHT and event.ShiftDown() and self._transpose_like_global(1):
+					return
+				# Plain Left/Right (no Ctrl/Shift): seek within whatever's
 				# currently playing, exactly like the global Ctrl+Win+J/K
 				# commands - see _seek_like_global_timeshift(). This takes
 				# over the plain Left/Right keys on the episode list, which
@@ -4340,9 +4399,15 @@ class RadioDialog(wx.Dialog):
 				# (_on_episode_key) - that's still available via Ctrl+Left/
 				# Ctrl+Right just above, or F3/F4, so nothing is lost, only
 				# un-shadowed from the plain arrow keys.
-				if key == wx.WXK_LEFT and self._seek_like_global_timeshift(-1):
+				if key == wx.WXK_LEFT and not event.ShiftDown() and self._seek_like_global_timeshift(-1):
 					return
-				if key == wx.WXK_RIGHT and self._seek_like_global_timeshift(1):
+				if key == wx.WXK_RIGHT and not event.ShiftDown() and self._seek_like_global_timeshift(1):
+					return
+				# PageUp/PageDown: playback speed, like the global
+				# Ctrl+Win+Shift+K/J commands - see _playback_rate_like_global().
+				if key == wx.WXK_PAGEUP and self._playback_rate_like_global(1):
+					return
+				if key == wx.WXK_PAGEDOWN and self._playback_rate_like_global(-1):
 					return
 
 		# --- Unique shortcuts to the Audio Books tab ---
@@ -4374,12 +4439,26 @@ class RadioDialog(wx.Dialog):
 				if key == wx.WXK_RIGHT and event.ControlDown():
 					self._play_next_getem_book()
 					return
-				# Plain Left/Right: seek within the currently playing part,
-				# same as the global Ctrl+Win+J/K commands - see
-				# _seek_like_global_timeshift().
-				if key == wx.WXK_LEFT and self._seek_like_global_timeshift(-1):
+				# Shift+Left/Right: pitch transpose, like the global
+				# Shift+Win+J/K commands - see _transpose_like_global().
+				# Checked before plain Left/Right just below, since
+				# Shift+Left/Right also matches "key == WXK_LEFT/RIGHT".
+				if key == wx.WXK_LEFT and event.ShiftDown() and self._transpose_like_global(-1):
 					return
-				if key == wx.WXK_RIGHT and self._seek_like_global_timeshift(1):
+				if key == wx.WXK_RIGHT and event.ShiftDown() and self._transpose_like_global(1):
+					return
+				# Plain Left/Right (no Shift): seek within the currently
+				# playing part, same as the global Ctrl+Win+J/K commands -
+				# see _seek_like_global_timeshift().
+				if key == wx.WXK_LEFT and not event.ShiftDown() and self._seek_like_global_timeshift(-1):
+					return
+				if key == wx.WXK_RIGHT and not event.ShiftDown() and self._seek_like_global_timeshift(1):
+					return
+				# PageUp/PageDown: playback speed, like the global
+				# Ctrl+Win+Shift+K/J commands - see _playback_rate_like_global().
+				if key == wx.WXK_PAGEUP and self._playback_rate_like_global(1):
+					return
+				if key == wx.WXK_PAGEDOWN and self._playback_rate_like_global(-1):
 					return
 
 		# --- Unique shortcuts to the Jukebox tab ---
@@ -4408,12 +4487,26 @@ class RadioDialog(wx.Dialog):
 				if key == wx.WXK_RIGHT and event.ControlDown():
 					self._play_next_jukebox_track()
 					return
-				# Plain Left/Right: seek within the currently playing
-				# track, same as the global Ctrl+Win+J/K commands - see
-				# _seek_like_global_timeshift().
-				if key == wx.WXK_LEFT and self._seek_like_global_timeshift(-1):
+				# Shift+Left/Right: pitch transpose, like the global
+				# Shift+Win+J/K commands - see _transpose_like_global().
+				# Checked before plain Left/Right just below, since
+				# Shift+Left/Right also matches "key == WXK_LEFT/RIGHT".
+				if key == wx.WXK_LEFT and event.ShiftDown() and self._transpose_like_global(-1):
 					return
-				if key == wx.WXK_RIGHT and self._seek_like_global_timeshift(1):
+				if key == wx.WXK_RIGHT and event.ShiftDown() and self._transpose_like_global(1):
+					return
+				# Plain Left/Right (no Shift): seek within the currently
+				# playing track, same as the global Ctrl+Win+J/K commands -
+				# see _seek_like_global_timeshift().
+				if key == wx.WXK_LEFT and not event.ShiftDown() and self._seek_like_global_timeshift(-1):
+					return
+				if key == wx.WXK_RIGHT and not event.ShiftDown() and self._seek_like_global_timeshift(1):
+					return
+				# PageUp/PageDown: playback speed, like the global
+				# Ctrl+Win+Shift+K/J commands - see _playback_rate_like_global().
+				if key == wx.WXK_PAGEUP and self._playback_rate_like_global(1):
+					return
+				if key == wx.WXK_PAGEDOWN and self._playback_rate_like_global(-1):
 					return
 
 		event.Skip()
