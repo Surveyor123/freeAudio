@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: freeAudio 2026.25.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-10-05 23:09+0300\n"
-"PO-Revision-Date: 2026-10-05 23:13+0300\n"
+"PO-Revision-Date: 2026-10-06 06:34+0300\n"
 "Last-Translator: \n"
 "Language-Team: tr\n"
 "Language: tr\n"
@@ -168,7 +168,7 @@ msgstr "Ses cihazının bağlantısı kesildi. Sistem varsayılanına geçildi."
 #. Translators: Name of an NVDA command; raises freeAudio's playback volume by 5 (of 200 max, capped at 100 when saved).
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:33
 msgid "Increase freeAudio volume by 5"
-msgstr "freeAudio sesini 5 artır"
+msgstr "FreeAudio sesini 5 artır"
 
 #. Translators: Spoken after volume is changed with the volume-up/down commands; %d is the new volume level.
 #. Translators: Spoken after volume is changed; %d is the new volume level.
@@ -189,7 +189,7 @@ msgstr "Ses %d"
 #. Translators: Name of an NVDA command; lowers freeAudio's playback volume by 5.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:47
 msgid "Decrease freeAudio volume by 5"
-msgstr "freeAudio sesini 5 azalt"
+msgstr "FreeAudio sesini 5 azalt"
 
 #. Translators: Name of an NVDA command; speeds up playback rate, podcasts/audiobooks/GETEM chapters only.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:61
@@ -523,7 +523,7 @@ msgstr "Bu, bir archive.org kitap bağlantısı gibi görünmüyor."
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:443
 #: addon\globalPlugins\freeAudio\librivox.py:437
 msgid "Could not find a book at this address on archive.org."
-msgstr "archive.org adresinde bu kitap bulunamadı."
+msgstr "Archive.org adresinde bu kitap bulunamadı."
 
 #. Translators: Error returned when the resolved archive.org item exists but isn't tagged as part of this specific audiobook collection.
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:451
@@ -724,7 +724,7 @@ msgstr "Ses çıkışı:"
 #. Translators: The two fixed entries in the Obligato output-device choice: play through the same device as the main player, or through a separately chosen device.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:95
 msgid "Same as main output"
-msgstr "Ana sesin kullandığı çıkışla aynı."
+msgstr "Ana sesin kullandığı çıkışla aynı"
 
 #. Translators: Static label above the background-volume choice in the Obligato setup dialog.
 #. Translators: Accessible name for the background-volume choice control.
@@ -759,7 +759,7 @@ msgstr "Lütfen fon müziği için bir istasyon seçin."
 #. Translators: Name of an NVDA command (default Ctrl+Shift+Windows+M); starts or stops Obligato background-music mode.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:205
 msgid "Toggle Obligato background music mode"
-msgstr "Sürekli fon müziği modunu aç/kapat   "
+msgstr "Sürekli fon müziği modunu aç/kapat"
 
 #. Translators: Spoken when the toggle command is pressed but the favourites list is empty, since Obligato can only play a saved favourite station.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:221
@@ -810,7 +810,7 @@ msgstr "Sürekli fon modu durduruldu"
 #. Translators: Name of an NVDA command; pauses playback (single press), with double/triple-press doing other actions - see the docstring above.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:83
 msgid "Pause or resume freeAudio playback"
-msgstr "freeAudio oynatmayı duraklat veya devam ettir"
+msgstr "FreeAudio oynatmayı duraklat veya devam ettir"
 
 #. Translators: Spoken when the pause/resume command pauses playback.
 #. Translators: Same "Paused" wording as the F7 shortcut and the NVDA pause command; spoken here when the Play/Pause button pauses playback.
@@ -843,7 +843,7 @@ msgstr "Çalıyor"
 #. Translators: Name of an NVDA command; stops freeAudio playback outright (as opposed to pausing).
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:183
 msgid "Stop freeAudio playback"
-msgstr "freeAudio oynatmayı durdur"
+msgstr "FreeAudio oynatmayı durdur"
 
 # ── Kayıt sekmesi (radioDialog.py)
 # ───────────────────────────────────────────
@@ -950,7 +950,7 @@ msgstr ""
 msgid "Transpose only applies to podcasts, audio books and jukebox tracks"
 msgstr ""
 "Perde değişimi yalnızca podcast’ler, sesli kitaplar ve müzik kutusu "
-"parçaları için geçerlidir."
+"parçaları için geçerlidir"
 
 #. Translators: Spoken when pitch transpose can't be applied because the optional bass_fx library isn't installed.
 #. Translators: Same as the transposeUp case above: spoken when bass_fx isn't installed.
@@ -958,13 +958,13 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1013
 msgid "Transpose requires the bass_fx audio component, which isn't available"
 msgstr ""
-"Perde değişimi özelliği, mevcut olmayan bass_fx ses bileşenini gerektiriyor."
+"Perde değişimi özelliği, mevcut olmayan bass_fx ses bileşenini gerektiriyor"
 
 #. Translators: Name of an NVDA command; lowers the pitch of podcasts/audio books/jukebox tracks without changing playback speed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1000
 msgid "Lower pitch transpose (podcasts, audio books and jukebox tracks)"
 msgstr ""
-"düşük perdeye transpozisyon (podcast'ler, sesli kitaplar ve müzik kutusu "
+"Düşük perdeye transpozisyon (podcast'ler, sesli kitaplar ve müzik kutusu "
 "parçaları)"
 
 #. Only caller now is _play_station()'s _apply_profile_and_play()
@@ -1023,7 +1023,7 @@ msgstr "Tanınmayan akış biçimi (RSS veya Atom değil)."
 #. Translators: Label above the folder-choice controls for where a recording will be saved (shared by the Add Schedule panel and EditScheduleDialog).
 #: addon\globalPlugins\freeAudio\radioDialog.py:260
 msgid "Save recording to:"
-msgstr "sesi şuraya kaydet:"
+msgstr "Sesi şuraya kaydet:"
 
 #. Translators: Radio button: save this recording to freeAudio's default recordings folder.
 #: addon\globalPlugins\freeAudio\radioDialog.py:265
@@ -1367,7 +1367,7 @@ msgstr "&Kapat"
 #: addon\globalPlugins\freeAudio\radioDialog.py:977
 msgid "Podcasts are disabled - enable them in freeAudio settings to use this"
 msgstr ""
-"Podcast’ler devre dışı – kullanmak için freeAudio ayarlarında etkinleştirin."
+"Podcast’ler devre dışı – kullanmak için freeAudio ayarlarında etkinleştirin"
 
 #. Translators: Spoken when the Audio Books shortcut is pressed but the Audio Books module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1009
@@ -1375,13 +1375,13 @@ msgid ""
 "Audio Books are disabled - enable them in freeAudio settings to use this"
 msgstr ""
 "Sesli kitaplar devre dışı – kullanmak için freeAudio ayarlarında "
-"etkinleştirin."
+"etkinleştirin"
 
 #. Translators: Spoken when the Jukebox shortcut is pressed but the Jukebox module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1043
 msgid "Jukebox is disabled - enable it in freeAudio settings to use this"
 msgstr ""
-"Müzik kutusu devre dışı – kullanmak için freeAudio ayarlarında etkinleştirin."
+"Müzik kutusu devre dışı – kullanmak için freeAudio ayarlarında etkinleştirin"
 
 #. Translators: Label above the field that filters the favourites list below it.
 #. Translators: Label above the filter text field that narrows the station list below it.
@@ -1763,14 +1763,14 @@ msgstr[1] "%d favori"
 #: addon\globalPlugins\freeAudio\radioDialog.py:2183
 #: addon\globalPlugins\freeAudio\recorder.py:1536
 msgid "Record only"
-msgstr "yalnızca kaydet"
+msgstr "Yalnızca kaydet"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:1991
 #: addon\globalPlugins\freeAudio\radioDialog.py:2133
 #: addon\globalPlugins\freeAudio\radioDialog.py:2183
 #: addon\globalPlugins\freeAudio\recorder.py:1536
 msgid "Listen and record"
-msgstr "dinlerken kaydet"
+msgstr "Dinlerken kaydet"
 
 #. Translators: Recurrence description shown when a weekly schedule has every day of the week checked (no day restriction).
 #. Translators: Recurrence description shown when a weekly timer has every day of the week checked (no day restriction) - same wording as the Recording tab's scheduling section.
@@ -2867,7 +2867,7 @@ msgid ""
 "Search podcasts, or enter a podcast feed URL. Press enter to search or add"
 msgstr ""
 "Podcast'lerde arama yapın veya bir podcast yayın URL'si girin. Arama yapmak "
-"veya eklemek için Enter tuşuna basın."
+"veya eklemek için Enter tuşuna basın"
 
 #. --- Search results list ---
 #. Hidden until a search is actually performed - see
@@ -2992,7 +2992,7 @@ msgstr "Akış eklendi: %s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:6160
 #, python-format
 msgid "Audio profile saved for %(feed)s"
-msgstr "ses profili %(feed)s için kaydedildi"
+msgstr "Ses profili %(feed)s için kaydedildi"
 
 #. Translators: Spoken after clearing a feed's saved audio profile; %(feed)s is the feed title.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6170
@@ -3240,7 +3240,7 @@ msgid ""
 "enter to search"
 msgstr ""
 "Başlık, yazar, seslendiren, konu veya yayıncıya göre sesli kitap arayın. "
-"Aramak için Enter tuşuna basın."
+"Aramak için Enter tuşuna basın"
 
 #. Translators: Accessible name for the audio-book search-results list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7128
@@ -3251,7 +3251,7 @@ msgstr "Sesli kitap arama sonuçları"
 #. Translators: Label above the user's saved audio-book library list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7139
 msgid "My Library:"
-msgstr "Kitaplığım"
+msgstr "Kitaplığım:"
 
 #. Translators: Accessible name for the audio-book library list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7142
@@ -3460,7 +3460,7 @@ msgstr "Cihazlarınızda arayın:"
 msgid "Search audio files on your computer by filename. Press enter to search"
 msgstr ""
 "Bilgisayarınızdaki ses dosyalarını dosya adına göre arayın. Aramayı "
-"başlatmak için Enter tuşuna basın."
+"başlatmak için Enter tuşuna basın"
 
 #. Translators: Accessible name for the device-search results list.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8295
@@ -3865,7 +3865,7 @@ msgstr "Kayıt başlatılamadı"
 #. Translators: Name of an NVDA command (Ctrl+Win+W); opens the configured recordings folder in File Explorer.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:256
 msgid "Open freeAudio recordings folder"
-msgstr "freeAudio kayıt klasörünü aç"
+msgstr "FreeAudio kayıt klasörünü aç"
 
 #. Translators: Spoken when the Ctrl+Win+W shortcut can't open the recordings folder in Explorer; %s is the underlying error.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:271
@@ -3987,7 +3987,7 @@ msgstr "NVDA başladığında son istasyonu &yeniden çal"
 #. Translators: Label for the choice between NVDA's own synth and a separate SAPI5 voice for track-change announcements.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:255
 msgid "Track change &voice:"
-msgstr "&Parça değişim sesi"
+msgstr "&Parça değişim sesi:"
 
 #. Translators: The two voice-source choices for track-change announcements: NVDA's current synthesizer, or a separately selected SAPI5 voice.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:260
@@ -4132,7 +4132,7 @@ msgstr "Mod&üller:"
 #. Translators: Checkbox label for whether the jukebox disk search also scans network drives (off by default - see the comment above about search time).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:491
 msgid "Include &network drives when searching the jukebox"
-msgstr "Müzik kutusu için  arama yaparken a&ğ sürücülerini de dahil et."
+msgstr "Müzik kutusu için  arama yaparken a&ğ sürücülerini de dahil et"
 
 #. Translators: Label for the audio-book-sources checklist (which catalogs to search/show).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:520
@@ -4235,7 +4235,7 @@ msgstr "Uyku zamanlayıcısı: Radyo durduruldu"
 #. Translators: Spoken when a sleep timer fires while something is playing, before the 60-second volume fade-out begins.
 #: addon\globalPlugins\freeAudio\timerManager.py:231
 msgid "Sleep timer: fading out…"
-msgstr "Uyku zamanlayıcısı: Radyo durduruluyor"
+msgstr "Uyku zamanlayıcısı: Radyo durduruluyor…"
 
 #. Translators: Spoken after a podcast/audiobook seek to report the resulting position; see this method's docstring above for why the wording is shared with TrackInfoMixin.script_whatsPlaying().
 #. Translators: Appended to the What's Playing announcement for a podcast/audiobook; same elapsed/remaining wording as TimeshiftMixin._announce_seek_position().
@@ -4721,7 +4721,7 @@ msgstr "%s çalma kısayolu"
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this jukebox entry' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:779
 msgid "freeAudio Jukebox"
-msgstr "Freeradio müzik kutusu"
+msgstr "freeAudio müzik kutusu"
 
 #. Translators: Spoken if a per-jukebox-entry shortcut is triggered after that entry was removed from the jukebox since the shortcut was created; %s is the entry's display title.
 #: addon\globalPlugins\freeAudio\__init__.py:800
@@ -4752,7 +4752,7 @@ msgstr "&freeAudio"
 #. Translators: Name of an NVDA command; opens the freeAudio station browser dialog on its main Stations tab.
 #: addon\globalPlugins\freeAudio\__init__.py:975
 msgid "Open freeAudio station browser"
-msgstr "freeAudio istasyon tarayıcısını aç"
+msgstr "FreeAudio istasyon tarayıcısını aç"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 #: addon\globalPlugins\freeAudio\__init__.py:985
@@ -4782,8 +4782,7 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\__init__.py:1035
 msgid "The shortcut is only for stations, podcasts or audio books"
 msgstr ""
-"Bu kısayol yalnızca radyo istasyonları, podcast'ler veya sesli kitaplar "
-"içindir."
+"Bu kısayol yalnızca radyo istasyonları, podcast'ler veya sesli kitaplar için"
 
 #. Translators: Spoken when the currently playing station is already saved in favourites; %s is the station name.
 #: addon\globalPlugins\freeAudio\__init__.py:1057
@@ -4853,7 +4852,7 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\__init__.py:1433
 #: addon\globalPlugins\freeAudio\__init__.py:1501
 msgid "unknown"
-msgstr "Bilinmeyen"
+msgstr "bilinmeyen"
 
 #. Translators: Button label on the update-available dialog when a direct .nvda-addon download is available, offering to install it right away.
 #: addon\globalPlugins\freeAudio\__init__.py:1426
@@ -4893,7 +4892,7 @@ msgstr "&İptal"
 #: addon\globalPlugins\freeAudio\__init__.py:1461
 #, python-format
 msgid "Downloading freeAudio %s…"
-msgstr "freeAudio %s indiriliyor…"
+msgstr "FreeAudio %s indiriliyor…"
 
 #. Translators: Spoken when the downloaded .nvda-addon file can't be handed to NVDA's installer automatically; %s is the path where the file was saved so the user can open it manually.
 #: addon\globalPlugins\freeAudio\__init__.py:1491

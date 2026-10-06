@@ -1169,7 +1169,7 @@ class RadioDialog(wx.Dialog):
 		)
 		_saved_limit = config.conf["freeAudio"].get("result_limit", 1000)
 		self._limit_spin = wx.SpinCtrl(
-			self._all_panel, min=100, max=10000, initial=_saved_limit,
+			self._all_panel, min=100, max=100000, initial=_saved_limit,
 		)
 		# Translators: Accessible name for the result-limit spin control (shorter than its static label above).
 		self._limit_spin.SetName(_("Result limit:"))

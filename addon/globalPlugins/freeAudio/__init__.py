@@ -369,7 +369,7 @@ def _init_config():
 		"auto_check_updates":     "boolean(default=True)",
 		"disable_internet_check": "boolean(default=False)",
 		"crossfade":              "string(default='off')",  # off | short | normal | tuning
-		"result_limit":           "integer(default=1000, min=100, max=10000)",
+		"result_limit":           "integer(default=1000, min=100, max=100000)",
 		"timeshift_enabled":      "boolean(default=False)",
 		"timeshift_buffer_seconds": "integer(default=600, min=600, max=18000)",
 		# Obligato mode - a favourite station played quietly in the
