@@ -147,8 +147,12 @@ As teclas seguintes funcionam apenas quando a janela do Navegador de Estações 
 
 | Atalho | Função | Descrição |
 |---|---|---|
-| `→` | Próximo item | Quando a lista Todas as Estações ou Favoritos está em foco, avança para a próxima estação e reproduz-a imediatamente. Quando a lista de episódios está em foco (Podcasts), avança para o próximo episódio e reproduz-o. Volta ao início no final da lista. |
-| `←` | Item anterior | Quando a lista Todas as Estações ou Favoritos está em foco, recua para a estação anterior e reproduz-a imediatamente. Quando a lista de episódios está em foco, recua para o episódio anterior e reproduz-o. Salta para o fim quando está no início. |
+| `→` | Próximo item / Avançar | Numa lista de estações (Todas as Estações / Favoritos), avança para a próxima estação e reproduz-a imediatamente, voltando ao início no final da lista. Nas listas de itens de Podcasts, Audiolivros ou Jukebox, enquanto algo está carregado e a reproduzir, avança na faixa em vez disso — o mesmo que o comando global `Ctrl+Win+K` (ver Navegação escalonada acima). Na lista de episódios de Podcasts em particular, se ainda não houver nada carregado, volta a avançar para o próximo episódio e a reproduzi-lo. |
+| `←` | Item anterior / Retroceder | Numa lista de estações, recua para a estação anterior e reproduz-a, saltando para o fim quando está no início. Nas listas de itens de Podcasts, Audiolivros ou Jukebox, enquanto algo está carregado e a reproduzir, retrocede na faixa em vez disso — o mesmo que o comando global `Ctrl+Win+J`. Na lista de episódios de Podcasts, se ainda não houver nada carregado, volta a recuar para o episódio anterior e a reproduzi-lo. |
+| `Shift+→` | Transpor para cima | Nas listas de itens de Podcasts, Audiolivros ou Jukebox: aumenta o tom da reprodução atual em um semitom, o mesmo que o comando global `Shift+Win+K`. |
+| `Shift+←` | Transpor para baixo | Nas listas de itens de Podcasts, Audiolivros ou Jukebox: diminui o tom da reprodução atual em um semitom, o mesmo que o comando global `Shift+Win+J`. |
+| `Page Up` | Aumentar velocidade de reprodução | Nas listas de itens de Podcasts, Audiolivros ou Jukebox: aumenta a velocidade de reprodução, o mesmo que o comando global `Ctrl+Win+Shift+K`. |
+| `Page Down` | Diminuir velocidade de reprodução | Nas listas de itens de Podcasts, Audiolivros ou Jukebox: diminui a velocidade de reprodução, o mesmo que o comando global `Ctrl+Win+Shift+J`. |
 | `Ctrl+→` | Próximo episódio / livro / faixa | No separador Podcasts: avança para o próximo episódio e reproduz-o. No separador Audiolivros (lista da biblioteca em foco): avança para o próximo livro. No separador Jukebox (lista de entradas ou de faixas em foco): avança para a próxima faixa no item de jukebox selecionado e reproduz-a. |
 | `Ctrl+←` | Episódio / livro / faixa anterior | No separador Podcasts: recua para o episódio anterior e reproduz-o. No separador Audiolivros: recua para o livro anterior. No separador Jukebox: recua para a faixa anterior no item de jukebox selecionado e reproduz-a. |
 | `Enter` | Reproduzir / Adicionar | Numa lista de estações ou episódios: inicia a reprodução do item selecionado imediatamente. Nos resultados de pesquisa do separador Jukebox: adiciona o ficheiro selecionado ao jukebox. Nas listas de entradas ou faixas do separador Jukebox: reproduz o item em foco diretamente. |
@@ -638,7 +642,7 @@ Abra o navegador de estações com `Ctrl+Win+R` e mude para o separador **Jukebo
 2. **Resultados da pesquisa** — uma lista que aparece assim que uma pesquisa é executada, mostrando os ficheiros correspondentes. Oculta até então, para que o separador permaneça arrumado quando não há nada a pesquisar.
 3. **Jukebox e Faixas** — a lista persistente de itens que adicionou, seguida da lista de faixas na entrada selecionada (para uma entrada de ficheiro, apenas esse ficheiro; para uma entrada de pasta, todos os ficheiros de áudio encontrados dentro dela).
 
-Os botões **Adicionar Ficheiro…**, **Adicionar Pasta…** e **Remover** encontram-se abaixo da lista de Faixas.
+Os botões **Adicionar Ficheiro…**, **Adicionar Pasta…**, **Remover**, **Exportar Jukebox…** e **Importar Jukebox…** encontram-se abaixo da lista de Faixas.
 
 ### Pesquisar Ficheiros no Disco
 
@@ -688,6 +692,47 @@ Cada faixa reproduzida a partir do Jukebox recebe o tratamento completo de médi
 - **Perfil de áudio:** O volume, efeitos, EQ e velocidade de uma faixa podem ser guardados globalmente reproduzindo uma faixa com as definições apropriadas configuradas — o Jukebox atualmente não expõe um menu de perfil por faixa, pelo que se aplicam as definições globais atuais.
 
 > **Nota:** O buffer de time-shift (usado para recuar a rádio em direto) é deliberadamente **não** iniciado para faixas do Jukebox — já são ficheiros locais pesquisáveis, pelo que uma captura em segundo plano não tem propósito e apenas consumiria espaço em disco. O recuo e o avanço continuam a funcionar porque atuam diretamente no ficheiro em reprodução.
+
+### Renomear Entradas do Jukebox
+
+Escolha **Renomear…** no menu de contexto de uma entrada do Jukebox (tecla Aplicações / `Shift+F10`) para lhe dar um nome de apresentação personalizado. O nome personalizado substitui o nome do ficheiro ou da pasta na lista do Jukebox e é escrito na linha `#EXTINF` quando a entrada é exportada para M3U (consulte [Exportar e Importar a Biblioteca do Jukebox](#exportar-e-importar-a-biblioteca-do-jukebox) abaixo). Deixe o campo vazio para limpar o nome personalizado e voltar ao nome original do ficheiro ou da pasta.
+
+### Organizar o Jukebox em Grupos
+
+As entradas do Jukebox podem pertencer a um grupo, apresentado como um sufixo "— Grupo" após o nome da entrada na lista, exatamente como em [Organizar Favoritos em Grupos](#organizar-favoritos-em-grupos):
+
+- Marque uma ou mais entradas com `.` (ver [Marcar e Remover Vários Itens](#marcar-e-remover-vários-itens) acima), depois escolha **Atribuir ao Grupo…** no menu de contexto e escreva um nome de grupo. Deixe o campo vazio para remover as entradas marcadas do seu grupo. Se nada estiver marcado, o comando aplica-se à entrada atualmente selecionada.
+- O campo Filtro acima da lista do Jukebox também corresponde a nomes de grupos, da mesma forma que acontece nos Favoritos.
+
+### Reordenar o Jukebox
+
+Com uma entrada selecionada na lista do Jukebox, prima `vírgula` para entrar no modo de mover — ouvirá um sinal sonoro. Navegue até à posição pretendida com as teclas de seta e prima `vírgula` novamente. A entrada é colocada na posição escolhida e a nova ordem é guardada imediatamente. Premir `vírgula` novamente na mesma posição cancela a operação.
+
+### Exportar e Importar a Biblioteca do Jukebox
+
+O separador Jukebox inclui dois botões para fazer cópias de segurança e restaurar a sua biblioteca, abaixo da lista de Faixas:
+
+**Exportar Jukebox…** — guarda toda a sua lista do Jukebox num ficheiro. Uma caixa de diálogo permite-lhe escolher entre dois formatos:
+- **JSON** (`.json`) — uma cópia de segurança completa que preserva o caminho, o nome personalizado, o grupo e o perfil de áudio guardado de cada entrada. Recomendado para restaurar a sua biblioteca mais tarde ou movê-la para outro computador.
+- **Lista de reprodução M3U** (`.m3u`) — um formato mais leve compatível com a maioria dos leitores de multimédia, que lista o caminho de cada entrada com o respetivo nome personalizado (se existir) numa linha `#EXTINF` anterior. Os grupos e os perfis de áudio não são incluídos no M3U, pelo que restaurar a partir de M3U perde esse detalhe.
+
+**Importar Jukebox…** — carrega entradas de um ficheiro JSON ou M3U previamente exportado. Após selecionar o ficheiro, é perguntado como adicionar as entradas:
+- **Sim (Intercalar)** — adiciona as entradas importadas à sua biblioteca existente sem remover nenhuma entrada atual. As entradas cujo caminho coincide com uma já existente na sua biblioteca não são adicionadas duas vezes.
+- **Não (Substituir)** — limpa completamente a sua lista atual do Jukebox e substitui-a pelo conteúdo do ficheiro importado.
+- **Cancelar** — regressa ao navegador sem efetuar quaisquer alterações.
+
+### Atalhos de Teclado Diretos para Entradas do Jukebox
+
+Cada entrada da sua lista do Jukebox é registada como um script separado na caixa de diálogo Definir Comandos do NVDA, na categoria **freeAudio Jukebox**, exatamente como em [Atalhos de Teclado Diretos para Estações Favoritas](#atalhos-de-teclado-diretos-para-estações-favoritas). Pode atribuir qualquer atalho de teclado a qualquer entrada e premi-lo a partir de qualquer lugar — sem necessidade de abrir primeiro a janela do navegador.
+
+Para atribuir um atalho:
+
+1. Abra Menu NVDA → Preferências → Definir comandos.
+2. Expanda a categoria **freeAudio Jukebox**.
+3. Encontre a entrada pelo nome, selecione-a e prima **Adicionar**.
+4. Prima a combinação de teclas pretendida e confirme.
+
+O atalho reproduz a entrada imediatamente — no caso de uma entrada de ficheiro, o próprio ficheiro; no caso de uma entrada de pasta, a sua primeira faixa. Se a entrada for posteriormente removida do Jukebox, a sua entrada desaparece da categoria e qualquer atalho atribuído é automaticamente removido pelo NVDA. Quando uma nova entrada é adicionada, aparece na categoria de imediato — não é necessário reabrir a caixa de diálogo Definir Comandos.
 
 ## Transposição (Alteração de Tom)
 

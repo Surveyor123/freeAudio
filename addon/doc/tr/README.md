@@ -145,8 +145,12 @@ Aşağıdaki tuşlar yalnızca İstasyon Tarayıcısı penceresi etkinken çalı
 
 | Kısayol | İşlev | Açıklama |
 |---|---|---|
-| `→` | Sonraki öğe | Bir istasyon listesi (Tüm İstasyonlar / Favoriler) odaklanmışken bir sonraki istasyona geçer ve hemen çalar. Bölüm listesi (Podcastler) odaklanmışken bir sonraki bölüme geçer ve çalar. Liste sonunda başa döner. |
-| `←` | Önceki öğe | Bir istasyon listesi odaklanmışken bir önceki istasyona geçer ve çalar. Bölüm listesi odaklanmışken bir önceki bölüme geçer ve çalar. Listenin başındayken sona atlar. |
+| `→` | Sonraki öğe / İleri atla | Bir istasyon listesinde (Tüm İstasyonlar / Favoriler) bir sonraki istasyona geçer ve hemen çalar; liste sonunda başa döner. Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde, bir şey yüklenmiş ve çalıyorken bunun yerine ileri atlar — genel `Ctrl+Win+K` komutuyla aynıdır (yukarıdaki Kademeli atlama bölümüne bakın). Özellikle Podcastler bölüm listesinde, henüz hiçbir şey yüklenmemişse bir sonraki bölüme geçip çalmaya geri döner. |
+| `←` | Önceki öğe / Geri atla | Bir istasyon listesinde bir önceki istasyona geçer ve çalar; başındayken sona atlar. Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde, bir şey yüklenmiş ve çalıyorken bunun yerine geri atlar — genel `Ctrl+Win+J` komutuyla aynıdır. Podcastler bölüm listesinde, henüz hiçbir şey yüklenmemişse bir önceki bölüme geçip çalmaya geri döner. |
+| `Shift+→` | Perdeyi yükselt | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: çalmakta olan içeriğin perdesini bir yarım ton yükseltir; genel `Shift+Win+K` komutuyla aynıdır. |
+| `Shift+←` | Perdeyi düşür | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: çalmakta olan içeriğin perdesini bir yarım ton düşürür; genel `Shift+Win+J` komutuyla aynıdır. |
+| `Page Up` | Oynatma hızını artır | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: oynatma hızını artırır; genel `Ctrl+Win+Shift+K` komutuyla aynıdır. |
+| `Page Down` | Oynatma hızını azalt | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: oynatma hızını azaltır; genel `Ctrl+Win+Shift+J` komutuyla aynıdır. |
 | `Ctrl+→` | Sonraki bölüm / kitap / parça | Podcastler sekmesinde: bir sonraki bölüme geçer ve çalar. Sesli Kitaplar sekmesinde (kitaplık listesi odaklanmışken): bir sonraki kitaba geçer. Müzik Kutusu sekmesinde (ana liste ya da parça listesi odaklanmışken): seçili müzik kutusu öğesindeki bir sonraki parçaya geçer ve çalar. |
 | `Ctrl+←` | Önceki bölüm / kitap / parça | Podcastler sekmesinde: bir önceki bölüme geçer ve çalar. Sesli Kitaplar sekmesinde: bir önceki kitaba geçer. Müzik Kutusu sekmesinde: seçili müzik kutusu öğesindeki bir önceki parçaya geçer ve çalar. |
 | `Enter` | Çal / Ekle | Bir istasyon veya bölüm listesinde: seçili öğeyi hemen çalmaya başlar. Müzik Kutusu sekmesinin arama sonuçlarında: seçili dosyayı müzik kutusu'na ekler. Müzik Kutusu sekmesinin öğe veya parça listesinde: odaklanan öğeyi doğrudan çalar. |
@@ -636,7 +640,7 @@ freeAudio'nun **Müzik Kutusu** sekmesi, bilgisayarınızda zaten bulunan ses do
 2. **Arama sonuçları** — bir arama yapıldıktan sonra görünen ve eşleşen dosyaları listeleyen liste. O ana kadar gizlidir; böylece aranacak bir şey olmadığında sekme dağınık görünmez.
 3. **Müzik Kutusu ve Parçalar** — eklediğiniz öğelerin kalıcı listesi ve hemen altında seçili öğedeki parçaların listesi (bir dosya öğesinde yalnızca o dosya; bir klasör öğesinde içinde bulunan tüm ses dosyaları).
 
-**Dosya Ekle…**, **Klasör Ekle…** ve **Kaldır** düğmeleri Parçalar listesinin altında yer alır.
+**Dosya Ekle…**, **Klasör Ekle…**, **Kaldır**, **Müzik Kutusu'nu Dışa Aktar…** ve **Müzik Kutusu'nu İçe Aktar…** düğmeleri Parçalar listesinin altında yer alır.
 
 ### Disk Üzerinde Dosya Arama
 
@@ -686,6 +690,47 @@ Müzik Kutusu'ndan çalınan her parça, tam yerel-medya davranışına sahiptir
 - **Ses profili:** Bir parçanın ses seviyesi, efektleri, EQ'u ve hızı, uygun ayarlar yapılıyken parça çalınarak genel olarak kaydedilebilir — Müzik Kutusu şu anda parça başına profil menüsü sunmaz; geçerli genel ayarlar uygulanır.
 
 > **Not:** Zaman kaydırma tamponu (canlı radyoyu geri sarmak için kullanılır) Müzik Kutusu parçaları için kasıtlı olarak **başlatılmaz** — bunlar zaten atlanabilir yerel dosyalardır, dolayısıyla arka plan yakalamanın bir amacı yoktur ve yalnızca disk alanı tüketir. Geri ve ileri sarma yine de çalışır, çünkü doğrudan çalınan dosya üzerinde işlem yaparlar.
+
+### Müzik Kutusu Öğelerini Yeniden Adlandırma
+
+Özel bir görünen ad vermek için bir Müzik Kutusu öğesinin bağlam menüsünden (Uygulamalar tuşu / `Shift+F10`) **Yeniden Adlandır…** seçeneğini seçin. Özel ad, Müzik Kutusu listesinde dosya veya klasör adının yerini alır ve öğe M3U'ya aktarılırken `#EXTINF` satırına yazılır (aşağıdaki [Müzik Kutusu Kütüphanesini Dışa ve İçe Aktarma](#müzik-kutusu-kütüphanesini-dışa-ve-i̇çe-aktarma) bölümüne bakın). Özel adı temizleyip özgün dosya veya klasör adına dönmek için alanı boş bırakın.
+
+### Müzik Kutusunu Gruplara Ayırma
+
+Müzik Kutusu öğeleri bir gruba ait olabilir; bu, listede öğe adının ardından "— Grup" sonekiyle gösterilir, tıpkı [Favorileri Gruplara Ayırma](#favorileri-gruplara-ayırma) bölümündeki gibi:
+
+- Bir veya daha fazla öğeyi `.` ile işaretleyin (yukarıdaki [Birden Fazla Öğeyi İşaretleme ve Kaldırma](#birden-fazla-öğeyi-i̇şaretleme-ve-kaldırma) bölümüne bakın), ardından bağlam menüsünden **Gruba Ata…** seçeneğini seçip bir grup adı yazın. İşaretli öğeleri grubundan çıkarmak için alanı boş bırakın. Hiçbir şey işaretli değilse komut o an seçili öğeye uygulanır.
+- Müzik Kutusu listesinin üzerindeki Filtre alanı da, Favorilerde olduğu gibi grup adlarıyla eşleşir.
+
+### Müzik Kutusunu Yeniden Sıralama
+
+Müzik Kutusu listesinde bir öğe seçiliyken `virgül` tuşuna basarak taşıma moduna girin — bir bip sesi duyarsınız. Ok tuşlarıyla hedef konuma gidin, ardından `virgül` tuşuna tekrar basın. Öğe seçilen konuma yerleştirilir ve yeni sıra anında kaydedilir. Aynı konumda tekrar `virgül` tuşuna basılması taşımayı iptal eder.
+
+### Müzik Kutusu Kütüphanesini Dışa ve İçe Aktarma
+
+Müzik Kutusu sekmesi, Parçalar listesinin altında kütüphanenizi yedeklemenizi ve geri yüklemenizi sağlayan iki düğme içerir:
+
+**Müzik Kutusu'nu Dışa Aktar…** — tüm Müzik Kutusu listenizi bir dosyaya kaydeder. Kaydetme iletişim kutusunda iki format arasından seçim yapabilirsiniz:
+- **JSON** (`.json`) — her öğenin yolunu, özel adını, grubunu ve kayıtlı ses profilini koruyan eksiksiz bir yedek. Kütüphanenizi daha sonra geri yüklemek veya başka bir bilgisayara taşımak için önerilir.
+- **M3U oynatma listesi** (`.m3u`) — çoğu medya oynatıcısıyla uyumlu daha hafif bir format; her öğenin yolunu, varsa özel adıyla birlikte önceki bir `#EXTINF` satırında listeler. Gruplar ve ses profilleri M3U'ya dahil edilmez; bu nedenle M3U'dan geri yükleme bu ayrıntıları kaybettirir.
+
+**Müzik Kutusu'nu İçe Aktar…** — daha önce dışa aktarılmış bir JSON veya M3U dosyasından öğeleri yükler. Dosyayı seçtikten sonra öğelerin nasıl ekleneceği sorulur:
+- **Evet (Birleştir)** — içe aktarılan öğeleri mevcut kütüphanenize, var olan hiçbir öğeyi silmeden ekler. Yolu kütüphanenizdeki bir öğeyle eşleşen öğeler tekrar eklenmez.
+- **Hayır (Değiştir)** — mevcut Müzik Kutusu listesini tamamen temizler ve dosyadaki içerikle değiştirir.
+- **İptal** — herhangi bir değişiklik yapmadan tarayıcıya döner.
+
+### Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları
+
+Müzik Kutusu listenizdeki her öğe, NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Jukebox** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) bölümündeki gibi. İstediğiniz öğeye herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz.
+
+Kısayol atamak için:
+
+1. NVDA Menüsü → Tercihler → Girdi Hareketleri'ni açın.
+2. **freeAudio Jukebox** kategorisini genişletin.
+3. Öğeyi adıyla bulun, seçin ve **Ekle** düğmesine basın.
+4. İstediğiniz tuş kombinasyonuna basın ve onaylayın.
+
+Kısayol öğeyi hemen çalar — dosya öğesiyse dosyanın kendisini, klasör öğesiyse ilk parçasını. Öğe daha sonra Müzik Kutusu'ndan kaldırılırsa kategorideki girişi kaybolur ve atanmış kısayol NVDA tarafından otomatik olarak temizlenir. Yeni bir öğe eklendiğinde kategoride hemen görünür — Girdi Hareketleri iletişim kutusunun yeniden açılması gerekmez.
 
 ## Transpose (Perde Kaydırma)
 

@@ -145,8 +145,12 @@ Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
 
 | Zkratka | Funkce | Popis |
 |---|---|---|
-| `→` | Další položka | Když je zaměřen seznam stanic (Všechny stanice / Oblíbené), přejde na další stanici a okamžitě ji přehraje. Když je zaměřen seznam epizod (Podcasty), přejde na další epizodu a přehraje ji. Na konci seznamu se nabalí na začátek. |
-| `←` | Předchozí položka | Když je zaměřen seznam stanic, přejde na předchozí stanici a přehraje ji. Když je zaměřen seznam epizod, přejde na předchozí epizodu a přehraje ji. Přeskočí na konec, když je na začátku. |
+| `→` | Další položka / Posun vpřed | V seznamu stanic (Všechny stanice / Oblíbené) přejde na další stanici a okamžitě ji přehraje; na konci seznamu se vrátí na začátek. V seznamech položek Podcasty, Audioknihy nebo Jukebox při načteném a přehrávaném obsahu místo toho posouvá vpřed — stejně jako globální příkaz `Ctrl+Win+K` (viz Odstupňované posouvání výše). Konkrétně v seznamu epizod Podcastů, pokud ještě není nic načteno, přejde na další epizodu a přehraje ji. |
+| `←` | Předchozí položka / Posun zpět | V seznamu stanic přejde na předchozí stanici a přehraje ji; na začátku přeskočí na konec. V seznamech položek Podcasty, Audioknihy nebo Jukebox při načteném a přehrávaném obsahu místo toho posouvá zpět — stejně jako globální příkaz `Ctrl+Win+J`. V seznamu epizod Podcastů, pokud ještě není nic načteno, přejde na předchozí epizodu a přehraje ji. |
+| `Shift+→` | Transponovat nahoru | V seznamech položek Podcasty, Audioknihy nebo Jukebox: zvýší výšku tónu aktuálního přehrávání o půltón, stejně jako globální příkaz `Shift+Win+K`. |
+| `Shift+←` | Transponovat dolů | V seznamech položek Podcasty, Audioknihy nebo Jukebox: sníží výšku tónu aktuálního přehrávání o půltón, stejně jako globální příkaz `Shift+Win+J`. |
+| `Page Up` | Zvýšit rychlost přehrávání | V seznamech položek Podcasty, Audioknihy nebo Jukebox: zvýší rychlost přehrávání, stejně jako globální příkaz `Ctrl+Win+Shift+K`. |
+| `Page Down` | Snížit rychlost přehrávání | V seznamech položek Podcasty, Audioknihy nebo Jukebox: sníží rychlost přehrávání, stejně jako globální příkaz `Ctrl+Win+Shift+J`. |
 | `Ctrl+→` | Další epizoda / kniha / skladba | Na kartě Podcasty: přejde na další epizodu a přehraje ji. Na kartě Audioknihy (zaměřen seznam knihovny): přejde na další knihu. Na kartě Jukebox (zaměřen seznam položek nebo skladeb): přejde na další skladbu ve vybrané položce jukeboxu a přehraje ji. |
 | `Ctrl+←` | Předchozí epizoda / kniha / skladba | Na kartě Podcasty: přejde na předchozí epizodu a přehraje ji. Na kartě Audioknihy: přejde na předchozí knihu. Na kartě Jukebox: přejde na předchozí skladbu ve vybrané položce jukeboxu a přehraje ji. |
 | `Enter` | Přehrát / Přidat | V seznamu stanic nebo epizod: začne okamžitě přehrávat vybranou položku. Ve výsledcích vyhledávání na kartě Jukebox: přidá vybraný soubor do jukeboxu. V seznamu položek nebo skladeb na kartě Jukebox: přehraje zaměřenou položku přímo. |
@@ -636,7 +640,7 @@ Otevřete prohlížeč stanic pomocí `Ctrl+Win+R` a přepněte na kartu **Jukeb
 2. **Výsledky hledání** — seznam, který se zobrazí po spuštění hledání a zobrazuje odpovídající soubory. Do té doby je skrytý, takže karta zůstává přehledná, když není co hledat.
 3. **Jukebox a skladby** — trvalý seznam položek, které jste přidali, následovaný seznamem skladeb ve vybrané položce (u položky souboru pouze tento jeden soubor; u položky složky každý zvukový soubor v ní nalezený).
 
-Tlačítka **Přidat soubor…**, **Přidat složku…** a **Odebrat** se nacházejí pod seznamem skladeb.
+Tlačítka **Přidat soubor…**, **Přidat složku…**, **Odebrat**, **Exportovat jukebox…** a **Importovat jukebox…** se nacházejí pod seznamem skladeb.
 
 ### Hledání souborů na disku
 
@@ -686,6 +690,47 @@ Každá skladba přehraná z jukeboxu dostane plné zacházení místního médi
 - **Zvukový profil:** Hlasitost, efekty, ekvalizér a rychlost skladby lze uložit globálně přehráním skladby s příslušně nastavenými hodnotami — Jukebox v současnosti neposkytuje nabídku profilu pro jednotlivé skladby, takže platí aktuální globální nastavení.
 
 > **Poznámka:** Vyrovnávací paměť časového posunu (používaná pro přetáčení živého rádia) se pro skladby jukeboxu záměrně **nespouští** — jsou to již lokální soubory s možností posouvání, takže zachytávání na pozadí nemá žádný účel a pouze by spotřebovávalo místo na disku. Přetáčení vpřed i vzad stále funguje, protože působí přímo na přehrávaný soubor.
+
+### Přejmenování položek jukeboxu
+
+Zvolte **Přejmenovat…** v kontextové nabídce položky jukeboxu (klávesa Nabídka / `Shift+F10`), chcete-li jí přiřadit vlastní zobrazovaný název. Vlastní název nahradí název souboru nebo složky v seznamu jukeboxu a při exportu položky do M3U se zapíše do řádku `#EXTINF` (viz [Export a import knihovny jukeboxu](#export-a-import-knihovny-jukeboxu) níže). Ponechte pole prázdné, chcete-li vlastní název zrušit a vrátit se k původnímu názvu souboru nebo složky.
+
+### Organizace jukeboxu do skupin
+
+Položky jukeboxu mohou patřit do skupiny, což se v seznamu zobrazuje jako přípona „— Skupina“ za názvem položky, přesně jako v části [Organizace oblíbených do skupin](#organizace-oblíbených-do-skupin):
+
+- Označte jednu nebo více položek pomocí `.` (viz [Označení a odstranění více položek](#označení-a-odstranění-více-položek) výše), poté zvolte **Přiřadit ke skupině…** z kontextové nabídky a zadejte název skupiny. Ponechte pole prázdné, chcete-li označené položky ze skupiny odebrat. Pokud není nic označeno, příkaz se použije na aktuálně vybranou položku.
+- Pole Filtr nad seznamem jukeboxu také odpovídá názvům skupin, stejně jako u oblíbených.
+
+### Změna pořadí v jukeboxu
+
+Když je v seznamu jukeboxu vybrána položka, stisknutím klávesy `čárka` přejděte do režimu přesunu — ozve se pípnutí. Pomocí šipek přejděte na cílovou pozici a znovu stiskněte `čárku`. Položka se umístí na zvolenou pozici a nové pořadí se okamžitě uloží. Dalším stisknutím `čárky` na stejné pozici se přesun zruší.
+
+### Export a import knihovny jukeboxu
+
+Karta Jukebox obsahuje pod seznamem skladeb dvě tlačítka pro zálohu a obnovu vaší knihovny:
+
+**Exportovat jukebox…** — uloží celý seznam jukeboxu do souboru. V dialogu uložení si můžete vybrat ze dvou formátů:
+- **JSON** (`.json`) — úplná záloha zachovávající cestu, vlastní název, skupinu a uložený zvukový profil každé položky. Doporučeno pro pozdější obnovu knihovny nebo její přenos na jiný počítač.
+- **Playlist M3U** (`.m3u`) — lehčí formát kompatibilní s většinou mediálních přehrávačů, který uvádí cestu každé položky a její vlastní název (pokud existuje) v předcházejícím řádku `#EXTINF`. Skupiny a zvukové profily M3U neobsahuje, takže obnova z M3U tyto podrobnosti ztratí.
+
+**Importovat jukebox…** — načte položky z dříve exportovaného souboru JSON nebo M3U. Po výběru souboru se zobrazí dotaz, jak položky přidat:
+- **Ano (sloučit)** — přidá importované položky do stávající knihovny bez odebrání aktuálních položek. Položky, jejichž cesta odpovídá položce již v knihovně, se nepřidávají dvakrát.
+- **Ne (nahradit)** — zcela vymaže aktuální seznam jukeboxu a nahradí ho obsahem importovaného souboru.
+- **Zrušit** — vrátí se do prohlížeče bez provedení jakýchkoli změn.
+
+### Přímé klávesové zkratky pro položky jukeboxu
+
+Každá položka v seznamu jukeboxu je zaregistrována jako samostatný skript v dialogovém okně Vstupní gesta NVDA, v kategorii **freeAudio Jukebox**, přesně jako v části [Přímé klávesové zkratky pro oblíbené stanice](#přímé-klávesové-zkratky-pro-oblíbené-stanice). Libovolné položce můžete přiřadit klávesovou zkratku a stisknout ji odkudkoli — bez nutnosti nejprve otevírat okno prohlížeče.
+
+Přiřazení klávesové zkratky:
+
+1. Otevřete nabídku NVDA → Předvolby → Vstupní gesta.
+2. Rozbalte kategorii **freeAudio Jukebox**.
+3. Vyhledejte položku podle názvu, vyberte ji a stiskněte **Přidat**.
+4. Stiskněte požadovanou kombinaci kláves a potvrďte.
+
+Po stisknutí zkratky se položka okamžitě přehraje — u souboru samotný soubor, u složky její první skladba. Pokud položku později z jukeboxu odeberete, její záznam z kategorie zmizí a případná přiřazená zkratka se automaticky odstraní. Když přidáte novou položku, ihned se v kategorii zobrazí — není třeba znovu otevírat dialog Vstupní gesta.
 
 ## Transpozice (posun výšky tónu)
 
