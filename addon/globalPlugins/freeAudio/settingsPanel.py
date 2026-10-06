@@ -193,6 +193,10 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		_active = {x.strip() for x in _saved_fx.split(",") if x.strip() != "none"}
 		for i, key in enumerate(_fx_keys):
 			self._fx_choice.Check(i, key in _active)
+		# Pre-select the first item so it is highlighted (and announced) as soon
+		# as Tab lands on the list, without needing an arrow key press first.
+		if self._fx_choice.GetCount():
+			self._fx_choice.SetSelection(0)
 		self._fx_choice.Bind(wx.EVT_CHECKLISTBOX, self._on_fx_check)
 		self._fx_choice.Bind(wx.EVT_LISTBOX,      self._on_fx_hover)
 
@@ -479,6 +483,9 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		_active_modules = {m.strip() for m in _saved_modules.split(",") if m.strip()}
 		for i, key in enumerate(_MODULE_KEYS):
 			self._modules_choice.Check(i, key in _active_modules)
+		# Pre-select the first item - see the matching note on the effects list.
+		if self._modules_choice.GetCount():
+			self._modules_choice.SetSelection(0)
 
 		# --- Jukebox disk search ---
 		# Off by default - see jukebox._list_drive_roots()'s
@@ -525,6 +532,9 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		_active_audiobook_sources = {s.strip() for s in _saved_audiobook_sources.split(",") if s.strip()}
 		for i, key in enumerate(_AUDIOBOOK_SOURCE_KEYS):
 			self._audiobook_sources_choice.Check(i, key in _active_audiobook_sources)
+		# Pre-select the first item - see the matching note on the effects list.
+		if self._audiobook_sources_choice.GetCount():
+			self._audiobook_sources_choice.SetSelection(0)
 
 		# --- GETEM audio books account ---
 		# Credentials are not part of config.conf (which is stored as
