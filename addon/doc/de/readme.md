@@ -145,8 +145,12 @@ Die folgenden Tasten wirken nur bei aktivem Senderbrowser-Fenster.
 
 | Tastenbefehl | Funktion | Beschreibung |
 |---|---|---|
-| `→` | Nächster Eintrag | Liegt der Fokus auf einer Senderliste („Alle Sender“ / „Favoriten“), wechselt es zum nächsten Sender und spielt ihn sofort ab. Liegt er auf der Folgenliste (Podcasts), geht es zur nächsten Folge und spielt sie ab. Am Ende der Liste geht es wieder von vorn los. |
-| `←` | Vorheriger Eintrag | Liegt der Fokus auf einer Senderliste, wechselt es zum vorherigen Sender und spielt ihn ab. Liegt er auf der Folgenliste, geht es zur vorherigen Folge und spielt sie ab. Am Anfang springt es ans Ende. |
+| `→` | Nächster Eintrag / Vorspringen | In einer Senderliste („Alle Sender“ / „Favoriten“): wechselt zum nächsten Sender und spielt ihn sofort ab; am Ende der Liste geht es wieder von vorn los. In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: springt stattdessen vor, solange etwas geladen ist und läuft — wie der globale Befehl `Strg+Windows+K` (siehe „Abgestuftes Springen“). Speziell in der Folgenliste der Podcasts: Ist noch nichts geladen, wechselt es ersatzweise zur nächsten Folge und spielt sie ab. |
+| `←` | Vorheriger Eintrag / Zurückspringen | In einer Senderliste: wechselt zum vorherigen Sender und spielt ihn ab; am Anfang springt es ans Ende. In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: springt stattdessen zurück, solange etwas geladen ist und läuft — wie der globale Befehl `Strg+Windows+J`. In der Folgenliste der Podcasts: Ist noch nichts geladen, wechselt es ersatzweise zur vorherigen Folge und spielt sie ab. |
+| `Umschalt+→` | Tonhöhe anheben | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: hebt die Tonhöhe der laufenden Wiedergabe an, wie der globale Befehl `Umschalt+Windows+K`. |
+| `Umschalt+←` | Tonhöhe absenken | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: senkt die Tonhöhe der laufenden Wiedergabe ab, wie der globale Befehl `Umschalt+Windows+J`. |
+| `Bild auf` | Schneller abspielen | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: erhöht das Wiedergabetempo, wie der globale Befehl `Strg+Windows+Umschalt+K`. |
+| `Bild ab` | Langsamer abspielen | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: verringert das Wiedergabetempo, wie der globale Befehl `Strg+Windows+Umschalt+J`. |
 | `Strg+→` | Nächste Folge / nächstes Buch / nächster Titel | Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“ (Fokus auf der Bibliotheksliste): wechselt zum nächsten Buch. Auf der Registerkarte „Jukebox“ (Fokus auf der Eintrags- oder der Titelliste): wechselt zum nächsten Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
 | `Strg+←` | Vorherige Folge / vorheriges Buch / vorheriger Titel | Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
 | `Eingabetaste` | Abspielen / Hinzufügen | In einer Sender- oder Folgenliste: startet den ausgewählten Eintrag sofort. In den Suchergebnissen der Registerkarte „Jukebox“: nimmt die ausgewählte Datei in die Jukebox auf. In der Eintrags- oder Titelliste der Registerkarte „Jukebox“: spielt den fokussierten Eintrag direkt ab. |
@@ -521,14 +525,14 @@ Ein Dialog mit 15 Optionen bestimmt, was genau gespeichert wird:
 - **Effekte und Wiedergabetempo**
 - **Nur Wiedergabetempo**
 - **Lautstärke, Effekte und Wiedergabetempo**
-- **Nur Transponieren**
-- **Lautstärke und Transponieren**
-- **Effekte und Transponieren**
-- **Wiedergabetempo und Transponieren**
-- **Lautstärke, Effekte und Transponieren**
-- **Lautstärke, Wiedergabetempo und Transponieren**
-- **Effekte, Wiedergabetempo und Transponieren**
-- **Lautstärke, Effekte, Wiedergabetempo und Transponieren**
+- **Nur Tonhöhe**
+- **Lautstärke und Tonhöhe**
+- **Effekte und Tonhöhe**
+- **Wiedergabetempo und Tonhöhe**
+- **Lautstärke, Effekte und Tonhöhe**
+- **Lautstärke, Wiedergabetempo und Tonhöhe**
+- **Effekte, Wiedergabetempo und Tonhöhe**
+- **Lautstärke, Effekte, Wiedergabetempo und Tonhöhe**
 
 Nur das Gewählte wandert ins Profil; alles Übrige behält, was dort bereits hinterlegt war. Die Wahl **Nur Wiedergabetempo** bei einem Podcast mit bereits gespeichertem Lautstärke- und Effektprofil ändert also allein das Tempo und lässt den Rest unangetastet.
 
@@ -637,7 +641,7 @@ Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Al
 2. **Suchergebnisse** — eine Liste, die nach einer Suche erscheint und die passenden Dateien zeigt. Bis dahin ist sie ausgeblendet, damit die Registerkarte übersichtlich bleibt, solange nichts zu suchen ist.
 3. **Jukebox und Titel** — die dauerhafte Liste der hinzugefügten Einträge, gefolgt von der Liste der Titel im jeweils ausgewählten Eintrag (bei einem Datei-Eintrag nur diese eine Datei, bei einem Ordner-Eintrag jede darin gefundene Audiodatei).
 
-Die Schaltflächen **Datei hinzufügen…**, **Ordner hinzufügen…** und **Entfernen** liegen unterhalb der Titelliste.
+Die Schaltflächen **Datei hinzufügen…**, **Ordner hinzufügen…**, **Entfernen**, **Jukebox exportieren…** und **Jukebox importieren…** liegen unterhalb der Titelliste.
 
 ### Dateien auf Datenträgern suchen
 
@@ -687,6 +691,47 @@ Jeder aus der Jukebox abgespielte Titel erhält die volle Behandlung für lokale
 - **Audioprofil:** Lautstärke, Effekte, EQ und Tempo eines Titels lassen sich global festhalten, indem ein Titel mit den passenden Einstellungen abgespielt wird — die Jukebox bietet derzeit kein Profilmenü je Titel, daher gelten die aktuellen globalen Einstellungen.
 
 > **Hinweis:** Der Timeshift-Puffer (zum Zurückspulen von Live-Radio) wird für Jukebox-Titel bewusst **nicht** gestartet — es sind ohnehin spulbare lokale Dateien, eine Hintergrundaufzeichnung hätte keinen Zweck und würde nur Speicherplatz belegen. Zurück- und Vorspulen funktionieren trotzdem, weil sie direkt auf der abgespielten Datei arbeiten.
+
+### Jukebox-Einträge umbenennen
+
+Im Kontextmenü eines Jukebox-Eintrags (Kontextmenütaste / `Umschalt+F10`) **Umbenennen…** wählen, um ihm einen eigenen Anzeigenamen zu geben. Der eigene Name ersetzt in der Jukebox-Liste den Datei- bzw. Ordnernamen und wird beim Export als M3U in die Zeile `#EXTINF` geschrieben (siehe [Die Jukebox-Bibliothek exportieren und importieren](#exporting-and-importing-the-jukebox-library) weiter unten). Bleibt das Feld leer, wird der eigene Name entfernt und wieder der ursprüngliche Datei- oder Ordnername verwendet.
+
+### Die Jukebox in Gruppen ordnen
+
+Jukebox-Einträge können zu einer Gruppe gehören, die in der Liste als Zusatz „— Gruppe“ hinter dem Eintragsnamen erscheint, genau wie bei [Favoriten in Gruppen ordnen](#organising-favourites-into-groups):
+
+- Einen oder mehrere Einträge mit `.` markieren (siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items) weiter oben), dann im Kontextmenü **Einer Gruppe zuweisen…** wählen und einen Gruppennamen eintippen. Bleibt das Feld leer, werden die markierten Einträge stattdessen aus ihrer Gruppe entfernt. Ist nichts markiert, gilt der Befehl für den gerade ausgewählten Eintrag.
+- Das Feld „Filter“ über der Jukebox-Liste berücksichtigt ebenfalls die Gruppennamen, genauso wie bei den Favoriten.
+
+### Reihenfolge der Jukebox ändern
+
+Bei ausgewähltem Eintrag in der Jukebox-Liste mit `Komma` den Verschiebemodus starten — ein Signalton bestätigt das. Mit den Pfeiltasten zur Zielposition navigieren und erneut `Komma` drücken. Der Eintrag wird dort eingefügt und die neue Reihenfolge sofort gespeichert. Ein erneutes `Komma` an derselben Position bricht das Verschieben ab.
+
+### Die Jukebox-Bibliothek exportieren und importieren
+
+Die Registerkarte „Jukebox“ enthält unterhalb der Titelliste zwei Schaltflächen zum Sichern und Wiederherstellen der Bibliothek:
+
+**Jukebox exportieren…** — sichert die gesamte Jukebox-Liste in eine Datei. Im Speichern-Dialog stehen zwei Formate zur Wahl:
+- **JSON** (`.json`) — eine vollständige Sicherung mit Pfad, eigenem Namen, Gruppe und gespeichertem Audioprofil jedes Eintrags. Empfohlen, um die Bibliothek später wiederherzustellen oder auf einen anderen Rechner zu übertragen.
+- **M3U-Wiedergabeliste** (`.m3u`) — ein schlankeres Format, das die meisten Medienplayer verstehen; es führt den Pfad jedes Eintrags auf, mit dem eigenen Namen (falls vorhanden) in einer vorangestellten Zeile `#EXTINF`. Gruppen und Audioprofile enthält M3U nicht, eine Wiederherstellung daraus verliert diese Angaben also.
+
+**Jukebox importieren…** — lädt Einträge aus einer zuvor exportierten JSON- oder M3U-Datei. Nach der Dateiauswahl folgt die Frage, wie die Einträge aufgenommen werden sollen:
+- **Ja (Zusammenführen)** — ergänzt die vorhandene Bibliothek um die importierten Einträge, ohne bestehende zu entfernen. Einträge, deren Pfad schon in der Bibliothek steht, werden nicht doppelt aufgenommen.
+- **Nein (Ersetzen)** — leert die bisherige Jukebox-Liste vollständig und ersetzt sie durch den Inhalt der Datei.
+- **Abbrechen** — kehrt ohne Änderungen zum Browser zurück.
+
+### Eigene Tastenbefehle für Jukebox-Einträge
+
+Jeder Eintrag der Jukebox-Liste ist im Dialog „Tastenzuordnungen“ von NVDA als eigener Eintrag hinterlegt, und zwar in der Kategorie **freeAudio-Jukebox**, genau wie bei [Eigene Tastenbefehle für Lieblingssender](#direct-keyboard-shortcuts-for-favourite-stations). Dort lässt sich jedem Eintrag ein beliebiger Tastenbefehl zuweisen, der dann von überall greift — das Browserfenster muss dafür nicht geöffnet werden.
+
+So wird ein Tastenbefehl zugewiesen:
+
+1. NVDA-Menü → Optionen → Tastenzuordnungen öffnen.
+2. Die Kategorie **freeAudio-Jukebox** aufklappen.
+3. Den Eintrag am Namen erkennen, auswählen und **Hinzufügen** wählen.
+4. Die gewünschte Tastenkombination drücken und bestätigen.
+
+Der Tastenbefehl spielt den Eintrag sofort ab — bei einem Datei-Eintrag die Datei selbst, bei einem Ordner-Eintrag dessen ersten Titel. Wird der Eintrag später aus der Jukebox entfernt, verschwindet er auch aus der Kategorie, und NVDA löst den zugewiesenen Tastenbefehl automatisch auf. Kommt ein neuer Eintrag hinzu, erscheint er umgehend in der Kategorie — der Dialog „Tastenzuordnungen“ muss dafür nicht neu geöffnet werden.
 
 ## Transponieren (Tonhöhe verschieben)
 

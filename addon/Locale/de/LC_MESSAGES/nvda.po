@@ -2,10 +2,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: freeAudio 2026.25.0\n"
+"Project-Id-Version: freeAudio 2026.25.1\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-10-06 10:12+0300\n"
-"PO-Revision-Date: 2026-10-01 12:00+0200\n"
+"PO-Revision-Date: 2026-10-07 12:00+0200\n"
 "Last-Translator: Philipp H <20210202@htlwrn.ac.at>\n"
 "Language-Team: German <20210202@htlwrn.ac.at>\n"
 "MIME-Version: 1.0\n"
@@ -583,11 +583,11 @@ msgstr "In diesem Ordner wurden keine Audiodateien gefunden."
 
 #: addon\globalPlugins\freeAudio\jukebox.py:1347
 msgid "Not a valid jukebox export file."
-msgstr ""
+msgstr "Keine gültige Jukebox-Exportdatei."
 
 #: addon\globalPlugins\freeAudio\jukebox.py:1397
 msgid "Not a valid M3U playlist file."
-msgstr ""
+msgstr "Keine gültige M3U-Wiedergabeliste."
 
 #: addon\globalPlugins\freeAudio\legacyMigration.py:179
 msgid ""
@@ -1364,28 +1364,25 @@ msgstr "S&chließen"
 
 #. Translators: Spoken when the Podcasts shortcut is pressed but the Podcasts module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:975
-#, fuzzy
 msgid "Podcasts are disabled - enable them in freeAudio settings to use this"
 msgstr ""
-"Der Timeshift-Puffer ist deaktiviert. Aktivieren lässt er sich in den "
-"freeAudio-Einstellungen."
+"Podcasts sind deaktiviert – zur Nutzung in den freeAudio-Einstellungen "
+"aktivieren"
 
 #. Translators: Spoken when the Audio Books shortcut is pressed but the Audio Books module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1007
-#, fuzzy
 msgid ""
 "Audio Books are disabled - enable them in freeAudio settings to use this"
 msgstr ""
-"Es ist keine Hörbuchquelle aktiviert. In den freeAudio-Einstellungen muss "
-"mindestens eine aktiviert werden."
+"Hörbücher sind deaktiviert – zur Nutzung in den freeAudio-Einstellungen "
+"aktivieren"
 
 #. Translators: Spoken when the Jukebox shortcut is pressed but the Jukebox module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1041
-#, fuzzy
 msgid "Jukebox is disabled - enable it in freeAudio settings to use this"
 msgstr ""
-"Der Timeshift-Puffer ist deaktiviert. Aktivieren lässt er sich in den "
-"freeAudio-Einstellungen."
+"Die Jukebox ist deaktiviert – zur Nutzung in den freeAudio-Einstellungen "
+"aktivieren"
 
 #. Translators: Label above the field that filters the favourites list below it.
 #. Translators: Label above the filter text field that narrows the station list below it.
@@ -2574,43 +2571,40 @@ msgstr[1] "%(count)d Favoriten aus ihren Gruppen entfernt"
 
 #. Translators: Prompt of the rename dialog for a jukebox entry.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5045
-#, fuzzy
 msgid "Enter a new name for this entry:"
-msgstr "Neuen Namen für den Sender eingeben:"
+msgstr "Neuen Namen für diesen Eintrag eingeben:"
 
 #. Translators: Title of the jukebox rename dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5047
-#, fuzzy
 msgid "Rename Entry"
-msgstr "Sender umbenennen"
+msgstr "Eintrag umbenennen"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5105
-#, fuzzy, python-format
+#, python-format
 msgid "Assigned %(count)d entry to group \"%(group)s\""
 msgid_plural "Assigned %(count)d entries to group \"%(group)s\""
-msgstr[0] "%(count)d Favorit der Gruppe „%(group)s“ zugewiesen"
-msgstr[1] "%(count)d Favoriten der Gruppe „%(group)s“ zugewiesen"
+msgstr[0] "%(count)d Eintrag der Gruppe „%(group)s“ zugewiesen"
+msgstr[1] "%(count)d Einträge der Gruppe „%(group)s“ zugewiesen"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5112
-#, fuzzy, python-format
+#, python-format
 msgid "Removed %(count)d entry from its group"
 msgid_plural "Removed %(count)d entries from their groups"
-msgstr[0] "%(count)d Favorit aus seiner Gruppe entfernt"
-msgstr[1] "%(count)d Favoriten aus ihren Gruppen entfernt"
+msgstr[0] "%(count)d Eintrag aus seiner Gruppe entfernt"
+msgstr[1] "%(count)d Einträge aus ihren Gruppen entfernt"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5124
-#, fuzzy
 msgid "JSON jukebox library (*.json)|*.json|M3U playlist (*.m3u)|*.m3u"
-msgstr "JSON-Favoriten (*.json)|*.json|M3U-Wiedergabeliste (*.m3u)|*.m3u"
+msgstr ""
+"JSON-Jukebox-Bibliothek (*.json)|*.json|M3U-Wiedergabeliste (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-save dialog for exporting the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5130
-#, fuzzy
 msgid "Export Jukebox"
-msgstr "Jukebox"
+msgstr "Jukebox exportieren"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5166
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Exported %(count)d entry to:\n"
 "%(path)s"
@@ -2618,55 +2612,52 @@ msgid_plural ""
 "Exported %(count)d entries to:\n"
 "%(path)s"
 msgstr[0] ""
-"%(count)d Sender exportiert nach:\n"
+"%(count)d Eintrag exportiert nach:\n"
 "%(path)s"
 msgstr[1] ""
-"%(count)d Sender exportiert nach:\n"
+"%(count)d Einträge exportiert nach:\n"
 "%(path)s"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5183
-#, fuzzy
 msgid ""
 "Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|*."
 "json|M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Unterstützte Dateien (*.json;*.m3u)|*.json;*.m3u|JSON-Favoriten (*.json)|*."
-"json|M3U-Wiedergabeliste (*.m3u)|*.m3u"
+"Unterstützte Dateien (*.json;*.m3u)|*.json;*.m3u|JSON-Jukebox-Bibliothek "
+"(*.json)|*.json|M3U-Wiedergabeliste (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing a jukebox library.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
 #: addon\globalPlugins\freeAudio\radioDialog.py:5190
 #: addon\globalPlugins\freeAudio\radioDialog.py:5209
-#, fuzzy
 msgid "Import Jukebox"
-msgstr "Aus der Jukebox entfernen"
+msgstr "Jukebox importieren"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5204
-#, fuzzy
 msgid ""
 "How should the imported entries be added?\n"
 "\n"
 "Yes  — Merge: add new entries without removing existing ones.\n"
 "No   — Replace: clear the current library and load from file."
 msgstr ""
-"Wie sollen die importierten Sender hinzugefügt werden?\n"
+"Wie sollen die importierten Einträge hinzugefügt werden?\n"
 "\n"
-"Ja   — Zusammenführen: neue Sender ergänzen, vorhandene bleiben erhalten.\n"
-"Nein — Ersetzen: die aktuelle Liste leeren und aus der Datei laden."
+"Ja   — Zusammenführen: neue Einträge ergänzen, vorhandene bleiben erhalten.\n"
+"Nein — Ersetzen: die aktuelle Bibliothek leeren und aus der Datei laden."
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5237
-#, fuzzy, python-format
+#, python-format
 msgid "Import complete: %(count)d new entry added."
 msgid_plural "Import complete: %(count)d new entries added."
-msgstr[0] "Import abgeschlossen: %(count)d neuer Sender hinzugefügt."
-msgstr[1] "Import abgeschlossen: %(count)d neue Sender hinzugefügt."
+msgstr[0] "Import abgeschlossen: %(count)d neuer Eintrag hinzugefügt."
+msgstr[1] "Import abgeschlossen: %(count)d neue Einträge hinzugefügt."
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5245
-#, fuzzy, python-format
+#, python-format
 msgid "Jukebox replaced with %(count)d entry from the file."
 msgid_plural "Jukebox replaced with %(count)d entries from the file."
-msgstr[0] "Favoriten durch %(count)d Sender aus der Datei ersetzt."
-msgstr[1] "Favoriten durch %(count)d Sender aus der Datei ersetzt."
+msgstr[0] "Jukebox durch %(count)d Eintrag aus der Datei ersetzt."
+msgstr[1] "Jukebox durch %(count)d Einträge aus der Datei ersetzt."
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5266
 #, python-format
@@ -3520,15 +3511,13 @@ msgstr "Ent&fernen"
 
 #. Translators: Button label; opens a file-save dialog to export the jukebox library (JSON or M3U).
 #: addon\globalPlugins\freeAudio\radioDialog.py:8440
-#, fuzzy
 msgid "E&xport Jukebox..."
-msgstr "Favoriten e&xportieren..."
+msgstr "Jukebox e&xportieren..."
 
 #. Translators: Button label; opens a file-picker to import jukebox entries from a JSON or M3U file.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8443
-#, fuzzy
 msgid "&Import Jukebox..."
-msgstr "Favoriten im&portieren..."
+msgstr "Jukebox im&portieren..."
 
 #. Translators: Spoken when a jukebox device search starts; %s is the search text.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8538
@@ -3686,7 +3675,7 @@ msgstr "Ordner &neu einlesen"
 #. Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
 #: addon\globalPlugins\freeAudio\radioDialog.py:9273
 msgid "Re&name..."
-msgstr ""
+msgstr "&Umbenennen..."
 
 #. Translators: Title of the lyrics dialog; %s is the song string (e.g. "Artist - Title").
 #: addon\globalPlugins\freeAudio\radioDialog.py:9311
@@ -4135,7 +4124,7 @@ msgstr "Ordner &durchsuchen..."
 #. Translators: Label for the modules checklist (which optional tabs/features are shown at all).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:478
 msgid "&Modules:"
-msgstr ""
+msgstr "&Module:"
 
 #. Translators: Checkbox label for whether the jukebox disk search also scans network drives (off by default - see the comment above about search time).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:498
@@ -4727,15 +4716,14 @@ msgstr "Wiedergabe-Tastenbefehl für %s"
 #. ── 2. Create / refresh a script for every entry ─────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this jukebox entry' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:779
-#, fuzzy
 msgid "freeAudio Jukebox"
-msgstr "Lokale freeAudio-Jukebox öffnen"
+msgstr "freeAudio-Jukebox"
 
 #. Translators: Spoken if a per-jukebox-entry shortcut is triggered after that entry was removed from the jukebox since the shortcut was created; %s is the entry's display title.
 #: addon\globalPlugins\freeAudio\__init__.py:800
-#, fuzzy, python-format
+#, python-format
 msgid "Entry no longer in the jukebox: %s"
-msgstr "Sender nicht mehr in den Favoriten: %s"
+msgstr "Eintrag nicht mehr in der Jukebox: %s"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
 #: addon\globalPlugins\freeAudio\__init__.py:883
@@ -5041,6 +5029,55 @@ msgid ""
 "standard MP4 with ffmpeg (stream copy); when ffmpeg is unavailable, fragment "
 "timestamps are rebased to zero as a fallback.\n"
 msgstr ""
+"\n"
+"## Neue Funktionen\n"
+"\n"
+"- **Die Jukebox kann jetzt dasselbe wie die Favoriten:** Jukebox-Einträge "
+"lassen sich an Ort und Stelle umsortieren (mit der Kommataste aufgreifen und "
+"ablegen), umbenennen (eigener Anzeigename, Datei bzw. Ordner auf dem "
+"Datenträger bleiben unberührt), Gruppen zuweisen sowie als JSON "
+"(vollständig: Gruppen und Audioprofile je Datei) oder M3U (nur Pfad und "
+"eigener Name) exportieren und importieren. Außerdem wird für jeden Eintrag "
+"automatisch ein Befehl in den NVDA-Tastenzuordnungen angelegt, in der neuen "
+"Kategorie „freeAudio-Jukebox“ — er funktioniert auch bei geschlossenem "
+"Dialog.\n"
+"\n"
+"- **Module einzeln aktivieren oder deaktivieren:** Eine neue Liste „Module“ "
+"in den Einstellungen erlaubt es, die Registerkarten Podcasts, Hörbücher "
+"und/oder Jukebox ganz abzuschalten. Standardmäßig bleiben alle drei aktiv, "
+"für bestehende Installationen ändert sich also nichts. Das Deaktivieren "
+"blendet die Registerkarte und die zugehörigen Tastenbefehle aus, rührt aber "
+"die gespeicherten Daten (Abos, Bibliothek, Jukebox-Einträge) nie an — nach "
+"dem erneuten Aktivieren ist alles wie zuvor.\n"
+"\n"
+"- **Pfeiltasten links und rechts springen in den Listen von Jukebox, "
+"Hörbüchern und Podcasts:** Links und rechts springen in den Listen dieser "
+"Registerkarten jetzt innerhalb des gerade laufenden Eintrags und rufen dabei "
+"dieselben Funktionen auf wie die globalen Befehle Strg+Windows+J/K. Der "
+"Wechsel zwischen Folgen, Kapiteln oder Titeln funktioniert weiterhin mit "
+"Strg+Links/Rechts und F3/F4; das alte Wechseln mit den einfachen Pfeiltasten "
+"bleibt nur als Rückfall erhalten, solange noch nichts läuft.\n"
+"\n"
+"## Verbesserungen\n"
+"\n"
+"- **Fokusverhalten der Registerkarte „Timer“ korrigiert:** Beim Wechsel zur "
+"Registerkarte „Timer“ springt der Fokus nur noch beim ersten Öffnen auf die "
+"Optionsfelder für Start und Stopp. Bei jedem weiteren Wechsel bleibt der "
+"Fokus dort, wo er zuletzt war — wie auf allen anderen Registerkarten.\n"
+"\n"
+"- **HLS-Zusammenführung für kurze Segmente entfernt:** Der auf ffmpeg "
+"beruhende `_HlsStreamMerger` und seine Erkennungsfunktionen sind entfallen. "
+"HLS-Streams laufen jetzt immer direkt über BASS, und Wiederverbindungen nach "
+"Aussetzern nutzen die ursprüngliche Adresse.\n"
+"\n"
+"## Fehlerbehebungen\n"
+"\n"
+"- **Falsche Dauer bei fMP4-Aufnahmen (HLS) behoben:** Fragmentierte "
+"MP4-Aufnahmen hatten keine Dauer im Dateikopf und trugen die absolute "
+"Uhrzeit des Streams, sodass Player unsinnige Längen anzeigten. Nach der "
+"Aufnahme werden die Dateien jetzt mit ffmpeg verlustfrei (Stream-Kopie) in "
+"ein normales MP4 umgepackt; ist ffmpeg nicht verfügbar, werden die "
+"Zeitstempel der Fragmente ersatzweise auf null zurückgesetzt.\n"
 
 #~ msgid ""
 #~ "\n"
