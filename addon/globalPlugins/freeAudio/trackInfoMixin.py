@@ -1168,6 +1168,39 @@ class TrackInfoMixin:
 			except Exception as e:
 				log.error("freeAudio: could not save liked song: %s", e)
 
+	# Serialises the two ways a song-capture ends on its own: the recorder
+	# spotting the track change inside its own stream (see
+	# _on_recorder_song_boundary - exact, no polling delay) and the poll loop
+	# below spotting it through BASS's copy of the title (fallback for streams
+	# without in-band metadata, e.g. HLS). Whichever comes first wins; the
+	# second finds nothing left to stop.
+	_song_stop_lock = threading.Lock()
+
+	def _finish_song_capture(self):
+		with self._song_stop_lock:
+			if not self._recorder.is_song_capture():
+				return
+			path = self._recorder.stop_song_capture()
+		if path:
+			# Translators: Same message as above, spoken here when song-capture auto-stops because the ICY track title changed (the song ended).
+			wx.CallAfter(
+				ui.message,
+				_("Song recording saved: %s") % os.path.basename(path),
+			)
+		else:
+			# Translators: Fallback spoken when auto-stop finds nothing to save (e.g. capture just started).
+			wx.CallAfter(_notify, _("Song recording stopped"))
+
+	def _on_recorder_song_boundary(self, title):
+		"""Recorder callback: the recorded stream itself announced a new track.
+		Runs on the recorder's writer thread, and finishing the capture joins
+		that very thread - so hand it to a fresh one."""
+		threading.Thread(
+			target=self._finish_song_capture,
+			daemon=True,
+			name="freeAudio-SongBoundary",
+		).start()
+
 	def _icy_poll_loop(self):
 		"""Background thread: polls ICY metadata every ~5 s and announces changes.
 
@@ -1212,16 +1245,7 @@ class TrackInfoMixin:
 					recorded_title = self._recorder.get_song_title()
 					if icy and recorded_title and icy != recorded_title:
 						# The track has changed — stop the recording automatically.
-						path = self._recorder.stop_song_capture()
-						if path:
-							# Translators: Same message as above, spoken here when song-capture auto-stops because the ICY track title changed (the song ended).
-							wx.CallAfter(
-								ui.message,
-								_("Song recording saved: %s") % os.path.basename(path),
-							)
-						else:
-							# Translators: Fallback spoken when auto-stop finds nothing to save (e.g. capture just started).
-							wx.CallAfter(_notify, _("Song recording stopped"))
+						self._finish_song_capture()
 
 				if not icy:
 					# This station publishes no ICY metadata.

@@ -698,7 +698,7 @@ def convert_recording(source_path, mode="original", ffmpeg_path="ffmpeg.exe", mp
 	return source_path, error or "Could not convert the recording to MP3"
 
 
-def _open_icy(url, timeout=20):
+def _open_icy(url, timeout=20, want_meta=False):
 	"""Open a Shoutcast/Icecast stream that responds with 'ICY 200 OK'.
 
 	urllib cannot parse the non-standard ICY status line, so we connect via a
@@ -731,7 +731,7 @@ def _open_icy(url, timeout=20):
 		f"GET {raw_path} HTTP/1.0\r\n"
 		f"Host: {host}:{port}\r\n"
 		f"User-Agent: {_USER_AGENT_PRIMARY}\r\n"
-		f"Icy-MetaData: 0\r\n"
+		f"Icy-MetaData: {1 if want_meta else 0}\r\n"
 		f"Connection: close\r\n"
 		f"\r\n"
 	)
@@ -849,14 +849,93 @@ def _resolve_hls(url):
 	return url
 
 
+def _parse_stream_title(raw):
+	"""Return the StreamTitle of one raw ICY metadata block (bytes), or None
+	if the block carries none. Decoded and matched like bass_host.py does
+	for BASS's own copy of the title, so the two stay comparable."""
+	import re
+	text = raw.decode("utf-8", "ignore")
+	m = re.search(r"StreamTitle='(.*?)';", text, re.DOTALL)
+	return m.group(1).strip() if m else None
+
+
+def _norm_title(title):
+	"""Case/whitespace-insensitive form of a track title, for comparisons."""
+	return " ".join((title or "").split()).casefold()
+
+
+class _IcyDemux:
+	"""Splits an ICY-interleaved stream - audio, then after every *metaint*
+	bytes one length byte plus length*16 bytes of metadata - back into plain
+	audio and track titles. Lets a song-capture recording be cut at the exact
+	point in its *own* data where the station announces the next track,
+	instead of guessing from another connection's (BASS's) title polling."""
+
+	def __init__(self, metaint):
+		self._metaint = metaint
+		self._audio_left = metaint
+		self._need_len = False
+		self._meta_left = 0
+		self._meta_buf = bytearray()
+
+	def feed(self, data):
+		"""Process one received chunk. Returns, in stream order, a list of
+		("audio", bytes) and ("title", str) events (empty/absent titles are
+		not reported)."""
+		events = []
+		i, n = 0, len(data)
+		while i < n:
+			if self._meta_left:
+				take = min(self._meta_left, n - i)
+				self._meta_buf += data[i:i + take]
+				i += take
+				self._meta_left -= take
+				if not self._meta_left:
+					title = _parse_stream_title(bytes(self._meta_buf))
+					if title:
+						events.append(("title", title))
+					self._audio_left = self._metaint
+				continue
+			if self._need_len:
+				length = data[i] * 16
+				i += 1
+				self._need_len = False
+				if length:
+					self._meta_left = length
+					self._meta_buf = bytearray()
+				else:
+					self._audio_left = self._metaint
+				continue
+			take = min(self._audio_left, n - i)
+			events.append(("audio", bytes(data[i:i + take])))
+			i += take
+			self._audio_left -= take
+			if not self._audio_left:
+				self._need_len = True
+		return events
+
+
 class _StreamWriter:
 	"""Background thread that reads a URL and writes it to a file.
 	Handles both direct streams and HLS playlists.
 	"""
 
-	def __init__(self, url, output_path):
+	def __init__(self, url, output_path, split_title=None, on_boundary=None):
+		"""split_title: set only for a song-capture recording - the track
+		being recorded. The writer then asks the server for in-band ICY
+		metadata on its own connection, strips it from the saved audio, and
+		ends the recording exactly where the station announces a different
+		track, calling on_boundary(new_title) (on the writer thread). Only
+		direct/ICY streams carry such metadata; HLS and servers that don't
+		support it behave as before (the caller's own title polling is the
+		fallback)."""
 		self.original_url = url
 		self.output_path = output_path
+		self._split_title = split_title
+		self._on_boundary = on_boundary
+		self._baseline = _norm_title(split_title) if split_title is not None else None
+		self._baseline_confirmed = False
+		self._boundary_title = None
 		self._stop       = threading.Event()
 		self._thread     = None
 		self._error      = None
@@ -962,6 +1041,19 @@ class _StreamWriter:
 					fail_streak, e,
 				)
 
+			# Song-capture only: the stream's own ICY metadata announced the
+			# next track (see _write_chunk). The file is already closed and
+			# complete up to that point - end for good, don't reconnect.
+			if self._boundary_title is not None:
+				self._stop.set()
+				cb = self._on_boundary
+				if cb:
+					try:
+						cb(self._boundary_title)
+					except Exception:
+						log.warning("freeAudio Recorder: song-boundary callback failed", exc_info=True)
+				return
+
 			if self._stop.is_set():
 				return
 
@@ -981,7 +1073,7 @@ class _StreamWriter:
 		ua = _USER_AGENT_FALLBACK if use_fallback else _USER_AGENT_PRIMARY
 		req = urllib.request.Request(
 			self._effective_url,
-			headers={"User-Agent": ua, "Icy-MetaData": "0"},
+			headers={"User-Agent": ua, "Icy-MetaData": "1" if self._split_title is not None else "0"},
 		)
 		try:
 			resp_cm = _urlopen(req, 20)
@@ -1006,15 +1098,69 @@ class _StreamWriter:
 
 			with open(self.output_path, "ab") as f:
 				self._connected.set()
+				demux = self._make_demux(resp.headers.get("icy-metaint"))
+				# read1() returns as soon as *any* data has arrived. read(_CHUNK)
+				# blocked until a full 64 KB had accumulated (~4 s of 128 kbps
+				# audio), so a stop request - or a song boundary - was only
+				# noticed once per 64 KB, and up to that much extra audio ended
+				# up at the end of the file.
+				read = getattr(resp, "read1", None) or resp.read
 				while not self._stop.is_set():
-					chunk = resp.read(_CHUNK)
+					chunk = read(_CHUNK)
 					if not chunk:
 						break
-					f.write(chunk)
+					if not self._write_chunk(f, demux, chunk):
+						break
+
+	def _make_demux(self, metaint_value):
+		"""ICY de-interleaver for one connection, or None when this isn't a
+		song-capture writer or the server sends no in-band metadata."""
+		if self._split_title is None:
+			return None
+		try:
+			metaint = int(metaint_value)
+		except (TypeError, ValueError):
+			return None
+		return _IcyDemux(metaint) if metaint > 0 else None
+
+	def _write_chunk(self, f, demux, chunk):
+		"""Write one received chunk. Without a demuxer that is a plain copy.
+		With one, ICY metadata is stripped from the audio and the write stops
+		(returns False) at the first metadata block announcing a different
+		track than the one being recorded: everything before it is already in
+		the file, nothing after it is."""
+		if demux is None:
+			f.write(chunk)
+			return True
+		for kind, payload in demux.feed(chunk):
+			if kind == "audio":
+				f.write(payload)
+				continue
+			title = _norm_title(payload)
+			if not self._baseline_confirmed:
+				# First title this recording's own connection reports = what the
+				# station is airing right now. If it doesn't match the title the
+				# caller started with (BASS's copy lags behind the live edge, or
+				# formats the text differently) trust the stream, otherwise the
+				# recording would end immediately.
+				self._baseline_confirmed = True
+				if title != self._baseline:
+					log.info("freeAudio Recorder: stream reports %r, expected %r - using the stream's title",
+					         payload, self._split_title)
+					self._baseline = title
+				continue
+			if title != self._baseline:
+				self._boundary_title = payload
+				log.info("freeAudio Recorder: track changed in recorded stream: %r -> %r",
+				         self._split_title, payload)
+				return False
+		return True
 
 	def _run_icy(self, first):
 		"""Connect via raw socket to handle Shoutcast/Icecast ICY 200 OK servers."""
-		sock, headers, body_prefix = _open_icy(self._effective_url, timeout=20)
+		sock, headers, body_prefix = _open_icy(
+			self._effective_url, timeout=20, want_meta=self._split_title is not None,
+		)
 		try:
 			if first:
 				ct  = headers.get("content-type", "")
@@ -1025,13 +1171,15 @@ class _StreamWriter:
 
 			with open(self.output_path, "ab") as f:
 				self._connected.set()
-				if body_prefix:
-					f.write(body_prefix)
+				demux = self._make_demux(headers.get("icy-metaint"))
+				if body_prefix and not self._write_chunk(f, demux, body_prefix):
+					return
 				while not self._stop.is_set():
 					chunk = sock.recv(_CHUNK)
 					if not chunk:
 						break
-					f.write(chunk)
+					if not self._write_chunk(f, demux, chunk):
+						break
 		finally:
 			try:
 				sock.close()
@@ -1916,10 +2064,26 @@ class Recorder:
 		self._output_path  = out
 		self._station_name = song_title   # store the song title in the station-name slot
 		self._song_capture = True         # flag: this recording was started in song-capture mode
-		self._writer = _StreamWriter(original_url, out)
+		writer = _StreamWriter(original_url, out, split_title=song_title)
+		# Tied to *this* writer: a stale callback must never end a newer capture.
+		writer._on_boundary = lambda title, _w=writer: self._on_song_boundary(_w, title)
+		self._writer = writer
 		self._writer.start()
 		log.warning("freeAudio Recorder: song-capture recording started → %s", out)
 		return out
+
+	def _on_song_boundary(self, writer, title):
+		"""The writer saw the station announce a new track in the recorded
+		stream itself. Runs on the writer's thread, so the callback must hand
+		off finalising (which joins that thread) to another one."""
+		if self._writer is not writer or not getattr(self, "_song_capture", False):
+			return
+		cb = getattr(self, "_notify_song_boundary", None)
+		if cb:
+			try:
+				cb(title)
+			except Exception:
+				log.warning("freeAudio Recorder: song-boundary notify failed", exc_info=True)
 
 	def stop_song_capture(self):
 		"""Stop an active song-capture recording.

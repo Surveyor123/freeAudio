@@ -605,6 +605,9 @@ class GlobalPlugin(ObligatoMixin, MiscTogglesMixin, TrackInfoMixin, RecordingMix
 			  "Saved to the default recordings folder instead.")
 			% {"station": rec.station.get("name", ""), "reason": reason},
 		)
+		# Song-capture: the recorder reports a track change it spotted in the
+		# recorded stream itself (see trackInfoMixin._on_recorder_song_boundary).
+		self._recorder._notify_song_boundary = self._on_recorder_song_boundary
 		self._stations      = []
 		self._current_index = -1
 		self._dialog        = None
