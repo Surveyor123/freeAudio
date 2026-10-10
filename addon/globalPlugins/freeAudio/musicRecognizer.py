@@ -227,32 +227,181 @@ def _resolve_to_audio_url(url, timeout=10, _depth=0):
 
 # ── ffmpeg ile 16 kHz mono PCM ────────────────────────────────────────────────
 
-def _decode_to_pcm(ffmpeg_path, stream_url, duration=_SAMPLE_DURATION):
-	cmd = [
-		ffmpeg_path,
-		"-t", str(duration),
-		"-i", stream_url,
-		"-f", "s16le",
-		"-ar", "16000",
-		"-ac", "1",
-		"-",
-	]
+# User-Agents ffmpeg identifies itself with, in the order they are tried.
+# ffmpeg's own default ("Lavf/...") is refused by some CDNs with HTTP 403
+# even though the very same stream plays fine in the add-on, because the
+# player doesn't use its default either: BASS is configured with this VLC
+# string in bass_host.py for the same reason. A browser UA is the second try.
+_FFMPEG_USER_AGENTS = (
+	"VLC/3.0.20 LibVLC/3.0.20",
+	"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+	"(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+)
+
+
+def _is_hls_url(url):
+	"""True for an HLS playlist URL, also when it carries a query string
+	(token/expiry parameters are common: ".../index.m3u8?token=...")."""
 	try:
-		proc = subprocess.run(
-			cmd,
-			stdout=subprocess.PIPE,
-			stderr=subprocess.PIPE,
-			timeout=_FFMPEG_TIMEOUT,
-			creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
-		)
-	except subprocess.TimeoutExpired:
-		raise ValueError("ffmpeg timed out after %ds" % _FFMPEG_TIMEOUT)
+		return urllib.parse.urlsplit(url).path.lower().endswith(".m3u8")
+	except ValueError:
+		return url.lower().endswith(".m3u8")
 
-	if len(proc.stdout) < 4096:
-		stderr_txt = proc.stderr.decode("utf-8", errors="replace")[-300:]
-		raise ValueError("ffmpeg returned too little audio. stderr: %s" % stderr_txt)
 
-	return proc.stdout  # s16le bytes, 16000 Hz, mono
+def _is_access_denied(stderr_txt):
+	"""ffmpeg reports e.g. "Server returned 403 Forbidden (access denied)".
+	Whole-word match, so digits inside the memory addresses ffmpeg prints
+	("[https @ 0000021724f4ab40]") can't be mistaken for a status code."""
+	import re
+	return bool(re.search(r"\b40[13]\b|forbidden|unauthorized", stderr_txt, re.IGNORECASE))
+
+
+def _decode_to_pcm(ffmpeg_path, stream_url, duration=_SAMPLE_DURATION):
+	# -user_agent is an option of ffmpeg's HTTP protocol (HLS segment requests
+	# inherit it); on a local file ffmpeg would reject it, so only remote
+	# sources get it.
+	remote = stream_url.lower().startswith(("http://", "https://"))
+	agents = _FFMPEG_USER_AGENTS if remote else (None,)
+	stderr_txt = ""
+
+	for ua in agents:
+		cmd = [ffmpeg_path]
+		if ua:
+			cmd += ["-user_agent", ua]
+		cmd += [
+			"-t", str(duration),
+			"-i", stream_url,
+			"-f", "s16le",
+			"-ar", "16000",
+			"-ac", "1",
+			"-",
+		]
+		try:
+			proc = subprocess.run(
+				cmd,
+				stdout=subprocess.PIPE,
+				stderr=subprocess.PIPE,
+				timeout=_FFMPEG_TIMEOUT,
+				creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+			)
+		except subprocess.TimeoutExpired:
+			raise ValueError("ffmpeg timed out after %ds" % _FFMPEG_TIMEOUT)
+
+		if len(proc.stdout) >= 4096:
+			return proc.stdout  # s16le bytes, 16000 Hz, mono
+
+		stderr_txt = proc.stderr.decode("utf-8", errors="replace")
+		# Refused by the server: try the next identity. Anything else
+		# (bad URL, not audio, ...) won't change with another User-Agent.
+		if not (ua and _is_access_denied(stderr_txt)):
+			break
+		log.info("freeAudio Recognizer: stream refused User-Agent %r, trying the next one", ua)
+
+	raise ValueError("ffmpeg returned too little audio. stderr: %s" % stderr_txt[-300:])
+
+
+# ── Canlı (HLS olmayan) akışlar: gerekirse yerel dosya üzerinden ──────────────
+
+_CAPTURE_SECONDS = _SAMPLE_DURATION + 1   # audio to record from the live stream
+_CAPTURE_CONNECT_TIMEOUT = 12             # give up if no data arrives within this
+_CAPTURE_MAX_BYTES = 3 * 1024 * 1024
+
+
+def _is_nsv_url(url):
+	"""SHOUTcast serves its stream at ".../;stream.nsv". ffmpeg trusts that
+	extension: it picks the NSV (Nullsoft Streaming Video) demuxer on its
+	first 2 KB probe (score 50 from the extension alone) and then searches
+	the MP3 data for NSV chunks until it times out. AAC/Ogg behind such a URL
+	happen to survive, MP3 never does."""
+	try:
+		return urllib.parse.urlsplit(url).path.lower().endswith(".nsv")
+	except ValueError:
+		return url.lower().endswith(".nsv")
+
+
+def _capture_stream_to_file(stream_url, seconds=_CAPTURE_SECONDS):
+	"""Record a few seconds of a live stream into a temp file with the same
+	stream reader the add-on's recordings use (ICY servers, redirects, TLS,
+	User-Agent filtering). The file name comes from the Content-Type, never
+	from the URL, so ffmpeg detects the format from the content.
+
+	Returns (file_path, temp_dir), or (None, None) when no audio came in.
+	The caller deletes temp_dir."""
+	import shutil
+	import tempfile
+	from . import recorder
+
+	tmp_dir = tempfile.mkdtemp(prefix="freeAudio_recognize_")
+	writer = None
+	try:
+		writer = recorder._StreamWriter(stream_url, os.path.join(tmp_dir, "capture.buf"))
+		writer.start()
+		started = time.monotonic()
+		first_data = None
+		while True:
+			time.sleep(0.25)
+			now = time.monotonic()
+			try:
+				size = os.path.getsize(writer.output_path)
+			except OSError:
+				size = 0
+			if size > 0 and first_data is None:
+				first_data = now
+			if size >= _CAPTURE_MAX_BYTES:
+				break
+			if first_data is not None and now - first_data >= seconds:
+				break
+			if first_data is None and now - started >= _CAPTURE_CONNECT_TIMEOUT:
+				break
+			if not writer._thread.is_alive():
+				break
+	except BaseException:
+		if writer is not None:
+			writer.stop()
+		shutil.rmtree(tmp_dir, ignore_errors=True)
+		raise
+	writer.stop()
+	try:
+		size = os.path.getsize(writer.output_path)
+	except OSError:
+		size = 0
+	if size < 4096:
+		shutil.rmtree(tmp_dir, ignore_errors=True)
+		return None, None
+	return writer.output_path, tmp_dir
+
+
+def _decode_live_stream(ffmpeg_path, url):
+	"""Decode a progressive (non-HLS) stream. ffmpeg normally reads it
+	itself. For URLs known to confuse its format detection (_is_nsv_url) -
+	and whenever that direct read fails - the stream is recorded to a temp
+	file first and ffmpeg decodes the file."""
+	import shutil
+	first_error = None
+	if _is_nsv_url(url):
+		log.info("freeAudio Recognizer: %s ends in .nsv, which makes ffmpeg pick the wrong "
+				 "demuxer - recording a sample first", url)
+	else:
+		try:
+			return _decode_to_pcm(ffmpeg_path, url, _SAMPLE_DURATION)
+		except ValueError as exc:
+			first_error = exc
+			log.warning("freeAudio Recognizer: direct ffmpeg read failed (%s), "
+						"trying a recorded sample instead", exc)
+
+	tmp_dir = None
+	try:
+		path, tmp_dir = _capture_stream_to_file(url)
+		if path is None:
+			raise ValueError("the station sent no audio")
+		return _decode_to_pcm(ffmpeg_path, path, _SAMPLE_DURATION)
+	except Exception as exc:
+		if first_error is not None:
+			raise ValueError("%s | recorded-sample attempt: %s" % (first_error, exc)) from None
+		raise
+	finally:
+		if tmp_dir:
+			shutil.rmtree(tmp_dir, ignore_errors=True)
 
 
 # ── Shazam imza algoritması (shazamio'dan numpy'sız aktarıldı) ────────────────
@@ -750,7 +899,7 @@ def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None):
 			# segment concatenation natively. Resolving them to a single segment
 			# would yield only one ~6s chunk — not enough for recognition.
 			log.warning("freeAudio Recognizer: resolving %s", stream_url)
-			if stream_url.lower().endswith(".m3u8"):
+			if _is_hls_url(stream_url):
 				log.info("freeAudio Recognizer: HLS playlist detected, passing directly to ffmpeg")
 			else:
 				resolved = _resolve_to_audio_url(stream_url)
@@ -764,7 +913,10 @@ def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None):
 		# 3. ffmpeg ile PCM al
 		log.info("freeAudio Recognizer: decoding %ds PCM via ffmpeg", _SAMPLE_DURATION)
 		try:
-			pcm_bytes = _decode_to_pcm(ffmpeg_path, source_for_ffmpeg, _SAMPLE_DURATION)
+			if local_file or _is_hls_url(source_for_ffmpeg):
+				pcm_bytes = _decode_to_pcm(ffmpeg_path, source_for_ffmpeg, _SAMPLE_DURATION)
+			else:
+				pcm_bytes = _decode_live_stream(ffmpeg_path, source_for_ffmpeg)
 		except Exception as exc:
 			log.warning("freeAudio Recognizer: ffmpeg error: %s", exc)
 			return RecognitionResult(
