@@ -1217,7 +1217,9 @@ class TrackInfoMixin:
 					# Player stopped/paused — clear memory so stale title is never re-announced.
 					self._icy_last_title = None
 					# If a song-capture was running while the station stopped, end it cleanly.
-					if self._recorder.is_song_capture():
+					# (A continuous capture is deliberately left running: like an
+					# instant recording it has its own connection and outlives playback.)
+					if self._recorder.is_song_capture() and not self._recorder.is_continuous_capture():
 						path = self._recorder.stop_song_capture()
 						if path:
 							# Translators: Spoken when a song-capture recording is auto-finalized because the station itself stopped/paused; %s is the saved filename.
@@ -1241,7 +1243,7 @@ class TrackInfoMixin:
 				# ---------------------------------------------------------- #
 				# Song-capture auto-stop: end recording when the track changes #
 				# ---------------------------------------------------------- #
-				if self._recorder.is_song_capture():
+				if self._recorder.is_song_capture() and not self._recorder.is_continuous_capture():
 					recorded_title = self._recorder.get_song_title()
 					if icy and recorded_title and icy != recorded_title:
 						# The track has changed — stop the recording automatically.

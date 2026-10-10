@@ -69,8 +69,172 @@ class RecordingMixin:
 
 		threading.Thread(target=_do_download, daemon=True).start()
 
+	# Delay before a press sequence is acted on, so a further press can still
+	# change what the sequence means (single -> double -> triple).
+	_MULTI_PRESS_DELAY_MS = 350
+
+	# Starting a song capture can take a moment (it may probe the station for
+	# the current title), so it runs on a thread. _song_start_gen lets a newer
+	# press supersede one that is still starting; the lock keeps two starts
+	# from overlapping.
+	_song_start_lock = threading.Lock()
+	_song_start_gen = 0
+
+	def _launch_song_capture(self, continuous):
+		"""Start a song capture on a background thread. continuous=True
+		records every song until stopped, otherwise just the current one."""
+		self._song_start_gen += 1
+		threading.Thread(
+			target=self._begin_song_capture,
+			args=(continuous, self._song_start_gen),
+			daemon=True,
+			name="freeAudio-SongCaptureStart",
+		).start()
+
+	def _start_one_song_capture(self):
+		"""Timer action for a double press that wasn't followed by a third."""
+		self._record_action_timer = None
+		self._record_one_song_started = True
+		self._launch_song_capture(continuous=False)
+
+	def _stop_song_capture_async(self):
+		"""User manually ends the active song capture (finalising may involve
+		ffmpeg, so it runs on a thread)."""
+		def _worker():
+			continuous = self._recorder.is_continuous_capture()
+			path = self._recorder.stop_song_capture()
+			if continuous:
+				wx.CallAfter(self._announce_continuous_stopped)
+			elif path:
+				wx.CallAfter(
+					_notify,
+					# Translators: Spoken when the user manually ends an in-progress song-capture recording (double-press Ctrl+Win+E while capturing); %s is the saved filename.
+					_("Song recording stopped: %s") % os.path.basename(path),
+				)
+			else:
+				# Translators: Fallback spoken when song-capture is stopped but no output path was returned (e.g. nothing was actually captured).
+				wx.CallAfter(_notify, _("Song recording stopped"))
+		threading.Thread(
+			target=_worker,
+			daemon=True,
+			name="freeAudio-SongRecordingFinalize",
+		).start()
+
+	def _announce_continuous_stopped(self):
+		# Translators: Spoken when a recording of every song (triple-press Ctrl+Win+E) is stopped; %d is how many songs were saved.
+		_notify(_("Song recording stopped. Songs saved: %d") % self._recorder.get_continuous_saved())
+
+	def _begin_song_capture(self, continuous, gen):
+		"""Check the station and start a song capture. Runs on a background
+		thread. *gen* is the press that asked for it; if a newer press has
+		come in since, this one gives up."""
+		from . import radioPlayer as _rp
+		from .recorder import SongSplitUnsupported
+
+		if not self._player.has_media():
+			# Translators: Spoken when the delayed single-press action fires and finds nothing is playing.
+			wx.CallAfter(ui.message, _("No station is playing"))
+			return
+
+		station = self._player.get_current_station()
+		# Deliberately keyed off "media_kind" rather than the free-text
+		# "tags" field: a real Radio Browser station can legitimately
+		# carry "podcast"/"audiobook"/"jukebox" as a community-assigned
+		# genre tag on an ordinary live stream (e.g. talk-radio mirrors
+		# of podcast-hosting platforms like Zeno.fm or Qingting.fm) -
+		# matching against "tags" used to make such a station wrongly
+		# refuse song-capture recording. See
+		# radioPlayer._is_seekable_media()'s docstring and
+		# GlobalPlugin.script_addToFavorites() in __init__.py for the
+		# same reasoning already applied elsewhere.
+		media_kind = station.get("media_kind") if station else None
+		is_podcast_or_audiobook = media_kind in ("podcast", "audiobook")
+		is_jukebox = media_kind == "jukebox"
+
+		if is_podcast_or_audiobook:
+			# Translators: Spoken when double-pressing Ctrl+Win+E (song-capture) on a podcast/audiobook episode, which can't be recorded this way; points to the Ctrl+Win+V download command instead.
+			wx.CallAfter(ui.message, _("Podcast or audiobook cannot be recorded. To download the episode or book, press Ctrl+Win+V."))
+			return
+
+		# Jukebox tracks are local files already on disk - there is
+		# nothing to record, and unlike podcasts/audiobooks there is
+		# no Ctrl+Win+V download alternative to point the user to
+		# (script_addToFavorites already refuses jukebox tracks too).
+		if is_jukebox:
+			# Translators: Spoken when double-pressing Ctrl+Win+E (song-capture) on a jukebox track, which is already a local file.
+			wx.CallAfter(ui.message, _("Jukebox tracks are already local files and cannot be recorded."))
+			return
+
+		# Try the fast in-memory title first; fall back to a live HTTP probe.
+		icy = self._player.get_icy_title()
+		if not icy:
+			url = (
+				getattr(self._player, "_current_url_resolved", None)
+				or getattr(self._player, "_current_url", None)
+			)
+			if url:
+				icy = _rp._read_icy_title_via_playlist(url)
+
+		if not icy:
+			# Station does not broadcast ICY metadata — inform the user and abort.
+			wx.CallAfter(
+				ui.message,
+				# Translators: Spoken when trying to start song-capture recording on a station with no ICY track-title metadata, so there's no song boundary to record against.
+				_("This station does not broadcast track metadata. Song recording is not available."),
+			)
+			return
+
+		# Stop any plain instant recording that may already be running.
+		if self._recorder.is_recording() and not self._recorder.is_song_capture():
+			self._recorder.stop(self._player)
+
+		# Translators: Spoken when recording every song (triple-press Ctrl+Win+E) is not possible on this station because its stream carries no track-change markers.
+		not_splittable = _("This station does not support recording every song. Double-press to record the current song.")
+
+		with self._song_start_lock:
+			if gen != self._song_start_gen:
+				return   # a newer press superseded this one
+			try:
+				if continuous and self._recorder.is_song_capture():
+					# The double press of this same sequence already started a
+					# one-song capture: replace it, discarding its first moments.
+					self._recorder.abort_song_capture()
+				self._recorder.start_song_capture(
+					self._player, icy,
+					timeshift_buffer=self._player.get_timeshift_buffer(),
+					continuous=continuous,
+				)
+			except SongSplitUnsupported:
+				wx.CallAfter(ui.message, not_splittable)
+				return
+			except Exception as exc:
+				log.error("freeAudio: song capture failed to start: %s", exc)
+				# Translators: Generic fallback spoken if starting song-capture recording raises an unexpected exception.
+				wx.CallAfter(ui.message, _("Could not start song recording"))
+				return
+
+		if not continuous:
+			wx.CallAfter(
+				ui.message,
+				# Translators: Spoken when song-capture recording starts; %s is the current ICY track title (artist/song) being captured.
+				_("Song recording started: %s") % icy,
+			)
+			return
+
+		# Splitting works only if the station's own stream carries the
+		# track-change markers; the connection tells us within a moment.
+		if self._recorder.wait_split_ready(timeout=8) is False:
+			self._recorder.abort_song_capture()
+			wx.CallAfter(ui.message, not_splittable)
+			return
+		wx.CallAfter(
+			ui.message,
+			# Translators: Spoken when recording every song starts (triple-press Ctrl+Win+E); %s is the current song's title.
+			_("Recording every song until stopped. Current song: %s") % icy,
+		)
+
 	@script(
-		# Translators: Name of an NVDA command (Ctrl+Win+E); single-press toggles a plain instant recording, double-press toggles song-capture recording instead - see this method's logic below.
+		# Translators: Name of an NVDA command (Ctrl+Win+E); single-press toggles a plain instant recording, double-press records the current song, triple-press records every song until stopped - see this method's logic below.
 		description=_("Start or stop instant recording"),
 		category=_("freeAudio"),
 		gesture="kb:control+windows+e",
@@ -83,108 +247,42 @@ class RecordingMixin:
 			self._record_action_timer = None
 
 		repeat = getLastScriptRepeatCount()
+		if repeat == 0:
+			# First press of a new sequence: forget what the last one did.
+			self._record_stopped_in_sequence = False
+			self._record_one_song_started = False
 
 		# ------------------------------------------------------------------ #
-		# Double press → song-capture mode (or stop it if already recording)  #
+		# Double press → record the current song (or stop a running capture)  #
+		# Triple press → record every song until stopped                      #
 		# ------------------------------------------------------------------ #
 		if repeat >= 1:
-			# A single-press action was queued but not yet executed — cancel it
-			# so the double press does not also trigger a normal instant recording.
+			capturing = self._recorder.is_song_capture()
 
-			if self._recorder.is_song_capture():
-				# Song-capture is active: user manually ends the recording early.
-				def _stop_song_capture():
-					path = self._recorder.stop_song_capture()
-					if path:
-						wx.CallAfter(
-							_notify,
-							# Translators: Spoken when the user manually ends an in-progress song-capture recording (double-press Ctrl+Win+E while capturing); %s is the saved filename.
-							_("Song recording stopped: %s") % os.path.basename(path),
-						)
-					else:
-						# Translators: Fallback spoken when song-capture is stopped but no output path was returned (e.g. nothing was actually captured).
-						wx.CallAfter(_notify, _("Song recording stopped"))
-				threading.Thread(
-					target=_stop_song_capture,
-					daemon=True,
-					name="freeAudio-SongRecordingFinalize",
-				).start()
+			if capturing and repeat == 1:
+				# A capture is running: the double press ends it right away.
+				self._record_stopped_in_sequence = True
+				self._stop_song_capture_async()
 				return
 
-			if not self._player.has_media():
-				# Translators: Spoken when the delayed single-press action fires and finds nothing is playing.
-				ui.message(_("No station is playing"))
+			if getattr(self, "_record_stopped_in_sequence", False):
+				# Third press of a sequence whose second press just stopped a
+				# capture: swallow it, it must not start a new one.
 				return
 
-			# Check whether the current station publishes ICY metadata.
-			def _start_song_capture():
-				from . import radioPlayer as _rp
+			if repeat == 1:
+				# Double press: record this one song. Delayed, so that a third
+				# press can still turn it into "every song".
+				self._record_action_timer = wx.CallLater(
+					self._MULTI_PRESS_DELAY_MS, self._start_one_song_capture,
+				)
+				return
 
-				station = self._player.get_current_station()
-				# Deliberately keyed off "media_kind" rather than the free-text
-				# "tags" field: a real Radio Browser station can legitimately
-				# carry "podcast"/"audiobook"/"jukebox" as a community-assigned
-				# genre tag on an ordinary live stream (e.g. talk-radio mirrors
-				# of podcast-hosting platforms like Zeno.fm or Qingting.fm) -
-				# matching against "tags" used to make such a station wrongly
-				# refuse song-capture recording. See
-				# radioPlayer._is_seekable_media()'s docstring and
-				# GlobalPlugin.script_addToFavorites() in __init__.py for the
-				# same reasoning already applied elsewhere.
-				media_kind = station.get("media_kind") if station else None
-				is_podcast_or_audiobook = media_kind in ("podcast", "audiobook")
-				is_jukebox = media_kind == "jukebox"
-
-				if is_podcast_or_audiobook:
-					# Translators: Spoken when double-pressing Ctrl+Win+E (song-capture) on a podcast/audiobook episode, which can't be recorded this way; points to the Ctrl+Win+V download command instead.
-					wx.CallAfter(ui.message, _("Podcast or audiobook cannot be recorded. To download the episode or book, press Ctrl+Win+V."))
-					return
-
-				# Jukebox tracks are local files already on disk - there is
-				# nothing to record, and unlike podcasts/audiobooks there is
-				# no Ctrl+Win+V download alternative to point the user to
-				# (script_addToFavorites already refuses jukebox tracks too).
-				if is_jukebox:
-					# Translators: Spoken when double-pressing Ctrl+Win+E (song-capture) on a jukebox track, which is already a local file.
-					wx.CallAfter(ui.message, _("Jukebox tracks are already local files and cannot be recorded."))
-					return
-
-				# Try the fast in-memory title first; fall back to a live HTTP probe.
-				icy = self._player.get_icy_title()
-				if not icy:
-					url = (
-						getattr(self._player, "_current_url_resolved", None)
-						or getattr(self._player, "_current_url", None)
-					)
-					if url:
-						icy = _rp._read_icy_title_via_playlist(url)
-
-				if not icy:
-					# Station does not broadcast ICY metadata — inform the user and abort.
-					wx.CallAfter(
-						ui.message,
-						# Translators: Spoken when trying to start song-capture recording on a station with no ICY track-title metadata, so there's no song boundary to record against.
-						_("This station does not broadcast track metadata. Song recording is not available."),
-					)
-					return
-
-				# Stop any plain instant recording that may already be running.
-				if self._recorder.is_recording() and not self._recorder.is_song_capture():
-					self._recorder.stop(self._player)
-
-				try:
-					self._recorder.start_song_capture(self._player, icy, timeshift_buffer=self._player.get_timeshift_buffer())
-					wx.CallAfter(
-						ui.message,
-						# Translators: Spoken when song-capture recording starts; %s is the current ICY track title (artist/song) being captured.
-						_("Song recording started: %s") % icy,
-					)
-				except Exception as exc:
-					log.error("freeAudio: song capture failed to start: %s", exc)
-					# Translators: Generic fallback spoken if starting song-capture recording raises an unexpected exception.
-					wx.CallAfter(ui.message, _("Could not start song recording"))
-
-			threading.Thread(target=_start_song_capture, daemon=True).start()
+			# Triple press. If a capture is already running that this sequence
+			# didn't start (a fourth press, say) there is nothing to do.
+			if capturing and not getattr(self, "_record_one_song_started", False):
+				return
+			self._launch_song_capture(continuous=True)
 			return
 
 		# ------------------------------------------------------------------ #
@@ -249,7 +347,7 @@ class RecordingMixin:
 				wx.CallAfter(ui.message, _("Could not start recording"))
 
 		# Delay single-press action by 350 ms so a second press can cancel it.
-		self._record_action_timer = wx.CallLater(350, _do_single_press)
+		self._record_action_timer = wx.CallLater(self._MULTI_PRESS_DELAY_MS, _do_single_press)
 
 	@script(
 		# Translators: Name of an NVDA command (Ctrl+Win+W); opens the configured recordings folder in File Explorer.

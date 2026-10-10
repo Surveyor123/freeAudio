@@ -12,6 +12,7 @@ import globalVars
 import hashlib
 import logging
 import os
+import re
 import ssl
 import struct
 import subprocess
@@ -849,6 +850,46 @@ def _resolve_hls(url):
 	return url
 
 
+_MIN_SEGMENT_SECONDS = 15
+# Continuous song capture discards pieces shorter than this: jingles, ad
+# stingers, or a station title that flickers between two values.
+
+
+class SongSplitUnsupported(Exception):
+	"""Recording every song needs the station's in-band ICY track metadata
+	(that is what marks where one song ends and the next begins). HLS streams
+	and servers that don't send it can't be split."""
+
+
+def _unique_path(path):
+	"""*path*, or "name (2).ext", "name (3).ext"... if it already exists."""
+	if not os.path.exists(path):
+		return path
+	base, ext = os.path.splitext(path)
+	n = 2
+	while os.path.exists("%s (%d)%s" % (base, n, ext)):
+		n += 1
+	return "%s (%d)%s" % (base, n, ext)
+
+
+def _mark_partial(path):
+	"""Rename "Artist - Song - 2026-10-09 10-15.mp3" to
+	"Artist - Song (partial) - 2026-10-09 10-15.mp3" (a song recorded only
+	from the middle, or only up to the middle). Returns the new path, or the
+	old one if the rename failed."""
+	folder, fname = os.path.split(path)
+	base, ext = os.path.splitext(fname)
+	m = re.match(r"^(.*) - (\d{4}-\d{2}-\d{2} \d{2}-\d{2})$", base)
+	new_base = "%s (partial) - %s" % (m.group(1), m.group(2)) if m else base + " (partial)"
+	new_path = _unique_path(os.path.join(folder, new_base + ext))
+	try:
+		os.replace(path, new_path)
+		return new_path
+	except OSError as e:
+		log.warning("freeAudio Recorder: could not mark %s as partial: %s", path, e)
+		return path
+
+
 def _parse_stream_title(raw):
 	"""Return the StreamTitle of one raw ICY metadata block (bytes), or None
 	if the block carries none. Decoded and matched like bass_host.py does
@@ -920,7 +961,8 @@ class _StreamWriter:
 	Handles both direct streams and HLS playlists.
 	"""
 
-	def __init__(self, url, output_path, split_title=None, on_boundary=None):
+	def __init__(self, url, output_path, split_title=None, on_boundary=None,
+				 continuous=False, on_segment=None):
 		"""split_title: set only for a song-capture recording - the track
 		being recorded. The writer then asks the server for in-band ICY
 		metadata on its own connection, strips it from the saved audio, and
@@ -928,7 +970,14 @@ class _StreamWriter:
 		track, calling on_boundary(new_title) (on the writer thread). Only
 		direct/ICY streams carry such metadata; HLS and servers that don't
 		support it behave as before (the caller's own title polling is the
-		fallback)."""
+		fallback).
+
+		continuous: instead of ending at the first track change, keep
+		reading the same connection and start a new file at every one (no
+		audio is lost between songs). Every finished file is reported through
+		on_segment(seg) on the writer thread; the one still open when the
+		writer stops is left in final_segment. Needs in-band metadata - see
+		_announce_split_support()."""
 		self.original_url = url
 		self.output_path = output_path
 		self._split_title = split_title
@@ -936,6 +985,17 @@ class _StreamWriter:
 		self._baseline = _norm_title(split_title) if split_title is not None else None
 		self._baseline_confirmed = False
 		self._boundary_title = None
+		self._continuous = continuous
+		self._on_segment = on_segment
+		self._cur_file = None            # the file being written (changes on every rotation)
+		self._seg_title = split_title    # track the current file holds
+		self._seg_start = None           # time.monotonic() when the current file started
+		self._seg_partial = True         # first file starts mid-song; later ones at a boundary
+		self.final_segment = None
+		# Set once we know whether this connection carries in-band metadata
+		# (see Recorder.wait_split_ready).
+		self._split_ready = threading.Event()
+		self._split_unsupported = False
 		self._stop       = threading.Event()
 		self._thread     = None
 		self._error      = None
@@ -963,10 +1023,19 @@ class _StreamWriter:
 
 	def start(self):
 		self._thread = threading.Thread(
-			target=self._run_hls if self._is_hls else self._run,
+			target=self._thread_main,
 			daemon=True,
 		)
 		self._thread.start()
+
+	def _thread_main(self):
+		try:
+			if self._is_hls:
+				self._run_hls()
+			else:
+				self._run()
+		finally:
+			self._close_final_segment()
 
 	def stop(self):
 		self._stop.set()
@@ -1096,21 +1165,110 @@ class _StreamWriter:
 				self.output_path = base + "." + ext
 				log.info("freeAudio Recorder: writing to %s (ct=%s)", self.output_path, ct)
 
-			with open(self.output_path, "ab") as f:
-				self._connected.set()
-				demux = self._make_demux(resp.headers.get("icy-metaint"))
-				# read1() returns as soon as *any* data has arrived. read(_CHUNK)
-				# blocked until a full 64 KB had accumulated (~4 s of 128 kbps
-				# audio), so a stop request - or a song boundary - was only
-				# noticed once per 64 KB, and up to that much extra audio ended
-				# up at the end of the file.
-				read = getattr(resp, "read1", None) or resp.read
-				while not self._stop.is_set():
-					chunk = read(_CHUNK)
-					if not chunk:
-						break
-					if not self._write_chunk(f, demux, chunk):
-						break
+			try:
+				with open(self.output_path, "ab") as f:
+					self._cur_file = f
+					self._connected.set()
+					self._mark_segment_start()
+					demux = self._make_demux(resp.headers.get("icy-metaint"))
+					if not self._announce_split_support(demux):
+						return
+					# read1() returns as soon as *any* data has arrived. read(_CHUNK)
+					# blocked until a full 64 KB had accumulated (~4 s of 128 kbps
+					# audio), so a stop request - or a song boundary - was only
+					# noticed once per 64 KB, and up to that much extra audio ended
+					# up at the end of the file.
+					read = getattr(resp, "read1", None) or resp.read
+					while not self._stop.is_set():
+						chunk = read(_CHUNK)
+						if not chunk:
+							break
+						if not self._write_chunk(demux, chunk):
+							break
+			finally:
+				self._release_current_file()
+
+	def _mark_segment_start(self):
+		if self._seg_start is None:
+			import time
+			self._seg_start = time.monotonic()
+
+	def _release_current_file(self):
+		f, self._cur_file = self._cur_file, None
+		if f is not None:
+			try:
+				f.close()
+			except Exception:
+				pass
+
+	def _announce_split_support(self, demux):
+		"""Tell Recorder.wait_split_ready() whether this connection carries
+		in-band metadata. A continuous capture can't work without it (nothing
+		marks where a song ends), so it ends here instead of recording one
+		endless file. Returns False when the caller must stop."""
+		if self._split_title is None:
+			return True
+		if demux is None and self._continuous:
+			log.warning("freeAudio Recorder: station sends no in-band metadata - cannot split songs")
+			self._split_unsupported = True
+			self._split_ready.set()
+			self._stop.set()
+			return False
+		self._split_ready.set()
+		return True
+
+	def _close_final_segment(self):
+		"""Continuous capture: close the file still open when the thread
+		ends and describe it, for Recorder._finish_continuous(). Runs on the
+		writer thread after its last write."""
+		self._release_current_file()
+		if not self._continuous or self._seg_start is None or self._split_unsupported:
+			return
+		import time
+		self.final_segment = {
+			"path": self.output_path,
+			"title": self._seg_title,
+			"duration": time.monotonic() - self._seg_start,
+			"partial": self._seg_partial,
+		}
+
+	def _rotate(self, new_title):
+		"""Continuous capture: the station announced a new track. Open the
+		next song's file first (so no audio is lost), close the finished
+		one and report it. The stream connection is never interrupted."""
+		import time
+		now = time.monotonic()
+		old_path = self.output_path
+		seg = {
+			"path": old_path,
+			"title": self._seg_title,
+			"duration": (now - self._seg_start) if self._seg_start is not None else None,
+			"partial": self._seg_partial,
+		}
+		ext = os.path.splitext(old_path)[1].lstrip(".") or "mp3"
+		new_path = _unique_path(_make_output_path(new_title, ext=ext, folder=os.path.dirname(old_path)))
+		try:
+			new_file = open(new_path, "ab")
+		except OSError as e:
+			log.warning("freeAudio Recorder: cannot open %s (%s) - staying in the current file", new_path, e)
+			return
+		old_file = self._cur_file
+		self._cur_file = new_file
+		self.output_path = new_path
+		try:
+			old_file.close()
+		except Exception:
+			pass
+		self._seg_title = new_title
+		self._seg_start = now
+		self._seg_partial = False
+		log.info("freeAudio Recorder: song change -> %s", new_path)
+		cb = self._on_segment
+		if cb:
+			try:
+				cb(seg)
+			except Exception:
+				log.warning("freeAudio Recorder: segment callback failed", exc_info=True)
 
 	def _make_demux(self, metaint_value):
 		"""ICY de-interleaver for one connection, or None when this isn't a
@@ -1123,18 +1281,19 @@ class _StreamWriter:
 			return None
 		return _IcyDemux(metaint) if metaint > 0 else None
 
-	def _write_chunk(self, f, demux, chunk):
-		"""Write one received chunk. Without a demuxer that is a plain copy.
-		With one, ICY metadata is stripped from the audio and the write stops
-		(returns False) at the first metadata block announcing a different
-		track than the one being recorded: everything before it is already in
-		the file, nothing after it is."""
+	def _write_chunk(self, demux, chunk):
+		"""Write one received chunk to the current file. Without a demuxer
+		that is a plain copy. With one, ICY metadata is stripped from the
+		audio and, at the first metadata block announcing a different track
+		than the one being recorded, either the write stops (returns False:
+		everything before it is already in the file, nothing after it is) or,
+		in continuous mode, the file is rotated and writing carries on."""
 		if demux is None:
-			f.write(chunk)
+			self._cur_file.write(chunk)
 			return True
 		for kind, payload in demux.feed(chunk):
 			if kind == "audio":
-				f.write(payload)
+				self._cur_file.write(payload)
 				continue
 			title = _norm_title(payload)
 			if not self._baseline_confirmed:
@@ -1146,13 +1305,19 @@ class _StreamWriter:
 				self._baseline_confirmed = True
 				if title != self._baseline:
 					log.info("freeAudio Recorder: stream reports %r, expected %r - using the stream's title",
-					         payload, self._split_title)
+							 payload, self._split_title)
 					self._baseline = title
+					if self._continuous:
+						self._seg_title = payload   # what is really being recorded
 				continue
 			if title != self._baseline:
+				if self._continuous:
+					self._baseline = title
+					self._rotate(payload)
+					continue
 				self._boundary_title = payload
 				log.info("freeAudio Recorder: track changed in recorded stream: %r -> %r",
-				         self._split_title, payload)
+						 self._split_title, payload)
 				return False
 		return True
 
@@ -1169,17 +1334,24 @@ class _StreamWriter:
 				self.output_path = base + "." + ext
 				log.info("freeAudio Recorder: ICY writing to %s (ct=%s)", self.output_path, ct)
 
-			with open(self.output_path, "ab") as f:
-				self._connected.set()
-				demux = self._make_demux(headers.get("icy-metaint"))
-				if body_prefix and not self._write_chunk(f, demux, body_prefix):
-					return
-				while not self._stop.is_set():
-					chunk = sock.recv(_CHUNK)
-					if not chunk:
-						break
-					if not self._write_chunk(f, demux, chunk):
-						break
+			try:
+				with open(self.output_path, "ab") as f:
+					self._cur_file = f
+					self._connected.set()
+					self._mark_segment_start()
+					demux = self._make_demux(headers.get("icy-metaint"))
+					if not self._announce_split_support(demux):
+						return
+					if body_prefix and not self._write_chunk(demux, body_prefix):
+						return
+					while not self._stop.is_set():
+						chunk = sock.recv(_CHUNK)
+						if not chunk:
+							break
+						if not self._write_chunk(demux, chunk):
+							break
+			finally:
+				self._release_current_file()
 		finally:
 			try:
 				sock.close()
@@ -1932,7 +2104,13 @@ class Recorder:
 		worker thread.
 		"""
 		writer.stop()
-		path = writer.output_path
+		if getattr(writer, "_continuous", False):
+			return self._finish_continuous(writer)
+		return self._postprocess_recording(writer.output_path)
+
+	def _postprocess_recording(self, path):
+		"""Apply the fMP4 fix-up and the selected output conversion to a
+		finished recording file. Returns the final path."""
 		# Fragmented-MP4 (HLS) recordings have no duration in their header and
 		# carry the stream's absolute clock in every fragment, so players show
 		# absurd lengths. Preferably rewrite them as a standard MP4 (lossless
@@ -2039,13 +2217,19 @@ class Recorder:
 		log.warning("freeAudio Recorder: instant recording started → %s", out)
 		return out
 
-	def start_song_capture(self, player, song_title, timeshift_buffer=None):
+	def start_song_capture(self, player, song_title, timeshift_buffer=None, continuous=False):
 		"""Start a song-capture recording named after the current ICY track title.
 
 		This mode is intended for stations that broadcast ICY metadata.  The file
 		is named after the song rather than the station so recordings are easy to
-		identify later.  The caller is responsible for stopping the recording when
-		the track changes (see Recorder.stop_song_capture).
+		identify later.  The recording ends by itself at the track change (see
+		_on_song_boundary), or when the caller stops it (stop_song_capture).
+
+		continuous=True records every song until stopped instead: a new file
+		is started at each track change on the same connection, finished
+		songs are finalised in the background, and the first and last (cut
+		off) songs are saved with "(partial)" in the name. Raises
+		SongSplitUnsupported for streams without in-band metadata (HLS).
 
 		timeshift_buffer: see start() - no longer used to tail the buffer,
 		kept only for call-site compatibility.
@@ -2056,21 +2240,119 @@ class Recorder:
 		if not original_url:
 			raise RuntimeError("No station playing")
 
+		out = _make_output_path(song_title)
+		writer = _StreamWriter(original_url, out, split_title=song_title, continuous=continuous)
+		if continuous and writer._is_hls:
+			raise SongSplitUnsupported("HLS streams carry no in-band track metadata")
+
 		# Stop any ongoing instant or song-capture recording before starting a new one.
 		if self._writer:
 			self._writer.stop()
 
-		out = _make_output_path(song_title)
 		self._output_path  = out
 		self._station_name = song_title   # store the song title in the station-name slot
 		self._song_capture = True         # flag: this recording was started in song-capture mode
-		writer = _StreamWriter(original_url, out, split_title=song_title)
+		self._song_continuous = bool(continuous)
+		self._continuous_saved = 0
+		self._last_saved = None
+		self._seg_threads = []
+		self._seg_lock = threading.Lock()
 		# Tied to *this* writer: a stale callback must never end a newer capture.
 		writer._on_boundary = lambda title, _w=writer: self._on_song_boundary(_w, title)
+		writer._on_segment = lambda seg: self._on_song_segment(seg)
 		self._writer = writer
 		self._writer.start()
 		log.warning("freeAudio Recorder: song-capture recording started → %s", out)
 		return out
+
+	def is_continuous_capture(self):
+		"""True while a song capture that records every song is active."""
+		return self.is_song_capture() and bool(getattr(self, "_song_continuous", False))
+
+	def get_continuous_saved(self):
+		"""Number of songs the last continuous capture saved so far."""
+		return int(getattr(self, "_continuous_saved", 0))
+
+	def wait_split_ready(self, timeout=8):
+		"""Wait until the active capture's connection says whether the
+		station sends in-band track metadata. True: it does. False: it
+		doesn't (or nothing is recording). None: no answer yet (slow
+		connection)."""
+		writer = self._writer
+		if writer is None:
+			return False
+		if not writer._split_ready.wait(timeout):
+			return None
+		return not writer._split_unsupported
+
+	def abort_song_capture(self):
+		"""Stop the active song capture and delete what it wrote - a capture
+		that turned out to be unusable, or a one-song capture replaced right
+		after it started."""
+		writer = self._writer
+		self._writer = None
+		self._output_path  = None
+		self._station_name = ""
+		self._song_capture = False
+		self._song_continuous = False
+		if writer:
+			writer.stop()
+			try:
+				os.remove(writer.output_path)
+			except OSError:
+				pass
+		log.info("freeAudio Recorder: song-capture recording aborted")
+
+	def _on_song_segment(self, seg):
+		"""Continuous capture, on the writer thread: a song just ended.
+		Finalising it (rename, discard if too short, conversion) can take a
+		while, and this thread must keep reading the stream - so hand it off."""
+		t = threading.Thread(target=self._finalize_segment, args=(seg,),
+							 daemon=True, name="freeAudio-SongSegment")
+		with self._seg_lock:
+			self._seg_threads.append(t)
+		t.start()
+
+	def _finalize_segment(self, seg):
+		"""Finish one song's file of a continuous capture: drop it if it is
+		too short to be a song, mark it "(partial)" if it was cut off, apply
+		the output conversion. Returns the saved path, or None."""
+		path = seg.get("path")
+		if not path or not os.path.isfile(path):
+			return None
+		duration = seg.get("duration")
+		try:
+			if duration is not None and duration < _MIN_SEGMENT_SECONDS:
+				os.remove(path)
+				log.info("freeAudio Recorder: dropped %.0f s piece %s", duration, path)
+				return None
+			if seg.get("partial"):
+				path = _mark_partial(path)
+			final = self._postprocess_recording(path)
+		except Exception:
+			log.warning("freeAudio Recorder: could not finalise %s", path, exc_info=True)
+			return None
+		with self._seg_lock:
+			self._continuous_saved += 1
+			self._last_saved = final
+		return final
+
+	def _finish_continuous(self, writer):
+		"""Finish a continuous capture whose writer has stopped: wait for the
+		songs still being finalised, then handle the one that was in
+		progress (always partial - it was cut off by the stop). Returns the
+		last saved file's path, or None."""
+		with self._seg_lock:
+			pending = list(self._seg_threads)
+		for t in pending:
+			t.join(timeout=120)
+		if not writer._split_unsupported:
+			seg = writer.final_segment
+			if seg is None and writer.output_path and os.path.isfile(writer.output_path):
+				seg = {"path": writer.output_path, "duration": None}
+			if seg:
+				self._finalize_segment(dict(seg, partial=True))
+		return self._last_saved
 
 	def _on_song_boundary(self, writer, title):
 		"""The writer saw the station announce a new track in the recorded
@@ -2110,7 +2392,7 @@ class Recorder:
 	def get_song_title(self):
 		"""Return the song title used for the active song-capture recording, or empty string."""
 		if self.is_song_capture():
-			return self._station_name
+			return self._current_song_title() or self._station_name
 		return ""
 
 	def stop(self, player=None):
@@ -2133,8 +2415,19 @@ class Recorder:
 	def get_output_path(self):
 		return self._output_path
 
+	def _current_song_title(self):
+		"""Continuous capture: the song being recorded right now (follows the
+		track changes), otherwise None."""
+		writer = self._writer
+		if self._song_capture and getattr(self, "_song_continuous", False) and writer is not None:
+			return writer._seg_title
+		return None
+
 	def get_station_name(self):
-		return self._station_name
+		"""What is being recorded: the station for an instant recording, the
+		song for a song capture - and for a continuous capture the *current*
+		song, not the one it started with."""
+		return self._current_song_title() or self._station_name
 
 	def add_schedule(self, station, start_time, duration_minutes,
 	                 record_only=False,
