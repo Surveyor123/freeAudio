@@ -2,10 +2,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: freeAudio 2026.25.1\n"
+"Project-Id-Version: freeAudio 2026.25.2\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-10-16 18:32+0300\n"
-"PO-Revision-Date: 2026-10-13 05:21+0300\n"
+"PO-Revision-Date: 2026-10-17 12:00+0200\n"
 "Last-Translator: Philipp H <20210202@htlwrn.ac.at>\n"
 "Language-Team: German <20210202@htlwrn.ac.at>\n"
 "MIME-Version: 1.0\n"
@@ -199,12 +199,12 @@ msgstr "freeAudio-Lautstärke um 5 verringern"
 #. Translators: Name of an NVDA command; speeds up playback rate, podcasts/audiobooks/GETEM chapters only.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:61
 msgid "Increase podcast, audio book and jukebox playback speed"
-msgstr ""
+msgstr "Wiedergabe von Podcasts, Hörbüchern und Jukebox-Titeln beschleunigen"
 
 #. Translators: Name of an NVDA command; slows down playback rate, podcasts/audiobooks/GETEM chapters only.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:70
 msgid "Decrease podcast, audio book and jukebox playback speed"
-msgstr ""
+msgstr "Wiedergabe von Podcasts, Hörbüchern und Jukebox-Titeln verlangsamen"
 
 #. Translators: Spoken when the playback-rate command returns the rate to normal (1.0x).
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:81
@@ -354,56 +354,59 @@ msgstr "Sendersuchlauf-Geräusch"
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:39
 msgid "Add a bookmark at the current position (audio books, podcasts, jukebox)"
 msgstr ""
+"Lesezeichen an der aktuellen Position setzen (Hörbücher, Podcasts, Jukebox)"
 
 #. Translators: Spoken when the add-bookmark command is used on a live radio station.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:55
 msgid ""
 "Bookmarks are available for audio books, podcasts and jukebox tracks only"
-msgstr ""
+msgstr "Lesezeichen gibt es nur für Hörbücher, Podcasts und Jukebox-Titel"
 
 #. Translators: Spoken when the current playback position can't be read, so no bookmark is added.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:62
-#, fuzzy
 msgid "Could not read the playback position"
-msgstr "Das Wiedergabetempo ließ sich nicht ändern."
+msgstr "Die Wiedergabeposition ließ sich nicht ermitteln"
 
 #. Translators: Spoken after adding a bookmark; %(name)s is its default name (ordinal), %(time)s the position.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:67
-#, fuzzy, python-format
+#, python-format
 msgid "Bookmark added: %(name)s, %(time)s"
-msgstr "Wecker hinzugefügt: %(station)s um %(time)s"
+msgstr "Lesezeichen gesetzt: %(name)s, %(time)s"
 
 #. Translators: Default name of a bookmark; %d is its ordinal among the item's bookmarks, sorted by position.
 #: addon\globalPlugins\freeAudio\bookmarks.py:142
 #, python-format
 msgid "Bookmark %d"
-msgstr ""
+msgstr "Lesezeichen %d"
 
 #. Translators: Fallback default bookmark name if its ordinal can't be determined.
 #: addon\globalPlugins\freeAudio\bookmarks.py:144
-#, fuzzy
 msgid "Bookmark"
-msgstr "Buch"
+msgstr "Lesezeichen"
 
 #. Translators: Title of the dialog used to record a voice note for a bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:73
 msgid "Voice Note"
-msgstr ""
+msgstr "Sprachnotiz"
 
 #. Translators: Text of the voice-note recording dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:79
 msgid "Recording from the microphone. Press Stop and Save when you are done."
 msgstr ""
+"Die Aufnahme über das Mikrofon läuft. Zum Abschließen „Beenden und "
+"speichern“ wählen."
 
 #. Translators: Button label; stops the voice-note recording and saves it to the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:84
 msgid "&Stop and Save"
-msgstr ""
+msgstr "&Beenden und speichern"
 
 #. Translators: Spoken when the microphone can't be opened for a voice note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:101
 msgid "Could not start recording. Check that a microphone is available."
 msgstr ""
+"Die Aufnahme ließ sich nicht starten. Bitte prüfen, ob ein Mikrofon "
+"verfügbar ist."
 
 #. Translators: Spoken when voice-note recording has started.
 #. Translators: Tab label for the recording controls and active/past recordings list.
@@ -414,30 +417,28 @@ msgstr "Aufnahme"
 
 #. Translators: Spoken when the recorded voice note could not be saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:112
-#, fuzzy
 msgid "Could not save the voice note"
-msgstr "Die Datei ließ sich nicht lesen: %(error)s"
+msgstr "Die Sprachnotiz ließ sich nicht speichern"
 
 #. Translators: Label above the list of bookmarks of the selected podcast episode / audio book / jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:137
 msgid "Bookmarks:"
-msgstr ""
+msgstr "Lesezeichen:"
 
 #. Translators: Accessible name of the bookmarks list.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:140
-#, fuzzy
 msgid "Bookmarks of the selected item"
-msgstr "Titel im ausgewählten Jukebox-Eintrag"
+msgstr "Lesezeichen des ausgewählten Eintrags"
 
 #. Translators: Marker appended to a bookmark's list row when it has a text note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:158
 msgid "[text]"
-msgstr ""
+msgstr "[Text]"
 
 #. Translators: Marker appended to a bookmark's list row when it has a voice note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:161
 msgid "[voice note]"
-msgstr ""
+msgstr "[Sprachnotiz]"
 
 #. Translators: Spoken after unmarking a bookmark; %s is its name.
 #. Translators: Spoken after unmarking a favourite station in the multi-select removal flow; %s is the station name.
@@ -471,11 +472,12 @@ msgstr "Markiert: %s"
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:294
 msgid "Enter a new name for the bookmark (leave empty for the default name):"
 msgstr ""
+"Neuen Namen für das Lesezeichen eingeben (leer lassen für den Standardnamen):"
 
 #. Translators: Title of the bookmark rename dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:296
 msgid "Rename Bookmark"
-msgstr ""
+msgstr "Lesezeichen umbenennen"
 
 #. Translators: Spoken after renaming a bookmark; %s is its new name.
 #. Translators: Spoken after successfully renaming a station; %s is the new name.
@@ -488,78 +490,79 @@ msgid "Renamed to: %s"
 msgstr "Umbenannt in: %s"
 
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:320
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to delete %d bookmark?"
 msgid_plural "Do you want to delete %d bookmarks?"
-msgstr[0] "%d markierten Sender löschen?"
-msgstr[1] "%d markierte Sender löschen?"
+msgstr[0] "%d Lesezeichen löschen?"
+msgstr[1] "%d Lesezeichen löschen?"
 
 #. Translators: Title of the delete-bookmarks confirmation dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:325
 msgid "Delete Bookmarks"
-msgstr ""
+msgstr "Lesezeichen löschen"
 
 #. Translators: Spoken after deleting bookmarks; %d is how many were deleted.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:337
-#, fuzzy, python-format
+#, python-format
 msgid "%d bookmark deleted"
 msgid_plural "%d bookmarks deleted"
-msgstr[0] "%d Sender gelöscht"
-msgstr[1] "%d Sender gelöscht"
+msgstr[0] "%d Lesezeichen gelöscht"
+msgstr[1] "%d Lesezeichen gelöscht"
 
 #. Translators: Prompt of the bookmark text-note dialog; the text is spoken by NVDA when playback reaches the bookmark. Empty removes the text.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:350
 msgid ""
 "Text spoken when playback reaches this bookmark (leave empty to remove it):"
 msgstr ""
+"Text, der beim Erreichen dieses Lesezeichens gesprochen wird (leer lassen, "
+"um ihn zu entfernen):"
 
 #. Translators: Title of the bookmark text-note dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:352
 msgid "Bookmark Text"
-msgstr ""
+msgstr "Lesezeichentext"
 
 #. Translators: Spoken after saving a bookmark's text note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:364
 msgid "Text saved"
-msgstr ""
+msgstr "Text gespeichert"
 
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:364
-#, fuzzy
 msgid "Text removed"
-msgstr "Timer entfernt"
+msgstr "Text entfernt"
 
 #. Translators: Spoken after a voice note was saved to a bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:379
 msgid "Voice note saved"
-msgstr ""
+msgstr "Sprachnotiz gespeichert"
 
 #. Translators: Spoken after removing a bookmark's text and voice notes.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:390
-#, fuzzy
 msgid "Notes removed"
-msgstr "Timer entfernt"
+msgstr "Notizen entfernt"
 
 #. Translators: Spoken when the repeat command is used without two or more marked bookmarks of the same item.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:397
 msgid "Mark at least two bookmarks of the same item with the period key first."
 msgstr ""
+"Zuerst mindestens zwei Lesezeichen desselben Eintrags mit der Punkttaste "
+"markieren."
 
 #. Translators: Spoken when repeat mode starts; %(start)s and %(end)s are the positions it repeats between.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:406
 #, python-format
 msgid "Repeating between %(start)s and %(end)s"
-msgstr ""
+msgstr "Wiederholung zwischen %(start)s und %(end)s"
 
 #. Translators: Spoken when repeat mode between bookmarks is turned off.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:412
-#, fuzzy
 msgid "Repeat stopped"
-msgstr "Aufnahme gestoppt"
+msgstr "Wiederholung beendet"
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:430
 msgid "&Play from Bookmark"
-msgstr ""
+msgstr "Ab Lesezeichen &wiedergeben"
 
 #. Translators: Bookmark context-menu item; renames the selected bookmark.
 #. Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
@@ -570,35 +573,33 @@ msgstr "&Umbenennen..."
 
 #. Translators: Bookmark context-menu item; deletes the bookmarks marked with '.' (or the focused one if none are marked).
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:434
-#, fuzzy
 msgid "&Delete Selected"
-msgstr "Ausgewählten Eintrag &entfernen"
+msgstr "Markierte &löschen"
 
 #. Translators: Bookmark context-menu item; adds or edits a text note spoken by NVDA when playback reaches the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:437
 msgid "Add or Edit &Text..."
-msgstr ""
+msgstr "&Text hinzufügen oder bearbeiten..."
 
 #. Translators: Bookmark context-menu item; records a voice note that plays when playback reaches the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:439
-#, fuzzy
 msgid "Add &Voice Note..."
-msgstr "&Datei hinzufügen..."
+msgstr "&Sprachnotiz hinzufügen..."
 
 #. Translators: Bookmark context-menu item; removes the text and voice note of the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:441
 msgid "&Clear Notes"
-msgstr ""
+msgstr "Notizen &entfernen"
 
 #. Translators: Bookmark context-menu item; plays the section between the bookmarks marked with '.' over and over.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:444
 msgid "&Repeat Between Marked Bookmarks"
-msgstr ""
+msgstr "Zwischen markierten Lesezeichen wieder&holen"
 
 #. Translators: Bookmark context-menu item; turns off the repeat mode.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:446
 msgid "St&op Repeat"
-msgstr ""
+msgstr "Wiederh&olung beenden"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -4017,7 +4018,7 @@ msgstr "Titelaufnahme gestoppt"
 #: addon\globalPlugins\freeAudio\recordingMixin.py:125
 #, python-format
 msgid "Song recording stopped. Songs saved: %d"
-msgstr ""
+msgstr "Titelaufnahme beendet. Gespeicherte Titel: %d"
 
 #. Translators: Spoken when double-pressing Ctrl+Win+E (song-capture) on a podcast/audiobook episode, which can't be recorded this way; points to the Ctrl+Win+V download command instead.
 #. Translators: Same message as the song-capture path above, spoken here when single-pressing Ctrl+Win+E on a podcast/audiobook episode.
@@ -4053,6 +4054,8 @@ msgid ""
 "This station does not support recording every song. Double-press to record "
 "the current song."
 msgstr ""
+"Dieser Sender unterstützt das Aufnehmen aller Titel nicht. Zweimal drücken, "
+"um den aktuellen Titel aufzunehmen."
 
 #. Translators: Generic fallback spoken if starting song-capture recording raises an unexpected exception.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:213
@@ -4069,7 +4072,7 @@ msgstr "Titelaufnahme gestartet: %s"
 #: addon\globalPlugins\freeAudio\recordingMixin.py:233
 #, python-format
 msgid "Recording every song until stopped. Current song: %s"
-msgstr ""
+msgstr "Alle Titel werden bis zum Stoppen aufgenommen. Aktueller Titel: %s"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+E); single-press toggles a plain instant recording, double-press records the current song, triple-press records every song until stopped - see this method's logic below.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:238
@@ -4077,6 +4080,8 @@ msgid ""
 "Start or stop instant recording. Press twice for current song recording, "
 "thrice for recording every song."
 msgstr ""
+"Sofortaufnahme starten oder stoppen. Zweimal drücken für eine Aufnahme des "
+"aktuellen Titels, dreimal für die Aufnahme aller Titel."
 
 #. Translators: Spoken when the single-press gesture stops an in-progress plain instant recording; %s is the saved filename.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:313
@@ -4119,81 +4124,86 @@ msgid ""
 "Settings (reset to defaults; the recordings folder and the liked songs "
 "option are kept)"
 msgstr ""
+"Einstellungen (auf Standard zurücksetzen; Aufnahmeordner und die Option für "
+"Lieblingstitel bleiben erhalten)"
 
 #. Translators: Check box in the clean-up dialog; deletes the favourite stations list.
 #: addon\globalPlugins\freeAudio\resetDialog.py:79
 msgid "Favorite stations"
-msgstr ""
+msgstr "Favoriten"
 
 #. Translators: Check box in the clean-up dialog; deletes the downloaded station list cache.
 #: addon\globalPlugins\freeAudio\resetDialog.py:85
 msgid "Station list cache (downloaded again when needed)"
-msgstr ""
+msgstr "Zwischengespeicherte Senderliste (wird bei Bedarf neu geladen)"
 
 #. Translators: Check box in the clean-up dialog; deletes the audio book libraries of all sources.
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
 msgid "Audio book libraries (GETEM, LibriVox, Project Gutenberg)"
-msgstr ""
+msgstr "Hörbuchbibliotheken (GETEM, LibriVox, Project Gutenberg)"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:107
 msgid "Saved GETEM login"
-msgstr ""
+msgstr "Gespeicherte GETEM-Anmeldedaten"
 
 #. Translators: Check box in the clean-up dialog; empties the Jukebox list (the music files themselves are not touched).
 #: addon\globalPlugins\freeAudio\resetDialog.py:113
 msgid "Jukebox list (your music files are not deleted)"
-msgstr ""
+msgstr "Jukebox-Liste (die Musikdateien selbst werden nicht gelöscht)"
 
 #. Translators: Check box in the clean-up dialog; deletes saved resume positions.
 #: addon\globalPlugins\freeAudio\resetDialog.py:119
 msgid "Saved resume positions (podcasts, audio books, Jukebox folders)"
 msgstr ""
+"Gespeicherte Fortsetzungspositionen (Podcasts, Hörbücher, Jukebox-Ordner)"
 
 #. Translators: Check box in the clean-up dialog; deletes all bookmarks of audio books, podcast episodes and jukebox tracks, including their voice notes.
 #: addon\globalPlugins\freeAudio\resetDialog.py:128
 msgid "Bookmarks (including their text and voice notes)"
-msgstr ""
+msgstr "Lesezeichen (samt Text- und Sprachnotizen)"
 
 #. Translators: Check box in the clean-up dialog; deletes sleep timers and alarms.
 #: addon\globalPlugins\freeAudio\resetDialog.py:137
 msgid "Sleep timers and alarms"
-msgstr ""
+msgstr "Sleeptimer und Wecker"
 
 #. Translators: Check box in the clean-up dialog; deletes the scheduled recording plans (not the recordings).
 #: addon\globalPlugins\freeAudio\resetDialog.py:143
 msgid "Scheduled recording plans (recordings themselves are not deleted)"
-msgstr ""
+msgstr "Geplante Aufnahmen (die Aufnahmen selbst werden nicht gelöscht)"
 
 #. Translators: Title of the clean-up dialog opened from freeAudio's settings.
 #: addon\globalPlugins\freeAudio\resetDialog.py:269
 msgid "Reset settings / delete saved data"
-msgstr ""
+msgstr "Einstellungen zurücksetzen / gespeicherte Daten löschen"
 
 #. Translators: Added after a clean-up item's name when there is nothing saved for it.
 #: addon\globalPlugins\freeAudio\resetDialog.py:286
 msgid "nothing saved"
-msgstr ""
+msgstr "nichts gespeichert"
 
 #. Translators: Label of the check list in the clean-up dialog.
 #: addon\globalPlugins\freeAudio\resetDialog.py:291
 msgid "Select what to reset or delete (nothing is selected by default):"
 msgstr ""
+"Auswählen, was zurückgesetzt oder gelöscht werden soll (standardmäßig ist "
+"nichts ausgewählt):"
 
 #. Translators: Note in the clean-up dialog.
 #: addon\globalPlugins\freeAudio\resetDialog.py:298
 msgid "Recordings and liked songs are never touched by this."
-msgstr ""
+msgstr "Aufnahmen und Lieblingstitel bleiben dabei in jedem Fall unberührt."
 
 #. Translators: Button in the clean-up dialog; checks every item.
 #: addon\globalPlugins\freeAudio\resetDialog.py:303
 msgid "Select &all"
-msgstr ""
+msgstr "Alle aus&wählen"
 
 #. Translators: Button in the clean-up dialog; resets/deletes the checked items.
 #: addon\globalPlugins\freeAudio\resetDialog.py:306
 msgid "&Reset / delete selected"
-msgstr ""
+msgstr "Ausgewählte &zurücksetzen / löschen"
 
 #. Translators: Button in the clean-up dialog; closes it without doing anything.
 #. Translators: 'Cancel' button label on the update-available dialog, paired with whichever install/open-page label is used as the other button.
@@ -4205,7 +4215,7 @@ msgstr "&Abbrechen"
 #. Translators: Shown in the clean-up dialog when the reset/delete button is pressed with nothing checked.
 #: addon\globalPlugins\freeAudio\resetDialog.py:343
 msgid "Nothing is selected."
-msgstr ""
+msgstr "Es ist nichts ausgewählt."
 
 #. Translators: Confirmation in the clean-up dialog. {items} is the list of checked items, one per line.
 #: addon\globalPlugins\freeAudio\resetDialog.py:355
@@ -4216,6 +4226,12 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Folgendes wird zurückgesetzt oder gelöscht. Das lässt sich nicht rückgängig "
+"machen.\n"
+"\n"
+"{items}\n"
+"\n"
+"Fortfahren?"
 
 #. Translators: Shown after the clean-up when some items could not be removed. {items} is the list, one per line.
 #: addon\globalPlugins\freeAudio\resetDialog.py:372
@@ -4225,11 +4241,15 @@ msgid ""
 "\n"
 "{items}"
 msgstr ""
+"Fertig, bis auf Folgendes, das sich nicht entfernen ließ (möglicherweise ist "
+"eine Datei in Benutzung):\n"
+"\n"
+"{items}"
 
 #. Translators: Shown after the clean-up finished without problems.
 #: addon\globalPlugins\freeAudio\resetDialog.py:379
 msgid "Done."
-msgstr ""
+msgstr "Fertig."
 
 #. Translators: Added to the clean-up result when settings were reset.
 #: addon\globalPlugins\freeAudio\resetDialog.py:384
@@ -4238,6 +4258,10 @@ msgid ""
 "will not be saved. Restarting NVDA is recommended so every setting takes "
 "effect."
 msgstr ""
+"Die Einstellungen wurden zurückgesetzt. Änderungen, die zuvor auf der "
+"freeAudio-Einstellungsseite vorgenommen wurden, werden nicht gespeichert. "
+"Ein Neustart von NVDA wird empfohlen, damit alle Einstellungen wirksam "
+"werden."
 
 #. Translators: Checkbox label for the time-shift/rewind feature setting.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:89
@@ -4480,7 +4504,7 @@ msgstr "Aufnahmeordner:"
 #. Translators: Grey hint under the recordings-folder field explaining what happens if it's left empty.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:446
 msgid "(empty = default: Documents\\freeAudio Recordings)"
-msgstr ""
+msgstr "(leer = Standard: Dokumente\\freeAudio Recordings)"
 
 #. Translators: Button label; opens a folder-picker to choose the recordings folder.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:450
@@ -4579,6 +4603,7 @@ msgstr "&Jetzt nach Updates suchen"
 #: addon\globalPlugins\freeAudio\settingsPanel.py:631
 msgid "&Clean up: reset settings and delete saved data..."
 msgstr ""
+"Auf&räumen: Einstellungen zurücksetzen und gespeicherte Daten löschen..."
 
 #. Translators: Title of the file-picker dialog for choosing ffmpeg.exe.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:763
@@ -4755,12 +4780,15 @@ msgstr ""
 msgid ""
 "Fine rewind: 1 second (time-shift buffer, podcast, audiobook or jukebox)"
 msgstr ""
+"Fein zurückspringen: 1 Sekunde (Timeshift-Puffer, Podcast, Hörbuch oder "
+"Jukebox)"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+Alt+K); fine fast-forward by 1 second.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:412
 msgid ""
 "Fine forward: 1 second (time-shift buffer, podcast, audiobook or jukebox)"
 msgstr ""
+"Fein vorspringen: 1 Sekunde (Timeshift-Puffer, Podcast, Hörbuch oder Jukebox)"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+T); toggles the time-shift buffer feature on/off.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:424
@@ -5188,6 +5216,8 @@ msgstr "Dieses Hörbuch ließ sich nicht herunterladen."
 #: addon\globalPlugins\freeAudio\__init__.py:1172
 msgid "This station uses a special playback mode to prevent stuttering."
 msgstr ""
+"Dieser Sender läuft in einem besonderen Wiedergabemodus, damit die "
+"Wiedergabe nicht ruckelt."
 
 #. Translators: Spoken when a station's connection attempt fails outright, so the user isn't left thinking it's silently playing; %(name)s is the station name, %(reason)s is a short failure description.
 #: addon\globalPlugins\freeAudio\__init__.py:1188
@@ -5441,6 +5471,91 @@ msgid ""
 "this once per station per session, and the announcement follows **Mute "
 "notifications**.\n"
 msgstr ""
+"\n"
+"## Änderungen in 2026.25.2\n"
+"\n"
+"### Neu\n"
+"- **Lesezeichen.** Die aktuelle Position eines Hörbuchteils, einer Podcast-"
+"Folge oder eines Jukebox-Titels lässt sich als Lesezeichen setzen und später "
+"wieder anspringen.\n"
+"  - **Setzen.** `Strg+Windows+F12` setzt ein Lesezeichen von überall in "
+"Windows, `F12` tut dasselbe im Senderbrowser. Als Standardname erhält ein "
+"Lesezeichen seine Nummer in der Reihenfolge der Positionen („Lesezeichen 1“, "
+"„Lesezeichen 2“ usw.).\n"
+"  - **Notizen.** Jedes Lesezeichen kann eine Textnotiz und/oder eine "
+"aufgenommene Sprachnotiz tragen.\n"
+"  - **Erreichen eines Lesezeichens.** Erreicht die Wiedergabe ein "
+"Lesezeichen, erklingen zwei kurze Signaltöne. Hat das Lesezeichen eine "
+"Notiz, hält die Wiedergabe an, NVDA spricht den Text, die Sprachnotiz wird "
+"abgespielt, danach geht die Wiedergabe an derselben Stelle weiter.\n"
+"  - **Lesezeichenliste.** Neben der Folgenliste der Podcasts, der "
+"Hörbuchbibliothek (alle Teile des ausgewählten Buchs) und der Titelliste der "
+"Jukebox steht jeweils eine Liste der Lesezeichen. Mit `.` lassen sich "
+"Einträge markieren. Das Kontextmenü bietet: ab Lesezeichen wiedergeben, "
+"umbenennen, markierte löschen, Text hinzufügen oder bearbeiten, Sprachnotiz "
+"hinzufügen, Notizen entfernen, zwischen markierten Lesezeichen wiederholen "
+"und Wiederholung beenden.\n"
+"  - **Wiederholen.** „Zwischen markierten Lesezeichen wiederholen“ spielt "
+"den Abschnitt zwischen dem frühesten und dem spätesten markierten "
+"Lesezeichen in Schleife.\n"
+"  - **Notizen beim Abspielen.** „Ab Lesezeichen wiedergeben“ spricht jetzt "
+"zuerst die Textnotiz und spielt die Sprachnotiz ab und startet dann die "
+"Wiedergabe an dieser Position.\n"
+"  - **Zeilen bei Hörbüchern.** Die Zeilen lauten jetzt „Lesezeichenname — "
+"Zeit — Teil“, der Buchname wird nicht mehr wiederholt.\n"
+"  - **Tasten in den Listen.** `←`, `→`, `Umschalt+←`, `Umschalt+→`, `Bild "
+"auf` und `Bild ab` funktionieren in den Lesezeichenlisten aller drei "
+"Registerkarten genauso wie in den Eintragslisten.\n"
+"  - **Aufräumen.** Der Aufräumdialog kann alle Lesezeichen samt ihren "
+"Sprachnotizen löschen.\n"
+"- **Feines Springen (1 Sekunde).** `Strg+Windows+Alt+J` und "
+"`Strg+Windows+Alt+K` springen 1 Sekunde zurück oder vor, beim Live-Timeshift "
+"ebenso wie bei Podcasts, Hörbüchern und Jukebox-Titeln. `Alt+←` und `Alt+→` "
+"tun dasselbe im Senderbrowser.\n"
+"- **Alle Titel aufnehmen.** Dreimaliges Drücken von `Strg+Windows+E` nimmt "
+"fortlaufend auf und beginnt bei jedem Titelwechsel eine neue Datei, bis die "
+"Aufnahme gestoppt wird.\n"
+"  - **Angefangene Titel.** Der erste und der letzte Titel werden mit "
+"„(partial)“ im Dateinamen gespeichert.\n"
+"  - **Kurze Stücke.** Stücke unter 15 Sekunden (Jingles, kurz aufblitzende "
+"Titel) werden verworfen.\n"
+"  - **Grenzen.** Das funktioniert nicht bei HLS-Sendern und nicht bei "
+"Sendern ohne im Stream mitgesendete Titelangaben. Ein Anhalten der "
+"Wiedergabe oder ein Senderwechsel beendet die Aufnahme nicht.\n"
+"  - **Zweimal drücken.** Zweimaliges Drücken nimmt weiterhin den aktuellen "
+"Titel auf, startet jetzt aber etwa 350 ms nach dem zweiten Druck, damit ein "
+"dritter Druck die Bedeutung der Tastenfolge noch ändern kann.\n"
+"- **Aufräumdialog.** Eine neue Schaltfläche **Aufräumen: Einstellungen "
+"zurücksetzen und gespeicherte Daten löschen...** auf der Einstellungsseite "
+"setzt Einstellungen zurück und löscht gespeicherte Daten. Das umfasst "
+"Favoriten, Podcast-Abos, Hörbuchbibliotheken, GETEM-Anmeldedaten, die "
+"Jukebox-Liste, Fortsetzungspositionen, Lesezeichen, Timer, geplante "
+"Aufnahmen und mehr. Standardmäßig ist nichts ausgewählt, und das Löschen "
+"verlangt eine zweite Bestätigung. Aufnahmen und Lieblingstitel bleiben immer "
+"unberührt.\n"
+"\n"
+"### Behoben\n"
+"- **Titelaufnahmen enthielten den Anfang des nächsten Titels.** Aufnahmen "
+"enden jetzt genau an der Stelle, an der der Sender einen neuen Titel meldet. "
+"Stopp-Anforderungen greifen sofort, was auch Sofortaufnahmen zugutekommt. "
+"Die alte Titelabfrage alle 5 Sekunden bleibt als Rückfall für Streams ohne "
+"mitgesendete Metadaten erhalten, etwa bei HLS.\n"
+"- **Musikerkennung schlug bei manchen Sendern fehl.**\n"
+"  - **HTTP 403 bei HLS.** ffmpeg meldet sich jetzt mit einem VLC-User-Agent "
+"und versucht es mit dem eines Browsers erneut, wenn der Server mit 401 oder "
+"403 antwortet. HLS-Playlist-Adressen mit Abfrageparametern werden korrekt "
+"erkannt.\n"
+"  - **Zeitüberschreitungen bei SHOUTcast-`.nsv`.** Bei Streams, die kein HLS "
+"sind, nimmt freeAudio selbst eine kurze Hörprobe auf und lässt ffmpeg diese "
+"Datei auswerten. Bei `.nsv`-Adressen geschieht das von vornherein, sonst als "
+"Rückfall, wann immer das direkte Lesen fehlschlägt.\n"
+"  - **Fehlermeldungen.** Schlagen beide Versuche fehl, nennt die Meldung den "
+"Grund für jeden davon.\n"
+"- **Ruckelnde Wiedergabe der HLS-Sender von ABC (Australien).** Diese Sender "
+"laufen jetzt über einen kleinen lokalen Kompatibilitätsserver, der das Audio "
+"in eine für BASS lesbare Form umverpackt. Das Audio selbst wird nicht neu "
+"codiert. NVDA sagt das einmal pro Sender und Sitzung an, und die Ansage "
+"richtet sich nach **Meldungen stummschalten**.\n"
 
 #~ msgid ""
 #~ "\n"

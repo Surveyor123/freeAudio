@@ -6,9 +6,10 @@ freeAudio ist ein vollwertiges Add-on für Internetradio, Podcasts, Hörbücher 
 
 - **Internetradio** — Über 50.000 Sender aus dem Verzeichnis von [Radio Browser](https://www.radio-browser.info/) durchstöbern und durchsuchen, ergänzt um Treffer von TuneIn und iHeartRadio. Favoriten speichern, neu anordnen und von überall in Windows per globalem Tastenbefehl direkt aufrufen — siehe [Das Verzeichnis von Radio Browser](#radio-browser-directory) und [Favoriten](#favourites).
 - **Podcasts** — Beliebige RSS- oder Atom-Feeds abonnieren oder das Podcast-Verzeichnis von Apple durchsuchen und Folgen schon vor dem Abonnieren anhören. Die Wiedergabeposition wird automatisch gespeichert, das Hören geht an der zuletzt gehörten Stelle weiter — siehe [Podcasts](#podcasts).
-- **Hörbücher** — Bücher aus drei Quellen suchen, streamen oder herunterladen: [GETEM](https://getem.boun.edu.tr/), die digitale Bibliothek der Boğaziçi-Universität für blinde und sehbehinderte Menschen, [LibriVox](https://librivox.org/), das von Freiwilligen eingelesene Hörbuchprojekt mit gemeinfreien Werken, und die Project Gutenberg Open Audiobook Collection — die beiden letzteren ganz ohne Konto —, mit automatischem Fortsetzen über mehrteilige Werke hinweg — siehe [Hörbücher (GETEM, LibriVox und Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg).
+- **Hörbücher** — Bücher aus drei Quellen suchen, streamen und herunterladen: [GETEM](https://getem.boun.edu.tr/), die digitale Bibliothek der Boğaziçi-Universität für blinde und sehbehinderte Menschen; [LibriVox](https://librivox.org/), das von Freiwilligen eingelesene Hörbuchprojekt mit gemeinfreien Werken; und die Project Gutenberg Open Audiobook Collection. LibriVox und Project Gutenberg brauchen kein Konto. Mehrteilige Werke laufen automatisch an der zuletzt gehörten Stelle weiter — siehe [Hörbücher (GETEM, LibriVox und Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg).
 - **Lokale Jukebox** — Auf allen angeschlossenen Laufwerken nach Audiodateien suchen oder eine eigene Bibliothek aus Dateien und Ordnern anlegen und diese mit denselben Werkzeugen zum Fortsetzen, Springen, für Tempo und Tonhöhe abspielen, die auch Podcasts und Hörbücher nutzen — siehe [Lokale Jukebox](#local-jukebox).
-- **Aufnehmen** — Das Laufende sofort mitschneiden, einen einzelnen Titel automatisch von Anfang bis Ende aufnehmen oder einmalige und wiederkehrende Aufnahmen planen — alles, ohne die Wiedergabe zu unterbrechen — siehe [Aufnehmen](#recording).
+- **Lesezeichen** — An der aktuellen Position eines Hörbuchteils, einer Podcast-Folge oder eines Jukebox-Titels ein Lesezeichen setzen und später dorthin zurückspringen. Ein Lesezeichen kann eine Textnotiz oder eine aufgenommene Sprachnotiz tragen, die beim Erreichen abgespielt wird, und mit zwei Lesezeichen lässt sich der Abschnitt dazwischen wiederholen — siehe [Lesezeichen](#bookmarks).
+- **Aufnehmen** — Das Laufende sofort mitschneiden, einen einzelnen Titel von Anfang bis Ende aufnehmen, jeden Titel eines Senders bis zum Stoppen in eine eigene Datei aufnehmen oder einmalige und wiederkehrende Aufnahmen planen — alles, ohne die Wiedergabe zu unterbrechen — siehe [Aufnehmen](#recording).
 - **Timeshift (Live-Radio zurückspulen)** — Einen laufenden Sender wie mit einem Festplattenrekorder anhalten und zurückspulen und jederzeit wieder zum Live-Signal aufschließen — siehe [Timeshift (Live-Radio zurückspulen)](#time-shift-rewind-live-radio).
 - **Musikerkennung und Lieblingstitel** — Titel ohne Metadaten per Shazam-Erkennung bestimmen, Lieblingstitel in einer Textdatei sammeln und deren Songtexte nachschlagen — siehe [Musikerkennung](#music-recognition) und [Lieblingstitel](#liked-songs).
 - **Audioprofile und Effekte** — Lautstärke, Effekte, EQ und Wiedergabetempo je Sender, je Podcast, je Hörbuch oder je Jukebox-Titel getrennt speichern und Effekte in Echtzeit anwenden (Chorus, Hall, EQ-Anhebungen und mehr), bereitgestellt vom BASS-Backend — siehe [Audioprofil für einen Sender](#station-audio-profile).
@@ -72,13 +73,16 @@ Einige dieser Tastenbefehle überschneiden sich mit solchen, die Windows selbst 
 | `Strg+Windows+Umschalt+J` | Langsamer abspielen | Verringert das Wiedergabetempo einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels um 0,1×. |
 | `Umschalt+Windows+K` | Tonhöhe anheben | Hebt die Tonhöhe einer Podcast-Folge, eines Hörbuchs oder eines Jukebox-Titels in Schritten von 1/8 Ganzton (0,25 Halbtöne) an, ohne das Tempo zu ändern. Bereich: −12,00 bis +12,00 Halbtöne. Siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift). |
 | `Umschalt+Windows+J` | Tonhöhe absenken | Senkt die Tonhöhe in Schritten von 1/8 Ganzton ab, ohne das Tempo zu ändern. |
-| `Strg+Windows+I` | Senderinfo | Sagt den Namen des laufenden Senders, der Podcast-Folge, des Hörbuchs oder des Jukebox-Titels an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. |
+| `Strg+Windows+F12` | Lesezeichen setzen | Setzt ein Lesezeichen an der aktuellen Wiedergabeposition eines Hörbuchteils, einer Podcast-Folge oder eines Jukebox-Titels. Bei Live-Radiosendern nicht verfügbar. Siehe [Lesezeichen](#bookmarks). |
+| `Strg+Windows+I` | Senderinfo | Sagt den Namen des laufenden Senders, der Podcast-Folge, des Hörbuchs oder des Jukebox-Titels an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. Läuft gerade eine Aufnahme, wird auch deren Name angesagt; bei einer Aufnahme aller Titel ist das der Titel, der gerade aufgenommen wird. |
 | `Strg+Windows+M` | Audio-Spiegelung | Gibt den laufenden Stream bzw. das laufende Medium zusätzlich auf einem weiteren Audiogerät aus. Erneut gedrückt, beendet es die Spiegelung. |
 | `Strg+Windows+Umschalt+M` | Obligato-Modus (Hintergrundmusik) | Lässt einen ausgewählten Lieblingssender leise im Hintergrund laufen, mit eigenem Ausgabegerät und eigener Lautstärke, unabhängig vom Hauptmedium. Beim ersten Druck öffnet sich ein Dialog zur Wahl von Sender, Ausgabegerät und relativer Lautstärke. Erneut gedrückt, beendet es den Modus. |
-| `Strg+Windows+E` | Sofortaufnahme | Einmal gedrückt, startet die Aufnahme des laufenden Senders; erneut gedrückt, beendet sie. **Zweimal** gedrückt, startet eine **Titelaufnahme** — die Datei wird nach dem laufenden Titel benannt und die Aufnahme endet automatisch beim Titelwechsel. Erneutes zweimaliges Drücken beendet eine laufende Titelaufnahme vorzeitig. Die Wiedergabe läuft in allen Aufnahmearten ununterbrochen weiter. Nur bei Sendern verfügbar, die ICY-Metadaten senden. |
+| `Strg+Windows+E` | Aufnahme (sofort / Titel / alle Titel) | Einmal gedrückt, startet die Aufnahme des laufenden Senders; erneut gedrückt, beendet sie. **Zweimal** gedrückt, nimmt es den **aktuellen Titel** auf: Die Datei wird nach dem Titel benannt, und die Aufnahme endet von selbst beim Titelwechsel. **Dreimal** gedrückt, nimmt es **alle Titel** bis zum Stoppen auf: Jeder Titel landet in einer eigenen Datei. Zweimaliges Drücken während einer laufenden Titelaufnahme oder Aufnahme aller Titel beendet sie. Die Wiedergabe läuft in allen Aufnahmearten ununterbrochen weiter. Titelaufnahme und Aufnahme aller Titel funktionieren nur bei Sendern, die Titelangaben (ICY-Metadaten) im Stream mitsenden, und die Aufnahme aller Titel funktioniert nicht bei HLS-Sendern (`.m3u8`). Siehe [Aufnehmen](#recording). |
 | `Strg+Windows+W` | Aufnahmeordner öffnen | Öffnet den Ordner mit den aufgenommenen Dateien im Explorer. |
 | `Strg+Windows+J` | Timeshift zurück / in Podcast, Hörbuch und Jukebox zurückspringen | Beim Live-Radio: 15 Sekunden zurück. Der erste Druck aktiviert den Timeshift-Modus, jeder weitere geht 15 Sekunden weiter zurück, bis die in den freeAudio-Einstellungen festgelegte Puffergrenze erreicht ist. Setzt voraus, dass der Timeshift-Puffer in den Einstellungen aktiviert ist. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel springt diese Taste stattdessen innerhalb der Datei, und zwar abgestuft nach Art des Drückens: **gedrückt gehalten** geht es pro Wiederholung 5 Sekunden zurück, genau wie bisher; ein **einzelner bewusster Tastendruck** springt 12 Sekunden zurück; **zwei Tastendrücke** kurz hintereinander 1 Minute; **drei oder mehr** 5 Minuten. Pro Tastenfolge erfolgt nur ein Sprung, dessen Weite sich aus der Zahl der Tastendrücke ergibt — sie addieren sich nicht. Funktioniert unabhängig von der Timeshift-Einstellung. |
 | `Strg+Windows+K` | Timeshift vor / in Podcast, Hörbuch und Jukebox vorspringen | Beim Live-Radio: 15 Sekunden vor, solange die Wiedergabe zeitversetzt läuft. Ist das Live-Signal erreicht, kehrt die Wiedergabe automatisch dorthin zurück und die Taste bleibt wirkungslos, bis wieder zurückgespult wird. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel springt sie innerhalb der Datei vorwärts, mit derselben Abstufung wie `Strg+Windows+J` (gehalten = 5 Sekunden pro Wiederholung; 1 Druck = 12 Sekunden; 2 Drücke = 1 Minute; ab 3 Drücken = 5 Minuten). Funktioniert unabhängig von der Timeshift-Einstellung. |
+| `Strg+Windows+Alt+J` | Fein zurückspringen (1 Sekunde) | Springt genau 1 Sekunde zurück, für kleine Korrekturen. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel geht es in der Datei 1 Sekunde zurück; beim Live-Radio 1 Sekunde zurück im Timeshift-Puffer (der Timeshift-Puffer muss aktiviert sein, und der erste Druck startet wie `Strg+Windows+J` den Timeshift-Modus). Siehe [Feines Springen (1 Sekunde)](#fine-seeking-1-second). |
+| `Strg+Windows+Alt+K` | Fein vorspringen (1 Sekunde) | Springt genau 1 Sekunde vor. Bei einer Podcast-Folge, einem Hörbuch oder einem Jukebox-Titel geht es in der Datei 1 Sekunde vor; beim Live-Radio 1 Sekunde vor, solange die Wiedergabe zeitversetzt läuft. Siehe [Feines Springen (1 Sekunde)](#fine-seeking-1-second). |
 | `Strg+Windows+T` | Timeshift-Puffer umschalten | Aktiviert oder deaktiviert den Timeshift-Puffer im laufenden Betrieb, entsprechend dem Kontrollfeld in den Einstellungen. Beim Deaktivieren kehrt eine zeitversetzte Wiedergabe sofort zum Live-Signal zurück und die Hintergrundaufzeichnung endet. Ohne Wirkung auf Podcasts, Hörbücher und Jukebox-Titel. |
 | *(nicht belegt)* | Ausgabegerät wählen | Öffnet bei Bedarf eine Liste der verfügbaren Haupt-Ausgabegeräte. Die Liste erscheint nur, wenn BASS mehr als ein physisches Ausgabegerät erkennt. Ein Tastenbefehl lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen. |
 | *(nicht belegt)* | Meldungen stummschalten | Schaltet die Einstellung „Meldungen stummschalten“ im laufenden Betrieb um. Ein Tastenbefehl lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen. |
@@ -90,7 +94,7 @@ Die Tastenbefehle für den nächsten und vorherigen Sender bewegen sich nur durc
 
 freeAudio ergänzt das Menü „Werkzeuge“ von NVDA außerdem um ein Untermenü **freeAudio**. Von dort lassen sich der Senderbrowser und die freeAudio-Einstellungen direkt öffnen.
 
-Das mit `Strg+Windows+R` geöffnete Fenster enthält acht Registerkarten: Alle Sender, Favoriten, Aufnahme, Timer, Lieblingstitel, Podcasts, Hörbücher und Jukebox. Zwischen ihnen wird mit `Strg+Tabulator` oder mit `Alt+1` bis `Alt+8` gewechselt.
+Das mit `Strg+Windows+R` geöffnete Fenster enthält acht Registerkarten: Alle Sender, Favoriten, Aufnahme, Timer, Lieblingstitel, Podcasts, Hörbücher und Jukebox. Zwischen ihnen wird mit `Strg+Tabulator` oder mit `Alt+1` bis `Alt+8` gewechselt. Die Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ lassen sich über die Einstellung **Module** abschalten (siehe [Einstellungen](#settings)); abgeschaltete Registerkarten werden nicht angezeigt.
 
 Beim Öffnen der Registerkarte „Alle Sender“ werden automatisch die 1.000 am besten bewerteten Sender von Radio Browser geladen. Die Wahl eines Landes in der Auswahlliste zeigt die Sender dieses Landes. Eine Eingabe im Suchfeld durchsucht unmittelbar die gesamte Radio-Browser-Datenbank, und zwar Name, Land und Genre gleichzeitig.
 
@@ -129,7 +133,7 @@ Die folgenden Tasten wirken nur bei aktivem Senderbrowser-Fenster.
 | Tastenbefehl | Funktion | Beschreibung |
 |---|---|---|
 | `F1` | Hilfe | Öffnet die Hilfedatei des Add-ons im Standardbrowser. Zuerst wird die Fassung für die aktive NVDA-Sprache gesucht; ist keine vorhanden, öffnet sich die Standardfassung. |
-| `F2` | Was läuft gerade | Sagt den laufenden Sender und den Titelnamen an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. |
+| `F2` | Was läuft gerade | Sagt den laufenden Sender und den Titelnamen an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. Läuft gerade eine Aufnahme, wird auch deren Name angesagt. |
 | `F3` | Vorheriger Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum vorherigen Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge der Folgenliste und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
 | `F4` | Nächster Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum nächsten Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum nächsten Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
 | `Umschalt+F3` | Vorheriger Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach oben. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Teil des laufenden Buchs. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag (Datei oder Ordner) nach oben. |
@@ -140,17 +144,20 @@ Die folgenden Tasten wirken nur bei aktivem Senderbrowser-Fenster.
 | `F8` | Stopp | Beendet den laufenden Sender vollständig und setzt den Player zurück. |
 | `F9` | Umbenennen | Öffnet den Umbenennen-Dialog für den fokussierten Sender auf der Registerkarte „Favoriten“. |
 | `F11` | Ausgabegerät wählen | Öffnet die Auswahl des Haupt-Ausgabegeräts, sofern BASS mehr als ein physisches Ausgabegerät erkennt. Das aktuelle Gerät ist vorausgewählt; die Eingabetaste übernimmt und speichert die Wahl. |
+| `F12` | Lesezeichen setzen | Setzt ein Lesezeichen an der aktuellen Wiedergabeposition eines Hörbuchteils, einer Podcast-Folge oder eines Jukebox-Titels — die Entsprechung zu `Strg+Windows+F12` innerhalb des Fensters. Siehe [Lesezeichen](#bookmarks). |
 
 #### Tastenbefehle für Listen und Navigation
 
 | Tastenbefehl | Funktion | Beschreibung |
 |---|---|---|
-| `→` | Nächster Eintrag / Vorspringen | In einer Senderliste („Alle Sender“ / „Favoriten“): wechselt zum nächsten Sender und spielt ihn sofort ab; am Ende der Liste geht es wieder von vorn los. In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: springt stattdessen vor, solange etwas geladen ist und läuft — wie der globale Befehl `Strg+Windows+K` (siehe „Abgestuftes Springen“). Speziell in der Folgenliste der Podcasts: Ist noch nichts geladen, wechselt es ersatzweise zur nächsten Folge und spielt sie ab. |
-| `←` | Vorheriger Eintrag / Zurückspringen | In einer Senderliste: wechselt zum vorherigen Sender und spielt ihn ab; am Anfang springt es ans Ende. In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: springt stattdessen zurück, solange etwas geladen ist und läuft — wie der globale Befehl `Strg+Windows+J`. In der Folgenliste der Podcasts: Ist noch nichts geladen, wechselt es ersatzweise zur vorherigen Folge und spielt sie ab. |
-| `Umschalt+→` | Tonhöhe anheben | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: hebt die Tonhöhe der laufenden Wiedergabe an, wie der globale Befehl `Umschalt+Windows+K`. |
-| `Umschalt+←` | Tonhöhe absenken | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: senkt die Tonhöhe der laufenden Wiedergabe ab, wie der globale Befehl `Umschalt+Windows+J`. |
-| `Bild auf` | Schneller abspielen | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: erhöht das Wiedergabetempo, wie der globale Befehl `Strg+Windows+Umschalt+K`. |
-| `Bild ab` | Langsamer abspielen | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“: verringert das Wiedergabetempo, wie der globale Befehl `Strg+Windows+Umschalt+J`. |
+| `→` | Nächster Eintrag / Vorspringen | In einer Senderliste („Alle Sender“ / „Favoriten“): wechselt zum nächsten Sender und spielt ihn sofort ab; am Ende der Liste geht es wieder von vorn los. In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ (und in der Lesezeichenliste darunter): springt stattdessen vor, solange etwas geladen ist und läuft — wie der globale Befehl `Strg+Windows+K` (wie Antippen und Halten die Schrittweite ändern, steht unter [Details zur Podcast-Wiedergabe](#podcast-playback-details)). Speziell in der Folgenliste der Podcasts: Ist noch nichts geladen, wechselt es ersatzweise zur nächsten Folge und spielt sie ab. |
+| `←` | Vorheriger Eintrag / Zurückspringen | In einer Senderliste: wechselt zum vorherigen Sender und spielt ihn ab; am Anfang springt es ans Ende. In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ (und in der Lesezeichenliste darunter): springt stattdessen zurück, solange etwas geladen ist und läuft — wie der globale Befehl `Strg+Windows+J`. In der Folgenliste der Podcasts: Ist noch nichts geladen, wechselt es ersatzweise zur vorherigen Folge und spielt sie ab. |
+| `Umschalt+→` | Tonhöhe anheben | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ und deren Lesezeichenlisten: hebt die Tonhöhe der laufenden Wiedergabe um einen Schritt (0,25 Halbtöne) an, wie der globale Befehl `Umschalt+Windows+K`. |
+| `Umschalt+←` | Tonhöhe absenken | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ und deren Lesezeichenlisten: senkt die Tonhöhe der laufenden Wiedergabe um einen Schritt (0,25 Halbtöne) ab, wie der globale Befehl `Umschalt+Windows+J`. |
+| `Bild auf` | Schneller abspielen | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ und deren Lesezeichenlisten: erhöht das Wiedergabetempo, wie der globale Befehl `Strg+Windows+Umschalt+K`. |
+| `Bild ab` | Langsamer abspielen | In den Listen der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ und deren Lesezeichenlisten: verringert das Wiedergabetempo, wie der globale Befehl `Strg+Windows+Umschalt+J`. |
+| `Alt+→` | Fein vorspringen (1 Sekunde) | Auf jeder Registerkarte des Senderbrowsers, solange etwas geladen ist: springt genau 1 Sekunde vor, wie der globale Befehl `Strg+Windows+Alt+K`. Siehe [Feines Springen (1 Sekunde)](#fine-seeking-1-second). |
+| `Alt+←` | Fein zurückspringen (1 Sekunde) | Auf jeder Registerkarte des Senderbrowsers, solange etwas geladen ist: springt genau 1 Sekunde zurück, wie der globale Befehl `Strg+Windows+Alt+J`. |
 | `Strg+→` | Nächste Folge / nächstes Buch / nächster Titel | Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“ (Fokus auf der Bibliotheksliste): wechselt zum nächsten Buch. Auf der Registerkarte „Jukebox“ (Fokus auf der Eintrags- oder der Titelliste): wechselt zum nächsten Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
 | `Strg+←` | Vorherige Folge / vorheriges Buch / vorheriger Titel | Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
 | `Eingabetaste` | Abspielen / Hinzufügen | In einer Sender- oder Folgenliste: startet den ausgewählten Eintrag sofort. In den Suchergebnissen der Registerkarte „Jukebox“: nimmt die ausgewählte Datei in die Jukebox auf. In der Eintrags- oder Titelliste der Registerkarte „Jukebox“: spielt den fokussierten Eintrag direkt ab. |
@@ -219,6 +226,8 @@ Favoriten, Lieblingstitel, die Hörbuchbibliothek und die Jukebox-Liste erlauben
 
 Markierungen gelten jeweils für eine Liste und verschwinden, sobald die Einträge entfernt (oder einzeln wieder entmarkiert) werden; zwischen zwei Sitzungen bleiben sie nicht erhalten.
 
+Die Lesezeichenlisten der Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ verwenden dasselbe Markieren mit `.`, und auf die markierten Lesezeichen wirken die Befehle **Markierte löschen** und **Zwischen markierten Lesezeichen wiederholen** — siehe [Lesezeichen](#bookmarks).
+
 ### Favoriten exportieren und importieren
 
 Die Registerkarte „Favoriten“ enthält zwei Schaltflächen zum Sichern und Wiederherstellen der Senderliste:
@@ -282,9 +291,11 @@ Beide Schaltflächen sitzen unterhalb der Favoritenliste und werden erst aktiv, 
 
 ## Musikerkennung
 
-Dreimaliges Drücken von `Strg+Windows+I` startet die Musikerkennung über Shazam für den laufenden Stream. Sie beginnt nur, wenn keine ICY-Metadaten vorliegen (also keine vom Sender mitgesendeten Titelinfos); liegen welche vor, werden sie stattdessen in die Zwischenablage kopiert.
+Dreimaliges Drücken von `Strg+Windows+I` startet die Musikerkennung über Shazam für den laufenden Stream. Sie beginnt nur, wenn keine ICY-Metadaten vorliegen (also keine vom Sender mitgesendeten Titelinfos); liegen welche vor, werden sie stattdessen in die Zwischenablage kopiert. Viermaliges Drücken von `Strg+Windows+I` erzwingt die Erkennung auch dann, wenn der Sender Metadaten schickt — hilfreich, wenn diese falsch sind.
 
-Der Ablauf: Aus dem Stream wird mit ffmpeg eine kurze Hörprobe entnommen, darauf der Fingerabdruck-Algorithmus von Shazam angewendet und das Ergebnis an die Shazam-Server geschickt. Gelingt die Erkennung, sagt NVDA Titel, Interpret, Album und Erscheinungsjahr an und kopiert alles automatisch in die Zwischenablage. Ist die Option **Lieblingstitel in einer Textdatei speichern** aktiv, wird das Ergebnis zusätzlich an `likedSongs.txt` angehängt.
+Der Ablauf: Aus dem Stream wird mit ffmpeg eine kurze Hörprobe entnommen (ffmpeg gibt sich dabei wie ein Medienplayer zu erkennen, damit auch Sender antworten, die unbekannte Programme abweisen), darauf der Fingerabdruck-Algorithmus von Shazam angewendet und das Ergebnis an die Shazam-Server geschickt. Gelingt die Erkennung, sagt NVDA Titel, Interpret, Album und Erscheinungsjahr an und kopiert alles automatisch in die Zwischenablage. Ist die Option **Lieblingstitel in einer Textdatei speichern** aktiv, wird das Ergebnis zusätzlich an `likedSongs.txt` angehängt.
+
+Kann ffmpeg den Stream nicht direkt lesen — etwa weil der Sender die Verbindung abweist oder weil die Stream-Adresse auf `.nsv` endet (typisch für SHOUTcast-Server), wodurch ffmpeg das Audioformat falsch erkennt —, nimmt freeAudio selbst eine kurze Hörprobe aus dem Stream auf und lässt ffmpeg stattdessen diese Datei auswerten. Das geschieht von selbst; eine Einstellung dafür gibt es nicht.
 
 **Akustische Rückmeldung:** Zwei aufsteigende Töne kündigen den Start der Erkennung an, zwei absteigende deren Ende. Während des Vorgangs erklingt alle 2 Sekunden ein kurzer Ton.
 
@@ -324,7 +335,7 @@ Ein erneutes `Strg+Windows+Umschalt+M` beendet den Obligato-Modus jederzeit.
 
 ## Aufnehmen
 
-Aufnahmen landen standardmäßig in `Dokumente\freeAudio Recordings\`. Der Dateiname enthält den Sendernamen (bei einer Titelaufnahme den Titel) und die Startzeit der Aufnahme. Der Aufnahmeordner lässt sich jederzeit unter NVDA-Menü → Optionen → Einstellungen → freeAudio → **Aufnahmeordner** ändern.
+Aufnahmen landen standardmäßig in `Dokumente\freeAudio Recordings\`. Der Dateiname enthält den Sendernamen (bei den Titelaufnahmen den Titel) und die Startzeit der Aufnahme. Der Aufnahmeordner lässt sich jederzeit unter NVDA-Menü → Optionen → Einstellungen → freeAudio → **Aufnahmeordner** ändern.
 
 Die Einstellung **Ausgabeformat der Aufnahme** bestimmt, wie fertige Aufnahmen gespeichert werden:
 
@@ -334,7 +345,16 @@ Die Einstellung **Ausgabeformat der Aufnahme** bestimmt, wie fertige Aufnahmen g
 
 **Sofortaufnahme:** Bei laufendem Sender einmal `Strg+Windows+E` drücken. Ein erneuter Druck beendet die Aufnahme. Die Wiedergabe läuft durchgehend weiter.
 
-**Titelaufnahme:** Bei einem Sender mit ICY-Metadaten **zweimal** kurz hintereinander `Strg+Windows+E` drücken. Die Aufnahme startet sofort und trägt den Namen des laufenden Titels. Beim Titelwechsel endet sie automatisch, und NVDA sagt den gespeicherten Dateinamen an. Soll sie schon vor dem Titelende enden, genügt erneutes zweimaliges `Strg+Windows+E`. Sendet der Sender keine ICY-Metadaten, ist die Titelaufnahme nicht möglich und NVDA weist darauf hin.
+**Titelaufnahme (aktueller Titel):** Bei einem Sender mit ICY-Metadaten **zweimal** kurz hintereinander `Strg+Windows+E` drücken. Die Aufnahme startet einen Moment nach dem zweiten Druck — freeAudio wartet kurz, falls noch ein dritter folgt — und trägt den Namen des laufenden Titels. Meldet der Sender den nächsten Titel, endet die Aufnahme an dieser Stelle, und NVDA sagt den gespeicherten Dateinamen an. Soll sie vorher enden, genügt erneutes zweimaliges `Strg+Windows+E`. Sendet der Sender keine ICY-Metadaten, ist die Titelaufnahme nicht möglich und NVDA weist darauf hin.
+
+**Alle Titel aufnehmen:** **Dreimal** kurz hintereinander `Strg+Windows+E` drücken, um jeden Titel des Senders bis zum Stoppen aufzunehmen. freeAudio hält dabei eine einzige Verbindung offen und beginnt bei jedem Titelwechsel eine neue Datei, sodass zwischen den Titeln nichts verloren geht. Jeder Titel wird als eigene Datei gespeichert, benannt nach dem Titel und seiner Startzeit. Zu Beginn sagt NVDA an, dass alle Titel aufgenommen werden, und nennt den aktuellen Titel. Zum Beenden zweimal `Strg+Windows+E` drücken; NVDA sagt an, wie viele Titel gespeichert wurden.
+
+Einige Einzelheiten zur Aufnahme aller Titel:
+
+- Der erste Titel (aufgenommen ab dem Tastendruck) und der letzte (beim Stoppen abgeschnitten) sind unvollständig, ihre Dateinamen enthalten daher **(partial)** — zum Beispiel `Interpret - Titel (partial) - 2026-10-09 10-15.mp3`.
+- Stücke unter 15 Sekunden — Jingles, Werbetrenner oder ein Titel, der zwischen zwei Angaben hin- und herspringt — werden verworfen statt gespeichert.
+- Der Sender muss seine Titelangaben im Audiostream selbst mitsenden (ICY-Metadaten). HLS-Sender (`.m3u8`) und Server, die Titel nicht auf diese Weise senden, lassen sich nicht in Titel aufteilen; NVDA weist darauf hin, und es wird nichts aufgenommen.
+- Während sie läuft, sagt `Strg+Windows+I` den Titel an, der gerade aufgenommen wird, nicht den, mit dem sie begonnen hat.
 
 **Geplante Aufnahme:** Die Registerkarte „Aufnahme“ im Browser öffnen. Einen Sender aus den Favoriten wählen, die Startzeit im Format HH:MM und die Dauer in Minuten eintragen, einen oder mehrere aktive Tage anhaken und schließlich Wiederholung und Aufnahmeart festlegen:
 
@@ -358,7 +378,7 @@ Ein angelegter Zeitplan erscheint in der Liste darunter. Die Schaltfläche **Aus
 
 NVDA meldet Beginn und Ende einer Aufnahme. Wird NVDA neu gestartet, während eine geplante Aufnahme läuft, setzt sie beim Start automatisch wieder ein.
 
-Wie die Musikerkennung greifen auch Sofort- und Titelaufnahme auf die bereits bestehende Hintergrundverbindung von freeAudio zurück, statt eine neue zu öffnen. So nimmt die Aufnahme selbst bei Sendern, die jeder neuen Verbindung zuerst Werbung vorspielen, das tatsächlich laufende Programm auf. Für geplante Aufnahmen der Art **Nur aufnehmen** gilt das nicht, da zu deren Startzeit kein Sender läuft.
+**So verbinden sich Aufnahmen:** Sofort-, Titel- und Alle-Titel-Aufnahmen öffnen eine eigene Verbindung zum Sender, statt das Gehörte abzugreifen. Eine Sofortaufnahme oder eine Aufnahme aller Titel läuft daher weiter, wenn die Wiedergabe angehalten oder auf einen anderen Sender gewechselt wird — sie bleibt bei dem Sender, mit dem sie begonnen hat. Ein Stopp der Wiedergabe mit `Strg+Windows+S` während einer laufenden Aufnahme verlangt vorher eine Bestätigung, weil er auch die Aufnahme beendet. Der Preis einer eigenen Verbindung: Ein Sender, der jeder neuen Verbindung zunächst einen kurzen Werbespot vorspielt, kann diesen Spot an den Anfang der Datei setzen.
 
 ## Timeshift (Live-Radio zurückspulen)
 
@@ -366,15 +386,15 @@ Timeshift erlaubt es, im gerade laufenden Sender zurückzuspulen — wie bei ein
 
 Die Funktion ist **standardmäßig deaktiviert**. Aktivieren lässt sie sich unter NVDA-Menü → Optionen → Einstellungen → freeAudio → **Timeshift-Puffer aktivieren (Live-Radio zurückspulen)** oder jederzeit sofort mit `Strg+Windows+T`.
 
-> **Hinweis:** freeAudio hält inzwischen dauerhaft eine kleine Hintergrundaufzeichnung des laufenden Senders vor — nicht nur bei aktivierter Einstellung —, weil [Musikerkennung](#music-recognition) und [Aufnehmen](#recording) beide darauf beruhen, um die in den jeweiligen Abschnitten beschriebene Werbung zu umgehen. Ist die Einstellung **aus**, umfasst diese Hintergrundaufzeichnung etwa die letzten 45 Sekunden, und `Strg+Windows+J` bzw. `Strg+Windows+K` bleiben ohne Wirkung — es ändert sich also nur die Puffergröße, nicht die Frage, ob überhaupt aufgezeichnet wird. Mit aktivierter Einstellung wächst dieselbe Aufzeichnung auf den unten beschriebenen vollen Rückspulpuffer.
+> **Hinweis:** freeAudio hält dauerhaft eine kleine Hintergrundaufzeichnung des laufenden Senders vor — nicht nur bei aktivierter Einstellung —, weil die [Musikerkennung](#music-recognition) darauf beruht, um die dort beschriebene Werbung zu umgehen. Ist die Einstellung **aus**, umfasst diese Hintergrundaufzeichnung etwa die letzten 45 Sekunden, und `Strg+Windows+J` bzw. `Strg+Windows+K` bleiben ohne Wirkung — es ändert sich also nur die Puffergröße, nicht die Frage, ob überhaupt aufgezeichnet wird. Mit aktivierter Einstellung wächst dieselbe Aufzeichnung auf den unten beschriebenen vollen Rückspulpuffer.
 
 ### So funktioniert es
 
-Ist die Funktion aktiv, zeichnet freeAudio den laufenden Sender fortlaufend in einen rollenden lokalen Puffer auf, unabhängig von der normalen Wiedergabe. Der Puffer umfasst grob die **letzten Minuten** an Audio; älteres Material fällt vorn automatisch heraus, sobald neues nachrückt. So enthält der Puffer stets „die jüngste Vergangenheit“ relativ zum Live-Signal.
-Die Pufferdauer wird in den Einstellungen festgelegt.
+Ist die Funktion aktiv, zeichnet freeAudio den laufenden Sender fortlaufend in einen rollenden lokalen Puffer auf, unabhängig von der normalen Wiedergabe. Der Puffer enthält das jüngste Audio, bis zu der in der Einstellung **Dauer des Timeshift-Puffers** festgelegten Länge; älteres Material fällt vorn automatisch heraus, sobald neues nachrückt. So enthält der Puffer stets „die jüngste Vergangenheit“ relativ zum Live-Signal.
 
 - **`Strg+Windows+J`** — 15 Sekunden zurück. Der erste Druck wechselt von der Live-Wiedergabe in die zeitversetzte Wiedergabe, beginnend 15 Sekunden hinter dem Live-Signal. Jeder weitere Druck geht 15 Sekunden weiter zurück, bis zur Puffergrenze.
 - **`Strg+Windows+K`** — 15 Sekunden vor, solange die Wiedergabe zeitversetzt läuft. Ist das Live-Signal erreicht, wechselt die Wiedergabe automatisch dorthin zurück, und NVDA meldet „Zurück beim Live-Signal“ — für das normale Weiterhören ist nichts weiter zu tun.
+- **`Strg+Windows+Alt+J`** / **`Strg+Windows+Alt+K`** — dasselbe Zurück- und Vorspulen, aber in Schritten von 1 Sekunde statt 15, für feine Anpassungen. Siehe [Feines Springen (1 Sekunde)](#fine-seeking-1-second).
 - **`Strg+Windows+T`** — schaltet die gesamte Funktion ein oder aus. Ein Ausschalten während zeitversetzter Wiedergabe führt sofort zum Live-Signal zurück und beendet die Hintergrundaufzeichnung für den laufenden Sender.
 
 Die Hintergrundaufzeichnung läuft während der gesamten zeitversetzten Wiedergabe weiter, das Live-Signal rückt also auch dann vor, wenn gerade etwas ein paar Minuten Älteres läuft — genau wie bei einem echten Festplattenrekorder.
@@ -397,7 +417,7 @@ Lässt sich die Playlist eines Senders im Ausnahmefall gar nicht lesen (etwa bei
 ### Voraussetzungen und Grenzen
 
 - **Setzt das BASS-Backend voraus**, das freeAudio für die Wiedergabe ohnehin immer verwendet (siehe [Wiedergabe](#playback)).
-- Die Pufferdauer wird in den Einstellungen festgelegt.
+- Die Länge des Puffers legt die Einstellung **Dauer des Timeshift-Puffers** fest — siehe [Einstellungen](#settings).
 - Der Puffer gilt jeweils für einen Sender: ein Senderwechsel, ein Stopp der Wiedergabe oder ein Neustart von NVDA leert ihn und beginnt von vorn.
 - Die zeitversetzte Wiedergabe nutzt eine eigene lokale Pufferdatei und erzeugt keine gespeicherte Aufnahme — soll das Audio dauerhaft erhalten bleiben, zusätzlich die Sofortaufnahme (`Strg+Windows+E`) verwenden.
 
@@ -425,7 +445,7 @@ Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Al
 
 1. **Suchen und hinzufügen** — der obere Bereich zum Entdecken neuer Podcasts, samt einer Vorschauliste mit den Folgen des gerade ausgewählten Suchtreffers.
 2. **Abos** — die Liste der abonnierten Feeds.
-3. **Folgen** — die Folgenliste des ausgewählten Feeds, mit den Bedienelementen für die Wiedergabe.
+3. **Folgen** — die Folgenliste des ausgewählten Feeds, mit den Bedienelementen für die Wiedergabe. Eine Liste **Lesezeichen** direkt darunter zeigt die Lesezeichen der ausgewählten Folge — siehe [Lesezeichen](#bookmarks).
 
 ### Einen Podcast-Feed hinzufügen
 
@@ -508,16 +528,28 @@ Eine Folge auswählen und die Schaltfläche **Folge herunterladen** verwenden (o
 
 ### Details zur Podcast-Wiedergabe
 
-Podcast-Folgen laufen über das **BASS-Backend** (dieselbe Engine wie bei Radiostreams und seit dieser Version das einzige Wiedergabe-Backend von freeAudio). Da Folgen fortlaufend geladen werden und spulbar sind, lassen sich die Timeshift-Tastenbefehle (`Strg+Windows+J`/`Strg+Windows+K`) auch bei einem Podcast zum Springen innerhalb der Folge nutzen. Die Position wird automatisch gespeichert, das Hören lässt sich also später fortsetzen.
+Podcast-Folgen laufen über das **BASS-Backend** (dieselbe Engine wie bei Radiostreams und das einzige Wiedergabe-Backend von freeAudio). Da Folgen fortlaufend geladen werden und spulbar sind, lassen sich die Timeshift-Tastenbefehle (`Strg+Windows+J`/`Strg+Windows+K`) auch bei einem Podcast zum Springen innerhalb der Folge nutzen. Die Position wird automatisch gespeichert, das Hören lässt sich also später fortsetzen.
 
 **Abgestuftes Springen:** Anders als beim festen 15-Sekunden-Sprung im Live-Radio richtet sich die Sprungweite in Podcast, Hörbuch oder Jukebox-Titel danach, wie die Taste gedrückt wird — kleine Korrektur oder großer Satz, ohne mehrfaches Drücken:
 
-- **Taste gedrückt halten** (Tastenwiederholung) geht pro Wiederholung **5 Sekunden** zurück oder vor — genau der kleine Schritt, den dieser Tastenbefehl bei Dateien schon immer verwendet hat.
+- **Taste gedrückt halten** (Tastenwiederholung) geht pro Wiederholung **5 Sekunden** zurück oder vor — derselbe kleine Schritt, den der Tastenbefehl bei Dateien verwendet.
 - **Ein bewusster Tastendruck** springt **12 Sekunden**.
 - **Zwei Tastendrücke** kurz hintereinander springen **1 Minute**.
 - **Drei oder mehr** springen **5 Minuten**; weitere Tastendrücke in derselben Folge steigern das nicht weiter.
 
 Ein bewusster Tastendruck wartet einen kurzen Moment ab, bevor er tatsächlich springt, falls noch ein weiterer folgt — pro Tastenfolge erfolgt nur ein Sprung, dessen Weite sich aus der Gesamtzahl der Tastendrücke ergibt und nicht aus deren Summe. Nach dem Sprung sagt NVDA die erreichte Position aus verstrichener und verbleibender Zeit an, statt bloß „X Sekunden vor/zurück“.
+
+### Feines Springen (1 Sekunde)
+
+Für kleine Korrekturen, etwa um ein gerade verpasstes Wort noch einmal zu hören, gibt es in freeAudio ein eigenes Befehlspaar, das sich immer um genau **1 Sekunde** bewegt, ganz gleich, wie die Taste gedrückt wird:
+
+- **`Strg+Windows+Alt+J`** — 1 Sekunde zurück, von überall in Windows.
+- **`Strg+Windows+Alt+K`** — 1 Sekunde vor, von überall in Windows.
+- **`Alt+←`** / **`Alt+→`** — dieselben beiden Befehle im Senderbrowser, auf jeder Registerkarte.
+
+Bei einer Podcast-Folge, einem Hörbuchteil oder einem Jukebox-Titel funktionieren sie genau wie die normalen Sprungbefehle, nur mit einem Schritt von 1 Sekunde: NVDA sagt die erreichte Position aus verstrichener und verbleibender Zeit an, und bei einem Hörbuch oder einem Jukebox-Ordner verhalten sich die Grenzen zwischen Teilen und Titeln wie bei `Strg+Windows+J` / `Strg+Windows+K` beschrieben (ein Vorspringen über das Ende hinaus geht zum nächsten Teil oder Titel weiter; ein Zurückspringen über den Anfang hinaus bleibt zunächst bei 0:00 stehen, und erst ein zweites Zurückspringen innerhalb von 10 Sekunden geht zum vorherigen Teil oder Titel).
+
+Bei einem Live-Radiosender bewegen sie sich um 1 Sekunde im Timeshift-Puffer. Wie bei `Strg+Windows+J` muss der Puffer in den Einstellungen aktiviert sein, und das erste Zurückspringen wechselt von der Live-Wiedergabe in die zeitversetzte Wiedergabe. Ein Vorspringen, das weniger als etwa 2 Sekunden vor dem Live-Signal endet, kehrt zum Live-Signal zurück und meldet „Zurück beim Live-Signal“.
 
 **Wiedergabetempo:** Das Tempo von Podcast-Folgen, Hörbüchern und Jukebox-Titeln lässt sich mit `Strg+Windows+Umschalt+K` (schneller) und `Strg+Windows+Umschalt+J` (langsamer) anpassen. Die Schrittweite beträgt 0,1×, der Bereich reicht von 0,5× bis 2,0×, die Tonhöhe bleibt erhalten.
 
@@ -574,7 +606,7 @@ Jede Quelle lässt sich unter **NVDA-Menü → Optionen → Einstellungen → fr
 Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Alt+7` zur Registerkarte **Hörbücher** wechseln. Sie hat drei Bereiche:
 
 1. **Suche** — ein Textfeld, das alle aktivierten Kataloge auf einmal durchsucht, mit einer Trefferliste, die nach dem Start einer Suche erscheint.
-2. **Bibliothek** — die Liste der aufgenommenen Bücher aller Quellen, wo sie abgespielt, heruntergeladen und verwaltet werden.
+2. **Bibliothek** — die Liste der aufgenommenen Bücher aller Quellen, wo sie abgespielt, heruntergeladen und verwaltet werden. Eine Liste **Lesezeichen** direkt darunter zeigt die Lesezeichen des ausgewählten Buchs — siehe [Lesezeichen](#bookmarks).
 3. **Details** — ein schreibgeschütztes Feld mit Quelle, Titel, Autor, Sprecher, Verlag, Format, Teilezahl, Beschreibung und Katalogadresse des jeweils ausgewählten Buchs, aus beiden Listen.
 
 ### Anmelden
@@ -653,13 +685,13 @@ Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Al
 
 1. **Auf Datenträgern suchen** — ein Textfeld, das alle lokal angeschlossenen, bereiten Laufwerke nach Audiodateien durchsucht, deren Dateiname den eingegebenen Text enthält. Die `Eingabetaste` startet die Suche.
 2. **Suchergebnisse** — eine Liste, die nach einer Suche erscheint und die passenden Dateien zeigt. Bis dahin ist sie ausgeblendet, damit die Registerkarte übersichtlich bleibt, solange nichts zu suchen ist.
-3. **Jukebox und Titel** — die dauerhafte Liste der hinzugefügten Einträge, gefolgt von der Liste der Titel im jeweils ausgewählten Eintrag (bei einem Datei-Eintrag nur diese eine Datei, bei einem Ordner-Eintrag jede darin gefundene Audiodatei).
+3. **Jukebox und Titel** — die dauerhafte Liste der hinzugefügten Einträge, gefolgt von der Liste der Titel im jeweils ausgewählten Eintrag (bei einem Datei-Eintrag nur diese eine Datei, bei einem Ordner-Eintrag jede darin gefundene Audiodatei). Nach der Titelliste folgt eine Liste **Lesezeichen** mit den Lesezeichen des ausgewählten Titels — siehe [Lesezeichen](#bookmarks).
 
-Die Schaltflächen **Datei hinzufügen…**, **Ordner hinzufügen…**, **Entfernen**, **Jukebox exportieren…** und **Jukebox importieren…** liegen unterhalb der Titelliste.
+Die Schaltflächen **Datei hinzufügen…**, **Ordner hinzufügen…**, **Entfernen**, **Jukebox exportieren…** und **Jukebox importieren…** liegen am unteren Rand der Registerkarte.
 
 ### Dateien auf Datenträgern suchen
 
-Einen beliebigen Teil eines Dateinamens ins Feld **Auf Datenträgern suchen** eintragen und die `Eingabetaste` drücken. freeAudio durchläuft alle lokal angeschlossenen Laufwerke — Festplatten, USB-Sticks, Speicherkarten, verbundene Netzlaufwerke — auf der Suche nach Audiodateien (`.mp3`, `.wav`, `.ogg`, `.flac`, `.m4a`, `.m4b`, `.aac`, `.wma`, `.opus` und einigen weiteren), deren Dateiname den Suchtext enthält. Die Suche läuft im Hintergrund, NVDA bleibt also reaktionsfähig.
+Einen beliebigen Teil eines Dateinamens ins Feld **Auf Datenträgern suchen** eintragen und die `Eingabetaste` drücken. freeAudio durchläuft alle lokal angeschlossenen Laufwerke — Festplatten, USB-Sticks und Speicherkarten — auf der Suche nach Audiodateien (`.mp3`, `.wav`, `.ogg`, `.flac`, `.m4a`, `.m4b`, `.aac`, `.wma`, `.opus` und einigen weiteren), deren Dateiname den Suchtext enthält. Die Suche läuft im Hintergrund, NVDA bleibt also reaktionsfähig. Netzlaufwerke werden standardmäßig übersprungen, weil die Suche auf einer Netzwerkfreigabe aus einer Sekunde mehrere Minuten machen oder ganz hängen kann, wenn die Freigabe nicht erreichbar ist. Um sie einzubeziehen, in den Einstellungen **Bei der Jukebox-Suche auch Netzlaufwerke einbeziehen** aktivieren.
 
 - Die **Leertaste** auf einem Suchtreffer spielt ihn zur Vorschau über den normalen Player ab. Erneut die **Leertaste** auf derselben Datei beendet die Vorschau.
 - Die **Eingabetaste** auf einem Suchtreffer nimmt ihn in die Jukebox auf.
@@ -699,7 +731,7 @@ Keiner der beiden Befehle hat eine voreingestellte Taste. Eine lässt sich unter
 Jeder aus der Jukebox abgespielte Titel erhält die volle Behandlung für lokale Medien:
 
 - **Fortsetzen:** freeAudio merkt sich die Position in jedem Titel, speichert sie beim Anhalten und regelmäßig während der Wiedergabe und setzt beim nächsten Abspielen dort wieder ein — auch über einen NVDA-Neustart hinweg.
-- **Abgestuftes Springen:** `Strg+Windows+J` / `Strg+Windows+K` springen innerhalb des Titels mit derselben Abstufung wie bei Podcasts und Hörbüchern — gehalten 5 Sekunden pro Wiederholung, ein Tastendruck 12 Sekunden, zwei Tastendrücke 1 Minute, drei oder mehr 5 Minuten.
+- **Abgestuftes Springen:** `Strg+Windows+J` / `Strg+Windows+K` springen innerhalb des Titels mit derselben Abstufung wie bei Podcasts und Hörbüchern — gehalten 5 Sekunden pro Wiederholung, ein Tastendruck 12 Sekunden, zwei Tastendrücke 1 Minute, drei oder mehr 5 Minuten. `Strg+Windows+Alt+J` / `Strg+Windows+Alt+K` springen genau 1 Sekunde — siehe [Feines Springen (1 Sekunde)](#fine-seeking-1-second).
 - **Wiedergabetempo:** `Strg+Windows+Umschalt+J` / `Strg+Windows+Umschalt+K` ändern das Tempo in Schritten von 0,1× zwischen 0,5× und 2,0×, die Tonhöhe bleibt erhalten.
 - **Transponieren:** `Umschalt+Windows+J` / `Umschalt+Windows+K` verschieben die Tonhöhe, ohne das Tempo zu ändern — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift).
 - **Audioprofil:** Lautstärke, Effekte, EQ und Tempo eines Titels lassen sich global festhalten, indem ein Titel mit den passenden Einstellungen abgespielt wird — die Jukebox bietet derzeit kein Profilmenü je Titel, daher gelten die aktuellen globalen Einstellungen.
@@ -723,7 +755,7 @@ Bei ausgewähltem Eintrag in der Jukebox-Liste mit `Komma` den Verschiebemodus s
 
 ### Die Jukebox-Bibliothek exportieren und importieren
 
-Die Registerkarte „Jukebox“ enthält unterhalb der Titelliste zwei Schaltflächen zum Sichern und Wiederherstellen der Bibliothek:
+Die Registerkarte „Jukebox“ enthält am unteren Rand zwei Schaltflächen zum Sichern und Wiederherstellen der Bibliothek:
 
 **Jukebox exportieren…** — sichert die gesamte Jukebox-Liste in eine Datei. Im Speichern-Dialog stehen zwei Formate zur Wahl:
 
@@ -748,6 +780,67 @@ So wird ein Tastenbefehl zugewiesen:
 4. Die gewünschte Tastenkombination drücken und bestätigen.
 
 Der Tastenbefehl spielt den Eintrag sofort ab — bei einem Datei-Eintrag die Datei selbst, bei einem Ordner-Eintrag dessen ersten Titel. Wird der Eintrag später aus der Jukebox entfernt, verschwindet er auch aus der Kategorie, und NVDA löst den zugewiesenen Tastenbefehl automatisch auf. Kommt ein neuer Eintrag hinzu, erscheint er umgehend in der Kategorie — der Dialog „Tastenzuordnungen“ muss dafür nicht neu geöffnet werden.
+
+## Lesezeichen
+
+Mit Lesezeichen lässt sich eine Stelle in einem **Hörbuchteil**, einer **Podcast-Folge** oder einem **Jukebox-Titel** markieren und später wieder aufsuchen. Für Live-Radiosender gibt es sie nicht, da diese keine festen Positionen haben, zu denen sich zurückkehren ließe.
+
+### Ein Lesezeichen setzen
+
+- **`Strg+Windows+F12`** von überall in Windows oder **`F12`** bei aktivem Senderbrowser setzt ein Lesezeichen an der aktuellen Wiedergabeposition.
+- NVDA sagt Name und Position des Lesezeichens an, zum Beispiel „Lesezeichen gesetzt: Lesezeichen 2, 12:30“.
+- Läuft nichts oder ein Live-Radiosender, weist freeAudio darauf hin, und es wird kein Lesezeichen gesetzt.
+
+Als Standardname erhält ein Lesezeichen seine **Ordnungsnummer** unter den Lesezeichen des Eintrags, das früheste zuerst: „Lesezeichen 1“, „Lesezeichen 2“ usw. Da die Nummer der Position im Eintrag folgt, werden beim Setzen eines früheren Lesezeichens die späteren neu durchnummeriert, sofern sie noch ihren Standardnamen tragen. Umbenannte Lesezeichen behalten ihren eigenen Namen.
+
+### Die Lesezeichenliste
+
+Die Registerkarten „Podcasts“, „Hörbücher“ und „Jukebox“ haben jeweils eine Liste **Lesezeichen** direkt neben dem Eintrag, zu dem sie gehört:
+
+- **Podcasts** — direkt unter der Folgenliste, mit den Lesezeichen der ausgewählten Folge.
+- **Hörbücher** — direkt unter der Bibliotheksliste, mit den Lesezeichen aller Teile des ausgewählten Buchs. Hat ein Buch mehrere Teile, beginnt jede Zeile mit dem Titel des Teils.
+- **Jukebox** — direkt unter der Titelliste, mit den Lesezeichen des ausgewählten Titels.
+
+Jede Zeile zeigt Name und Position des Lesezeichens. Hat das Lesezeichen eine Text- oder Sprachnotiz, kommt der Zusatz **[Text]** bzw. **[Sprachnotiz]** hinzu, und **(markiert)**, wenn es mit `.` markiert wurde. Die Liste folgt der Auswahl darüber und wird auch aktualisiert, wenn bei geöffnetem Fenster mit `Strg+Windows+F12` ein Lesezeichen gesetzt wird.
+
+Liegt der Fokus auf einer Lesezeichenliste, wirken dort auch die Wiedergabetasten der Registerkarte darüber: `←` / `→` springen, `Umschalt+←` / `Umschalt+→` verschieben die Tonhöhe, `Bild auf` / `Bild ab` ändern das Wiedergabetempo, `Strg+←` / `Strg+→` wechseln zur vorherigen oder nächsten Folge, zum vorherigen oder nächsten Buch bzw. Titel, und `Alt+←` / `Alt+→` springen um 1 Sekunde.
+
+| Taste | Aktion |
+|---|---|
+| `.` | Markiert das fokussierte Lesezeichen oder hebt die Markierung auf. Siehe [Mehrere Einträge markieren und entfernen](#marking-and-removing-multiple-items). |
+| `Eingabetaste` | Spielt ab dem fokussierten Lesezeichen ab. |
+| `Leertaste` | Hält an, wenn etwas läuft; andernfalls spielt es ab dem fokussierten Lesezeichen ab. |
+| `Entf` | Löscht alle markierten Lesezeichen oder, wenn keines markiert ist, das fokussierte. Vorher erscheint eine Rückfrage. |
+| Kontextmenütaste / `Umschalt+F10` | Öffnet das Kontextmenü der Lesezeichen. |
+
+### Kontextmenü der Lesezeichen
+
+- **Ab Lesezeichen wiedergeben** — ist der Eintrag bereits geladen, springt die Wiedergabe zum Lesezeichen; andernfalls beginnt der Eintrag an dieser Position.
+- **Umbenennen…** — gibt dem Lesezeichen einen eigenen Namen. Bleibt das Feld leer, gilt wieder der Standardname.
+- **Markierte löschen** — löscht die markierten Lesezeichen oder, wenn keines markiert ist, das fokussierte.
+- **Text hinzufügen oder bearbeiten…** — öffnet ein mehrzeiliges Feld für eine Textnotiz. Bleibt es leer, wird der Text entfernt.
+- **Sprachnotiz hinzufügen…** — öffnet einen Dialog, der sofort beim Erscheinen über das Standardmikrofon aufnimmt. **Beenden und speichern** hängt die Aufnahme an das Lesezeichen, **Abbrechen** verwirft sie. Eine neue Sprachnotiz ersetzt die vorherige.
+- **Notizen entfernen** — entfernt Text- und Sprachnotiz des fokussierten Lesezeichens. Nur aktiv, wenn das Lesezeichen eine Notiz hat.
+- **Zwischen markierten Lesezeichen wiederholen** — siehe unten. Aktiv, wenn mindestens zwei Lesezeichen markiert sind.
+- **Wiederholung beenden** — schaltet die Wiederholung aus. Aktiv, solange eine Wiederholung läuft.
+
+### Was beim Erreichen eines Lesezeichens geschieht
+
+Erreicht die Position bei normaler Wiedergabe ein Lesezeichen, spielt freeAudio **zwei kurze Signaltöne**. Hat das Lesezeichen keine Notiz, läuft die Wiedergabe einfach weiter.
+
+Hat das Lesezeichen eine Text- und/oder Sprachnotiz, wird die Wiedergabe **angehalten**, der Text mit der aktuellen Sprachausgabe von NVDA gesprochen und die Sprachnotiz abgespielt; danach **geht die Wiedergabe an derselben Stelle weiter**. Wird währenddessen die Wiedergabe gestoppt oder etwas anderes gestartet, wird sie nicht fortgesetzt.
+
+Lesezeichen werden während der normalen Wiedergabe erkannt. Ein Sprung über ein Lesezeichen hinweg löst es nicht aus.
+
+### Den Abschnitt zwischen Lesezeichen wiederholen
+
+Zwei oder mehr Lesezeichen **desselben Eintrags** mit `.` markieren und dann **Zwischen markierten Lesezeichen wiederholen** wählen. Die Wiedergabe springt zum frühesten markierten Lesezeichen und läuft in Schleife zwischen dem frühesten und dem spätesten markierten Lesezeichen; NVDA sagt die beiden Positionen an. Das hilft beim Durcharbeiten einer schwer verständlichen Passage, einer Redewendung beim Sprachenlernen oder eines Musikstücks, das gerade geübt wird. **Wiederholung beenden** kehrt zur normalen Wiedergabe zurück. Die Wiederholung wird nicht zwischen Sitzungen gespeichert, und beginnt ein anderer Eintrag zu laufen, wird der Wiederholungsbereich ignoriert und nach etwa 20 Sekunden verworfen.
+
+### Wo die Lesezeichendaten liegen
+
+Lesezeichen liegen in `freeAudio_bookmarks.json` im NVDA-Benutzerkonfigurationsordner, Sprachnotizen als `.wav`-Dateien im Ordner `freeAudio_bookmark_audio` daneben. Beides lässt sich sichern oder auf einen anderen Rechner übertragen. Das Löschen eines Lesezeichens löscht auch dessen Sprachnotiz-Datei. Alle Lesezeichen und Sprachnotizen lassen sich mit dem Eintrag **Lesezeichen** im Aufräumdialog auf einmal entfernen — siehe [Aufräumen: Einstellungen zurücksetzen und gespeicherte Daten löschen](#clean-up-reset-settings-and-delete-saved-data).
+
+Jedes Lesezeichen gehört zum Fortsetzungsschlüssel seines Eintrags — der Adresse der Folge, der festen Katalogadresse des Hörbuchteils oder dem Dateipfad des Jukebox-Titels. Eine Jukebox-Datei, die außerhalb von freeAudio verschoben oder umbenannt wird, gilt deshalb als anderer Eintrag und zeigt ihre alten Lesezeichen nicht mehr.
 
 ## Transponieren (Tonhöhe verschieben)
 
@@ -806,28 +899,56 @@ Die folgenden Optionen lassen sich unter NVDA-Menü → Optionen → Einstellung
 | SAPI5-Stimme | Steht **Stimme für die Titelansage** auf SAPI5, wird hier die verwendete SAPI5-Stimme gewählt. Die Liste wird im Hintergrund aus den auf dem System installierten Stimmen gefüllt. |
 | Audio-Ausgabegerät | Legt das Ausgabegerät für die Radiowiedergabe fest. Die Liste enthält alle BASS-tauglichen Geräte des Systems sowie den Eintrag „Systemstandard“. Änderungen greifen sofort beim Speichern; ist das gewählte Gerät getrennt, weicht das Add-on automatisch auf den Systemstandard aus und sagt den Wechsel an. |
 | Aktualisierungsmodus für Audiogeräte | Steuert, wie freeAudio die BASS-Gerätenummern auffrischt. Der Modus **Zuverlässig** (Voreinstellung) prüft die Geräte live und verfolgt Änderungen bei Bluetooth und USB genauer, macht Gerätewechsel aber etwas langsamer. Der Modus **Schnell** verwendet die aktuelle BASS-Geräteliste und ist flotter, dafür können Gerätenummern veraltet bleiben, bis BASS oder NVDA neu startet. |
-| Lautstärke | Legt die Startlautstärke des Add-ons fest (0–200). Änderungen während der Wiedergabe mit `Strg+Windows+↑` / `Strg+Windows+↓` schlagen sich ebenfalls hier nieder. |
+| Lautstärke | Legt die Startlautstärke des Add-ons fest (0–100). Während der Wiedergabe kann `Strg+Windows+↑` die Lautstärke bis 200 anheben, die hier gespeicherte Startlautstärke ist aber auf 100 begrenzt. |
 | Audioeffekte | Legt fest, welche Effekte (Chorus, Kompressor, Verzerrung, Echo, Flanger, Gargle, Hall und die drei EQ-Anhebungen) beim NVDA-Start oder beim Start eines Senders aktiv sind. Mehrere Effekte lassen sich gleichzeitig anhaken, passend zur Effektliste im Senderbrowser. |
 | EQ-Verstärkung (Bass / Höhen / Stimme) | Legt die Verstärkung in dB für jedes EQ-Band fest (−15 bis +15). Diese Werte gelten, sobald der zugehörige EQ-Effekt aktiv ist, und werden global gespeichert. Abweichende Werte je Sender lassen sich über die Schaltfläche **Audioprofil speichern** auf der Registerkarte „Favoriten“ hinterlegen. |
 | Übergang beim Senderwechsel | Steuert das Verhalten beim Wechsel zwischen **Live-Radiosendern**. **Harter Schnitt** (Voreinstellung) beendet den vorherigen Sender unmittelbar vor dem Start des neuen. **Kurze Überblendung (1 Sekunde)** und **Normale Überblendung (2 Sekunden)** starten den neuen Sender sofort und lückenlos und blenden den vorherigen im Hintergrund langsam aus, sobald der neue Stream bestätigt läuft. **Sendersuchlauf-Geräusch** beendet den vorherigen Sender sofort und spielt vor dem Start des neuen einen Suchlaufklang ab. Bei „Harter Schnitt“ ohne Wirkung und ohne Leistungseinbußen. Gilt nicht für Podcasts, Hörbücher und Jukebox-Titel — deren Fortsetzen spielt unabhängig von dieser Einstellung stets den eigenen kurzen Kassettenklang ab; siehe [Details zur Podcast-Wiedergabe](#podcast-playback-details). |
 | Letzten Sender beim NVDA-Start fortsetzen | Aktiviert, startet der zuletzt gehörte Sender bei jedem NVDA-Start automatisch neu. |
 | Titelwechsel automatisch ansagen (ICY-Metadaten) | Aktiviert, liest NVDA bei Sendern mit ICY-Metadaten jeden neuen Titelnamen automatisch vor. Auch der erste Titel wird beim Wechsel zu einem neuen Sender sofort angesagt. Standardmäßig deaktiviert. |
 | Meldungen stummschalten | Aktiviert, sagt NVDA weder Senderwechsel noch Änderungen des Wiedergabezustands (Start, Pause, Stopp) noch Aufnahmeereignisse (gestartet, gestoppt, beendet) an. Fehlermeldungen, Rückmeldungen zu Favoriten, Ergebnisse der Musikerkennung und Update-Hinweise bleiben davon unberührt. Lässt sich auch im laufenden Betrieb über eine noch nicht belegte Tastenzuordnung umschalten. Standardmäßig deaktiviert. |
-| Braille-Meldungen | Aktiviert, gibt freeAudio seine Meldungen zusätzlich direkt auf der Braillezeile aus. Praktisch für Titelnamen, Senderwechsel, Wiedergabezustand und Lautstärkeänderungen. Standardmäßig deaktiviert. |
-| Timeshift-Puffer aktivieren (Live-Radio zurückspulen) | Schaltet die Rückspulfunktion (`Strg+Windows+J`/`Strg+Windows+K`) ein oder aus und lässt die Hintergrundaufzeichnung von rund 45 Sekunden auf die in den Einstellungen festgelegte Dauer anwachsen. Eine kleine Hintergrundaufzeichnung des laufenden Senders läuft immer, auch bei ausgeschalteter Option — siehe den Hinweis im Abschnitt **Timeshift (Live-Radio zurückspulen)** weiter unten. Lässt sich auch sofort mit `Strg+Windows+T` umschalten. Standardmäßig deaktiviert — alle Einzelheiten stehen im Abschnitt **Timeshift (Live-Radio zurückspulen)** weiter unten. |
+| freeAudio-Meldungen auf der Braillezeile anzeigen | Aktiviert, gibt freeAudio seine Meldungen zusätzlich direkt auf der Braillezeile aus. Praktisch für Titelnamen, Senderwechsel, Wiedergabezustand und Lautstärkeänderungen. Standardmäßig deaktiviert. |
+| Timeshift-Puffer aktivieren (Live-Radio zurückspulen) | Schaltet die Rückspulfunktion (`Strg+Windows+J`/`Strg+Windows+K`) ein oder aus und lässt die Hintergrundaufzeichnung von rund 45 Sekunden bis zur **Dauer des Timeshift-Puffers** anwachsen. Eine kleine Hintergrundaufzeichnung des laufenden Senders läuft immer, auch bei ausgeschalteter Option — siehe den Hinweis im Abschnitt **Timeshift (Live-Radio zurückspulen)** weiter oben. Lässt sich auch sofort mit `Strg+Windows+T` umschalten. Standardmäßig deaktiviert — alle Einzelheiten stehen im Abschnitt **Timeshift (Live-Radio zurückspulen)** weiter oben. Ohne Wirkung auf Podcasts und Hörbücher. |
+| Dauer des Timeshift-Puffers | Legt die Höchstlänge des Rückspulpuffers fest. Zur Wahl stehen 10 Minuten bis 5 Stunden. Längere Puffer belegen mehr temporären Speicherplatz. |
 | Lieblingstitel in einer Textdatei speichern | Aktiviert, werden Titelinfos, die durch dreimaliges Drücken von `Strg+Windows+I` in die Zwischenablage kopiert werden, zusätzlich an `Dokumente\freeAudio Recordings\likedSongs.txt` angehängt. Liegen keine ICY-Metadaten vor, landet das Ergebnis der Shazam-Erkennung in derselben Datei. Standardmäßig deaktiviert. |
 | Wenn Strg+Windows+P ohne laufende Wiedergabe gedrückt wird | Legt fest, was bei diesem Tastenbefehl geschieht, wenn nichts läuft: den zuletzt gehörten Sender starten oder die Favoritenliste öffnen. |
-| Dauer des Timeshift-Puffers | Legt die Höchstlänge des Rückspulpuffers fest. Zur Wahl stehen 10 Minuten bis 5 Stunden. Längere Puffer belegen mehr temporären Speicherplatz. |
 | Wenn Strg+Windows+P zweimal gedrückt wird | Legt fest, was bei zweimaligem Drücken kurz hintereinander geschieht: nichts tun, die Favoritenliste öffnen, die Registerkarte „Aufnahme“ oder die Registerkarte „Timer“ öffnen. Bei „Nichts tun“ reagiert schon der erste Druck ohne Verzögerung. |
 | Wenn Strg+Windows+P dreimal gedrückt wird | Legt fest, was bei dreimaligem Drücken kurz hintereinander geschieht: nichts tun, die Favoritenliste öffnen, die Sendersuche öffnen, die Registerkarte „Aufnahme“ oder die Registerkarte „Timer“ öffnen. |
 | Beim Start automatisch nach Updates suchen | Aktiviert, läuft bei jedem NVDA-Start eine Update-Prüfung im Hintergrund; bei einer neuen Version folgt ein Hinweis. Deaktiviert, unterbleiben die automatischen Prüfungen, die manuelle Prüfung bleibt aber möglich. |
+| Jetzt nach Updates suchen | Eine Schaltfläche, die sofort nach einer neuen Version sucht, auch wenn die automatischen Prüfungen abgeschaltet sind. Während der Prüfung lautet ihre Beschriftung „Prüfung läuft...“. |
 | Pfad zu ffmpeg.exe | Pfad zu der ffmpeg.exe, die für die Musikerkennung verwendet wird. Bleibt das Feld leer, wird automatisch eine ffmpeg.exe aus dem Add-on-Ordner genutzt. |
 | Aufnahmeordner | Legt fest, wohin aufgenommene Dateien gespeichert werden. Bleibt das Feld leer, gilt der Standardort `Dokumente\freeAudio Recordings\`. Eine Schaltfläche zum Durchsuchen öffnet die Ordnerauswahl. Änderungen greifen sofort nach dem Speichern. |
+| Module | Eine Liste zum Anhaken der optionalen Teile von freeAudio: **Podcasts**, **Hörbücher** und **Jukebox**. Standardmäßig sind alle drei aktiv. Wird einer abgewählt, verschwinden seine Registerkarte aus dem Senderbrowser und seine Befehle aus dem Dialog „Tastenzuordnungen“ von NVDA, ohne dass dort Gespeichertes gelöscht wird (Abos, Bibliothek, Jukebox-Liste); erneutes Anhaken bringt alles zurück. Änderungen greifen beim nächsten Öffnen des Senderbrowsers. |
+| Bei der Jukebox-Suche auch Netzlaufwerke einbeziehen | Aktiviert, durchsucht **Auf Datenträgern suchen** in der Jukebox auch Netzlaufwerke. Standardmäßig deaktiviert, weil die Suche auf einer Netzwerkfreigabe Minuten dauern oder hängen kann, wenn die Freigabe nicht erreichbar ist. |
 | Hörbuch-Quellen | Eine Liste zum Anhaken, welche Hörbuchquellen (**GETEM**, **LibriVox**, **Project Gutenberg**) durchsucht und auf der Registerkarte „Hörbücher“ angezeigt werden. Standardmäßig sind alle drei aktiv. Wird eine Quelle abgewählt, verschwinden ihre Bücher aus den zusammengeführten Suchergebnissen und aus der Bibliotheksliste, ohne dass bereits Aufgenommenes gelöscht wird — siehe [Hörbücher (GETEM, LibriVox und Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg). |
 | GETEM-Benutzername / GETEM-Passwort | Die Zugangsdaten der [GETEM](https://getem.boun.edu.tr/)-Hörbuchmitgliedschaft, nötig zum Streamen oder Herunterladen des Audios eines Buchs — siehe [Anmelden](#signing-in). Sie liegen verschlüsselt auf der Festplatte, über die Windows-Datenschutz-API und gebunden an das Windows-Benutzerkonto; im Klartext werden sie nie gespeichert. Beide Felder leeren und speichern entfernt hinterlegte Zugangsdaten. LibriVox und Project Gutenberg brauchen kein Konto und haben kein entsprechendes Feld. |
 | Ausgabeformat der Aufnahme | Behält den Originalstream, extrahiert das Audio ohne Codec-Wechsel oder wandelt fertige Aufnahmen in MP3 um. Voreingestellt ist das Originalformat des Streams. |
 | MP3-Bitrate der Aufnahme | Legt die Bitrate fest, wenn als Ausgabeformat MP3 gewählt ist. Voreingestellt sind 128 kb/s. |
 | Prüfung der Internetverbindung vor der Wiedergabe deaktivieren | Empfohlen, wenn der Start eines Senders spürbar verzögert einsetzt. Auch bei blockiertem DNS hilfreich. |
+| Aufräumen: Einstellungen zurücksetzen und gespeicherte Daten löschen... | Eine Schaltfläche, die einen Dialog zum Zurücksetzen der freeAudio-Einstellungen und zum Löschen der gespeicherten Daten öffnet — siehe [Aufräumen: Einstellungen zurücksetzen und gespeicherte Daten löschen](#clean-up-reset-settings-and-delete-saved-data). |
+
+### Aufräumen: Einstellungen zurücksetzen und gespeicherte Daten löschen
+
+Die Schaltfläche **Aufräumen: Einstellungen zurücksetzen und gespeicherte Daten löschen...** am unteren Rand der freeAudio-Einstellungsseite öffnet den Dialog **Einstellungen zurücksetzen / gespeicherte Daten löschen**. Er führt als Kontrollfelder auf, was freeAudio im NVDA-Konfigurationsordner speichert. **Standardmäßig ist nichts angehakt.** Jeder Eintrag zeigt, wie viel Platz er belegt, oder „nichts gespeichert“:
+
+- **Einstellungen** — auf Standard zurücksetzen. Der Aufnahmeordner und die Option **Lieblingstitel in einer Textdatei speichern** bleiben erhalten.
+- **Favoriten**
+- **Zwischengespeicherte Senderliste** — wird bei Bedarf neu geladen.
+- **Podcast-Abos**
+- **Hörbuchbibliotheken** — GETEM, LibriVox und Project Gutenberg.
+- **Gespeicherte GETEM-Anmeldedaten** — Benutzername und Passwort.
+- **Jukebox-Liste** — die Musikdateien selbst werden nicht gelöscht.
+- **Gespeicherte Fortsetzungspositionen** — Podcasts, Hörbücher und Jukebox-Ordner.
+- **Lesezeichen** — alle Lesezeichen samt Text- und Sprachnotiz.
+- **Sleeptimer und Wecker**
+- **Geplante Aufnahmen** — die Aufnahmen selbst werden nicht gelöscht.
+
+**Alle auswählen** hakt alle Einträge an. **Ausgewählte zurücksetzen / löschen** führt die Auswahl aus; ist nichts angehakt, sagt freeAudio „Es ist nichts ausgewählt.“ **Abbrechen** (oder `Escape`) schließt den Dialog, ohne etwas zu tun.
+
+Bevor etwas geändert wird, listet freeAudio die angehakten Einträge auf, warnt, dass sich das nicht rückgängig machen lässt, und bittet um Bestätigung; voreingestellt ist **Nein**. Danach meldet eine Nachricht „Fertig.“ oder nennt die Einträge, die sich nicht entfernen ließen — meist, weil eine Datei in Benutzung ist. Ist der Senderbrowser beim Löschen gespeicherter Daten geöffnet, wird er geschlossen und beim nächsten Öffnen aus den verbliebenen Daten neu aufgebaut.
+
+Aufnahmen, der Aufnahmeordner und die Textdatei der Lieblingstitel werden **nie** angetastet, und ein Zurücksetzen der Einstellungen führt nicht dazu, dass freeAudio erneut Daten aus dem früheren Add-on FreeRadio übernimmt.
+
+Nach einem Zurücksetzen der Einstellungen werden die noch auf der Einstellungsseite angezeigten Werte beim Drücken von OK nicht gespeichert und können das Zurücksetzen daher nicht rückgängig machen. Ein Neustart von NVDA wird empfohlen, damit alle Einstellungen wirksam werden.
 
 ## Meldungen stummschalten
 
@@ -836,8 +957,9 @@ Ist **Meldungen stummschalten** in den Einstellungen aktiv, unterdrückt NVDA fo
 - Sendername beim Start eines neuen Senders
 - Änderungen des Wiedergabezustands: Start, Pause, Stopp
 - Obligato-Modus: gestartet / beendet
-- Aufnahmeereignisse: gestartet, gestoppt, beendet (Sofort-, Titel- und geplante Aufnahmen)
+- Aufnahmeereignisse: gestartet, gestoppt, beendet (Sofort-, Titel-, Alle-Titel- und geplante Aufnahmen)
 - ICY-Titelansagen, selbst wenn **Titelwechsel automatisch ansagen** ebenfalls aktiv ist
+- Der Hinweis, dass ein Sender in einem besonderen Kompatibilitätsmodus läuft (siehe [Wiedergabe](#playback))
 
 Bewusst **nicht** betroffen sind: Fehlermeldungen, Rückmeldungen zu Favoriten (hinzugefügt / bereits vorhanden), Ergebnisse der Musikerkennung und Update-Hinweise.
 
@@ -853,11 +975,13 @@ Diese Funktion ist standardmäßig deaktiviert und lässt sich unter NVDA-Menü 
 
 ## Wiedergabe
 
-freeAudio verwendet **BASS** als einziges Wiedergabe-Backend für alles — Internetradio, Podcasts, Hörbücher und Jukebox-Titel. Eine gesonderte Installation ist nicht nötig, BASS liegt dem Add-on bei. Die Unterstützung von VLC, PotPlayer und Windows Media Player als Ausweich-Backends ist entfallen; verwendet wird immer BASS.
+freeAudio verwendet **BASS** als einziges Wiedergabe-Backend für alles — Internetradio, Podcasts, Hörbücher und Jukebox-Titel. Eine gesonderte Installation ist nicht nötig, BASS liegt dem Add-on bei. VLC, PotPlayer oder Windows Media Player verwendet freeAudio nicht.
 
 BASS reicht den Ton direkt an den Windows-Audiostapel weiter und erscheint im Windows-Lautstärkemixer als eigenständige Audioquelle namens „pythonw.exe“, getrennt von NVDA. Der freeAudio-Ton fließt damit auf einem völlig eigenen Kanal neben der NVDA-Sprachausgabe: Das Radio setzt nicht aus, mischt sich nicht ein und wird von den Audioeinstellungen von NVDA nicht beeinflusst, während NVDA spricht. Die Radiolautstärke lässt sich im Windows-Lautstärkemixer unabhängig von NVDA regeln. Unterstützt werden HTTP, HTTPS und die meisten eingebetteten Streamformate.
 
 Podcast-Folgen, Hörbuchkapitel und Jukebox-Titel laufen über BASS, weil es den Stream als spulbare Datei öffnen kann (selbst während des Ladens). Das erlaubt genaue Positionsverfolgung, abgestuftes Zurück- und Vorspringen, Wiedergabetempo, Transponieren und das Fortsetzen. Audio-Spiegelung, Timeshift sowie Springen und Fortsetzen bei Podcasts, Hörbüchern und Jukebox-Titeln beruhen alle auf BASS und stehen stets zur Verfügung.
+
+**HLS-Sender, die einen Kompatibilitätsmodus brauchen:** Einige HLS-Sender (`.m3u8`) verpacken ihr Audio so, dass BASS es nicht flüssig lesen kann — der Stream wird ständig neu geöffnet, was wie dauerndes Ruckeln klingt. Bei diesen Sendern (derzeit die Radiostreams von ABC Australien) verpackt freeAudio dasselbe Audio automatisch und ohne Neucodierung in eine herkömmliche Form und spielt diese stattdessen ab; dafür dient ein kleiner Server, der nur auf dem eigenen Computer läuft. Einzurichten ist nichts. Beim ersten Abspielen eines solchen Senders nach dem NVDA-Start sagt NVDA „Dieser Sender läuft in einem besonderen Wiedergabemodus, damit die Wiedergabe nicht ruckelt.“ an. Diese Ansage richtet sich nach der Einstellung **Meldungen stummschalten**.
 
 ## Update-Prüfung
 
