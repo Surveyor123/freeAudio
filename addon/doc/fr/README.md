@@ -819,7 +819,7 @@ Lorsqu'une liste de signets a le focus, les touches de lecture de l'onglet ci-de
 - **Renommer…** — attribue un nom personnalisé au signet. Laissez le champ vide pour rétablir le nom par défaut.
 - **Supprimer la sélection** — supprime les signets marqués, ou celui focalisé si aucun n'est marqué.
 - **Ajouter ou modifier du texte…** — ouvre un champ multiligne pour une note. Laissez le champ vide pour supprimer le texte.
-- **Ajouter une note vocale…** — ouvre une boîte de dialogue qui lance l'enregistrement via le microphone par défaut dès son apparition. Appuyez sur **Arrêter et Enregistrer ** pour associer l'enregistrement au signet, ou sur **Annuler** pour l'écarter. L'ajout d'une nouvelle note vocale remplace la précédente.
+- **Ajouter une note vocale…** — ouvre une boîte de dialogue qui lance l'enregistrement via le microphone par défaut dès son apparition. Appuyez sur **Arrêter et Enregistrer** pour associer l'enregistrement au signet, ou sur **Annuler** pour l'écarter. L'ajout d'une nouvelle note vocale remplace la précédente.
 - **Effacer les notes** — supprime la note textuelle et la note vocale du signet focalisé. Activé uniquement lorsque le signet contient une note.
 - **Répéter entre les signets marqués** — consultez ci-dessous. Activé lorsqu'au moins deux signets sont marqués.
 - **Arrêter la répétition** — désactive le mode répétition. Activé lorsqu'une répétition est active.

@@ -783,7 +783,7 @@ El atajo inicia la entrada de inmediato — para un archivo, el archivo en sí; 
 
 ## Marcadores
 
-Los marcadores le permiten marcar un punto en una **parte del audiolibro**, un **episodio de podcast** o una **pista del jukebox* y volver a él más tarde. No están disponibles para las emisoras de radio en directo, ya que estas no tienen una posición fija a la que regresar.
+Los marcadores le permiten marcar un punto en una **parte del audiolibro**, un **episodio de podcast** o una **pista del jukebox** y volver a él más tarde. No están disponibles para las emisoras de radio en directo, ya que estas no tienen una posición fija a la que regresar.
 
 ### Añadiendo un Marcador
 
