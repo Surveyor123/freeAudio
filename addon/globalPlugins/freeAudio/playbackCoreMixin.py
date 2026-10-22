@@ -30,6 +30,7 @@ del _tr
 
 from . import _notify, _notifications_muted
 from . import getem
+from . import gutenberg_audiobooks
 from . import jukebox
 from . import librivox
 from . import podcast
@@ -360,7 +361,11 @@ class PlaybackCoreMixin:
 			chapter_index = 0
 
 		book, module = None, None
-		for candidate_module, library_cls in ((getem, getem.GetemLibrary), (librivox, librivox.LibrivoxLibrary)):
+		for candidate_module, library_cls in (
+			(getem, getem.GetemLibrary),
+			(librivox, librivox.LibrivoxLibrary),
+			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+		):
 			try:
 				library = library_cls()
 			except Exception:
@@ -448,7 +453,11 @@ class PlaybackCoreMixin:
 			chapter_index = 0
 
 		book, module, library = None, None, None
-		for candidate_module, library_cls in ((getem, getem.GetemLibrary), (librivox, librivox.LibrivoxLibrary)):
+		for candidate_module, library_cls in (
+			(getem, getem.GetemLibrary),
+			(librivox, librivox.LibrivoxLibrary),
+			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+		):
 			try:
 				candidate_library = library_cls()
 			except Exception:

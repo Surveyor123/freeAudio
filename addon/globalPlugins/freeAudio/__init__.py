@@ -287,6 +287,7 @@ except KeyError:
 
 
 from . import radioPlayer, stationManager, recorder as recorderModule, jukebox
+from . import getem, librivox, gutenberg_audiobooks
 
 
 _AUDIO_DEVICE_REFRESH_MODE_KEYS = ["reliable", "fast"]
@@ -675,6 +676,12 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 		self._jukebox_script_names = []   # track names for cleanup
 		self._rebuild_jukebox_scripts()
 
+		# Same idea for audio book library entries (GETEM, LibriVox and
+		# Project Gutenberg), under "freeAudio Audio Books" - see
+		# _rebuild_audiobook_scripts().
+		self._audiobook_script_names = []   # track names for cleanup
+		self._rebuild_audiobook_scripts()
+
 	def _rebuild_station_scripts(self):
 		"""Create or refresh one script per favourite station.
 
@@ -884,6 +891,142 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 				station_dict["station_audio"] = profile
 		self._play_station(station_dict)
 
+	def _rebuild_audiobook_scripts(self):
+		"""Create or refresh one script per audio book in the libraries
+		(GETEM, LibriVox and Project Gutenberg).
+
+		Mirrors _rebuild_station_scripts()/_rebuild_jukebox_scripts(): each
+		script is named script_playAudiobook_<hash of detail_url> and
+		appears in the "freeAudio Audio Books" category of NVDA's Input
+		Gestures dialog, with no default gesture so the user assigns one
+		there. The book's detail_url is its identity key in all three
+		libraries (see GetemBook.identity_key() and friends), so it's
+		what's hashed.
+
+		Call this whenever an audio book library changes (add / remove).
+		"""
+		sources = (
+			(getem, getem.GetemLibrary),
+			(librivox, librivox.LibrivoxLibrary),
+			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+		)
+		books = []   # (module, library class, book)
+		for module, library_cls in sources:
+			try:
+				for book in library_cls().get_books():
+					books.append((module, library_cls, book))
+			except Exception:
+				log.debug("freeAudio: could not read %s library", module.__name__, exc_info=True)
+
+		# ── 1. Remove scripts that no longer correspond to a book ────────────
+		wanted = {
+			"script_playAudiobook_" + self._sanitise_path(book.detail_url)
+			for _module, _cls, book in books
+		}
+		stale = [n for n in self._audiobook_script_names if n not in wanted]
+		for name in stale:
+			try:
+				delattr(self.__class__, name)
+			except AttributeError:
+				pass
+		self._audiobook_script_names = [
+			n for n in self._audiobook_script_names if n not in stale
+		]
+
+		# ── 2. Create / refresh a script for every book ──────────────────────
+		# Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this audio book' shortcuts separately from freeAudio's main commands.
+		_CATEGORY = _("freeAudio Audio Books")
+
+		for module, library_cls, book in books:
+			path_hash = self._sanitise_path(book.detail_url)
+			if not path_hash:
+				continue
+			script_name = "script_playAudiobook_" + path_hash
+
+			def _make_script(module, library_cls, detail_url, title):
+				def _script(self_plugin, gesture):
+					self_plugin._play_audiobook_headless(module, library_cls, detail_url, title)
+				# NVDA reads __doc__ as the script description and
+				# __name__ as the script identifier.
+				# Translators: Auto-generated description of a per-audio-book shortcut, shown in NVDA's Input Gestures dialog; %s is the book's title.
+				_script.__doc__      = _("%s playback shortcut") % title
+				_script.__name__     = script_name
+				_script.category     = _CATEGORY
+				# No default gesture — user assigns one via Input Gestures dialog.
+				_script.__gestures__ = {}
+				return _script
+
+			fn = _make_script(module, library_cls, book.detail_url, book.title)
+			# Attach to the class so NVDA discovers it via introspection.
+			if not hasattr(self.__class__, script_name):
+				setattr(self.__class__, script_name, fn)
+				self._audiobook_script_names.append(script_name)
+			else:
+				# Update description in case the title changed.
+				existing = getattr(self.__class__, script_name)
+				existing.__doc__ = fn.__doc__
+
+	def _play_audiobook_headless(self, module, library_cls, detail_url, title):
+		"""Play an audio book from its library without needing the dialog
+		open - used by the per-book Input Gestures shortcuts built in
+		_rebuild_audiobook_scripts(). Resumes from the part that was last
+		played (book.last_chapter_index); the exact position inside that
+		part is restored by the player's own podcast resume store, keyed on
+		the part's URL.
+
+		A book saved without its part list yet (or one that has to be
+		looked up again) is resolved on a background thread first, since
+		that's a network request - GETEM additionally needs the saved
+		login."""
+		library = library_cls()
+		book = library.get_book_by_key(detail_url)
+		if book is None:
+			ui.message(
+				# Translators: Spoken if a per-audio-book shortcut is triggered after that book was removed from the library since the shortcut was created; %s is the book's title.
+				_("Audio book no longer in the library: %s") % title
+			)
+			return
+		if book.chapters:
+			self._start_audiobook_chapter_headless(module, library, book)
+			return
+
+		# Translators: Spoken while an audio book's list of parts is being fetched before it starts playing; %s is the book's title.
+		ui.message(_("Loading %s") % book.title)
+
+		def _worker():
+			try:
+				_book, error = module.resolve_media(book)
+			except Exception as e:
+				log.warning("freeAudio: audio book resolve failed", exc_info=True)
+				error = str(e)
+			if error or not book.chapters:
+				wx.CallAfter(ui.message, error or book.title)
+				return
+			library.save()
+			wx.CallAfter(self._start_audiobook_chapter_headless, module, library, book)
+
+		threading.Thread(target=_worker, daemon=True).start()
+
+	def _start_audiobook_chapter_headless(self, module, library, book):
+		"""Start the book's resume part through the normal _play_station()
+		path (must run on the main thread). The station dict comes from
+		_rebuild_getem_resume_url() in playbackCoreMixin.py - the same
+		builder the NVDA-startup resume uses, which produces the same
+		shape RadioDialog._start_getem_chapter() does (name, stream URL,
+		podcast_resume_key, getem_chapter_index, audiobook_chapter_title,
+		audio profile), so resume, seek and speed behave identically to
+		playing from the dialog."""
+		index = book.last_chapter_index
+		if not (0 <= index < len(book.chapters)):
+			index = 0
+		station = self._rebuild_getem_resume_url(book.detail_url, index)
+		if not station:
+			# Translators: Spoken when a per-audio-book shortcut can't start playback because the book's parts could not be prepared; %s is the book's title.
+			ui.message(_("Could not play %s") % book.title)
+			return
+		library.mark_progress(book, index)
+		self._play_station(station)
+
 	def _build_tools_menu(self):
 		"""Add a freeAudio submenu under NVDA's Tools menu."""
 		tools_menu = gui.mainFrame.sysTrayIcon.toolsMenu
@@ -943,6 +1086,13 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 			except AttributeError:
 				pass
 		self._station_script_names = []
+
+		for name in getattr(self, "_audiobook_script_names", []):
+			try:
+				delattr(self.__class__, name)
+			except AttributeError:
+				pass
+		self._audiobook_script_names = []
 
 		try:
 			gui.NVDASettingsDialog.categoryClasses.remove(freeAudioSettingsPanel)
@@ -1279,6 +1429,12 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 			self._dialog.refresh_audio_devices(force=True)
 		except Exception:
 			pass
+		# Pick up audio books added to / removed from the libraries since
+		# the shortcuts were last built.
+		try:
+			self._rebuild_audiobook_scripts()
+		except Exception:
+			log.debug("freeAudio: audio book script rebuild failed", exc_info=True)
 		# A GETEM audio book may have kept auto-advancing chapters in the
 		# background while this dialog was closed/hidden (see
 		# _advance_getem_chapter_headless()) - resync its "now playing"

@@ -7708,6 +7708,16 @@ class RadioDialog(wx.Dialog):
 		self._getem_details.ChangeValue(self._format_getem_details(book))
 		self._maybe_fetch_getem_extra_fields(book)
 
+	def _rebuild_audiobook_shortcuts(self):
+		"""Refresh the per-book Input Gestures shortcuts after the audio
+		book libraries changed - mirrors the _rebuild_jukebox_scripts()
+		calls made after jukebox changes."""
+		if self._plugin is not None:
+			try:
+				self._plugin._rebuild_audiobook_scripts()
+			except Exception:
+				pass
+
 	def _on_getem_add_to_library(self, event):
 		"""Adds the selected search result to the library. Reached via the
 		search results' context menu or Enter - there is no separate button."""
@@ -7725,6 +7735,7 @@ class RadioDialog(wx.Dialog):
 			# Translators: Spoken after successfully adding a book to the library; %s is the book title.
 			ui.message(_("Added to library: %s") % book.title)
 			self._refresh_getem_library_list()
+			self._rebuild_audiobook_shortcuts()
 		else:
 			# Translators: Generic fallback spoken if adding the book to the library fails for an unspecified reason.
 			ui.message(_("Could not add to library."))
@@ -7922,6 +7933,7 @@ class RadioDialog(wx.Dialog):
 		# Translators: Spoken after bulk-removing marked audio books from the library; %d is how many were removed.
 		ui.message(ngettext("%d book removed", "%d books removed", removed) % removed)
 		self._refresh_getem_library_list()
+		self._rebuild_audiobook_shortcuts()
 		count_left = self._getem_library_ctrl.GetCount()
 		if count_left > 0:
 			self._getem_library_ctrl.SetSelection(0)
@@ -8359,6 +8371,7 @@ class RadioDialog(wx.Dialog):
 			# Translators: Spoken after removing a book from the audio-book library; %s is the book title.
 			ui.message(_("Removed from library: %s") % book.title)
 			self._refresh_getem_library_list()
+			self._rebuild_audiobook_shortcuts()
 			# After removal, move focus to the next book (or the new last
 			# one if the removed book was at the end); if the library is
 			# now empty, move focus to the search box instead - mirrors
