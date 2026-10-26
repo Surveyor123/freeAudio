@@ -1,0 +1,134 @@
+--- a/README.md
++++ b/README.md
+@@ -17,7 +17,7 @@
+ - **Audio mirroring** — Send the same stream to two audio output devices at once, such as speakers and headphones simultaneously — see [Audio Mirror](#audio-mirror).
+ - **Obligato mode (background music)** — Loop a chosen favourite station quietly in the background, on its own output device and volume, no matter what plays (or doesn't play) as your main media — see [Obligato Mode](#obligato-mode).
+ - **Timers** — Schedule a favourite station to start playing, or schedule playback to stop, at a specific time — see [Timer](#timer).
+-- **Deep keyboard and braille access** — Every feature is reachable entirely from the keyboard, with global shortcuts that work from anywhere in Windows, direct hotkeys for individual favourite stations, and optional braille output for all of freeAudio's spoken notifications.
++- **Deep keyboard and braille access** — Every feature is reachable entirely from the keyboard, with global shortcuts that work from anywhere in Windows (including `Ctrl+Win+F3` / `Ctrl+Win+F4` to skip between stations, episodes, books and tracks without opening the window), direct hotkeys for individual favourite stations, jukebox entries and audio books, and optional braille output for all of freeAudio's spoken notifications.
+ 
+ ## Radio Browser Directory
+ 
+@@ -66,6 +66,10 @@
+ | `Ctrl+Win+S` | Stop | Fully stops the current station and resets the player. |
+ | `Ctrl+Win+→` | Next favourite | Moves to the next station in the favourites list. Wraps around to the beginning at the end of the list. |
+ | `Ctrl+Win+←` | Previous favourite | Moves to the previous station in the favourites list. Jumps to the end when at the beginning. |
++| `Ctrl+Win+F3` | Previous item | The Station Browser's `F3` key, available with the window closed. What it does depends on what is playing: **radio** — previous station; **podcast** — previous episode; **audio book** — previous book; **jukebox** — previous track in the folder. Announces "Already at first …" at the start of a list. If nothing is playing, the key is passed through unchanged. See [Skipping Items With the Station Browser Closed](#skipping-items-with-the-station-browser-closed). |
++| `Ctrl+Win+F4` | Next item | The Station Browser's `F4` key, available with the window closed: next station, podcast episode, audio book or jukebox track, depending on what is playing. |
++| `Ctrl+Win+Shift+F3` | Previous feed / part / entry | The Station Browser's `Shift+F3` key, available with the window closed: **radio** — previous station (same as `Ctrl+Win+F3`); **podcast** — previous subscribed podcast; **audio book** — previous part of the book; **jukebox** — previous jukebox entry (file or folder). |
++| `Ctrl+Win+Shift+F4` | Next feed / part / entry | The Station Browser's `Shift+F4` key, available with the window closed: next station, subscribed podcast, audio book part or jukebox entry, depending on what is playing. |
+ | `Ctrl+Win+↑` | Volume up | Increases volume by 5; maximum 200. |
+ | `Ctrl+Win+↓` | Volume down | Decreases volume by 5; minimum 0. |
+ | `Ctrl+Win+V` | Add to favourites / Download the Media | Adds the currently playing station to the favourites list or downloads the currently playing podcast episode or audio book. Announces if the station is already in the list or if the media was already downloaded. Not applicable when a jukebox track is playing: freeAudio tells you the shortcut is only for stations, podcasts or audio books. |
+@@ -87,8 +91,31 @@
+ | *(unassigned)* | Select output device | Opens an on-demand list of the available main output devices. The list is shown only when BASS detects more than one physical output device. Assign a key combination via NVDA Menu → Preferences → Input Gestures → freeAudio. |
+ | *(unassigned)* | Toggle mute notifications | Toggles the Mute Notifications setting on the fly. Assign a key combination via NVDA Menu → Preferences → Input Gestures → freeAudio. |
+ | *(unassigned)* | Play favourite station directly | Each station in your favourites list appears as a separate entry in NVDA Menu → Preferences → Input Gestures → **freeAudio Stations**. Assign any keyboard shortcut to a station to start playing it instantly from anywhere, without opening the browser. |
++| *(unassigned)* | Play jukebox entry directly | Each file or folder in your Jukebox list appears as a separate entry in NVDA Menu → Preferences → Input Gestures → **freeAudio Jukebox**. See [Direct Keyboard Shortcuts for Jukebox Entries](#direct-keyboard-shortcuts-for-jukebox-entries). |
++| *(unassigned)* | Play audio book directly | Each book in your Audio Books library — from GETEM, LibriVox or Project Gutenberg — appears as a separate entry in NVDA Menu → Preferences → Input Gestures → **freeAudio Audio Books**. Assign any keyboard shortcut to a book to resume it instantly from anywhere, without opening the browser. See [Direct Keyboard Shortcuts for Audio Books](#direct-keyboard-shortcuts-for-audio-books). |
+ 
+-Next / previous shortcuts only navigate the favourites list; they do not work with the all stations list. When a list is focused in the browser window, the left and right arrow keys serve the same purpose — see In-Dialog Shortcuts.
++`Ctrl+Win+→` / `Ctrl+Win+←` only navigate the favourites list; they do not work with the all stations list — use `Ctrl+Win+F4` / `Ctrl+Win+F3` (see below) to step through whichever list the current station was started from. When a list is focused in the browser window, the left and right arrow keys serve the same purpose — see In-Dialog Shortcuts.
++
++### Skipping Items With the Station Browser Closed
++
++Inside the Station Browser, `F3`, `F4`, `Shift+F3` and `Shift+F4` do different things depending on which tab is active. The global versions — `Ctrl+Win+F3`, `Ctrl+Win+F4`, `Ctrl+Win+Shift+F3` and `Ctrl+Win+Shift+F4` — work from anywhere in Windows, whether or not the window is open. With no tab to look at, freeAudio decides by **what is playing right now**:
++
++| Playing | `Ctrl+Win+F3` / `Ctrl+Win+F4` | `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` |
++|---|---|---|
++| Radio station | Previous / next station in the list it was last started from (All Stations results or Favourites), wrapping around at the ends. If the station is not in that list, the favourites list is used. | Same as without `Shift`. |
++| Podcast episode | Previous / next episode of the same feed. | Previous / next subscribed podcast. Because there is no list to highlight a feed in, its first listed episode is played. |
++| Audio book | Previous / next book in your library, resuming at the part you last listened to. | Previous / next part of the current book. |
++| Jukebox track | Previous / next track of the folder being played. | Previous / next entry in the Jukebox list; a folder resumes from where it was last left off. |
++
++A few things to know:
++
++- If nothing is playing, the key combination is passed through to Windows untouched, the same as `Ctrl+Win+→` / `Ctrl+Win+←`.
++- At either end of a list (except radio, which wraps), NVDA announces "Already at first …" or "Already at last …" and nothing changes. A jukebox track that was not started as part of a folder has no neighbours, so it reports the same.
++- **Automatic advance is not interrupted.** After you skip within a jukebox folder or an audio book, the next track or part still starts by itself when the current one ends, with the Station Browser open or closed. Pressing next on the last track of a folder does not reset the folder's saved position.
++- A podcast's episode list is only kept in memory for the current NVDA session. If it has not been loaded yet — for example right after NVDA started — NVDA asks you to open the Station Browser and select that podcast once; after that the keys work with the window closed.
++- If the Station Browser is open, an audio book skipped from the keyboard also updates the window's "now playing" book and part, so its own automatic advance carries on from the right place.
++
++Like every freeAudio command, these can be reassigned from NVDA Menu → Preferences → Input Gestures → freeAudio.
+ 
+ ## Station Browser
+ 
+@@ -134,10 +161,10 @@
+ |---|---|---|
+ | `F1` | Help guide | Opens the add-on's help file in the default browser. The guide for the active NVDA language is searched first; if not found, the default guide is opened. |
+ | `F2` | What's playing | Announces the currently playing station and track name. Press twice to show details such as country, genre and bitrate in a dialog. Press three times to copy the current track info (ICY metadata) to the clipboard if available; if no metadata is present, starts Shazam music recognition instead. Press four times to force music recognition in case of wrong ICY metadata. While a recording is running, its name is announced as well. |
+-| `F3` | Previous item | On All Stations or Favourites tabs: moves to the previous station and starts playing immediately. On Podcasts tab: moves to the previous episode in the episode list and plays it. On Audio Books tab: moves to the previous book and starts playing it. On Jukebox tab: moves to the previous track in the selected jukebox item and plays it. |
+-| `F4` | Next item | On All Stations or Favourites tabs: moves to the next station and starts playing immediately. On Podcasts tab: moves to the next episode and plays it. On Audio Books tab: moves to the next book and starts playing it. On Jukebox tab: moves to the next track in the selected jukebox item and plays it. |
+-| `Shift+F3` | Previous feed / part / item | On Podcasts tab: moves up one feed in the subscriptions list. On Audio Books tab: moves to the previous part of the currently playing book. On Jukebox tab: moves up one jukebox entry (file or folder) in the main list. |
+-| `Shift+F4` | Next feed / part / item | On Podcasts tab: moves down one feed in the subscriptions list. On Audio Books tab: moves to the next part of the currently playing book. On Jukebox tab: moves down one jukebox entry in the main list. |
++| `F3` | Previous item | On All Stations or Favourites tabs: moves to the previous station and starts playing immediately. On Podcasts tab: moves to the previous episode in the episode list and plays it. On Audio Books tab: moves to the previous book and starts playing it. On Jukebox tab: moves to the previous track in the selected jukebox item and plays it; in a folder, the following tracks keep starting automatically. The global equivalent is `Ctrl+Win+F3` — see [Skipping Items With the Station Browser Closed](#skipping-items-with-the-station-browser-closed). |
++| `F4` | Next item | On All Stations or Favourites tabs: moves to the next station and starts playing immediately. On Podcasts tab: moves to the next episode and plays it. On Audio Books tab: moves to the next book and starts playing it. On Jukebox tab: moves to the next track in the selected jukebox item and plays it; in a folder, the following tracks keep starting automatically. The global equivalent is `Ctrl+Win+F4`. |
++| `Shift+F3` | Previous feed / part / item | On Podcasts tab: moves up one feed in the subscriptions list. On Audio Books tab: moves to the previous part of the currently playing book. On Jukebox tab: moves up one jukebox entry (file or folder) in the main list. The global equivalent is `Ctrl+Win+Shift+F3`, which also plays the entry. |
++| `Shift+F4` | Next feed / part / item | On Podcasts tab: moves down one feed in the subscriptions list. On Audio Books tab: moves to the next part of the currently playing book. On Jukebox tab: moves down one jukebox entry in the main list. The global equivalent is `Ctrl+Win+Shift+F4`, which also plays the entry. |
+ | `F5` | Volume down | Decreases volume by 5 (minimum 0). |
+ | `F6` | Volume up | Increases volume by 5 (maximum 200). |
+ | `F7` | Pause / resume | Pauses if a station is playing; resumes if paused and media is loaded. |
+@@ -640,6 +667,7 @@
+ - Press `Enter` or `Space` to play the selected book. If nothing is loaded, `Space` starts it; if something is already playing, `Space` pauses it instead, matching the rest of the player.
+ - Use `F3` / `F4` on the Audio Books tab to move to the previous / next **book** in your library and start playing it. `Ctrl+←` / `Ctrl+→` do the same while the library list is focused.
+ - Use `Shift+F3` / `Shift+F4` to move between **parts** of the currently playing book instead — the reverse of the Podcasts tab, where F3/F4 move between episodes and Shift+F3/F4 move between feeds. This is because a book is a single library entry even when it has several parts, so the finer-grained "part" navigation sits on the Shift-modified keys here.
++- With the Station Browser closed, `Ctrl+Win+F3` / `Ctrl+Win+F4` (previous / next book) and `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (previous / next part) do the same thing — see [Skipping Items With the Station Browser Closed](#skipping-items-with-the-station-browser-closed).
+ 
+ **Context menu for library entries:** Right-click a book, or select it and press the Applications key / `Shift+F10`, to open a menu with:
+ 
+@@ -671,6 +699,21 @@
+ 
+ Select a book in your library and choose **Download Book** from its context menu to save every part to its own folder (named after the book) inside your recordings folder (`Documents\freeAudio Recordings\` by default). Files are numbered so the parts always sort back into listening order, regardless of what GETEM itself calls them. NVDA announces how many parts were saved once the download finishes; if a part fails, the last error is reported alongside the count.
+ 
++### Direct Keyboard Shortcuts for Audio Books
++
++Every book in your Audio Books library — whether it comes from GETEM, LibriVox or Project Gutenberg — is registered as a separate script in NVDA's Input Gestures dialog, under the **freeAudio Audio Books** category, exactly like [Direct Keyboard Shortcuts for Favourite Stations](#direct-keyboard-shortcuts-for-favourite-stations) and [Direct Keyboard Shortcuts for Jukebox Entries](#direct-keyboard-shortcuts-for-jukebox-entries). You can assign any keyboard shortcut to any book and press it from anywhere — no need to open the browser window first. No shortcuts are assigned by default.
++
++To assign a shortcut:
++
++1. Open NVDA Menu → Preferences → Input Gestures.
++2. Expand the **freeAudio Audio Books** category.
++3. Find the book by title (each entry is named "*title* playback shortcut"), select it, and press **Add**.
++4. Press the desired key combination and confirm.
++
++The shortcut starts the book immediately, resuming at the part you last listened to; the position inside that part is restored the same way as when you play the book from the library list. If the book's list of parts has not been fetched yet, NVDA says "Loading *title*" and playback starts as soon as it is ready (a GETEM book needs your saved login — see [Signing In](#signing-in)). When a part ends, the next one starts automatically, with or without the Station Browser open.
++
++When you add a book to the library or remove one, the **freeAudio Audio Books** category is updated straight away — the Input Gestures dialog does not need to be reopened for the change to show once you open it again. If a book is removed, its entry disappears and any shortcut assigned to it is automatically cleared by NVDA; should a stale shortcut still fire, NVDA says the audio book is no longer in the library.
++
+ ### Audio Book Data Storage
+ 
+ Each source keeps its own library file, even though they're displayed merged in the Audio Books tab. Your GETEM library (added books and their listening progress) is stored in `freeAudio_getem_library.json`, your LibriVox library is stored separately in `freeAudio_librivox_library.json`, and your Project Gutenberg library is stored separately in `freeAudio_gutenberg_library.json` — all three in the NVDA user configuration folder. Your encrypted GETEM credentials are stored separately in `freeAudio_getem_credentials.bin` in the same location, and can only be decrypted by the same Windows user account that saved them. LibriVox and Project Gutenberg have no credentials file, since neither requires an account.
+@@ -719,18 +762,20 @@
+ 
+ ### Playing from the Jukebox
+ 
+-- **Enter** on a Jukebox entry plays it directly: for a file entry, the file itself; for a folder entry, its first track.
++- **Enter** on a Jukebox entry plays it directly: for a file entry, the file itself; for a folder entry, the folder in order — starting from the track highlighted in the Tracks list or, if none is highlighted, from where the folder was last left off (the first track if it has never been played). When a track ends, the next track in the folder starts automatically.
+ - **Space** on a Jukebox entry pauses playback if anything is playing; otherwise it plays the focused entry.
+-- **Enter** or **Space** on the Tracks list plays the focused track. **Space** pauses first if something is already playing.
+-- **F3 / F4** on the Jukebox tab move between tracks within the currently selected entry and play immediately.
++- **Enter** or **Space** on the Tracks list plays the focused track. **Space** pauses first if something is already playing. A track started this way plays on its own and does not continue to the next track when it ends; use `F3` / `F4` or play the folder entry itself for continuous playback.
++- **F3 / F4** on the Jukebox tab move between tracks within the currently selected entry and play immediately. In a folder entry the track is played as part of the folder, so the following tracks still start automatically when it ends.
+ - **Shift+F3 / Shift+F4** move between entries in the Jukebox list (files and folders), mirroring how these keys move between feeds on the Podcasts tab.
+-- **Ctrl+← / Ctrl+→** while the entries or tracks list is focused do the same as F3/F4 on the tracks list — previous / next track.
++- **Ctrl+← / Ctrl+→** while the entries or tracks list is focused do the same as F3/F4 on the tracks list — previous / next track, with automatic continuation in a folder.
++- With the Station Browser closed, `Ctrl+Win+F3` / `Ctrl+Win+F4` (previous / next track) and `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (previous / next entry) do the same — see [Skipping Items With the Station Browser Closed](#skipping-items-with-the-station-browser-closed).
+ 
+ ### Jukebox Playback Details
+ 
+ Every track played from the Jukebox gets the full local-media treatment:
+ 
+ - **Resume:** freeAudio remembers your position in each track, saves it on pause and periodically while playing, and resumes from that point when you play it again — even across an NVDA restart.
++- **Automatic next track:** when a track played as part of a folder ends, the next track in that folder starts by itself, whether or not the Station Browser is open, and keeps doing so after you skip tracks with `F3` / `F4` or `Ctrl+Win+F3` / `Ctrl+Win+F4`. When the last track has finished, the folder's saved position is cleared so it starts again from the first track next time. Pressing next on the last track by hand does not clear it.
+ - **Tiered seeking:** `Ctrl+Win+J` / `Ctrl+Win+K` seek within the track using the same tap/hold scaling as podcasts and audio books — hold for 5 seconds per repeat, one tap for 12 seconds, two taps for 1 minute, three or more taps for 5 minutes. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` seek exactly 1 second — see [Fine Seeking (1 Second)](#fine-seeking-1-second).
+ - **Playback speed:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` adjust speed in 0.1x steps from 0.5x to 2.0x, with pitch preserved.
+ - **Transpose:** `Shift+Win+J` / `Shift+Win+K` shift pitch without changing speed — see [Transpose (Pitch Shift)](#transpose-pitch-shift).
+@@ -779,7 +824,7 @@
+ 3. Find the entry by name, select it, and press **Add**.
+ 4. Press the desired key combination and confirm.
+ 
+-The shortcut plays the entry immediately — for a file entry, the file itself; for a folder entry, its first track. If the entry is later removed from your Jukebox, its entry disappears from the category and any shortcut assigned to it is automatically cleared by NVDA. When a new entry is added, it appears in the category straight away — the Input Gestures dialog does not need to be reopened.
++The shortcut plays the entry immediately — for a file entry, the file itself; for a folder entry, the track where the folder was last left off (its first track if it has never been played), after which the following tracks play automatically, even with the Station Browser closed. If the entry is later removed from your Jukebox, its entry disappears from the category and any shortcut assigned to it is automatically cleared by NVDA. When a new entry is added, it appears in the category straight away — the Input Gestures dialog does not need to be reopened.
+ 
+ ## Bookmarks
+ 

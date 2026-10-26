@@ -17,7 +17,7 @@ freeAudio, ekran okuyucu NVDA için geliştirilmiş, tüm özellikleriyle donan�
 - **Ses yansıtma** — Aynı akışı, hoparlör ve kulaklık gibi iki ses çıkış aygıtına eş zamanlı olarak gönderin — bkz. [Ses Yansıtma](#ses-yansıtma).
 - **Obligato modu (fon müziği)** — Seçtiğiniz bir favori istasyonu, kendi çıkış aygıtında ve kendi ses seviyesinde, ana medyada ne çalıyor (ya da çalmıyor) olursa olsun fonda sessizce çalın — bkz. [Obligato Modu](#obligato-modu).
 - **Zamanlayıcılar** — Favori bir istasyonun belirli bir saatte çalmaya başlamasını veya oynatmanın durmasını planlayın — bkz. [Zamanlayıcı](#zamanlayıcı).
-- **Derinlemesine klavye ve braille erişimi** — Her özelliğe tamamen klavyeden ulaşılabilir; Windows'ta her yerden çalışan genel kısayollar, tek tek favori istasyonlar için doğrudan kısayollar ve freeAudio'nun tüm sesli bildirimleri için isteğe bağlı braille çıkışı bulunur.
+- **Derinlemesine klavye ve braille erişimi** — Her özelliğe tamamen klavyeden ulaşılabilir; Windows'ta her yerden çalışan genel kısayollar (pencereyi açmadan istasyon, bölüm, kitap ve parçalar arasında geçmek için `Ctrl+Win+F3` / `Ctrl+Win+F4` dahil), tek tek favori istasyonlar, müzik kutusu öğeleri ve sesli kitaplar için doğrudan kısayollar ve freeAudio'nun tüm sesli bildirimleri için isteğe bağlı braille çıkışı bulunur.
 
 ## Radio Browser Dizini
 
@@ -66,6 +66,10 @@ Bu kısayolların bazıları Windows'un kendi kullandığı kısayollarla çakı
 | `Ctrl+Win+S` | Durdur | Çalan istasyonu tamamen durdurur ve oynatıcıyı sıfırlar. |
 | `Ctrl+Win+→` | Sonraki favori | Favoriler listesindeki bir sonraki istasyona geçer. Liste sonuna gelindiğinde başa döner. |
 | `Ctrl+Win+←` | Önceki favori | Favoriler listesindeki bir önceki istasyona geçer. Listenin başındayken sona atlar. |
+| `Ctrl+Win+F3` | Önceki öğe | İstasyon Tarayıcısı'ndaki `F3` tuşu, pencere kapalıyken de kullanılabilir. Ne yaptığı, o an çalan şeye bağlıdır: **radyo** — önceki istasyon; **podcast** — önceki bölüm; **sesli kitap** — önceki kitap; **müzik kutusu** — klasördeki önceki parça. Bir listenin başındayken başta olduğunuzu bildirir. Hiçbir şey çalmıyorsa tuş değiştirilmeden Windows'a iletilir. Bkz. [Tarayıcı Kapalıyken Öğeleri Atlama](#tarayıcı-kapalıyken-öğeleri-atlama). |
+| `Ctrl+Win+F4` | Sonraki öğe | İstasyon Tarayıcısı'ndaki `F4` tuşu, pencere kapalıyken de kullanılabilir: o an çalana göre sonraki istasyon, podcast bölümü, sesli kitap veya müzik kutusu parçası. |
+| `Ctrl+Win+Shift+F3` | Önceki akış / bölüm / öğe | İstasyon Tarayıcısı'ndaki `Shift+F3` tuşu, pencere kapalıyken de kullanılabilir: **radyo** — önceki istasyon (`Ctrl+Win+F3` ile aynı); **podcast** — abone olunan önceki podcast; **sesli kitap** — kitabın önceki bölümü; **müzik kutusu** — önceki müzik kutusu öğesi (dosya ya da klasör). |
+| `Ctrl+Win+Shift+F4` | Sonraki akış / bölüm / öğe | İstasyon Tarayıcısı'ndaki `Shift+F4` tuşu, pencere kapalıyken de kullanılabilir: o an çalana göre sonraki istasyon, abone olunan podcast, sesli kitap bölümü veya müzik kutusu öğesi. |
 | `Ctrl+Win+↑` | Ses artır | Ses seviyesini 5 birim artırır; azami 200. |
 | `Ctrl+Win+↓` | Ses azalt | Ses seviyesini 5 birim düşürür; asgari 0. |
 | `Ctrl+Win+V` | Favorilere ekle / Medyayı İndir | O an çalan istasyonu favoriler listesine ekler veya çalan podcast bölümünü ya da sesli kitabı indirir. İstasyon zaten listedeyse veya medya zaten indirilmişse bildirir. Bir müzik kutusu parçası çalarken uygulanamaz; freeAudio, bu kısayolun yalnızca istasyonlar, podcastler veya sesli kitaplar için olduğunu bildirir. |
@@ -87,8 +91,31 @@ Bu kısayolların bazıları Windows'un kendi kullandığı kısayollarla çakı
 | *(atanmamış)* | Çıkış aygıtı seç | Kullanılabilir ana çıkış aygıtlarının bir listesini isteğe bağlı olarak açar. Liste yalnızca BASS birden fazla fiziksel çıkış aygıtı algıladığında gösterilir. NVDA Menüsü → Tercihler → Girdi Hareketleri → freeAudio bölümünden bir tuş kombinasyonu atanabilir. |
 | *(atanmamış)* | Bildirimleri sessize al / aç | Bildirim sessize alma ayarını anlık olarak değiştirir. NVDA Menüsü → Tercihler → Girdi Hareketleri → freeAudio bölümünden bir tuş kombinasyonu atanabilir. |
 | *(atanmamış)* | Favori istasyonu doğrudan çal | Favoriler listenizdeki her istasyon, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Stations** kategorisinde ayrı bir girdi olarak görünür. Bir istasyona klavye kısayolu atayarak tarayıcıyı açmadan her yerden doğrudan çalmaya başlayabilirsiniz. |
+| *(atanmamış)* | Müzik kutusu öğesini doğrudan çal | Müzik Kutusu listenizdeki her dosya veya klasör, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Jukebox** kategorisinde ayrı bir girdi olarak görünür. Bkz. [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları). |
+| *(atanmamış)* | Sesli kitabı doğrudan çal | Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Audio Books** kategorisinde ayrı bir girdi olarak görünür. Bir kitaba klavye kısayolu atayarak tarayıcıyı açmadan her yerden kaldığınız yerden devam ettirebilirsiniz. Bkz. [Sesli Kitaplar İçin Doğrudan Klavye Kısayolları](#sesli-kitaplar-i̇çin-doğrudan-klavye-kısayolları). |
 
-Sonraki / önceki kısayollar yalnızca favoriler listesinde dolaşır; tüm istasyonlar listesinde çalışmaz. Tarayıcı penceresinde listeler odaklanmışken sol ve sağ ok tuşları da aynı işlevi görür: bkz. Diyalog İçi Kısayollar.
+`Ctrl+Win+→` / `Ctrl+Win+←` yalnızca favoriler listesinde dolaşır; tüm istasyonlar listesinde çalışmaz — o an çalan istasyonun başlatıldığı listede gezinmek için aşağıda anlatılan `Ctrl+Win+F4` / `Ctrl+Win+F3` kullanılır. Tarayıcı penceresinde listeler odaklanmışken sol ve sağ ok tuşları da aynı işlevi görür: bkz. Diyalog İçi Kısayollar.
+
+### Tarayıcı Kapalıyken Öğeleri Atlama
+
+İstasyon Tarayıcısı'nın içinde `F3`, `F4`, `Shift+F3` ve `Shift+F4` tuşları, hangi sekmenin etkin olduğuna göre farklı işler yapar. Bunların genel karşılıkları — `Ctrl+Win+F3`, `Ctrl+Win+F4`, `Ctrl+Win+Shift+F3` ve `Ctrl+Win+Shift+F4` — pencere açık ya da kapalı olsun, Windows'ta her yerden çalışır. Bakılacak bir sekme olmadığından freeAudio, **o an ne çaldığına** göre karar verir:
+
+| Çalan | `Ctrl+Win+F3` / `Ctrl+Win+F4` | `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` |
+|---|---|---|
+| Radyo istasyonu | İstasyonun en son başlatıldığı listede (Tüm İstasyonlar sonuçları veya Favoriler) önceki / sonraki istasyon; uçlarda başa veya sona döner. İstasyon o listede yoksa favoriler listesi kullanılır. | `Shift` olmadan ile aynı. |
+| Podcast bölümü | Aynı akışın önceki / sonraki bölümü. | Abone olunan önceki / sonraki podcast. Bir akışı vurgulayacak liste olmadığından, akışın listedeki ilk bölümü çalınır. |
+| Sesli kitap | Kitaplığınızdaki önceki / sonraki kitap; en son dinlediğiniz bölümden devam eder. | Mevcut kitabın önceki / sonraki bölümü. |
+| Müzik Kutusu parçası | Çalan klasörün önceki / sonraki parçası. | Müzik Kutusu listesindeki önceki / sonraki öğe; bir klasör en son kaldığı yerden devam eder. |
+
+Bilmeniz gerekenler:
+
+- Hiçbir şey çalmıyorsa tuş kombinasyonu, `Ctrl+Win+→` / `Ctrl+Win+←` gibi, değiştirilmeden Windows'a iletilir.
+- Bir listenin başında veya sonunda (başa sarmayan radyo dışında) NVDA başta ya da sonda olduğunuzu bildirir ve hiçbir şey değişmez. Klasörün parçası olarak başlatılmamış bir müzik kutusu parçasının komşusu yoktur, bu yüzden aynısını bildirir.
+- **Otomatik geçiş kesintiye uğramaz.** Bir müzik kutusu klasöründe ya da sesli kitapta elle atladıktan sonra da, mevcut parça veya bölüm bittiğinde sonraki kendiliğinden başlar; İstasyon Tarayıcısı açık da olsa kapalı da olsa. Bir klasörün son parçasında "sonraki"ne basmak klasörün kayıtlı konumunu sıfırlamaz.
+- Bir podcast'in bölüm listesi yalnızca geçerli NVDA oturumu boyunca bellekte tutulur. Henüz yüklenmemişse — örneğin NVDA yeni başladıktan hemen sonra — NVDA, İstasyon Tarayıcısı'nı açıp o podcast'i bir kez seçmenizi ister; ondan sonra tuşlar pencere kapalıyken de çalışır.
+- İstasyon Tarayıcısı açıksa, klavyeden atlanan bir sesli kitap pencerenin "şu an çalan" kitap ve bölüm bilgisini de günceller; böylece pencerenin kendi otomatik geçişi doğru yerden devam eder.
+
+Diğer tüm freeAudio komutları gibi bunlar da NVDA Menüsü → Tercihler → Girdi Hareketleri → freeAudio bölümünden yeniden atanabilir.
 
 ## İstasyon Tarayıcısı
 
@@ -134,10 +161,10 @@ Aşağıdaki tuşlar yalnızca İstasyon Tarayıcısı penceresi etkinken çalı
 |---|---|---|
 | `F1` | Yardım kılavuzu | Eklentinin yardım dosyasını varsayılan tarayıcıda açar. Önce etkin NVDA diline ait kılavuz aranır; yoksa varsayılan kılavuz açılır. |
 | `F2` | Ne çalıyor | Çalan istasyonu ve parça adını seslendirir. İki kez basıldığında ülke, tür, bit hızı gibi ayrıntıları bir iletişim kutusunda gösterir. Üç kez basıldığında çalan parça bilgisi (ICY metadata) varsa panoya kopyalar; yoksa Shazam ile müzik tanıma başlatır. Dört kez basıldığında çalan parça bilgisi (ICY metadata) yanlışsa müzik tanıma servisini başlatmaya zorlar. Bir kayıt sürerken adı da duyurulur. |
-| `F3` | Önceki öğe | Tüm İstasyonlar veya Favoriler sekmesinde bir önceki istasyona geçer ve hemen çalmaya başlar. Podcastler sekmesinde bölüm listesindeki bir önceki bölüme geçer ve çalar. Sesli Kitaplar sekmesinde bir önceki kitaba geçer ve çalar. Müzik Kutusu sekmesinde seçili müzik kutusu öğesindeki bir önceki parçaya geçer ve çalar. |
-| `F4` | Sonraki öğe | Tüm İstasyonlar veya Favoriler sekmesinde bir sonraki istasyona geçer ve hemen çalmaya başlar. Podcastler sekmesinde bir sonraki bölüme geçer ve çalar. Sesli Kitaplar sekmesinde bir sonraki kitaba geçer ve çalar. Müzik Kutusu sekmesinde bir sonraki parçaya geçer ve çalar. |
-| `Shift+F3` | Önceki akış / bölüm / öğe | Podcastler sekmesinde: abonelikler listesinde bir üst akışa geçer. Sesli Kitaplar sekmesinde: o an çalan kitabın bir önceki bölümüne geçer. Müzik Kutusu sekmesinde: ana listede bir üst müzik kutusu öğesine (dosya ya da klasör) geçer. |
-| `Shift+F4` | Sonraki akış / bölüm / öğe | Podcastler sekmesinde: abonelikler listesinde bir alt akışa geçer. Sesli Kitaplar sekmesinde: o an çalan kitabın bir sonraki bölümüne geçer. Müzik Kutusu sekmesinde: ana listede bir alt müzik kutusu öğesine geçer. |
+| `F3` | Önceki öğe | Tüm İstasyonlar veya Favoriler sekmesinde bir önceki istasyona geçer ve hemen çalmaya başlar. Podcastler sekmesinde bölüm listesindeki bir önceki bölüme geçer ve çalar. Sesli Kitaplar sekmesinde bir önceki kitaba geçer ve çalar. Müzik Kutusu sekmesinde seçili müzik kutusu öğesindeki bir önceki parçaya geçer ve çalar; bir klasörde sonraki parçalar kendiliğinden başlamaya devam eder. Genel karşılığı `Ctrl+Win+F3`'tür — bkz. [Tarayıcı Kapalıyken Öğeleri Atlama](#tarayıcı-kapalıyken-öğeleri-atlama). |
+| `F4` | Sonraki öğe | Tüm İstasyonlar veya Favoriler sekmesinde bir sonraki istasyona geçer ve hemen çalmaya başlar. Podcastler sekmesinde bir sonraki bölüme geçer ve çalar. Sesli Kitaplar sekmesinde bir sonraki kitaba geçer ve çalar. Müzik Kutusu sekmesinde bir sonraki parçaya geçer ve çalar; bir klasörde sonraki parçalar kendiliğinden başlamaya devam eder. Genel karşılığı `Ctrl+Win+F4`'tür. |
+| `Shift+F3` | Önceki akış / bölüm / öğe | Podcastler sekmesinde: abonelikler listesinde bir üst akışa geçer. Sesli Kitaplar sekmesinde: o an çalan kitabın bir önceki bölümüne geçer. Müzik Kutusu sekmesinde: ana listede bir üst müzik kutusu öğesine (dosya ya da klasör) geçer. Genel karşılığı `Ctrl+Win+Shift+F3`'tür ve öğeyi ayrıca çalar. |
+| `Shift+F4` | Sonraki akış / bölüm / öğe | Podcastler sekmesinde: abonelikler listesinde bir alt akışa geçer. Sesli Kitaplar sekmesinde: o an çalan kitabın bir sonraki bölümüne geçer. Müzik Kutusu sekmesinde: ana listede bir alt müzik kutusu öğesine geçer. Genel karşılığı `Ctrl+Win+Shift+F4`'tür ve öğeyi ayrıca çalar. |
 | `F5` | Ses azalt | Ses seviyesini 5 birim düşürür (asgari 0). |
 | `F6` | Ses artır | Ses seviyesini 5 birim artırır (azami 200). |
 | `F7` | Duraklat / devam et | Çalan istasyon varsa duraklatır; duraklatılmışsa ve medya yüklüyse oynatmayı sürdürür. |
@@ -640,6 +667,7 @@ Eklediğiniz kitaplar, başlık, yazar ve biçimi gösteren **Kitaplık** listes
 - Seçili kitabı oynatmak için `Enter` veya `Boşluk`'a basın. Hiçbir şey yüklenmemişse `Boşluk` başlatır; zaten bir şey çalıyorsa `Boşluk` bunun yerine duraklatır, oynatıcının geri kalanıyla eşleşir.
 - Sesli Kitaplar sekmesinde bir önceki / sonraki **kitaba** geçmek ve hemen oynatmaya başlamak için `F3` / `F4` kullanın. Kitaplık listesi odaklanmışken `Ctrl+←` / `Ctrl+→` de aynısını yapar.
 - Bunun yerine o an çalan kitabın **bölümleri** arasında geçiş yapmak için `Shift+F3` / `Shift+F4` kullanın — Podcastler sekmesinin tersidir; orada F3/F4 bölümler arasında, Shift+F3/F4 ise akışlar arasında geçiş yapar. Bunun nedeni, bir kitabın birden fazla bölümü olsa bile tek bir kitaplık girişi olmasıdır, bu nedenle daha ince taneli "bölüm" gezintisi burada Shift ile değiştirilmiş tuşlara yerleştirilmiştir.
+- İstasyon Tarayıcısı kapalıyken `Ctrl+Win+F3` / `Ctrl+Win+F4` (önceki / sonraki kitap) ve `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (önceki / sonraki bölüm) aynı işi yapar — bkz. [Tarayıcı Kapalıyken Öğeleri Atlama](#tarayıcı-kapalıyken-öğeleri-atlama).
 
 **Kitaplık girişleri için bağlam menüsü:** Bir kitaba sağ tıklayın veya seçip Uygulamalar tuşuna / `Shift+F10`'a basarak şu seçenekleri içeren bir menü açın:
 
@@ -670,6 +698,21 @@ Kitaplık listenizde bir kitaba sağ tıklayıp **Bu Kitap İçin Ses Profili Ka
 ### Sesli Kitapları İndirme
 
 Kitaplıktan bir kitap seçin ve bağlam menüsünden **Kitabı İndir**'i seçerek her bölümü, kayıt klasörünüzün içinde (varsayılan olarak `Belgeler\freeAudio Recordings\`) kitabın adıyla adlandırılmış kendi klasörüne kaydedin. Dosyalar, GETEM'in kendilerine ne ad verdiğine bakılmaksızın, bölümler her zaman dinleme sırasına göre sıralanacak şekilde numaralandırılır. NVDA, indirme tamamlandığında kaç bölümün kaydedildiğini bildirir; bir bölüm başarısız olursa, sayının yanında son hata rapor edilir.
+
+### Sesli Kitaplar İçin Doğrudan Klavye Kısayolları
+
+Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Audio Books** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) ve [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları) bölümlerindeki gibi. İstediğiniz kitaba herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz. Varsayılan olarak hiçbir kısayol atanmış değildir.
+
+Kısayol atamak için:
+
+1. NVDA Menüsü → Tercihler → Girdi Hareketleri'ni açın.
+2. **freeAudio Audio Books** kategorisini genişletin.
+3. Kitabı adıyla bulun (her girdi "*kitap adı* playback shortcut" biçiminde adlandırılır), seçin ve **Ekle** düğmesine basın.
+4. İstediğiniz tuş kombinasyonuna basın ve onaylayın.
+
+Kısayol kitabı hemen başlatır ve en son dinlediğiniz bölümden devam eder; bölüm içindeki konum, kitabı kitaplık listesinden çaldığınızdaki gibi geri yüklenir. Kitabın bölüm listesi henüz alınmamışsa NVDA kitap adıyla birlikte yüklendiğini bildirir ve hazır olur olmaz oynatma başlar (GETEM kitabı için kayıtlı girişiniz gerekir — bkz. [Oturum Açma](#oturum-açma)). Bir bölüm bittiğinde sonraki kendiliğinden başlar; İstasyon Tarayıcısı açık da olsa kapalı da olsa.
+
+Kitaplığa bir kitap eklediğinizde ya da kitaplıktan çıkardığınızda **freeAudio Audio Books** kategorisi hemen güncellenir. Bir kitap kaldırılırsa girişi kaybolur ve ona atanmış kısayol NVDA tarafından otomatik olarak temizlenir; eski bir kısayol yine de tetiklenirse NVDA kitabın artık kitaplıkta olmadığını söyler.
 
 ### Sesli Kitap Veri Depolama
 
@@ -719,18 +762,20 @@ Her iki komuta da varsayılan olarak atanmış bir tuş yoktur. NVDA Menüsü �
 
 ### Müzik Kutusu'ndan Çalma
 
-- Bir Müzik Kutusu öğesinde **Enter**, öğeyi doğrudan çalar: bir dosya öğesiyse dosyanın kendisini; bir klasör öğesiyse ilk parçasını.
+- Bir Müzik Kutusu öğesinde **Enter**, öğeyi doğrudan çalar: bir dosya öğesiyse dosyanın kendisini; bir klasör öğesiyse klasörü sırayla — Parçalar listesinde vurgulanan parçadan ya da hiçbiri vurgulanmamışsa klasörün en son kaldığı yerden (hiç çalınmadıysa ilk parçadan) başlayarak. Bir parça bittiğinde klasördeki sonraki parça kendiliğinden başlar.
 - Bir Müzik Kutusu öğesinde **Boşluk**, çalan bir şey varsa oynatmayı duraklatır; yoksa odaklanan öğeyi çalar.
-- Parçalar listesinde **Enter** veya **Boşluk**, odaklanan parçayı çalar. Zaten bir şey çalıyorsa **Boşluk** önce duraklatır.
-- Müzik Kutusu sekmesinde **F3 / F4**, seçili öğedeki parçalar arasında gezinir ve hemen çalar.
+- Parçalar listesinde **Enter** veya **Boşluk**, odaklanan parçayı çalar. Zaten bir şey çalıyorsa **Boşluk** önce duraklatır. Bu şekilde başlatılan parça tek başına çalar ve bittiğinde sonraki parçaya geçmez; kesintisiz çalma için `F3` / `F4` kullanın veya klasör öğesinin kendisini çalın.
+- Müzik Kutusu sekmesinde **F3 / F4**, seçili öğedeki parçalar arasında gezinir ve hemen çalar. Klasör öğesinde parça klasörün bir parçası olarak çalınır; böylece bittiğinde sonraki parçalar yine kendiliğinden başlar.
 - **Shift+F3 / Shift+F4**, Müzik Kutusu listesindeki öğeler (dosya ve klasörler) arasında gezinir — Podcastler sekmesinde bu tuşların akışlar arasında gezinmesine karşılık gelir.
-- **Ctrl+← / Ctrl+→**, öğeler veya parçalar listesi odaklanmışken, F3/F4'ün parça listesi üzerindeki davranışıyla aynıdır — önceki / sonraki parça.
+- **Ctrl+← / Ctrl+→**, öğeler veya parçalar listesi odaklanmışken, F3/F4'ün parça listesi üzerindeki davranışıyla aynıdır — önceki / sonraki parça; klasörde otomatik devam eder.
+- İstasyon Tarayıcısı kapalıyken `Ctrl+Win+F3` / `Ctrl+Win+F4` (önceki / sonraki parça) ve `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (önceki / sonraki öğe) aynı işi yapar — bkz. [Tarayıcı Kapalıyken Öğeleri Atlama](#tarayıcı-kapalıyken-öğeleri-atlama).
 
 ### Müzik Kutusu Oynatma Ayrıntıları
 
 Müzik Kutusu'ndan çalınan her parça, tam yerel-medya davranışına sahiptir:
 
 - **Devam etme:** freeAudio her parçadaki konumunuzu hatırlar; duraklattığınızda ve çalma sırasında düzenli aralıklarla kaydeder ve aynı parçayı yeniden çaldığınızda oradan devam eder — NVDA'yı yeniden başlatsanız bile.
+- **Otomatik sonraki parça:** Klasörün bir parçası olarak çalınan bir parça bittiğinde, İstasyon Tarayıcısı açık olsun ya da olmasın, o klasördeki sonraki parça kendiliğinden başlar; parçaları `F3` / `F4` veya `Ctrl+Win+F3` / `Ctrl+Win+F4` ile atladıktan sonra da böyle devam eder. Son parça bittiğinde klasörün kayıtlı konumu temizlenir ve klasör bir sonraki sefer ilk parçadan başlar. Son parçada elle "sonraki"ne basmak bunu temizlemez.
 - **Kademeli atlama:** `Ctrl+Win+J` / `Ctrl+Win+K`, parça içinde podcast ve sesli kitaplardakiyle aynı dokunuş/basılı-tutma ölçeklemesiyle atlar — basılı tutma tekrar başına 5 saniye, bir dokunuş 12 saniye, iki dokunuş 1 dakika, üç veya daha fazla dokunuş 5 dakika. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` tam olarak 1 saniye sarar — bkz. [Hassas Sarma (1 Saniye)](#hassas-sarma-1-saniye).
 - **Oynatma hızı:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K`, hızı 0.5x ile 2.0x arasında 0.1x adımlarla, perde korunarak ayarlar.
 - **Transpose:** `Shift+Win+J` / `Shift+Win+K`, hızı değiştirmeden perdeyi kaydırır — bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma).
@@ -779,7 +824,7 @@ Kısayol atamak için:
 3. Öğeyi adıyla bulun, seçin ve **Ekle** düğmesine basın.
 4. İstediğiniz tuş kombinasyonuna basın ve onaylayın.
 
-Kısayol öğeyi hemen çalar — dosya öğesiyse dosyanın kendisini, klasör öğesiyse ilk parçasını. Öğe daha sonra Müzik Kutusu'ndan kaldırılırsa kategorideki girişi kaybolur ve atanmış kısayol NVDA tarafından otomatik olarak temizlenir. Yeni bir öğe eklendiğinde kategoride hemen görünür — Girdi Hareketleri iletişim kutusunun yeniden açılması gerekmez.
+Kısayol öğeyi hemen çalar — dosya öğesiyse dosyanın kendisini, klasör öğesiyse klasörün en son kaldığı parçayı (hiç çalınmadıysa ilk parçasını); ardından sonraki parçalar, İstasyon Tarayıcısı kapalıyken bile kendiliğinden çalar. Öğe daha sonra Müzik Kutusu'ndan kaldırılırsa kategorideki girişi kaybolur ve atanmış kısayol NVDA tarafından otomatik olarak temizlenir. Yeni bir öğe eklendiğinde kategoride hemen görünür — Girdi Hareketleri iletişim kutusunun yeniden açılması gerekmez.
 
 ## Yer İmleri
 
