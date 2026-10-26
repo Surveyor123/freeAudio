@@ -980,7 +980,7 @@ msgstr ""
 #. Translators: Title of the Obligato mode setup dialog.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:55
 msgid "Obligato Mode"
-msgstr "Обов'язковий режим"
+msgstr "Режим Obligato"
 
 #. Translators: Static label above the favourite-station picker in the Obligato setup dialog.
 #. Translators: Accessible name for the favourite-station picker list (same text as the static label above it).
@@ -1043,7 +1043,7 @@ msgid ""
 "mode."
 msgstr ""
 "Немає улюблених станцій. Спочатку додайте станцію до улюблених, щоб "
-"скористатися обов'язковим режимом."
+"скористатися режимом Obligato."
 
 #. Translators: Spoken when the chosen background station has no resolvable stream URL to play.
 #. Translators: Spoken when trying to play a station that has no resolvable stream URL at all.
@@ -1063,24 +1063,24 @@ msgstr ""
 #. Translators: Generic fallback spoken when starting Obligato mode fails for an unspecified reason.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:308
 msgid "Could not start Obligato mode."
-msgstr "Не вдалося запустити обов'язковий режим."
+msgstr "Не вдалося запустити режим Obligato."
 
 #. Translators: Spoken once the background station actually starts playing in Obligato mode; %s is the station name.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:346
 #, python-format
 msgid "Obligato mode started: %s"
-msgstr "Обов'язковий режим запущено: %s"
+msgstr "Режим Obligato запущено: %s"
 
 #. Translators: Spoken if the background station's connection fails outright while in Obligato mode; %(name)s is the station name, %(reason)s a short failure description.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:400
 #, python-format
 msgid "Could not play %(name)s in Obligato mode: %(reason)s"
-msgstr "Не вдалося відтворити %(name)s у обов'язковому режимі: %(reason)s"
+msgstr "Не вдалося відтворити %(name)s у режимі Obligato: %(reason)s"
 
 #. Translators: Spoken when Obligato mode is turned off and the background station stops.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:428
 msgid "Obligato mode stopped"
-msgstr "Обов'язковий режим зупинено"
+msgstr "Режим Obligato зупинено"
 
 #. Translators: Name of an NVDA command; pauses playback (single press), with double/triple-press doing other actions - see the docstring above.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:88
@@ -1193,6 +1193,8 @@ msgid ""
 "Podcast episodes are not loaded yet. Open the freeAudio window and select "
 "this podcast once."
 msgstr ""
+"Епізоди подкасту ще не завантажено. Відкрийте вікно freeAudio і один раз "
+"виберіть цей подкаст."
 
 #. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:755
@@ -1285,6 +1287,8 @@ msgid ""
 "Previous station, podcast episode, audio book or jukebox track (F3 in the "
 "freeAudio window)"
 msgstr ""
+"Назад: станція, епізод подкасту, аудіокнига або трек черги прослуховування "
+"(F3 у вікні freeAudio)"
 
 #. Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:944
@@ -1292,6 +1296,8 @@ msgid ""
 "Next station, podcast episode, audio book or jukebox track (F4 in the "
 "freeAudio window)"
 msgstr ""
+"Вперед: станція, епізод подкасту, аудіокнига або трек черги прослуховування "
+"(F4 у вікні freeAudio)"
 
 #. Translators: Name of an NVDA command; same as Shift+F3 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:953
@@ -1299,6 +1305,8 @@ msgid ""
 "Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the "
 "freeAudio window)"
 msgstr ""
+"Назад: канал подкасту, частина аудіокниги або запис черги прослуховування "
+"(Shift+F3 у вікні freeAudio)"
 
 #. Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:962
@@ -1306,6 +1314,8 @@ msgid ""
 "Next podcast feed, audio book part or jukebox entry (Shift+F4 in the "
 "freeAudio window)"
 msgstr ""
+"Вперед: канал подкасту, частина аудіокниги або запис черги прослуховування "
+"(Shift+F4 у вікні freeAudio)"
 
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1110
 msgid ""
@@ -5241,27 +5251,26 @@ msgstr "Запис більше не в черзі прослуховуванн�
 #. ── 2. Create / refresh a script for every book ──────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this audio book' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:942
-#, fuzzy
 msgid "freeAudio Audio Books"
-msgstr "Аудіокниги"
+msgstr "Аудіокниги freeAudio"
 
 #. Translators: Spoken if a per-audio-book shortcut is triggered after that book was removed from the library since the shortcut was created; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:990
-#, fuzzy, python-format
+#, python-format
 msgid "Audio book no longer in the library: %s"
-msgstr "Запис більше не в черзі прослуховування: %s"
+msgstr "Аудіокнига більше не в бібліотеці: %s"
 
 #. Translators: Spoken while an audio book's list of parts is being fetched before it starts playing; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:998
-#, fuzzy, python-format
+#, python-format
 msgid "Loading %s"
 msgstr "Завантаження: %s"
 
 #. Translators: Spoken when a per-audio-book shortcut can't start playback because the book's parts could not be prepared; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:1029
-#, fuzzy, python-format
+#, python-format
 msgid "Could not play %s"
-msgstr "Не вдалося відтворити станцію: %s"
+msgstr "Не вдалося відтворити %s"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
 #: addon\globalPlugins\freeAudio\__init__.py:1042
@@ -5564,6 +5573,43 @@ msgid ""
 "- F3/F4 and Ctrl+Left/Right on the Jukebox tab now play the track as part of "
 "its folder. Previously this stopped automatic advance to the next track.\n"
 msgstr ""
+"\n"
+"## Що нового у версії 2026.25.3\n"
+"\n"
+"- Сумісність з NVDA 2026.3.\n"
+"\n"
+"### Нове\n"
+"- Додано глобальні скорочення, що працюють, коли вікно freeAudio закрите:\n"
+"\n"
+"  - Ctrl+Win+F3 / Ctrl+Win+F4: попередній / наступний елемент.\n"
+"  - Ctrl+Win+Shift+F3 / Ctrl+Win+Shift+F4: попередня / наступна група.\n"
+"- Що вони роблять, залежить від того, що відтворюється:\n"
+"  - Радіостанція: попередня / наступна станція (варіанти з Shift роблять те "
+"саме).\n"
+"  - Подкаст: попередній / наступний епізод; з Shift — попередній / "
+"наступний канал.\n"
+"  - Аудіокнига: попередня / наступна книга; з Shift — попередня / наступна "
+"частина.\n"
+"  - Черга прослуховування: попередній / наступний трек; з Shift — "
+"попередній / наступний запис бібліотеки.\n"
+"- Якщо нічого не відтворюється, клавіші передаються до Windows без змін.\n"
+"- Записи бібліотеки аудіокниг тепер відображаються в діалозі «Жести вводу» "
+"NVDA в категорії «Аудіокниги freeAudio», тож ви можете призначити "
+"скорочення будь-якій книзі.\n"
+"\n"
+"### Покращення\n"
+"- Автоматичний перехід до наступного треку чи частини продовжує працювати "
+"після ручного пропуску, незалежно від того, відкрите вікно чи закрите.\n"
+"- Натискання «наступний» на останньому треку папки черги прослуховування "
+"більше не скидає збережену позицію папки.\n"
+"- Коли вікно відкрите, перехід до іншої аудіокниги з клавіатури синхронізує "
+"стан «зараз відтворюється» у вікні, тож його автоматичний перехід "
+"продовжується з правильної частини.\n"
+"\n"
+"### Виправлення\n"
+"- F3/F4 та Ctrl+Стрілка вліво/вправо на вкладці «Черга прослуховування» "
+"тепер відтворюють трек як частину його папки. Раніше це зупиняло "
+"автоматичний перехід до наступного треку.\n"
 
 #~ msgid ""
 #~ "\n"

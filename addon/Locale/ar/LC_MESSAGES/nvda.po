@@ -1169,6 +1169,8 @@ msgid ""
 "Podcast episodes are not loaded yet. Open the freeAudio window and select "
 "this podcast once."
 msgstr ""
+"لم يتم تحميل حلقات البودكاست بعد. افتح نافذة freeAudio وحدد هذا البودكاست "
+"مرة واحدة."
 
 #. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:755
@@ -1261,6 +1263,8 @@ msgid ""
 "Previous station, podcast episode, audio book or jukebox track (F3 in the "
 "freeAudio window)"
 msgstr ""
+"السابق: المحطة أو حلقة البودكاست أو الكتاب الصوتي أو مقطع صندوق الموسيقى "
+"(F3 في نافذة freeAudio)"
 
 #. Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:944
@@ -1268,6 +1272,8 @@ msgid ""
 "Next station, podcast episode, audio book or jukebox track (F4 in the "
 "freeAudio window)"
 msgstr ""
+"التالي: المحطة أو حلقة البودكاست أو الكتاب الصوتي أو مقطع صندوق الموسيقى "
+"(F4 في نافذة freeAudio)"
 
 #. Translators: Name of an NVDA command; same as Shift+F3 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:953
@@ -1275,6 +1281,8 @@ msgid ""
 "Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the "
 "freeAudio window)"
 msgstr ""
+"السابق: خلاصة البودكاست أو جزء الكتاب الصوتي أو عنصر صندوق الموسيقى "
+"(Shift+F3 في نافذة freeAudio)"
 
 #. Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:962
@@ -1282,6 +1290,8 @@ msgid ""
 "Next podcast feed, audio book part or jukebox entry (Shift+F4 in the "
 "freeAudio window)"
 msgstr ""
+"التالي: خلاصة البودكاست أو جزء الكتاب الصوتي أو عنصر صندوق الموسيقى "
+"(Shift+F4 في نافذة freeAudio)"
 
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1110
 msgid ""
@@ -5296,27 +5306,26 @@ msgstr "لم يعد العنصر في صندوق الموسيقى: %s"
 #. ── 2. Create / refresh a script for every book ──────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this audio book' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:942
-#, fuzzy
 msgid "freeAudio Audio Books"
-msgstr "الكتب الصوتية"
+msgstr "الكتب الصوتية في freeAudio"
 
 #. Translators: Spoken if a per-audio-book shortcut is triggered after that book was removed from the library since the shortcut was created; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:990
-#, fuzzy, python-format
+#, python-format
 msgid "Audio book no longer in the library: %s"
-msgstr "لم يعد العنصر في صندوق الموسيقى: %s"
+msgstr "لم يعد الكتاب الصوتي في المكتبة: %s"
 
 #. Translators: Spoken while an audio book's list of parts is being fetched before it starts playing; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:998
-#, fuzzy, python-format
+#, python-format
 msgid "Loading %s"
 msgstr "جارٍ التحميل: %s"
 
 #. Translators: Spoken when a per-audio-book shortcut can't start playback because the book's parts could not be prepared; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:1029
-#, fuzzy, python-format
+#, python-format
 msgid "Could not play %s"
-msgstr "تعذر تشغيل المحطة: %s"
+msgstr "تعذر تشغيل %s"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
 #: addon\globalPlugins\freeAudio\__init__.py:1042
@@ -5631,6 +5640,40 @@ msgid ""
 "- F3/F4 and Ctrl+Left/Right on the Jukebox tab now play the track as part of "
 "its folder. Previously this stopped automatic advance to the next track.\n"
 msgstr ""
+"\n"
+"## سجل التغييرات للإصدار 2026.25.3\n"
+"\n"
+"- متوافق مع NVDA 2026.3.\n"
+"\n"
+"### جديد\n"
+"- تمت إضافة اختصارات عامة تعمل حتى عندما تكون نافذة freeAudio مغلقة:\n"
+"\n"
+"  - Ctrl+Win+F3 / Ctrl+Win+F4: العنصر السابق / التالي.\n"
+"  - Ctrl+Win+Shift+F3 / Ctrl+Win+Shift+F4: المجموعة السابقة / التالية.\n"
+"- يعتمد ما تفعله على ما يتم تشغيله حاليًا:\n"
+"  - محطة راديو: المحطة السابقة / التالية (ومفتاح Shift يؤدي الوظيفة "
+"نفسها).\n"
+"  - بودكاست: الحلقة السابقة / التالية؛ ومع Shift، الخلاصة السابقة / "
+"التالية.\n"
+"  - كتاب صوتي: الكتاب السابق / التالي؛ ومع Shift، الجزء السابق / التالي.\n"
+"  - صندوق الموسيقى: المقطع السابق / التالي؛ ومع Shift، العنصر السابق / "
+"التالي في المكتبة.\n"
+"- إذا لم يكن هناك شيء قيد التشغيل، تُمرَّر المفاتيح إلى Windows دون تغيير.\n"
+"- تظهر الآن عناصر مكتبة الكتب الصوتية في مربع حوار إيماءات الإدخال في NVDA "
+"ضمن \"الكتب الصوتية في freeAudio\"، بحيث يمكنك تعيين اختصار لأي كتاب.\n"
+"\n"
+"### تحسينات\n"
+"- يستمر الانتقال التلقائي بين المقاطع والأجزاء في العمل بعد التخطي اليدوي، "
+"سواء كانت النافذة مفتوحة أو مغلقة.\n"
+"- لم يعد الضغط على \"التالي\" عند آخر مقطع في مجلد صندوق الموسيقى يعيد ضبط "
+"الموضع المحفوظ للمجلد.\n"
+"- عند فتح النافذة، يُبقي تخطي كتاب صوتي من لوحة المفاتيح حالة \"قيد التشغيل "
+"الآن\" في النافذة متزامنة، فيتابع الانتقال التلقائي من الجزء الصحيح.\n"
+"\n"
+"### إصلاحات\n"
+"- أصبح F3/F4 وCtrl+السهم الأيسر/الأيمن في علامة تبويب صندوق الموسيقى "
+"يشغّلان المقطع كجزء من مجلده. كان ذلك يوقف سابقًا الانتقال التلقائي إلى "
+"المقطع التالي.\n"
 
 #~ msgid ""
 #~ "\n"

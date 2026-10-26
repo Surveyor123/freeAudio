@@ -1151,7 +1151,7 @@ msgstr "播放上一个电台"
 msgid ""
 "Podcast episodes are not loaded yet. Open the freeAudio window and select "
 "this podcast once."
-msgstr ""
+msgstr "播客单集尚未加载。请打开自由之声窗口，并选择一次此播客。"
 
 #. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:755
@@ -1245,28 +1245,28 @@ msgstr "已经是最后一项了"
 msgid ""
 "Previous station, podcast episode, audio book or jukebox track (F3 in the "
 "freeAudio window)"
-msgstr ""
+msgstr "上一个电台、播客单集、有声读物或点唱机曲目（自由之声窗口中的 F3）"
 
 #. Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:944
 msgid ""
 "Next station, podcast episode, audio book or jukebox track (F4 in the "
 "freeAudio window)"
-msgstr ""
+msgstr "下一个电台、播客单集、有声读物或点唱机曲目（自由之声窗口中的 F4）"
 
 #. Translators: Name of an NVDA command; same as Shift+F3 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:953
 msgid ""
 "Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the "
 "freeAudio window)"
-msgstr ""
+msgstr "上一个播客订阅源、有声读物部分或点唱机条目（自由之声窗口中的 Shift+F3）"
 
 #. Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:962
 msgid ""
 "Next podcast feed, audio book part or jukebox entry (Shift+F4 in the "
 "freeAudio window)"
-msgstr ""
+msgstr "下一个播客订阅源、有声读物部分或点唱机条目（自由之声窗口中的 Shift+F4）"
 
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1110
 msgid ""
@@ -3388,7 +3388,7 @@ msgstr "此播客没有订阅源URL。"
 #. Translators: Placeholder row shown in the episode-preview list while fetching a feed to preview.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6862
 msgid "Loading episodes..."
-msgstr "正在家在单集……"
+msgstr "正在加载单集……"
 
 #. Translators: Placeholder row shown in the episode-preview list when a previewed feed has no episodes.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6880
@@ -3563,7 +3563,7 @@ msgstr[0] "已删除 %d 本书"
 #: addon\globalPlugins\freeAudio\radioDialog.py:8420
 #, python-format
 msgid "Loading: %s"
-msgstr "正在家在：%s"
+msgstr "正在加载：%s"
 
 #. Translators: Spoken when Shift+F4 (next part) is pressed on the last part of a book, meaning the whole book is now finished; %s is the book title.
 #. Translators: Spoken when a jukebox folder finishes playing all its tracks; %s is the folder/entry title.
@@ -3591,7 +3591,7 @@ msgstr "复制URL(&C)"
 #. Translators: Context menu item - saves an audio profile (volume/effects/speed) that applies to every part/chapter of this audio book
 #: addon\globalPlugins\freeAudio\radioDialog.py:8287
 msgid "Save Audio Pr&ofile for This Book"
-msgstr "保存本书的音频预览文件"
+msgstr "为本书保存音频配置文件(&O)"
 
 #. Translators: Context-menu item; removes the selected book from the saved library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8298
@@ -4541,9 +4541,7 @@ msgstr "MP3录制比特率："
 msgid ""
 "&Disable internet connectivity check before playing (recommended if DNS is "
 "blocked)"
-msgstr ""
-"播放前禁用互联网连接检查(&D)（如果DNS被阻止，建议使用）禁用播放前的互联网连接"
-"检查(&D)（如果 DNS 被封锁，建议启用）"
+msgstr "播放前禁用互联网连接检查(&D)（如果 DNS 被封锁，建议启用）"
 
 #. Translators: Checkbox label for the automatic update-check setting.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:618
@@ -5082,27 +5080,26 @@ msgstr "该条目已不在点唱机中：%s"
 #. ── 2. Create / refresh a script for every book ──────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this audio book' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:942
-#, fuzzy
 msgid "freeAudio Audio Books"
-msgstr "有声读物"
+msgstr "自由之声有声读物"
 
 #. Translators: Spoken if a per-audio-book shortcut is triggered after that book was removed from the library since the shortcut was created; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:990
-#, fuzzy, python-format
+#, python-format
 msgid "Audio book no longer in the library: %s"
-msgstr "该条目已不在点唱机中：%s"
+msgstr "该有声读物已不在书库中：%s"
 
 #. Translators: Spoken while an audio book's list of parts is being fetched before it starts playing; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:998
-#, fuzzy, python-format
+#, python-format
 msgid "Loading %s"
-msgstr "正在家在：%s"
+msgstr "正在加载：%s"
 
 #. Translators: Spoken when a per-audio-book shortcut can't start playback because the book's parts could not be prepared; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:1029
-#, fuzzy, python-format
+#, python-format
 msgid "Could not play %s"
-msgstr "无法播放电台: %s"
+msgstr "无法播放 %s"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
 #: addon\globalPlugins\freeAudio\__init__.py:1042
@@ -5306,7 +5303,7 @@ msgstr ""
 #. Translators: Spoken when the "play focused item" Explorer shortcut is used on a file that isn't a recognized audio format.
 #: addon\appModules\explorer.py:246
 msgid "Not a recognized audio file."
-msgstr "无法识别的音频文件: %s。"
+msgstr "不是可识别的音频文件。"
 
 # | msgid "Added to favourites: %s"
 #. Translators: Name of an NVDA command; adds the file or folder focused in Windows Explorer to the freeAudio jukebox.
@@ -5344,18 +5341,9 @@ msgid ""
 "lyrics lookup. All controls and shortcuts are designed for NVDA "
 "accessibility."
 msgstr ""
-"FreeRadio（自由之声） 是一款专为 NVDA 设计的网络电台、播客、有声书与本地音乐"
-"插件，通过 Radio Browser 开放目录、RSS/Atom 播客订阅源、面向视障人士的 "
-"libriVox + GETEM 数字图书馆，以及内置点唱机播放您的本地音频文件和文件夹，为您"
-"提供无缝访问数千个网络电台的便捷体验。它配备了完全无障碍的电台浏览器，支持搜"
-"索、国家/地区筛选、收藏夹管理，以及针对单个电台、单个播客、单个有声书和单个点"
-"唱机音轨的个性化音频配置文件。播客单集、有声书章节和点唱机音轨均可自动从上次"
-"中断的位置恢复播放——点唱机文件夹甚至能自动定位到您最后播放的那首音轨——并支持"
-"可调节的音高保持播放速度以及独立的音调调节（半音阶转调）。播放核心由 BASS 驱"
-"动，支持音量控制、音频特效、输出设备选择以及向第二台设备同时进行音频镜像输"
-"出。其他功能包括即时录制与定时录制、直播电台时移倒回、睡眠定时器与闹钟、自动 "
-"ICY 元数据播报、基于 Shazam 的音乐识别，以及带有歌词查询功能的红心收藏歌曲日"
-"志。所有控件和快捷键均专为 NVDA 无障碍操作而设计。"
+"自由之声（freeAudio） 是一款专为 NVDA 设计的网络电台、播客、有声书与本地音乐插件，通过 Radio Browser "
+"开放目录、RSS/Atom 播客订阅源、面向视障人士的 libriVox + GETEM "
+"数字图书馆，以及内置点唱机播放您的本地音频文件和文件夹，为您提供无缝访问数千个网络电台的便捷体验。它配备了完全无障碍的电台浏览器，支持搜索、国家/地区筛选、收藏夹管理，以及针对单个电台、单个播客、单个有声书和单个点唱机音轨的个性化音频配置文件。播客单集、有声书章节和点唱机音轨均可自动从上次中断的位置恢复播放——点唱机文件夹甚至能自动定位到您最后播放的那首音轨——并支持可调节的音高保持播放速度以及独立的音调调节（半音阶转调）。播放核心由 BASS 驱动，支持音量控制、音频特效、输出设备选择以及向第二台设备同时进行音频镜像输出。其他功能包括即时录制与定时录制、直播电台时移倒回、睡眠定时器与闹钟、自动 ICY 元数据播报、基于 Shazam 的音乐识别，以及带有歌词查询功能的红心收藏歌曲日志。所有控件和快捷键均专为 NVDA 无障碍操作而设计。"
 
 #. Brief changelog for this version
 #. Translators: what's new content for the add-on version
@@ -5395,6 +5383,31 @@ msgid ""
 "- F3/F4 and Ctrl+Left/Right on the Jukebox tab now play the track as part of "
 "its folder. Previously this stopped automatic advance to the next track.\n"
 msgstr ""
+"\n"
+"## 自由之声 2026.25.3 版本新增内容\n"
+"\n"
+"- 兼容 NVDA 2026.3。\n"
+"\n"
+"### 新功能\n"
+"- 新增全局快捷键，即使自由之声窗口关闭也可使用：\n"
+"\n"
+"  - Ctrl+Win+F3 / Ctrl+Win+F4：上一项 / 下一项。\n"
+"  - Ctrl+Win+Shift+F3 / Ctrl+Win+Shift+F4：上一组 / 下一组。\n"
+"- 它们的功能取决于当前正在播放的内容：\n"
+"  - 电台：上一个 / 下一个电台（带 Shift 的组合键效果相同）。\n"
+"  - 播客：上一集 / 下一集；按住 Shift 时为上一个 / 下一个订阅源。\n"
+"  - 有声读物：上一本 / 下一本；按住 Shift 时为上一部分 / 下一部分。\n"
+"  - 点唱机：上一首 / 下一首；按住 Shift 时为上一个 / 下一个库条目。\n"
+"- 如果没有正在播放的内容，按键将原样传递给 Windows。\n"
+"- 有声读物库中的条目现在会显示在 NVDA 的“输入手势”对话框中的“自由之声有声读物”类别下，因此您可以为任意一本书分配快捷键。\n"
+"\n"
+"### 改进\n"
+"- 手动跳转后，自动切换到下一首曲目或下一部分的功能仍然有效，无论窗口是打开还是关闭。\n"
+"- 在点唱机文件夹的最后一首曲目上按“下一个”，不再重置该文件夹已保存的位置。\n"
+"- 窗口打开时，通过键盘跳转有声读物会使窗口中的“正在播放”状态保持同步，因此其自动切换会从正确的部分继续。\n"
+"\n"
+"### 修复\n"
+"- 在“点唱机”选项卡中，F3/F4 和 Ctrl+左箭头/右箭头现在会将曲目作为其所在文件夹的一部分来播放。此前这会中断自动切换到下一首曲目。\n"
 
 #~ msgid ""
 #~ "\n"

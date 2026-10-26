@@ -209,12 +209,12 @@ msgstr "Snížit hlasitost freeAudia o 5"
 #. Translators: Name of an NVDA command; speeds up playback rate, podcasts/audiobooks/GETEM chapters only.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:61
 msgid "Increase podcast, audio book and jukebox playback speed"
-msgstr ""
+msgstr "Zvýšit rychlost přehrávání podcastů, audioknih a jukeboxu"
 
 #. Translators: Name of an NVDA command; slows down playback rate, podcasts/audiobooks/GETEM chapters only.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:70
 msgid "Decrease podcast, audio book and jukebox playback speed"
-msgstr ""
+msgstr "Snížit rychlost přehrávání podcastů, audioknih a jukeboxu"
 
 #. Translators: Spoken when the playback-rate command returns the rate to normal (1.0x).
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:81
@@ -363,57 +363,59 @@ msgstr "Zvukový efekt přelaďování stanic"
 #. Translators: Name of an NVDA command; adds a bookmark at the current playback position of an audio book part, podcast episode or jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:39
 msgid "Add a bookmark at the current position (audio books, podcasts, jukebox)"
-msgstr ""
+msgstr "Přidat záložku na aktuální pozici (audioknihy, podcasty, jukebox)"
 
 #. Translators: Spoken when the add-bookmark command is used on a live radio station.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:55
 msgid ""
 "Bookmarks are available for audio books, podcasts and jukebox tracks only"
 msgstr ""
+"Záložky jsou k dispozici pouze pro audioknihy, podcasty a skladby jukeboxu"
 
 #. Translators: Spoken when the current playback position can't be read, so no bookmark is added.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:62
-#, fuzzy
 msgid "Could not read the playback position"
-msgstr "Nepodařilo se změnit rychlost přehrávání."
+msgstr "Nepodařilo se zjistit pozici přehrávání"
 
 #. Translators: Spoken after adding a bookmark; %(name)s is its default name (ordinal), %(time)s the position.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:67
-#, fuzzy, python-format
+#, python-format
 msgid "Bookmark added: %(name)s, %(time)s"
-msgstr "Budík byl přidán: %(station)s v %(time)s"
+msgstr "Záložka přidána: %(name)s, %(time)s"
 
 #. Translators: Default name of a bookmark; %d is its ordinal among the item's bookmarks, sorted by position.
 #: addon\globalPlugins\freeAudio\bookmarks.py:142
 #, python-format
 msgid "Bookmark %d"
-msgstr ""
+msgstr "Záložka %d"
 
 #. Translators: Fallback default bookmark name if its ordinal can't be determined.
 #: addon\globalPlugins\freeAudio\bookmarks.py:144
-#, fuzzy
 msgid "Bookmark"
-msgstr "Kniha"
+msgstr "Záložka"
 
 #. Translators: Title of the dialog used to record a voice note for a bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:73
 msgid "Voice Note"
-msgstr ""
+msgstr "Hlasová poznámka"
 
 #. Translators: Text of the voice-note recording dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:79
 msgid "Recording from the microphone. Press Stop and Save when you are done."
 msgstr ""
+"Probíhá nahrávání z mikrofonu. Až budete hotovi, stiskněte Zastavit a "
+"uložit."
 
 #. Translators: Button label; stops the voice-note recording and saves it to the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:84
 msgid "&Stop and Save"
-msgstr ""
+msgstr "&Zastavit a uložit"
 
 #. Translators: Spoken when the microphone can't be opened for a voice note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:101
 msgid "Could not start recording. Check that a microphone is available."
 msgstr ""
+"Nahrávání se nepodařilo spustit. Zkontrolujte, zda je k dispozici mikrofon."
 
 #. Translators: Spoken when voice-note recording has started.
 #. Translators: Tab label for the recording controls and active/past recordings list.
@@ -424,30 +426,28 @@ msgstr "Záznam"
 
 #. Translators: Spoken when the recorded voice note could not be saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:112
-#, fuzzy
 msgid "Could not save the voice note"
-msgstr "Soubor nelze přečíst: %(error)s"
+msgstr "Hlasovou poznámku se nepodařilo uložit"
 
 #. Translators: Label above the list of bookmarks of the selected podcast episode / audio book / jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:137
 msgid "Bookmarks:"
-msgstr ""
+msgstr "Záložky:"
 
 #. Translators: Accessible name of the bookmarks list.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:140
-#, fuzzy
 msgid "Bookmarks of the selected item"
-msgstr "Skladby ve vybrané položce jukeboxu"
+msgstr "Záložky vybrané položky"
 
 #. Translators: Marker appended to a bookmark's list row when it has a text note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:158
 msgid "[text]"
-msgstr ""
+msgstr "[text]"
 
 #. Translators: Marker appended to a bookmark's list row when it has a voice note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:161
 msgid "[voice note]"
-msgstr ""
+msgstr "[hlasová poznámka]"
 
 #. Translators: Spoken after unmarking a bookmark; %s is its name.
 #. Translators: Spoken after unmarking a favourite station in the multi-select removal flow; %s is the station name.
@@ -480,12 +480,12 @@ msgstr "Označeno: %s"
 #. Translators: Prompt of the bookmark rename dialog; leaving it empty restores the default name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:294
 msgid "Enter a new name for the bookmark (leave empty for the default name):"
-msgstr ""
+msgstr "Zadejte nový název záložky (ponechte prázdné pro výchozí název):"
 
 #. Translators: Title of the bookmark rename dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:296
 msgid "Rename Bookmark"
-msgstr ""
+msgstr "Přejmenovat záložku"
 
 #. Translators: Spoken after renaming a bookmark; %s is its new name.
 #. Translators: Spoken after successfully renaming a station; %s is the new name.
@@ -498,80 +498,79 @@ msgid "Renamed to: %s"
 msgstr "Přejmenováno na: %s"
 
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:320
-#, fuzzy, python-format
+#, python-format
 msgid "Do you want to delete %d bookmark?"
 msgid_plural "Do you want to delete %d bookmarks?"
-msgstr[0] "Opravdu chcete odstranit %d označenou stanici?"
-msgstr[1] "Opravdu chcete odstranit %d označené stanice?"
-msgstr[2] "Opravdu chcete odstranit %d označených stanic?"
+msgstr[0] "Opravdu chcete odstranit %d záložku?"
+msgstr[1] "Opravdu chcete odstranit %d záložky?"
+msgstr[2] "Opravdu chcete odstranit %d záložek?"
 
 #. Translators: Title of the delete-bookmarks confirmation dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:325
 msgid "Delete Bookmarks"
-msgstr ""
+msgstr "Odstranit záložky"
 
 #. Translators: Spoken after deleting bookmarks; %d is how many were deleted.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:337
-#, fuzzy, python-format
+#, python-format
 msgid "%d bookmark deleted"
 msgid_plural "%d bookmarks deleted"
-msgstr[0] "Odstraněna %d stanice"
-msgstr[1] "Odstraněny %d stanice"
-msgstr[2] "Odstraněno %d stanic"
+msgstr[0] "Odstraněna %d záložka"
+msgstr[1] "Odstraněny %d záložky"
+msgstr[2] "Odstraněno %d záložek"
 
 #. Translators: Prompt of the bookmark text-note dialog; the text is spoken by NVDA when playback reaches the bookmark. Empty removes the text.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:350
 msgid ""
 "Text spoken when playback reaches this bookmark (leave empty to remove it):"
 msgstr ""
+"Text, který se přečte, když přehrávání dosáhne této záložky (ponechte "
+"prázdné pro odstranění):"
 
 #. Translators: Title of the bookmark text-note dialog.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:352
 msgid "Bookmark Text"
-msgstr ""
+msgstr "Text záložky"
 
 #. Translators: Spoken after saving a bookmark's text note.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:364
 msgid "Text saved"
-msgstr ""
+msgstr "Text uložen"
 
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:364
-#, fuzzy
 msgid "Text removed"
-msgstr "Časovač byl odstraněn"
+msgstr "Text odstraněn"
 
 #. Translators: Spoken after a voice note was saved to a bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:379
 msgid "Voice note saved"
-msgstr ""
+msgstr "Hlasová poznámka uložena"
 
 #. Translators: Spoken after removing a bookmark's text and voice notes.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:390
-#, fuzzy
 msgid "Notes removed"
-msgstr "Časovač byl odstraněn"
+msgstr "Poznámky odstraněny"
 
 #. Translators: Spoken when the repeat command is used without two or more marked bookmarks of the same item.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:397
 msgid "Mark at least two bookmarks of the same item with the period key first."
-msgstr ""
+msgstr "Nejprve klávesou tečka označte alespoň dvě záložky téže položky."
 
 #. Translators: Spoken when repeat mode starts; %(start)s and %(end)s are the positions it repeats between.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:406
 #, python-format
 msgid "Repeating between %(start)s and %(end)s"
-msgstr ""
+msgstr "Opakování mezi %(start)s a %(end)s"
 
 #. Translators: Spoken when repeat mode between bookmarks is turned off.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:412
-#, fuzzy
 msgid "Repeat stopped"
-msgstr "Nahrávání zastaveno"
+msgstr "Opakování zastaveno"
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:430
 msgid "&Play from Bookmark"
-msgstr ""
+msgstr "&Přehrát od záložky"
 
 #. Translators: Bookmark context-menu item; renames the selected bookmark.
 #. Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
@@ -582,35 +581,33 @@ msgstr "Přejmenovat..."
 
 #. Translators: Bookmark context-menu item; deletes the bookmarks marked with '.' (or the focused one if none are marked).
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:434
-#, fuzzy
 msgid "&Delete Selected"
 msgstr "&Odstranit vybrané"
 
 #. Translators: Bookmark context-menu item; adds or edits a text note spoken by NVDA when playback reaches the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:437
 msgid "Add or Edit &Text..."
-msgstr ""
+msgstr "Přidat nebo upravit &text..."
 
 #. Translators: Bookmark context-menu item; records a voice note that plays when playback reaches the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:439
-#, fuzzy
 msgid "Add &Voice Note..."
-msgstr "Přidat soubor..."
+msgstr "Přidat &hlasovou poznámku..."
 
 #. Translators: Bookmark context-menu item; removes the text and voice note of the bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:441
 msgid "&Clear Notes"
-msgstr ""
+msgstr "&Vymazat poznámky"
 
 #. Translators: Bookmark context-menu item; plays the section between the bookmarks marked with '.' over and over.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:444
 msgid "&Repeat Between Marked Bookmarks"
-msgstr ""
+msgstr "&Opakovat mezi označenými záložkami"
 
 #. Translators: Bookmark context-menu item; turns off the repeat mode.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:446
 msgid "St&op Repeat"
-msgstr ""
+msgstr "Za&stavit opakování"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -1186,6 +1183,8 @@ msgid ""
 "Podcast episodes are not loaded yet. Open the freeAudio window and select "
 "this podcast once."
 msgstr ""
+"Epizody podcastu zatím nejsou načteny. Otevřete okno freeAudia a tento "
+"podcast jednou vyberte."
 
 #. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:755
@@ -1278,6 +1277,8 @@ msgid ""
 "Previous station, podcast episode, audio book or jukebox track (F3 in the "
 "freeAudio window)"
 msgstr ""
+"Předchozí stanice, epizoda podcastu, audiokniha nebo skladba jukeboxu (F3 v "
+"okně freeAudia)"
 
 #. Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:944
@@ -1285,6 +1286,8 @@ msgid ""
 "Next station, podcast episode, audio book or jukebox track (F4 in the "
 "freeAudio window)"
 msgstr ""
+"Další stanice, epizoda podcastu, audiokniha nebo skladba jukeboxu (F4 v "
+"okně freeAudia)"
 
 #. Translators: Name of an NVDA command; same as Shift+F3 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:953
@@ -1292,6 +1295,8 @@ msgid ""
 "Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the "
 "freeAudio window)"
 msgstr ""
+"Předchozí kanál podcastu, část audioknihy nebo položka jukeboxu (Shift+F3 v "
+"okně freeAudia)"
 
 #. Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:962
@@ -1299,6 +1304,8 @@ msgid ""
 "Next podcast feed, audio book part or jukebox entry (Shift+F4 in the "
 "freeAudio window)"
 msgstr ""
+"Další kanál podcastu, část audioknihy nebo položka jukeboxu (Shift+F4 v "
+"okně freeAudia)"
 
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1110
 msgid ""
@@ -3513,7 +3520,7 @@ msgstr "Nebyly nalezeny žádné epizody."
 #: addon\globalPlugins\freeAudio\radioDialog.py:7759
 #: addon\globalPlugins\freeAudio\radioDialog.py:8778
 msgid "&Stop Preview"
-msgstr "Za¨stavit náhled"
+msgstr "Zastavit náhled"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:6946
 #: addon\globalPlugins\freeAudio\radioDialog.py:7759
@@ -4111,7 +4118,7 @@ msgstr "Nahrávání skladby zastaveno"
 #: addon\globalPlugins\freeAudio\recordingMixin.py:125
 #, python-format
 msgid "Song recording stopped. Songs saved: %d"
-msgstr ""
+msgstr "Nahrávání skladeb zastaveno. Uložených skladeb: %d"
 
 #. Translators: Spoken when double-pressing Ctrl+Win+E (song-capture) on a podcast/audiobook episode, which can't be recorded this way; points to the Ctrl+Win+V download command instead.
 #. Translators: Same message as the song-capture path above, spoken here when single-pressing Ctrl+Win+E on a podcast/audiobook episode.
@@ -4146,6 +4153,8 @@ msgid ""
 "This station does not support recording every song. Double-press to record "
 "the current song."
 msgstr ""
+"Tato stanice nepodporuje nahrávání každé skladby. Dvojitým stisknutím "
+"nahrajete aktuální skladbu."
 
 #. Translators: Generic fallback spoken if starting song-capture recording raises an unexpected exception.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:213
@@ -4162,7 +4171,7 @@ msgstr "Nahrávání skladby zahájeno: %s"
 #: addon\globalPlugins\freeAudio\recordingMixin.py:233
 #, python-format
 msgid "Recording every song until stopped. Current song: %s"
-msgstr ""
+msgstr "Nahrávání každé skladby, dokud nebude zastaveno. Aktuální skladba: %s"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+E); single-press toggles a plain instant recording, double-press records the current song, triple-press records every song until stopped - see this method's logic below.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:238
@@ -4170,6 +4179,8 @@ msgid ""
 "Start or stop instant recording. Press twice for current song recording, "
 "thrice for recording every song."
 msgstr ""
+"Spustit nebo zastavit okamžité nahrávání. Dvojitým stisknutím nahrajete "
+"aktuální skladbu, trojitým každou skladbu."
 
 #. Translators: Spoken when the single-press gesture stops an in-progress plain instant recording; %s is the saved filename.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:313
@@ -4212,81 +4223,84 @@ msgid ""
 "Settings (reset to defaults; the recordings folder and the liked songs "
 "option are kept)"
 msgstr ""
+"Nastavení (obnoví se výchozí hodnoty; složka s nahrávkami a volba "
+"oblíbených skladeb zůstanou zachovány)"
 
 #. Translators: Check box in the clean-up dialog; deletes the favourite stations list.
 #: addon\globalPlugins\freeAudio\resetDialog.py:79
 msgid "Favorite stations"
-msgstr ""
+msgstr "Oblíbené stanice"
 
 #. Translators: Check box in the clean-up dialog; deletes the downloaded station list cache.
 #: addon\globalPlugins\freeAudio\resetDialog.py:85
 msgid "Station list cache (downloaded again when needed)"
-msgstr ""
+msgstr "Mezipaměť seznamu stanic (v případě potřeby se stáhne znovu)"
 
 #. Translators: Check box in the clean-up dialog; deletes the audio book libraries of all sources.
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
 msgid "Audio book libraries (GETEM, LibriVox, Project Gutenberg)"
-msgstr ""
+msgstr "Knihovny audioknih (GETEM, LibriVox, Project Gutenberg)"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:107
 msgid "Saved GETEM login"
-msgstr ""
+msgstr "Uložené přihlášení ke GETEM"
 
 #. Translators: Check box in the clean-up dialog; empties the Jukebox list (the music files themselves are not touched).
 #: addon\globalPlugins\freeAudio\resetDialog.py:113
 msgid "Jukebox list (your music files are not deleted)"
-msgstr ""
+msgstr "Seznam jukeboxu (vaše hudební soubory se nesmažou)"
 
 #. Translators: Check box in the clean-up dialog; deletes saved resume positions.
 #: addon\globalPlugins\freeAudio\resetDialog.py:119
 msgid "Saved resume positions (podcasts, audio books, Jukebox folders)"
-msgstr ""
+msgstr "Uložené pozice pro pokračování (podcasty, audioknihy, složky jukeboxu)"
 
 #. Translators: Check box in the clean-up dialog; deletes all bookmarks of audio books, podcast episodes and jukebox tracks, including their voice notes.
 #: addon\globalPlugins\freeAudio\resetDialog.py:128
 msgid "Bookmarks (including their text and voice notes)"
-msgstr ""
+msgstr "Záložky (včetně jejich textových a hlasových poznámek)"
 
 #. Translators: Check box in the clean-up dialog; deletes sleep timers and alarms.
 #: addon\globalPlugins\freeAudio\resetDialog.py:137
 msgid "Sleep timers and alarms"
-msgstr ""
+msgstr "Časovače spánku a budíky"
 
 #. Translators: Check box in the clean-up dialog; deletes the scheduled recording plans (not the recordings).
 #: addon\globalPlugins\freeAudio\resetDialog.py:143
 msgid "Scheduled recording plans (recordings themselves are not deleted)"
-msgstr ""
+msgstr "Plány naplánovaného nahrávání (samotné nahrávky se nesmažou)"
 
 #. Translators: Title of the clean-up dialog opened from freeAudio's settings.
 #: addon\globalPlugins\freeAudio\resetDialog.py:269
 msgid "Reset settings / delete saved data"
-msgstr ""
+msgstr "Obnovit nastavení / smazat uložená data"
 
 #. Translators: Added after a clean-up item's name when there is nothing saved for it.
 #: addon\globalPlugins\freeAudio\resetDialog.py:286
 msgid "nothing saved"
-msgstr ""
+msgstr "nic není uloženo"
 
 #. Translators: Label of the check list in the clean-up dialog.
 #: addon\globalPlugins\freeAudio\resetDialog.py:291
 msgid "Select what to reset or delete (nothing is selected by default):"
 msgstr ""
+"Vyberte, co chcete obnovit nebo smazat (ve výchozím stavu není vybráno nic):"
 
 #. Translators: Note in the clean-up dialog.
 #: addon\globalPlugins\freeAudio\resetDialog.py:298
 msgid "Recordings and liked songs are never touched by this."
-msgstr ""
+msgstr "Nahrávek a oblíbených skladeb se to nikdy netýká."
 
 #. Translators: Button in the clean-up dialog; checks every item.
 #: addon\globalPlugins\freeAudio\resetDialog.py:303
 msgid "Select &all"
-msgstr ""
+msgstr "Vybrat &vše"
 
 #. Translators: Button in the clean-up dialog; resets/deletes the checked items.
 #: addon\globalPlugins\freeAudio\resetDialog.py:306
 msgid "&Reset / delete selected"
-msgstr ""
+msgstr "&Obnovit / smazat vybrané"
 
 #. Translators: Button in the clean-up dialog; closes it without doing anything.
 #. Translators: 'Cancel' button label on the update-available dialog, paired with whichever install/open-page label is used as the other button.
@@ -4298,7 +4312,7 @@ msgstr "&Storno"
 #. Translators: Shown in the clean-up dialog when the reset/delete button is pressed with nothing checked.
 #: addon\globalPlugins\freeAudio\resetDialog.py:343
 msgid "Nothing is selected."
-msgstr ""
+msgstr "Není vybráno nic."
 
 #. Translators: Confirmation in the clean-up dialog. {items} is the list of checked items, one per line.
 #: addon\globalPlugins\freeAudio\resetDialog.py:355
@@ -4309,6 +4323,12 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Následující položky budou obnoveny nebo smazány. Tuto akci nelze vrátit "
+"zpět.\n"
+"\n"
+"{items}\n"
+"\n"
+"Pokračovat?"
 
 #. Translators: Shown after the clean-up when some items could not be removed. {items} is the list, one per line.
 #: addon\globalPlugins\freeAudio\resetDialog.py:372
@@ -4318,11 +4338,15 @@ msgid ""
 "\n"
 "{items}"
 msgstr ""
+"Hotovo, kromě následujících položek, které se nepodařilo odstranit (soubor "
+"může být používán):\n"
+"\n"
+"{items}"
 
 #. Translators: Shown after the clean-up finished without problems.
 #: addon\globalPlugins\freeAudio\resetDialog.py:379
 msgid "Done."
-msgstr ""
+msgstr "Hotovo."
 
 #. Translators: Added to the clean-up result when settings were reset.
 #: addon\globalPlugins\freeAudio\resetDialog.py:384
@@ -4331,6 +4355,9 @@ msgid ""
 "will not be saved. Restarting NVDA is recommended so every setting takes "
 "effect."
 msgstr ""
+"Nastavení bylo obnoveno. Změny provedené dříve na stránce nastavení "
+"freeAudia nebudou uloženy. Doporučujeme restartovat NVDA, aby se všechna "
+"nastavení projevila."
 
 #. Translators: Checkbox label for the time-shift/rewind feature setting.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:89
@@ -4574,7 +4601,7 @@ msgstr "Složka pro ukládání nahrávek:"
 #. Translators: Grey hint under the recordings-folder field explaining what happens if it's left empty.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:446
 msgid "(empty = default: Documents\\freeAudio Recordings)"
-msgstr ""
+msgstr "(prázdné = výchozí: Documents\\freeAudio Recordings)"
 
 #. Translators: Button label; opens a folder-picker to choose the recordings folder.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:450
@@ -4672,7 +4699,7 @@ msgstr "Zkontrolovat dostupnost aktualizací"
 #. Translators: Button label; opens a dialog to reset freeAudio's settings and delete the data it has saved.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:631
 msgid "&Clean up: reset settings and delete saved data..."
-msgstr ""
+msgstr "&Vyčistit: obnovit nastavení a smazat uložená data..."
 
 #. Translators: Title of the file-picker dialog for choosing ffmpeg.exe.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:763
@@ -4848,12 +4875,16 @@ msgstr ""
 msgid ""
 "Fine rewind: 1 second (time-shift buffer, podcast, audiobook or jukebox)"
 msgstr ""
+"Jemné přetočení zpět: 1 sekunda (vyrovnávací paměť časového posunu, "
+"podcast, audiokniha nebo jukebox)"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+Alt+K); fine fast-forward by 1 second.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:412
 msgid ""
 "Fine forward: 1 second (time-shift buffer, podcast, audiobook or jukebox)"
 msgstr ""
+"Jemné přetočení vpřed: 1 sekunda (vyrovnávací paměť časového posunu, "
+"podcast, audiokniha nebo jukebox)"
 
 #. Translators: Name of an NVDA command (Ctrl+Win+T); toggles the time-shift buffer feature on/off.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:424
@@ -5209,27 +5240,26 @@ msgstr "Položka již není v jukeboxu: %s"
 #. ── 2. Create / refresh a script for every book ──────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this audio book' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:942
-#, fuzzy
 msgid "freeAudio Audio Books"
-msgstr "Audioknihy"
+msgstr "audioknihy"
 
 #. Translators: Spoken if a per-audio-book shortcut is triggered after that book was removed from the library since the shortcut was created; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:990
-#, fuzzy, python-format
+#, python-format
 msgid "Audio book no longer in the library: %s"
-msgstr "Položka již není v jukeboxu: %s"
+msgstr "Audiokniha již není v knihovně: %s"
 
 #. Translators: Spoken while an audio book's list of parts is being fetched before it starts playing; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:998
-#, fuzzy, python-format
+#, python-format
 msgid "Loading %s"
 msgstr "Načítání: %s"
 
 #. Translators: Spoken when a per-audio-book shortcut can't start playback because the book's parts could not be prepared; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:1029
-#, fuzzy, python-format
+#, python-format
 msgid "Could not play %s"
-msgstr "Nelze přehrát stanici: %s"
+msgstr "Nelze přehrát %s"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
 #: addon\globalPlugins\freeAudio\__init__.py:1042
@@ -5312,6 +5342,7 @@ msgstr "Audioknihu nelze stáhnout."
 #: addon\globalPlugins\freeAudio\__init__.py:1326
 msgid "This station uses a special playback mode to prevent stuttering."
 msgstr ""
+"Tato stanice používá speciální režim přehrávání, aby se zabránilo sekání."
 
 #. Translators: Spoken when a station's connection attempt fails outright, so the user isn't left thinking it's silently playing; %(name)s is the station name, %(reason)s is a short failure description.
 #: addon\globalPlugins\freeAudio\__init__.py:1342
@@ -5542,6 +5573,41 @@ msgid ""
 "- F3/F4 and Ctrl+Left/Right on the Jukebox tab now play the track as part of "
 "its folder. Previously this stopped automatic advance to the next track.\n"
 msgstr ""
+"\n"
+"## Co je nového ve verzi 2026.25.3\n"
+"\n"
+"- Kompatibilní s NVDA 2026.3.\n"
+"\n"
+"### Nově\n"
+"- Přidány globální zkratky, které fungují i při zavřeném okně freeAudia:\n"
+"\n"
+"  - Ctrl+Win+F3 / Ctrl+Win+F4: předchozí / další položka.\n"
+"  - Ctrl+Win+Shift+F3 / Ctrl+Win+Shift+F4: předchozí / další skupina.\n"
+"- Co dělají, závisí na tom, co se právě přehrává:\n"
+"  - Rozhlasová stanice: předchozí / další stanice (se Shiftem totéž).\n"
+"  - Podcast: předchozí / další epizoda; se Shiftem předchozí / další "
+"kanál.\n"
+"  - Audiokniha: předchozí / další kniha; se Shiftem předchozí / další "
+"část.\n"
+"  - Jukebox: předchozí / další skladba; se Shiftem předchozí / další "
+"položka knihovny.\n"
+"- Pokud se nic nepřehrává, klávesy se beze změny předají systému Windows.\n"
+"- Položky knihovny audioknih se nyní zobrazují v dialogu Gesta vstupu NVDA "
+"v kategorii „audioknihy“, takže můžete přiřadit zkratku libovolné knize.\n"
+"\n"
+"### Vylepšeno\n"
+"- Automatický přechod na další skladbu a část funguje i po ručním "
+"přeskočení, ať je okno otevřené, nebo zavřené.\n"
+"- Stisknutí „další“ na poslední skladbě složky jukeboxu již neresetuje "
+"uloženou pozici složky.\n"
+"- Při otevřeném okně se po přeskočení audioknihy z klávesnice udržuje stav "
+"„právě hraje“ v okně synchronizovaný, takže automatický přechod pokračuje "
+"ze správné části.\n"
+"\n"
+"### Opraveno\n"
+"- F3/F4 a Ctrl+šipka vlevo/vpravo na kartě Jukebox nyní přehrávají skladbu "
+"jako součást její složky. Dříve se tím zastavil automatický přechod na "
+"další skladbu.\n"
 
 #~ msgid ""
 #~ "\n"

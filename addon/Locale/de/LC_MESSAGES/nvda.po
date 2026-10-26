@@ -1185,6 +1185,8 @@ msgid ""
 "Podcast episodes are not loaded yet. Open the freeAudio window and select "
 "this podcast once."
 msgstr ""
+"Die Podcast-Folgen sind noch nicht geladen. Öffnen Sie das "
+"freeAudio-Fenster und wählen Sie diesen Podcast einmal aus."
 
 #. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:755
@@ -1277,6 +1279,8 @@ msgid ""
 "Previous station, podcast episode, audio book or jukebox track (F3 in the "
 "freeAudio window)"
 msgstr ""
+"Vorheriger Sender, vorherige Podcast-Folge, vorheriges Hörbuch oder "
+"vorheriger Jukebox-Titel (F3 im freeAudio-Fenster)"
 
 #. Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:944
@@ -1284,6 +1288,8 @@ msgid ""
 "Next station, podcast episode, audio book or jukebox track (F4 in the "
 "freeAudio window)"
 msgstr ""
+"Nächster Sender, nächste Podcast-Folge, nächstes Hörbuch oder nächster "
+"Jukebox-Titel (F4 im freeAudio-Fenster)"
 
 #. Translators: Name of an NVDA command; same as Shift+F3 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:953
@@ -1291,6 +1297,8 @@ msgid ""
 "Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the "
 "freeAudio window)"
 msgstr ""
+"Vorheriger Podcast-Feed, vorheriger Hörbuchteil oder vorheriger "
+"Jukebox-Eintrag (Umschalt+F3 im freeAudio-Fenster)"
 
 #. Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:962
@@ -1298,6 +1306,8 @@ msgid ""
 "Next podcast feed, audio book part or jukebox entry (Shift+F4 in the "
 "freeAudio window)"
 msgstr ""
+"Nächster Podcast-Feed, nächster Hörbuchteil oder nächster Jukebox-Eintrag "
+"(Umschalt+F4 im freeAudio-Fenster)"
 
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1110
 msgid ""
@@ -5200,27 +5210,26 @@ msgstr "Eintrag nicht mehr in der Jukebox: %s"
 #. ── 2. Create / refresh a script for every book ──────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this audio book' shortcuts separately from freeAudio's main commands.
 #: addon\globalPlugins\freeAudio\__init__.py:942
-#, fuzzy
 msgid "freeAudio Audio Books"
-msgstr "Hörbücher"
+msgstr "freeAudio-Hörbücher"
 
 #. Translators: Spoken if a per-audio-book shortcut is triggered after that book was removed from the library since the shortcut was created; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:990
-#, fuzzy, python-format
+#, python-format
 msgid "Audio book no longer in the library: %s"
-msgstr "Eintrag nicht mehr in der Jukebox: %s"
+msgstr "Hörbuch nicht mehr in der Bibliothek: %s"
 
 #. Translators: Spoken while an audio book's list of parts is being fetched before it starts playing; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:998
-#, fuzzy, python-format
+#, python-format
 msgid "Loading %s"
 msgstr "Wird geladen: %s"
 
 #. Translators: Spoken when a per-audio-book shortcut can't start playback because the book's parts could not be prepared; %s is the book's title.
 #: addon\globalPlugins\freeAudio\__init__.py:1029
-#, fuzzy, python-format
+#, python-format
 msgid "Could not play %s"
-msgstr "Der Sender ließ sich nicht wiedergeben: %s"
+msgstr "%s ließ sich nicht wiedergeben"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
 #: addon\globalPlugins\freeAudio\__init__.py:1042
@@ -5519,6 +5528,46 @@ msgid ""
 "- F3/F4 and Ctrl+Left/Right on the Jukebox tab now play the track as part of "
 "its folder. Previously this stopped automatic advance to the next track.\n"
 msgstr ""
+"\n"
+"## Änderungen in 2026.25.3\n"
+"\n"
+"- Kompatibel mit NVDA 2026.3.\n"
+"\n"
+"### Neu\n"
+"- Globale Tastenkombinationen hinzugefügt, die auch bei geschlossenem "
+"freeAudio-Fenster funktionieren:\n"
+"\n"
+"  - Strg+Windows+F3 / Strg+Windows+F4: vorheriger / nächster Eintrag.\n"
+"  - Strg+Windows+Umschalt+F3 / Strg+Windows+Umschalt+F4: vorherige / "
+"nächste Gruppe.\n"
+"- Was sie bewirken, hängt von der aktuellen Wiedergabe ab:\n"
+"  - Radiosender: vorheriger / nächster Sender (die Umschalt-Varianten tun "
+"dasselbe).\n"
+"  - Podcast: vorherige / nächste Folge; mit Umschalt vorheriger / nächster "
+"Feed.\n"
+"  - Hörbuch: vorheriges / nächstes Buch; mit Umschalt vorheriger / nächster "
+"Teil.\n"
+"  - Jukebox: vorheriger / nächster Titel; mit Umschalt vorheriger / "
+"nächster Bibliothekseintrag.\n"
+"- Läuft nichts, werden die Tasten unverändert an Windows weitergegeben.\n"
+"- Einträge der Hörbuchbibliothek erscheinen jetzt im Dialog „Tastenbefehle“ "
+"von NVDA unter „freeAudio-Hörbücher“, sodass sich jedem Buch eine "
+"Tastenkombination zuweisen lässt.\n"
+"\n"
+"### Verbessert\n"
+"- Der automatische Wechsel zum nächsten Titel bzw. Teil funktioniert nach "
+"einem manuellen Sprung weiter, bei geöffnetem wie bei geschlossenem "
+"Fenster.\n"
+"- Ein Druck auf „Nächster“ beim letzten Titel eines Jukebox-Ordners setzt "
+"die gespeicherte Position des Ordners nicht mehr zurück.\n"
+"- Bei geöffnetem Fenster hält das Überspringen eines Hörbuchs per Tastatur "
+"den Status „Aktuelle Wiedergabe“ des Fensters synchron, sodass der "
+"automatische Wechsel vom richtigen Teil aus fortgesetzt wird.\n"
+"\n"
+"### Behoben\n"
+"- F3/F4 und Strg+Pfeil links/rechts auf der Registerkarte „Jukebox“ spielen "
+"den Titel jetzt als Teil seines Ordners ab. Zuvor wurde dadurch der "
+"automatische Wechsel zum nächsten Titel gestoppt.\n"
 
 #~ msgid ""
 #~ "\n"
