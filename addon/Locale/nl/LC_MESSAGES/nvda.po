@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: freeradio2026.20.6\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-10-22 13:02+0300\n"
+"POT-Creation-Date: 2026-10-26 11:27+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Artin Dekker <contact@artin.net>\n"
 "Language-Team: \n"
@@ -44,12 +44,16 @@ msgstr "Selecteer het hoofduitvoerapparaat voor freeAudio"
 #: addon\globalPlugins\freeAudio\miscTogglesMixin.py:86
 #: addon\globalPlugins\freeAudio\miscTogglesMixin.py:108
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:206
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:85
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:185
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:244
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:281
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:991
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1010
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:89
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:189
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:248
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:285
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:936
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:945
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:954
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:963
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1369
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1388
 #: addon\globalPlugins\freeAudio\recordingMixin.py:239
 #: addon\globalPlugins\freeAudio\recordingMixin.py:355
 #: addon\globalPlugins\freeAudio\resetDialog.py:345
@@ -65,11 +69,11 @@ msgstr "Selecteer het hoofduitvoerapparaat voor freeAudio"
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:325
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:344
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:393
-#: addon\globalPlugins\freeAudio\__init__.py:1138
-#: addon\globalPlugins\freeAudio\__init__.py:1148
-#: addon\globalPlugins\freeAudio\__init__.py:1158
-#: addon\globalPlugins\freeAudio\__init__.py:1168
-#: addon\globalPlugins\freeAudio\__init__.py:1178
+#: addon\globalPlugins\freeAudio\__init__.py:1142
+#: addon\globalPlugins\freeAudio\__init__.py:1152
+#: addon\globalPlugins\freeAudio\__init__.py:1162
+#: addon\globalPlugins\freeAudio\__init__.py:1172
+#: addon\globalPlugins\freeAudio\__init__.py:1182
 #: addon\appModules\explorer.py:228 addon\appModules\explorer.py:261
 msgid "freeAudio"
 msgstr "freeAudio"
@@ -143,7 +147,7 @@ msgstr "Audio duplicatie gestopt"
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:50
 #: addon\globalPlugins\freeAudio\recordingMixin.py:136
 #: addon\globalPlugins\freeAudio\recordingMixin.py:336
-#: addon\globalPlugins\freeAudio\__init__.py:1185
+#: addon\globalPlugins\freeAudio\__init__.py:1189
 msgid "No station is playing"
 msgstr "Er wordt geen station afgespeeld"
 
@@ -570,7 +574,7 @@ msgstr ""
 #. Translators: Bookmark context-menu item; renames the selected bookmark.
 #. Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:432
-#: addon\globalPlugins\freeAudio\radioDialog.py:9426
+#: addon\globalPlugins\freeAudio\radioDialog.py:9438
 msgid "Re&name..."
 msgstr ""
 
@@ -1048,14 +1052,14 @@ msgstr ""
 #. Translators: Spoken when the chosen background station has no resolvable stream URL to play.
 #. Translators: Spoken when trying to play a station that has no resolvable stream URL at all.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:284
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:777
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1155
 msgid "No stream URL available for this station"
 msgstr "Geen stream-URL beschikbaar voor dit station"
 
 #. Translators: Spoken when starting Obligato mode fails because there is no internet connection to reach the chosen station.
 #. Translators: Spoken when trying to play a station but the internet-connectivity pre-check fails.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:299
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:788
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1166
 msgid "No internet connection. Please check your connection and try again."
 msgstr ""
 "Geen internetverbinding. Controleer je verbinding en probeer het opnieuw."
@@ -1083,7 +1087,7 @@ msgid "Obligato mode stopped"
 msgstr "Obligato-modus gestopt: %s"
 
 #. Translators: Name of an NVDA command; pauses playback (single press), with double/triple-press doing other actions - see the docstring above.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:84
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:88
 msgid "Pause or resume freeAudio playback"
 msgstr "Pauzeer of hervat het afspelen van freeAudio"
 
@@ -1096,7 +1100,7 @@ msgstr "Pauzeer of hervat het afspelen van freeAudio"
 #. Translators: Same "Paused" wording as elsewhere; spoken here when Space pauses playback from the audio-book library list.
 #. Translators: Same "Paused" wording as elsewhere; spoken here when Space pauses playback from the jukebox library list.
 #. Translators: Same "Paused" wording as elsewhere; spoken here when Space pauses playback from the jukebox tracks list.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:162
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:166
 #: addon\globalPlugins\freeAudio\radioDialog.py:3448
 #: addon\globalPlugins\freeAudio\radioDialog.py:4163
 #: addon\globalPlugins\freeAudio\radioDialog.py:4737
@@ -1104,25 +1108,25 @@ msgstr "Pauzeer of hervat het afspelen van freeAudio"
 #: addon\globalPlugins\freeAudio\radioDialog.py:6586
 #: addon\globalPlugins\freeAudio\radioDialog.py:7869
 #: addon\globalPlugins\freeAudio\radioDialog.py:9054
-#: addon\globalPlugins\freeAudio\radioDialog.py:9144
+#: addon\globalPlugins\freeAudio\radioDialog.py:9156
 msgid "Paused"
 msgstr "Gepauzeerd"
 
 #. Translators: Spoken when the pause/resume command resumes playback.
 #. Translators: Spoken when F7 resumes playback from inside the dialog.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:166
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:170
 #: addon\globalPlugins\freeAudio\radioDialog.py:4168
 msgid "Playing"
 msgstr "Afspelen"
 
 #. Translators: Name of an NVDA command; stops freeAudio playback outright (as opposed to pausing).
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:184
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:188
 msgid "Stop freeAudio playback"
 msgstr "Stop het afspelen van freeAudio"
 
 #. Translators: Line in the stop-confirmation dialog listing an in-progress, immediately-started recording that will be cut off; %s is the station name.
 #. Translators: Line listing an in-progress instant recording in the F8 stop-confirmation dialog; %s is the station name.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:198
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:202
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:615
 #, python-format
 msgid "Instant recording: %s"
@@ -1134,7 +1138,7 @@ msgstr "Directe opname: %s"
 #. Translators: Same active-scheduled-recording announcement as script_whatsPlaying.
 #. Translators: Same active-scheduled-recording announcement as script_whatsPlaying's paused case.
 #. Translators: Line listing an active scheduled recording in the F8 stop-confirmation dialog; %s is the station name.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:201
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:205
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:193
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:232
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:500
@@ -1144,7 +1148,7 @@ msgstr "Directe opname: %s"
 msgid "Scheduled recording: %s"
 msgstr "Geplande opname: %s"
 
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:205
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:209
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:622
 #, python-format
 msgid ""
@@ -1160,7 +1164,7 @@ msgstr ""
 
 #. Translators: Title of the confirmation dialog shown when stopping playback would cut off active recordings.
 #. Translators: Title of the F8 stop-confirmation dialog.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:213
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:217
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:630
 msgid "Active Recordings"
 msgstr "Actieve opnames"
@@ -1169,24 +1173,144 @@ msgstr "Actieve opnames"
 #. Translators: Spoken when the stop command is used and there were no active recordings to confirm about.
 #. Translators: Spoken by F8 (stop) after confirming the stop and ending any active recordings.
 #. Translators: Spoken by F8 (stop) when there were no active recordings to confirm about.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:227
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:239
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:231
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:243
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:644
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:658
 msgid "freeAudio stopped"
 msgstr "freeAudio gestopt"
 
 #. Translators: Name of an NVDA command; skips to the next station in the favourites list.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:243
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:247
 msgid "Play next station"
 msgstr "Volgende station afspelen"
 
 #. Translators: Name of an NVDA command; skips to the previous station in the favourites list.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:280
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:284
 msgid "Play previous station"
 msgstr "Vorige station afspelen"
 
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:732
+#. Translators: Spoken when Ctrl+Win+F3/F4 can't find the podcast's episode list because it has not been loaded in this session yet.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:736
+msgid ""
+"Podcast episodes are not loaded yet. Open the freeAudio window and select "
+"this podcast once."
+msgstr ""
+
+#. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:755
+#: addon\globalPlugins\freeAudio\radioDialog.py:6993
+msgid "Already at first episode"
+msgstr "Al bij eerste aflevering"
+
+#. Translators: Spoken when trying to play the next episode while already on the last one.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:757
+#: addon\globalPlugins\freeAudio\radioDialog.py:7010
+msgid "Already at last episode"
+msgstr "Al bij laatste aflevering"
+
+#. Translators: Spoken when cycling to the previous podcast feed while already on the first one.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:778
+#: addon\globalPlugins\freeAudio\radioDialog.py:7022
+msgid "Already at first feed"
+msgstr "Al bij eerste feed"
+
+#. Translators: Spoken when cycling to the next podcast feed while already on the last one.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:780
+#: addon\globalPlugins\freeAudio\radioDialog.py:7046
+msgid "Already at last feed"
+msgstr "Al bij laatste feed"
+
+#. Translators: Spoken when previous/next book is pressed with no books in the audio-book library.
+#. Translators: Spoken when F3 (previous book) is pressed with no books in the audio-book library.
+#. Translators: Spoken when F4 (next book) is pressed with no books in the audio-book library.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:838
+#: addon\globalPlugins\freeAudio\radioDialog.py:8091
+#: addon\globalPlugins\freeAudio\radioDialog.py:8113
+msgid "Library is empty"
+msgstr "Bibliotheek is leeg"
+
+#. Translators: Spoken when previous book is pressed while already on the first book.
+#. Translators: Spoken when F3 (previous book) is pressed while already on the first book.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:850
+#: addon\globalPlugins\freeAudio\radioDialog.py:8096
+msgid "Already at first book"
+msgstr "Al bij het eerste boek"
+
+#. Translators: Spoken when next book is pressed while already on the last book.
+#. Translators: Spoken when F4 (next book) is pressed while already on the last book.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:852
+#: addon\globalPlugins\freeAudio\radioDialog.py:8118
+msgid "Already at last book"
+msgstr "Al bij het laatste boek"
+
+#. Translators: Spoken when previous part is pressed while already on the first part of a book.
+#. Translators: Spoken when Shift+F3 (previous part) is pressed while already on the first part of a book.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:870
+#: addon\globalPlugins\freeAudio\radioDialog.py:8149
+msgid "Already at first part"
+msgstr "Al bij het eerste deel"
+
+#. Translators: Spoken when next part is pressed and there is no next part (last part, or a single-part work).
+#. Translators: Spoken when Shift+F4 (next part) is pressed and there is no next part at all (single-part work).
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:872
+#: addon\globalPlugins\freeAudio\radioDialog.py:8173
+msgid "Already at last part"
+msgstr "Al bij het laatste deel"
+
+#. Translators: Spoken when trying to play the previous jukebox track while already on the first one.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:887
+#: addon\globalPlugins\freeAudio\radioDialog.py:7119
+msgid "Already at first track"
+msgstr "Al bij het eerste nummer"
+
+#. Translators: Spoken when trying to play the next jukebox track while already on the last one.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:889
+#: addon\globalPlugins\freeAudio\radioDialog.py:7137
+msgid "Already at last track"
+msgstr "Al bij het laatste nummer"
+
+#. Translators: Spoken when cycling to the previous jukebox library entry while already on the first one.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:924
+#: addon\globalPlugins\freeAudio\radioDialog.py:7148
+msgid "Already at first item"
+msgstr "Al bij het eerste item"
+
+#. Translators: Spoken when cycling to the next jukebox library entry while already on the last one.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:926
+#: addon\globalPlugins\freeAudio\radioDialog.py:7173
+msgid "Already at last item"
+msgstr "Al bij het laatste item"
+
+#. Translators: Name of an NVDA command; same as F3 in the freeAudio window, but works while the window is closed.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:935
+msgid ""
+"Previous station, podcast episode, audio book or jukebox track (F3 in the "
+"freeAudio window)"
+msgstr ""
+
+#. Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:944
+msgid ""
+"Next station, podcast episode, audio book or jukebox track (F4 in the "
+"freeAudio window)"
+msgstr ""
+
+#. Translators: Name of an NVDA command; same as Shift+F3 in the freeAudio window, but works while the window is closed.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:953
+msgid ""
+"Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the "
+"freeAudio window)"
+msgstr ""
+
+#. Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:962
+msgid ""
+"Next podcast feed, audio book part or jukebox entry (Shift+F4 in the "
+"freeAudio window)"
+msgstr ""
+
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1110
 msgid ""
 "Could not resume the last audio book - it may have been removed from your "
 "library."
@@ -1195,23 +1319,23 @@ msgstr ""
 "bibliotheek verwijderd."
 
 #. Translators: Fallback station name used in log/error contexts if the station dict has no name field.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:770
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1148
 msgid "Unknown station"
 msgstr "Onbekend station"
 
 #. Translators: Spoken by the pitch-transpose commands when the current transpose value is back to 0 (no pitch shift applied).
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:984
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1362
 msgid "Normal pitch"
 msgstr "Normale toonhoogte"
 
 #. Translators: %.2f = signed semitone value, e.g. "+1.25 semitones"
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:986
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1364
 #, python-format
 msgid "%+.2f semitones"
 msgstr "%+.2f halve tonen"
 
 #. Translators: Name of an NVDA command; raises the pitch of podcasts/audio books/jukebox tracks without changing playback speed.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:990
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1368
 msgid "Raise pitch transpose (podcasts, audio books and jukebox tracks)"
 msgstr ""
 "Verhoog de toonhoogte (transponeren) (podcasts, luisterboeken en "
@@ -1219,8 +1343,8 @@ msgstr ""
 
 #. Translators: Spoken when the pitch-transpose commands are used while playing a live radio station rather than a podcast/audiobook/jukebox track.
 #. Translators: Same as the transposeUp case above: spoken when transpose is used on a live radio station.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1000
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1019
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1378
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1397
 msgid "Transpose only applies to podcasts, audio books and jukebox tracks"
 msgstr ""
 "Transponeren is alleen van toepassing op podcasts, luisterboeken en "
@@ -1228,13 +1352,13 @@ msgstr ""
 
 #. Translators: Spoken when pitch transpose can't be applied because the optional bass_fx library isn't installed.
 #. Translators: Same as the transposeUp case above: spoken when bass_fx isn't installed.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1003
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1022
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1381
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1400
 msgid "Transpose requires the bass_fx audio component, which isn't available"
 msgstr "Transpose vereist de audiocomponent bass_fx, die niet beschikbaar is"
 
 #. Translators: Name of an NVDA command; lowers the pitch of podcasts/audio books/jukebox tracks without changing playback speed.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1009
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1387
 msgid "Lower pitch transpose (podcasts, audio books and jukebox tracks)"
 msgstr ""
 "Verlaag de toonhoogte (transponeren) (podcasts, luisterboeken en "
@@ -1246,7 +1370,7 @@ msgstr ""
 #. stay marshalled onto the main thread from here since we're not
 #. on it.
 #. Translators: Spoken when actually starting playback of a station/track fails with an exception; %s is the error message.
-#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1036
+#: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1414
 #, python-format
 msgid "Could not play station: %s"
 msgstr "Kon station niet afspelen: %s"
@@ -1628,7 +1752,7 @@ msgstr ""
 #. Translators: Button label; closes the station browser dialog.
 #. Translators: Button label; closes the lyrics dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9486
+#: addon\globalPlugins\freeAudio\radioDialog.py:9498
 msgid "&Close"
 msgstr "&Sluiten"
 
@@ -1686,8 +1810,8 @@ msgstr "Audio-pr&ofiel voor dit station opslaan"
 #: addon\globalPlugins\freeAudio\radioDialog.py:7101
 #: addon\globalPlugins\freeAudio\radioDialog.py:7217
 #: addon\globalPlugins\freeAudio\radioDialog.py:8291
-#: addon\globalPlugins\freeAudio\radioDialog.py:9173
-#: addon\globalPlugins\freeAudio\radioDialog.py:9444
+#: addon\globalPlugins\freeAudio\radioDialog.py:9185
+#: addon\globalPlugins\freeAudio\radioDialog.py:9456
 msgid "Clear Audio Prof&ile"
 msgstr "Audio-prof&iel verwijderen"
 
@@ -1808,8 +1932,8 @@ msgstr "Filter stations"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1398
 #: addon\globalPlugins\freeAudio\radioDialog.py:1403
 #: addon\globalPlugins\freeAudio\radioDialog.py:5351
-#: addon\globalPlugins\freeAudio\radioDialog.py:9620
-#: addon\globalPlugins\freeAudio\radioDialog.py:9623
+#: addon\globalPlugins\freeAudio\radioDialog.py:9632
+#: addon\globalPlugins\freeAudio\radioDialog.py:9635
 msgid "Start time (HH:MM):"
 msgstr "Starttijd (UU:MM):"
 
@@ -1818,8 +1942,8 @@ msgstr "Starttijd (UU:MM):"
 #. Translators: Label for the recording-duration field (also used as its accessible name below); value is in minutes.
 #. Translators: Accessible name for the duration field (same text as its static label above).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1262
-#: addon\globalPlugins\freeAudio\radioDialog.py:9628
-#: addon\globalPlugins\freeAudio\radioDialog.py:9631
+#: addon\globalPlugins\freeAudio\radioDialog.py:9640
+#: addon\globalPlugins\freeAudio\radioDialog.py:9643
 msgid "Duration (minutes):"
 msgstr "Duur (minuten):"
 
@@ -1829,7 +1953,7 @@ msgstr "Duur (minuten):"
 #. Translators: Label above the recurrence radio buttons (once vs. weekly) - same wording as the Recording tab's scheduling section.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1272
 #: addon\globalPlugins\freeAudio\radioDialog.py:1412
-#: addon\globalPlugins\freeAudio\radioDialog.py:9636
+#: addon\globalPlugins\freeAudio\radioDialog.py:9648
 msgid "Recurrence:"
 msgstr "Herhaling:"
 
@@ -1838,7 +1962,7 @@ msgstr "Herhaling:"
 #. Translators: Radio button: this is a single one-time recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1278
 #: addon\globalPlugins\freeAudio\radioDialog.py:1418
-#: addon\globalPlugins\freeAudio\radioDialog.py:9638
+#: addon\globalPlugins\freeAudio\radioDialog.py:9650
 msgid "Only &once"
 msgstr "Slechts &één keer"
 
@@ -1851,7 +1975,7 @@ msgstr "Slechts &één keer"
 #. Translators: Radio button: this recording repeats every week on the checked days.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1287
 #: addon\globalPlugins\freeAudio\radioDialog.py:1427
-#: addon\globalPlugins\freeAudio\radioDialog.py:9644
+#: addon\globalPlugins\freeAudio\radioDialog.py:9656
 msgid "Repeat &weekly"
 msgstr "&Wekelijks herhalen"
 
@@ -1865,8 +1989,8 @@ msgstr "&Wekelijks herhalen"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1311
 #: addon\globalPlugins\freeAudio\radioDialog.py:1437
 #: addon\globalPlugins\freeAudio\radioDialog.py:1449
-#: addon\globalPlugins\freeAudio\radioDialog.py:9659
-#: addon\globalPlugins\freeAudio\radioDialog.py:9663
+#: addon\globalPlugins\freeAudio\radioDialog.py:9671
+#: addon\globalPlugins\freeAudio\radioDialog.py:9675
 msgid "Active days:"
 msgstr "Actieve dagen:"
 
@@ -1879,7 +2003,7 @@ msgstr "Actieve dagen:"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9655
+#: addon\globalPlugins\freeAudio\radioDialog.py:9667
 msgid "Monday"
 msgstr "Maandag"
 
@@ -1888,7 +2012,7 @@ msgstr "Maandag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9655
+#: addon\globalPlugins\freeAudio\radioDialog.py:9667
 msgid "Tuesday"
 msgstr "Dinsdag"
 
@@ -1897,7 +2021,7 @@ msgstr "Dinsdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9655
+#: addon\globalPlugins\freeAudio\radioDialog.py:9667
 msgid "Wednesday"
 msgstr "Woensdag"
 
@@ -1906,7 +2030,7 @@ msgstr "Woensdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9655
+#: addon\globalPlugins\freeAudio\radioDialog.py:9667
 msgid "Thursday"
 msgstr "Donderdag"
 
@@ -1915,7 +2039,7 @@ msgstr "Donderdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1983
 #: addon\globalPlugins\freeAudio\radioDialog.py:5400
 #: addon\globalPlugins\freeAudio\radioDialog.py:5563
-#: addon\globalPlugins\freeAudio\radioDialog.py:9656
+#: addon\globalPlugins\freeAudio\radioDialog.py:9668
 msgid "Friday"
 msgstr "Vrijdag"
 
@@ -1924,7 +2048,7 @@ msgstr "Vrijdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1983
 #: addon\globalPlugins\freeAudio\radioDialog.py:5400
 #: addon\globalPlugins\freeAudio\radioDialog.py:5563
-#: addon\globalPlugins\freeAudio\radioDialog.py:9656
+#: addon\globalPlugins\freeAudio\radioDialog.py:9668
 msgid "Saturday"
 msgstr "Zaterdag"
 
@@ -1933,7 +2057,7 @@ msgstr "Zaterdag"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1983
 #: addon\globalPlugins\freeAudio\radioDialog.py:5400
 #: addon\globalPlugins\freeAudio\radioDialog.py:5563
-#: addon\globalPlugins\freeAudio\radioDialog.py:9656
+#: addon\globalPlugins\freeAudio\radioDialog.py:9668
 msgid "Sunday"
 msgstr "Zondag"
 
@@ -1941,20 +2065,20 @@ msgstr "Zondag"
 #. --- Playback mode ---
 #. Translators: Label above the two playback-mode radio buttons for this scheduled recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1319
-#: addon\globalPlugins\freeAudio\radioDialog.py:9672
+#: addon\globalPlugins\freeAudio\radioDialog.py:9684
 msgid "Playback during recording:"
 msgstr "Afspelen tijdens het opnemen:"
 
 #. Translators: Radio button: play the station out loud while also recording it.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1324
-#: addon\globalPlugins\freeAudio\radioDialog.py:9674
+#: addon\globalPlugins\freeAudio\radioDialog.py:9686
 msgid "Record while &listening (play and record simultaneously)"
 msgstr "Opnemen terwijl je &luistert (gelijktijdig afspelen en opnemen)"
 
 #. Translators: Radio button: record silently, without audio output, to save resources.
 #. Translators: Radio button: record silently, without audio output.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1330
-#: addon\globalPlugins\freeAudio\radioDialog.py:9676
+#: addon\globalPlugins\freeAudio\radioDialog.py:9688
 msgid "Record &only (no audio output)"
 msgstr "&Alleen opnemen (geen audio-uitvoer)"
 
@@ -2090,7 +2214,7 @@ msgstr "Opnemen is niet beschikbaar"
 #. Translators: Same time-format error as the Add Schedule form, shown here when saving an edited schedule with an invalid time.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2079
 #: addon\globalPlugins\freeAudio\radioDialog.py:5481
-#: addon\globalPlugins\freeAudio\radioDialog.py:9735
+#: addon\globalPlugins\freeAudio\radioDialog.py:9747
 msgid "Invalid time format. Use HH:MM"
 msgstr "Ongeldige tijdnotatie. Gebruik HH:MM"
 
@@ -2631,14 +2755,14 @@ msgstr "%(name)s: streamcontrole mislukt — %(detail)s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:3815
 #: addon\globalPlugins\freeAudio\radioDialog.py:5917
 #: addon\globalPlugins\freeAudio\radioDialog.py:8302
-#: addon\globalPlugins\freeAudio\radioDialog.py:9421
+#: addon\globalPlugins\freeAudio\radioDialog.py:9433
 msgid "Remove &Selected"
 msgstr "Ge&selecteerde verwijderen"
 
 #. Translators: Context-menu item; assigns a user-typed folder/group name to every '.'-marked favourite (or just the focused one if none are marked), so favourites can be organised into groups manually - not only ones imported with a group-title tag.
 #. Translators: Context-menu item; assigns a user-typed group name to every '.'-marked jukebox entry (or just the focused one if none are marked), mirroring the same feature for favourites.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3825
-#: addon\globalPlugins\freeAudio\radioDialog.py:9430
+#: addon\globalPlugins\freeAudio\radioDialog.py:9442
 msgid "Assign to &Group..."
 msgstr "Toewijzen aan &Groep..."
 
@@ -2646,7 +2770,7 @@ msgstr "Toewijzen aan &Groep..."
 #. Translators: Context-menu item; re-checks whether the station's stream URL is currently reachable.
 #. Translators: Button label; checks whether the typed stream URL is reachable and playable before adding the station.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3846
-#: addon\globalPlugins\freeAudio\radioDialog.py:9527
+#: addon\globalPlugins\freeAudio\radioDialog.py:9539
 msgid "&Test URL"
 msgstr "&URL testen"
 
@@ -2996,7 +3120,7 @@ msgstr "&Songtekst weergeven"
 #. Translators: Context-menu item; removes the selected entry from the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5645
 #: addon\globalPlugins\freeAudio\radioDialog.py:5912
-#: addon\globalPlugins\freeAudio\radioDialog.py:9417
+#: addon\globalPlugins\freeAudio\radioDialog.py:9429
 msgid "Re&move"
 msgstr "&Verwijderen"
 
@@ -3310,7 +3434,7 @@ msgstr "Download voltooid: %s"
 #: addon\globalPlugins\freeAudio\radioDialog.py:6762
 #: addon\globalPlugins\freeAudio\radioDialog.py:8501
 #: addon\globalPlugins\freeAudio\recordingMixin.py:68
-#: addon\globalPlugins\freeAudio\__init__.py:1658
+#: addon\globalPlugins\freeAudio\__init__.py:1662
 #, python-format
 msgid "Download failed: %s"
 msgstr "Download mislukt: %s"
@@ -3373,26 +3497,6 @@ msgstr "&Voorbeeld"
 msgid "Adding feed..."
 msgstr "Feed toevoegen..."
 
-#. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6993
-msgid "Already at first episode"
-msgstr "Al bij eerste aflevering"
-
-#. Translators: Spoken when trying to play the next episode while already on the last one.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7010
-msgid "Already at last episode"
-msgstr "Al bij laatste aflevering"
-
-#. Translators: Spoken when cycling to the previous podcast feed while already on the first one.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7022
-msgid "Already at first feed"
-msgstr "Al bij eerste feed"
-
-#. Translators: Spoken when cycling to the next podcast feed while already on the last one.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7046
-msgid "Already at last feed"
-msgstr "Al bij laatste feed"
-
 #. Translators: Context-menu item; subscribes to the selected podcast search result.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7068
 msgid "&Subscribe"
@@ -3418,26 +3522,6 @@ msgstr "&Bewaar audioprofiel voor deze podcast"
 #: addon\globalPlugins\freeAudio\radioDialog.py:7108
 msgid "&Copy Feed URL"
 msgstr "&Kopieer de feed-URL"
-
-#. Translators: Spoken when trying to play the previous jukebox track while already on the first one.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7119
-msgid "Already at first track"
-msgstr "Al bij het eerste nummer"
-
-#. Translators: Spoken when trying to play the next jukebox track while already on the last one.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7137
-msgid "Already at last track"
-msgstr "Al bij het laatste nummer"
-
-#. Translators: Spoken when cycling to the previous jukebox library entry while already on the first one.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7148
-msgid "Already at first item"
-msgstr "Al bij het eerste item"
-
-#. Translators: Spoken when cycling to the next jukebox library entry while already on the last one.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7173
-msgid "Already at last item"
-msgstr "Al bij het laatste item"
 
 #. Translators: Context-menu item; plays the selected episode.
 #: addon\globalPlugins\freeAudio\radioDialog.py:7196
@@ -3574,28 +3658,6 @@ msgstr[1] "%d boeken verwijderd"
 msgid "Loading: %s"
 msgstr "Laden: %s"
 
-#. Translators: Spoken when F3 (previous book) is pressed with no books in the audio-book library.
-#. Translators: Spoken when F4 (next book) is pressed with no books in the audio-book library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8091
-#: addon\globalPlugins\freeAudio\radioDialog.py:8113
-msgid "Library is empty"
-msgstr "Bibliotheek is leeg"
-
-#. Translators: Spoken when F3 (previous book) is pressed while already on the first book.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8096
-msgid "Already at first book"
-msgstr "Al bij het eerste boek"
-
-#. Translators: Spoken when F4 (next book) is pressed while already on the last book.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8118
-msgid "Already at last book"
-msgstr "Al bij het laatste boek"
-
-#. Translators: Spoken when Shift+F3 (previous part) is pressed while already on the first part of a book.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8149
-msgid "Already at first part"
-msgstr "Al bij het eerste deel"
-
 #. Translators: Spoken when Shift+F4 (next part) is pressed on the last part of a book, meaning the whole book is now finished; %s is the book title.
 #. Translators: Spoken when a jukebox folder finishes playing all its tracks; %s is the folder/entry title.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8170
@@ -3603,11 +3665,6 @@ msgstr "Al bij het eerste deel"
 #, python-format
 msgid "Finished: %s"
 msgstr "Voltooid: %s"
-
-#. Translators: Spoken when Shift+F4 (next part) is pressed and there is no next part at all (single-part work).
-#: addon\globalPlugins\freeAudio\radioDialog.py:8173
-msgid "Already at last part"
-msgstr "Al bij het laatste deel"
 
 #. Translators: Context-menu item; plays the selected audio-book/chapter from the library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8269
@@ -3775,7 +3832,7 @@ msgstr[1] "%d bestanden gevonden."
 #. Translators: Same confirmation as adding a single file; spoken here after adding a single folder to the jukebox.
 #. Translators: Spoken after successfully adding an Explorer file or folder to the jukebox; %s is its display title.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8767
-#: addon\globalPlugins\freeAudio\radioDialog.py:9276
+#: addon\globalPlugins\freeAudio\radioDialog.py:9288
 #: addon\appModules\explorer.py:213
 #, python-format
 msgid "Added to jukebox: %s"
@@ -3789,7 +3846,7 @@ msgstr "Toevoegen aan &jukebox"
 #. Translators: Spoken when trying to play a jukebox library entry that has no usable audio files.
 #. Translators: Spoken when a jukebox entry's Input Gestures shortcut is triggered but the entry has no usable audio files.
 #: addon\globalPlugins\freeAudio\radioDialog.py:9020
-#: addon\globalPlugins\freeAudio\__init__.py:870
+#: addon\globalPlugins\freeAudio\__init__.py:874
 msgid "No playable audio in this item."
 msgstr "Dit item bevat geen afspeelbare audio."
 
@@ -3803,7 +3860,7 @@ msgstr[1] "Wil je %d gemarkeerde items uit de jukebox verwijderen?"
 #. Translators: Title of the bulk-remove confirmation dialog for jukebox entries.
 #. Translators: Title of the jukebox remove-confirmation dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:9106
-#: addon\globalPlugins\freeAudio\radioDialog.py:9293
+#: addon\globalPlugins\freeAudio\radioDialog.py:9305
 msgid "Remove From Jukebox"
 msgstr "Verwijder uit Jukebox"
 
@@ -3817,38 +3874,38 @@ msgstr[1] "%d items verwijderd"
 
 #. Translators: Context-menu item; plays the selected track from within a jukebox folder entry.
 #. Translators: Context-menu item; plays the selected jukebox file/folder.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9163
-#: addon\globalPlugins\freeAudio\radioDialog.py:9408
+#: addon\globalPlugins\freeAudio\radioDialog.py:9175
+#: addon\globalPlugins\freeAudio\radioDialog.py:9420
 msgid "&Play"
 msgstr "Afs&pelen"
 
 #. Translators: Jukebox track context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
 #. Translators: Jukebox context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
-#: addon\globalPlugins\freeAudio\radioDialog.py:9169
-#: addon\globalPlugins\freeAudio\radioDialog.py:9439
+#: addon\globalPlugins\freeAudio\radioDialog.py:9181
+#: addon\globalPlugins\freeAudio\radioDialog.py:9451
 msgid "Save Audio Pr&ofile for This File"
 msgstr "Bewaar &audioprofiel voor dit bestand"
 
 #. Translators: Context-menu item; copies the selected track's file path to the clipboard.
 #. Translators: Context-menu item; copies the selected entry's file/folder path to the clipboard.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9179
-#: addon\globalPlugins\freeAudio\radioDialog.py:9450
+#: addon\globalPlugins\freeAudio\radioDialog.py:9191
+#: addon\globalPlugins\freeAudio\radioDialog.py:9462
 msgid "&Copy Path"
 msgstr "&Kopieer pad"
 
 #. Translators: File-type filter label for the add-audio-files picker; %s is a glob pattern of supported extensions (e.g. '*.mp3;*.ogg'), also appended raw after the '|' as required by the file-dialog format - don't translate the pattern itself.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9188
+#: addon\globalPlugins\freeAudio\radioDialog.py:9200
 #, python-format
 msgid "Audio files (%s)"
 msgstr "Audiobestanden (%s)"
 
 #. Translators: Title of the file-picker dialog for adding files to the jukebox.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9192
+#: addon\globalPlugins\freeAudio\radioDialog.py:9204
 msgid "Add audio files to the jukebox"
 msgstr "Voeg audiobestanden toe aan de jukebox"
 
 #. Translators: Plural forms spoken after adding files to the jukebox via the file picker; %d is how many were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9223
+#: addon\globalPlugins\freeAudio\radioDialog.py:9235
 #, python-format
 msgid "%d file added."
 msgid_plural "%d files added."
@@ -3856,12 +3913,12 @@ msgstr[0] "%d bestand toegevoegd."
 msgstr[1] "%d bestanden toegevoegd."
 
 #. Translators: Title of the dialog used to add one or more folders to the jukebox at once.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9251
+#: addon\globalPlugins\freeAudio\radioDialog.py:9263
 msgid "Add folders to the jukebox"
 msgstr "Mappen toevoegen aan de jukebox"
 
 #. Translators: Plural forms spoken after adding several folders to the jukebox in one go (one folder picker used repeatedly); %d is how many folders were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9279
+#: addon\globalPlugins\freeAudio\radioDialog.py:9291
 #, python-format
 msgid "%d folder added."
 msgid_plural "%d folders added."
@@ -3869,129 +3926,129 @@ msgstr[0] "%d map toegevoegd."
 msgstr[1] "%d mappen toegevoegd."
 
 #. Translators: Body of the remove-confirmation dialog; %s is the jukebox entry title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9291
+#: addon\globalPlugins\freeAudio\radioDialog.py:9303
 #, python-format
 msgid "Do you want to remove \"%s\" from the jukebox?"
 msgstr "Wil je \"%s\" uit de jukebox verwijderen?"
 
 #. Translators: Spoken after successfully removing a jukebox entry; %s is its title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9312
+#: addon\globalPlugins\freeAudio\radioDialog.py:9324
 #, python-format
 msgid "Removed from jukebox: %s"
 msgstr "Verwijderd uit de jukebox: %s"
 
 #. Translators: Spoken after re-scanning a jukebox folder entry for changes on device; %s is the folder's title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9333
+#: addon\globalPlugins\freeAudio\radioDialog.py:9345
 #, python-format
 msgid "Rescanned: %s"
 msgstr "Opnieuw gescand: %s"
 
 #. Translators: Spoken after saving an audio profile for a single jukebox file; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9347
+#: addon\globalPlugins\freeAudio\radioDialog.py:9359
 #, python-format
 msgid "Audio profile saved for %(file)s"
 msgstr "Audioprofiel opgeslagen voor %(file)s"
 
 #. Translators: Spoken after clearing a jukebox file's saved audio profile; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9356
+#: addon\globalPlugins\freeAudio\radioDialog.py:9368
 #, python-format
 msgid "Audio profile cleared for %(file)s"
 msgstr "Audioprofiel gewist voor %(file)s"
 
 #. Translators: Context-menu item; re-scans a jukebox folder entry for added/removed files on device.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9413
+#: addon\globalPlugins\freeAudio\radioDialog.py:9425
 msgid "&Rescan Folder"
 msgstr "Map &opnieuw scannen"
 
 #. Translators: Title of the lyrics dialog; %s is the song string (e.g. "Artist - Title").
-#: addon\globalPlugins\freeAudio\radioDialog.py:9464
+#: addon\globalPlugins\freeAudio\radioDialog.py:9476
 #, python-format
 msgid "Lyrics — %s"
 msgstr "Songtekst — %s"
 
 #. Translators: Heading inside the lyrics dialog restating which song the lyrics are for; %s is the song string.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9471
+#: addon\globalPlugins\freeAudio\radioDialog.py:9483
 #, python-format
 msgid "Lyrics for: %s"
 msgstr "Songtekst voor: %s"
 
 #. Translators: Accessible name for the read-only lyrics text area.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9481
+#: addon\globalPlugins\freeAudio\radioDialog.py:9493
 msgid "Lyrics"
 msgstr "Songtekst"
 
 #. Translators: Title of the dialog for manually adding a custom station by stream URL.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9511
+#: addon\globalPlugins\freeAudio\radioDialog.py:9523
 msgid "Add Custom Station"
 msgstr "Aangepast station toevoegen"
 
 #. Translators: Label for the custom-station name field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9515
+#: addon\globalPlugins\freeAudio\radioDialog.py:9527
 msgid "Station name:"
 msgstr "Stationsnaam:"
 
 #. Translators: Label for the custom-station stream-URL field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9520
+#: addon\globalPlugins\freeAudio\radioDialog.py:9532
 msgid "Stream URL:"
 msgstr "Stream URL:"
 
 #. Translators: Button label; opens Radio Browser's own website to submit this station to their public directory (separate from just adding it locally to freeAudio).
-#: addon\globalPlugins\freeAudio\radioDialog.py:9534
+#: addon\globalPlugins\freeAudio\radioDialog.py:9546
 msgid "Add to &Radio Browser directory…"
 msgstr "Toevoegen aan &Radio Browser-directory…"
 
 #. Translators: Button label; confirms and adds the custom station to favourites.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9539
+#: addon\globalPlugins\freeAudio\radioDialog.py:9551
 msgid "&Add"
 msgstr "&Toevoegen"
 
 #. Translators: Status text shown next to the Test URL button when it's pressed with an empty URL field.
 #. Translators: Spoken alongside the status text above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9564
+#: addon\globalPlugins\freeAudio\radioDialog.py:9574
+#: addon\globalPlugins\freeAudio\radioDialog.py:9576
 msgid "Please enter a URL first."
 msgstr "Voer eerst een URL in."
 
 #. Translators: Status text shown next to the Test URL button while the check is in progress.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9568
+#: addon\globalPlugins\freeAudio\radioDialog.py:9580
 msgid "Checking…"
 msgstr "Controleren…"
 
 #. Translators: Spoken when the URL check starts.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9570
+#: addon\globalPlugins\freeAudio\radioDialog.py:9582
 msgid "Checking stream URL, please wait…"
 msgstr "Stream-URL controleren, even geduld…"
 
 #. Translators: Status text shown next to the Test URL button when the stream checked out as playable; the '✓' is a visual checkmark, not meant to be read as punctuation.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9584
+#: addon\globalPlugins\freeAudio\radioDialog.py:9596
 msgid "✓ Stream reachable"
 msgstr "✓ Stream bereikbaar"
 
 #. Translators: Spoken when the stream check succeeds.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9587
+#: addon\globalPlugins\freeAudio\radioDialog.py:9599
 msgid "Stream is reachable."
 msgstr "Stream is bereikbaar."
 
 #. Translators: Status text shown when the stream check failed; the '✗' is a visual cross mark, %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9590
+#: addon\globalPlugins\freeAudio\radioDialog.py:9602
 #, python-format
 msgid "✗ %s"
 msgstr "✗ %s"
 
 #. Translators: Spoken when the stream check fails; %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9593
+#: addon\globalPlugins\freeAudio\radioDialog.py:9605
 #, python-format
 msgid "Stream check failed: %s"
 msgstr "Streamcontrole mislukt: %s"
 
 #. Translators: Title of the dialog for editing an existing scheduled recording; %s is the station name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9611
+#: addon\globalPlugins\freeAudio\radioDialog.py:9623
 #, python-format
 msgid "Edit Schedule — %s"
 msgstr "Bewerk Planning — %s"
 
 #. Translators: 'Save' button label; commits the edited schedule entry.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9695
+#: addon\globalPlugins\freeAudio\radioDialog.py:9707
 msgid "&Save"
 msgstr "&Opslaan"
 
@@ -4100,7 +4157,7 @@ msgstr "De opname is gestopt"
 #. Translators: Spoken when a plain instant recording starts (single-press Ctrl+Win+E); %s is the station name.
 #. Translators: Spoken when a scheduled or manual recording begins; %s is the station name.
 #: addon\globalPlugins\freeAudio\recordingMixin.py:343
-#: addon\globalPlugins\freeAudio\__init__.py:594
+#: addon\globalPlugins\freeAudio\__init__.py:598
 #, python-format
 msgid "Recording started: %s"
 msgstr "Opname gestart: %s"
@@ -4206,7 +4263,7 @@ msgstr ""
 #. Translators: Button in the clean-up dialog; closes it without doing anything.
 #. Translators: 'Cancel' button label on the update-available dialog, paired with whichever install/open-page label is used as the other button.
 #: addon\globalPlugins\freeAudio\resetDialog.py:310
-#: addon\globalPlugins\freeAudio\__init__.py:1623
+#: addon\globalPlugins\freeAudio\__init__.py:1627
 msgid "&Cancel"
 msgstr "&Annuleren"
 
@@ -5053,7 +5110,7 @@ msgid "Song recording saved: %s"
 msgstr "Opname van nummer opgeslagen: %s"
 
 #. Translators: Spoken automatically while a live recording is in progress if the time-shift disk-space limit is reached and old buffered audio is being discarded faster than usual.
-#: addon\globalPlugins\freeAudio\__init__.py:503
+#: addon\globalPlugins\freeAudio\__init__.py:507
 msgid ""
 "Time-shift buffer: running low on disk space, the oldest audio is being "
 "dropped more aggressively."
@@ -5062,25 +5119,25 @@ msgstr ""
 "wordt agressiever verwijderd."
 
 #. Translators: Spoken when a recording finishes normally; %s is the saved output filename.
-#: addon\globalPlugins\freeAudio\__init__.py:598
+#: addon\globalPlugins\freeAudio\__init__.py:602
 #, python-format
 msgid "Recording finished: %s"
 msgstr "Opname beëindigd: %s"
 
 #. Translators: Spoken when a recording never actually started because the stream connection failed for its whole scheduled window; %s is the station name.
-#: addon\globalPlugins\freeAudio\__init__.py:603
+#: addon\globalPlugins\freeAudio\__init__.py:607
 #, python-format
 msgid "Recording failed: could not connect to %s"
 msgstr "Opname mislukt: kon niet verbinden met %s"
 
 #. Translators: Spoken when converting a finished recording to the configured format (e.g. MP3) fails; the original, unconverted file is kept. %s is its filename.
-#: addon\globalPlugins\freeAudio\__init__.py:608
+#: addon\globalPlugins\freeAudio\__init__.py:612
 #, python-format
 msgid "Recording conversion failed. The original file was kept: %s"
 msgstr "Opnameconversie mislukt. Het originele bestand is behouden: %s"
 
 #. Translators: Spoken when the folder configured for recordings can't be used (e.g. missing/no permission) and freeAudio saved to its default folder instead; %(station)s is the station name, %(reason)s is why the folder failed.
-#: addon\globalPlugins\freeAudio\__init__.py:614
+#: addon\globalPlugins\freeAudio\__init__.py:618
 #, python-format
 msgid ""
 "Could not use the selected folder for '%(station)s' (%(reason)s). Saved to "
@@ -5091,12 +5148,12 @@ msgstr ""
 
 #. ── 2. Create / refresh a script for every favourite ─────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this favourite station' shortcuts separately from freeAudio's main commands.
-#: addon\globalPlugins\freeAudio\__init__.py:715
+#: addon\globalPlugins\freeAudio\__init__.py:719
 msgid "freeAudio Stations"
 msgstr "freeAudio Stations"
 
 #. Translators: Spoken if a per-favourite-station shortcut is triggered after that station was removed from favourites since the shortcut was created; %s is the station name.
-#: addon\globalPlugins\freeAudio\__init__.py:736
+#: addon\globalPlugins\freeAudio\__init__.py:740
 #, python-format
 msgid "Station no longer in favourites: %s"
 msgstr "Station niet langer in favorieten: %s"
@@ -5110,94 +5167,94 @@ msgstr "Station niet langer in favorieten: %s"
 #. NVDA reads __doc__ as the script description and
 #. __name__ as the script identifier.
 #. Translators: Auto-generated description of a per-audio-book shortcut, shown in NVDA's Input Gestures dialog; %s is the book's title.
-#: addon\globalPlugins\freeAudio\__init__.py:746
-#: addon\globalPlugins\freeAudio\__init__.py:826
-#: addon\globalPlugins\freeAudio\__init__.py:952
+#: addon\globalPlugins\freeAudio\__init__.py:750
+#: addon\globalPlugins\freeAudio\__init__.py:830
+#: addon\globalPlugins\freeAudio\__init__.py:956
 #, python-format
 msgid "%s playback shortcut"
 msgstr "%s afspeelsneltoets"
 
 #. ── 2. Create / refresh a script for every entry ─────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this jukebox entry' shortcuts separately from freeAudio's main commands.
-#: addon\globalPlugins\freeAudio\__init__.py:798
+#: addon\globalPlugins\freeAudio\__init__.py:802
 msgid "freeAudio Jukebox"
 msgstr ""
 
 #. Translators: Spoken if a per-jukebox-entry shortcut is triggered after that entry was removed from the jukebox since the shortcut was created; %s is the entry's display title.
-#: addon\globalPlugins\freeAudio\__init__.py:819
+#: addon\globalPlugins\freeAudio\__init__.py:823
 #, python-format
 msgid "Entry no longer in the jukebox: %s"
 msgstr ""
 
 #. ── 2. Create / refresh a script for every book ──────────────────────
 #. Translators: Script category shown in NVDA's Input Gestures dialog, grouping the auto-generated 'play this audio book' shortcuts separately from freeAudio's main commands.
-#: addon\globalPlugins\freeAudio\__init__.py:938
+#: addon\globalPlugins\freeAudio\__init__.py:942
 #, fuzzy
 msgid "freeAudio Audio Books"
 msgstr "Luisterboeken"
 
 #. Translators: Spoken if a per-audio-book shortcut is triggered after that book was removed from the library since the shortcut was created; %s is the book's title.
-#: addon\globalPlugins\freeAudio\__init__.py:986
+#: addon\globalPlugins\freeAudio\__init__.py:990
 #, fuzzy, python-format
 msgid "Audio book no longer in the library: %s"
 msgstr "Luisterboekenbibliotheek"
 
 #. Translators: Spoken while an audio book's list of parts is being fetched before it starts playing; %s is the book's title.
-#: addon\globalPlugins\freeAudio\__init__.py:994
+#: addon\globalPlugins\freeAudio\__init__.py:998
 #, fuzzy, python-format
 msgid "Loading %s"
 msgstr "Laden: %s"
 
 #. Translators: Spoken when a per-audio-book shortcut can't start playback because the book's parts could not be prepared; %s is the book's title.
-#: addon\globalPlugins\freeAudio\__init__.py:1025
+#: addon\globalPlugins\freeAudio\__init__.py:1029
 #, fuzzy, python-format
 msgid "Could not play %s"
 msgstr "Kon station niet afspelen: %s"
 
 #. Translators: Menu item that opens the freeAudio station browser dialog
-#: addon\globalPlugins\freeAudio\__init__.py:1038
+#: addon\globalPlugins\freeAudio\__init__.py:1042
 msgid "Station &Browser...\tCtrl+Win+R"
 msgstr "Stations&verkenner...\tCtrl+Win+R"
 
 #. Translators: Menu item that opens freeAudio settings in NVDA preferences
-#: addon\globalPlugins\freeAudio\__init__.py:1047
+#: addon\globalPlugins\freeAudio\__init__.py:1051
 msgid "freeAudio &Settings..."
 msgstr "freeAudio &Instellingen..."
 
 #. Translators: Menu item that manually triggers the update check
-#: addon\globalPlugins\freeAudio\__init__.py:1056
+#: addon\globalPlugins\freeAudio\__init__.py:1060
 msgid "Check for &Updates..."
 msgstr "Controleer op &Updates..."
 
 #. Translators: Label of the freeAudio submenu in NVDA Tools menu
-#: addon\globalPlugins\freeAudio\__init__.py:1069
+#: addon\globalPlugins\freeAudio\__init__.py:1073
 msgid "&freeAudio"
 msgstr "&freeAudio"
 
 #. Translators: Name of an NVDA command; opens the freeAudio station browser dialog on its main Stations tab.
-#: addon\globalPlugins\freeAudio\__init__.py:1137
+#: addon\globalPlugins\freeAudio\__init__.py:1141
 msgid "Open freeAudio station browser"
 msgstr "Open de freeAudio stationsverkenner"
 
 # | msgid "Open FreeRadio station browser"
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
-#: addon\globalPlugins\freeAudio\__init__.py:1147
+#: addon\globalPlugins\freeAudio\__init__.py:1151
 msgid "Open freeAudio audio book library"
 msgstr "Open freeAudio luisterboekbibliotheek"
 
 # | msgid "Podcast subscriptions"
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Podcasts tab.
-#: addon\globalPlugins\freeAudio\__init__.py:1157
+#: addon\globalPlugins\freeAudio\__init__.py:1161
 msgid "Open freeAudio podcast subscriptions"
 msgstr "Open freeAudio podcastabonnementen"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the local Jukebox tab.
-#: addon\globalPlugins\freeAudio\__init__.py:1167
+#: addon\globalPlugins\freeAudio\__init__.py:1171
 msgid "Open freeAudio local jukebox"
 msgstr "Open freeAudio lokale jukebox"
 
 #. Translators: Name of an NVDA command whose behaviour depends on what is currently playing: adds a live station to favourites, or downloads the current audio book/podcast episode.
-#: addon\globalPlugins\freeAudio\__init__.py:1177
+#: addon\globalPlugins\freeAudio\__init__.py:1181
 msgid ""
 "Add currently playing station to favourites, download the whole audio book "
 "if one is playing, or download the episode if a podcast is playing"
@@ -5207,66 +5264,66 @@ msgstr ""
 "een podcast wordt afgespeeld"
 
 #. Translators: Spoken when this shortcut is pressed while something is playing that is neither a station, podcast episode, nor audio book (e.g. a local jukebox track).
-#: addon\globalPlugins\freeAudio\__init__.py:1197
+#: addon\globalPlugins\freeAudio\__init__.py:1201
 msgid "The shortcut is only for stations, podcasts or audio books"
 msgstr "De sneltoets is alleen voor stations, podcasts of luisterboeken"
 
 #. Translators: Spoken when the currently playing station is already saved in favourites; %s is the station name.
-#: addon\globalPlugins\freeAudio\__init__.py:1219
+#: addon\globalPlugins\freeAudio\__init__.py:1223
 #, python-format
 msgid "Already in favourites: %s"
 msgstr "Staat al in favorieten: %s"
 
 #. Translators: Spoken after successfully adding the currently playing station to favourites; %s is the station name.
-#: addon\globalPlugins\freeAudio\__init__.py:1223
+#: addon\globalPlugins\freeAudio\__init__.py:1227
 #, python-format
 msgid "Added to favourites: %s"
 msgstr "Toegevoegd aan favorieten: %s"
 
 #. Translators: Spoken when this shortcut is pressed to download an audio book but no audio book (GETEM/Gutenberg/LibriVox) is currently playing.
-#: addon\globalPlugins\freeAudio\__init__.py:1238
+#: addon\globalPlugins\freeAudio\__init__.py:1242
 msgid "No audio book is playing"
 msgstr "Er wordt geen luisterboek afgespeeld"
 
 #. Translators: Spoken when downloading the currently playing audio book fails.
-#: addon\globalPlugins\freeAudio\__init__.py:1245
+#: addon\globalPlugins\freeAudio\__init__.py:1249
 msgid "Could not download this audio book."
 msgstr "Kan dit luisterboek niet downloaden."
 
 #. Translators: Spoken once when a radio station (currently ABC Australia stations) is played through a special playback mode, because it would otherwise stutter.
-#: addon\globalPlugins\freeAudio\__init__.py:1322
+#: addon\globalPlugins\freeAudio\__init__.py:1326
 msgid "This station uses a special playback mode to prevent stuttering."
 msgstr ""
 
 #. Translators: Spoken when a station's connection attempt fails outright, so the user isn't left thinking it's silently playing; %(name)s is the station name, %(reason)s is a short failure description.
-#: addon\globalPlugins\freeAudio\__init__.py:1338
+#: addon\globalPlugins\freeAudio\__init__.py:1342
 #, python-format
 msgid "Could not play %(name)s: %(reason)s"
 msgstr "Kon %(name)s niet afspelen: %(reason)s"
 
 #. Translators: Spoken during a manual update check when the GitHub repository has no published releases yet.
-#: addon\globalPlugins\freeAudio\__init__.py:1553
+#: addon\globalPlugins\freeAudio\__init__.py:1557
 msgid "No releases found on GitHub yet."
 msgstr "Er zijn nog geen releases gevonden op GitHub."
 
 #. Translators: Spoken during a manual update check when the GitHub API request itself returns an HTTP error; %d is the HTTP status code.
-#: addon\globalPlugins\freeAudio\__init__.py:1558
+#: addon\globalPlugins\freeAudio\__init__.py:1562
 #, python-format
 msgid "Update check failed (HTTP %d)."
 msgstr "Controle op updates is mislukt (HTTP %d)."
 
 #. Translators: Spoken during a manual update check when the request to GitHub fails outright (e.g. no internet connection).
-#: addon\globalPlugins\freeAudio\__init__.py:1564
+#: addon\globalPlugins\freeAudio\__init__.py:1568
 msgid "Update check failed. Please check your internet connection."
 msgstr "De updatecontrole is mislukt. Controleer je internetverbinding."
 
 #. Translators: Spoken during a manual update check when GitHub's release data doesn't include a usable version tag.
-#: addon\globalPlugins\freeAudio\__init__.py:1580
+#: addon\globalPlugins\freeAudio\__init__.py:1584
 msgid "Could not determine latest version."
 msgstr "De nieuwste versie kon niet worden vastgesteld."
 
 #. Translators: Update dialog message when direct install is available. %(new)s=new version, %(current)s=current version
-#: addon\globalPlugins\freeAudio\__init__.py:1599
+#: addon\globalPlugins\freeAudio\__init__.py:1603
 #, python-format
 msgid ""
 "A new version of freeAudio is available: %(new)s.\n"
@@ -5279,19 +5336,19 @@ msgstr ""
 "\n"
 "Wil je deze nu downloaden en installeren?"
 
-#: addon\globalPlugins\freeAudio\__init__.py:1602
-#: addon\globalPlugins\freeAudio\__init__.py:1611
-#: addon\globalPlugins\freeAudio\__init__.py:1679
+#: addon\globalPlugins\freeAudio\__init__.py:1606
+#: addon\globalPlugins\freeAudio\__init__.py:1615
+#: addon\globalPlugins\freeAudio\__init__.py:1683
 msgid "unknown"
 msgstr "onbekend"
 
 #. Translators: Button label on the update-available dialog when a direct .nvda-addon download is available, offering to install it right away.
-#: addon\globalPlugins\freeAudio\__init__.py:1604
+#: addon\globalPlugins\freeAudio\__init__.py:1608
 msgid "&Install"
 msgstr "&Installeren"
 
 #. Translators: Update dialog message when only a download page is available. %(new)s=new version, %(current)s=current version
-#: addon\globalPlugins\freeAudio\__init__.py:1608
+#: addon\globalPlugins\freeAudio\__init__.py:1612
 #, python-format
 msgid ""
 "A new version of freeAudio is available: %(new)s.\n"
@@ -5305,35 +5362,35 @@ msgstr ""
 "Wil je de downloadpagina openen?"
 
 #. Translators: Button label on the update-available dialog when only a release web page (no direct download) is available, offering to open it in a browser.
-#: addon\globalPlugins\freeAudio\__init__.py:1613
+#: addon\globalPlugins\freeAudio\__init__.py:1617
 msgid "&Open Page"
 msgstr "&Pagina openen"
 
 #. Translators: Title of the dialog shown when a newer freeAudio version is available.
-#: addon\globalPlugins\freeAudio\__init__.py:1619
+#: addon\globalPlugins\freeAudio\__init__.py:1623
 msgid "freeAudio Update Available"
 msgstr "freeAudio Update Beschikbaar"
 
 #. Translators: Spoken while the new version is being downloaded for direct install; %s is the version number being downloaded.
-#: addon\globalPlugins\freeAudio\__init__.py:1639
+#: addon\globalPlugins\freeAudio\__init__.py:1643
 #, python-format
 msgid "Downloading freeAudio %s…"
 msgstr "FreeAudio %s wordt gedownload…"
 
 #. Translators: Spoken when the downloaded .nvda-addon file can't be handed to NVDA's installer automatically; %s is the path where the file was saved so the user can open it manually.
-#: addon\globalPlugins\freeAudio\__init__.py:1669
+#: addon\globalPlugins\freeAudio\__init__.py:1673
 #, python-format
 msgid "Could not launch installer. File saved to: %s"
 msgstr ""
 "Het installatieprogramma kon niet worden gestart. Bestand opgeslagen in: %s"
 
 #. Translators: Message and title of the dialog shown after a manual update check finds no newer version; %s is the currently installed version, or the fallback 'unknown' label just below if it could not be determined.
-#: addon\globalPlugins\freeAudio\__init__.py:1679
+#: addon\globalPlugins\freeAudio\__init__.py:1683
 #, python-format
 msgid "freeAudio is up to date. Installed: %s"
 msgstr "freeAudio is up-to-date. Geïnstalleerd: %s"
 
-#: addon\globalPlugins\freeAudio\__init__.py:1680
+#: addon\globalPlugins\freeAudio\__init__.py:1684
 msgid "freeAudio Update Check"
 msgstr "Controle op updates voor freeAudio"
 

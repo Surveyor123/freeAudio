@@ -463,6 +463,10 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 		"kb:control+windows+i": "whatsPlaying",
 		"kb:control+shift+windows+m": "toggleObligato",
 		"kb:control+windows+f12": "addBookmark",
+		"kb:control+windows+f3": "navPrevItem",
+		"kb:control+windows+f4": "navNextItem",
+		"kb:control+windows+shift+f3": "navPrevGroup",
+		"kb:control+windows+shift+f4": "navNextGroup",
 	}
 
 	def __init__(self):

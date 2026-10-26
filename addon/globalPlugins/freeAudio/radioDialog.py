@@ -7120,7 +7120,7 @@ class RadioDialog(wx.Dialog):
 			return
 		self._jukebox_tracks_list.SetSelection(idx - 1)
 		self._jukebox_tracks_list.SetFocus()
-		self._on_jukebox_track_play(None)
+		self._on_jukebox_track_play(None, sequence=True)
 
 	def _play_next_jukebox_track(self):
 		"""Play the next track."""
@@ -7130,7 +7130,7 @@ class RadioDialog(wx.Dialog):
 			if count > 0:
 				self._jukebox_tracks_list.SetSelection(0)
 				self._jukebox_tracks_list.SetFocus()
-				self._on_jukebox_track_play(None)
+				self._on_jukebox_track_play(None, sequence=True)
 			return
 		if idx >= count - 1:
 			# Translators: Spoken when trying to play the next jukebox track while already on the last one.
@@ -7138,7 +7138,7 @@ class RadioDialog(wx.Dialog):
 			return
 		self._jukebox_tracks_list.SetSelection(idx + 1)
 		self._jukebox_tracks_list.SetFocus()
-		self._on_jukebox_track_play(None)
+		self._on_jukebox_track_play(None, sequence=True)
 
 	def _select_prev_jukebox_entry(self):
 		"""Select the previous jukebox entry (file or folder)."""
@@ -9125,11 +9125,23 @@ class RadioDialog(wx.Dialog):
 		else:
 			self._jukebox_add_file_btn.SetFocus()
 
-	def _on_jukebox_track_play(self, event):
+	def _on_jukebox_track_play(self, event, sequence=False):
+		"""Play the highlighted track. With *sequence* True (used by the
+		F3/F4 and Ctrl+Left/Right track switching) and the selected entry
+		being a folder, the track is played as part of that folder's
+		sequence - tagged with jukebox_folder_path/jukebox_track_index, see
+		_play_jukebox_folder_track() - so it still auto-advances to the next
+		track when it ends. Enter/Space on the tracks list keep playing a
+		one-off track, as before."""
 		idx = self._jukebox_tracks_list.GetSelection()
 		tracks = getattr(self, "_jukebox_selected_tracks", None) or []
 		if idx == wx.NOT_FOUND or idx >= len(tracks):
 			return
+		if sequence:
+			entry = self._get_selected_jukebox_entry()
+			if entry and entry.kind == "folder":
+				self._play_jukebox_folder_track(entry, tracks, idx)
+				return
 		self._play_jukebox_track(tracks[idx])
 
 	def _on_jukebox_tracks_key(self, event):

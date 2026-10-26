@@ -14,6 +14,8 @@
 # auto-registration only sees the literal class a script is defined in, not
 # the MRO - see the __gestures comment in __init__.py for details).
 
+import logging
+import os
 import threading
 
 import config
@@ -35,6 +37,8 @@ from . import jukebox
 from . import librivox
 from . import podcast
 from .settingsPanel import freeAudioSettingsPanel
+
+log = logging.getLogger(__name__)
 
 
 # File extensions that reliably mark a URL as a podcast episode / audio
@@ -508,7 +512,7 @@ class PlaybackCoreMixin:
 		self._play_station(station_dict)
 		return True
 
-	def _advance_jukebox_folder_headless(self, station, direction=1):
+	def _advance_jukebox_folder_headless(self, station, direction=1, clear_at_end=True):
 		"""Move a jukebox folder to its previous/next track (*direction* =
 		-1/+1) independent of any dialog UI - either because the current
 		track finished on its own while the freeAudio dialog isn't open
@@ -525,6 +529,12 @@ class PlaybackCoreMixin:
 		isn't a folder-sequence track at all, or the folder's gone) - see
 		_advance_getem_chapter_headless()'s matching docstring for why
 		callers care about this.
+
+		*clear_at_end* (default True, the behaviour every existing caller
+		wants) controls whether running off the end of the folder clears
+		the saved resume position. The manual Ctrl+Win+F4 command passes
+		False: pressing 'next' on the last track is not the same as having
+		played the folder through, so it must not reset the folder.
 
 		Mirrors _advance_getem_chapter_headless() above: uses only the
 		playing station's own "jukebox_folder_path"/"jukebox_track_index"
@@ -554,7 +564,7 @@ class PlaybackCoreMixin:
 		tracks = entry.tracks()
 		next_index = index + direction
 		if next_index < 0 or next_index >= len(tracks):
-			if next_index >= len(tracks):
+			if next_index >= len(tracks) and clear_at_end:
 				# Played through to the last track - clear the saved
 				# resume position so the folder starts over from track 1
 				# next time, instead of staying "stuck" on the last track
@@ -588,6 +598,374 @@ class PlaybackCoreMixin:
 			except Exception:
 				pass
 		return True
+
+	# ------------------------------------------------------------------
+	# Global equivalents of F3/F4 and Shift+F3/Shift+F4 from the freeAudio
+	# window (Ctrl+Win+F3/F4 and Ctrl+Win+Shift+F3/F4).
+	#
+	# In the window, what F3/F4 does depends on which TAB is active. With
+	# the window closed there is no tab, so the kind of whatever is playing
+	# right now (station.get("media_kind")) decides instead:
+	#
+	#   playing          F3 / F4                 Shift+F3 / Shift+F4
+	#   ---------------  ----------------------  ----------------------
+	#   radio station    previous / next station same as F3 / F4
+	#   podcast          previous / next episode previous / next feed
+	#   audio book       previous / next book    previous / next part
+	#   jukebox          previous / next track   previous / next entry
+	#
+	# Everything goes through _play_station() with the same station-dict
+	# fields the window / the auto-advance code use (jukebox_folder_path,
+	# jukebox_track_index, getem_detail_url, getem_chapter_index ...), so
+	# automatic track/part advance keeps working after a manual jump,
+	# whether or not the window is open.
+	# ------------------------------------------------------------------
+
+	def _nav_dialog(self):
+		"""The browser dialog if it exists and its C++ peer is still alive."""
+		dlg = getattr(self, "_dialog", None)
+		try:
+			return dlg if (dlg and bool(dlg)) else None
+		except Exception:
+			return None
+
+	def _nav_dialog_shown(self):
+		dlg = self._nav_dialog()
+		try:
+			return dlg if (dlg and dlg.IsShown()) else None
+		except Exception:
+			return None
+
+	def _nav_bound_message(self, direction, first, last):
+		_notify(first if direction < 0 else last)
+
+	def _nav_dispatch(self, gesture, direction, group):
+		"""Shared body of the four Ctrl+Win+F3/F4 scripts. *direction* is
+		-1 (F3) or +1 (F4); *group* is True for the Shift variants."""
+		if not self._player.has_media():
+			# Nothing of ours is playing - let the key through untouched,
+			# same as Ctrl+Win+Left/Right do.
+			gesture.send()
+			return
+		station = self._player.get_current_station() or {}
+		kind = station.get("media_kind")
+		try:
+			if kind == "podcast":
+				if group:
+					self._nav_podcast_feed(station, direction)
+				else:
+					self._nav_podcast_episode(station, direction)
+			elif kind == "audiobook":
+				if group:
+					self._nav_audiobook_part(station, direction)
+				else:
+					self._nav_audiobook_book(station, direction)
+			elif kind == "jukebox":
+				if group:
+					self._nav_jukebox_entry(station, direction)
+				else:
+					self._nav_jukebox_track(station, direction)
+			else:
+				self._nav_station(station, direction)
+		except Exception:
+			log.error("freeAudio: Ctrl+Win+F3/F4 navigation failed", exc_info=True)
+
+	# -- live radio ------------------------------------------------------
+
+	def _nav_station(self, station, direction):
+		"""Previous/next station, wrapping around - same as F3/F4 on the
+		All Stations / Favourites tabs. Moves within the list the current
+		station was last played from (self._stations), or the favourites
+		if it isn't in that list."""
+		uuid = station.get("stationuuid", "")
+
+		def _find(lst):
+			if uuid:
+				for i, s in enumerate(lst):
+					if s.get("stationuuid", "") == uuid:
+						return i
+			return -1
+
+		stations = list(self._stations or [])
+		idx = _find(stations)
+		if idx < 0:
+			stations = self._manager.get_favorites()
+			idx = _find(stations)
+		if not stations:
+			return
+		if idx < 0:
+			new_idx = 0 if direction > 0 else len(stations) - 1
+		else:
+			new_idx = (idx + direction) % len(stations)
+		self._stations = stations
+		self._current_index = new_idx
+		self._play_station(stations[new_idx])
+
+	# -- podcasts --------------------------------------------------------
+
+	def _nav_podcast_manager(self):
+		"""Prefer the dialog's PodcastManager: feed.episodes is held in
+		memory only (never persisted), so a freshly built manager has no
+		episodes, whereas the dialog's has whatever it loaded/refreshed."""
+		dlg = self._nav_dialog()
+		mgr = getattr(dlg, "_podcast_manager", None) if dlg else None
+		return mgr or podcast.PodcastManager()
+
+	def _nav_play_podcast_episode(self, feed, episode):
+		"""Same station dict RadioDialog._on_episode_play() builds."""
+		station_dict = episode.to_dict()
+		station_dict["podcast_feed_url"] = feed.url
+		if feed.author:
+			station_dict["podcast_author"] = feed.author
+		if feed.audio_profile:
+			station_dict["station_audio"] = feed.audio_profile
+		if episode.title and episode.title != feed.title:
+			station_dict["name"] = "%s \u2014 %s" % (feed.title, episode.title)
+		else:
+			station_dict["name"] = feed.title
+		self._play_station(station_dict)
+
+	def _nav_current_podcast_feed(self, mgr, station):
+		feed_url = (station.get("podcast_feed_url")
+		            or config.conf["freeAudio"].get("last_station_podcast_feed_url", "")
+		            or "").strip()
+		return mgr.get_feed_by_url(feed_url) if feed_url else None
+
+	def _nav_podcast_episodes_unavailable(self):
+		# Translators: Spoken when Ctrl+Win+F3/F4 can't find the podcast's episode list because it has not been loaded in this session yet.
+		_notify(_("Podcast episodes are not loaded yet. Open the freeAudio window and select this podcast once."))
+
+	def _nav_podcast_episode(self, station, direction):
+		mgr = self._nav_podcast_manager()
+		feed = self._nav_current_podcast_feed(mgr, station)
+		episodes = list(feed.episodes) if feed else []
+		if not episodes:
+			self._nav_podcast_episodes_unavailable()
+			return
+		keys = {k for k in (station.get("url"), station.get("podcast_resume_key")) if k}
+		idx = next((i for i, ep in enumerate(episodes) if ep.url in keys), -1)
+		if idx < 0:
+			new_idx = 0 if direction > 0 else len(episodes) - 1
+		else:
+			new_idx = idx + direction
+			if new_idx < 0 or new_idx >= len(episodes):
+				self._nav_bound_message(
+					direction,
+					# Translators: Spoken when trying to play the previous episode while already on the first one in the list.
+					_("Already at first episode"),
+					# Translators: Spoken when trying to play the next episode while already on the last one.
+					_("Already at last episode"),
+				)
+				return
+		self._nav_play_podcast_episode(feed, episodes[new_idx])
+
+	def _nav_podcast_feed(self, station, direction):
+		"""Previous/next subscribed podcast. Selecting a feed in the window
+		only highlights it; with no window there is nothing to highlight,
+		so the feed's first listed episode is played instead."""
+		mgr = self._nav_podcast_manager()
+		feeds = mgr.get_feeds()
+		cur = self._nav_current_podcast_feed(mgr, station)
+		idx = next((i for i, f in enumerate(feeds) if cur is not None and f.url == cur.url), -1)
+		if idx < 0:
+			new_idx = 0 if direction > 0 else len(feeds) - 1
+		else:
+			new_idx = idx + direction
+			if new_idx < 0 or new_idx >= len(feeds):
+				self._nav_bound_message(
+					direction,
+					# Translators: Spoken when cycling to the previous podcast feed while already on the first one.
+					_("Already at first feed"),
+					# Translators: Spoken when cycling to the next podcast feed while already on the last one.
+					_("Already at last feed"),
+				)
+				return
+		if not feeds:
+			return
+		feed = feeds[new_idx]
+		if not feed.episodes:
+			_notify(feed.title)
+			self._nav_podcast_episodes_unavailable()
+			return
+		self._nav_play_podcast_episode(feed, feed.episodes[0])
+
+	# -- audio books -----------------------------------------------------
+
+	def _nav_audiobook_sources(self):
+		return (
+			(getem, getem.GetemLibrary),
+			(librivox, librivox.LibrivoxLibrary),
+			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+		)
+
+	def _nav_audiobook_books(self):
+		"""[(module, library_cls, book)] across all three libraries, sorted
+		by title exactly like RadioDialog._merged_library_books()."""
+		result = []
+		for module, library_cls in self._nav_audiobook_sources():
+			try:
+				for book in library_cls().get_books():
+					result.append((module, library_cls, book))
+			except Exception:
+				log.debug("freeAudio: could not read %s library", module.__name__, exc_info=True)
+		result.sort(key=lambda t: (t[2].title or "").casefold())
+		return result
+
+	def _nav_sync_dialog_audiobook(self, detail_url):
+		"""If the window is open, bring its F3/F4 "now playing" audio-book
+		state (_getem_now_playing) in line with what we just started.
+		Without this, the window's own auto-advance (which trusts that
+		state) would continue from the old part."""
+		dlg = self._nav_dialog_shown()
+		if not dlg:
+			return
+		try:
+			dlg.refresh_getem_libraries_from_disk()
+			book = next((b for b in dlg._merged_library_books() if b.detail_url == detail_url), None)
+			if book and book.chapters:
+				index = book.last_chapter_index
+				if not (0 <= index < len(book.chapters)):
+					index = 0
+				dlg._getem_now_playing = (book, index)
+			dlg._refresh_getem_library_list()
+		except Exception:
+			log.debug("freeAudio: could not sync dialog audio book state", exc_info=True)
+
+	def _nav_audiobook_book(self, station, direction):
+		books = self._nav_audiobook_books()
+		if not books:
+			# Translators: Spoken when previous/next book is pressed with no books in the audio-book library.
+			_notify(_("Library is empty"))
+			return
+		cur_url = station.get("getem_detail_url")
+		idx = next((i for i, t in enumerate(books) if t[2].detail_url == cur_url), -1)
+		if idx < 0:
+			new_idx = 0 if direction > 0 else len(books) - 1
+		else:
+			new_idx = idx + direction
+			if new_idx < 0 or new_idx >= len(books):
+				self._nav_bound_message(
+					direction,
+					# Translators: Spoken when previous book is pressed while already on the first book.
+					_("Already at first book"),
+					# Translators: Spoken when next book is pressed while already on the last book.
+					_("Already at last book"),
+				)
+				return
+		module, library_cls, book = books[new_idx]
+		# Resumes from the part last played; resolves the part list first
+		# (on a background thread) if it isn't known yet.
+		self._play_audiobook_headless(module, library_cls, book.detail_url, book.title)
+		self._nav_sync_dialog_audiobook(book.detail_url)
+		# The headless path may have had to fetch the part list first.
+		wx.CallLater(2000, self._nav_sync_dialog_audiobook, book.detail_url)
+
+	def _nav_audiobook_part(self, station, direction):
+		if self._advance_getem_chapter_headless(station, direction):
+			self._nav_sync_dialog_audiobook(station.get("getem_detail_url"))
+			return
+		self._nav_bound_message(
+			direction,
+			# Translators: Spoken when previous part is pressed while already on the first part of a book.
+			_("Already at first part"),
+			# Translators: Spoken when next part is pressed and there is no next part (last part, or a single-part work).
+			_("Already at last part"),
+		)
+
+	# -- jukebox ---------------------------------------------------------
+
+	def _nav_jukebox_track(self, station, direction):
+		"""Previous/next track of the folder being played. Goes through
+		_advance_jukebox_folder_headless(), which re-tags the new track with
+		jukebox_folder_path/jukebox_track_index - so the automatic move to
+		the following track keeps working after a manual skip."""
+		if self._advance_jukebox_folder_headless(station, direction, clear_at_end=False):
+			return
+		self._nav_bound_message(
+			direction,
+			# Translators: Spoken when trying to play the previous jukebox track while already on the first one.
+			_("Already at first track"),
+			# Translators: Spoken when trying to play the next jukebox track while already on the last one.
+			_("Already at last track"),
+		)
+
+	def _nav_jukebox_entry(self, station, direction):
+		"""Previous/next jukebox library entry (file or folder). Selecting
+		an entry in the window only highlights it; with no window the entry
+		is played instead - a folder from wherever it was last left off."""
+		entries = jukebox.JukeboxManager().get_entries()
+		if not entries:
+			return
+		folder = station.get("jukebox_folder_path")
+		url = station.get("url") or ""
+		idx = -1
+		if folder:
+			idx = next((i for i, e in enumerate(entries) if e.path == folder), -1)
+		if idx < 0 and url:
+			norm = os.path.normcase(os.path.normpath(url))
+			idx = next((i for i, e in enumerate(entries)
+			            if os.path.normcase(os.path.normpath(e.path)) == norm), -1)
+		if idx < 0 and url:
+			for i, e in enumerate(entries):
+				try:
+					if any(t.path == url for t in e.tracks()):
+						idx = i
+						break
+				except Exception:
+					continue
+		if idx < 0:
+			new_idx = 0 if direction > 0 else len(entries) - 1
+		else:
+			new_idx = idx + direction
+			if new_idx < 0 or new_idx >= len(entries):
+				self._nav_bound_message(
+					direction,
+					# Translators: Spoken when cycling to the previous jukebox library entry while already on the first one.
+					_("Already at first item"),
+					# Translators: Spoken when cycling to the next jukebox library entry while already on the last one.
+					_("Already at last item"),
+				)
+				return
+		# Folders are tagged with jukebox_folder_path/jukebox_track_index
+		# there, so auto-advance carries on from the new entry.
+		self._play_jukebox_entry_headless(entries[new_idx])
+
+	@script(
+		# Translators: Name of an NVDA command; same as F3 in the freeAudio window, but works while the window is closed.
+		description=_("Previous station, podcast episode, audio book or jukebox track (F3 in the freeAudio window)"),
+		category=_("freeAudio"),
+		gesture="kb:control+windows+f3",
+	)
+	def script_navPrevItem(self, gesture):
+		self._nav_dispatch(gesture, -1, False)
+
+	@script(
+		# Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
+		description=_("Next station, podcast episode, audio book or jukebox track (F4 in the freeAudio window)"),
+		category=_("freeAudio"),
+		gesture="kb:control+windows+f4",
+	)
+	def script_navNextItem(self, gesture):
+		self._nav_dispatch(gesture, 1, False)
+
+	@script(
+		# Translators: Name of an NVDA command; same as Shift+F3 in the freeAudio window, but works while the window is closed.
+		description=_("Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the freeAudio window)"),
+		category=_("freeAudio"),
+		gesture="kb:control+windows+shift+f3",
+	)
+	def script_navPrevGroup(self, gesture):
+		self._nav_dispatch(gesture, -1, True)
+
+	@script(
+		# Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
+		description=_("Next podcast feed, audio book part or jukebox entry (Shift+F4 in the freeAudio window)"),
+		category=_("freeAudio"),
+		gesture="kb:control+windows+shift+f4",
+	)
+	def script_navNextGroup(self, gesture):
+		self._nav_dispatch(gesture, 1, True)
+
 
 	def _resume_last_station(self):
 		url  = config.conf["freeAudio"].get("last_station_url", "").strip()
