@@ -781,7 +781,7 @@ Cada faixa reproduzida a partir do Jukebox recebe o tratamento completo de médi
 - **Navegação escalonada:** `Ctrl+Win+J` / `Ctrl+Win+K` navegam dentro da faixa usando a mesma escala de toque/manter premido que os podcasts e audiolivros — manter premido para 5 segundos por repetição, um toque para 12 segundos, dois toques para 1 minuto, três ou mais toques para 5 minutos. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` procuram exatamente 1 segundo — veja [Busca Precisa (1 Segundo)](#busca-precisa-1-segundo).
 - **Velocidade de reprodução:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` ajustam a velocidade em passos de 0,1× de 0,5× a 2,0×, com o tom preservado.
 - **Transposição:** `Shift+Win+J` / `Shift+Win+K` alteram o tom sem mudar a velocidade — veja [Transposição (Alteração de Tom)](#transposição-alteração-de-tom).
-- **Perfil de áudio:** O volume, efeitos, EQ e velocidade de uma faixa podem ser guardados globalmente reproduzindo uma faixa com as definições apropriadas configuradas — o Jukebox atualmente não expõe um menu de perfil por faixa, pelo que se aplicam as definições globais atuais.
+
 
 > **Nota:** O buffer de time-shift (usado para recuar a rádio em direto) é deliberadamente **não** iniciado para faixas do Jukebox — já são ficheiros locais pesquisáveis, pelo que uma captura em segundo plano não tem propósito e apenas consumiria espaço em disco. O recuo e o avanço continuam a funcionar porque atuam diretamente no ficheiro em reprodução.
 

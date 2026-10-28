@@ -6,16 +6,16 @@ freeAudio, ekran okuyucu NVDA için geliştirilmiş, tüm özellikleriyle donan�
 
 - **İnternet radyosu** — [Radio Browser](https://www.radio-browser.info/) dizinindeki 50.000'i aşkın istasyona göz atın ve arama yapın; sonuçlar TuneIn ve iHeartRadio ile desteklenir. İstasyonları favorilere ekleyin, yeniden sıralayın ve Windows'ta herhangi bir yerden genel bir klavye kısayoluyla doğrudan çalmaya başlayın — bkz. [Radio Browser Dizini](#radio-browser-dizini) ve [Favoriler](#favoriler).
 - **Podcastler** — Herhangi bir RSS/Atom akışına abone olun veya Apple'ın podcast dizininde arama yaparak abone olmadan önce bölümleri önizleyin. Oynatma konumu otomatik olarak kaydedilir ve kaldığınız yerden devam eder — bkz. [Podcastler](#podcastler).
-- **Sesli kitaplar** — Üç kaynaktan kitap arayın, akışla dinleyin veya indirin: Boğaziçi Üniversitesi'nin görme engelliler için dijital kütüphanesi [GETEM](https://getem.boun.edu.tr/), gönüllülerin seslendirdiği kamu malı sesli kitap projesi [LibriVox](https://librivox.org/) ve Project Gutenberg Açık Sesli Kitap Koleksiyonu — son ikisi hesap gerektirmez — çok bölümlü eserlerde otomatik devam etme özelliği vardır — bkz. [Sesli Kitaplar (GETEM, LibriVox ve Project Gutenberg)](#sesli-kitaplar-getem-librivox-ve-project-gutenberg).
+- **Sesli kitaplar** — Üç kaynaktan kitap arayın, akış üzerinden dinleyin veya indirin: Boğaziçi Üniversitesi'nin görme engelliler için dijital kütüphanesi [GETEM](https://getem.boun.edu.tr/), gönüllülerin seslendirdiği kamu malı sesli kitap projesi [LibriVox](https://librivox.org/) ve Project Gutenberg Açık Sesli Kitap Koleksiyonu — son ikisi hesap gerektirmez — çok bölümlü eserlerde otomatik devam etme özelliği vardır — bkz. [Sesli Kitaplar (GETEM, LibriVox ve Project Gutenberg)](#sesli-kitaplar-getem-librivox-ve-project-gutenberg).
 - **Yerel Müzik Kutusu** — Bilgisayarınıza bağlı herhangi bir sürücüdeki ses dosyalarını dosya adına göre arayın veya dosya ve klasörlerden kişisel bir kitaplık oluşturun; çalınan parçalar podcastler ve sesli kitaplarla aynı devam etme, atlama, hız ve perde araçlarına sahip olur — bkz. [Yerel Müzik Kutusu](#yerel-müzik-kutusu).
 - **Yer imleri** — Herhangi bir sesli kitap bölümünün, podcast bölümünün veya müzik kutusu parçasının geçerli konumuna yer imi koyun, sonra istediğiniz zaman oraya geri dönün. Bir yer imine metin notu veya kaydedilmiş bir ses notu eklenebilir; oynatma o noktaya geldiğinde not çalınır. İki yer imi arasındaki bölümü tekrar etmek de mümkündür — bkz. [Yer İmleri](#yer-i̇mleri).
-- **Kayıt** — Çalan içeriği anında kaydedin, tek bir şarkıyı başından sonuna kadar kaydedin, bir istasyondaki her şarkıyı siz durdurana kadar ayrı bir dosyaya kaydedin veya tek seferlik ve tekrarlanan kayıtlar planlayın — tüm bunlar oynatmayı kesintiye uğratmadan — bkz. [Kayıt](#kayıt).
+- **Kayıt** — Çalan içeriği anında, tek bir şarkıyı başından sonuna kadar, bir istasyondaki her şarkıyı siz durdurana kadar ayrı bir dosyaya kaydedin veya tek seferlik ve tekrarlanan kayıtlar planlayın — tüm bunlar oynatmayı kesintiye uğratmadan yapılır — bkz. [Kayıt](#kayıt).
 - **Zaman kaydırma (canlı radyoyu geri sarma)** — Canlı bir istasyonu bir DVR gibi duraklatın ve geri sarın, ardından istediğinizde canlıya tekrar yetişin — bkz. [Zaman Kaydırma (Canlı Radyoyu Geri Sarma)](#zaman-kaydırma-canlı-radyoyu-geri-sarma).
-- **Müzik tanıma ve beğenilen şarkılar** — Metadata bulunmayan parçaları Shazam tabanlı tanıma ile belirleyin, beğendiğiniz şarkıları bir metin dosyasına kaydedin ve sözlerini bulun — bkz. [Müzik Tanıma](#müzik-tanıma) ve [Beğenilen Şarkılar](#beğenilen-şarkılar).
-- **Ses profilleri ve efektler** — İstasyon, podcast, sesli kitap veya müzik kutusu parçası başına ayrı ses seviyesi, efekt, EQ ve oynatma hızı ayarları kaydedin; BASS arka ucu üzerinden gerçek zamanlı efektler (Chorus, Reverb, EQ artırmaları ve daha fazlası) uygulayın — bkz. [İstasyon Ses Profili](#i̇stasyon-ses-profili).
+- **Müzik tanıma ve beğenilen şarkılar** — istasyonun hakkında bilgi yayınlamadığı parçaları Shazam tabanlı tanıma ile belirleyin, beğendiğiniz şarkıları bir metin dosyasına kaydedin ve sözlerini bulun — bkz. [Müzik Tanıma](#müzik-tanıma) ve [Beğenilen Şarkılar](#beğenilen-şarkılar).
+- **Ses profilleri ve efektler** — Her bir istasyon, podcast, sesli kitap veya müzik kutusu parçası için ayrı ses seviyesi, efekt, EQ ve oynatma hızı ayarları kaydedin; BASS arka ucu üzerinden gerçek zamanlı efektler (Chorus, Reverb, EQ güçlendireleri ve daha fazlası) uygulayın — bkz. [İstasyon Ses Profili](#i̇stasyon-ses-profili).
 - **Transpose (perde kaydırma)** — Podcast, sesli kitap ve müzik kutusu parçalarının perdesini, hızını değiştirmeden yukarı veya aşağı kaydırın; eklentiyle birlikte gelen `bass_fx` bileşenini kullanır — bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma).
 - **Ses yansıtma** — Aynı akışı, hoparlör ve kulaklık gibi iki ses çıkış aygıtına eş zamanlı olarak gönderin — bkz. [Ses Yansıtma](#ses-yansıtma).
-- **Obligato modu (fon müziği)** — Seçtiğiniz bir favori istasyonu, kendi çıkış aygıtında ve kendi ses seviyesinde, ana medyada ne çalıyor (ya da çalmıyor) olursa olsun fonda sessizce çalın — bkz. [Obligato Modu](#obligato-modu).
+- **Obligato modu (sürekli fon müziği)** — Seçtiğiniz bir favori istasyonu, kendi çıkış aygıtında ve kendi ses seviyesinde, ana medyada ne çalıyor olursa olsun fonda çalın — bkz. [Obligato Modu](#obligato-modu).
 - **Zamanlayıcılar** — Favori bir istasyonun belirli bir saatte çalmaya başlamasını veya oynatmanın durmasını planlayın — bkz. [Zamanlayıcı](#zamanlayıcı).
 - **Derinlemesine klavye ve braille erişimi** — Her özelliğe tamamen klavyeden ulaşılabilir; Windows'ta her yerden çalışan genel kısayollar (pencereyi açmadan istasyon, bölüm, kitap ve parçalar arasında geçmek için `Ctrl+Win+F3` / `Ctrl+Win+F4` dahil), tek tek favori istasyonlar, müzik kutusu öğeleri ve sesli kitaplar için doğrudan kısayollar ve freeAudio'nun tüm sesli bildirimleri için isteğe bağlı braille çıkışı bulunur.
 
@@ -90,9 +90,9 @@ Bu kısayolların bazıları Windows'un kendi kullandığı kısayollarla çakı
 | `Ctrl+Win+T` | Zaman kaydırma tamponunu aç/kapat | Zaman kaydırma tamponunu anında etkinleştirir veya devre dışı bırakır; Ayarlar'daki onay kutusunu yansıtır. Devre dışı bırakıldığında zaman kaydırma modundaysa hemen canlıya döner ve arka plan yakalamayı durdurur. Podcast, sesli kitap veya müzik kutusu oynatmasında etkisi yoktur. |
 | *(atanmamış)* | Çıkış aygıtı seç | Kullanılabilir ana çıkış aygıtlarının bir listesini isteğe bağlı olarak açar. Liste yalnızca BASS birden fazla fiziksel çıkış aygıtı algıladığında gösterilir. NVDA Menüsü → Tercihler → Girdi Hareketleri → freeAudio bölümünden bir tuş kombinasyonu atanabilir. |
 | *(atanmamış)* | Bildirimleri sessize al / aç | Bildirim sessize alma ayarını anlık olarak değiştirir. NVDA Menüsü → Tercihler → Girdi Hareketleri → freeAudio bölümünden bir tuş kombinasyonu atanabilir. |
-| *(atanmamış)* | Favori istasyonu doğrudan çal | Favoriler listenizdeki her istasyon, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Stations** kategorisinde ayrı bir girdi olarak görünür. Bir istasyona klavye kısayolu atayarak tarayıcıyı açmadan her yerden doğrudan çalmaya başlayabilirsiniz. |
-| *(atanmamış)* | Müzik kutusu öğesini doğrudan çal | Müzik Kutusu listenizdeki her dosya veya klasör, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Jukebox** kategorisinde ayrı bir girdi olarak görünür. Bkz. [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları). |
-| *(atanmamış)* | Sesli kitabı doğrudan çal | Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Audio Books** kategorisinde ayrı bir girdi olarak görünür. Bir kitaba klavye kısayolu atayarak tarayıcıyı açmadan her yerden kaldığınız yerden devam ettirebilirsiniz. Bkz. [Sesli Kitaplar İçin Doğrudan Klavye Kısayolları](#sesli-kitaplar-i̇çin-doğrudan-klavye-kısayolları). |
+| *(atanmamış)* | Favori istasyonu doğrudan çal | Favoriler listenizdeki her istasyon, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio İstasyonları** kategorisinde ayrı bir girdi olarak görünür. Bir istasyona klavye kısayolu atayarak tarayıcıyı açmadan her yerden doğrudan çalmaya başlayabilirsiniz. |
+| *(atanmamış)* | Müzik kutusu öğesini doğrudan çal | Müzik Kutusu listenizdeki her dosya veya klasör, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Müzik Kutusu** kategorisinde ayrı bir girdi olarak görünür. Bkz. [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları). |
+| *(atanmamış)* | Sesli kitabı doğrudan çal | Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Sesli Kitaplar** kategorisinde ayrı bir girdi olarak görünür. Bir kitaba klavye kısayolu atayarak tarayıcıyı açmadan her yerden kaldığınız yerden devam ettirebilirsiniz. Bkz. [Sesli Kitaplar İçin Doğrudan Klavye Kısayolları](#sesli-kitaplar-i̇çin-doğrudan-klavye-kısayolları). |
 
 `Ctrl+Win+→` / `Ctrl+Win+←` yalnızca favoriler listesinde dolaşır; tüm istasyonlar listesinde çalışmaz — o an çalan istasyonun başlatıldığı listede gezinmek için aşağıda anlatılan `Ctrl+Win+F4` / `Ctrl+Win+F3` kullanılır. Tarayıcı penceresinde listeler odaklanmışken sol ve sağ ok tuşları da aynı işlevi görür: bkz. Diyalog İçi Kısayollar.
 
@@ -286,12 +286,12 @@ Favoriler sekmesinde bir istasyon seçiliyken `virgül` tuşuna basarak taşıma
 
 ### Favori İstasyonlar İçin Doğrudan Klavye Kısayolları
 
-Favoriler listenizdeki her istasyon, NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Stations** kategorisinde ayrı bir script olarak kayıtlıdır. İstediğiniz istasyona herhangi bir klavye kısayolu atayabilir ve tarayıcı penceresini açmadan her yerden doğrudan çalmaya başlayabilirsiniz.
+Favoriler listenizdeki her istasyon, NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio İstasyonları** kategorisinde ayrı bir script olarak kayıtlıdır. İstediğiniz istasyona herhangi bir klavye kısayolu atayabilir ve tarayıcı penceresini açmadan her yerden doğrudan çalmaya başlayabilirsiniz.
 
 Kısayol atamak için:
 
 1. NVDA Menüsü → Tercihler → Girdi Hareketleri'ni açın.
-2. **freeAudio Stations** kategorisini genişletin.
+2. **freeAudio İstasyonları** kategorisini genişletin.
 3. İstasyonu adıyla bulun, seçin ve **Ekle** düğmesine basın.
 4. İstediğiniz tuş kombinasyonuna basın ve onaylayın.
 
@@ -701,18 +701,18 @@ Kitaplıktan bir kitap seçin ve bağlam menüsünden **Kitabı İndir**'i seçe
 
 ### Sesli Kitaplar İçin Doğrudan Klavye Kısayolları
 
-Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Audio Books** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) ve [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları) bölümlerindeki gibi. İstediğiniz kitaba herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz. Varsayılan olarak hiçbir kısayol atanmış değildir.
+Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Sesli Kitaplar** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) ve [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları) bölümlerindeki gibi. İstediğiniz kitaba herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz. Varsayılan olarak hiçbir kısayol atanmış değildir.
 
 Kısayol atamak için:
 
 1. NVDA Menüsü → Tercihler → Girdi Hareketleri'ni açın.
-2. **freeAudio Audio Books** kategorisini genişletin.
+2. **freeAudio Sesli Kitaplar** kategorisini genişletin.
 3. Kitabı adıyla bulun (her girdi "*kitap adı* playback shortcut" biçiminde adlandırılır), seçin ve **Ekle** düğmesine basın.
 4. İstediğiniz tuş kombinasyonuna basın ve onaylayın.
 
 Kısayol kitabı hemen başlatır ve en son dinlediğiniz bölümden devam eder; bölüm içindeki konum, kitabı kitaplık listesinden çaldığınızdaki gibi geri yüklenir. Kitabın bölüm listesi henüz alınmamışsa NVDA kitap adıyla birlikte yüklendiğini bildirir ve hazır olur olmaz oynatma başlar (GETEM kitabı için kayıtlı girişiniz gerekir — bkz. [Oturum Açma](#oturum-açma)). Bir bölüm bittiğinde sonraki kendiliğinden başlar; İstasyon Tarayıcısı açık da olsa kapalı da olsa.
 
-Kitaplığa bir kitap eklediğinizde ya da kitaplıktan çıkardığınızda **freeAudio Audio Books** kategorisi hemen güncellenir. Bir kitap kaldırılırsa girişi kaybolur ve ona atanmış kısayol NVDA tarafından otomatik olarak temizlenir; eski bir kısayol yine de tetiklenirse NVDA kitabın artık kitaplıkta olmadığını söyler.
+Kitaplığa bir kitap eklediğinizde ya da kitaplıktan çıkardığınızda **freeAudio Sesli Kitaplar** kategorisi hemen güncellenir. Bir kitap kaldırılırsa girişi kaybolur ve ona atanmış kısayol NVDA tarafından otomatik olarak temizlenir; eski bir kısayol yine de tetiklenirse NVDA kitabın artık kitaplıkta olmadığını söyler.
 
 ### Sesli Kitap Veri Depolama
 
@@ -779,7 +779,7 @@ Müzik Kutusu'ndan çalınan her parça, tam yerel-medya davranışına sahiptir
 - **Kademeli atlama:** `Ctrl+Win+J` / `Ctrl+Win+K`, parça içinde podcast ve sesli kitaplardakiyle aynı dokunuş/basılı-tutma ölçeklemesiyle atlar — basılı tutma tekrar başına 5 saniye, bir dokunuş 12 saniye, iki dokunuş 1 dakika, üç veya daha fazla dokunuş 5 dakika. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` tam olarak 1 saniye sarar — bkz. [Hassas Sarma (1 Saniye)](#hassas-sarma-1-saniye).
 - **Oynatma hızı:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K`, hızı 0.5x ile 2.0x arasında 0.1x adımlarla, perde korunarak ayarlar.
 - **Transpose:** `Shift+Win+J` / `Shift+Win+K`, hızı değiştirmeden perdeyi kaydırır — bkz. [Transpose (Perde Kaydırma)](#transpose-perde-kaydırma).
-- **Ses profili:** Bir parçanın ses seviyesi, efektleri, EQ'u ve hızı, uygun ayarlar yapılıyken parça çalınarak genel olarak kaydedilebilir — Müzik Kutusu şu anda parça başına profil menüsü sunmaz; geçerli genel ayarlar uygulanır.
+
 
 > **Not:** Zaman kaydırma tamponu (canlı radyoyu geri sarmak için kullanılır) Müzik Kutusu parçaları için kasıtlı olarak **başlatılmaz** — bunlar zaten atlanabilir yerel dosyalardır, dolayısıyla arka plan yakalamanın bir amacı yoktur ve yalnızca disk alanı tüketir. Geri ve ileri sarma yine de çalışır, çünkü doğrudan çalınan dosya üzerinde işlem yaparlar.
 
@@ -815,12 +815,12 @@ Müzik Kutusu sekmesi, sekmenin en altında kütüphanenizi yedeklemenizi ve ger
 
 ### Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları
 
-Müzik Kutusu listenizdeki her öğe, NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Jukebox** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) bölümündeki gibi. İstediğiniz öğeye herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz.
+Müzik Kutusu listenizdeki her öğe, NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Müzik Kutusu** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) bölümündeki gibi. İstediğiniz öğeye herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz.
 
 Kısayol atamak için:
 
 1. NVDA Menüsü → Tercihler → Girdi Hareketleri'ni açın.
-2. **freeAudio Jukebox** kategorisini genişletin.
+2. **freeAudio Müzik Kutusu** kategorisini genişletin.
 3. Öğeyi adıyla bulun, seçin ve **Ekle** düğmesine basın.
 4. İstediğiniz tuş kombinasyonuna basın ve onaylayın.
 

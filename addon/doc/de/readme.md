@@ -779,7 +779,7 @@ Jeder aus der Jukebox abgespielte Titel erhält die volle Behandlung für lokale
 - **Abgestuftes Springen:** `Strg+Windows+J` / `Strg+Windows+K` springen innerhalb des Titels mit derselben Abstufung wie bei Podcasts und Hörbüchern — gehalten 5 Sekunden pro Wiederholung, ein Tastendruck 12 Sekunden, zwei Tastendrücke 1 Minute, drei oder mehr 5 Minuten. `Strg+Windows+Alt+J` / `Strg+Windows+Alt+K` springen genau 1 Sekunde — siehe [Feines Springen (1 Sekunde)](#fine-seeking-1-second).
 - **Wiedergabetempo:** `Strg+Windows+Umschalt+J` / `Strg+Windows+Umschalt+K` ändern das Tempo in Schritten von 0,1× zwischen 0,5× und 2,0×, die Tonhöhe bleibt erhalten.
 - **Transponieren:** `Umschalt+Windows+J` / `Umschalt+Windows+K` verschieben die Tonhöhe, ohne das Tempo zu ändern — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift).
-- **Audioprofil:** Lautstärke, Effekte, EQ und Tempo eines Titels lassen sich global festhalten, indem ein Titel mit den passenden Einstellungen abgespielt wird — die Jukebox bietet derzeit kein Profilmenü je Titel, daher gelten die aktuellen globalen Einstellungen.
+
 
 > **Hinweis:** Der Timeshift-Puffer (zum Zurückspulen von Live-Radio) wird für Jukebox-Titel bewusst **nicht** gestartet — es sind ohnehin spulbare lokale Dateien, eine Hintergrundaufzeichnung hätte keinen Zweck und würde nur Speicherplatz belegen. Zurück- und Vorspulen funktionieren trotzdem, weil sie direkt auf der abgespielten Datei arbeiten.
 

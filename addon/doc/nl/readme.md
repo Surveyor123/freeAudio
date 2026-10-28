@@ -775,7 +775,7 @@ Elk nummer dat vanuit de Jukebox wordt afgespeeld, krijgt de volledige lokale-me
 - **Getrapt zoeken:** `Ctrl+Win+J` / `Ctrl+Win+K` zoeken binnen het nummer met dezelfde druk/ingedrukt-houden-schaal als podcasts en luisterboeken — ingedrukt houden voor 5 seconden per herhaling, één druk voor 12 seconden, twee drukken voor 1 minuut, drie of meer drukken voor 5 minuten. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` zoeken precies 1 seconde — zie [Nauwkeurig zoeken (1 seconde)](#nauwkeurig-zoeken-1-seconde).
 - **Afspeelsnelheid:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` passen de snelheid aan in stappen van 0,1x van 0,5x tot 2,0x, met behoud van toonhoogte.
 - **Transponeren:** `Shift+Win+J` / `Shift+Win+K` verschuiven de toonhoogte zonder de snelheid te wijzigen — zie [Transponeren (toonhoogteverschuiving)](#transponeren-toonhoogteverschuiving).
-- **Audioprofiel:** Het volume, de effecten, de EQ en de snelheid van een nummer kunnen globaal worden opgeslagen door een nummer af te spelen terwijl de juiste instellingen zijn ingesteld — de Jukebox biedt momenteel geen profielmenu per nummer, dus de huidige globale instellingen zijn van toepassing.
+
 
 > **Opmerking:** De tijdverschuivingsbuffer (gebruikt voor het terugspoelen van live radio) wordt opzettelijk **niet** gestart voor Jukebox-nummers — het zijn al doorzoekbare lokale bestanden, dus een achtergrondopname heeft geen doel en zou alleen schijfruimte verbruiken. Terugspoelen en vooruitspoelen werken nog steeds omdat ze direct op het afgespeelde bestand inwerken.
 

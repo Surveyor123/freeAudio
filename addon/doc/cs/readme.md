@@ -779,7 +779,7 @@ Každá skladba přehraná z jukeboxu dostane plné zacházení místního médi
 - **Odstupňované posouvání:** `Ctrl+Win+J` / `Ctrl+Win+K` posouvají v rámci skladby se stejným škálováním stisknutí/podržení jako podcasty a audioknihy — podržení na 5 sekund za opakování, jedno stisknutí na 12 sekund, dvě stisknutí na 1 minutu, tři nebo více stisknutí na 5 minut. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` přetáčejí přesně o 1 sekundu — viz [Jemné přetáčení (1 sekunda)](#jemné-přetáčení-1-sekunda).
 - **Rychlost přehrávání:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` upravují rychlost v krocích po 0,1× od 0,5× do 2,0×, se zachováním výšky tónu.
 - **Transpozice:** `Shift+Win+J` / `Shift+Win+K` mění výšku tónu bez změny rychlosti — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu).
-- **Zvukový profil:** Hlasitost, efekty, ekvalizér a rychlost skladby lze uložit globálně přehráním skladby s příslušně nastavenými hodnotami — Jukebox v současnosti neposkytuje nabídku profilu pro jednotlivé skladby, takže platí aktuální globální nastavení.
+
 
 > **Poznámka:** Vyrovnávací paměť časového posunu (používaná pro přetáčení živého rádia) se pro skladby jukeboxu záměrně **nespouští** — jsou to již lokální soubory s možností posouvání, takže zachytávání na pozadí nemá žádný účel a pouze by spotřebovávalo místo na disku. Přetáčení vpřed i vzad stále funguje, protože působí přímo na přehrávaný soubor.
 

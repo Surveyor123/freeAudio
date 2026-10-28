@@ -780,7 +780,7 @@ Każdy utwór odtwarzany z Jukeboksa otrzymuje pełne traktowanie lokalnych medi
 - **Przewijanie stopniowane:** `Ctrl+Win+J` / `Ctrl+Win+K` przewijają w obrębie utworu z tym samym skalowaniem naciśnięć/przytrzymania co w podcastach i audiobookach — przytrzymanie: 5 sekund na powtórzenie, jedno naciśnięcie: 12 sekund, dwa naciśnięcia: 1 minuta, trzy lub więcej: 5 minut. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` przewijają dokładnie o 1 sekundę — zob. [Dokładne przewijanie (1 sekunda)](#dokładne-przewijanie-1-sekunda).
 - **Prędkość odtwarzania:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` zmieniają prędkość co 0,1x od 0,5x do 2,0x, z zachowaniem wysokości dźwięku.
 - **Transpozycja:** `Shift+Win+J` / `Shift+Win+K` zmieniają wysokość dźwięku bez zmiany prędkości — zobacz [Transpozycja (zmiana wysokości dźwięku)](#transpozycja-zmiana-wysokości-dźwięku).
-- **Profil audio:** głośność, efekty, EQ i prędkość utworu można zapisać globalnie, odtwarzając utwór przy odpowiednio ustawionych parametrach — Jukebox nie udostępnia obecnie menu profilu dla pojedynczego utworu, więc obowiązują bieżące ustawienia globalne.
+
 
 > **Uwaga:** bufor time-shift (używany do cofania radia na żywo) celowo **nie** jest uruchamiany dla utworów z Jukeboksa — są to lokalne pliki, w których i tak można przewijać, więc przechwytywanie w tle nie miałoby sensu i tylko zajmowałoby miejsce na dysku. Cofanie i przewijanie do przodu nadal działają, ponieważ operują bezpośrednio na odtwarzanym pliku.
 

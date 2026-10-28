@@ -779,7 +779,7 @@ Every track played from the Jukebox gets the full local-media treatment:
 - **Tiered seeking:** `Ctrl+Win+J` / `Ctrl+Win+K` seek within the track using the same tap/hold scaling as podcasts and audio books — hold for 5 seconds per repeat, one tap for 12 seconds, two taps for 1 minute, three or more taps for 5 minutes. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` seek exactly 1 second — see [Fine Seeking (1 Second)](#fine-seeking-1-second).
 - **Playback speed:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` adjust speed in 0.1x steps from 0.5x to 2.0x, with pitch preserved.
 - **Transpose:** `Shift+Win+J` / `Shift+Win+K` shift pitch without changing speed — see [Transpose (Pitch Shift)](#transpose-pitch-shift).
-- **Audio profile:** A track's volume, effects, EQ and speed can be saved globally by playing a track while the appropriate settings are set — the Jukebox does not currently expose a per-track profile menu, so the current global settings apply.
+
 
 > **Note:** The time-shift buffer (used for rewinding live radio) is deliberately **not** started for Jukebox tracks — they're already seekable local files, so a background capture has no purpose and would only consume disk space. Rewind and fast-forward still work because they act directly on the file being played.
 
