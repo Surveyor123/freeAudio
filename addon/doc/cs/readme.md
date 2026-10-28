@@ -17,7 +17,7 @@ freeAudio je plnohodnotný doplněk internetového rádia, podcastů, audioknih 
 - **Zrcadlení zvuku** - Odesílejte stejný datový tok do dvou zvukových výstupních zařízení najednou, například do reproduktorů i sluchátek zároveň - viz [Zrcadlo zvuku](#zrcadlo-zvuku).
 - **Režim Obligato (hudba na pozadí)** - Opakovaně přehrávejte zvolenou oblíbenou stanici tiše na pozadí, na vlastním výstupním zařízení a s vlastní hlasitostí, bez ohledu na to, co (nebo zda vůbec něco) hraje jako hlavní médium - viz [Režim hudby na pozadí (Obligato)](#režim-hudby-na-pozadí-obligato).
 - **Časovače** - Naplánujte spuštění přehrávání oblíbené stanice, nebo naplánujte zastavení přehrávání, v konkrétní čas - viz [Časovač](#časovač).
-- **Rozsáhlý přístup z klávesnice a přes braillský řádek** - Ke každé funkci se dostanete zcela z klávesnice, s globálními zkratkami fungujícími odkudkoli ve Windows, přímými klávesovými zkratkami pro jednotlivé oblíbené stanice a volitelným braillským výstupem pro všechna mluvená oznámení FreeRadia.
+- **Rozsáhlý přístup z klávesnice a přes braillský řádek** - Ke každé funkci se dostanete zcela z klávesnice, s globálními zkratkami fungujícími odkudkoli ve Windows (včetně `Ctrl+Win+F3` / `Ctrl+Win+F4` pro přeskakování mezi stanicemi, epizodami, knihami a skladbami bez otevření okna), přímými klávesovými zkratkami pro jednotlivé oblíbené stanice, položky jukeboxu a audioknihy a volitelným braillským výstupem pro všechna mluvená oznámení freeAudia.
 
 ## Adresář Radio Browser
 
@@ -66,6 +66,10 @@ Některé z těchto zkratek se překrývají se zkratkami, které používá sá
 | `Ctrl+Win+S` | Stop | Úplně zastaví aktuální stanici a resetuje přehrávač. |
 | `Ctrl+Win+→` | Další oblíbená stanice | Přesune na další stanici v seznamu oblíbených. Na konci seznamu se vrátí na začátek. |
 | `Ctrl+Win+←` | Předchozí oblíbená stanice | Přesune na předchozí stanici v seznamu oblíbených. Přeskočí na konec, když je na začátku. |
+| `Ctrl+Win+F3` | Předchozí položka | Klávesa `F3` z prohlížeče stanic, dostupná i při zavřeném okně. Co dělá, závisí na tom, co se právě přehrává: **rádio** — předchozí stanice; **podcast** — předchozí epizoda; **audiokniha** — předchozí kniha; **jukebox** — předchozí skladba ve složce. Na začátku seznamu oznámí „Již na první …“. Pokud se nic nepřehrává, klávesa se beze změny předá dál. Viz [Přeskakování položek při zavřeném prohlížeči stanic](#přeskakování-položek-při-zavřeném-prohlížeči-stanic). |
+| `Ctrl+Win+F4` | Další položka | Klávesa `F4` z prohlížeče stanic, dostupná i při zavřeném okně: podle toho, co se přehrává, další stanice, epizoda podcastu, audiokniha nebo skladba jukeboxu. |
+| `Ctrl+Win+Shift+F3` | Předchozí kanál / část / položka | Klávesa `Shift+F3` z prohlížeče stanic, dostupná i při zavřeném okně: **rádio** — předchozí stanice (jako `Ctrl+Win+F3`); **podcast** — předchozí odebíraný podcast; **audiokniha** — předchozí část knihy; **jukebox** — předchozí položka jukeboxu (soubor nebo složka). |
+| `Ctrl+Win+Shift+F4` | Další kanál / část / položka | Klávesa `Shift+F4` z prohlížeče stanic, dostupná i při zavřeném okně: podle toho, co se přehrává, další stanice, odebíraný podcast, část audioknihy nebo položka jukeboxu. |
 | `Ctrl+Win+↑` | Zvýšení hlasitosti | Zvýší hlasitost o 5; maximálně 200. |
 | `Ctrl+Win+↓` | Snížení hlasitosti | Sníží hlasitost o 5; minimálně 0. |
 | `Ctrl+Win+V` | Přidat k oblíbeným / stáhnout médium | Přidá aktuálně přehrávanou stanici do seznamu oblíbených nebo stáhne aktuálně přehrávanou epizodu podcastu či audioknihu. Oznámí, pokud je stanice již v seznamu nebo pokud bylo médium již staženo. Neplatí, když se přehrává skladba z jukeboxu: freeAudio oznámí, že zkratka je určena pouze pro stanice, podcasty nebo audioknihy. |
@@ -87,8 +91,31 @@ Některé z těchto zkratek se překrývají se zkratkami, které používá sá
 | *(nepřiřazeno)* | Vybrat výstupní zařízení | Otevře na vyžádání seznam dostupných hlavních výstupních zařízení. Seznam se zobrazí pouze v případě, že BASS rozpozná více než jedno fyzické výstupní zařízení. Přiřazení kombinace kláves pomocí NVDA Menu → Předvolby → Vstupní gesta → freeAudio. |
 | *(nepřiřazeno)* | Přepnout oznámení o ztlumení | Přepíná nastavení oznámení o ztlumení za chodu. Přiřazení kombinace kláves pomocí NVDA Menu → Předvolby → Vstupní gesta → freeAudio. |
 | *(nepřiřazeno)* | Přehrát oblíbenou stanici přímo | Každá stanice v seznamu oblíbených se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Stations**. Přiřaďte klávesovou zkratku libovolné stanici a spusťte ji okamžitě odkudkoli bez nutnosti otevírat prohlížeč. |
+| *(nepřiřazeno)* | Přehrát položku jukeboxu přímo | Každý soubor nebo složka v seznamu jukeboxu se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Jukebox**. Viz [Přímé klávesové zkratky pro položky jukeboxu](#přímé-klávesové-zkratky-pro-položky-jukeboxu). |
+| *(nepřiřazeno)* | Přehrát audioknihu přímo | Každá kniha ve vaší knihovně audioknih — z GETEM, LibriVox nebo Project Gutenberg — se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Audio Books**. Přiřaďte klávesovou zkratku libovolné knize a pokračujte v ní okamžitě odkudkoli bez nutnosti otevírat prohlížeč. Viz [Přímé klávesové zkratky pro audioknihy](#přímé-klávesové-zkratky-pro-audioknihy). |
 
-Další / předchozí zkratky navigují pouze v seznamu oblíbených stanic; nefungují se seznamem všech stanic. Když je seznam zaměřen v okně prohlížeče, slouží ke stejnému účelu klávesy se šipkou doleva a doprava - viz Zkratky v dialogu.
+`Ctrl+Win+→` / `Ctrl+Win+←` navigují pouze v seznamu oblíbených stanic; nefungují se seznamem všech stanic — pro procházení seznamem, ze kterého byla aktuální stanice spuštěna, použijte `Ctrl+Win+F4` / `Ctrl+Win+F3` (viz níže). Když je seznam zaměřen v okně prohlížeče, slouží ke stejnému účelu klávesy se šipkou doleva a doprava — viz Zkratky v dialogovém okně.
+
+### Přeskakování položek při zavřeném prohlížeči stanic
+
+V prohlížeči stanic dělají klávesy `F3`, `F4`, `Shift+F3` a `Shift+F4` různé věci podle toho, která karta je aktivní. Jejich globální verze — `Ctrl+Win+F3`, `Ctrl+Win+F4`, `Ctrl+Win+Shift+F3` a `Ctrl+Win+Shift+F4` — fungují odkudkoli ve Windows, ať je okno otevřené, nebo ne. Protože není žádná karta, na kterou by se dalo podívat, rozhoduje freeAudio podle toho, **co se právě přehrává**:
+
+| Přehrává se | `Ctrl+Win+F3` / `Ctrl+Win+F4` | `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` |
+|---|---|---|
+| Rozhlasová stanice | Předchozí / další stanice v seznamu, ze kterého byla naposledy spuštěna (výsledky ze všech stanic nebo oblíbené), s přechodem na začátek / konec seznamu. Pokud stanice v tomto seznamu není, použije se seznam oblíbených. | Totéž co bez `Shift`. |
+| Epizoda podcastu | Předchozí / další epizoda téhož kanálu. | Předchozí / další odebíraný podcast. Protože není seznam, ve kterém by se kanál zvýraznil, přehraje se jeho první uvedená epizoda. |
+| Audiokniha | Předchozí / další kniha ve vaší knihovně, pokračuje od části, kterou jste naposledy poslouchali. | Předchozí / další část aktuální knihy. |
+| Skladba jukeboxu | Předchozí / další skladba přehrávané složky. | Předchozí / další položka v seznamu jukeboxu; složka pokračuje tam, kde byla naposledy ukončena. |
+
+Co je dobré vědět:
+
+- Pokud se nic nepřehrává, kombinace kláves se beze změny předá systému Windows, stejně jako u `Ctrl+Win+→` / `Ctrl+Win+←`.
+- Na obou koncích seznamu (kromě rádia, které se vrací na začátek) NVDA oznámí „Již na první …“ nebo „Již na poslední …“ a nic se nezmění. Skladba jukeboxu, která nebyla spuštěna jako součást složky, nemá sousedy, a hlásí totéž.
+- **Automatický přechod není přerušen.** Po přeskočení ve složce jukeboxu nebo v audioknize se další skladba či část stále spustí sama, když ta aktuální skončí, ať je prohlížeč stanic otevřený, nebo zavřený. Stisknutí „další“ na poslední skladbě složky neresetuje uloženou pozici složky.
+- Seznam epizod podcastu se uchovává v paměti jen po dobu aktuální relace NVDA. Pokud ještě není načten — například hned po spuštění NVDA — NVDA vás požádá, abyste otevřeli prohlížeč stanic a tento podcast jednou vybrali; poté klávesy fungují i při zavřeném okně.
+- Je-li prohlížeč stanic otevřený, přeskočení audioknihy z klávesnice aktualizuje také údaj „právě hraje“ (kniha a část) v okně, takže jeho vlastní automatický přechod pokračuje ze správného místa.
+
+Stejně jako všechny příkazy freeAudia lze i tyto změnit v nabídce NVDA → Předvolby → Vstupní gesta → freeAudio.
 
 ## Prohlížeč stanic
 
@@ -134,10 +161,10 @@ Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
 |---|---|---|
 | `F1` | Průvodce nápovědou | Otevře soubor nápovědy doplňku ve výchozím prohlížeči. Nejprve se vyhledá průvodce pro aktivní jazyk NVDA; pokud není nalezen, otevře se výchozí průvodce. |
 | `F2` | co se přehrává | Oznámí aktuálně přehrávanou stanici a název skladby. Dvojím stisknutím zobrazíte v dialogovém okně podrobnosti, jako je země, žánr a datový tok. Třikrát stiskněte pro zkopírování informací o aktuální skladbě (metadata ICY) do schránky, pokud jsou k dispozici; pokud metadata nejsou k dispozici, spustí se místo toho rozpoznávání hudby Shazam. Čtyřnásobným stisknutím vynutíte rozpoznání hudby v případě nesprávných metadat ICY. Probíhá-li nahrávání, oznámí se i jeho název. |
-| `F3` | Předchozí položka | Na kartě Všechny stanice nebo Oblíbené: přesune na předchozí stanici a okamžitě zahájí přehrávání. Na kartě Podcasty: přesune na předchozí epizodu v seznamu epizod a přehraje ji. Na kartě Audioknihy: přesune na předchozí knihu a začne ji přehrávat. Na kartě Jukebox: přesune na předchozí skladbu ve vybrané položce jukeboxu a přehraje ji. |
-| `F4` | Další položka | Na kartě Všechny stanice nebo Oblíbené: přesune na další stanici a okamžitě zahájí přehrávání. Na kartě Podcasty: přesune na další epizodu a přehraje ji. Na kartě Audioknihy: přesune na další knihu a začne ji přehrávat. Na kartě Jukebox: přesune na další skladbu ve vybrané položce jukeboxu a přehraje ji. |
-| `Shift+F3` | Předchozí kanál / část / položka | Na kartě Podcasty: přejde o jeden kanál výše v seznamu odběrů. Na kartě Audioknihy: přesune na předchozí část aktuálně přehrávané knihy. Na kartě Jukebox: přejde o jednu položku jukeboxu (soubor nebo složku) výše v hlavním seznamu. |
-| `Shift+F4` | Další kanál / část / položka | Na kartě Podcasty: přejde o jeden kanál níže v seznamu odběrů. Na kartě Audioknihy: přesune na další část aktuálně přehrávané knihy. Na kartě Jukebox: přejde o jednu položku jukeboxu níže v hlavním seznamu. |
+| `F3` | Předchozí položka | Na kartě Všechny stanice nebo Oblíbené: přesune na předchozí stanici a okamžitě zahájí přehrávání. Na kartě Podcasty: přesune na předchozí epizodu v seznamu epizod a přehraje ji. Na kartě Audioknihy: přesune na předchozí knihu a začne ji přehrávat. Na kartě Jukebox: přesune na předchozí skladbu ve vybrané položce jukeboxu a přehraje ji. Na kartě Jukebox ve složce další skladby nadále startují automaticky. Globální obdoba je `Ctrl+Win+F3` — viz [Přeskakování položek při zavřeném prohlížeči stanic](#přeskakování-položek-při-zavřeném-prohlížeči-stanic). |
+| `F4` | Další položka | Na kartě Všechny stanice nebo Oblíbené: přesune na další stanici a okamžitě zahájí přehrávání. Na kartě Podcasty: přesune na další epizodu a přehraje ji. Na kartě Audioknihy: přesune na další knihu a začne ji přehrávat. Na kartě Jukebox: přesune na další skladbu ve vybrané položce jukeboxu a přehraje ji. Na kartě Jukebox ve složce další skladby nadále startují automaticky. Globální obdoba je `Ctrl+Win+F4`. |
+| `Shift+F3` | Předchozí kanál / část / položka | Na kartě Podcasty: přejde o jeden kanál výše v seznamu odběrů. Na kartě Audioknihy: přesune na předchozí část aktuálně přehrávané knihy. Na kartě Jukebox: přejde o jednu položku jukeboxu (soubor nebo složku) výše v hlavním seznamu. Globální obdoba je `Ctrl+Win+Shift+F3`, která položku také přehraje. |
+| `Shift+F4` | Další kanál / část / položka | Na kartě Podcasty: přejde o jeden kanál níže v seznamu odběrů. Na kartě Audioknihy: přesune na další část aktuálně přehrávané knihy. Na kartě Jukebox: přejde o jednu položku jukeboxu níže v hlavním seznamu. Globální obdoba je `Ctrl+Win+Shift+F4`, která položku také přehraje. |
 | `F5` | Snížení hlasitosti | Sníží hlasitost o 5 (minimálně 0). |
 | `F6` | Zvýšení hlasitosti | Zvýší hlasitost o 5 (maximálně 200). |
 | `F7` | Pozastavení / obnovení | Pozastaví přehrávání stanice; obnoví přehrávání, pokud je pozastaveno a je načteno médium. |
@@ -640,6 +667,7 @@ Knihy, které jste přidali, se zobrazují v seznamu **Knihovna**, s názvem, au
 - Stiskněte `Enter` nebo `Mezerník` pro přehrání vybrané knihy. Pokud není nic načteno, `Mezerník` ji spustí; pokud již něco hraje, `Mezerník` to místo toho pozastaví, v souladu se zbytkem přehrávače.
 - Použijte `F3` / `F4` na kartě Audioknihy pro přechod na předchozí / další **knihu** ve vaší knihovně a její spuštění. `Ctrl+←` / `Ctrl+→` dělají totéž, když je zaměřen seznam knihovny.
 - Použijte `Shift+F3` / `Shift+F4` pro přechod mezi **díly** aktuálně přehrávané knihy - opak karty Podcasty, kde F3/F4 přecházejí mezi epizodami a Shift+F3/F4 mezi kanály. Je to proto, že kniha je jedinou položkou knihovny i tehdy, když má více dílů, takže jemnější navigace „po dílech" je zde umístěna na klávesách se Shift.
+- Při zavřeném prohlížeči stanic dělají totéž `Ctrl+Win+F3` / `Ctrl+Win+F4` (předchozí / další kniha) a `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (předchozí / další část) — viz [Přeskakování položek při zavřeném prohlížeči stanic](#přeskakování-položek-při-zavřeném-prohlížeči-stanic).
 
 **Kontextová nabídka pro položky knihovny:** Klepnutím pravým tlačítkem na knihu, případně jejím vybráním a stiskem klávesy Nabídka / `Shift+F10`, otevřete nabídku s těmito položkami:
 
@@ -670,6 +698,21 @@ Klepněte pravým tlačítkem na knihu v seznamu Knihovna a zvolte **Uložit zvu
 ### Stahování audioknih
 
 Vyberte knihu ve své knihovně a zvolte **Stáhnout knihu** z její kontextové nabídky, čímž uložíte každý díl do vlastní složky (pojmenované podle knihy) uvnitř vaší složky nahrávek (ve výchozím nastavení `Dokumenty\freeAudio Recordings\`). Soubory jsou očíslovány tak, aby se díly vždy řadily zpět do pořadí poslechu, bez ohledu na to, jak je pojmenovává samotný GETEM. NVDA po dokončení stahování oznámí, kolik dílů bylo uloženo; pokud se některý díl nezdaří, spolu s počtem se oznámí i poslední chyba.
+
+### Přímé klávesové zkratky pro audioknihy
+
+Každá kniha ve vaší knihovně audioknih — ať pochází z GETEM, LibriVox nebo Project Gutenberg — je zaregistrována jako samostatný skript v dialogovém okně Vstupní gesta NVDA, v kategorii **freeAudio Audio Books**, přesně jako v částech [Přímé klávesové zkratky pro oblíbené stanice](#přímé-klávesové-zkratky-pro-oblíbené-stanice) a [Přímé klávesové zkratky pro položky jukeboxu](#přímé-klávesové-zkratky-pro-položky-jukeboxu). Libovolné knize můžete přiřadit libovolnou klávesovou zkratku a stisknout ji odkudkoli — nemusíte nejprve otevírat okno prohlížeče. Ve výchozím stavu není přiřazena žádná zkratka.
+
+Přiřazení klávesové zkratky:
+
+1. Otevřete nabídku NVDA → Předvolby → Vstupní gesta.
+2. Rozbalte kategorii **freeAudio Audio Books**.
+3. Vyhledejte knihu podle názvu (každá položka se jmenuje „*název* playback shortcut“), vyberte ji a stiskněte **Přidat**.
+4. Stiskněte požadovanou kombinaci kláves a potvrďte.
+
+Zkratka knihu okamžitě spustí a naváže na část, kterou jste naposledy poslouchali; pozice uvnitř části se obnoví stejně jako při přehrání knihy ze seznamu knihovny. Pokud seznam částí knihy ještě nebyl načten, NVDA oznámí „Načítání: *název*“ a přehrávání začne, jakmile bude připraven (kniha z GETEM vyžaduje uložené přihlášení — viz [Přihlášení](#přihlášení)). Když část skončí, další se spustí automaticky — ať je prohlížeč stanic otevřený, nebo zavřený.
+
+Když do knihovny knihu přidáte nebo z ní odeberete, kategorie **freeAudio Audio Books** se okamžitě aktualizuje — dialogové okno Vstupní gesta není třeba znovu otevírat. Pokud je kniha odebrána, její položka zmizí a případná přiřazená zkratka se automaticky odstraní; pokud by se zastaralá zkratka přesto spustila, NVDA oznámí, že audiokniha již v knihovně není.
 
 ### Ukládání dat audioknih
 
@@ -719,18 +762,20 @@ Ani jeden z příkazů nemá ve výchozím stavu přiřazenou klávesu. Přiřa�
 
 ### Přehrávání z jukeboxu
 
-- **Enter** na položce Jukebox ji přehraje přímo: u položky souboru soubor samotný; u položky složky její první skladbu.
+- **Enter** na položce Jukebox ji přehraje přímo: u položky souboru soubor samotný; u položky složky složku po pořadě — od skladby zvýrazněné v seznamu Skladby, nebo pokud žádná zvýrazněna není, od místa, kde byla složka naposledy ukončena (od první skladby, pokud nebyla nikdy přehrána). Když skladba skončí, další skladba ve složce se spustí automaticky.
 - **Mezerník** na položce Jukebox pozastaví přehrávání, pokud něco hraje; v opačném případě přehraje zaměřenou položku.
-- **Enter** nebo **Mezerník** v seznamu Skladby přehraje zaměřenou skladbu. **Mezerník** nejprve pozastaví, pokud již něco hraje.
-- **F3 / F4** na kartě Jukebox přecházejí mezi skladbami v aktuálně vybrané položce a přehrávají okamžitě.
+- **Enter** nebo **Mezerník** v seznamu Skladby přehraje zaměřenou skladbu. **Mezerník** nejprve pozastaví, pokud již něco hraje. Takto spuštěná skladba hraje samostatně a po skončení nepřejde na další; pro nepřetržité přehrávání použijte `F3` / `F4` nebo přehrajte samotnou položku složky.
+- **F3 / F4** na kartě Jukebox přecházejí mezi skladbami v aktuálně vybrané položce a přehrávají okamžitě. U položky složky se skladba přehraje jako součást složky, takže další skladby po jejím skončení stále startují automaticky.
 - **Shift+F3 / Shift+F4** přecházejí mezi položkami v seznamu Jukebox (soubory a složky), což odpovídá tomu, jak tyto klávesy přecházejí mezi kanály na kartě Podcasty.
-- **Ctrl+← / Ctrl+→** při zaměření seznamu položek nebo skladeb dělají totéž co F3/F4 v seznamu skladeb — předchozí / další skladba.
+- **Ctrl+← / Ctrl+→** při zaměření seznamu položek nebo skladeb dělají totéž co F3/F4 v seznamu skladeb — předchozí / další skladba, ve složce s automatickým pokračováním.
+- Při zavřeném prohlížeči stanic dělají totéž `Ctrl+Win+F3` / `Ctrl+Win+F4` (předchozí / další skladba) a `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (předchozí / další položka) — viz [Přeskakování položek při zavřeném prohlížeči stanic](#přeskakování-položek-při-zavřeném-prohlížeči-stanic).
 
 ### Podrobnosti o přehrávání v jukeboxu
 
 Každá skladba přehraná z jukeboxu dostane plné zacházení místního média:
 
 - **Pokračování:** freeAudio si pamatuje vaši pozici v každé skladbě, ukládá ji při pozastavení a pravidelně během přehrávání, a při dalším přehrání z ní pokračuje — dokonce i po restartu NVDA.
+- **Automatická další skladba:** Když skončí skladba přehrávaná jako součást složky, další skladba v této složce se spustí sama, ať je prohlížeč stanic otevřený, nebo zavřený, a dělá to i po přeskočení skladeb pomocí `F3` / `F4` nebo `Ctrl+Win+F3` / `Ctrl+Win+F4`. Když skončí poslední skladba, uložená pozice složky se vymaže a příště začne znovu od první skladby. Ruční stisknutí „další“ na poslední skladbě ji nevymaže.
 - **Odstupňované posouvání:** `Ctrl+Win+J` / `Ctrl+Win+K` posouvají v rámci skladby se stejným škálováním stisknutí/podržení jako podcasty a audioknihy — podržení na 5 sekund za opakování, jedno stisknutí na 12 sekund, dvě stisknutí na 1 minutu, tři nebo více stisknutí na 5 minut. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` přetáčejí přesně o 1 sekundu — viz [Jemné přetáčení (1 sekunda)](#jemné-přetáčení-1-sekunda).
 - **Rychlost přehrávání:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` upravují rychlost v krocích po 0,1× od 0,5× do 2,0×, se zachováním výšky tónu.
 - **Transpozice:** `Shift+Win+J` / `Shift+Win+K` mění výšku tónu bez změny rychlosti — viz [Transpozice (posun výšky tónu)](#transpozice-posun-výšky-tónu).
@@ -779,7 +824,7 @@ Přiřazení klávesové zkratky:
 3. Vyhledejte položku podle názvu, vyberte ji a stiskněte **Přidat**.
 4. Stiskněte požadovanou kombinaci kláves a potvrďte.
 
-Po stisknutí zkratky se položka okamžitě přehraje — u souboru samotný soubor, u složky její první skladba. Pokud položku později z jukeboxu odeberete, její záznam z kategorie zmizí a případná přiřazená zkratka se automaticky odstraní. Když přidáte novou položku, ihned se v kategorii zobrazí — není třeba znovu otevírat dialog Vstupní gesta.
+Po stisknutí zkratky se položka okamžitě přehraje — u souboru samotný soubor, u složky skladba, na které byla složka naposledy ukončena (první skladba, pokud nebyla nikdy přehrána); poté další skladby hrají automaticky, i když je prohlížeč stanic zavřený. Pokud položku později z jukeboxu odeberete, její záznam z kategorie zmizí a případná přiřazená zkratka se automaticky odstraní. Když přidáte novou položku, objeví se v kategorii okamžitě — dialogové okno Vstupní gesta není třeba znovu otevírat.
 
 ## Záložky
 

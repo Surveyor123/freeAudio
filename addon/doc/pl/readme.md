@@ -17,7 +17,7 @@ freeAudio to pełnowartościowy dodatek do czytnika ekranu NVDA, łączący radi
 - **Kopia dźwięku** — wysyłaj ten sam strumień jednocześnie na dwa urządzenia wyjściowe audio, na przykład na głośniki i słuchawki — zobacz [Kopia dźwięku](#kopia-dźwięku).
 - **Tryb Obligato (muzyka w tle)** — odtwarzaj w pętli wybraną ulubioną stację cicho w tle, na własnym urządzeniu wyjściowym i z własną głośnością, niezależnie od tego, co gra (lub nie gra) jako główne media — zobacz [Tryb Obligato](#tryb-obligato).
 - **Timery** — zaplanuj rozpoczęcie odtwarzania ulubionej stacji lub zatrzymanie odtwarzania o określonej godzinie — zobacz [Timer](#timer).
-- **Głęboki dostęp z klawiatury i brajla** — każda funkcja jest dostępna wyłącznie z klawiatury, z globalnymi skrótami działającymi z dowolnego miejsca w systemie Windows, bezpośrednimi skrótami do poszczególnych ulubionych stacji oraz opcjonalnym wyjściem brajlowskim dla wszystkich komunikatów głosowych freeAudio.
+- **Głęboki dostęp z klawiatury i brajla** — każda funkcja jest dostępna wyłącznie z klawiatury, z globalnymi skrótami działającymi z dowolnego miejsca w systemie Windows (w tym `Ctrl+Win+F3` / `Ctrl+Win+F4` do przeskakiwania między stacjami, odcinkami, książkami i utworami bez otwierania okna), bezpośrednimi skrótami do poszczególnych ulubionych stacji, pozycji Jukeboksa i audiobooków oraz opcjonalnym wyjściem brajlowskim dla wszystkich komunikatów głosowych freeAudio.
 
 ## Katalog Radio Browser
 
@@ -66,6 +66,10 @@ Niektóre z tych skrótów pokrywają się ze skrótami używanymi przez sam sys
 | `Ctrl+Win+S` | Stop | Całkowicie zatrzymuje aktualną stację i resetuje odtwarzacz. |
 | `Ctrl+Win+→` | Następna ulubiona | Przechodzi do następnej stacji na liście ulubionych. Po dojściu do końca wraca na początek listy. |
 | `Ctrl+Win+←` | Poprzednia ulubiona | Przechodzi do poprzedniej stacji na liście ulubionych. Na początku listy skacze na jej koniec. |
+| `Ctrl+Win+F3` | Poprzedni element | Klawisz `F3` z przeglądarki stacji, dostępny także przy zamkniętym oknie. Jego działanie zależy od tego, co jest odtwarzane: **radio** — poprzednia stacja; **podcast** — poprzedni odcinek; **audiobook** — poprzedni audiobook; **jukebox** — poprzedni utwór w folderze. Na początku listy komunikuje „To już pierwszy …”. Jeśli nic nie jest odtwarzane, klawisz jest przekazywany dalej bez zmian. Zobacz [Przeskakiwanie elementów przy zamkniętej przeglądarce stacji](#przeskakiwanie-elementów-przy-zamkniętej-przeglądarce-stacji). |
+| `Ctrl+Win+F4` | Następny element | Klawisz `F4` z przeglądarki stacji, dostępny także przy zamkniętym oknie: zależnie od odtwarzanej zawartości następna stacja, odcinek podcastu, audiobook lub utwór jukeboksa. |
+| `Ctrl+Win+Shift+F3` | Poprzedni kanał / część / element | Klawisz `Shift+F3` z przeglądarki stacji, dostępny także przy zamkniętym oknie: **radio** — poprzednia stacja (jak `Ctrl+Win+F3`); **podcast** — poprzedni subskrybowany podcast; **audiobook** — poprzednia część książki; **jukebox** — poprzedni element jukeboksa (plik lub folder). |
+| `Ctrl+Win+Shift+F4` | Następny kanał / część / element | Klawisz `Shift+F4` z przeglądarki stacji, dostępny także przy zamkniętym oknie: zależnie od odtwarzanej zawartości następna stacja, subskrybowany podcast, część audiobooka lub element jukeboksa. |
 | `Ctrl+Win+↑` | Głośniej | Zwiększa głośność o 5; maksimum to 200. |
 | `Ctrl+Win+↓` | Ciszej | Zmniejsza głośność o 5; minimum to 0. |
 | `Ctrl+Win+V` | Dodaj do ulubionych / Pobierz media | Dodaje aktualnie odtwarzaną stację do listy ulubionych albo pobiera aktualnie odtwarzany odcinek podcastu lub audiobook. Informuje, jeśli stacja już jest na liście lub jeśli media zostały już pobrane. Nie dotyczy odtwarzania utworu z jukeboksa: freeAudio informuje wtedy, że skrót jest przeznaczony tylko dla stacji, podcastów i audiobooków. |
@@ -87,8 +91,31 @@ Niektóre z tych skrótów pokrywają się ze skrótami używanymi przez sam sys
 | *(nieprzypisane)* | Wybierz urządzenie wyjściowe | Otwiera na żądanie listę dostępnych głównych urządzeń wyjściowych. Lista pojawia się tylko wtedy, gdy BASS wykryje więcej niż jedno fizyczne urządzenie wyjściowe. Skrót można przypisać w menu NVDA → Preferencje → Zdarzenia wejścia → freeAudio. |
 | *(nieprzypisane)* | Przełącz wyciszenie powiadomień | Przełącza ustawienie Wycisz powiadomienia w locie. Przypisz skrót w menu NVDA → Preferencje → Zdarzenia wejścia → freeAudio. |
 | *(nieprzypisane)* | Odtwórz ulubioną stację bezpośrednio | Każda stacja z listy ulubionych pojawia się jako osobna pozycja w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio Stations**. Przypisz skrót klawiszowy dowolnej stacji i uruchamiaj ją natychmiast z dowolnego miejsca, bez otwierania przeglądarki. |
+| *(nieprzypisane)* | Odtwórz pozycję Jukeboksa bezpośrednio | Każdy plik lub folder z listy Jukebox pojawia się jako osobna pozycja w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio Jukebox**. Zobacz [Bezpośrednie skróty klawiszowe do pozycji Jukeboksa](#bezpośrednie-skróty-klawiszowe-do-pozycji-jukeboksa). |
+| *(nieprzypisane)* | Odtwórz audiobook bezpośrednio | Każda książka z Twojej biblioteki audiobooków — z GETEM, LibriVox lub Project Gutenberg — pojawia się jako osobna pozycja w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio Audio Books**. Przypisz skrót klawiszowy dowolnej książce i wznawiaj ją natychmiast z dowolnego miejsca, bez otwierania przeglądarki. Zobacz [Bezpośrednie skróty klawiszowe do audiobooków](#bezpośrednie-skróty-klawiszowe-do-audiobooków). |
 
-Skróty następnej i poprzedniej stacji poruszają się tylko po liście ulubionych; nie działają z listą wszystkich stacji. Gdy fokus znajduje się na liście w oknie przeglądarki, lewa i prawa strzałka pełnią tę samą funkcję — zobacz Skróty w oknie dialogowym.
+`Ctrl+Win+→` / `Ctrl+Win+←` poruszają się tylko po liście ulubionych; nie działają z listą wszystkich stacji — aby przechodzić po liście, z której uruchomiono bieżącą stację, użyj `Ctrl+Win+F4` / `Ctrl+Win+F3` (patrz niżej). Gdy fokus znajduje się na liście w oknie przeglądarki, lewa i prawa strzałka pełnią tę samą funkcję — zobacz Skróty w oknie dialogowym.
+
+### Przeskakiwanie elementów przy zamkniętej przeglądarce stacji
+
+W przeglądarce stacji klawisze `F3`, `F4`, `Shift+F3` i `Shift+F4` robią różne rzeczy w zależności od aktywnej karty. Ich globalne odpowiedniki — `Ctrl+Win+F3`, `Ctrl+Win+F4`, `Ctrl+Win+Shift+F3` i `Ctrl+Win+Shift+F4` — działają z dowolnego miejsca w systemie Windows, niezależnie od tego, czy okno jest otwarte. Ponieważ nie ma karty, na którą można by spojrzeć, freeAudio decyduje na podstawie tego, **co jest aktualnie odtwarzane**:
+
+| Odtwarzane | `Ctrl+Win+F3` / `Ctrl+Win+F4` | `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` |
+|---|---|---|
+| Stacja radiowa | Poprzednia / następna stacja na liście, z której została ostatnio uruchomiona (wyniki z Wszystkich stacji lub Ulubione), z zawijaniem na końcach. Jeśli stacji nie ma na tej liście, używana jest lista ulubionych. | Tak samo jak bez `Shift`. |
+| Odcinek podcastu | Poprzedni / następny odcinek tego samego kanału. | Poprzedni / następny subskrybowany podcast. Ponieważ nie ma listy, na której można by zaznaczyć kanał, odtwarzany jest jego pierwszy odcinek z listy. |
+| Audiobook | Poprzednia / następna książka w bibliotece, wznawiana od ostatnio słuchanej części. | Poprzednia / następna część bieżącej książki. |
+| Utwór jukeboksa | Poprzedni / następny utwór odtwarzanego folderu. | Poprzedni / następny element na liście Jukebox; folder jest wznawiany od miejsca, w którym został ostatnio przerwany. |
+
+Warto wiedzieć:
+
+- Jeśli nic nie jest odtwarzane, kombinacja klawiszy jest przekazywana do systemu Windows bez zmian, tak samo jak w przypadku `Ctrl+Win+→` / `Ctrl+Win+←`.
+- Na obu końcach listy (poza radiem, które zawija) NVDA komunikuje „To już pierwszy …” lub „To już ostatni …” i nic się nie zmienia. Utwór jukeboksa, który nie został uruchomiony jako część folderu, nie ma sąsiadów i zgłasza to samo.
+- **Automatyczne przechodzenie nie jest przerywane.** Po przeskoku w folderze jukeboksa lub w audiobooku następny utwór lub część nadal uruchamia się samoczynnie, gdy bieżący się kończy — przy otwartej i zamkniętej przeglądarce stacji. Naciśnięcie „następny” na ostatnim utworze folderu nie resetuje zapisanej pozycji folderu.
+- Lista odcinków podcastu jest przechowywana w pamięci tylko przez bieżącą sesję NVDA. Jeśli nie została jeszcze załadowana — na przykład tuż po uruchomieniu NVDA — NVDA prosi o otwarcie przeglądarki stacji i jednorazowe wybranie tego podcastu; potem klawisze działają także przy zamkniętym oknie.
+- Jeśli przeglądarka stacji jest otwarta, przeskoczenie audiobooka z klawiatury aktualizuje także informację „teraz odtwarzane” (książka i część) w oknie, dzięki czemu jego własne automatyczne przechodzenie kontynuuje od właściwego miejsca.
+
+Podobnie jak każde polecenie freeAudio, można je przypisać na nowo w menu NVDA → Preferencje → Zdarzenia wejścia → freeAudio.
 
 ## Przeglądarka stacji
 
@@ -134,10 +161,10 @@ Poniższe klawisze działają tylko wtedy, gdy aktywne jest okno Przeglądarka s
 |---|---|---|
 | `F1` | Pomoc | Otwiera plik pomocy dodatku w domyślnej przeglądarce. Najpierw szukana jest pomoc w aktywnym języku NVDA; jeśli jej nie ma, otwierana jest wersja domyślna. |
 | `F2` | Co jest odtwarzane | Odczytuje aktualnie odtwarzaną stację i nazwę utworu. Dwukrotne naciśnięcie pokazuje szczegóły, takie jak kraj, gatunek i przepływność, w oknie dialogowym. Trzykrotne naciśnięcie kopiuje informacje o utworze, czyli metadane ICY, do schowka, jeśli są dostępne; jeśli ich nie ma, uruchamia rozpoznawanie muzyki przez Shazam. Czterokrotne naciśnięcie wymusza rozpoznawanie muzyki przy błędnych metadanych ICY. Gdy trwa nagrywanie, ogłaszana jest także jego nazwa. |
-| `F3` | Poprzedni element | Na kartach Wszystkie stacje i Ulubione: przechodzi do poprzedniej stacji i natychmiast rozpoczyna odtwarzanie. Na karcie Podcasty: przechodzi do poprzedniego odcinka na liście odcinków i go odtwarza. Na karcie Audiobooki: przechodzi do poprzedniej książki i zaczyna ją odtwarzać. Na karcie Jukebox: przechodzi do poprzedniego utworu w zaznaczonym elemencie jukeboksa i go odtwarza. |
-| `F4` | Następny element | Na kartach Wszystkie stacje i Ulubione: przechodzi do następnej stacji i natychmiast rozpoczyna odtwarzanie. Na karcie Podcasty: przechodzi do następnego odcinka i go odtwarza. Na karcie Audiobooki: przechodzi do następnej książki i zaczyna ją odtwarzać. Na karcie Jukebox: przechodzi do następnego utworu w zaznaczonym elemencie jukeboksa i go odtwarza. |
-| `Shift+F3` | Poprzedni kanał / część / element | Na karcie Podcasty: przechodzi o jeden kanał w górę na liście subskrypcji. Na karcie Audiobooki: przechodzi do poprzedniej części aktualnie odtwarzanej książki. Na karcie Jukebox: przechodzi o jeden element jukeboksa (plik lub folder) w górę na liście głównej. |
-| `Shift+F4` | Następny kanał / część / element | Na karcie Podcasty: przechodzi o jeden kanał w dół na liście subskrypcji. Na karcie Audiobooki: przechodzi do następnej części aktualnie odtwarzanej książki. Na karcie Jukebox: przechodzi o jeden element jukeboksa w dół na liście głównej. |
+| `F3` | Poprzedni element | Na kartach Wszystkie stacje i Ulubione: przechodzi do poprzedniej stacji i natychmiast rozpoczyna odtwarzanie. Na karcie Podcasty: przechodzi do poprzedniego odcinka na liście odcinków i go odtwarza. Na karcie Audiobooki: przechodzi do poprzedniej książki i zaczyna ją odtwarzać. Na karcie Jukebox: przechodzi do poprzedniego utworu w zaznaczonym elemencie jukeboksa i go odtwarza. Na karcie Jukebox w folderze kolejne utwory nadal uruchamiają się automatycznie. Globalnym odpowiednikiem jest `Ctrl+Win+F3` — zobacz [Przeskakiwanie elementów przy zamkniętej przeglądarce stacji](#przeskakiwanie-elementów-przy-zamkniętej-przeglądarce-stacji). |
+| `F4` | Następny element | Na kartach Wszystkie stacje i Ulubione: przechodzi do następnej stacji i natychmiast rozpoczyna odtwarzanie. Na karcie Podcasty: przechodzi do następnego odcinka i go odtwarza. Na karcie Audiobooki: przechodzi do następnej książki i zaczyna ją odtwarzać. Na karcie Jukebox: przechodzi do następnego utworu w zaznaczonym elemencie jukeboksa i go odtwarza. Na karcie Jukebox w folderze kolejne utwory nadal uruchamiają się automatycznie. Globalnym odpowiednikiem jest `Ctrl+Win+F4`. |
+| `Shift+F3` | Poprzedni kanał / część / element | Na karcie Podcasty: przechodzi o jeden kanał w górę na liście subskrypcji. Na karcie Audiobooki: przechodzi do poprzedniej części aktualnie odtwarzanej książki. Na karcie Jukebox: przechodzi o jeden element jukeboksa (plik lub folder) w górę na liście głównej. Globalnym odpowiednikiem jest `Ctrl+Win+Shift+F3`, który dodatkowo odtwarza element. |
+| `Shift+F4` | Następny kanał / część / element | Na karcie Podcasty: przechodzi o jeden kanał w dół na liście subskrypcji. Na karcie Audiobooki: przechodzi do następnej części aktualnie odtwarzanej książki. Na karcie Jukebox: przechodzi o jeden element jukeboksa w dół na liście głównej. Globalnym odpowiednikiem jest `Ctrl+Win+Shift+F4`, który dodatkowo odtwarza element. |
 | `F5` | Ciszej | Zmniejsza głośność o 5, minimum 0. |
 | `F6` | Głośniej | Zwiększa głośność o 5, maksimum 200. |
 | `F7` | Wstrzymaj / wznów | Wstrzymuje, jeśli stacja gra; wznawia, jeśli odtwarzanie jest wstrzymane i media są załadowane. |
@@ -641,6 +668,7 @@ Dodane książki pojawiają się na liście **Biblioteka**, z tytułem, autorem 
 - Naciśnij `Enter` lub `Space`, aby odtworzyć zaznaczoną książkę. Jeśli nic nie jest załadowane, `Space` ją uruchamia; jeśli coś już gra, `Space` zamiast tego wstrzymuje odtwarzanie, zgodnie z resztą odtwarzacza.
 - Użyj `F3` / `F4` na karcie Audiobooki, aby przejść do poprzedniej / następnej **książki** w bibliotece i zacząć ją odtwarzać. `Ctrl+←` / `Ctrl+→` robią to samo, gdy fokus jest na liście biblioteki.
 - Użyj `Shift+F3` / `Shift+F4`, aby zamiast tego przechodzić między **częściami** aktualnie odtwarzanej książki — odwrotnie niż na karcie Podcasty, gdzie F3/F4 przechodzą między odcinkami, a Shift+F3/F4 między kanałami. Dzieje się tak, ponieważ książka jest jedną pozycją biblioteki nawet wtedy, gdy ma kilka części, więc dokładniejsza nawigacja po „częściach” znajduje się tu na klawiszach z Shiftem.
+- Przy zamkniętej przeglądarce stacji to samo robią `Ctrl+Win+F3` / `Ctrl+Win+F4` (poprzednia / następna książka) oraz `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (poprzednia / następna część) — zobacz [Przeskakiwanie elementów przy zamkniętej przeglądarce stacji](#przeskakiwanie-elementów-przy-zamkniętej-przeglądarce-stacji).
 
 **Menu kontekstowe pozycji biblioteki:** kliknij prawym przyciskiem myszy książkę albo zaznacz ją i naciśnij klawisz Menu kontekstowe / `Shift+F10`, aby otworzyć menu z pozycjami:
 
@@ -671,6 +699,21 @@ Kliknij prawym przyciskiem myszy książkę na liście Biblioteka i wybierz **Za
 ### Pobieranie audiobooków
 
 Zaznacz książkę w bibliotece i wybierz **Pobierz książkę** z jej menu kontekstowego, aby zapisać każdą część w osobnym folderze (nazwanym od książki) wewnątrz folderu nagrań (domyślnie `Documents\freeAudio Recordings\`). Pliki są numerowane, aby części zawsze układały się w kolejności słuchania, niezależnie od tego, jak nazywa je sam GETEM. NVDA ogłasza, ile części zapisano po zakończeniu pobierania; jeśli któraś część się nie powiedzie, obok liczby zgłaszany jest ostatni błąd.
+
+### Bezpośrednie skróty klawiszowe do audiobooków
+
+Każda książka w Twojej bibliotece audiobooków — niezależnie od tego, czy pochodzi z GETEM, LibriVox czy Project Gutenberg — jest zarejestrowana jako osobny skrypt w oknie Zdarzeń wejścia NVDA, w kategorii **freeAudio Audio Books**, dokładnie tak jak w [Bezpośrednie skróty klawiszowe do ulubionych stacji](#bezpośrednie-skróty-klawiszowe-do-ulubionych-stacji) i [Bezpośrednie skróty klawiszowe do pozycji Jukeboksa](#bezpośrednie-skróty-klawiszowe-do-pozycji-jukeboksa). Możesz przypisać dowolny skrót klawiszowy dowolnej książce i naciskać go z dowolnego miejsca — bez konieczności wcześniejszego otwierania okna przeglądarki. Domyślnie żaden skrót nie jest przypisany.
+
+Aby przypisać skrót:
+
+1. Otwórz menu NVDA → Preferencje → Zdarzenia wejścia.
+2. Rozwiń kategorię **freeAudio Audio Books**.
+3. Znajdź książkę po tytule (każda pozycja nazywa się „*tytuł* playback shortcut”), zaznacz ją i naciśnij **Dodaj**.
+4. Naciśnij żądaną kombinację klawiszy i potwierdź.
+
+Skrót natychmiast uruchamia książkę, wznawiając od ostatnio słuchanej części; pozycja w obrębie tej części jest przywracana tak samo, jak przy odtwarzaniu książki z listy biblioteki. Jeśli lista części książki nie została jeszcze pobrana, NVDA mówi „Ładowanie: *tytuł*”, a odtwarzanie rozpoczyna się, gdy tylko będzie gotowa (książka z GETEM wymaga zapisanych danych logowania — zobacz [Logowanie](#logowanie)). Gdy część się kończy, następna uruchamia się automatycznie — przy otwartej i zamkniętej przeglądarce stacji.
+
+Gdy dodasz książkę do biblioteki lub ją usuniesz, kategoria **freeAudio Audio Books** jest aktualizowana od razu — okna Zdarzeń wejścia nie trzeba ponownie otwierać. Jeśli książka zostanie usunięta, jej wpis znika, a przypisany do niej skrót jest automatycznie czyszczony przez NVDA; gdyby nieaktualny skrót mimo to zadziałał, NVDA powie, że audiobooka nie ma już w bibliotece.
 
 ### Przechowywanie danych audiobooków
 
@@ -720,18 +763,20 @@ Dwa dodatkowe polecenia, dostępne tylko wtedy, gdy w liście plików Eksplorato
 
 ### Odtwarzanie z jukeboksa
 
-- **Enter** na pozycji Jukeboksa odtwarza ją bezpośrednio: dla pliku — sam plik; dla folderu — jego pierwszy utwór.
+- **Enter** na pozycji Jukeboksa odtwarza ją bezpośrednio: dla pliku — sam plik; dla folderu — folder po kolei, zaczynając od utworu zaznaczonego na liście Utwory lub, jeśli żaden nie jest zaznaczony, od miejsca, w którym folder ostatnio przerwano (od pierwszego utworu, jeśli nigdy go nie odtwarzano). Gdy utwór się kończy, następny utwór w folderze uruchamia się automatycznie.
 - **Space** na pozycji Jukeboksa wstrzymuje odtwarzanie, jeśli cokolwiek gra; w przeciwnym razie odtwarza zaznaczoną pozycję.
-- **Enter** lub **Space** na liście Utwory odtwarza zaznaczony utwór. **Space** najpierw wstrzymuje, jeśli coś już gra.
-- **F3 / F4** na karcie Jukebox przechodzą między utworami w obrębie aktualnie zaznaczonej pozycji i odtwarzają je natychmiast.
+- **Enter** lub **Space** na liście Utwory odtwarza zaznaczony utwór. **Space** najpierw wstrzymuje, jeśli coś już gra. Tak uruchomiony utwór gra samodzielnie i po zakończeniu nie przechodzi do następnego; aby odtwarzać bez przerw, użyj `F3` / `F4` albo odtwórz samą pozycję folderu.
+- **F3 / F4** na karcie Jukebox przechodzą między utworami w obrębie aktualnie zaznaczonej pozycji i odtwarzają je natychmiast. W pozycji folderu utwór jest odtwarzany jako część folderu, więc kolejne utwory nadal uruchamiają się automatycznie po jego zakończeniu.
 - **Shift+F3 / Shift+F4** przechodzą między pozycjami na liście Jukebox (plikami i folderami), podobnie jak te klawisze przechodzą między kanałami na karcie Podcasty.
-- **Ctrl+← / Ctrl+→**, gdy fokus jest na liście pozycji lub utworów, robią to samo co F3/F4 na liście utworów — poprzedni / następny utwór.
+- **Ctrl+← / Ctrl+→**, gdy fokus jest na liście pozycji lub utworów, robią to samo co F3/F4 na liście utworów — poprzedni / następny utwór, w folderze z automatyczną kontynuacją.
+- Przy zamkniętej przeglądarce stacji to samo robią `Ctrl+Win+F3` / `Ctrl+Win+F4` (poprzedni / następny utwór) oraz `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (poprzedni / następny element) — zobacz [Przeskakiwanie elementów przy zamkniętej przeglądarce stacji](#przeskakiwanie-elementów-przy-zamkniętej-przeglądarce-stacji).
 
 ### Szczegóły odtwarzania z jukeboksa
 
 Każdy utwór odtwarzany z Jukeboksa otrzymuje pełne traktowanie lokalnych mediów:
 
 - **Wznawianie:** freeAudio zapamiętuje Twoją pozycję w każdym utworze, zapisuje ją przy pauzie i okresowo podczas odtwarzania, a następnie wznawia od tego miejsca przy ponownym odtwarzaniu — nawet po restarcie NVDA.
+- **Automatyczny następny utwór:** gdy utwór odtwarzany jako część folderu się kończy, następny utwór w tym folderze uruchamia się sam — niezależnie od tego, czy przeglądarka stacji jest otwarta — i robi to także po przeskakiwaniu utworów za pomocą `F3` / `F4` lub `Ctrl+Win+F3` / `Ctrl+Win+F4`. Po zakończeniu ostatniego utworu zapisana pozycja folderu jest czyszczona i następnym razem folder zaczyna się od pierwszego utworu. Ręczne naciśnięcie „następny” na ostatnim utworze jej nie czyści.
 - **Przewijanie stopniowane:** `Ctrl+Win+J` / `Ctrl+Win+K` przewijają w obrębie utworu z tym samym skalowaniem naciśnięć/przytrzymania co w podcastach i audiobookach — przytrzymanie: 5 sekund na powtórzenie, jedno naciśnięcie: 12 sekund, dwa naciśnięcia: 1 minuta, trzy lub więcej: 5 minut. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` przewijają dokładnie o 1 sekundę — zob. [Dokładne przewijanie (1 sekunda)](#dokładne-przewijanie-1-sekunda).
 - **Prędkość odtwarzania:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` zmieniają prędkość co 0,1x od 0,5x do 2,0x, z zachowaniem wysokości dźwięku.
 - **Transpozycja:** `Shift+Win+J` / `Shift+Win+K` zmieniają wysokość dźwięku bez zmiany prędkości — zobacz [Transpozycja (zmiana wysokości dźwięku)](#transpozycja-zmiana-wysokości-dźwięku).
@@ -780,7 +825,7 @@ Aby przypisać skrót:
 3. Znajdź pozycję po nazwie, zaznacz ją i naciśnij **Dodaj**.
 4. Naciśnij żądaną kombinację klawiszy i potwierdź.
 
-Skrót odtwarza pozycję natychmiast — dla pliku sam plik, dla folderu jego pierwszy utwór. Jeśli pozycja zostanie później usunięta z Jukeboksa, jej wpis zniknie z kategorii, a przypisany skrót zostanie automatycznie wyczyszczony przez NVDA. Po dodaniu nowej pozycji pojawia się ona w kategorii od razu — nie trzeba ponownie otwierać okna Zdarzeń wejścia.
+Skrót odtwarza pozycję natychmiast — dla pliku sam plik, dla folderu utwór, w którym folder ostatnio przerwano (pierwszy utwór, jeśli nigdy go nie odtwarzano); następnie kolejne utwory odtwarzają się automatycznie, nawet przy zamkniętej przeglądarce stacji. Jeśli pozycja zostanie później usunięta z Jukeboksa, jej wpis zniknie z kategorii, a przypisany skrót zostanie automatycznie wyczyszczony przez NVDA. Po dodaniu nowej pozycji pojawia się ona w kategorii od razu — okna Zdarzeń wejścia nie trzeba ponownie otwierać.
 
 ## Zakładki
 

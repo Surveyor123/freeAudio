@@ -17,7 +17,7 @@ freeAudio ist ein vollwertiges Add-on für Internetradio, Podcasts, Hörbücher 
 - **Audio-Spiegelung** — Denselben Stream gleichzeitig auf zwei Ausgabegeräte legen, etwa auf Lautsprecher und Kopfhörer zugleich — siehe [Audio-Spiegelung](#audio-mirror).
 - **Obligato-Modus (Hintergrundmusik)** — Einen ausgewählten Lieblingssender leise im Hintergrund laufen lassen, mit eigenem Ausgabegerät und eigener Lautstärke, unabhängig davon, was als Hauptmedium läuft (oder eben nicht läuft) — siehe [Obligato-Modus](#obligato-mode).
 - **Timer** — Einen Lieblingssender zu einer bestimmten Zeit starten oder die Wiedergabe zu einer bestimmten Zeit beenden lassen — siehe [Timer](#timer).
-- **Durchgängiger Tastatur- und Braillezugriff** — Jede Funktion ist vollständig über die Tastatur erreichbar, mit globalen Tastenbefehlen, die überall in Windows greifen, mit eigenen Tastenbefehlen für einzelne Lieblingssender und wahlweise mit Brailleausgabe für sämtliche gesprochenen Meldungen von freeAudio.
+- **Durchgängiger Tastatur- und Braillezugriff** — Jede Funktion ist vollständig über die Tastatur erreichbar, mit globalen Tastenbefehlen, die überall in Windows greifen (darunter `Strg+Windows+F3` / `Strg+Windows+F4`, um ohne Öffnen des Fensters zwischen Sendern, Folgen, Büchern und Titeln zu springen), mit eigenen Tastenbefehlen für einzelne Lieblingssender, Jukebox-Einträge und Hörbücher und wahlweise mit Brailleausgabe für sämtliche gesprochenen Meldungen von freeAudio.
 
 ## Das Verzeichnis von Radio Browser
 
@@ -66,6 +66,10 @@ Einige dieser Tastenbefehle überschneiden sich mit solchen, die Windows selbst 
 | `Strg+Windows+S` | Stopp | Beendet den laufenden Sender vollständig und setzt den Player zurück. |
 | `Strg+Windows+→` | Nächster Favorit | Wechselt zum nächsten Sender der Favoritenliste. Am Ende der Liste geht es wieder von vorn los. |
 | `Strg+Windows+←` | Vorheriger Favorit | Wechselt zum vorherigen Sender der Favoritenliste. Am Anfang springt es ans Ende. |
+| `Strg+Windows+F3` | Vorheriger Eintrag | Die Taste `F3` des Senderbrowsers, auch bei geschlossenem Fenster nutzbar. Was sie bewirkt, hängt von der laufenden Wiedergabe ab: **Radio** — vorheriger Sender; **Podcast** — vorherige Folge; **Hörbuch** — vorheriges Buch; **Jukebox** — vorheriger Titel im Ordner. Am Anfang einer Liste wird „Bereits beim ersten …“ angesagt. Läuft nichts, wird die Taste unverändert durchgereicht. Siehe [Elemente überspringen bei geschlossenem Senderbrowser](#elemente-überspringen-bei-geschlossenem-senderbrowser). |
+| `Strg+Windows+F4` | Nächster Eintrag | Die Taste `F4` des Senderbrowsers, auch bei geschlossenem Fenster nutzbar: je nach laufender Wiedergabe nächster Sender, nächste Podcast-Folge, nächstes Hörbuch oder nächster Jukebox-Titel. |
+| `Strg+Windows+Umschalt+F3` | Vorheriger Feed / Teil / Eintrag | Die Taste `Umschalt+F3` des Senderbrowsers, auch bei geschlossenem Fenster nutzbar: **Radio** — vorheriger Sender (wie `Strg+Windows+F3`); **Podcast** — vorheriger abonnierter Podcast; **Hörbuch** — vorheriger Teil des Buchs; **Jukebox** — vorheriger Jukebox-Eintrag (Datei oder Ordner). |
+| `Strg+Windows+Umschalt+F4` | Nächster Feed / Teil / Eintrag | Die Taste `Umschalt+F4` des Senderbrowsers, auch bei geschlossenem Fenster nutzbar: je nach laufender Wiedergabe nächster Sender, nächster abonnierter Podcast, nächster Hörbuchteil oder nächster Jukebox-Eintrag. |
 | `Strg+Windows+↑` | Lauter | Erhöht die Lautstärke um 5; Höchstwert 200. |
 | `Strg+Windows+↓` | Leiser | Verringert die Lautstärke um 5; Mindestwert 0. |
 | `Strg+Windows+V` | Zu den Favoriten / Medium herunterladen | Nimmt den laufenden Sender in die Favoritenliste auf oder lädt die laufende Podcast-Folge bzw. das laufende Hörbuch herunter. Sagt an, wenn der Sender bereits in der Liste steht oder das Medium schon heruntergeladen wurde. Bei einem laufenden Jukebox-Titel nicht anwendbar: freeAudio weist dann darauf hin, dass der Tastenbefehl nur für Sender, Podcasts oder Hörbücher gilt. |
@@ -87,8 +91,31 @@ Einige dieser Tastenbefehle überschneiden sich mit solchen, die Windows selbst 
 | *(nicht belegt)* | Ausgabegerät wählen | Öffnet bei Bedarf eine Liste der verfügbaren Haupt-Ausgabegeräte. Die Liste erscheint nur, wenn BASS mehr als ein physisches Ausgabegerät erkennt. Ein Tastenbefehl lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen. |
 | *(nicht belegt)* | Meldungen stummschalten | Schaltet die Einstellung „Meldungen stummschalten“ im laufenden Betrieb um. Ein Tastenbefehl lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen. |
 | *(nicht belegt)* | Lieblingssender direkt starten | Jeder Sender der Favoritenliste erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Sender**. Wird einem Sender dort ein Tastenbefehl zugewiesen, startet er von überall sofort, ohne dass der Browser geöffnet werden muss. |
+| *(nicht belegt)* | Jukebox-Eintrag direkt starten | Jede Datei und jeder Ordner der Jukebox-Liste erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Jukebox**. Siehe [Eigene Tastenbefehle für Jukebox-Einträge](#eigene-tastenbefehle-für-jukebox-einträge). |
+| *(nicht belegt)* | Hörbuch direkt starten | Jedes Buch der Hörbuchbibliothek — ob von GETEM, LibriVox oder Project Gutenberg — erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Hörbücher**. Wird einem Buch ein beliebiger Tastenbefehl zugewiesen, setzt es von überall sofort fort, ohne dass der Browser geöffnet werden muss. Siehe [Eigene Tastenbefehle für Hörbücher](#eigene-tastenbefehle-für-hörbücher). |
 
-Die Tastenbefehle für den nächsten und vorherigen Sender bewegen sich nur durch die Favoritenliste, nicht durch die Liste aller Sender. Liegt im Browserfenster der Fokus auf einer Liste, übernehmen die Pfeiltasten links und rechts dieselbe Aufgabe — siehe Tastenbefehle im Dialog.
+`Strg+Windows+→` / `Strg+Windows+←` bewegen sich nur durch die Favoritenliste, nicht durch die Liste aller Sender — um durch die Liste zu gehen, aus der der aktuelle Sender gestartet wurde, dienen `Strg+Windows+F4` / `Strg+Windows+F3` (siehe unten). Liegt im Browserfenster der Fokus auf einer Liste, übernehmen die Pfeiltasten links und rechts dieselbe Aufgabe — siehe Tastenbefehle im Dialog.
+
+### Elemente überspringen bei geschlossenem Senderbrowser
+
+Im Senderbrowser tun `F3`, `F4`, `Umschalt+F3` und `Umschalt+F4` je nach aktiver Registerkarte Unterschiedliches. Die globalen Gegenstücke — `Strg+Windows+F3`, `Strg+Windows+F4`, `Strg+Windows+Umschalt+F3` und `Strg+Windows+Umschalt+F4` — funktionieren überall in Windows, ob das Fenster geöffnet ist oder nicht. Da es keine Registerkarte gibt, an der man sich orientieren könnte, entscheidet freeAudio danach, **was gerade wiedergegeben wird**:
+
+| Wiedergabe | `Strg+Windows+F3` / `Strg+Windows+F4` | `Strg+Windows+Umschalt+F3` / `Strg+Windows+Umschalt+F4` |
+|---|---|---|
+| Radiosender | Vorheriger / nächster Sender in der Liste, aus der er zuletzt gestartet wurde (Ergebnisse unter „Alle Sender“ oder Favoriten); am Ende der Liste geht es von vorn los. Ist der Sender nicht in dieser Liste, wird die Favoritenliste verwendet. | Wie ohne `Umschalt`. |
+| Podcast-Folge | Vorherige / nächste Folge desselben Feeds. | Vorheriger / nächster abonnierter Podcast. Da es keine Liste gibt, in der ein Feed markiert werden könnte, wird seine erste aufgeführte Folge abgespielt. |
+| Hörbuch | Vorheriges / nächstes Buch der Bibliothek, fortgesetzt an der zuletzt gehörten Stelle. | Vorheriger / nächster Teil des aktuellen Buchs. |
+| Jukebox-Titel | Vorheriger / nächster Titel des laufenden Ordners. | Vorheriger / nächster Eintrag der Jukebox-Liste; ein Ordner setzt dort fort, wo er zuletzt aufgehört hat. |
+
+Das ist gut zu wissen:
+
+- Läuft nichts, wird die Tastenkombination unverändert an Windows weitergereicht, genau wie bei `Strg+Windows+→` / `Strg+Windows+←`.
+- Am Anfang bzw. Ende einer Liste (außer beim Radio, das von vorn beginnt) sagt NVDA „Bereits beim ersten …“ bzw. „Bereits beim letzten …“ an, und es ändert sich nichts. Ein Jukebox-Titel, der nicht als Teil eines Ordners gestartet wurde, hat keine Nachbarn und meldet dasselbe.
+- **Der automatische Wechsel wird nicht unterbrochen.** Nach einem Sprung innerhalb eines Jukebox-Ordners oder eines Hörbuchs startet der nächste Titel bzw. Teil weiterhin von selbst, wenn der aktuelle endet — bei geöffnetem wie bei geschlossenem Senderbrowser. Ein Druck auf „Nächster“ beim letzten Titel eines Ordners setzt die gespeicherte Position des Ordners nicht zurück.
+- Die Folgenliste eines Podcasts wird nur für die laufende NVDA-Sitzung im Speicher gehalten. Ist sie noch nicht geladen — etwa direkt nach dem Start von NVDA —, bittet NVDA darum, den Senderbrowser zu öffnen und diesen Podcast einmal auszuwählen; danach funktionieren die Tasten auch bei geschlossenem Fenster.
+- Ist der Senderbrowser geöffnet, aktualisiert ein per Tastatur übersprungenes Hörbuch auch das „Aktuelle Wiedergabe“ des Fensters (Buch und Teil), sodass dessen automatischer Wechsel an der richtigen Stelle weitermacht.
+
+Wie jeder freeAudio-Befehl lassen sich auch diese unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio neu belegen.
 
 ## Senderbrowser
 
@@ -134,10 +161,10 @@ Die folgenden Tasten wirken nur bei aktivem Senderbrowser-Fenster.
 |---|---|---|
 | `F1` | Hilfe | Öffnet die Hilfedatei des Add-ons im Standardbrowser. Zuerst wird die Fassung für die aktive NVDA-Sprache gesucht; ist keine vorhanden, öffnet sich die Standardfassung. |
 | `F2` | Was läuft gerade | Sagt den laufenden Sender und den Titelnamen an. Zweimal gedrückt, zeigt es Details wie Land, Genre und Bitrate in einem Dialog. Dreimal gedrückt, kopiert es die aktuellen Titelinfos (ICY-Metadaten) in die Zwischenablage, sofern vorhanden; liegen keine Metadaten vor, startet stattdessen die Musikerkennung über Shazam. Viermal gedrückt, erzwingt es die Musikerkennung — praktisch bei falschen ICY-Metadaten. Läuft gerade eine Aufnahme, wird auch deren Name angesagt. |
-| `F3` | Vorheriger Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum vorherigen Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge der Folgenliste und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
-| `F4` | Nächster Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum nächsten Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum nächsten Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. |
-| `Umschalt+F3` | Vorheriger Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach oben. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Teil des laufenden Buchs. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag (Datei oder Ordner) nach oben. |
-| `Umschalt+F4` | Nächster Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach unten. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Teil des laufenden Buchs. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag nach unten. |
+| `F3` | Vorheriger Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum vorherigen Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur vorherigen Folge der Folgenliste und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum vorherigen Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. Auf der Registerkarte „Jukebox“ laufen die folgenden Titel eines Ordners weiterhin automatisch. Das globale Gegenstück ist `Strg+Windows+F3` — siehe [Elemente überspringen bei geschlossenem Senderbrowser](#elemente-überspringen-bei-geschlossenem-senderbrowser). |
+| `F4` | Nächster Eintrag | Auf den Registerkarten „Alle Sender“ und „Favoriten“: wechselt zum nächsten Sender und startet ihn sofort. Auf der Registerkarte „Podcasts“: wechselt zur nächsten Folge und spielt sie ab. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Buch und startet es. Auf der Registerkarte „Jukebox“: wechselt zum nächsten Titel im ausgewählten Jukebox-Eintrag und spielt ihn ab. Auf der Registerkarte „Jukebox“ laufen die folgenden Titel eines Ordners weiterhin automatisch. Das globale Gegenstück ist `Strg+Windows+F4`. |
+| `Umschalt+F3` | Vorheriger Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach oben. Auf der Registerkarte „Hörbücher“: wechselt zum vorherigen Teil des laufenden Buchs. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag (Datei oder Ordner) nach oben. Das globale Gegenstück ist `Strg+Windows+Umschalt+F3`, das den Eintrag zusätzlich abspielt. |
+| `Umschalt+F4` | Nächster Feed / Teil / Eintrag | Auf der Registerkarte „Podcasts“: geht in der Aboliste einen Feed nach unten. Auf der Registerkarte „Hörbücher“: wechselt zum nächsten Teil des laufenden Buchs. Auf der Registerkarte „Jukebox“: geht in der Hauptliste einen Jukebox-Eintrag nach unten. Das globale Gegenstück ist `Strg+Windows+Umschalt+F4`, das den Eintrag zusätzlich abspielt. |
 | `F5` | Leiser | Verringert die Lautstärke um 5 (Mindestwert 0). |
 | `F6` | Lauter | Erhöht die Lautstärke um 5 (Höchstwert 200). |
 | `F7` | Pause / Fortsetzen | Hält einen laufenden Sender an; setzt eine Pause fort, sofern ein Medium geladen ist. |
@@ -640,6 +667,7 @@ Aufgenommene Bücher erscheinen in der Liste **Bibliothek**, mit Titel, Autor un
 - `Eingabetaste` oder `Leertaste` spielen das ausgewählte Buch ab. Ist nichts geladen, startet die `Leertaste`; läuft bereits etwas, hält die `Leertaste` es stattdessen an — genau wie im übrigen Player.
 - `F3` / `F4` auf der Registerkarte „Hörbücher“ wechseln zum vorherigen bzw. nächsten **Buch** der Bibliothek und starten es. `Strg+←` / `Strg+→` tun dasselbe bei Fokus auf der Bibliotheksliste.
 - `Umschalt+F3` / `Umschalt+F4` wechseln stattdessen zwischen den **Teilen** des laufenden Buchs — umgekehrt zur Registerkarte „Podcasts“, wo F3/F4 zwischen Folgen und Umschalt+F3/F4 zwischen Feeds wechseln. Grund dafür: Ein Buch ist auch mit mehreren Teilen ein einziger Bibliothekseintrag, deshalb liegt hier die feinere Navigation über Teile auf den Tasten mit Umschalt.
+- Bei geschlossenem Senderbrowser tun `Strg+Windows+F3` / `Strg+Windows+F4` (vorheriges / nächstes Buch) und `Strg+Windows+Umschalt+F3` / `Strg+Windows+Umschalt+F4` (vorheriger / nächster Teil) dasselbe — siehe [Elemente überspringen bei geschlossenem Senderbrowser](#elemente-überspringen-bei-geschlossenem-senderbrowser).
 
 **Kontextmenü für Bibliothekseinträge:** Ein Rechtsklick auf ein Buch — oder die Kontextmenütaste bzw. `Umschalt+F10` bei ausgewähltem Buch — öffnet ein Menü mit:
 
@@ -670,6 +698,21 @@ Ein Rechtsklick auf ein Buch in der Bibliotheksliste und die Wahl von **Audiopro
 ### Hörbücher herunterladen
 
 Ein Buch in der Bibliothek auswählen und im Kontextmenü **Buch herunterladen** wählen, um jeden Teil in einen eigenen, nach dem Buch benannten Ordner innerhalb des Aufnahmeordners zu speichern (standardmäßig `Dokumente\freeAudio Recordings\`). Die Dateien sind durchnummeriert, sodass die Teile stets in Hörreihenfolge sortieren, ganz gleich, wie GETEM selbst sie benennt. Nach dem Download sagt NVDA an, wie viele Teile gespeichert wurden; scheitert ein Teil, wird der letzte Fehler zusammen mit der Zahl gemeldet.
+
+### Eigene Tastenbefehle für Hörbücher
+
+Jedes Buch der Hörbuchbibliothek — ob von GETEM, LibriVox oder Project Gutenberg — ist im Dialog „Tastenzuordnungen“ von NVDA als eigenes Skript hinterlegt, und zwar in der Kategorie **freeAudio-Hörbücher**, genau wie bei [Eigene Tastenbefehle für Lieblingssender](#eigene-tastenbefehle-für-lieblingssender) und [Eigene Tastenbefehle für Jukebox-Einträge](#eigene-tastenbefehle-für-jukebox-einträge). Jedem Buch lässt sich ein beliebiger Tastenbefehl zuweisen, der dann von überall greift — das Browserfenster muss dafür nicht geöffnet werden. Standardmäßig ist nichts belegt.
+
+So wird ein Tastenbefehl zugewiesen:
+
+1. NVDA-Menü → Optionen → Tastenzuordnungen öffnen.
+2. Die Kategorie **freeAudio-Hörbücher** aufklappen.
+3. Das Buch anhand des Titels suchen (jeder Eintrag heißt „*Titel* playback shortcut“), auswählen und **Hinzufügen** drücken.
+4. Die gewünschte Tastenkombination drücken und bestätigen.
+
+Der Tastenbefehl startet das Buch sofort und setzt am zuletzt gehörten Teil fort; die Position innerhalb des Teils wird genauso wiederhergestellt wie beim Abspielen aus der Bibliotheksliste. Ist die Teileliste des Buchs noch nicht abgerufen, sagt NVDA „Wird geladen: *Titel*“ an, und die Wiedergabe beginnt, sobald sie bereitsteht (ein GETEM-Buch braucht die gespeicherten Zugangsdaten — siehe [Anmelden](#anmelden)). Endet ein Teil, beginnt der nächste automatisch — bei geöffnetem wie bei geschlossenem Senderbrowser.
+
+Wird der Bibliothek ein Buch hinzugefügt oder daraus entfernt, wird die Kategorie **freeAudio-Hörbücher** sofort aktualisiert — der Dialog „Tastenzuordnungen“ muss dafür nicht neu geöffnet werden. Wird ein Buch entfernt, verschwindet sein Eintrag, und ein zugewiesener Tastenbefehl wird von NVDA automatisch aufgelöst; löst ein veralteter Tastenbefehl dennoch aus, sagt NVDA, dass das Hörbuch nicht mehr in der Bibliothek ist.
 
 ### Wo die Hörbuchdaten liegen
 
@@ -719,18 +762,20 @@ Keiner der beiden Befehle hat eine voreingestellte Taste. Eine lässt sich unter
 
 ### Aus der Jukebox abspielen
 
-- Die **Eingabetaste** auf einem Jukebox-Eintrag spielt ihn direkt ab: bei einem Datei-Eintrag die Datei selbst, bei einem Ordner-Eintrag dessen ersten Titel.
+- Die **Eingabetaste** auf einem Jukebox-Eintrag spielt ihn direkt ab: bei einem Datei-Eintrag die Datei selbst, bei einem Ordner-Eintrag den Ordner der Reihe nach — beginnend mit dem in der Titelliste markierten Titel oder, falls keiner markiert ist, dort, wo der Ordner zuletzt aufgehört hat (beim ersten Titel, wenn er noch nie gespielt wurde). Endet ein Titel, beginnt der nächste Titel im Ordner automatisch.
 - Die **Leertaste** auf einem Jukebox-Eintrag hält die Wiedergabe an, wenn etwas läuft; andernfalls spielt sie den fokussierten Eintrag ab.
-- **Eingabetaste** oder **Leertaste** in der Titelliste spielen den fokussierten Titel ab. Läuft bereits etwas, hält die **Leertaste** zuerst an.
-- **F3 / F4** auf der Registerkarte „Jukebox“ wechseln zwischen den Titeln im gerade ausgewählten Eintrag und spielen sofort ab.
+- **Eingabetaste** oder **Leertaste** in der Titelliste spielen den fokussierten Titel ab. Läuft bereits etwas, hält die **Leertaste** zuerst an. Ein so gestarteter Titel läuft für sich allein und geht am Ende nicht zum nächsten Titel über; für lückenlose Wiedergabe `F3` / `F4` verwenden oder den Ordner-Eintrag selbst abspielen.
+- **F3 / F4** auf der Registerkarte „Jukebox“ wechseln zwischen den Titeln im gerade ausgewählten Eintrag und spielen sofort ab. Bei einem Ordner-Eintrag wird der Titel als Teil des Ordners abgespielt, sodass die folgenden Titel am Ende weiterhin automatisch starten.
 - **Umschalt+F3 / Umschalt+F4** wechseln zwischen den Einträgen der Jukebox-Liste (Dateien und Ordner), so wie diese Tasten auf der Registerkarte „Podcasts“ zwischen Feeds wechseln.
-- **Strg+← / Strg+→** tun bei Fokus auf der Eintrags- oder Titelliste dasselbe wie F3/F4 in der Titelliste — vorheriger bzw. nächster Titel.
+- **Strg+← / Strg+→** tun bei Fokus auf der Eintrags- oder Titelliste dasselbe wie F3/F4 in der Titelliste — vorheriger bzw. nächster Titel, in einem Ordner mit automatischer Fortsetzung.
+- Bei geschlossenem Senderbrowser tun `Strg+Windows+F3` / `Strg+Windows+F4` (vorheriger / nächster Titel) und `Strg+Windows+Umschalt+F3` / `Strg+Windows+Umschalt+F4` (vorheriger / nächster Eintrag) dasselbe — siehe [Elemente überspringen bei geschlossenem Senderbrowser](#elemente-überspringen-bei-geschlossenem-senderbrowser).
 
 ### Details zur Jukebox-Wiedergabe
 
 Jeder aus der Jukebox abgespielte Titel erhält die volle Behandlung für lokale Medien:
 
 - **Fortsetzen:** freeAudio merkt sich die Position in jedem Titel, speichert sie beim Anhalten und regelmäßig während der Wiedergabe und setzt beim nächsten Abspielen dort wieder ein — auch über einen NVDA-Neustart hinweg.
+- **Automatisch zum nächsten Titel:** Endet ein als Teil eines Ordners abgespielter Titel, startet der nächste Titel dieses Ordners von selbst — bei geöffnetem wie bei geschlossenem Senderbrowser — und tut das auch, nachdem Titel mit `F3` / `F4` oder `Strg+Windows+F3` / `Strg+Windows+F4` übersprungen wurden. Ist der letzte Titel zu Ende, wird die gespeicherte Position des Ordners gelöscht, und er beginnt beim nächsten Mal wieder beim ersten Titel. Ein Druck auf „Nächster“ beim letzten Titel löscht sie nicht.
 - **Abgestuftes Springen:** `Strg+Windows+J` / `Strg+Windows+K` springen innerhalb des Titels mit derselben Abstufung wie bei Podcasts und Hörbüchern — gehalten 5 Sekunden pro Wiederholung, ein Tastendruck 12 Sekunden, zwei Tastendrücke 1 Minute, drei oder mehr 5 Minuten. `Strg+Windows+Alt+J` / `Strg+Windows+Alt+K` springen genau 1 Sekunde — siehe [Feines Springen (1 Sekunde)](#fine-seeking-1-second).
 - **Wiedergabetempo:** `Strg+Windows+Umschalt+J` / `Strg+Windows+Umschalt+K` ändern das Tempo in Schritten von 0,1× zwischen 0,5× und 2,0×, die Tonhöhe bleibt erhalten.
 - **Transponieren:** `Umschalt+Windows+J` / `Umschalt+Windows+K` verschieben die Tonhöhe, ohne das Tempo zu ändern — siehe [Transponieren (Tonhöhe verschieben)](#transpose-pitch-shift).
@@ -779,7 +824,7 @@ So wird ein Tastenbefehl zugewiesen:
 3. Den Eintrag am Namen erkennen, auswählen und **Hinzufügen** wählen.
 4. Die gewünschte Tastenkombination drücken und bestätigen.
 
-Der Tastenbefehl spielt den Eintrag sofort ab — bei einem Datei-Eintrag die Datei selbst, bei einem Ordner-Eintrag dessen ersten Titel. Wird der Eintrag später aus der Jukebox entfernt, verschwindet er auch aus der Kategorie, und NVDA löst den zugewiesenen Tastenbefehl automatisch auf. Kommt ein neuer Eintrag hinzu, erscheint er umgehend in der Kategorie — der Dialog „Tastenzuordnungen“ muss dafür nicht neu geöffnet werden.
+Der Tastenbefehl spielt den Eintrag sofort ab — bei einem Datei-Eintrag die Datei selbst, bei einem Ordner-Eintrag den Titel, an dem der Ordner zuletzt aufgehört hat (beim ersten Titel, wenn er noch nie gespielt wurde); danach folgen die weiteren Titel automatisch, auch bei geschlossenem Senderbrowser. Wird der Eintrag später aus der Jukebox entfernt, verschwindet er auch aus der Kategorie, und NVDA löst den zugewiesenen Tastenbefehl automatisch auf. Kommt ein neuer Eintrag hinzu, erscheint er umgehend in der Kategorie — der Dialog „Tastenzuordnungen“ muss dafür nicht neu geöffnet werden.
 
 ## Lesezeichen
 

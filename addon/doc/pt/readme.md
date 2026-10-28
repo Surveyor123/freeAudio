@@ -17,7 +17,7 @@ freeAudio é um complemento completo de rádio pela Internet, podcasts, audioliv
 - **Espelhamento de áudio** — Envie o mesmo fluxo para dois dispositivos de saída de áudio em simultâneo, como colunas e auscultadores ao mesmo tempo — veja [Espelho de Áudio](#espelho-de-áudio).
 - **Modo Obligato (música de fundo)** — Reproduza em ciclo uma estação favorita escolhida discretamente em segundo plano, no seu próprio dispositivo de saída e volume, independentemente do que estiver (ou não) a tocar como média principal — veja [Modo de Música de Fundo (Obligato)](#modo-de-música-de-fundo-obligato).
 - **Temporizadores** — Agende o início da reprodução de uma estação favorita, ou agende a paragem da reprodução, a uma hora específica — veja [Temporizador](#temporizador).
-- **Acesso profundo por teclado e braille** — Todas as funcionalidades são acessíveis inteiramente pelo teclado, com atalhos globais que funcionam a partir de qualquer parte do Windows, teclas de atalho diretas para estações favoritas individuais, e saída braille opcional para todas as notificações faladas do freeAudio.
+- **Acesso profundo por teclado e braille** — Todas as funcionalidades são acessíveis inteiramente pelo teclado, com atalhos globais que funcionam a partir de qualquer parte do Windows (incluindo `Ctrl+Win+F3` / `Ctrl+Win+F4` para saltar entre estações, episódios, livros e faixas sem abrir a janela), teclas de atalho diretas para estações favoritas, entradas do jukebox e audiolivros individuais, e saída braille opcional para todas as notificações faladas do freeAudio.
 
 ## Diretório Radio Browser
 
@@ -68,6 +68,10 @@ Alguns destes atalhos sobrepõem-se a atalhos que o próprio Windows usa. Se pre
 | `Ctrl+Win+S` | Parar | Para completamente a estação atual e reinicia o leitor. |
 | `Ctrl+Win+→` | Próximo favorito | Avança para a próxima estação na lista de favoritos. Volta ao início no final da lista. |
 | `Ctrl+Win+←` | Favorito anterior | Recua para a estação anterior na lista de favoritos. Salta para o fim quando está no início. |
+| `Ctrl+Win+F3` | Item anterior | A tecla `F3` do Navegador de Estações, disponível com a janela fechada. O que faz depende do que está a ser reproduzido: **rádio** — estação anterior; **podcast** — episódio anterior; **audiolivro** — livro anterior; **jukebox** — faixa anterior na pasta. Anuncia «Já está no primeiro …» no início de uma lista. Se nada estiver a ser reproduzido, a tecla é passada sem alterações. Consulte [Saltar Itens com o Navegador de Estações Fechado](#saltar-itens-com-o-navegador-de-estações-fechado). |
+| `Ctrl+Win+F4` | Item seguinte | A tecla `F4` do Navegador de Estações, disponível com a janela fechada: estação seguinte, episódio de podcast, audiolivro ou faixa do jukebox, consoante o que estiver a ser reproduzido. |
+| `Ctrl+Win+Shift+F3` | Feed / parte / entrada anterior | A tecla `Shift+F3` do Navegador de Estações, disponível com a janela fechada: **rádio** — estação anterior (igual a `Ctrl+Win+F3`); **podcast** — podcast subscrito anterior; **audiolivro** — parte anterior do livro; **jukebox** — entrada anterior do jukebox (ficheiro ou pasta). |
+| `Ctrl+Win+Shift+F4` | Feed / parte / entrada seguinte | A tecla `Shift+F4` do Navegador de Estações, disponível com a janela fechada: estação seguinte, podcast subscrito, parte de audiolivro ou entrada do jukebox, consoante o que estiver a ser reproduzido. |
 | `Ctrl+Win+↑` | Aumentar volume | Aumenta o volume em 5; máximo 200. |
 | `Ctrl+Win+↓` | Diminuir volume | Diminui o volume em 5; mínimo 0. |
 | `Ctrl+Win+V` | Adicionar aos favoritos / Descarregar o Média | Adiciona a estação em reprodução à lista de favoritos ou descarrega o episódio de podcast ou audiolivro em reprodução. Anuncia se a estação já está na lista ou se o média já foi descarregado. Não aplicável quando uma faixa do jukebox está a tocar: o freeAudio informa que o atalho é apenas para estações, podcasts ou audiolivros. |
@@ -89,8 +93,31 @@ Alguns destes atalhos sobrepõem-se a atalhos que o próprio Windows usa. Se pre
 | *(não atribuído)* | Selecionar dispositivo de saída | Abre uma lista a pedido dos principais dispositivos de saída disponíveis. A lista só é apresentada quando o BASS deteta mais do que um dispositivo de saída físico. Atribua uma combinação de teclas em Menu NVDA → Preferências → Definir comandos → freeAudio. |
 | *(não atribuído)* | Alternar silenciamento de notificações | Ativa ou desativa o silenciamento de notificações em tempo real. Atribua uma combinação de teclas em Menu NVDA → Preferências → Definir comandos → freeAudio. |
 | *(não atribuído)* | Reproduzir estação favorita diretamente | Cada estação da lista de favoritos aparece como uma entrada separada em Menu NVDA → Preferências → Definir comandos → **freeAudio Stations**. Atribua um atalho de teclado a qualquer estação para a iniciar imediatamente a partir de qualquer lugar, sem abrir o navegador. |
+| *(não atribuído)* | Reproduzir entrada do jukebox diretamente | Cada ficheiro ou pasta da sua lista do Jukebox aparece como uma entrada separada em Menu NVDA → Preferências → Definir comandos → **freeAudio Jukebox**. Consulte [Atalhos de Teclado Diretos para Entradas do Jukebox](#atalhos-de-teclado-diretos-para-entradas-do-jukebox). |
+| *(não atribuído)* | Reproduzir audiolivro diretamente | Cada livro da sua biblioteca de Audiolivros — do GETEM, LibriVox ou Project Gutenberg — aparece como uma entrada separada em Menu NVDA → Preferências → Definir comandos → **freeAudio Audio Books**. Atribua um atalho de teclado a qualquer livro para o retomar imediatamente a partir de qualquer lugar, sem abrir o navegador. Consulte [Atalhos de Teclado Diretos para Audiolivros](#atalhos-de-teclado-diretos-para-audiolivros). |
 
-Os atalhos seguinte/anterior apenas navegam na lista de favoritos; não funcionam com a lista de todas as estações. Quando uma lista está em foco na janela do navegador, as teclas de seta esquerda e direita têm a mesma função — consulte Atalhos na Caixa de Diálogo.
+`Ctrl+Win+→` / `Ctrl+Win+←` apenas navegam na lista de favoritos; não funcionam com a lista de todas as estações — use `Ctrl+Win+F4` / `Ctrl+Win+F3` (ver abaixo) para percorrer a lista a partir da qual a estação atual foi iniciada. Quando uma lista está em foco na janela do navegador, as teclas de seta esquerda e direita têm a mesma função — consulte Atalhos na Caixa de Diálogo.
+
+### Saltar Itens com o Navegador de Estações Fechado
+
+No Navegador de Estações, `F3`, `F4`, `Shift+F3` e `Shift+F4` fazem coisas diferentes consoante o separador ativo. As versões globais — `Ctrl+Win+F3`, `Ctrl+Win+F4`, `Ctrl+Win+Shift+F3` e `Ctrl+Win+Shift+F4` — funcionam a partir de qualquer parte do Windows, esteja a janela aberta ou não. Sem um separador para consultar, o freeAudio decide pelo **que está a ser reproduzido neste momento**:
+
+| A reproduzir | `Ctrl+Win+F3` / `Ctrl+Win+F4` | `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` |
+|---|---|---|
+| Estação de rádio | Estação anterior / seguinte na lista a partir da qual foi iniciada pela última vez (resultados de Todas as Estações ou Favoritos), voltando ao início nas extremidades. Se a estação não estiver nessa lista, é usada a lista de favoritos. | Igual ao comando sem `Shift`. |
+| Episódio de podcast | Episódio anterior / seguinte do mesmo feed. | Podcast subscrito anterior / seguinte. Como não há uma lista onde destacar um feed, é reproduzido o seu primeiro episódio listado. |
+| Audiolivro | Livro anterior / seguinte na biblioteca, retomando na parte que ouviu por último. | Parte anterior / seguinte do livro atual. |
+| Faixa do jukebox | Faixa anterior / seguinte da pasta em reprodução. | Entrada anterior / seguinte na lista do Jukebox; uma pasta retoma onde foi deixada da última vez. |
+
+Algumas coisas a saber:
+
+- Se nada estiver a ser reproduzido, a combinação de teclas é passada ao Windows sem alterações, tal como `Ctrl+Win+→` / `Ctrl+Win+←`.
+- Em qualquer extremidade de uma lista (exceto no rádio, que volta ao início), o NVDA anuncia «Já está no primeiro …» ou «Já está no último …» e nada muda. Uma faixa do jukebox que não foi iniciada como parte de uma pasta não tem vizinhas, pelo que comunica o mesmo.
+- **O avanço automático não é interrompido.** Depois de saltar dentro de uma pasta do jukebox ou de um audiolivro, a faixa ou parte seguinte continua a arrancar sozinha quando a atual termina, com o Navegador de Estações aberto ou fechado. Premir «seguinte» na última faixa de uma pasta não repõe a posição guardada da pasta.
+- A lista de episódios de um podcast só é mantida em memória durante a sessão atual do NVDA. Se ainda não tiver sido carregada — por exemplo, logo após o arranque do NVDA —, o NVDA pede-lhe que abra o Navegador de Estações e selecione esse podcast uma vez; depois disso, as teclas funcionam com a janela fechada.
+- Se o Navegador de Estações estiver aberto, saltar um audiolivro pelo teclado atualiza também o livro e a parte «em reprodução» da janela, para que o seu próprio avanço automático continue a partir do sítio certo.
+
+Tal como todos os comandos do freeAudio, estes podem ser reatribuídos em Menu NVDA → Preferências → Definir comandos → freeAudio.
 
 ## Navegador de Estações
 
@@ -136,10 +163,10 @@ As teclas seguintes funcionam apenas quando a janela do Navegador de Estações 
 |---|---|---|
 | `F1` | Guia de ajuda | Abre o ficheiro de ajuda do complemento no browser predefinido. É pesquisado primeiro o guia para o idioma do NVDA ativo; se não for encontrado, abre o guia predefinido. |
 | `F2` | Informação da estação | Anuncia o nome da estação em reprodução. Premir duas vezes mostra detalhes como país, género e bitrate numa caixa de diálogo. Premir três vezes copia as informações da faixa atual (metadados ICY) para a área de transferência, se disponíveis; se não existirem metadados, inicia o reconhecimento musical Shazam. Premir quatro vezes força o reconhecimento musical em caso de metadados ICY incorretos. Enquanto uma gravação está em curso, o seu nome também é anunciado. |
-| `F3` | Item anterior | No separador Todas as Estações ou Favoritos: recua para a estação anterior e inicia a reprodução imediatamente. No separador Podcasts: recua para o episódio anterior e reproduz-o. No separador Audiolivros: recua para o livro anterior e começa a reproduzi-lo. No separador Jukebox: recua para a faixa anterior no item de jukebox selecionado e reproduz-a. |
-| `F4` | Próximo item | No separador Todas as Estações ou Favoritos: avança para a próxima estação e inicia a reprodução imediatamente. No separador Podcasts: avança para o próximo episódio e reproduz-o. No separador Audiolivros: avança para o próximo livro e começa a reproduzi-lo. No separador Jukebox: avança para a próxima faixa no item de jukebox selecionado e reproduz-a. |
-| `Shift+F3` | Feed / parte / item anterior | No separador Podcasts: sobe um feed na lista de subscrições. No separador Audiolivros: recua para a parte anterior do livro em reprodução. No separador Jukebox: sobe uma entrada de jukebox (ficheiro ou pasta) na lista principal. |
-| `Shift+F4` | Próximo feed / parte / item | No separador Podcasts: desce um feed na lista de subscrições. No separador Audiolivros: avança para a próxima parte do livro em reprodução. No separador Jukebox: desce uma entrada de jukebox na lista principal. |
+| `F3` | Item anterior | No separador Todas as Estações ou Favoritos: recua para a estação anterior e inicia a reprodução imediatamente. No separador Podcasts: recua para o episódio anterior e reproduz-o. No separador Audiolivros: recua para o livro anterior e começa a reproduzi-lo. No separador Jukebox: recua para a faixa anterior no item de jukebox selecionado e reproduz-a. No separador Jukebox, numa pasta, as faixas seguintes continuam a arrancar automaticamente. O equivalente global é `Ctrl+Win+F3` — consulte [Saltar Itens com o Navegador de Estações Fechado](#saltar-itens-com-o-navegador-de-estações-fechado). |
+| `F4` | Próximo item | No separador Todas as Estações ou Favoritos: avança para a próxima estação e inicia a reprodução imediatamente. No separador Podcasts: avança para o próximo episódio e reproduz-o. No separador Audiolivros: avança para o próximo livro e começa a reproduzi-lo. No separador Jukebox: avança para a próxima faixa no item de jukebox selecionado e reproduz-a. No separador Jukebox, numa pasta, as faixas seguintes continuam a arrancar automaticamente. O equivalente global é `Ctrl+Win+F4`. |
+| `Shift+F3` | Feed / parte / item anterior | No separador Podcasts: sobe um feed na lista de subscrições. No separador Audiolivros: recua para a parte anterior do livro em reprodução. No separador Jukebox: sobe uma entrada de jukebox (ficheiro ou pasta) na lista principal. O equivalente global é `Ctrl+Win+Shift+F3`, que também reproduz a entrada. |
+| `Shift+F4` | Próximo feed / parte / item | No separador Podcasts: desce um feed na lista de subscrições. No separador Audiolivros: avança para a próxima parte do livro em reprodução. No separador Jukebox: desce uma entrada de jukebox na lista principal. O equivalente global é `Ctrl+Win+Shift+F4`, que também reproduz a entrada. |
 | `F5` | Diminuir volume | Diminui o volume em 5 (mínimo 0). |
 | `F6` | Aumentar volume | Aumenta o volume em 5 (máximo 200). |
 | `F7` | Pausar / retomar | Pausa se uma estação estiver a reproduzir; retoma se estiver em pausa e os média estiverem carregados. |
@@ -642,6 +669,7 @@ Os livros que adicionou aparecem na lista **Biblioteca**, mostrando título, aut
 - Prima `Enter` ou `Espaço` para reproduzir o livro selecionado. Se nada estiver carregado, `Espaço` inicia-o; se algo já estiver a tocar, `Espaço` pausa-o, correspondendo ao resto do leitor.
 - Use `F3` / `F4` no separador Audiolivros para se mover para o **livro** anterior / seguinte na sua biblioteca e começar a reproduzi-lo. `Ctrl+←` / `Ctrl+→` fazem o mesmo enquanto a lista da biblioteca está em foco.
 - Use `Shift+F3` / `Shift+F4` para se mover entre **partes** do livro atualmente a tocar — o inverso do separador Podcasts, onde F3/F4 se movem entre episódios e Shift+F3/F4 entre feeds. Isto porque um livro é uma única entrada da biblioteca mesmo quando tem várias partes, pelo que a navegação mais detalhada "por parte" fica aqui nas teclas modificadas com Shift.
+- Com o Navegador de Estações fechado, `Ctrl+Win+F3` / `Ctrl+Win+F4` (livro anterior / seguinte) e `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (parte anterior / seguinte) fazem o mesmo — consulte [Saltar Itens com o Navegador de Estações Fechado](#saltar-itens-com-o-navegador-de-estações-fechado).
 
 **Menu de contexto para entradas da biblioteca:** Clique com o botão direito num livro, ou selecione-o e prima a tecla Aplicações / `Shift+F10`, para abrir um menu com:
 
@@ -672,6 +700,21 @@ Clique com o botão direito num livro na sua lista Biblioteca e escolha **Guarda
 ### Descarregar Audiolivros
 
 Selecione um livro na sua biblioteca e escolha **Descarregar Livro** no seu menu de contexto para guardar cada parte na sua própria pasta (com o nome do livro) dentro da sua pasta de gravações (`Documents\freeAudio Recordings\` por predefinição). Os ficheiros são numerados para que as partes fiquem sempre ordenadas pela ordem de escuta, independentemente de como o próprio GETEM as designa. O NVDA anuncia quantas partes foram guardadas assim que o descarregamento termina; se uma parte falhar, o último erro é reportado juntamente com a contagem.
+
+### Atalhos de Teclado Diretos para Audiolivros
+
+Cada livro da sua biblioteca de Audiolivros — quer venha do GETEM, do LibriVox ou do Project Gutenberg — é registado como um script separado na caixa de diálogo Definir Comandos do NVDA, na categoria **freeAudio Audio Books**, exatamente como em [Atalhos de Teclado Diretos para Estações Favoritas](#atalhos-de-teclado-diretos-para-estações-favoritas) e [Atalhos de Teclado Diretos para Entradas do Jukebox](#atalhos-de-teclado-diretos-para-entradas-do-jukebox). Pode atribuir qualquer atalho de teclado a qualquer livro e premi-lo a partir de qualquer lugar — sem necessidade de abrir primeiro a janela do navegador. Por predefinição, não há atalhos atribuídos.
+
+Para atribuir um atalho:
+
+1. Abra Menu NVDA → Preferências → Definir comandos.
+2. Expanda a categoria **freeAudio Audio Books**.
+3. Encontre o livro pelo título (cada entrada chama-se «*título* playback shortcut»), selecione-o e prima **Adicionar**.
+4. Prima a combinação de teclas pretendida e confirme.
+
+O atalho inicia o livro imediatamente, retomando na parte que ouviu por último; a posição dentro dessa parte é restaurada da mesma forma que ao reproduzir o livro a partir da lista da biblioteca. Se a lista de partes do livro ainda não tiver sido obtida, o NVDA diz «A carregar: *título*» e a reprodução começa assim que estiver pronta (um livro do GETEM precisa do seu início de sessão guardado — consulte [Iniciar Sessão](#iniciar-sessão)). Quando uma parte termina, a seguinte arranca automaticamente, com o Navegador de Estações aberto ou fechado.
+
+Quando adiciona um livro à biblioteca ou remove um, a categoria **freeAudio Audio Books** é atualizada de imediato — não é necessário reabrir a caixa de diálogo Definir Comandos. Se um livro for removido, a sua entrada desaparece e qualquer atalho atribuído é automaticamente removido pelo NVDA; se um atalho obsoleto ainda assim disparar, o NVDA diz que o audiolivro já não está na biblioteca.
 
 ### Armazenamento de Dados de Audiolivros
 
@@ -721,18 +764,20 @@ Nenhum dos comandos tem uma tecla predefinida atribuída. Atribua uma em Menu NV
 
 ### Reproduzir a partir do Jukebox
 
-- **Enter** numa entrada do Jukebox reprodu-la diretamente: para uma entrada de ficheiro, o próprio ficheiro; para uma entrada de pasta, a sua primeira faixa.
+- **Enter** numa entrada do Jukebox reproduz-la diretamente: para uma entrada de ficheiro, o próprio ficheiro; para uma entrada de pasta, a pasta por ordem — a partir da faixa realçada na lista de Faixas ou, se nenhuma estiver realçada, a partir de onde a pasta foi deixada da última vez (a primeira faixa, se nunca foi reproduzida). Quando uma faixa termina, a faixa seguinte da pasta arranca automaticamente.
 - **Espaço** numa entrada do Jukebox pausa a reprodução se algo estiver a tocar; caso contrário reproduz a entrada em foco.
-- **Enter** ou **Espaço** na lista de Faixas reproduz a faixa em foco. **Espaço** pausa primeiro se algo já estiver a tocar.
-- **F3 / F4** no separador Jukebox movem-se entre faixas dentro da entrada atualmente selecionada e reproduzem imediatamente.
+- **Enter** ou **Espaço** na lista de Faixas reproduz a faixa em foco. **Espaço** pausa primeiro se algo já estiver a tocar. Uma faixa iniciada desta forma toca sozinha e não passa para a seguinte quando termina; para reprodução contínua, use `F3` / `F4` ou reproduza a própria entrada da pasta.
+- **F3 / F4** no separador Jukebox movem-se entre faixas dentro da entrada atualmente selecionada e reproduzem imediatamente. Numa entrada de pasta, a faixa é reproduzida como parte da pasta, pelo que as faixas seguintes continuam a arrancar automaticamente quando termina.
 - **Shift+F3 / Shift+F4** movem-se entre entradas na lista Jukebox (ficheiros e pastas), espelhando como estas teclas se movem entre feeds no separador Podcasts.
-- **Ctrl+← / Ctrl+→** enquanto a lista de entradas ou faixas está em foco fazem o mesmo que F3/F4 na lista de faixas — faixa anterior / seguinte.
+- **Ctrl+← / Ctrl+→** enquanto a lista de entradas ou faixas está em foco fazem o mesmo que F3/F4 na lista de faixas — faixa anterior / seguinte, com continuação automática numa pasta.
+- Com o Navegador de Estações fechado, `Ctrl+Win+F3` / `Ctrl+Win+F4` (faixa anterior / seguinte) e `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (entrada anterior / seguinte) fazem o mesmo — consulte [Saltar Itens com o Navegador de Estações Fechado](#saltar-itens-com-o-navegador-de-estações-fechado).
 
 ### Detalhes de Reprodução do Jukebox
 
 Cada faixa reproduzida a partir do Jukebox recebe o tratamento completo de média local:
 
 - **Retoma:** O freeAudio lembra-se da sua posição em cada faixa, guarda-a ao pausar e periodicamente durante a reprodução, e retoma a partir desse ponto quando a reproduz novamente — mesmo após um reinício do NVDA.
+- **Faixa seguinte automática:** quando uma faixa reproduzida como parte de uma pasta termina, a faixa seguinte dessa pasta arranca sozinha, com o Navegador de Estações aberto ou fechado, e continua a fazê-lo depois de saltar faixas com `F3` / `F4` ou `Ctrl+Win+F3` / `Ctrl+Win+F4`. Quando a última faixa termina, a posição guardada da pasta é limpa e, da próxima vez, recomeça na primeira faixa. Premir «seguinte» manualmente na última faixa não a limpa.
 - **Navegação escalonada:** `Ctrl+Win+J` / `Ctrl+Win+K` navegam dentro da faixa usando a mesma escala de toque/manter premido que os podcasts e audiolivros — manter premido para 5 segundos por repetição, um toque para 12 segundos, dois toques para 1 minuto, três ou mais toques para 5 minutos. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` procuram exatamente 1 segundo — veja [Busca Precisa (1 Segundo)](#busca-precisa-1-segundo).
 - **Velocidade de reprodução:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` ajustam a velocidade em passos de 0,1× de 0,5× a 2,0×, com o tom preservado.
 - **Transposição:** `Shift+Win+J` / `Shift+Win+K` alteram o tom sem mudar a velocidade — veja [Transposição (Alteração de Tom)](#transposição-alteração-de-tom).
@@ -781,7 +826,7 @@ Para atribuir um atalho:
 3. Encontre a entrada pelo nome, selecione-a e prima **Adicionar**.
 4. Prima a combinação de teclas pretendida e confirme.
 
-O atalho reproduz a entrada imediatamente — no caso de uma entrada de ficheiro, o próprio ficheiro; no caso de uma entrada de pasta, a sua primeira faixa. Se a entrada for posteriormente removida do Jukebox, a sua entrada desaparece da categoria e qualquer atalho atribuído é automaticamente removido pelo NVDA. Quando uma nova entrada é adicionada, aparece na categoria de imediato — não é necessário reabrir a caixa de diálogo Definir Comandos.
+O atalho reproduz a entrada imediatamente — no caso de uma entrada de ficheiro, o próprio ficheiro; no caso de uma entrada de pasta, a faixa onde a pasta foi deixada da última vez (a primeira faixa, se nunca foi reproduzida), após o que as faixas seguintes tocam automaticamente, mesmo com o Navegador de Estações fechado. Se a entrada for posteriormente removida do Jukebox, a sua entrada desaparece da categoria e qualquer atalho atribuído é automaticamente removido pelo NVDA. Quando uma nova entrada é adicionada, aparece na categoria de imediato — não é necessário reabrir a caixa de diálogo Definir Comandos.
 
 ## Marcadores
 
