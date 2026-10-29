@@ -417,8 +417,7 @@ Ta funkcja jest **domyślnie wyłączona**. Włącz ją w menu NVDA → Preferen
 
 ### Jak to działa
 
-Po włączeniu freeAudio ciągle przechwytuje aktualnie odtwarzaną stację do lokalnego, obrotowego bufora w tle, niezależnie od zwykłego odtwarzania. Bufor przechowuje najnowszy dźwięk, do długości ustawionej w opcji **Czas trwania bufora time-shift**; starszy dźwięk jest automatycznie usuwany z początku w miarę nadchodzenia nowego, więc bufor zawsze przedstawia „niedaleką przeszłość” względem krawędzi transmisji na żywo.
-Czas bufora określa się w ustawieniach.
+Po włączeniu freeAudio ciągle przechwytuje aktualnie odtwarzaną stację do lokalnego, obrotowego bufora w tle, niezależnie od zwykłego odtwarzania. Bufor przechowuje najnowszy dźwięk, do długości ustawionej w opcji **Czas trwania bufora time-shift**; starszy dźwięk jest automatycznie usuwany z początku w miarę nadchodzenia nowego, więc bufor zawsze przedstawia „niedaleką przeszłość” względem krawędzi transmisji na żywo. Czas bufora określa się w ustawieniach.
 
 - **`Ctrl+Win+J`** — cofnij o 15 sekund. Pierwsze naciśnięcie przełącza z odtwarzania na żywo na odtwarzanie z time-shiftem, zaczynając 15 sekund za krawędzią na żywo. Każde kolejne naciśnięcie cofa o kolejne 15 sekund, do limitu bufora.
 - **`Ctrl+Win+K`** — przewiń do przodu o 15 sekund w trybie time-shift. Po osiągnięciu krawędzi na żywo odtwarzanie automatycznie przełącza się z powrotem do strumienia na żywo, a NVDA ogłasza „Powrót do transmisji na żywo” — nie musisz robić nic więcej, aby wrócić do normalnego słuchania.
@@ -887,7 +886,6 @@ Zaznacz klawiszem `.` dwie lub więcej zakładek **tego samego elementu**, a nas
 Zakładki są przechowywane w pliku `freeAudio_bookmarks.json` w folderze konfiguracji użytkownika NVDA, a notatki głosowe jako pliki `.wav` w folderze `freeAudio_bookmark_audio` obok niego. Obie rzeczy można zarchiwizować lub przenieść na inny komputer. Usunięcie zakładki usuwa także plik jej notatki głosowej. Wszystkie zakładki i notatki głosowe można usunąć naraz pozycją **Zakładki** w oknie czyszczenia — zob. [Czyszczenie: resetowanie ustawień i usuwanie zapisanych danych](#czyszczenie-resetowanie-ustawień-i-usuwanie-zapisanych-danych).
 
 Każda zakładka należy do własnego klucza wznawiania elementu — adresu URL odcinka, stałego adresu katalogowego części audiobooka albo ścieżki pliku utworu z jukeboksa. Plik jukeboksa przeniesiony lub przemianowany poza freeAudio jest więc traktowany jako inny element i nie pokazuje dawnych zakładek.
-
 
 ## Transpozycja (zmiana wysokości dźwięku)
 

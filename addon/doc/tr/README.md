@@ -887,7 +887,6 @@ Yer imleri NVDA kullanıcı yapılandırma klasöründeki `freeAudio_bookmarks.j
 
 Her yer imi, öğenin kendi devam anahtarına aittir — bölümün URL'si, sesli kitap bölümünün kalıcı katalog URL'si veya müzik kutusu parçasının dosya yolu. Bu nedenle freeAudio dışında taşınan veya adı değiştirilen bir müzik kutusu dosyası farklı bir öğe sayılır ve eski yer imlerini göstermez.
 
-
 ## Transpose (Perde Kaydırma)
 
 Transpose, çalan içeriğin **perdesini**, **hızını** değiştirmeden yukarı veya aşağı kaydırır — bir parçayı basitçe hızlandırdığınızda ortaya çıkan "sincap etkisinin" tam tersidir. Belirli bir seslendirenin doğal aralığına uydurmak, müziği daha rahat bir tona aktarmak veya bir kaydı kulağınıza daha rahat oturacak şekilde ayarlamak için kullanışlıdır.

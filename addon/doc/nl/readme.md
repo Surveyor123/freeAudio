@@ -232,6 +232,7 @@ Elke sneltoets komt overeen met het aan- of uitvinken van het bijbehorende item 
 | `Alt+7` | Luisterboeken | Schakelt naar het tabblad Luisterboeken. |
 | `Alt+8` | Jukebox | Schakelt naar het tabblad Jukebox, met focus op het zoekveld voor apparaten. |
 | `Alt+K` | Sluiten | Sluit het venster; de add-on blijft op de achtergrond doorspelen. |
+
 ## Favorieten
 
 De favorietenlijst is een persoonlijke verzameling stations die permanent wordt opgeslagen. Om een station toe te voegen, selecteer je het in de lijst en druk je op de knop Toevoegen aan favorieten of gebruik je de `Alt+V` sneltoets. Dezelfde sneltoets verwijdert een station dat al in de lijst staat wanneer het is geselecteerd.
@@ -612,6 +613,7 @@ Alleen de onderdelen die je kiest, worden naar het profiel geschreven; alles wat
 ### Opslag van podcastgegevens
 
 Je abonnementen worden opgeslagen in `freeAudio_podcasts.json` in de NVDA-gebruikersconfiguratiemap. Afleveringsposities worden apart opgeslagen in `podcast_positions.json` op dezelfde locatie. Beide bestanden zijn gewone JSON en kunnen worden geback-upt of naar een andere computer worden overgebracht.
+
 ## Luisterboeken (GETEM, LibriVox en Project Gutenberg)
 
 freeAudio bevat een luisterboekenspeler die boeken zoekt, afspeelt en downloadt uit drie bronnen:
@@ -650,7 +652,9 @@ Typ een zoekterm in het zoekveld en druk op `Enter`. freeAudio doorzoekt de bron
 
 Het rechtstreeks plakken van de catalogus-/detailpagina-URL van een boek in het zoekveld (een GETEM-cataloguspagina, of een archive.org "details"-pagina voor een LibriVox- of Project Gutenberg-titel) herleidt dat enkele boek direct in plaats van een trefwoordzoekopdracht uit te voeren.
 
-NVDA kondigt aan hoeveel luisterboeken in totaal zijn gevonden. Door een resultaat te selecteren worden de details getoond — auteur, verteller, uitgever, formaat en het aantal delen — in het detailsvak eronder.
+NVDA kondigt aan hoeveel luisterboeken in totaal zijn gevonden.
+
+Door een resultaat te selecteren worden de details getoond — auteur, verteller, uitgever, formaat en het aantal delen — in het detailsvak eronder.
 
 **Voorbeeld bekijken:** Selecteer een resultaat en druk op `Space`, of open het contextmenu (Toepassingentoets / `Shift+F10`, of rechtermuisknop) en kies **Voorbeeld**, om het vanaf het eerste deel af te spelen zonder het aan je bibliotheek toe te voegen. Terwijl een boek wordt bekeken, toont hetzelfde contextmenu **Stop voorbeeld** in plaats daarvan — kies het, of druk nogmaals op `Space`, om te stoppen. Een boek bekijken slaat je luisterpositie niet op, aangezien die alleen wordt bijgehouden voor boeken die al in je bibliotheek staan.
 
@@ -929,6 +933,7 @@ freeAudio gebruikt [lrclib.net](https://lrclib.net) om songteksten op te halen �
 5. Fuzzy search met de ruwe trackstring als laatste redmiddel.
 
 Wanneer platte songteksten beschikbaar zijn, worden ze getoond zoals ze zijn. Wanneer alleen tijd-gesynchroniseerde LRC-songteksten beschikbaar zijn, worden de tijdstempels verwijderd en wordt de platte tekst getoond. Instrumentale nummers worden gerapporteerd als niet gevonden.
+
 ## Instellingen
 
 De volgende opties kunnen worden geconfigureerd via NVDA-menu → Opties → Instellingen → freeAudio:

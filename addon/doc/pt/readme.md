@@ -21,9 +21,7 @@ freeAudio é um complemento completo de rádio pela Internet, podcasts, audioliv
 
 ## Diretório Radio Browser
 
-freeAudio utiliza a base de dados aberta [Radio Browser](https://www.radio-browser.info/) para o seu catálogo de estações. O Radio Browser é um diretório gratuito gerido pela comunidade com mais de 50.000 estações de rádio online de todo o mundo. Não é necessário registo e a API é aberta a todos.
-
-Cada estação inclui endereço, país, género, idioma e bitrate; as estações são classificadas por votos dos utilizadores. O freeAudio liga-se à API através de servidores espelho localizados na Alemanha, Países Baixos e Áustria; se um servidor estiver inacessível, muda automaticamente para o seguinte.
+freeAudio utiliza a base de dados aberta [Radio Browser](https://www.radio-browser.info/) para o seu catálogo de estações. O Radio Browser é um diretório gratuito gerido pela comunidade com mais de 50.000 estações de rádio online de todo o mundo. Não é necessário registo e a API é aberta a todos. Cada estação inclui endereço, país, género, idioma e bitrate; as estações são classificadas por votos dos utilizadores. O freeAudio liga-se à API através de servidores espelho localizados na Alemanha, Países Baixos e Áustria; se um servidor estiver inacessível, muda automaticamente para o seguinte.
 
 Para manter o navegador rápido e evitar sobrecarregar a API a cada pesquisa ou mudança de país, o freeAudio mantém uma cache local do catálogo de estações em disco. Esta cache é atualizada automaticamente em segundo plano de forma periódica, pelo que a lista apresentada está normalmente já atualizada sem qualquer ação da sua parte. Também pode forçar uma nova sincronização imediata a qualquer momento com o botão **Atualizar Lista de Estações** — consulte Navegador de Estações abaixo.
 
@@ -157,7 +155,7 @@ Apenas os itens relevantes para o separador e seleção atuais são apresentados
 
 As teclas seguintes funcionam apenas quando a janela do Navegador de Estações está ativa.
 
-### Teclas F
+#### Teclas F
 
 | Atalho | Função | Descrição |
 |---|---|---|
@@ -175,7 +173,7 @@ As teclas seguintes funcionam apenas quando a janela do Navegador de Estações 
 | `F11` | Selecionar dispositivo de saída | Abre o seletor principal de dispositivo de saída quando o BASS deteta mais do que um dispositivo de saída físico. O dispositivo atual é pré-selecionado; Enter aplica e guarda a escolha. |
 | `F12` | Adicionar marcador | Adiciona um marcador na posição de reprodução atual de uma parte de audiolivro, episódio de podcast ou faixa do jukebox — o equivalente dentro da janela de `Ctrl+Win+F12`. Veja [Marcadores](#marcadores). |
 
-### Atalhos de Lista e Navegação
+#### Atalhos de Lista e Navegação
 
 | Atalho | Função | Descrição |
 |---|---|---|
@@ -195,14 +193,14 @@ As teclas seguintes funcionam apenas quando a janela do Navegador de Estações 
 | `Ctrl+Shift+Tab` | Separador anterior | Volta ao separador anterior. |
 | `Escape` | Ocultar | Oculta a janela; o complemento continua a reproduzir em segundo plano. |
 
-### Atalhos de Volume
+#### Atalhos de Volume
 
 | Atalho | Função | Descrição |
 |---|---|---|
 | `Ctrl+↑` | Aumentar volume | Aumenta o volume em 5. Só funciona com a janela do navegador aberta. |
 | `Ctrl+↓` | Diminuir volume | Diminui o volume em 5. Só funciona com a janela do navegador aberta. |
 
-### Atalhos de Efeitos
+#### Atalhos de Efeitos
 
 | Atalho | Função | Descrição |
 |---|---|---|
@@ -219,7 +217,7 @@ As teclas seguintes funcionam apenas quando a janela do Navegador de Estações 
 
 Cada atalho reflete marcar ou desmarcar o item correspondente na lista **Efeitos**: o NVDA anuncia se o efeito foi ativado ou desativado, a alteração é guardada automaticamente e o controlo de ganho dessa banda (se aplicável) aparece ou desaparece em conformidade.
 
-### Atalhos da Tecla Alt
+#### Atalhos da Tecla Alt
 
 | Atalho | Função | Descrição |
 |---|---|---|
@@ -888,7 +886,6 @@ Marque com `.` dois ou mais marcadores **do mesmo item** e escolha **Repetir ent
 Os marcadores são guardados em `freeAudio_bookmarks.json` na pasta de configuração do utilizador do NVDA, e as notas de voz como ficheiros `.wav` na pasta `freeAudio_bookmark_audio` junto a ela. Ambos podem ser copiados como cópia de segurança ou transferidos para outro computador. Eliminar um marcador elimina também o ficheiro da sua nota de voz. Todos os marcadores e notas de voz podem ser removidos de uma só vez com o item **Marcadores** da caixa de diálogo de limpeza — veja [Limpeza: repor definições e apagar dados guardados](#limpeza-repor-definições-e-apagar-dados-guardados).
 
 Cada marcador pertence à chave de retoma do próprio item — o URL do episódio, o URL estável de catálogo da parte do audiolivro ou o caminho do ficheiro da faixa do jukebox. Um ficheiro do jukebox movido ou renomeado fora do freeAudio é, por isso, tratado como um item diferente e não mostra os seus marcadores antigos.
-
 
 ## Transposição (Alteração de Tom)
 

@@ -155,7 +155,7 @@ Zobrazí se pouze položky relevantní pro aktuální kartu a výběr.
 
 Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
 
-### Klávesy F
+#### Klávesy F
 
 | Zkratka | Funkce | Popis |
 |---|---|---|
@@ -173,7 +173,7 @@ Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
 | `F11` | Vybrat výstupní zařízení | Otevře výběr hlavního výstupního zařízení, pokud BASS rozpozná více než jedno fyzické výstupní zařízení. Aktuální zařízení je předem vybráno; Enter volbu použije a uloží. |
 | `F12` | Přidat záložku | Přidá záložku na aktuální pozici přehrávání části audioknihy, epizody podcastu nebo skladby v jukeboxu — obdoba `Ctrl+Win+F12` uvnitř okna. Viz [Záložky](#záložky). |
 
-### Seznam a navigační zkratky
+#### Seznam a navigační zkratky
 
 | Zkratka | Funkce | Popis |
 |---|---|---|
@@ -193,14 +193,14 @@ Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
 | `Ctrl+Shift+Tab` | Předchozí karta | Přepne na předchozí kartu. |
 | `Escape` | Skrýt | Skryje okno; doplněk pokračuje v přehrávání na pozadí. |
 
-### Klávesové zkratky pro hlasitost
+#### Klávesové zkratky pro hlasitost
 
 | Zkratka | Funkce | Popis |
 |---|---|---|
 | `Ctrl+↑` | Zvýšení hlasitosti | Zvýší hlasitost o 5. Funguje pouze při otevřeném okně prohlížeče. |
 | `Ctrl+↓` | Snížení hlasitosti | Sníží hlasitost o 5. Funguje pouze při otevřeném okně prohlížeče. |
 
-### Klávesové zkratky pro efekty
+#### Klávesové zkratky pro efekty
 
 | Zkratka | Funkce | Popis |
 |---|---|---|
@@ -217,7 +217,7 @@ Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
 
 Každá zkratka odpovídá zaškrtnutí nebo odškrtnutí příslušné položky v seznamu **Efekty**: NVDA oznámí, zda byl efekt zapnut nebo vypnut, změna se automaticky uloží a ovládací prvek zesílení pro dané pásmo (pokud existuje) se podle toho zobrazí nebo skryje.
 
-### Klávesové zkratky Alt
+#### Klávesové zkratky Alt
 
 | Zkratka | Funkce | Popis |
 |---|---|---|
@@ -886,7 +886,6 @@ Označte klávesou `.` dvě nebo více záložek **téže položky** a poté zvo
 Záložky se ukládají do souboru `freeAudio_bookmarks.json` ve složce uživatelské konfigurace NVDA a hlasové poznámky jako soubory `.wav` ve složce `freeAudio_bookmark_audio` vedle něj. Obojí lze zálohovat nebo přenést na jiný počítač. Odstraněním záložky se smaže i soubor její hlasové poznámky. Všechny záložky a hlasové poznámky lze odstranit najednou položkou **Záložky** v dialogu vyčištění — viz [Vyčištění: obnovení nastavení a smazání uložených dat](#vyčištění-obnovení-nastavení-a-smazání-uložených-dat).
 
 Každá záložka patří k vlastnímu klíči pokračování položky — adrese URL epizody, stabilní katalogové adrese části audioknihy nebo cestě k souboru skladby v jukeboxu. Soubor jukeboxu přesunutý nebo přejmenovaný mimo freeAudio se proto považuje za jinou položku a staré záložky nezobrazuje.
-
 
 ## Transpozice (posun výšky tónu)
 
