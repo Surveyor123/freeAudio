@@ -17,7 +17,7 @@ freeAudio est une extension complète pour le lecteur d'écran NVDA, comprenant 
 - **Miroir audio** — Diffuser le même flux audio simultanément vers deux périphériques de sortie, tels que des haut-parleurs et écouteurs — consultez la section [Miroir Audio](#audio-mirror).
 - **Mode Obligato (musique de fond)** — Diffuser discrètement une station favorite en arrière-plan, sur son propre périphérique de sortie et à son propre volume, quel que soit le média principal diffusé (ou non) — consultez la section [Mode Obligato](#obligato-mode).
 - **Minuteries** — Planifiez le démarrage d'une station favorite ou l'arrêt de la lecture à une heure précise — consultez la section [Minuterie](#timer).
-- **Accès au clavier étendu et au braille** — Toutes les fonctionnalités sont accessibles entièrement au clavier, grâce à des raccourcis globaux fonctionnant partout sous Windows, des touches de raccourci directes pour vos stations favorites et une sortie braille optionnelle pour toutes les notifications vocales de freeAudio.
+- **Accès au clavier étendu et au braille** — Toutes les fonctionnalités sont accessibles entièrement au clavier, grâce à des raccourcis globaux fonctionnant partout sous Windows (y compris `Ctrl+Win+F3` / `Ctrl+Win+F4` pour passer d'une station, d'un épisode, d'un livre ou d'une piste à l'autre sans ouvrir la fenêtre), des touches de raccourci directes pour les stations favorites individuelles, les entrées du jukebox et les livres audio, et une sortie braille optionnelle pour toutes les notifications vocales de freeAudio.
 
 ## L'Annuaire de Radio Browser
 
@@ -66,6 +66,10 @@ Certains de ces raccourcis sont identiques à ceux utilisés par Windows lui-mê
 | `Ctrl+Win+S` | Arrêter | Arrête complètement la station actuelle et réinitialise le lecteur. |
 | `Ctrl+Win+→` | Suivant favori | Passe à la station suivante dans la liste des favoris. Revient  au début et à la fin de la liste. |
 | `Ctrl+Win+←` | Favoris précédent | Passe à la station précédente dans la liste des favoris. Saute à la fin quand on est au début. |
+| `Ctrl+Win+F3` | Élément précédent | La touche du Navigateur de stations `F3`, disponible avec la fenêtre fermée. Ce qu'ils font dépend de ce qui est en cours de lecture: **radio** — station précédente; **podcast** — épisode précédent; **livre audio** — livre précédent; **jukebox** — morceau précédent dans le dossier. Annonce "Déjà au premier …" au début d'une liste. Si aucune lecture n'est en cours, la touche est transmise sans modification. Consultez la section [Passer Les Éléments Avec Le Navigateur De Stations Fermé](#skipping-items-with-the-station-browser-closed). |
+| `Ctrl+Win+F4` | Élément suivant | La touche du Navigateur de stations `F4`, disponible avec la fenêtre fermée: station suivante, épisode de podcast, livre audio ou morceau du jukebox, en fonction de ce qui est en cours de lecture. |
+| `Ctrl+Win+Shift+F3` | Flux précédent / partie / entrée | La touche du Navigateur de stations `Shift+F3`, disponible avec la fenêtre fermée: **radio** — station précédente (identique à `Ctrl+Win+F3`); **podcast** — podcast précédent abonné; **livre audio** — partie précédente du livre; **jukebox** — entrée précédente du jukebox (fichier ou dossier). |
+| `Ctrl+Win+Shift+F4` | Flux suivant / partie / entrée | La touche du Navigateur de stations `Shift+F4`, disponible avec la fenêtre fermée: station suivante, podcast abonné, partie du livre audio ou entrée du jukebox, en fonction de ce qui est en cours de lecture. |
 | `Ctrl+Win+↑` | Augmenter le volume | Augmente le volume de 5 ; maximum 200. |
 | `Ctrl+Win+↓` | Diminuer le volume | Diminue le volume de 5 ; minimum 0. |
 | `Ctrl+Win+V` | Ajouter aux favoris / Télécharger le média | Ajoute la station en cours de lecture à la liste des favoris ou télécharge l'épisode de podcast ou le livre audio en cours de lecture. Annonce si la station est déjà dans la liste ou si le média avait déjà été téléchargé. Non applicable lorsqu'un morceau du jukebox est en cours de lecture: freeAudio vous indique que ce raccourci est uniquement valable pour les stations, les podcasts ou les livres audio. |
@@ -87,8 +91,31 @@ Certains de ces raccourcis sont identiques à ceux utilisés par Windows lui-mê
 | *(non assigné)* | Sélectionner le périphérique de sortie | Ouvre une liste à la demande des principaux périphériques de sortie disponibles. La liste s'affiche uniquement lorsque le BASS détecte plus d'un périphérique de sortie physique. Assigner une combinaison de touches via NVDA Menu → Préférences → Gestes de commandes → freeAudio. |
 | *(non assigné)* | Activer/désactiver les notifications muettes | Active/désactive le paramètre Muet des notifications à la volée. Assigner une combinaison de touches via NVDA Menu → Préférences → Gestes de commandes → freeAudio. |
 | *(non assigné)* | Lire une station favorite directement | Chaque station de la liste des favoris apparaît comme une entrée distincte dans le Menu NVDA → Préférences → Gestes de commandes → **Stations freeAudio**. Assigner n'importe quel raccourci clavier à une station pour la démarrer instantanément depuis n'importe où, sans ouvrir le navigateur. |
+| *(non assigné)* | Lire une entrée du jukebox directement | Chaque fichier ou dossier de votre liste du Jukebox apparaît comme une entrée distincte dans le Menu NVDA → Préférences → Gestes de commandes → **Jukebox freeAudio**. Consultez la section [Raccourcis Clavier Directs pour les Entrées du Jukebox](#direct-keyboard-shortcuts-for-jukebox-entries). |
+| *(non assigné)* | Lire un livre audio directement | Chaque livre de votre bibliothèque de Livres audio — de GETEM, LibriVox ou le Projet Gutenberg — apparaît comme une entrée distincte dans  le Menu NVDA → Préférences → Gestes de commandes → **Livres audio freeAudio**. Assigner n'importe quel raccourci clavier à un livre pour le reprendre instantanément depuis n'importe où, sans ouvrir le navigateur. Consultez la section [Raccourcis Clavier Directs pour les Livres Audio](#direct-keyboard-shortcuts-for-audio-books). |
 
-Les raccourcis suivant/précédent parcourent uniquement la liste des favoris ; ils ne fonctionnent pas avec la liste de toutes les stations. Quand une liste ayant le focus dans la fenêtre du navigateur, les touches fléchées gauche et droite ont le même objectif — voir la section Raccourcis dans la boîte de dialogue.
+`Ctrl+Win+→` / `Ctrl+Win+←` parcourent uniquement la liste des favoris ; ils ne fonctionnent pas avec la liste de toutes les stations — utilisez `Ctrl+Win+F4` / `Ctrl+Win+F3` (voir ci-dessous) pour parcourir la liste à partir de laquelle la station actuelle a été lancée. Quand une liste ayant le focus dans la fenêtre du navigateur, les touches fléchées gauche et droite ont le même objectif — voir la section Raccourcis dans la boîte de dialogue.
+
+### Passer Les Éléments Avec Le Navigateur De Stations Fermé
+
+Dans le Navigateur de stations, `F3`, `F4`, `Shift+F3` et `Shift+F4` ont des fonctions différentes selon l'onglet actif. Les versions globales — `Ctrl+Win+F3`, `Ctrl+Win+F4`, `Ctrl+Win+Shift+F3` et `Ctrl+Win+Shift+F4` — fonctionnent partout sous Windows, que la fenêtre soit ouverte ou non. Sans onglet à consulter, freeAudio se base sur **ce qui est en cours de lecture**:
+
+| En cours de lecture | `Ctrl+Win+F3` / `Ctrl+Win+F4` | `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` |
+|---|---|---|
+| Station de radio | Station précédente / suivante dans la liste à partir de laquelle elle a été lancée pour la dernière fois (résultats de Toutes les stations ou Favoris), avec retour au début/à la fin. Si la station n'est pas dans cette liste, la liste des favoris est utilisée. | Identique à sans `Shift`. |
+| Épisode de podcast | Épisode précédent / suivant du même flux. | Podcast abonné précédent / suivant. Comme il n'y a pas de liste pour mettre en évidence un flux, son premier épisode répertorié est lu. |
+| Livre audio | Livre précédent / suivant dans votre bibliothèque, reprenant à la partie que vous avez écoutée en dernier. | Partie précédente / suivante du livre actuel. |
+| Morceau du Jukebox | Morceau précédent / suivant du dossier en cours de lecture. | Entrée précédente / suivante dans la liste du Jukebox; un dossier reprend là où il s'est arrêté la dernière fois. |
+
+Informations importantes:
+
+- Si rien n'est en cours de lecture, la combinaison de touches est transmise à Windows sans modification, de la même manière que `Ctrl+Win+→` / `Ctrl+Win+←`.
+- Aux extrémités d'une liste (sauf pour la radio, qui tourne en boucle), NVDA annonce "Déjà au premier …" ou "Déjà au dernier …" et rien ne change. Un morceau du jukebox qui n'a pas été lancé en tant que partie d'un dossier n'a pas de voisins, elle affiche donc la même chose.
+- **L'avance automatique n'est pas interrompue.** Après avoir navigué dans un dossier du jukebox ou un livre audio, le morceau ou la partie suivante démarre toujours d'elle-même lorsque l'actuelle se termine, avec le Navigateur de stations ouvert ou fermé. Appuyer sur suivant sur le dernier morceau d'un dossier ne réinitialise pas la position enregistrée du dossier.
+- La liste des épisodes d'un podcast est uniquement conservée en mémoire pour la session NVDA en cours. Si elle n'a pas encore été chargée — par exemple juste après le démarrage de NVDA — NVDA vous demande d'ouvrir le Navigateur de stations et de sélectionner ce podcast une fois; après cela, les touches fonctionnent avec la fenêtre fermée.
+- Si le Navigateur de stations est ouvert, un livre audio passé depuis le clavier met également à jour le livre et la partie "maintenant en cours de lecture" de la fenêtre, afin que son propre avancement automatique se poursuive au bon endroit.
+
+Comme chaque commande de freeAudio, celles-ci peuvent être réassignées depuis le Menu NVDA → Préférences → Gestes de commandes → freeAudio.
 
 ## Navigateur de Stations
 
@@ -134,10 +161,10 @@ Les touches suivantes fonctionnent uniquement lorsque la fenêtre Navigateur de 
 |---|---|---|
 | `F1` | Guide d'aide | Ouvre le fichier d'aide de l'extension dans le navigateur par défaut. Le guide de la langue de NVDA actif est recherché en premier ; s'il n'est pas trouvé, le guide par défaut est ouvert. |
 | `F2` | Qu'est-ce qui se joue | Annonce la station en cours de lecture et le nom de la piste. Appuyez deux fois pour afficher des détails tels que le pays, le genre et le bitrate dans un dialogue. Appuyez trois fois pour copier les informations de la piste actuelle (métadonnées ICY) dans le presse-papiers si disponible ; si aucune métadonnée n'est présente, démarre la reconnaissance musicale Shazam à la place. Appuyez quatre fois pour forcer la reconnaissance musicale en cas de métadonnées ICY erronées. Pendant l'enregistrement, son nom est également annoncé. |
-| `F3` | Élément précédent | Dans l'onglet Toutes les stations ou Favoris: passe à la station précédente et commence la lecture immédiatement. Dans l'onglet Podcasts: passe à l'épisode précédent dans la liste des épisodes et le lit. Dans l'onglet Livres audio: passe au livre précédent et commence la lecture. Dans l'onglet Jukebox: passe au morceau précédent dans l'élément sélectionné du jukebox et le lit. |
-| `F4` | Élément suivant | Dans l'onglet Toutes les stations ou Favoris: passe à la station suivante et commence la lecture immédiatement. Dans l'onglet Podcasts: passe à l'épisode suivant et le lit. Dans l'onglet Livres audio: passe au livre suivant et commence la lecture. Dans l'onglet Jukebox: passe au morceau suivant dans l'élément sélectionné du jukebox et le lit. |
-| `Shift+F3` | Flux précédent / partie / élément | Dans l'onglet Podcasts: monte d'un flux dans la liste des abonnements. Dans l'onglet Livres audio: passe à la partie précédente du livre en cours de lecture. Dans l'onglet Jukebox: monte d'une entrée dans la liste principale du jukebox (fichier ou dossier). |
-| `Shift+F4` | Flux suivant / partie / élément | Dans l'onglet Podcasts: descend d'un flux dans la liste des abonnements. Dans l'onglet Livres audio: passe à la partie suivante du livre en cours de lecture. Dans l'onglet Jukebox: descend d'une entrée dans la liste principale du jukebox. |
+| `F3` | Élément précédent | Dans l'onglet Toutes les stations ou Favoris: passe à la station précédente et commence la lecture immédiatement. Dans l'onglet Podcasts: passe à l'épisode précédent dans la liste des épisodes et le lit. Dans l'onglet Livres audio: passe au livre précédent et commence la lecture. Dans l'onglet Jukebox: passe au morceau précédent dans l'élément sélectionné du jukebox et le lit; dans un dossier, les morceaux suivants démarrent automatiquement. L'équivalent global est `Ctrl+Win+F3` — consultez la section [Passer Les Éléments Avec Le Navigateur De Stations Fermé](#skipping-items-with-the-station-browser-closed). |
+| `F4` | Élément suivant | Dans l'onglet Toutes les stations ou Favoris: passe à la station suivante et commence la lecture immédiatement. Dans l'onglet Podcasts: passe à l'épisode suivant et le lit. Dans l'onglet Livres audio: passe au livre suivant et commence la lecture. Dans l'onglet Jukebox: passe au morceau suivant dans l'élément sélectionné du jukebox et le lit; dans un dossier, les morceaux suivants démarrent automatiquement. L'équivalent global est `Ctrl+Win+F4`. |
+| `Shift+F3` | Flux précédent / partie / élément | Dans l'onglet Podcasts: monte d'un flux dans la liste des abonnements. Dans l'onglet Livres audio: passe à la partie précédente du livre en cours de lecture. Dans l'onglet Jukebox: monte d'une entrée dans la liste principale du jukebox (fichier ou dossier). L'équivalent global est `Ctrl+Win+Shift+F3`, qui permet également de lire l'entrée. |
+| `Shift+F4` | Flux suivant / partie / élément | Dans l'onglet Podcasts: descend d'un flux dans la liste des abonnements. Dans l'onglet Livres audio: passe à la partie suivante du livre en cours de lecture. Dans l'onglet Jukebox: descend d'une entrée dans la liste principale du jukebox. L'équivalent global est `Ctrl+Win+Shift+F4`, qui permet également de lire l'entrée. |
 | `F5` | Diminuer le volume | Diminue le volume de 5 (minimum 0). |
 | `F6` | Augmenter le volume | Augmente le volume de 5 (maximum 200). |
 | `F7` | Mettre en pause / reprendre | Met en pause la station actuelle si elle est en cours de lecture ; reprend en cas de pause et le média est chargé. |
@@ -640,6 +667,7 @@ Les livres que vous avez ajoutés apparaissent dans la liste **Bibliothèque**, 
 - Appuyez sur `Entrée` ou `Espace` pour lire le livre sélectionné. Si rien n'est chargé, `Espace` le démarre; si quelque chose est déjà en cours de lecture, `Espace` le met en pause à la place, correspondant au reste du lecteur.
 - Utilisez `F3` / `F4` dans l'onglet Livres audio pour passer au **livre** précédent/suivant de votre bibliothèque et commencer à le lire. `Ctrl+←` / `Ctrl+→` font de même pendant que la liste des bibliothèques est focalisée.
 - Utilisez `Shift+F3` / `Shift+F4` pour vous déplacer entre les **parties** du livre en cours de lecture à la place — à l'inverse de l'onglet Podcasts, où  F3/F4 se déplacent entre les épisodes et Shift+F3/F4 se déplacent entre les flux. En effet, un livre est une entrée de bibliothèque unique même lorsqu'il comporte plusieurs parties, de sorte que la navigation plus fine des "parties" se trouve ici sur les touches modifiées par Shift.
+- Avec le Navigateur de stations fermé, `Ctrl+Win+F3` / `Ctrl+Win+F4` (livre précédent / suivant) et `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (partie précédente / suivante) font la même chose — consultez la section [Passer Les Éléments Avec Le Navigateur De Stations Fermé](#skipping-items-with-the-station-browser-closed).
 
 **Menu contextuel pour les entrées de bibliothèque:** Cliquez avec le bouton droit sur un livre, ou sélectionnez-le et appuyez sur la touche Applications / `Shift+F10`, pour ouvrir un menu avec:
 
@@ -670,6 +698,21 @@ Faites un clic droit sur un livre dans votre liste de bibliothèque et choisisse
 ### Téléchargement de Livres audio
 
 Sélectionnez un livre dans votre bibliothèque et choisissez **Télécharger le livre** dans son menu contextuel pour enregistrer chaque partie dans son propre dossier (nommé d'après le livre) dans votre dossier d'enregistrements (`Documents\freeAudio Recordings\` par défaut). Les fichiers sont numérotés afin que les parties soient toujours triées dans l'ordre d'écoute, quel que soit le nom que GETEM lui-même leur donne. NVDA annonce combien de parties ont été enregistrées une fois le téléchargement terminé ; si une partie échoue, la dernière erreur est signalée à côté du décompte.
+
+### Raccourcis Clavier Directs pour les Livres Audio
+
+Chaque livre de votre bibliothèque de livres audio — qu'il provienne de GETEM, LibriVox ou du Projet Gutenberg — est enregistré comme un script distinct dans la boîte de dialogue Gestes de commandes de NVDA, sous la catégorie **Livres audio freeAudio**, exactement comme pour les [Raccourcis Clavier Directs pour les Stations Favorites](#direct-keyboard-shortcuts-for-favourite-stations) et les [Raccourcis Clavier Directs pour les Entrées du Jukebox](#direct-keyboard-shortcuts-for-jukebox-entries). Vous pouvez assigner n'importe quel raccourci clavier à n'importe quel livre  et l'utiliser depuis n'importe où — sans avoir à ouvrir la fenêtre du navigateur au préalable. Aucun raccourci n'est assigné par défaut.
+
+Pour assigner un raccourci :
+
+1. Ouvrez le Menu NVDA → Préférences → Gestes de commandes.
+2. Développez la catégorie **Livres audio freeAudio**.
+3. Trouvez le livre par titre (chaque entrée est nommée "*titre* raccourci de lecture"), sélectionnez-le, puis appuyez sur **Ajouter**.
+4. Appuyez sur la combinaison de touches souhaitée et confirmez.
+
+Le raccourci démarre le livre immédiatement, reprenant à la partie que vous écoutiez en dernier; la position à l'intérieur de cette partie est rétablie de la même manière que lorsque vous jouez le livre depuis la liste de la bibliothèque. Si la liste des parties du livre n'a pas encore été récupérée, NVDA dit "Chargement *titre*" et la lecture commence dès qu'elle est prête (un livre GETEM nécessite vos identifiants enregistrés — consultez la section [Se connecter](#signing-in)). Lorsqu'une partie se termine, la suivante démarre automatiquement, avec ou sans le Navigateur de stations ouvert.
+
+Lorsque vous ajoutez un livre à la bibliothèque ou que vous en supprimez un, la catégorie **Livres audio freeAudio** est mise à jour immédiatement — il n'est pas nécessaire de rouvrir la boîte de dialogue Gestes de commandes pour que la modification apparaisse la prochaine fois que vous l'ouvrez. Si un livre est supprimé, son entrée disparaît et tout raccourci assigné est automatiquement supprimé par  NVDA; si un raccourci obsolète venait à être déclenché, NVDA indique que le livre audio n'est plus disponible dans la bibliothèque.
 
 ### Stockage de Données de Livres audio
 
@@ -719,22 +762,24 @@ Aucune de ces commandes n'a de touche par défaut assignée. Assignez-en une dep
 
 ### Lecture depuis le Jukebox
 
-- **Entrée** sur une entrée du Jukebox pour la lire directement: s'il s'agit d'une entrée de fichier, le fichier lui-même ; pour une entrée de dossier, son premier morceau.
+- **Entrée** sur une entrée du Jukebox pour la lire directement: s'il s'agit d'une entrée de fichier, le fichier lui-même ; pour une entrée de dossier, le dossier est lu dans l'ordre, à partir du morceau sélectionné dans la liste des morceaux ou, si aucun n'est sélectionné, à partir du dernier morceau lu (le premier morceau s'il n'a jamais été lu). Lorsqu'un morceau se termine, le suivant démarre automatiquement.
 - **Espace** sur une entrée du Jukebox pour mettre la lecture en pause s'il y a quelque chose  déjà en cours de lecture ; sinon, l'entrée focalisée est lue.
-- **Entrée** ou **Espace** sur la liste des morceaux pour lire le morceau focalisé. **Espace** pause d'abord s'il y a quelque chose  déjà en cours de lecture.
-- **F3 / F4** dans l'onglet Jukebox pour se déplacer entre les morceaux dans l'entrée actuellement sélectionnée et lancer la lecture immédiatement.
+- **Entrée** ou **Espace** sur la liste des morceaux pour lire le morceau focalisé. **Espace** pause d'abord s'il y a quelque chose  déjà en cours de lecture. Un morceau lancé de cette manière se lit seul et ne passe pas au morceau suivant lorsqu'il se termine; utilisez `F3` / `F4` ou lisez directement l'entrée du dossier pour une lecture continue.
+- **F3 / F4** dans l'onglet Jukebox pour se déplacer entre les morceaux dans l'entrée actuellement sélectionnée et lancer la lecture immédiatement. Dans une entrée de dossier, le morceau est lu comme faisant partie du dossier, les pistes suivantes démarrent automatiquement lorsqu'elle se termine.
 - **Shift+F3 / Shift+F4** pour se déplacer entre les entrées de la liste de Jukebox (fichiers et dossiers), de la même manière que ces touches permettent de se déplacer entre les flux dans l'onglet Podcasts.
-- **Ctrl+← / Ctrl+→** lorsque la liste des entrées ou des morceaux est focalisé remplit la même fonction que F3/F4 dans la liste des morceaux — morceau précédent/suivant.
+- **Ctrl+← / Ctrl+→** lorsque la liste des entrées ou des morceaux est focalisé remplit la même fonction que F3/F4 dans la liste des morceaux — morceau précédent/suivant, avec continuation automatique dans un dossier.
+- Avec le Navigateur de stations fermé, `Ctrl+Win+F3` / `Ctrl+Win+F4` (morceau précédent / suivant) et `Ctrl+Win+Shift+F3` / `Ctrl+Win+Shift+F4` (entrée précédente / suivante) font de même — consultez la section [Passer Les Éléments Avec Le Navigateur De Stations Fermé](#skipping-items-with-the-station-browser-closed).
 
 ### Détails de Lecture du Jukebox
 
 Chaque morceau lue  depuis le Jukebox bénéficie d'un traitement du médias local complet:
 
 - **Reprendre:** freeAudio mémorise votre position dans chaque morceau, la sauvegarde lors de la pause et périodiquement pendant la lecture, et reprend à partir de ce point quand vous y rejouez — même après le redémarrage de NVDA.
+- **Morceau suivant automatique:** lorsqu'un morceau lu dans un dossier se termine, le morceau suivant dans ce dossier démarre automatiquement, que le navigateur de stations soit ouvert ou non, et ce, même si vous passez au morceau suivant avec  `F3` / `F4` ou `Ctrl+Win+F3` / `Ctrl+Win+F4`. Une fois le dernier morceau terminé, la position enregistrée dans le dossier est effacée et la lecture reprendra au premier morceau lors de la prochaine écoute. Appuyer manuellement sur suivant sur le dernier morceau ne réinitialise pas cette position.
 - **Recherche par niveaux:** `Ctrl+Win+J` / `Ctrl+Win+K` permet de rechercher dans le morceau en utilisant la même échelle de pulsation/maintenir enfoncée comme pour les podcasts et les livres audio — maintenir pour 5 secondes par répétition, une pulsation pour 12 secondes, deux pulsations pour 1 minute, trois pulsations ou plus pour 5 minutes. `Ctrl+Win+Alt+J` / `Ctrl+Win+Alt+K` recherche exactement 1 seconde — consultez la section [Recherche Précise (1 Seconde)](#fine-seeking-1-second).
 - **Vitesse de lecture:** `Ctrl+Win+Shift+J` / `Ctrl+Win+Shift+K` ajuste la vitesse par incréments de 0.1x depuis 0.5x à 2.0x, en conservant la hauteur.
 - **Transposition:** `Shift+Win+J` / `Shift+Win+K` modifie la hauteur sans changer la vitesse — consultez la section [Transposition (Changement de la Hauteur)](#transpose-pitch-shift).
-- **Profil audio:** Le volume, les effets, l'égalisation et la vitesse d'un morceau peuvent être enregistrés globalement en jouant un morceau pendant que les paramètres appropriés sont définis — le Jukebox ne propose actuellement pas de menu de profil par morceau, les paramètres globaux actuels sont donc appliqués.
+
 
 > **Remarque:** La mémoire tampon de décalage temporel (utilisée pour rembobiner la radio en direct) **n'est pas** initialisée pour les morceaux du Jukebox — ces derniers étant déjà des fichiers locaux consultables, la capture en arrière-plan est inutile et consommerait inutilement de l'espace disque. Le retour en arrière et avance rapide fonctionnent toujours car ils agissent directement sur le fichier en cours de lecture.
 
@@ -779,7 +824,7 @@ Pour assigner un raccourci :
 3. Trouvez l'entrée par son nom, sélectionnez-la et appuyez sur **Ajouter**.
 4. Appuyez sur la combinaison de touches souhaitée et confirmez.
 
-Le raccourci démarre l'entrée immédiatement — pour un fichier, le fichier lui-même ; pour une entrée de dossier, son premier morceau. Si l'entrée est ultérieurement retiré de votre Jukebox, son entrée disparaît de la catégorie et tout raccourci assigné est automatiquement supprimé par NVDA. Lorsqu'une nouvelle entrée est ajoutée, elle apparaît immédiatement dans la catégorie — il n'est pas nécessaire de rouvrir la boîte de dialogue Gestes de commandes.
+Le raccourci démarre l'entrée immédiatement — pour un fichier, le fichier lui-même ; pour une entrée de dossier, le morceau où le dossier s'est arrêté (son premier morceau s'il n'a jamais été lu), les morceaux suivants sont ensuite lus automatiquement, même si le Navigateur de stations est fermé. Si l'entrée est ultérieurement retiré de votre Jukebox, son entrée disparaît de la catégorie et tout raccourci assigné est automatiquement supprimé par NVDA. Lorsqu'une nouvelle entrée est ajoutée, elle apparaît immédiatement dans la catégorie — il n'est pas nécessaire de rouvrir la boîte de dialogue Gestes de commandes.
 
 ## Signets
 
