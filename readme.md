@@ -8,7 +8,7 @@ freeAudio is a full-featured internet radio, podcast, audio-book, and local-juke
 - **Podcasts** — Subscribe to any RSS/Atom feed, or search Apple's podcast directory and preview episodes before subscribing. Playback position is saved automatically and resumes where you left off — see [Podcasts](#podcasts).
 - **Audio books** — Search, stream and download books from three sources: [GETEM](https://getem.boun.edu.tr/), Boğaziçi University's digital library for the visually impaired; [LibriVox](https://librivox.org/), the volunteer-read public-domain audiobook project; and the Project Gutenberg Open Audiobook Collection. LibriVox and Project Gutenberg need no account. Multi-part works resume automatically where you left off — see [Audio Books (GETEM, LibriVox and Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg).
 - **Local Jukebox** — Search audio files stored on any attached drive by filename, or build a personal library of files and folders, and play them back with the same resume, seek, speed and pitch tools podcasts and audio books use — see [Local Jukebox](#local-jukebox).
-- **Bookmarks** — Drop a bookmark at the current position of any audio book part, podcast episode or jukebox track, then jump back to it later. A bookmark can carry a text note or a recorded voice note that plays when playback reaches it, and two bookmarks can be used to repeat the section between them — see [Bookmarks](#bookmarks).
+- **Bookmarks** — Drop a bookmark at the current position of any audio book part, podcast episode or jukebox track, then jump back to it later. A bookmark can carry a text note or a recorded voice note that plays when playback reaches it, and two bookmarks can be used to repeat the section between them or to save it as an audio excerpt — see [Bookmarks](#bookmarks).
 - **Recording** — Record what's playing instantly, record a single song from its start to its end, record every song on a station to its own file until you stop, or schedule one-off and recurring recordings — all without interrupting playback — see [Recording](#recording).
 - **Time-shift (rewind live radio)** — Pause and rewind a live station like a DVR, then catch back up to live whenever you want — see [Time-Shift (Rewind Live Radio)](#time-shift-rewind-live-radio).
 - **Music recognition and liked songs** — Identify tracks with no metadata using Shazam-based recognition, save liked songs to a text file, and look up their lyrics — see [Music Recognition](#music-recognition) and [Liked Songs](#liked-songs).
@@ -253,7 +253,7 @@ Favourites, Liked Songs, the Audio Books library, and the Jukebox list all suppo
 
 Marks are per-list and are cleared once you remove the items (or unmark them individually); they are not saved between sessions.
 
-The bookmark lists on the Podcasts, Audio Books and Jukebox tabs use the same `.` marking, and marked bookmarks are what the **Delete Selected** and **Repeat Between Marked Bookmarks** commands act on — see [Bookmarks](#bookmarks).
+The bookmark lists on the Podcasts, Audio Books and Jukebox tabs use the same `.` marking, and marked bookmarks are what the **Delete Selected**, **Repeat Between Marked Bookmarks** and **Save Excerpt Between Marked Bookmarks** commands act on — see [Bookmarks](#bookmarks).
 
 ### Exporting and Importing Favourites
 
@@ -868,6 +868,7 @@ While a bookmark list has focus, the playback keys of the tab above it also work
 - **Clear Notes** — removes both the text note and the voice note of the focused bookmark. Enabled only when the bookmark has a note.
 - **Repeat Between Marked Bookmarks** — see below. Enabled when at least two bookmarks are marked.
 - **Stop Repeat** — turns repeat mode off. Enabled while a repeat is active.
+- **Save Excerpt Between Marked Bookmarks** — saves the section between the marked bookmarks as an audio file — see [Saving the Section Between Bookmarks as an Audio Excerpt](#saving-the-section-between-bookmarks-as-an-audio-excerpt). Enabled when at least two bookmarks are marked.
 
 ### What Happens When Playback Reaches a Bookmark
 
@@ -880,6 +881,17 @@ Bookmarks are detected while playing normally. Seeking or jumping past a bookmar
 ### Repeating the Section Between Bookmarks
 
 Mark two or more bookmarks of the **same item** with `.`, then choose **Repeat Between Marked Bookmarks**. Playback jumps to the earliest marked bookmark and loops between the earliest and the latest marked bookmark, and NVDA announces the two positions. This is useful for going over a hard-to-follow passage, a language-learning phrase or a piece of music you are practising. Choose **Stop Repeat** to return to normal playback. The repeat is not saved between sessions, and if a different item starts playing the repeat range is ignored and dropped after about 20 seconds.
+
+### Saving the Section Between Bookmarks as an Audio Excerpt
+
+Mark two or more bookmarks of the **same item** with `.`, then choose **Save Excerpt Between Marked Bookmarks** from the bookmark context menu. It cuts exactly the section that repeat mode would loop — from the earliest to the latest marked bookmark — and saves it as an audio file. There is no keyboard shortcut for it; it is available from the context menu only. The item does not have to be playing.
+
+- **Where it is saved:** in your recordings folder (the one set in the freeAudio settings, or `Documents\freeAudio Recordings` by default), in a new sub-folder named after the media: the episode title for a podcast, the book title for an audio book, the file name for a jukebox track. Characters Windows does not allow in names are replaced, and the folder is created if it does not exist.
+- **File name:** the names of the first and last marked bookmark followed by the two positions, for example `Bookmark 1 - Bookmark 2 (1.23-4.56).mp3`. Positions use dots instead of colons because Windows does not allow colons in file names. For a book with several parts the part's title is put in front. An existing file is never overwritten; a number such as `(2)` is added instead.
+- **Format:** the excerpt keeps the original format of the item (an MP3 stays an MP3, an M4A stays an M4A) and is cut without re-encoding, so there is no loss of quality. Because of that, the cut points fall on the nearest audio frame, which can be a fraction of a second away from the exact bookmark positions.
+- **Where the audio comes from:** a jukebox track is cut from its file. A podcast episode or audio book part that you have already downloaded is cut from the downloaded file; otherwise it is read from its web address. GETEM parts need your login session, so they are first downloaded to a temporary file, which is deleted again afterwards. If reading from the web address fails, freeAudio falls back to downloading the whole item first.
+- **Announcements:** NVDA says "Saving excerpt…" when it starts and "Excerpt saved: *file name*" when it is done. Saving runs in the background, so you can keep listening or working; long items read from the web can take a little while. If the same section is already being saved, the command tells you so instead of starting a second copy.
+- **Requirements:** saving excerpts uses ffmpeg, which is included with freeAudio. If it cannot be found, NVDA says so; the **ffmpeg.exe path** setting can point freeAudio to a different copy. If the marked bookmarks are less than half a second apart, nothing is saved.
 
 ### Bookmark Data Storage
 
@@ -960,7 +972,7 @@ The following options can be configured from NVDA Menu → Preferences → Setti
 | When Ctrl+Win+P is pressed three times | Selects what happens when the shortcut is pressed three times in quick succession: do nothing, open the favourites list, open station search, open the recording tab or open the timer tab. |
 | Automatically check for updates on startup | When enabled, a background update check runs each time NVDA starts; you are notified if a new version is found. When disabled, automatic checks stop but manual checks remain available. |
 | Check for Updates Now | A button that checks for a new version immediately, even when automatic checks are turned off. While the check runs, the button reads "Checking...". |
-| ffmpeg.exe path | Path to the ffmpeg.exe used for music recognition. If left blank, an ffmpeg.exe in the add-on folder is used automatically. |
+| ffmpeg.exe path | Path to the ffmpeg.exe used for music recognition and for saving audio excerpts between bookmarks. If left blank, an ffmpeg.exe in the add-on folder is used automatically. |
 | Recordings folder | Sets the folder where recorded files are saved. If left blank, the default location `Documents\freeAudio Recordings\` is used. A Browse button lets you select the folder interactively. Changes take effect immediately after saving. |
 | Modules | A checklist of the optional parts of freeAudio: **Podcasts**, **Audio Books** and **Jukebox**. All three are enabled by default. Unchecking one removes its tab from the Station Browser and its commands from NVDA's Input Gestures dialog, without deleting anything you have saved there (subscriptions, library, Jukebox list); checking it again brings everything back. Changes apply the next time the Station Browser is opened. |
 | Include network drives when searching the jukebox | When enabled, the Jukebox's **Search on devices** also scans network drives. Disabled by default, because searching a network share can take minutes, or hang if the share cannot be reached. |

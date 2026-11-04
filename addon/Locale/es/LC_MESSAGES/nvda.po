@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: freeAudio 2026.25.3\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-10-26 12:12+0300\n"
+"POT-Creation-Date: 2026-11-04 10:28+0300\n"
 "PO-Revision-Date: 2026-10-28 21:14+0100\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: Rémy Ruiz <remyruiz@gmail.com>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.10\n"
 "X-Poedit-Basepath: ../../../..\n"
@@ -89,8 +89,8 @@ msgstr "No se encontraron dispositivos de salida de audio"
 #. Translators: Spoken instead of showing a picker, when only one physical audio output device exists.
 #: addon\globalPlugins\freeAudio\audioDeviceMixin.py:63
 msgid ""
-"Only one physical audio output device is available. freeAudio uses the system "
-"default output."
+"Only one physical audio output device is available. freeAudio uses the "
+"system default output."
 msgstr ""
 "Solo hay disponible un dispositivo de salida de audio físico. freeAudio "
 "utiliza la salida predeterminada del sistema."
@@ -243,7 +243,8 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:91
 msgid "Playback speed control is only available for podcasts."
 msgstr ""
-"El control de la velocidad de reproducción solo está disponible para podcasts."
+"El control de la velocidad de reproducción solo está disponible para "
+"podcasts."
 
 #. Translators: Generic fallback spoken when the playback-rate change fails for an unrecognised reason.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:94
@@ -375,8 +376,8 @@ msgstr ""
 msgid ""
 "Bookmarks are available for audio books, podcasts and jukebox tracks only"
 msgstr ""
-"Los marcadores solo están disponibles para audiolibros, podcasts y pistas del "
-"jukebox"
+"Los marcadores solo están disponibles para audiolibros, podcasts y pistas "
+"del jukebox"
 
 #. Translators: Spoken when the current playback position can't be read, so no bookmark is added.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:62
@@ -401,56 +402,56 @@ msgid "Bookmark"
 msgstr "Marcador"
 
 #. Translators: Title of the dialog used to record a voice note for a bookmark.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:73
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:74
 msgid "Voice Note"
 msgstr "Nota de voz"
 
 #. Translators: Text of the voice-note recording dialog.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:79
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:80
 msgid "Recording from the microphone. Press Stop and Save when you are done."
 msgstr ""
 "Grabación desde el micrófono. Pulse Detener y Guardar cuando haya terminado."
 
 #. Translators: Button label; stops the voice-note recording and saves it to the bookmark.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:84
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:85
 msgid "&Stop and Save"
 msgstr "&Detener y Guardar"
 
 #. Translators: Spoken when the microphone can't be opened for a voice note.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:101
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:102
 msgid "Could not start recording. Check that a microphone is available."
 msgstr ""
 "No se pudo iniciar la grabación. Compruebe que hay un micrófono disponible."
 
 #. Translators: Spoken when voice-note recording has started.
 #. Translators: Tab label for the recording controls and active/past recordings list.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:105
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:106
 #: addon\globalPlugins\freeAudio\radioDialog.py:712
 msgid "Recording"
 msgstr "Grabación"
 
 #. Translators: Spoken when the recorded voice note could not be saved.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:112
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:113
 msgid "Could not save the voice note"
 msgstr "No se pudo guardar la nota de voz"
 
 #. Translators: Label above the list of bookmarks of the selected podcast episode / audio book / jukebox track.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:137
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:142
 msgid "Bookmarks:"
 msgstr "Marcadores:"
 
 #. Translators: Accessible name of the bookmarks list.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:140
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:145
 msgid "Bookmarks of the selected item"
 msgstr "Marcadores del elemento seleccionado"
 
 #. Translators: Marker appended to a bookmark's list row when it has a text note.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:158
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:163
 msgid "[text]"
 msgstr "[texto]"
 
 #. Translators: Marker appended to a bookmark's list row when it has a voice note.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:161
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:166
 msgid "[voice note]"
 msgstr "[nota de voz]"
 
@@ -459,11 +460,11 @@ msgstr "[nota de voz]"
 #. Translators: Spoken after unmarking a liked song in the multi-select removal flow; %s is the song string.
 #. Translators: Spoken after unmarking an audio book in the multi-select removal flow; %s is the book title.
 #. Translators: Spoken after unmarking a jukebox entry in the multi-select removal flow; %s is the entry title.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:249
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:254
 #: addon\globalPlugins\freeAudio\radioDialog.py:5022
 #: addon\globalPlugins\freeAudio\radioDialog.py:5835
-#: addon\globalPlugins\freeAudio\radioDialog.py:7890
-#: addon\globalPlugins\freeAudio\radioDialog.py:9079
+#: addon\globalPlugins\freeAudio\radioDialog.py:7966
+#: addon\globalPlugins\freeAudio\radioDialog.py:9156
 #, python-format
 msgid "Unmarked: %s"
 msgstr "Sin marcar: %s"
@@ -473,38 +474,38 @@ msgstr "Sin marcar: %s"
 #. Translators: Spoken after marking a liked song in the multi-select removal flow; %s is the song string.
 #. Translators: Spoken after marking an audio book in the multi-select removal flow; %s is the book title.
 #. Translators: Spoken after marking a jukebox entry in the multi-select removal flow; %s is the entry title.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:253
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:258
 #: addon\globalPlugins\freeAudio\radioDialog.py:5026
 #: addon\globalPlugins\freeAudio\radioDialog.py:5839
-#: addon\globalPlugins\freeAudio\radioDialog.py:7894
-#: addon\globalPlugins\freeAudio\radioDialog.py:9083
+#: addon\globalPlugins\freeAudio\radioDialog.py:7970
+#: addon\globalPlugins\freeAudio\radioDialog.py:9160
 #, python-format
 msgid "Marked: %s"
 msgstr "Marcado: %s"
 
 #. Translators: Prompt of the bookmark rename dialog; leaving it empty restores the default name.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:294
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:299
 msgid "Enter a new name for the bookmark (leave empty for the default name):"
 msgstr ""
 "Introduzca un nuevo nombre para el marcador (déjelo en blanco para usar el "
 "nombre predeterminado):"
 
 #. Translators: Title of the bookmark rename dialog.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:296
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:301
 msgid "Rename Bookmark"
 msgstr "Renombrar marcador"
 
 #. Translators: Spoken after renaming a bookmark; %s is its new name.
 #. Translators: Spoken after successfully renaming a station; %s is the new name.
 #. Translators: Spoken after successfully renaming a jukebox entry; %s is the new name.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:309
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:314
 #: addon\globalPlugins\freeAudio\radioDialog.py:3435
 #: addon\globalPlugins\freeAudio\radioDialog.py:5116
 #, python-format
 msgid "Renamed to: %s"
 msgstr "Renombrado en: %s"
 
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:320
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:325
 #, python-format
 msgid "Do you want to delete %d bookmark?"
 msgid_plural "Do you want to delete %d bookmarks?"
@@ -512,12 +513,12 @@ msgstr[0] "¿Quieres eliminar el marcador %d?"
 msgstr[1] "¿Quieres eliminar los marcadores %d?"
 
 #. Translators: Title of the delete-bookmarks confirmation dialog.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:325
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:330
 msgid "Delete Bookmarks"
 msgstr "Eliminar marcadores"
 
 #. Translators: Spoken after deleting bookmarks; %d is how many were deleted.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:337
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:342
 #, python-format
 msgid "%d bookmark deleted"
 msgid_plural "%d bookmarks deleted"
@@ -525,7 +526,7 @@ msgstr[0] "%d marcador eliminado"
 msgstr[1] "%d marcadores eliminados"
 
 #. Translators: Prompt of the bookmark text-note dialog; the text is spoken by NVDA when playback reaches the bookmark. Empty removes the text.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:350
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:355
 msgid ""
 "Text spoken when playback reaches this bookmark (leave empty to remove it):"
 msgstr ""
@@ -533,87 +534,133 @@ msgstr ""
 "para eliminarlo):"
 
 #. Translators: Title of the bookmark text-note dialog.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:352
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:357
 msgid "Bookmark Text"
 msgstr "Texto del marcador"
 
 #. Translators: Spoken after saving a bookmark's text note.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:364
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:369
 msgid "Text saved"
 msgstr "Texto guardado"
 
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:364
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:369
 msgid "Text removed"
 msgstr "Texto eliminado"
 
 #. Translators: Spoken after a voice note was saved to a bookmark.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:379
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:384
 msgid "Voice note saved"
 msgstr "Nota de voz guardada"
 
 #. Translators: Spoken after removing a bookmark's text and voice notes.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:390
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:395
 msgid "Notes removed"
 msgstr "Notas  eliminadas"
 
 #. Translators: Spoken when the repeat command is used without two or more marked bookmarks of the same item.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:397
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:404
 msgid "Mark at least two bookmarks of the same item with the period key first."
 msgstr ""
 "Marque al menos dos marcadores del mismo elemento con la tecla punto primero."
 
 #. Translators: Spoken when repeat mode starts; %(start)s and %(end)s are the positions it repeats between.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:406
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:421
 #, python-format
 msgid "Repeating between %(start)s and %(end)s"
 msgstr "Repitiendo entre %(start)s y %(end)s"
 
 #. Translators: Spoken when repeat mode between bookmarks is turned off.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:412
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:427
 msgid "Repeat stopped"
 msgstr "Repetición detenida"
 
+#. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:443
+msgid "The marked bookmarks are too close together to save an excerpt."
+msgstr ""
+
+#. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:451
+#, fuzzy
+msgid "Could not find the audio of this item."
+msgstr "No se pudo encontrar este audiolibro."
+
+#. Translators: Spoken when saving the audio between two bookmarks starts.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:459
+#, fuzzy
+msgid "Saving excerpt..."
+msgstr "Cargando los dispositivos..."
+
+#. Translators: Spoken when an audio excerpt was saved; %s is the file name.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:463
+#, fuzzy, python-format
+msgid "Excerpt saved: %s"
+msgstr "Reescaneado: %s"
+
+#. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:468
+#, fuzzy
+msgid "Could not save the excerpt: ffmpeg was not found."
+msgstr "No se pudo guardar la nota de voz"
+
+#. Translators: Spoken when saving an audio excerpt failed; %s is the error.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:471
+#, fuzzy, python-format
+msgid "Could not save the excerpt: %s"
+msgstr "No se pudo guardar la nota de voz"
+
+#. Translators: Spoken when the same excerpt is already being saved.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:478
+msgid "This excerpt is already being saved."
+msgstr ""
+
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:430
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:496
 msgid "&Play from Bookmark"
 msgstr "&Reproducir desde el marcador"
 
 #. Translators: Bookmark context-menu item; renames the selected bookmark.
 #. Translators: Context-menu item; renames the selected jukebox entry (a custom display name, not the underlying file/folder name).
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:432
-#: addon\globalPlugins\freeAudio\radioDialog.py:9438
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:498
+#: addon\globalPlugins\freeAudio\radioDialog.py:9515
 msgid "Re&name..."
 msgstr "Re&nombrar..."
 
 #. Translators: Bookmark context-menu item; deletes the bookmarks marked with '.' (or the focused one if none are marked).
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:434
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:500
 msgid "&Delete Selected"
 msgstr "&Eliminar seleccionado"
 
 #. Translators: Bookmark context-menu item; adds or edits a text note spoken by NVDA when playback reaches the bookmark.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:437
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:503
 msgid "Add or Edit &Text..."
 msgstr "Añadir o editar &texto..."
 
 #. Translators: Bookmark context-menu item; records a voice note that plays when playback reaches the bookmark.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:439
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:505
 msgid "Add &Voice Note..."
 msgstr "Añadir nota de &voz..."
 
 #. Translators: Bookmark context-menu item; removes the text and voice note of the bookmark.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:441
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:507
 msgid "&Clear Notes"
 msgstr "&Borrar notas"
 
 #. Translators: Bookmark context-menu item; plays the section between the bookmarks marked with '.' over and over.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:444
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:510
 msgid "&Repeat Between Marked Bookmarks"
 msgstr "&Repetir entre marcadores marcados"
 
 #. Translators: Bookmark context-menu item; turns off the repeat mode.
-#: addon\globalPlugins\freeAudio\bookmarkUI.py:446
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:512
 msgid "St&op Repeat"
 msgstr "Dete&ner la repetición"
+
+#. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
+#: addon\globalPlugins\freeAudio\bookmarkUI.py:515
+#, fuzzy
+msgid "Save &Excerpt Between Marked Bookmarks"
+msgstr "&Repetir entre marcadores marcados"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -645,7 +692,7 @@ msgstr "Desconocido"
 #. three names.
 #. Translators: Names in the audio-book-sources checklist below; see the comment above for why these reuse RadioDialog's existing source-label strings rather than new translations.
 #: addon\globalPlugins\freeAudio\getem.py:568
-#: addon\globalPlugins\freeAudio\radioDialog.py:7298
+#: addon\globalPlugins\freeAudio\radioDialog.py:7373
 #: addon\globalPlugins\freeAudio\settingsPanel.py:523
 msgid "GETEM"
 msgstr "GETEM"
@@ -680,8 +727,8 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\getem.py:756
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:231
 #: addon\globalPlugins\freeAudio\librivox.py:197
-#: addon\globalPlugins\freeAudio\radioDialog.py:7543
-#: addon\globalPlugins\freeAudio\radioDialog.py:8673
+#: addon\globalPlugins\freeAudio\radioDialog.py:7619
+#: addon\globalPlugins\freeAudio\radioDialog.py:8750
 msgid "Please enter a search term."
 msgstr "Por favor ingrese un término de búsqueda."
 
@@ -886,7 +933,7 @@ msgstr ""
 #. Translators: Fixed source label for LibriVox audiobooks, shown in the station-details dialog and the Audio Books tab (same role as getem.py's/gutenberg_audiobooks.py's 'audiobook_source').
 #. Translators: Source-name label for a book from the LibriVox catalog, shown alongside the audio-book details.
 #: addon\globalPlugins\freeAudio\librivox.py:339
-#: addon\globalPlugins\freeAudio\radioDialog.py:7293
+#: addon\globalPlugins\freeAudio\radioDialog.py:7368
 #: addon\globalPlugins\freeAudio\settingsPanel.py:523
 msgid "LibriVox"
 msgstr "LibriVox"
@@ -910,13 +957,14 @@ msgstr "No se pudo leer la lista de capítulos de este libro."
 #: addon\globalPlugins\freeAudio\librivox.py:569
 msgid "No playable audio file was found in this book's LibriVox feed."
 msgstr ""
-"No se encontró ningún archivo de audio reproducible en el feed de LibriVox de "
-"este libro."
+"No se encontró ningún archivo de audio reproducible en el feed de LibriVox "
+"de este libro."
 
 #. Translators: Name of an NVDA command; mutes/unmutes all of freeAudio's spoken notifications (station changes, playback state, recording, volume level) at once.
 #: addon\globalPlugins\freeAudio\miscTogglesMixin.py:34
 msgid ""
-"Toggle mute notifications (station changes, playback, recording, volume level)"
+"Toggle mute notifications (station changes, playback, recording, volume "
+"level)"
 msgstr ""
 "Alternar silenciar notificaciones (cambios de estación, reproducción, "
 "grabación, nivel de volumen)"
@@ -936,7 +984,8 @@ msgstr "Notificaciones reactivadas"
 #: addon\globalPlugins\freeAudio\miscTogglesMixin.py:53
 msgid "Enable or disable auto-announce track changes (ICY metadata)"
 msgstr ""
-"Activar o desactivar el anuncio automático de cambios de pista (metadatos ICY)"
+"Activar o desactivar el anuncio automático de cambios de pista (metadatos "
+"ICY)"
 
 #. Translators: Feature name reused as both the settings-panel checkbox label (with '&' marking its access key) and, with the '&' stripped, as %(effect)s in the toggle announcement above.
 #. Translators: Checkbox label for the track-change announcement setting (same feature as the toggleAnnounceTrackChanges command).
@@ -982,8 +1031,8 @@ msgid ""
 "and place ffmpeg.exe in the freeAudio addon folder, or set the path in "
 "settings."
 msgstr ""
-"ffmpeg.exe no encontrado. Descargar ffmpeg desde https://ffmpeg.org/"
-"download.html y coloque ffmpeg.exe en la carpeta del complemento freeAudio, o "
+"ffmpeg.exe no encontrado. Descargar ffmpeg desde https://ffmpeg.org/download."
+"html y coloque ffmpeg.exe en la carpeta del complemento freeAudio, o "
 "establezca la ruta en las opciones."
 
 #. Translators: Title of the Obligato mode setup dialog.
@@ -1048,7 +1097,8 @@ msgstr "Activar/desactivar el modo de música de fondo de Obligato"
 #. Translators: Spoken when the toggle command is pressed but the favourites list is empty, since Obligato can only play a saved favourite station.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:221
 msgid ""
-"No favourite stations. Add a station to favourites first to use Obligato mode."
+"No favourite stations. Add a station to favourites first to use Obligato "
+"mode."
 msgstr ""
 "No hay emisoras favoritas. Para usar el modo Obligato, primero añada una "
 "emisora a sus favoritos."
@@ -1109,10 +1159,10 @@ msgstr "Pausar o reanudar la reproducción de freeAudio"
 #: addon\globalPlugins\freeAudio\radioDialog.py:4163
 #: addon\globalPlugins\freeAudio\radioDialog.py:4737
 #: addon\globalPlugins\freeAudio\radioDialog.py:4792
-#: addon\globalPlugins\freeAudio\radioDialog.py:6586
-#: addon\globalPlugins\freeAudio\radioDialog.py:7869
-#: addon\globalPlugins\freeAudio\radioDialog.py:9054
-#: addon\globalPlugins\freeAudio\radioDialog.py:9156
+#: addon\globalPlugins\freeAudio\radioDialog.py:6587
+#: addon\globalPlugins\freeAudio\radioDialog.py:7945
+#: addon\globalPlugins\freeAudio\radioDialog.py:9131
+#: addon\globalPlugins\freeAudio\radioDialog.py:9233
 msgid "Paused"
 msgstr "En pausa"
 
@@ -1202,30 +1252,30 @@ msgid ""
 "Podcast episodes are not loaded yet. Open the freeAudio window and select "
 "this podcast once."
 msgstr ""
-"Los episodios del podcast aún no se han cargado. Abre la ventana de freeAudio "
-"y selecciona este podcast una vez."
+"Los episodios del podcast aún no se han cargado. Abre la ventana de "
+"freeAudio y selecciona este podcast una vez."
 
 #. Translators: Spoken when trying to play the previous episode while already on the first one in the list.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:755
-#: addon\globalPlugins\freeAudio\radioDialog.py:6993
+#: addon\globalPlugins\freeAudio\radioDialog.py:7068
 msgid "Already at first episode"
 msgstr "Ya en el primer episodio"
 
 #. Translators: Spoken when trying to play the next episode while already on the last one.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:757
-#: addon\globalPlugins\freeAudio\radioDialog.py:7010
+#: addon\globalPlugins\freeAudio\radioDialog.py:7085
 msgid "Already at last episode"
 msgstr "Ya en el último episodio"
 
 #. Translators: Spoken when cycling to the previous podcast feed while already on the first one.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:778
-#: addon\globalPlugins\freeAudio\radioDialog.py:7022
+#: addon\globalPlugins\freeAudio\radioDialog.py:7097
 msgid "Already at first feed"
 msgstr "Ya en el primer feed"
 
 #. Translators: Spoken when cycling to the next podcast feed while already on the last one.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:780
-#: addon\globalPlugins\freeAudio\radioDialog.py:7046
+#: addon\globalPlugins\freeAudio\radioDialog.py:7121
 msgid "Already at last feed"
 msgstr "Ya en el último feed"
 
@@ -1233,60 +1283,60 @@ msgstr "Ya en el último feed"
 #. Translators: Spoken when F3 (previous book) is pressed with no books in the audio-book library.
 #. Translators: Spoken when F4 (next book) is pressed with no books in the audio-book library.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:838
-#: addon\globalPlugins\freeAudio\radioDialog.py:8091
-#: addon\globalPlugins\freeAudio\radioDialog.py:8113
+#: addon\globalPlugins\freeAudio\radioDialog.py:8167
+#: addon\globalPlugins\freeAudio\radioDialog.py:8189
 msgid "Library is empty"
 msgstr "La biblioteca está vacía"
 
 #. Translators: Spoken when previous book is pressed while already on the first book.
 #. Translators: Spoken when F3 (previous book) is pressed while already on the first book.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:850
-#: addon\globalPlugins\freeAudio\radioDialog.py:8096
+#: addon\globalPlugins\freeAudio\radioDialog.py:8172
 msgid "Already at first book"
 msgstr "Ya en el primer libro"
 
 #. Translators: Spoken when next book is pressed while already on the last book.
 #. Translators: Spoken when F4 (next book) is pressed while already on the last book.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:852
-#: addon\globalPlugins\freeAudio\radioDialog.py:8118
+#: addon\globalPlugins\freeAudio\radioDialog.py:8194
 msgid "Already at last book"
 msgstr "Ya en el último libro"
 
 #. Translators: Spoken when previous part is pressed while already on the first part of a book.
 #. Translators: Spoken when Shift+F3 (previous part) is pressed while already on the first part of a book.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:870
-#: addon\globalPlugins\freeAudio\radioDialog.py:8149
+#: addon\globalPlugins\freeAudio\radioDialog.py:8225
 msgid "Already at first part"
 msgstr "Ya en la primera parte"
 
 #. Translators: Spoken when next part is pressed and there is no next part (last part, or a single-part work).
 #. Translators: Spoken when Shift+F4 (next part) is pressed and there is no next part at all (single-part work).
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:872
-#: addon\globalPlugins\freeAudio\radioDialog.py:8173
+#: addon\globalPlugins\freeAudio\radioDialog.py:8249
 msgid "Already at last part"
 msgstr "Ya en la última parte"
 
 #. Translators: Spoken when trying to play the previous jukebox track while already on the first one.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:887
-#: addon\globalPlugins\freeAudio\radioDialog.py:7119
+#: addon\globalPlugins\freeAudio\radioDialog.py:7194
 msgid "Already at first track"
 msgstr "Ya en la primera pista"
 
 #. Translators: Spoken when trying to play the next jukebox track while already on the last one.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:889
-#: addon\globalPlugins\freeAudio\radioDialog.py:7137
+#: addon\globalPlugins\freeAudio\radioDialog.py:7212
 msgid "Already at last track"
 msgstr "Ya en la última pista"
 
 #. Translators: Spoken when cycling to the previous jukebox library entry while already on the first one.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:924
-#: addon\globalPlugins\freeAudio\radioDialog.py:7148
+#: addon\globalPlugins\freeAudio\radioDialog.py:7223
 msgid "Already at first item"
 msgstr "Ya en el primer elemento"
 
 #. Translators: Spoken when cycling to the next jukebox library entry while already on the last one.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:926
-#: addon\globalPlugins\freeAudio\radioDialog.py:7173
+#: addon\globalPlugins\freeAudio\radioDialog.py:7248
 msgid "Already at last item"
 msgstr "Ya en el último elemento"
 
@@ -1296,8 +1346,8 @@ msgid ""
 "Previous station, podcast episode, audio book or jukebox track (F3 in the "
 "freeAudio window)"
 msgstr ""
-"Estación anterior, episodio de podcast, audiolibro o pista del jukebox (F3 en "
-"la ventana de freeAudio)"
+"Estación anterior, episodio de podcast, audiolibro o pista del jukebox (F3 "
+"en la ventana de freeAudio)"
 
 #. Translators: Name of an NVDA command; same as F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:944
@@ -1314,8 +1364,8 @@ msgid ""
 "Previous podcast feed, audio book part or jukebox entry (Shift+F3 in the "
 "freeAudio window)"
 msgstr ""
-"Feed anterior de podcast, parte del audiolibro o entrada del jukebox "
-"(Shift+F3 en la ventana de freeAudio)"
+"Feed anterior de podcast, parte del audiolibro o entrada del jukebox (Shift"
+"+F3 en la ventana de freeAudio)"
 
 #. Translators: Name of an NVDA command; same as Shift+F4 in the freeAudio window, but works while the window is closed.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:962
@@ -1323,16 +1373,16 @@ msgid ""
 "Next podcast feed, audio book part or jukebox entry (Shift+F4 in the "
 "freeAudio window)"
 msgstr ""
-"Feed siguiente de podcast, parte del audiolibro o entrada del jukebox "
-"(Shift+F4 en la ventana de freeAudio)"
+"Feed siguiente de podcast, parte del audiolibro o entrada del jukebox (Shift"
+"+F4 en la ventana de freeAudio)"
 
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1110
 msgid ""
 "Could not resume the last audio book - it may have been removed from your "
 "library."
 msgstr ""
-"No se pudo reanudar el último audiolibro; es posible que se haya eliminado de "
-"tu biblioteca."
+"No se pudo reanudar el último audiolibro; es posible que se haya eliminado "
+"de tu biblioteca."
 
 #. Translators: Fallback station name used in log/error contexts if the station dict has no name field.
 #: addon\globalPlugins\freeAudio\playbackCoreMixin.py:1148
@@ -1569,7 +1619,7 @@ msgstr[1] "%d partes"
 #. Translators: Field:value line for the podcast's/episode's author; see this function's docstring above for why it reuses the feed-details 'By:' string.
 #. Translators: Field:value line for the feed's author, in the feed-details text block.
 #: addon\globalPlugins\freeAudio\radioDialog.py:546
-#: addon\globalPlugins\freeAudio\radioDialog.py:6330
+#: addon\globalPlugins\freeAudio\radioDialog.py:6331
 #, python-format
 msgid "By: %s"
 msgstr "Por: %s"
@@ -1648,7 +1698,7 @@ msgstr "Dispositivo de salida:"
 #. Translators: Placeholder shown in the output-device dropdown while the device list is still being fetched.
 #. Translators: Spoken while resolving a pasted book-detail URL directly to one book (rather than running a keyword search).
 #: addon\globalPlugins\freeAudio\radioDialog.py:742
-#: addon\globalPlugins\freeAudio\radioDialog.py:7594
+#: addon\globalPlugins\freeAudio\radioDialog.py:7670
 msgid "Loading..."
 msgstr "Cargando..."
 
@@ -1770,7 +1820,7 @@ msgstr ""
 #. Translators: Button label; closes the station browser dialog.
 #. Translators: Button label; closes the lyrics dialog.
 #: addon\globalPlugins\freeAudio\radioDialog.py:842
-#: addon\globalPlugins\freeAudio\radioDialog.py:9498
+#: addon\globalPlugins\freeAudio\radioDialog.py:9575
 msgid "&Close"
 msgstr "&Cerrar"
 
@@ -1783,7 +1833,8 @@ msgstr ""
 
 #. Translators: Spoken when the Audio Books shortcut is pressed but the Audio Books module is disabled in settings.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1009
-msgid "Audio Books are disabled - enable them in freeAudio settings to use this"
+msgid ""
+"Audio Books are disabled - enable them in freeAudio settings to use this"
 msgstr ""
 "Los audiolibros están desactivados - actívelos en los ajustes de freeAudio "
 "para usar esto"
@@ -1829,11 +1880,11 @@ msgstr "Guardar pe&rfil de audio para esta estación"
 #. Translators: Jukebox context menu item - removes the saved audio profile from this file
 #: addon\globalPlugins\freeAudio\radioDialog.py:1094
 #: addon\globalPlugins\freeAudio\radioDialog.py:3838
-#: addon\globalPlugins\freeAudio\radioDialog.py:7101
-#: addon\globalPlugins\freeAudio\radioDialog.py:7217
-#: addon\globalPlugins\freeAudio\radioDialog.py:8291
-#: addon\globalPlugins\freeAudio\radioDialog.py:9185
-#: addon\globalPlugins\freeAudio\radioDialog.py:9456
+#: addon\globalPlugins\freeAudio\radioDialog.py:7176
+#: addon\globalPlugins\freeAudio\radioDialog.py:7292
+#: addon\globalPlugins\freeAudio\radioDialog.py:8367
+#: addon\globalPlugins\freeAudio\radioDialog.py:9262
+#: addon\globalPlugins\freeAudio\radioDialog.py:9533
 msgid "Clear Audio Prof&ile"
 msgstr "Borrar perf&il de audio"
 
@@ -1903,7 +1954,7 @@ msgstr "Límite de resultados:"
 #. Translators: Label for the audio-book search field (searches GETEM/LibriVox/Project Gutenberg catalogs together).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1181
 #: addon\globalPlugins\freeAudio\radioDialog.py:6036
-#: addon\globalPlugins\freeAudio\radioDialog.py:7337
+#: addon\globalPlugins\freeAudio\radioDialog.py:7412
 msgid "Search:"
 msgstr "Buscar:"
 
@@ -1954,8 +2005,8 @@ msgstr "Filtrar las estaciones"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1398
 #: addon\globalPlugins\freeAudio\radioDialog.py:1403
 #: addon\globalPlugins\freeAudio\radioDialog.py:5351
-#: addon\globalPlugins\freeAudio\radioDialog.py:9632
-#: addon\globalPlugins\freeAudio\radioDialog.py:9635
+#: addon\globalPlugins\freeAudio\radioDialog.py:9709
+#: addon\globalPlugins\freeAudio\radioDialog.py:9712
 msgid "Start time (HH:MM):"
 msgstr "Hora de inicio (HH:MM):"
 
@@ -1964,8 +2015,8 @@ msgstr "Hora de inicio (HH:MM):"
 #. Translators: Label for the recording-duration field (also used as its accessible name below); value is in minutes.
 #. Translators: Accessible name for the duration field (same text as its static label above).
 #: addon\globalPlugins\freeAudio\radioDialog.py:1262
-#: addon\globalPlugins\freeAudio\radioDialog.py:9640
-#: addon\globalPlugins\freeAudio\radioDialog.py:9643
+#: addon\globalPlugins\freeAudio\radioDialog.py:9717
+#: addon\globalPlugins\freeAudio\radioDialog.py:9720
 msgid "Duration (minutes):"
 msgstr "Duración (minutos):"
 
@@ -1975,7 +2026,7 @@ msgstr "Duración (minutos):"
 #. Translators: Label above the recurrence radio buttons (once vs. weekly) - same wording as the Recording tab's scheduling section.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1272
 #: addon\globalPlugins\freeAudio\radioDialog.py:1412
-#: addon\globalPlugins\freeAudio\radioDialog.py:9648
+#: addon\globalPlugins\freeAudio\radioDialog.py:9725
 msgid "Recurrence:"
 msgstr "Recurrencia:"
 
@@ -1984,7 +2035,7 @@ msgstr "Recurrencia:"
 #. Translators: Radio button: this is a single one-time recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1278
 #: addon\globalPlugins\freeAudio\radioDialog.py:1418
-#: addon\globalPlugins\freeAudio\radioDialog.py:9650
+#: addon\globalPlugins\freeAudio\radioDialog.py:9727
 msgid "Only &once"
 msgstr "Solo &una vez"
 
@@ -1997,7 +2048,7 @@ msgstr "Solo &una vez"
 #. Translators: Radio button: this recording repeats every week on the checked days.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1287
 #: addon\globalPlugins\freeAudio\radioDialog.py:1427
-#: addon\globalPlugins\freeAudio\radioDialog.py:9656
+#: addon\globalPlugins\freeAudio\radioDialog.py:9733
 msgid "Repeat &weekly"
 msgstr "Repetir &semanalmente"
 
@@ -2011,8 +2062,8 @@ msgstr "Repetir &semanalmente"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1311
 #: addon\globalPlugins\freeAudio\radioDialog.py:1437
 #: addon\globalPlugins\freeAudio\radioDialog.py:1449
-#: addon\globalPlugins\freeAudio\radioDialog.py:9671
-#: addon\globalPlugins\freeAudio\radioDialog.py:9675
+#: addon\globalPlugins\freeAudio\radioDialog.py:9748
+#: addon\globalPlugins\freeAudio\radioDialog.py:9752
 msgid "Active days:"
 msgstr "Días activos:"
 
@@ -2025,7 +2076,7 @@ msgstr "Días activos:"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9667
+#: addon\globalPlugins\freeAudio\radioDialog.py:9744
 msgid "Monday"
 msgstr "Lunes"
 
@@ -2034,7 +2085,7 @@ msgstr "Lunes"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9667
+#: addon\globalPlugins\freeAudio\radioDialog.py:9744
 msgid "Tuesday"
 msgstr "Martes"
 
@@ -2043,7 +2094,7 @@ msgstr "Martes"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9667
+#: addon\globalPlugins\freeAudio\radioDialog.py:9744
 msgid "Wednesday"
 msgstr "Miércoles"
 
@@ -2052,7 +2103,7 @@ msgstr "Miércoles"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1982
 #: addon\globalPlugins\freeAudio\radioDialog.py:5399
 #: addon\globalPlugins\freeAudio\radioDialog.py:5562
-#: addon\globalPlugins\freeAudio\radioDialog.py:9667
+#: addon\globalPlugins\freeAudio\radioDialog.py:9744
 msgid "Thursday"
 msgstr "Jueves"
 
@@ -2061,7 +2112,7 @@ msgstr "Jueves"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1983
 #: addon\globalPlugins\freeAudio\radioDialog.py:5400
 #: addon\globalPlugins\freeAudio\radioDialog.py:5563
-#: addon\globalPlugins\freeAudio\radioDialog.py:9668
+#: addon\globalPlugins\freeAudio\radioDialog.py:9745
 msgid "Friday"
 msgstr "Viernes"
 
@@ -2070,7 +2121,7 @@ msgstr "Viernes"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1983
 #: addon\globalPlugins\freeAudio\radioDialog.py:5400
 #: addon\globalPlugins\freeAudio\radioDialog.py:5563
-#: addon\globalPlugins\freeAudio\radioDialog.py:9668
+#: addon\globalPlugins\freeAudio\radioDialog.py:9745
 msgid "Saturday"
 msgstr "Sábado"
 
@@ -2079,7 +2130,7 @@ msgstr "Sábado"
 #: addon\globalPlugins\freeAudio\radioDialog.py:1983
 #: addon\globalPlugins\freeAudio\radioDialog.py:5400
 #: addon\globalPlugins\freeAudio\radioDialog.py:5563
-#: addon\globalPlugins\freeAudio\radioDialog.py:9668
+#: addon\globalPlugins\freeAudio\radioDialog.py:9745
 msgid "Sunday"
 msgstr "Domingo"
 
@@ -2087,20 +2138,20 @@ msgstr "Domingo"
 #. --- Playback mode ---
 #. Translators: Label above the two playback-mode radio buttons for this scheduled recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1319
-#: addon\globalPlugins\freeAudio\radioDialog.py:9684
+#: addon\globalPlugins\freeAudio\radioDialog.py:9761
 msgid "Playback during recording:"
 msgstr "Reproducción durante la grabación:"
 
 #. Translators: Radio button: play the station out loud while also recording it.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1324
-#: addon\globalPlugins\freeAudio\radioDialog.py:9686
+#: addon\globalPlugins\freeAudio\radioDialog.py:9763
 msgid "Record while &listening (play and record simultaneously)"
 msgstr "Grabar mientras &escuchas (reproducir y grabar simultáneamente)"
 
 #. Translators: Radio button: record silently, without audio output, to save resources.
 #. Translators: Radio button: record silently, without audio output.
 #: addon\globalPlugins\freeAudio\radioDialog.py:1330
-#: addon\globalPlugins\freeAudio\radioDialog.py:9688
+#: addon\globalPlugins\freeAudio\radioDialog.py:9765
 msgid "Record &only (no audio output)"
 msgstr "&Solo grabación (sin salida de audio)"
 
@@ -2236,7 +2287,7 @@ msgstr "La grabación no está disponible"
 #. Translators: Same time-format error as the Add Schedule form, shown here when saving an edited schedule with an invalid time.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2079
 #: addon\globalPlugins\freeAudio\radioDialog.py:5481
-#: addon\globalPlugins\freeAudio\radioDialog.py:9747
+#: addon\globalPlugins\freeAudio\radioDialog.py:9824
 msgid "Invalid time format. Use HH:MM"
 msgstr "Formato de hora no válido. Utilice HH:MM"
 
@@ -2273,7 +2324,8 @@ msgstr "Conflicto de programación"
 #: addon\globalPlugins\freeAudio\radioDialog.py:2190
 #, python-format
 msgid "Schedule added: %(station)s on %(date)s at %(time)s (%(mode)s)"
-msgstr "Programación añadida: %(station)s el %(date)s a las %(time)s (%(mode)s)"
+msgstr ""
+"Programación añadida: %(station)s el %(date)s a las %(time)s (%(mode)s)"
 
 #. Translators: Spoken after deleting a scheduled recording.
 #: addon\globalPlugins\freeAudio\radioDialog.py:2224
@@ -2515,8 +2567,8 @@ msgid ""
 "Supported files (*.json;*.m3u)|*.json;*.m3u|JSON favourites (*.json)|*.json|"
 "M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Archivos soportados (*.json;*.m3u)|*.json;*.m3u|Favoritos JSON (*.json)|"
-"*.json|Lista de reproducción M3U (*.m3u)|*.m3u"
+"Archivos soportados (*.json;*.m3u)|*.json;*.m3u|Favoritos JSON (*.json)|*."
+"json|Lista de reproducción M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing favourites.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
@@ -2775,15 +2827,15 @@ msgstr "%(name)s: la comprobación del flujo falló — %(detail)s"
 #. Translators: Context-menu item; bulk-removes every jukebox entry marked with '.', asking for confirmation once for the whole batch.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3815
 #: addon\globalPlugins\freeAudio\radioDialog.py:5917
-#: addon\globalPlugins\freeAudio\radioDialog.py:8302
-#: addon\globalPlugins\freeAudio\radioDialog.py:9433
+#: addon\globalPlugins\freeAudio\radioDialog.py:8378
+#: addon\globalPlugins\freeAudio\radioDialog.py:9510
 msgid "Remove &Selected"
 msgstr "Eliminar &seleccionado"
 
 #. Translators: Context-menu item; assigns a user-typed folder/group name to every '.'-marked favourite (or just the focused one if none are marked), so favourites can be organised into groups manually - not only ones imported with a group-title tag.
 #. Translators: Context-menu item; assigns a user-typed group name to every '.'-marked jukebox entry (or just the focused one if none are marked), mirroring the same feature for favourites.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3825
-#: addon\globalPlugins\freeAudio\radioDialog.py:9442
+#: addon\globalPlugins\freeAudio\radioDialog.py:9519
 msgid "Assign to &Group..."
 msgstr "Asignar al &grupo..."
 
@@ -2791,7 +2843,7 @@ msgstr "Asignar al &grupo..."
 #. Translators: Context-menu item; re-checks whether the station's stream URL is currently reachable.
 #. Translators: Button label; checks whether the typed stream URL is reachable and playable before adding the station.
 #: addon\globalPlugins\freeAudio\radioDialog.py:3846
-#: addon\globalPlugins\freeAudio\radioDialog.py:9539
+#: addon\globalPlugins\freeAudio\radioDialog.py:9616
 msgid "&Test URL"
 msgstr "&Probar URL"
 
@@ -3003,8 +3055,8 @@ msgstr[1] ""
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5233
 msgid ""
-"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|"
-"*.json|M3U playlist (*.m3u)|*.m3u"
+"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|*."
+"json|M3U playlist (*.m3u)|*.m3u"
 msgstr ""
 "Archivos soportados (*.json;*.m3u)|*.json;*.m3u|Biblioteca de jukebox JSON "
 "(*.json)|*.json|Lista de reproducción M3U (*.m3u)|*.m3u"
@@ -3156,7 +3208,7 @@ msgstr "Mostrar &letra"
 #. Translators: Context-menu item; removes the selected entry from the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5645
 #: addon\globalPlugins\freeAudio\radioDialog.py:5912
-#: addon\globalPlugins\freeAudio\radioDialog.py:9429
+#: addon\globalPlugins\freeAudio\radioDialog.py:9506
 msgid "Re&move"
 msgstr "Eli&minar"
 
@@ -3272,8 +3324,8 @@ msgstr ""
 #. _set_podcast_results_visible()'s reasoning exactly.
 #. Translators: Label above the list of audio files found by the device search.
 #: addon\globalPlugins\freeAudio\radioDialog.py:6050
-#: addon\globalPlugins\freeAudio\radioDialog.py:7347
-#: addon\globalPlugins\freeAudio\radioDialog.py:8532
+#: addon\globalPlugins\freeAudio\radioDialog.py:7422
+#: addon\globalPlugins\freeAudio\radioDialog.py:8608
 msgid "Search results:"
 msgstr "Resultados de la búsqueda:"
 
@@ -3333,65 +3385,65 @@ msgstr "Episodios de podcasts"
 
 #. Translators: Accessible name for the read-only episode-details text field.
 #. Translators: Field-name row header for the multi-line block of episode metadata (author, published date, duration, description) built by radioDialog.py's _format_podcast_episode_lines().
-#: addon\globalPlugins\freeAudio\radioDialog.py:6121
+#: addon\globalPlugins\freeAudio\radioDialog.py:6122
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:847
 msgid "Episode details"
 msgstr "Detalles del episodio"
 
 #. Translators: Button label; downloads the currently selected episode to disk.
 #. Translators: Context-menu item; downloads a permanent local copy of the selected episode.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6130
-#: addon\globalPlugins\freeAudio\radioDialog.py:7200
+#: addon\globalPlugins\freeAudio\radioDialog.py:6131
+#: addon\globalPlugins\freeAudio\radioDialog.py:7275
 msgid "&Download Episode"
 msgstr "&Descargar episodio"
 
 #. Translators: Spoken when refreshing every subscribed podcast feed at once (as opposed to a single feed).
-#: addon\globalPlugins\freeAudio\radioDialog.py:6229
+#: addon\globalPlugins\freeAudio\radioDialog.py:6230
 msgid "Updating podcast feeds..."
 msgstr "Actualizando feeds de podcasts..."
 
 #. Translators: Spoken after all subscribed feeds finish refreshing.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6247
+#: addon\globalPlugins\freeAudio\radioDialog.py:6248
 msgid "Podcast feeds updated."
 msgstr "Feeds de podcast actualizados."
 
 #. Translators: Spoken when subscribing to a feed by pasted URL (as opposed to from a search result).
-#: addon\globalPlugins\freeAudio\radioDialog.py:6255
+#: addon\globalPlugins\freeAudio\radioDialog.py:6256
 msgid "Fetching podcast feed..."
 msgstr "Obteniendo feed de podcast..."
 
 #. Translators: Spoken when subscribing to a feed fails; %s is the underlying error.
 #. Translators: Same error as _on_podcast_add_done, spoken here after subscribing directly from a search result instead of a pasted URL.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6267
-#: addon\globalPlugins\freeAudio\radioDialog.py:6981
+#: addon\globalPlugins\freeAudio\radioDialog.py:6268
+#: addon\globalPlugins\freeAudio\radioDialog.py:7056
 #, python-format
 msgid "Could not add feed: %s"
 msgstr "No se pudo añadir el feed: %s"
 
 #. Translators: Spoken after successfully subscribing to a feed; %s is the feed title.
 #. Translators: Same confirmation as _on_podcast_add_done, spoken here after subscribing directly from a search result.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6272
-#: addon\globalPlugins\freeAudio\radioDialog.py:6984
+#: addon\globalPlugins\freeAudio\radioDialog.py:6273
+#: addon\globalPlugins\freeAudio\radioDialog.py:7059
 #, python-format
 msgid "Feed added: %s"
 msgstr "Feed añadido: %s"
 
 #. Translators: Spoken after saving a podcast-feed-specific audio profile; %(feed)s is the feed title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6309
+#: addon\globalPlugins\freeAudio\radioDialog.py:6310
 #, python-format
 msgid "Audio profile saved for %(feed)s"
 msgstr "Perfil de audio guardado para %(feed)s"
 
 #. Translators: Spoken after clearing a feed's saved audio profile; %(feed)s is the feed title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6319
+#: addon\globalPlugins\freeAudio\radioDialog.py:6320
 #, python-format
 msgid "Audio profile cleared for %(feed)s"
 msgstr "Perfil de audio borrado para %(feed)s"
 
 #. Translators: Plural forms for the episode-count line in the feed-details text block.
 #. Translators: Plural forms spoken after filtering the episode list; %d is how many match. Same wording as the feed-details episode count above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6333
-#: addon\globalPlugins\freeAudio\radioDialog.py:6400
+#: addon\globalPlugins\freeAudio\radioDialog.py:6334
+#: addon\globalPlugins\freeAudio\radioDialog.py:6401
 #, python-format
 msgid "%d episode"
 msgid_plural "%d episodes"
@@ -3399,48 +3451,48 @@ msgstr[0] "%d episodio"
 msgstr[1] "%d episodios"
 
 #. Translators: Spoken when the episode filter matches nothing.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6397
+#: addon\globalPlugins\freeAudio\radioDialog.py:6398
 msgid "No episodes found"
 msgstr "No se encontraron episodios"
 
 #. Translators: Spoken when manually refreshing a single feed (as opposed to all feeds); %s is the feed title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6429
+#: addon\globalPlugins\freeAudio\radioDialog.py:6430
 #, python-format
 msgid "Refreshing feed: %s"
 msgstr "Actualizando feed: %s"
 
 #. Translators: Spoken when manually refreshing a podcast feed fails; %s is the underlying error.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6440
+#: addon\globalPlugins\freeAudio\radioDialog.py:6441
 #, python-format
 msgid "Refresh failed: %s"
 msgstr "Error al actualizar: %s"
 
 #. Translators: Spoken after successfully refreshing a feed; %s is the feed title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6443
+#: addon\globalPlugins\freeAudio\radioDialog.py:6444
 #, python-format
 msgid "Feed refreshed: %s"
 msgstr "Feed actualizado: %s"
 
 #. Translators: Body of the unsubscribe-confirmation dialog; %s is the podcast feed title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6458
+#: addon\globalPlugins\freeAudio\radioDialog.py:6459
 #, python-format
 msgid "Do you want to remove the feed \"%s\"?"
 msgstr "¿Quieres eliminar el feed \"%s\"?"
 
 #. Translators: Title of the unsubscribe-confirmation dialog.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6460
+#: addon\globalPlugins\freeAudio\radioDialog.py:6461
 msgid "Remove Feed"
 msgstr "Eliminar Feed"
 
 #. Translators: Spoken after successfully unsubscribing from a feed; %s is the feed title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6478
+#: addon\globalPlugins\freeAudio\radioDialog.py:6479
 #, python-format
 msgid "Feed removed: %s"
 msgstr "Feed eliminado: %s"
 
 #. Translators: Spoken when trying to download an episode that was already downloaded before; %s is the existing filename.
 #. Translators: Spoken when the episode was already downloaded before; %s is the existing filename. Same wording as the Podcasts tab download action.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6748
+#: addon\globalPlugins\freeAudio\radioDialog.py:6823
 #: addon\globalPlugins\freeAudio\recordingMixin.py:55
 #, python-format
 msgid "File already exists: %s"
@@ -3448,7 +3500,7 @@ msgstr "El archivo ya existe: %s"
 
 #. Translators: Spoken when an episode download starts; %s is the episode title.
 #. Translators: Spoken when the Ctrl+Win+V episode download starts; %s is the episode title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6752
+#: addon\globalPlugins\freeAudio\radioDialog.py:6827
 #: addon\globalPlugins\freeAudio\recordingMixin.py:59
 #, python-format
 msgid "Downloading: %s"
@@ -3457,8 +3509,8 @@ msgstr "Descargando: %s"
 #. Translators: Spoken when a podcast episode download finishes; %s is the saved filename.
 #. Translators: Spoken when every part of a book downloaded successfully; %s is the book title.
 #. Translators: Spoken when the Ctrl+Win+V episode download finishes; %s is the saved filename.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6759
-#: addon\globalPlugins\freeAudio\radioDialog.py:8490
+#: addon\globalPlugins\freeAudio\radioDialog.py:6834
+#: addon\globalPlugins\freeAudio\radioDialog.py:8566
 #: addon\globalPlugins\freeAudio\recordingMixin.py:65
 #, python-format
 msgid "Download complete: %s"
@@ -3468,8 +3520,8 @@ msgstr "Descarga finalizada: %s"
 #. Translators: Spoken when a book download fails entirely (zero parts saved); %s is the error message, or the book title if no specific error was captured.
 #. Translators: Spoken when the Ctrl+Win+V episode download fails; %s is the underlying error.
 #. Translators: Spoken when downloading the new-version installer file fails; %s is the underlying error message.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6762
-#: addon\globalPlugins\freeAudio\radioDialog.py:8501
+#: addon\globalPlugins\freeAudio\radioDialog.py:6837
+#: addon\globalPlugins\freeAudio\radioDialog.py:8577
 #: addon\globalPlugins\freeAudio\recordingMixin.py:68
 #: addon\globalPlugins\freeAudio\__init__.py:1662
 #, python-format
@@ -3477,113 +3529,113 @@ msgid "Download failed: %s"
 msgstr "Descarga fallida: %s"
 
 #. Translators: Spoken when the podcast search/subscribe field is submitted empty.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6801
+#: addon\globalPlugins\freeAudio\radioDialog.py:6876
 msgid "Please enter a search term or podcast feed URL."
 msgstr ""
 "Por favor, introduzca un término de búsqueda o la URL del feed del podcast."
 
 #. Translators: Spoken when a podcast keyword search starts.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6813
+#: addon\globalPlugins\freeAudio\radioDialog.py:6888
 msgid "Searching for podcasts..."
 msgstr "Buscando podcasts..."
 
 #. Translators: Spoken when a podcast keyword search returns no results.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6827
+#: addon\globalPlugins\freeAudio\radioDialog.py:6902
 msgid "No podcasts found."
 msgstr "No se encontraron podcasts."
 
 #. Translators: Spoken after a podcast keyword search finds results; %d is the count.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6833
+#: addon\globalPlugins\freeAudio\radioDialog.py:6908
 #, python-format
 msgid "%d podcasts found."
 msgstr "%d podcasts encontrados."
 
 #. Translators: Placeholder row shown in the episode-preview list when the selected search result has no usable feed link.
 #. Translators: Spoken when trying to subscribe directly from a search result that has no usable feed link.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6856
-#: addon\globalPlugins\freeAudio\radioDialog.py:6966
+#: addon\globalPlugins\freeAudio\radioDialog.py:6931
+#: addon\globalPlugins\freeAudio\radioDialog.py:7041
 msgid "This podcast has no feed URL."
 msgstr "Este podcast no tiene URL de feed."
 
 #. Translators: Placeholder row shown in the episode-preview list while fetching a feed to preview.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6862
+#: addon\globalPlugins\freeAudio\radioDialog.py:6937
 msgid "Loading episodes..."
 msgstr "Cargando los episodios..."
 
 #. Translators: Placeholder row shown in the episode-preview list when a previewed feed has no episodes.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6880
+#: addon\globalPlugins\freeAudio\radioDialog.py:6955
 msgid "No episodes found."
 msgstr "No se encontraron episodios."
 
 #. Translators: Same Preview/Stop Preview toggle pattern as the GETEM/jukebox context menus, applied to a podcast episode preview.
 #. Translators: Context-menu item label toggles between these two: 'Preview' plays a short sample of the selected search result before adding it, 'Stop Preview' appears while that sample is playing.
 #. Translators: Same Preview/Stop Preview toggle pattern as the GETEM search-result context menu, applied to a jukebox device-search result.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6946
-#: addon\globalPlugins\freeAudio\radioDialog.py:7759
-#: addon\globalPlugins\freeAudio\radioDialog.py:8778
+#: addon\globalPlugins\freeAudio\radioDialog.py:7021
+#: addon\globalPlugins\freeAudio\radioDialog.py:7835
+#: addon\globalPlugins\freeAudio\radioDialog.py:8855
 msgid "&Stop Preview"
 msgstr "&Detener vista previa"
 
-#: addon\globalPlugins\freeAudio\radioDialog.py:6946
-#: addon\globalPlugins\freeAudio\radioDialog.py:7759
-#: addon\globalPlugins\freeAudio\radioDialog.py:8778
+#: addon\globalPlugins\freeAudio\radioDialog.py:7021
+#: addon\globalPlugins\freeAudio\radioDialog.py:7835
+#: addon\globalPlugins\freeAudio\radioDialog.py:8855
 msgid "&Preview"
 msgstr "&Vista previa"
 
 #. Translators: Spoken when subscribing to a feed directly from a search result.
-#: addon\globalPlugins\freeAudio\radioDialog.py:6970
+#: addon\globalPlugins\freeAudio\radioDialog.py:7045
 msgid "Adding feed..."
 msgstr "Añadiendo feed..."
 
 #. Translators: Context-menu item; subscribes to the selected podcast search result.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7068
+#: addon\globalPlugins\freeAudio\radioDialog.py:7143
 msgid "&Subscribe"
 msgstr "&Suscríbete"
 
 #. Translators: Context-menu item; re-fetches the selected feed for new episodes right now.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7087
+#: addon\globalPlugins\freeAudio\radioDialog.py:7162
 msgid "&Refresh Feed"
 msgstr "&Actualizar Feed"
 
 #. Translators: Context-menu item; unsubscribes from the selected feed.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7091
+#: addon\globalPlugins\freeAudio\radioDialog.py:7166
 msgid "Re&move Feed"
 msgstr "Eli&minar Feed"
 
 #. Translators: Context menu item - saves an audio profile (volume/effects/speed) that applies to every episode of this podcast
-#: addon\globalPlugins\freeAudio\radioDialog.py:7097
-#: addon\globalPlugins\freeAudio\radioDialog.py:7213
+#: addon\globalPlugins\freeAudio\radioDialog.py:7172
+#: addon\globalPlugins\freeAudio\radioDialog.py:7288
 msgid "Save Audio Pr&ofile for This Podcast"
 msgstr "Guardar pe&rfil de audio para este podcast"
 
 #. Translators: Context-menu item; copies the feed's URL to the clipboard.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7108
+#: addon\globalPlugins\freeAudio\radioDialog.py:7183
 msgid "&Copy Feed URL"
 msgstr "&Copiar URL del feed"
 
 #. Translators: Context-menu item; plays the selected episode.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7196
+#: addon\globalPlugins\freeAudio\radioDialog.py:7271
 msgid "&Play Episode"
 msgstr "&Reproducir episodio"
 
 #. Translators: Context-menu item; copies the episode's direct audio URL to the clipboard.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7224
+#: addon\globalPlugins\freeAudio\radioDialog.py:7299
 msgid "&Copy Episode URL"
 msgstr "&Copiar URL del episodio"
 
 #. Translators: Spoken after any "Copy ..." context-menu action succeeds (URL, path, etc.) - a single generic confirmation shared by all of them.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7239
+#: addon\globalPlugins\freeAudio\radioDialog.py:7314
 msgid "Copied to clipboard"
 msgstr "Copiado al portapapeles"
 
 #. Translators: Source-name label for a book from the Project Gutenberg Open Audiobook Collection.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7296
+#: addon\globalPlugins\freeAudio\radioDialog.py:7371
 #: addon\globalPlugins\freeAudio\settingsPanel.py:523
 msgid "Project Gutenberg"
 msgstr "Proyecto Gutenberg"
 
 #. Translators: Accessible name of the audio book search field - searches both GETEM and LibriVox at once
-#: addon\globalPlugins\freeAudio\radioDialog.py:7315
+#: addon\globalPlugins\freeAudio\radioDialog.py:7390
 msgid ""
 "Search audio books by title, author, narrator, subject, or publisher. Press "
 "enter to search"
@@ -3592,29 +3644,29 @@ msgstr ""
 "para buscar"
 
 #. Translators: Accessible name for the audio-book search-results list.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7351
+#: addon\globalPlugins\freeAudio\radioDialog.py:7426
 msgid "Audio book search results"
 msgstr "Resultados de la búsqueda de audiolibros"
 
 #. --- Library list ---
 #. Translators: Label above the user's saved audio-book library list.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7362
+#: addon\globalPlugins\freeAudio\radioDialog.py:7437
 msgid "My Library:"
 msgstr "Mi biblioteca:"
 
 #. Translators: Accessible name for the audio-book library list.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7365
+#: addon\globalPlugins\freeAudio\radioDialog.py:7440
 msgid "Audio books library"
 msgstr "Biblioteca de audiolibros"
 
 #. Translators: Accessible name for the read-only audio-book details text field.
 #. Translators: Field-name row header for the multi-line block of audio-book metadata (author, narrator, publisher, etc.) built by radioDialog.py's _format_audiobook_lines().
-#: addon\globalPlugins\freeAudio\radioDialog.py:7377
+#: addon\globalPlugins\freeAudio\radioDialog.py:7453
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:974
 msgid "Audio book details"
 msgstr "Detalles del audiolibro"
 
-#: addon\globalPlugins\freeAudio\radioDialog.py:7550
+#: addon\globalPlugins\freeAudio\radioDialog.py:7626
 msgid ""
 "No audio book sources are enabled. Enable at least one in freeAudio settings."
 msgstr ""
@@ -3623,45 +3675,45 @@ msgstr ""
 
 #. Translators: Spoken while a keyword search across the enabled audio-book sources is in progress.
 #. Translators: Placeholder row shown in the results list while a device search is in progress.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7611
-#: addon\globalPlugins\freeAudio\radioDialog.py:8687
+#: addon\globalPlugins\freeAudio\radioDialog.py:7687
+#: addon\globalPlugins\freeAudio\radioDialog.py:8764
 msgid "Searching..."
 msgstr "Búsqueda..."
 
 #. Translators: Spoken when an audio-book search returns no results.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7660
+#: addon\globalPlugins\freeAudio\radioDialog.py:7736
 msgid "No audio books found."
 msgstr "No se encontraron audiolibros."
 
 #. Translators: Spoken after an audio-book search finds results; %d is the count.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7665
+#: addon\globalPlugins\freeAudio\radioDialog.py:7741
 #, python-format
 msgid "%d audio books found."
 msgstr "%d audiolibros encontrados."
 
 #. Translators: Spoken when trying to add a search result that is already saved.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7732
+#: addon\globalPlugins\freeAudio\radioDialog.py:7808
 msgid "This audio book is already in your library."
 msgstr "Este audiolibro ya está en tu biblioteca."
 
 #. Translators: Spoken after successfully adding a book to the library; %s is the book title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7736
+#: addon\globalPlugins\freeAudio\radioDialog.py:7812
 #, python-format
 msgid "Added to library: %s"
 msgstr "Añadido a la biblioteca: %s"
 
 #. Translators: Generic fallback spoken if adding the book to the library fails for an unspecified reason.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7741
+#: addon\globalPlugins\freeAudio\radioDialog.py:7817
 msgid "Could not add to library."
 msgstr "No se pudo añadir a la biblioteca."
 
 #. Translators: Context-menu item; subscribes/saves the selected search result to the audio-book library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7753
+#: addon\globalPlugins\freeAudio\radioDialog.py:7829
 msgid "&Add to Library"
 msgstr "&Añadir a la biblioteca"
 
 # | msgid "Do you want to remove \"%s\" from liked songs?"
-#: addon\globalPlugins\freeAudio\radioDialog.py:7912
+#: addon\globalPlugins\freeAudio\radioDialog.py:7988
 #, python-format
 msgid "Do you want to remove the %d marked book from the library?"
 msgid_plural "Do you want to remove the %d marked books from the library?"
@@ -3669,12 +3721,12 @@ msgstr[0] "¿Quieres eliminar el libro marcado %d de la biblioteca?"
 msgstr[1] "¿Quieres eliminar los libros marcados %d de la biblioteca?"
 
 #. Translators: Title of the bulk-remove confirmation dialog for audio books.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7917
+#: addon\globalPlugins\freeAudio\radioDialog.py:7993
 msgid "Remove From Library"
 msgstr "Eliminar de la biblioteca"
 
 #. Translators: Spoken after bulk-removing marked audio books from the library; %d is how many were removed.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7934
+#: addon\globalPlugins\freeAudio\radioDialog.py:8010
 #, python-format
 msgid "%d book removed"
 msgid_plural "%d books removed"
@@ -3684,119 +3736,120 @@ msgstr[1] "%d libros eliminados"
 #. Translators: Spoken while resolving a book's chapter list before playing it for the first time; %s is the book title.
 #. Translators: Spoken when starting a specific GETEM chapter/part; %s is the chapter title.
 #. Translators: Same message as _play_getem_book, spoken here while resolving a book's chapter list before downloading it.
-#: addon\globalPlugins\freeAudio\radioDialog.py:7969
-#: addon\globalPlugins\freeAudio\radioDialog.py:8024
-#: addon\globalPlugins\freeAudio\radioDialog.py:8420
+#: addon\globalPlugins\freeAudio\radioDialog.py:8045
+#: addon\globalPlugins\freeAudio\radioDialog.py:8100
+#: addon\globalPlugins\freeAudio\radioDialog.py:8496
 #, python-format
 msgid "Loading: %s"
 msgstr "Cargando: %s"
 
 #. Translators: Spoken when Shift+F4 (next part) is pressed on the last part of a book, meaning the whole book is now finished; %s is the book title.
 #. Translators: Spoken when a jukebox folder finishes playing all its tracks; %s is the folder/entry title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8170
-#: addon\globalPlugins\freeAudio\radioDialog.py:8231
+#: addon\globalPlugins\freeAudio\radioDialog.py:8246
+#: addon\globalPlugins\freeAudio\radioDialog.py:8307
 #, python-format
 msgid "Finished: %s"
 msgstr "Finalizado: %s"
 
 #. Translators: Context-menu item; plays the selected audio-book/chapter from the library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8269
+#: addon\globalPlugins\freeAudio\radioDialog.py:8345
 msgid "&Play Media"
 msgstr "&Reproducir medios"
 
 #. Translators: Context-menu item; downloads a permanent local copy of the selected book/chapter.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8275
+#: addon\globalPlugins\freeAudio\radioDialog.py:8351
 msgid "&Download Book"
 msgstr "&Descargar libro"
 
 #. Translators: Context-menu item; copies the book's detail-page URL to the clipboard.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8281
+#: addon\globalPlugins\freeAudio\radioDialog.py:8357
 msgid "&Copy the URL"
 msgstr "&Copiar la URL"
 
 #. Translators: Context menu item - saves an audio profile (volume/effects/speed) that applies to every part/chapter of this audio book
-#: addon\globalPlugins\freeAudio\radioDialog.py:8287
+#: addon\globalPlugins\freeAudio\radioDialog.py:8363
 msgid "Save Audio Pr&ofile for This Book"
 msgstr "Guardar pe&rfil de audio para este libro"
 
 #. Translators: Context-menu item; removes the selected book from the saved library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8298
+#: addon\globalPlugins\freeAudio\radioDialog.py:8374
 msgid "&Remove from the Library"
 msgstr "&Eliminar de la biblioteca"
 
 #. Translators: Spoken after saving an audio profile that applies to every part of a GETEM audio book; %(book)s is the book title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8327
+#: addon\globalPlugins\freeAudio\radioDialog.py:8403
 #, python-format
 msgid "Audio profile saved for %(book)s"
 msgstr "Perfil de audio guardado para %(book)s"
 
 #. Translators: Spoken after clearing a book's saved audio profile; %(book)s is the book title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8342
+#: addon\globalPlugins\freeAudio\radioDialog.py:8418
 #, python-format
 msgid "Audio profile cleared for %(book)s"
 msgstr "Perfil de audio borrado para %(book)s"
 
 #. Translators: Spoken after removing a book from the audio-book library; %s is the book title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8372
+#: addon\globalPlugins\freeAudio\radioDialog.py:8448
 #, python-format
 msgid "Removed from library: %s"
 msgstr "Eliminado de la biblioteca: %s"
 
 #. Translators: Spoken when a pasted book-detail link can't be resolved to a real book.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8404
+#: addon\globalPlugins\freeAudio\radioDialog.py:8480
 msgid "Could not find this audio book."
 msgstr "No se pudo encontrar este audiolibro."
 
 #. Translators: Spoken when trying to download a book whose chapter/part list resolved to nothing playable.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8441
+#: addon\globalPlugins\freeAudio\radioDialog.py:8517
 msgid "No audio parts found for this book."
 msgstr "No se encontraron partes de audio para este libro."
 
 #. Translators: Spoken when trying to start a download for a book that is already downloading; %s is the book title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8451
+#: addon\globalPlugins\freeAudio\radioDialog.py:8527
 #, python-format
 msgid "Already downloading: %s"
 msgstr "Ya descargando: %s"
 
 #. Translators: Spoken when a book download starts; %s is the book title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8456
+#: addon\globalPlugins\freeAudio\radioDialog.py:8532
 #, python-format
 msgid "Downloading book: %s"
 msgstr "Descargando libro: %s"
 
 #. Translators: Spoken when a book download partially fails; %(saved)d is the number of parts saved, %(total)d the total number of parts, %(title)s the book title, %(error)s the error from the last failed part.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8493
+#: addon\globalPlugins\freeAudio\radioDialog.py:8569
 #, python-format
 msgid ""
 "Downloaded %(saved)d of %(total)d parts of %(title)s. Last error: %(error)s"
 msgstr ""
-"Descargado %(saved)d de %(total)d partes de %(title)s. Último error: %(error)s"
+"Descargado %(saved)d de %(total)d partes de %(title)s. Último error: %(error)"
+"s"
 
 #. Translators: Label for the jukebox device-search field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8520
+#: addon\globalPlugins\freeAudio\radioDialog.py:8596
 msgid "Search on devices:"
 msgstr "Buscar en dispositivos:"
 
 #. Translators: Accessible name/hint for the jukebox device-search field: searches local audio files by filename.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8523
+#: addon\globalPlugins\freeAudio\radioDialog.py:8599
 msgid "Search audio files on your computer by filename. Press enter to search"
 msgstr ""
 "Busca archivos de audio en tu computadora por nombre de archivo. Pulsa Intro "
 "para buscar"
 
 #. Translators: Accessible name for the device-search results list.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8536
+#: addon\globalPlugins\freeAudio\radioDialog.py:8612
 msgid "Audio files found on your devices"
 msgstr "Archivos de audio encontrados en tus dispositivos"
 
 #. --- Jukebox entries (manually added files/folders) ---
 #. Translators: Label above the list of files/folders already added to the jukebox library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8547
+#: addon\globalPlugins\freeAudio\radioDialog.py:8623
 msgid "Jukebox:"
 msgstr "Jukebox:"
 
 #. Translators: Accessible name for the jukebox library list.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8550
+#: addon\globalPlugins\freeAudio\radioDialog.py:8626
 msgid "Files and folders in your jukebox"
 msgstr "Archivos y carpetas en tu jukebox"
 
@@ -3805,55 +3858,55 @@ msgstr "Archivos y carpetas en tu jukebox"
 #. "folder" entry it's every audio file found inside it. See
 #. jukebox.JukeboxEntry.tracks(). ---
 #. Translators: Label above the list of tracks contained in the selected jukebox entry (a folder's individual audio files).
-#: addon\globalPlugins\freeAudio\radioDialog.py:8559
+#: addon\globalPlugins\freeAudio\radioDialog.py:8635
 msgid "Tracks:"
 msgstr "Pistas:"
 
 #. Translators: Accessible name for the jukebox tracks list.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8562
+#: addon\globalPlugins\freeAudio\radioDialog.py:8638
 msgid "Tracks in the selected jukebox item"
 msgstr "Pistas en el elemento seleccionado del jukebox"
 
 #. Translators: Button label; adds a single audio file (via a file picker) to the jukebox library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8572
+#: addon\globalPlugins\freeAudio\radioDialog.py:8649
 msgid "Add &File..."
 msgstr "Añadir un &archivo..."
 
 #. Translators: Button label; adds a whole folder (via a folder picker) to the jukebox library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8574
+#: addon\globalPlugins\freeAudio\radioDialog.py:8651
 msgid "Add F&older..."
 msgstr "Añadir una &carpeta..."
 
 #. Translators: Button label; removes the selected file/folder from the jukebox library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8576
+#: addon\globalPlugins\freeAudio\radioDialog.py:8653
 msgid "&Remove"
 msgstr "&Eliminar"
 
 #. Translators: Button label; opens a file-save dialog to export the jukebox library (JSON or M3U).
-#: addon\globalPlugins\freeAudio\radioDialog.py:8590
+#: addon\globalPlugins\freeAudio\radioDialog.py:8667
 msgid "E&xport Jukebox..."
 msgstr "E&xportar jukebox..."
 
 #. Translators: Button label; opens a file-picker to import jukebox entries from a JSON or M3U file.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8593
+#: addon\globalPlugins\freeAudio\radioDialog.py:8670
 msgid "&Import Jukebox..."
 msgstr "&Importar jukebox..."
 
 #. Translators: Spoken when a jukebox device search starts; %s is the search text.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8689
+#: addon\globalPlugins\freeAudio\radioDialog.py:8766
 #, python-format
 msgid "Searching devices for \"%s\"..."
 msgstr "Buscando dispositivos para \"%s\"..."
 
 #. Translators: Placeholder row shown in the results list when a device search finds nothing.
 #. Translators: Spoken alongside the placeholder row above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8709
-#: addon\globalPlugins\freeAudio\radioDialog.py:8711
+#: addon\globalPlugins\freeAudio\radioDialog.py:8786
+#: addon\globalPlugins\freeAudio\radioDialog.py:8788
 msgid "No matching audio files found."
 msgstr "No se encontraron archivos de audio coincidentes."
 
 #. Translators: Plural forms spoken after a successful device search; %d is how many audio files were found.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8717
+#: addon\globalPlugins\freeAudio\radioDialog.py:8794
 #, python-format
 msgid "%d file found."
 msgid_plural "%d files found."
@@ -3863,27 +3916,27 @@ msgstr[1] "%d archivos encontrados."
 #. Translators: Same confirmation as adding a folder; spoken here after adding a single audio file from a device-search result.
 #. Translators: Same confirmation as adding a single file; spoken here after adding a single folder to the jukebox.
 #. Translators: Spoken after successfully adding an Explorer file or folder to the jukebox; %s is its display title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8767
-#: addon\globalPlugins\freeAudio\radioDialog.py:9288
+#: addon\globalPlugins\freeAudio\radioDialog.py:8844
+#: addon\globalPlugins\freeAudio\radioDialog.py:9365
 #: addon\appModules\explorer.py:213
 #, python-format
 msgid "Added to jukebox: %s"
 msgstr "Añadido al jukebox: %s"
 
 #. Translators: Context-menu item; adds the selected device-search result to the jukebox library.
-#: addon\globalPlugins\freeAudio\radioDialog.py:8783
+#: addon\globalPlugins\freeAudio\radioDialog.py:8860
 msgid "&Add to Jukebox"
 msgstr "&Añadir al Jukebox"
 
 #. Translators: Spoken when trying to play a jukebox library entry that has no usable audio files.
 #. Translators: Spoken when a jukebox entry's Input Gestures shortcut is triggered but the entry has no usable audio files.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9020
+#: addon\globalPlugins\freeAudio\radioDialog.py:9097
 #: addon\globalPlugins\freeAudio\__init__.py:874
 msgid "No playable audio in this item."
 msgstr "No se encontró ningún audio reproducible en este elemento."
 
 # | msgid "Do you want to remove \"%s\" from liked songs?"
-#: addon\globalPlugins\freeAudio\radioDialog.py:9101
+#: addon\globalPlugins\freeAudio\radioDialog.py:9178
 #, python-format
 msgid "Do you want to remove the %d marked entry from the jukebox?"
 msgid_plural "Do you want to remove the %d marked entries from the jukebox?"
@@ -3893,13 +3946,13 @@ msgstr[1] "¿Quieres eliminar las entradas marcadas %d del jukebox?"
 # | msgid "Removed from jukebox: %s"
 #. Translators: Title of the bulk-remove confirmation dialog for jukebox entries.
 #. Translators: Title of the jukebox remove-confirmation dialog.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9106
-#: addon\globalPlugins\freeAudio\radioDialog.py:9305
+#: addon\globalPlugins\freeAudio\radioDialog.py:9183
+#: addon\globalPlugins\freeAudio\radioDialog.py:9382
 msgid "Remove From Jukebox"
 msgstr "Eliminar del Jukebox"
 
 #. Translators: Spoken after bulk-removing marked jukebox entries; %d is how many were removed.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9118
+#: addon\globalPlugins\freeAudio\radioDialog.py:9195
 #, python-format
 msgid "%d entry removed"
 msgid_plural "%d entries removed"
@@ -3908,38 +3961,38 @@ msgstr[1] "%d entradas eliminadas"
 
 #. Translators: Context-menu item; plays the selected track from within a jukebox folder entry.
 #. Translators: Context-menu item; plays the selected jukebox file/folder.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9175
-#: addon\globalPlugins\freeAudio\radioDialog.py:9420
+#: addon\globalPlugins\freeAudio\radioDialog.py:9252
+#: addon\globalPlugins\freeAudio\radioDialog.py:9497
 msgid "&Play"
 msgstr "&Reproducir"
 
 #. Translators: Jukebox track context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
 #. Translators: Jukebox context menu item - saves an audio profile (volume/effects/speed/transpose) that applies to this file
-#: addon\globalPlugins\freeAudio\radioDialog.py:9181
-#: addon\globalPlugins\freeAudio\radioDialog.py:9451
+#: addon\globalPlugins\freeAudio\radioDialog.py:9258
+#: addon\globalPlugins\freeAudio\radioDialog.py:9528
 msgid "Save Audio Pr&ofile for This File"
 msgstr "Guardar pe&rfil de audio para este archivo"
 
 #. Translators: Context-menu item; copies the selected track's file path to the clipboard.
 #. Translators: Context-menu item; copies the selected entry's file/folder path to the clipboard.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9191
-#: addon\globalPlugins\freeAudio\radioDialog.py:9462
+#: addon\globalPlugins\freeAudio\radioDialog.py:9268
+#: addon\globalPlugins\freeAudio\radioDialog.py:9539
 msgid "&Copy Path"
 msgstr "&Copiar la ruta"
 
 #. Translators: File-type filter label for the add-audio-files picker; %s is a glob pattern of supported extensions (e.g. '*.mp3;*.ogg'), also appended raw after the '|' as required by the file-dialog format - don't translate the pattern itself.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9200
+#: addon\globalPlugins\freeAudio\radioDialog.py:9277
 #, python-format
 msgid "Audio files (%s)"
 msgstr "Archivos de audio (%s)"
 
 #. Translators: Title of the file-picker dialog for adding files to the jukebox.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9204
+#: addon\globalPlugins\freeAudio\radioDialog.py:9281
 msgid "Add audio files to the jukebox"
 msgstr "Añadir archivos de audio al jukebox"
 
 #. Translators: Plural forms spoken after adding files to the jukebox via the file picker; %d is how many were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9235
+#: addon\globalPlugins\freeAudio\radioDialog.py:9312
 #, python-format
 msgid "%d file added."
 msgid_plural "%d files added."
@@ -3947,12 +4000,12 @@ msgstr[0] "%d archivo añadido."
 msgstr[1] "%d archivos añadidos."
 
 #. Translators: Title of the dialog used to add one or more folders to the jukebox at once.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9263
+#: addon\globalPlugins\freeAudio\radioDialog.py:9340
 msgid "Add folders to the jukebox"
 msgstr "Añadir carpetas al jukebox"
 
 #. Translators: Plural forms spoken after adding several folders to the jukebox in one go (one folder picker used repeatedly); %d is how many folders were added.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9291
+#: addon\globalPlugins\freeAudio\radioDialog.py:9368
 #, python-format
 msgid "%d folder added."
 msgid_plural "%d folders added."
@@ -3961,129 +4014,129 @@ msgstr[1] "%d carpetas añadidas."
 
 # | msgid "Do you want to remove \"%s\" from liked songs?"
 #. Translators: Body of the remove-confirmation dialog; %s is the jukebox entry title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9303
+#: addon\globalPlugins\freeAudio\radioDialog.py:9380
 #, python-format
 msgid "Do you want to remove \"%s\" from the jukebox?"
 msgstr "¿Quieres eliminar \"%s\" del jukebox?"
 
 #. Translators: Spoken after successfully removing a jukebox entry; %s is its title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9324
+#: addon\globalPlugins\freeAudio\radioDialog.py:9401
 #, python-format
 msgid "Removed from jukebox: %s"
 msgstr "Eliminado del jukebox: %s"
 
 #. Translators: Spoken after re-scanning a jukebox folder entry for changes on device; %s is the folder's title.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9345
+#: addon\globalPlugins\freeAudio\radioDialog.py:9422
 #, python-format
 msgid "Rescanned: %s"
 msgstr "Reescaneado: %s"
 
 #. Translators: Spoken after saving an audio profile for a single jukebox file; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9359
+#: addon\globalPlugins\freeAudio\radioDialog.py:9436
 #, python-format
 msgid "Audio profile saved for %(file)s"
 msgstr "Perfil de audio guardado para %(file)s"
 
 #. Translators: Spoken after clearing a jukebox file's saved audio profile; %(file)s is its display name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9368
+#: addon\globalPlugins\freeAudio\radioDialog.py:9445
 #, python-format
 msgid "Audio profile cleared for %(file)s"
 msgstr "Perfil de audio borrado para %(file)s"
 
 #. Translators: Context-menu item; re-scans a jukebox folder entry for added/removed files on device.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9425
+#: addon\globalPlugins\freeAudio\radioDialog.py:9502
 msgid "&Rescan Folder"
 msgstr "&Volver a escanear la carpeta"
 
 #. Translators: Title of the lyrics dialog; %s is the song string (e.g. "Artist - Title").
-#: addon\globalPlugins\freeAudio\radioDialog.py:9476
+#: addon\globalPlugins\freeAudio\radioDialog.py:9553
 #, python-format
 msgid "Lyrics — %s"
 msgstr "Letras — %s"
 
 #. Translators: Heading inside the lyrics dialog restating which song the lyrics are for; %s is the song string.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9483
+#: addon\globalPlugins\freeAudio\radioDialog.py:9560
 #, python-format
 msgid "Lyrics for: %s"
 msgstr "Letra de: %s"
 
 #. Translators: Accessible name for the read-only lyrics text area.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9493
+#: addon\globalPlugins\freeAudio\radioDialog.py:9570
 msgid "Lyrics"
 msgstr "Letras"
 
 #. Translators: Title of the dialog for manually adding a custom station by stream URL.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9523
+#: addon\globalPlugins\freeAudio\radioDialog.py:9600
 msgid "Add Custom Station"
 msgstr "Añadir estación personalizada"
 
 #. Translators: Label for the custom-station name field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9527
+#: addon\globalPlugins\freeAudio\radioDialog.py:9604
 msgid "Station name:"
 msgstr "Nombre de la estación:"
 
 #. Translators: Label for the custom-station stream-URL field.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9532
+#: addon\globalPlugins\freeAudio\radioDialog.py:9609
 msgid "Stream URL:"
 msgstr "Stream URL:"
 
 #. Translators: Button label; opens Radio Browser's own website to submit this station to their public directory (separate from just adding it locally to freeAudio).
-#: addon\globalPlugins\freeAudio\radioDialog.py:9546
+#: addon\globalPlugins\freeAudio\radioDialog.py:9623
 msgid "Add to &Radio Browser directory…"
 msgstr "Añadir al directorio de &Radio Browser…"
 
 #. Translators: Button label; confirms and adds the custom station to favourites.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9551
+#: addon\globalPlugins\freeAudio\radioDialog.py:9628
 msgid "&Add"
 msgstr "&Añadir"
 
 #. Translators: Status text shown next to the Test URL button when it's pressed with an empty URL field.
 #. Translators: Spoken alongside the status text above.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9574
-#: addon\globalPlugins\freeAudio\radioDialog.py:9576
+#: addon\globalPlugins\freeAudio\radioDialog.py:9651
+#: addon\globalPlugins\freeAudio\radioDialog.py:9653
 msgid "Please enter a URL first."
 msgstr "Por favor ingrese una URL primero."
 
 #. Translators: Status text shown next to the Test URL button while the check is in progress.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9580
+#: addon\globalPlugins\freeAudio\radioDialog.py:9657
 msgid "Checking…"
 msgstr "Comprobación…"
 
 #. Translators: Spoken when the URL check starts.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9582
+#: addon\globalPlugins\freeAudio\radioDialog.py:9659
 msgid "Checking stream URL, please wait…"
 msgstr "Comprobando la URL del flujo, espera por favor…"
 
 #. Translators: Status text shown next to the Test URL button when the stream checked out as playable; the '✓' is a visual checkmark, not meant to be read as punctuation.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9596
+#: addon\globalPlugins\freeAudio\radioDialog.py:9673
 msgid "✓ Stream reachable"
 msgstr "✓ Flujo accesible"
 
 #. Translators: Spoken when the stream check succeeds.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9599
+#: addon\globalPlugins\freeAudio\radioDialog.py:9676
 msgid "Stream is reachable."
 msgstr "El flujo es accesible."
 
 #. Translators: Status text shown when the stream check failed; the '✗' is a visual cross mark, %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9602
+#: addon\globalPlugins\freeAudio\radioDialog.py:9679
 #, python-format
 msgid "✗ %s"
 msgstr "✗ %s"
 
 #. Translators: Spoken when the stream check fails; %s is the specific error from check_stream_url().
-#: addon\globalPlugins\freeAudio\radioDialog.py:9605
+#: addon\globalPlugins\freeAudio\radioDialog.py:9682
 #, python-format
 msgid "Stream check failed: %s"
 msgstr "Error en la comprobación del flujo: %s"
 
 #. Translators: Title of the dialog for editing an existing scheduled recording; %s is the station name.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9623
+#: addon\globalPlugins\freeAudio\radioDialog.py:9700
 #, python-format
 msgid "Edit Schedule — %s"
 msgstr "Editar la programación — %s"
 
 #. Translators: 'Save' button label; commits the edited schedule entry.
-#: addon\globalPlugins\freeAudio\radioDialog.py:9707
+#: addon\globalPlugins\freeAudio\radioDialog.py:9784
 msgid "&Save"
 msgstr "&Guardar"
 
@@ -4220,8 +4273,8 @@ msgstr "No se pudo abrir la carpeta de grabaciones: %s"
 #. Translators: Check box in the clean-up dialog; resets freeAudio's settings to their defaults.
 #: addon\globalPlugins\freeAudio\resetDialog.py:73
 msgid ""
-"Settings (reset to defaults; the recordings folder and the liked songs option "
-"are kept)"
+"Settings (reset to defaults; the recordings folder and the liked songs "
+"option are kept)"
 msgstr ""
 "Opciones (restablecer a los valores predeterminados; se conservan la carpeta "
 "de grabaciones y la opción de canciones favoritas)"
@@ -4366,8 +4419,8 @@ msgstr ""
 #. Translators: Checkbox label for the time-shift/rewind feature setting.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:89
 msgid ""
-"&Enable time-shift buffer (rewind live radio, no effect on podcasts and audio "
-"books)"
+"&Enable time-shift buffer (rewind live radio, no effect on podcasts and "
+"audio books)"
 msgstr ""
 "&Activar búfer de desplazamiento temporal (rebobinar radio en directo, no "
 "tiene efecto en los podcasts y audiolibros)"
@@ -4504,7 +4557,8 @@ msgstr "Predeterminado (sistema)"
 #. Translators: Checkbox label for the mute-notifications setting (same feature as the toggleMuteNotifications command).
 #: addon\globalPlugins\freeAudio\settingsPanel.py:325
 msgid "&Mute notifications (station changes, playback, recording)"
-msgstr "&Silenciar notificaciones (cambios de emisora, reproducción, grabación)"
+msgstr ""
+"&Silenciar notificaciones (cambios de emisora, reproducción, grabación)"
 
 #. Translators: Checkbox label for whether freeAudio notifications also show on a connected braille display.
 #: addon\globalPlugins\freeAudio\settingsPanel.py:335
@@ -4790,12 +4844,13 @@ msgstr "Retrocedido %d segundos"
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:345
 msgid "Time-shift buffer is disabled. Enable it in freeAudio settings."
 msgstr ""
-"El búfer de desplazamiento temporal está desactivado. Actívelo en los ajustes "
-"de freeAudio."
+"El búfer de desplazamiento temporal está desactivado. Actívelo en los "
+"ajustes de freeAudio."
 
 #. Translators: One of the reasons a rewind/forward can fail, mapped from rewind_timeshift()'s return reason to a spoken message (continues for the next six lines: feature disabled, wrong backend, HLS unsupported, not enough buffer yet, buffer file not ready, engine error).
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:327
-msgid "Time-shift requires the BASS audio backend, which is currently disabled."
+msgid ""
+"Time-shift requires the BASS audio backend, which is currently disabled."
 msgstr ""
 "El desplazamiento temporal requiere el BASS audio backend, que está "
 "desactivado actualmente."
@@ -4803,8 +4858,8 @@ msgstr ""
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:329
 msgid "Time-shift is not available for the current playback backend."
 msgstr ""
-"El desplazamiento temporal no está disponible para el backend de reproducción "
-"actual."
+"El desplazamiento temporal no está disponible para el backend de "
+"reproducción actual."
 
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:330
 msgid ""
@@ -4816,8 +4871,8 @@ msgstr ""
 
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:331
 msgid ""
-"Not enough buffered audio to rewind yet. Wait a few seconds after the station "
-"starts playing and try again."
+"Not enough buffered audio to rewind yet. Wait a few seconds after the "
+"station starts playing and try again."
 msgstr ""
 "No hay suficiente audio almacenado para rebobinar todavía. Espere unos "
 "segundos después de iniciar la estación e inténtelo de nuevo."
@@ -4882,7 +4937,8 @@ msgstr ""
 
 #. Translators: Name of an NVDA command (Ctrl+Win+Alt+J); fine rewind by 1 second.
 #: addon\globalPlugins\freeAudio\timeshiftMixin.py:400
-msgid "Fine rewind: 1 second (time-shift buffer, podcast, audiobook or jukebox)"
+msgid ""
+"Fine rewind: 1 second (time-shift buffer, podcast, audiobook or jukebox)"
 msgstr ""
 "Retroceso paso a paso: 1 segundo (búfer de desplazamiento temporal, podcast, "
 "audiolibro o jukebox)"
@@ -4914,8 +4970,8 @@ msgstr "El reconocimiento falló: %s"
 #. Translators: Name of an NVDA command (Ctrl+Win+I); its behaviour escalates with repeated presses as the description itself explains.
 #: addon\globalPlugins\freeAudio\trackInfoMixin.py:120
 msgid ""
-"Announce currently playing station. Press twice for full details, three times "
-"to copy track info, four times to force music recognition."
+"Announce currently playing station. Press twice for full details, three "
+"times to copy track info, four times to force music recognition."
 msgstr ""
 "Anunciar la estación que se está reproduciendo actualmente. Pulsar dos veces "
 "para obtener todos los detalles, tres veces para copiar la información de la "
@@ -5318,8 +5374,8 @@ msgstr "Abrir el jukebox local de freeAudio"
 #. Translators: Name of an NVDA command whose behaviour depends on what is currently playing: adds a live station to favourites, or downloads the current audio book/podcast episode.
 #: addon\globalPlugins\freeAudio\__init__.py:1181
 msgid ""
-"Add currently playing station to favourites, download the whole audio book if "
-"one is playing, or download the episode if a podcast is playing"
+"Add currently playing station to favourites, download the whole audio book "
+"if one is playing, or download the episode if a podcast is playing"
 msgstr ""
 "Añadir la estación que se está reproduciendo actualmente a favoritos, "
 "descargar el audiolibro completo si se está reproduciendo uno o descargar el "
@@ -5522,14 +5578,15 @@ msgid ""
 "management, and per-station, per-podcast, per-audio-book, and per-jukebox-"
 "track audio profiles. Podcast episodes, audio book chapters, and jukebox "
 "tracks resume automatically from where you left off - jukebox folders even "
-"pick up on the last track you were playing - with adjustable pitch-preserving "
-"playback speed and independent pitch-shift (semitone transpose). Playback is "
-"handled by BASS, with support for volume control, audio effects, output "
-"device selection, and simultaneous audio mirroring to a second device. "
-"Additional features include instant and scheduled recording, time-shift "
-"rewind of live radio, sleep and alarm timers, automatic ICY metadata "
+"pick up on the last track you were playing - with adjustable pitch-"
+"preserving playback speed and independent pitch-shift (semitone transpose). "
+"Playback is handled by BASS, with support for volume control, audio effects, "
+"output device selection, and simultaneous audio mirroring to a second "
+"device. Additional features include instant and scheduled recording, time-"
+"shift rewind of live radio, sleep and alarm timers, automatic ICY metadata "
 "announcements, Shazam-based music recognition, and a liked-songs log with "
-"lyrics lookup. All controls and shortcuts are designed for NVDA accessibility."
+"lyrics lookup. All controls and shortcuts are designed for NVDA "
+"accessibility."
 msgstr ""
 "freeAudio es un complemento de radio por Internet, podcast, audiolibro y "
 "música local para NVDA  que proporciona un acceso continuo a miles de "
@@ -5538,20 +5595,20 @@ msgstr ""
 "discapacidad visual y tus propios archivos y carpetas de audio locales a "
 "través del jukebox integrado. Cuenta con un navegador de estaciones "
 "totalmente accesible con búsqueda, filtro de países, administración de "
-"favoritos y perfiles de audio por estación, por podcast, por audiolibro y por "
-"pista del jukebox. Los episodios de podcasts,los capítulos de audiolibros y "
-"las pistas del jukebox se reanudan automáticamente desde donde los dejaste - "
-"las carpetas del jukebox  incluso retoman la última pista que estabas "
-"reproduciendo - con una velocidad de reproducción ajustable que conserva el "
-"tono y el cambio de tono independiente (transposición de semitonos). La "
-"reproducción es manejada por BASS, con soporte para control de volumen, "
-"efectos de audio, selección de dispositivo de salida y la puesta en espejo de "
-"audio simultánea en un segundo dispositivo. Las características adicionales "
-"incluyen grabación instantánea y programada, desplazamiento temporal "
-"rebobinar radio en directo, temporizadores de apagado y alarma, anuncios "
-"automáticos de metadatos ICY, reconocimiento de música basado en Shazam y un "
-"registro de canciones favoritas con búsqueda de letras. Todos los controles y "
-"atajos están diseñados para la accesibilidad de NVDA."
+"favoritos y perfiles de audio por estación, por podcast, por audiolibro y "
+"por pista del jukebox. Los episodios de podcasts,los capítulos de "
+"audiolibros y las pistas del jukebox se reanudan automáticamente desde donde "
+"los dejaste - las carpetas del jukebox  incluso retoman la última pista que "
+"estabas reproduciendo - con una velocidad de reproducción ajustable que "
+"conserva el tono y el cambio de tono independiente (transposición de "
+"semitonos). La reproducción es manejada por BASS, con soporte para control "
+"de volumen, efectos de audio, selección de dispositivo de salida y la puesta "
+"en espejo de audio simultánea en un segundo dispositivo. Las características "
+"adicionales incluyen grabación instantánea y programada, desplazamiento "
+"temporal rebobinar radio en directo, temporizadores de apagado y alarma, "
+"anuncios automáticos de metadatos ICY, reconocimiento de música basado en "
+"Shazam y un registro de canciones favoritas con búsqueda de letras. Todos "
+"los controles y atajos están diseñados para la accesibilidad de NVDA."
 
 #. Brief changelog for this version
 #. Translators: what's new content for the add-on version
@@ -5568,14 +5625,15 @@ msgid ""
 "  - Ctrl+Win+F3 / Ctrl+Win+F4: previous / next item.\n"
 "  - Ctrl+Win+Shift+F3 / Ctrl+Win+Shift+F4: previous / next group.\n"
 "- What they do depends on what is playing:\n"
-"  - Radio station: previous / next station (the Shift variants do the same).\n"
+"  - Radio station: previous / next station (the Shift variants do the "
+"same).\n"
 "  - Podcast: previous / next episode; with Shift, previous / next feed.\n"
 "  - Audio book: previous / next book; with Shift, previous / next part.\n"
 "  - Jukebox: previous / next track; with Shift, previous / next library "
 "entry.\n"
 "- If nothing is playing, the keys are passed through to Windows unchanged.\n"
-"- Audio book library entries now appear in NVDA's Input Gestures dialog under "
-"\"freeAudio Audio Books\", so you can assign a shortcut to any book.\n"
+"- Audio book library entries now appear in NVDA's Input Gestures dialog "
+"under \"freeAudio Audio Books\", so you can assign a shortcut to any book.\n"
 "\n"
 "### Improved\n"
 "- Automatic track and part advance keeps working after a manual skip, with "
@@ -5613,17 +5671,17 @@ msgstr ""
 "- Si no se está reproduciendo nada, las teclas se pasan a Windows sin "
 "cambios.\n"
 "- Las entradas de la biblioteca de audiolibros ahora aparecen en el diálogo "
-"de Gestos de entrada de NVDA, bajo \"Audiolibros freeAudio\", para que puedas "
-"asignar un atajo a cualquier libro.\n"
+"de Gestos de entrada de NVDA, bajo \"Audiolibros freeAudio\", para que "
+"puedas asignar un atajo a cualquier libro.\n"
 "\n"
 "### Mejoras\n"
 "- El avance automático de pistas y partes sigue funcionando después de un "
 "salto manual, tanto con la ventana abierta como cerrada.\n"
 "- Al pulsar \"siguiente\" en la última pista de una carpeta del jukebox, ya "
 "no se restablece la posición guardada de la carpeta.\n"
-"- Con la ventana abierta, al saltar un audiolibro desde el teclado, el estado "
-"de \"ahora está sonando\" de la ventana se mantiene sincronizado, por lo que "
-"su propio avance automático continúa desde la parte correcta.\n"
+"- Con la ventana abierta, al saltar un audiolibro desde el teclado, el "
+"estado de \"ahora está sonando\" de la ventana se mantiene sincronizado, por "
+"lo que su propio avance automático continúa desde la parte correcta.\n"
 "\n"
 "### Corregido\n"
 "- F3/F4 y Ctrl+Izquierda/Derecha en la pestaña Jukebox, la pista ahora se "
@@ -5641,20 +5699,21 @@ msgstr ""
 #~ "and `F12` does the same inside the Station Browser. A bookmark's default "
 #~ "name is its number by position (\"Bookmark 1\", \"Bookmark 2\", and so "
 #~ "on).\n"
-#~ "  - **Notes.** Each bookmark can carry a text note and/or a recorded voice "
-#~ "note.\n"
-#~ "  - **Reaching a bookmark.** When playback reaches a bookmark it plays two "
-#~ "quick beeps. If the bookmark has a note, playback pauses, NVDA speaks the "
-#~ "text and the voice note plays, then playback resumes where it left off.\n"
+#~ "  - **Notes.** Each bookmark can carry a text note and/or a recorded "
+#~ "voice note.\n"
+#~ "  - **Reaching a bookmark.** When playback reaches a bookmark it plays "
+#~ "two quick beeps. If the bookmark has a note, playback pauses, NVDA speaks "
+#~ "the text and the voice note plays, then playback resumes where it left "
+#~ "off.\n"
 #~ "  - **Bookmark list.** A list sits next to the Podcasts episode list, the "
 #~ "Audio Books library (all parts of the selected book) and the Jukebox "
 #~ "tracks list. Press `.` to mark items. The context menu offers play from "
-#~ "bookmark, rename, delete selected, add or edit text, add voice note, clear "
-#~ "notes, repeat between marked bookmarks and stop repeat.\n"
+#~ "bookmark, rename, delete selected, add or edit text, add voice note, "
+#~ "clear notes, repeat between marked bookmarks and stop repeat.\n"
 #~ "  - **Repeat.** \"Repeat Between Marked Bookmarks\" loops the section "
 #~ "between the earliest and latest marked bookmark.\n"
-#~ "  - **Notes on play.** \"Play from Bookmark\" now speaks the text note and "
-#~ "plays the voice note first, then starts playback from that position.\n"
+#~ "  - **Notes on play.** \"Play from Bookmark\" now speaks the text note "
+#~ "and plays the voice note first, then starts playback from that position.\n"
 #~ "  - **Audio book rows.** Rows now read \"bookmark name — time — part\", "
 #~ "and the book name is no longer repeated.\n"
 #~ "  - **Keys on the lists.** `←`, `→`, `Shift+←`, `Shift+→`, `Page Up` and "
@@ -5680,17 +5739,17 @@ msgstr ""
 #~ "- **Clean-up dialog.** A new **Clean up: reset settings and delete saved "
 #~ "data...** button on the settings page lets you reset settings and delete "
 #~ "saved data. That covers favourites, podcast subscriptions, audio book "
-#~ "libraries, GETEM login, Jukebox list, resume positions, bookmarks, timers, "
-#~ "recording plans and more. Nothing is selected by default, and deletion "
-#~ "needs a second confirmation. Recordings and liked songs are never "
-#~ "touched.\n"
+#~ "libraries, GETEM login, Jukebox list, resume positions, bookmarks, "
+#~ "timers, recording plans and more. Nothing is selected by default, and "
+#~ "deletion needs a second confirmation. Recordings and liked songs are "
+#~ "never touched.\n"
 #~ "\n"
 #~ "### Fixed\n"
-#~ "- **Song recordings included the start of the next track.** Recordings now "
-#~ "end at the exact point where the station announces a new track. Stop "
-#~ "requests take effect immediately, which also helps instant recordings. The "
-#~ "old 5-second title polling stays as a fallback for streams without in-band "
-#~ "metadata, such as HLS.\n"
+#~ "- **Song recordings included the start of the next track.** Recordings "
+#~ "now end at the exact point where the station announces a new track. Stop "
+#~ "requests take effect immediately, which also helps instant recordings. "
+#~ "The old 5-second title polling stays as a fallback for streams without in-"
+#~ "band metadata, such as HLS.\n"
 #~ "- **Music recognition failed on some stations.**\n"
 #~ "  - **HTTP 403 on HLS.** ffmpeg now identifies itself with a VLC User-"
 #~ "Agent, and retries with a browser one if the server answers 401 or 403. "
@@ -5701,10 +5760,10 @@ msgstr ""
 #~ "  - **Errors.** If both attempts fail, the message shows the reason for "
 #~ "each.\n"
 #~ "- **Choppy playback of ABC (Australia) HLS stations.** These stations now "
-#~ "play through a small local compatibility server that re-wraps the audio in "
-#~ "a layout BASS can read. The audio itself is not re-encoded. NVDA announces "
-#~ "this once per station per session, and the announcement follows **Mute "
-#~ "notifications**.\n"
+#~ "play through a small local compatibility server that re-wraps the audio "
+#~ "in a layout BASS can read. The audio itself is not re-encoded. NVDA "
+#~ "announces this once per station per session, and the announcement follows "
+#~ "**Mute notifications**.\n"
 #~ msgstr ""
 #~ "\n"
 #~ "## Registro de cambios de la versión 2026.25.2\n"
@@ -5717,8 +5776,8 @@ msgstr ""
 #~ "Windows, y `F12` hace lo mismo dentro del Navegador de estaciones. El "
 #~ "nombre predeterminado de un marcador es su número de posición (\"Marcador "
 #~ "1\", \"Marcador 2\", etc.).\n"
-#~ "  - **Notas.** Cada marcador puede contener una nota de texto y/o una nota "
-#~ "de voz grabada.\n"
+#~ "  - **Notas.** Cada marcador puede contener una nota de texto y/o una "
+#~ "nota de voz grabada.\n"
 #~ "  - **Acceso a un marcador.** Cuando la reproducción llega a un marcador, "
 #~ "se reproducen dos pitidos cortos. Si el marcador tiene una nota, la "
 #~ "reproducción se pausa, NVDA lee el texto y se reproduce la nota de voz, y "
@@ -5742,50 +5801,52 @@ msgstr ""
 #~ "pestañas, al igual que en las listas de elementos.\n"
 #~ "  - **Limpieza.** El cuadro de diálogo de limpieza puede eliminar todos "
 #~ "los marcadores y sus notas de voz.\n"
-#~ "- **Búsqueda precisa (1 segundo).** Las teclas `Ctrl+Win+Alt+J` y "
-#~ "`Ctrl+Win+Alt+K` permiten retroceder o avanzar 1 segundo en la "
-#~ "reproducción en directo, así como en podcasts, audiolibros y pistas del "
-#~ "jukebox. Las teclas `Alt+←` y `Alt+→` realizan la misma función en el "
-#~ "Navegador de estaciones.\n"
+#~ "- **Búsqueda precisa (1 segundo).** Las teclas `Ctrl+Win+Alt+J` y `Ctrl"
+#~ "+Win+Alt+K` permiten retroceder o avanzar 1 segundo en la reproducción en "
+#~ "directo, así como en podcasts, audiolibros y pistas del jukebox. Las "
+#~ "teclas `Alt+←` y `Alt+→` realizan la misma función en el Navegador de "
+#~ "estaciones.\n"
 #~ "- **Grabar todas las canciones.** Pulsa «Ctrl+Win+E» tres veces para "
 #~ "grabar continuamente y crear un nuevo archivo con cada cambio de pista "
 #~ "hasta que lo detengas.\n"
-#~ "  - **Canciones parciales.** La primera y la última canción se guardan con "
-#~ "la mención \"(parcial)\" en el nombre.\n"
+#~ "  - **Canciones parciales.** La primera y la última canción se guardan "
+#~ "con la mención \"(parcial)\" en el nombre.\n"
 #~ "  - **Fragmentos cortos.** Los fragmentos de menos de 15 segundos "
 #~ "(jingles, títulos parpadeantes) se descartan.\n"
 #~ "  - **Limitaciones.** No funciona en emisoras HLS ni en emisoras sin "
 #~ "títulos de pista integrados, y detener la reproducción no la detiene.\n"
 #~ "  - **Doble pulsación.** Una doble pulsación sigue grabando la canción "
 #~ "actual, pero ahora comienza aproximadamente 350 ms después de la segunda "
-#~ "pulsación, por lo que una tercera pulsación puede modificar la secuencia.\n"
-#~ "- **Diálogo de limpieza.** Un nuevo botón **Limpieza: restablecer opciones "
-#~ "y eliminar datos guardados...** en la página de opciones permite "
+#~ "pulsación, por lo que una tercera pulsación puede modificar la "
+#~ "secuencia.\n"
+#~ "- **Diálogo de limpieza.** Un nuevo botón **Limpieza: restablecer "
+#~ "opciones y eliminar datos guardados...** en la página de opciones permite "
 #~ "restablecer las opciones y eliminar los datos guardados. Esto incluye "
-#~ "favoritos, suscripciones a podcasts, bibliotecas de audiolibros, inicio de "
-#~ "sesión de GETEM, lista del Jukebox, posiciones de reanudación, marcadores, "
-#~ "temporizadores, planes de grabación y más. No hay nada seleccionado por "
-#~ "defecto, y la eliminación requiere una segunda confirmación. Las "
-#~ "grabaciones y canciones favoritas nunca se verán afectadas.\n"
+#~ "favoritos, suscripciones a podcasts, bibliotecas de audiolibros, inicio "
+#~ "de sesión de GETEM, lista del Jukebox, posiciones de reanudación, "
+#~ "marcadores, temporizadores, planes de grabación y más. No hay nada "
+#~ "seleccionado por defecto, y la eliminación requiere una segunda "
+#~ "confirmación. Las grabaciones y canciones favoritas nunca se verán "
+#~ "afectadas.\n"
 #~ "\n"
 #~ "### Corregido\n"
-#~ "- **Las grabaciones de canciones incluían el inicio de la siguiente "
-#~ "pista.** Ahora las grabaciones finalizan justo cuando la emisora ​​anuncia "
-#~ "una nueva pista. Las solicitudes de parada se aplican de inmediato, lo que "
+#~ "- **Las grabaciones de canciones incluían el inicio de la siguiente pista."
+#~ "** Ahora las grabaciones finalizan justo cuando la emisora ​​anuncia una "
+#~ "nueva pista. Las solicitudes de parada se aplican de inmediato, lo que "
 #~ "también facilita las grabaciones instantáneas. El antiguo sondeo de "
 #~ "títulos de 5 segundos se mantiene como alternativa para transmisiones sin "
 #~ "metadatos integrados, como HLS.\n"
 #~ "- **El reconocimiento de música falló en algunas emisoras.**\n"
 #~ "  - **HTTP 403 en HLS.** ffmpeg ahora se identifica con un agente de "
 #~ "usuario de VLC y vuelve a intentarlo con uno del navegador si el servidor "
-#~ "responde con un error 401 o 403. Las URL de listas de reproducción HLS con "
-#~ "cadenas de consulta se detectan correctamente.\n"
+#~ "responde con un error 401 o 403. Las URL de listas de reproducción HLS "
+#~ "con cadenas de consulta se detectan correctamente.\n"
 #~ "  - **Tiempos de espera agotados para SHOUTcast `.nsv`.** Para "
 #~ "transmisiones que no son HLS, freeAudio graba una muestra corta y permite "
 #~ "que ffmpeg decodifique ese archivo. Esto se realiza de antemano para las "
 #~ "URL `.nsv` y como alternativa cuando falla la lectura directa.\n"
-#~ "  - **Errores.** Si ambos intentos fallan, el mensaje muestra el motivo de "
-#~ "cada uno.\n"
+#~ "  - **Errores.** Si ambos intentos fallan, el mensaje muestra el motivo "
+#~ "de cada uno.\n"
 #~ "- **Reproducción entrecortada de las emisoras HLS de ABC (Australia).** "
 #~ "Estas emisoras ahora se reproducen a través de un pequeño servidor de "
 #~ "compatibilidad local que recodifica el audio en un formato que BASS puede "
@@ -5821,9 +5882,9 @@ msgstr ""
 #~ "## Improvements\n"
 #~ "\n"
 #~ "- **Timer tab focus behaviour fixed:** Switching to the Timer tab now "
-#~ "forces focus to the Start/Stop action radio buttons only on first open. On "
-#~ "every later switch, focus stays where you left it — matching every other "
-#~ "tab.\n"
+#~ "forces focus to the Start/Stop action radio buttons only on first open. "
+#~ "On every later switch, focus stays where you left it — matching every "
+#~ "other tab.\n"
 #~ "\n"
 #~ "- **HLS short-segment merger removed:** The ffmpeg-based "
 #~ "`_HlsStreamMerger` and its detection helpers have been dropped. HLS "
@@ -5833,10 +5894,10 @@ msgstr ""
 #~ "## Bug Fixes\n"
 #~ "\n"
 #~ "- **Wrong duration in fMP4 (HLS) recordings fixed:** Fragmented MP4 "
-#~ "recordings had no header duration and carried the stream's absolute clock, "
-#~ "so players showed absurd lengths. After recording, files are remuxed to a "
-#~ "standard MP4 with ffmpeg (stream copy); when ffmpeg is unavailable, "
-#~ "fragment timestamps are rebased to zero as a fallback.\n"
+#~ "recordings had no header duration and carried the stream's absolute "
+#~ "clock, so players showed absurd lengths. After recording, files are "
+#~ "remuxed to a standard MP4 with ffmpeg (stream copy); when ffmpeg is "
+#~ "unavailable, fragment timestamps are rebased to zero as a fallback.\n"
 #~ msgstr ""
 #~ "\n"
 #~ "## Nuevas funciones\n"
@@ -5851,19 +5912,19 @@ msgstr ""
 #~ "entrada en la nueva categoría \"Jukebox FreeAudio\", que funciona incluso "
 #~ "con el cuadro de diálogo cerrado.\n"
 #~ "\n"
-#~ "- **Activación/desactivación por módulo:** Una nueva lista de verificación "
-#~ "\"Módulos\" en la configuración permite desactivar por completo las "
-#~ "pestañas Podcasts, Audiolibros y/o Jukebox. Las tres permanecen activadas "
-#~ "por defecto, por lo que los usuarios actuales no notarán ningún cambio. "
-#~ "Deshabilitar un módulo oculta su pestaña y los gestos relacionados, pero "
-#~ "no afecta a los datos guardados (suscripciones, biblioteca, entradas de la "
-#~ "biblioteca). Al volver a habilitarlo, todo se restaura a su estado "
-#~ "original.\n"
+#~ "- **Activación/desactivación por módulo:** Una nueva lista de "
+#~ "verificación \"Módulos\" en la configuración permite desactivar por "
+#~ "completo las pestañas Podcasts, Audiolibros y/o Jukebox. Las tres "
+#~ "permanecen activadas por defecto, por lo que los usuarios actuales no "
+#~ "notarán ningún cambio. Deshabilitar un módulo oculta su pestaña y los "
+#~ "gestos relacionados, pero no afecta a los datos guardados (suscripciones, "
+#~ "biblioteca, entradas de la biblioteca). Al volver a habilitarlo, todo se "
+#~ "restaura a su estado original.\n"
 #~ "\n"
 #~ "- **Búsqueda con las teclas Izquierda/Derecha en las listas del Jukebox/"
-#~ "Audiolibros/Podcasts:** Ahora, al usar las teclas Izquierda/Derecha en las "
-#~ "listas de elementos de estas pestañas, se busca dentro del elemento que se "
-#~ "está reproduciendo, utilizando los mismos métodos que los comandos "
+#~ "Audiolibros/Podcasts:** Ahora, al usar las teclas Izquierda/Derecha en "
+#~ "las listas de elementos de estas pestañas, se busca dentro del elemento "
+#~ "que se está reproduciendo, utilizando los mismos métodos que los comandos "
 #~ "globales Ctrl+Win+J/K. El cambio de episodio/capítulo/pista sigue "
 #~ "funcionando con Ctrl+Izquierda/Derecha y F3/F4; el antiguo comportamiento "
 #~ "de cambio de episodio con las teclas Izquierda/Derecha solo se mantiene "
@@ -5871,11 +5932,11 @@ msgstr ""
 #~ "\n"
 #~ "## Mejoras\n"
 #~ "\n"
-#~ "- **Comportamiento del foco en la pestaña del Temporizador corregido:** Al "
-#~ "cambiar a la pestaña del Temporizador, el foco se dirige a los botones de "
-#~ "opción de Iniciar/Detener solo la primera vez que se abre. En los cambios "
-#~ "posteriores,El foco se mantiene donde lo dejaste, coincidiendo con todas "
-#~ "las demás pestañas.\n"
+#~ "- **Comportamiento del foco en la pestaña del Temporizador corregido:** "
+#~ "Al cambiar a la pestaña del Temporizador, el foco se dirige a los botones "
+#~ "de opción de Iniciar/Detener solo la primera vez que se abre. En los "
+#~ "cambios posteriores,El foco se mantiene donde lo dejaste, coincidiendo "
+#~ "con todas las demás pestañas.\n"
 #~ "\n"
 #~ "- **Se eliminó el combinador de segmentos cortos HLS:** Se eliminó el "
 #~ "`_HlsStreamMerger` basado en ffmpeg y sus funciones de detección. Las "
@@ -5916,8 +5977,9 @@ msgstr ""
 #~ "### Favourite groups (folders)\n"
 #~ "\n"
 #~ "- **M3U import:** reads the `group-title` attribute. If only the first "
-#~ "station in a folder carries the tag, as common exporters such as DVBViewer "
-#~ "write it, the group is carried forward to the stations that follow.\n"
+#~ "station in a folder carries the tag, as common exporters such as "
+#~ "DVBViewer write it, the group is carried forward to the stations that "
+#~ "follow.\n"
 #~ "- **M3U export:** writes `group-title` again, so a round trip through "
 #~ "freeAudio no longer drops the folder structure. JSON import and export "
 #~ "keep the same group field.\n"
@@ -5928,13 +5990,13 @@ msgstr ""
 #~ "whitespace, so each word can match a different field. For example, "
 #~ "\"Houston Classical\" finds \"Houston Public Media Classical\", even "
 #~ "though that phrase never appears in one piece.\n"
-#~ "- **Assign to Group…** (new context-menu command): mark favourites with "
-#~ "`.`, then type a group name to organise them by hand, or leave the name "
+#~ "- **Assign to Group…** (new context-menu command): mark favourites with `."
+#~ "`, then type a group name to organise them by hand, or leave the name "
 #~ "empty to clear the group. It works for hand-made favourites too, not only "
 #~ "imported M3U ones.\n"
 #~ "- **Backward compatible:** favourites without a group default to an empty "
-#~ "group, and the list looks and behaves exactly as before until you import a "
-#~ "grouped playlist or use Assign to Group.\n"
+#~ "group, and the list looks and behaves exactly as before until you import "
+#~ "a grouped playlist or use Assign to Group.\n"
 #~ "\n"
 #~ "### Mark a range of items\n"
 #~ "\n"
@@ -5942,7 +6004,8 @@ msgstr ""
 #~ "single rows with `.` for bulk removal. You can now mark whole ranges:\n"
 #~ "\n"
 #~ "- **Shift+End:** marks or unmarks from the focused row to the last row.\n"
-#~ "- **Shift+Home:** marks or unmarks from the focused row to the first row.\n"
+#~ "- **Shift+Home:** marks or unmarks from the focused row to the first "
+#~ "row.\n"
 #~ "\n"
 #~ "The focused row's current state decides the direction: if it is unmarked, "
 #~ "the whole range gets marked, and if it is marked, the whole range gets "
@@ -5957,10 +6020,9 @@ msgstr ""
 #~ "\n"
 #~ "### Windows Explorer integration\n"
 #~ "\n"
-#~ "A new `appModules/explorer.py`, active only in the file list of "
-#~ "`explorer.exe`, not in the address bar, tree view, ribbon, search box or "
-#~ "other Explorer controls. It adds two commands, both unassigned by "
-#~ "default:\n"
+#~ "A new `appModules/explorer.py`, active only in the file list of `explorer."
+#~ "exe`, not in the address bar, tree view, ribbon, search box or other "
+#~ "Explorer controls. It adds two commands, both unassigned by default:\n"
 #~ "\n"
 #~ "- **Play the focused file with freeAudio**\n"
 #~ "- **Add the focused file or folder to the freeAudio jukebox**\n"
@@ -6007,13 +6069,13 @@ msgstr ""
 #~ "Media Classical\", aunque esa frase nunca aparece completa.\n"
 #~ "- **Asignar al grupo…** (nuevo comando del menú contextual): Marca los "
 #~ "favoritos con un `.`. Luego, ingrese un nombre de grupo para organizarlos "
-#~ "manualmente o deje el campo en blanco para eliminar el grupo. Esta función "
-#~ "es compatible con favoritos creados manualmente, no solo con archivos M3U "
-#~ "importados.\n"
+#~ "manualmente o deje el campo en blanco para eliminar el grupo. Esta "
+#~ "función es compatible con favoritos creados manualmente, no solo con "
+#~ "archivos M3U importados.\n"
 #~ "- **Compatibilidad con versiones anteriores:** Los favoritos sin grupo se "
 #~ "asignan automáticamente a un grupo vacío. La lista conserva su apariencia "
-#~ "y comportamiento originales hasta que se importe una lista de reproducción "
-#~ "agrupada o se utilice Asignar al grupo.\n"
+#~ "y comportamiento originales hasta que se importe una lista de "
+#~ "reproducción agrupada o se utilice Asignar al grupo.\n"
 #~ "\n"
 #~ "### Marcar un rango de elementos\n"
 #~ "\n"
@@ -6028,9 +6090,9 @@ msgstr ""
 #~ "\n"
 #~ "El estado actual de la línea enfocada determina la dirección: si no está "
 #~ "marcada, se marca todo el rango. Si se marca una línea, todo el rango se "
-#~ "desmarca. Este comportamiento es similar al de usar los atajos "
-#~ "Shift+Inicio y Shift+Fin para extender una selección en un campo de texto. "
-#~ "El foco se desplaza entonces al final del rango y se anuncia el número de "
+#~ "desmarca. Este comportamiento es similar al de usar los atajos Shift"
+#~ "+Inicio y Shift+Fin para extender una selección en un campo de texto. El "
+#~ "foco se desplaza entonces al final del rango y se anuncia el número de "
 #~ "líneas modificadas. Las líneas de marcador de posición en Canciones "
 #~ "favoritas (\"Aún no hay canciones favoritas.\", \"No se encontraron "
 #~ "resultados.\") nunca se marcan.\n"
@@ -6050,14 +6112,14 @@ msgstr ""
 #~ "- **Añadir el archivo o carpeta enfocada al jukebox de freeAudio**\n"
 #~ "\n"
 #~ "Asigna una tecla (p. ej., `.` o `,`) en los Gestos de Entrada cuando el "
-#~ "elemento esté enfocado en el Explorador. Esta tecla solo está asociada con "
-#~ "el Explorador y funciona normalmente en cualquier otro lugar.\n"
+#~ "elemento esté enfocado en el Explorador. Esta tecla solo está asociada "
+#~ "con el Explorador y funciona normalmente en cualquier otro lugar.\n"
 #~ "\n"
 #~ "## Correcciones\n"
 #~ "\n"
-#~ "- **En ocasiones, la ventana de freeAudio no se mostraba en primer "
-#~ "plano.** Es necesario reiniciar NVDA. Si minimizabas la ventana en lugar "
-#~ "de cerrarla, permanecía en la barra de tareas y no se podía restaurar. "
+#~ "- **En ocasiones, la ventana de freeAudio no se mostraba en primer plano."
+#~ "** Es necesario reiniciar NVDA. Si minimizabas la ventana en lugar de "
+#~ "cerrarla, permanecía en la barra de tareas y no se podía restaurar. "
 #~ "Ahora, al volver a abrirla, se restaura como una ventana minimizada antes "
 #~ "de que vuelva a aparecer.\n"
 
@@ -6074,14 +6136,14 @@ msgstr ""
 #~ "- In the **Favorites**, **Liked Songs**, **Audio Books**, and **Jukebox** "
 #~ "lists you can now mark multiple items and remove them together:\n"
 #~ "  - Press **.** (period) on a highlighted item to mark or unmark it. "
-#~ "Marked items show a \"(marked)\" suffix so their state stays visible while "
-#~ "browsing.\n"
+#~ "Marked items show a \"(marked)\" suffix so their state stays visible "
+#~ "while browsing.\n"
 #~ "  - Press **Delete** to remove every marked item at once. With nothing "
 #~ "marked, Delete still removes only the focused item, as before.\n"
 #~ "  - A **Remove Selected** entry was added to each list's context menu, "
 #~ "enabled only when at least one item is marked.\n"
-#~ "  - A single confirmation dialog summarises how many items will be removed "
-#~ "before anything is deleted.\n"
+#~ "  - A single confirmation dialog summarises how many items will be "
+#~ "removed before anything is deleted.\n"
 #~ "\n"
 #~ "## Fixed\n"
 #~ "\n"
@@ -6099,10 +6161,10 @@ msgstr ""
 #~ "helpers in the playback pipeline, now key off the dedicated `media_kind` "
 #~ "field instead of substring-matching the free-text `tags` field - which is "
 #~ "community-assigned genre text a real live stream can legitimately carry.\n"
-#~ "- **TuneIn stations now record and capture song titles correctly.** "
-#~ "Ctrl+Win+E recording and song capture previously wrote the tuning response "
-#~ "to disk instead of the actual audio; they now resolve the tuning URL "
-#~ "first, so recordings are valid and playable.\n"
+#~ "- **TuneIn stations now record and capture song titles correctly.** Ctrl"
+#~ "+Win+E recording and song capture previously wrote the tuning response to "
+#~ "disk instead of the actual audio; they now resolve the tuning URL first, "
+#~ "so recordings are valid and playable.\n"
 #~ "\n"
 #~ "### Audio mirror\n"
 #~ "- **Audio mirror now works on stations whose server caps concurrent "
@@ -6116,49 +6178,49 @@ msgstr ""
 #~ "prematurely, undoing the fix above on every repeat attempt.\n"
 #~ "\n"
 #~ "### Jukebox\n"
-#~ "- **Jukebox folder playback no longer makes NVDA sluggish.** The volume/EQ/"
-#~ "speed/transpose setup and the playback start now run on a background "
+#~ "- **Jukebox folder playback no longer makes NVDA sluggish.** The volume/"
+#~ "EQ/speed/transpose setup and the playback start now run on a background "
 #~ "thread instead of NVDA's main thread, so the blocking BASS round-trips "
 #~ "involved no longer stall speech and input during automatic track "
 #~ "transitions.\n"
 #~ "- **Track audio profiles now survive path casing and form changes.** "
 #~ "Profiles are keyed on the same normalised path form the entries list "
 #~ "already uses, with a one-time migration on load, so a profile saved under "
-#~ "one casing is still found when the same file is later referenced through a "
-#~ "different one (case-insensitive filesystems, mapped drives).\n"
+#~ "one casing is still found when the same file is later referenced through "
+#~ "a different one (case-insensitive filesystems, mapped drives).\n"
 #~ "\n"
 #~ "### Music recognition\n"
-#~ "- **NVDA no longer feels sluggish while a Shazam recognition is running.** "
-#~ "The pure-Python signature computation is CPU-heavy and, even though it "
+#~ "- **NVDA no longer feels sluggish while a Shazam recognition is running."
+#~ "** The pure-Python signature computation is CPU-heavy and, even though it "
 #~ "already runs on a background thread, competed with NVDA's own thread for "
 #~ "the GIL. The recognition thread's OS priority is now lowered and Python's "
-#~ "GIL switch interval is temporarily shortened during signature computation, "
-#~ "so NVDA's thread gets the CPU promptly. No change to recognition accuracy "
-#~ "and negligible effect on recognition time.\n"
+#~ "GIL switch interval is temporarily shortened during signature "
+#~ "computation, so NVDA's thread gets the CPU promptly. No change to "
+#~ "recognition accuracy and negligible effect on recognition time.\n"
 #~ "\n"
 #~ "### Timers and scheduled recordings\n"
 #~ "- **Pending sleep and alarm timers now survive add-on updates.** They are "
 #~ "stored under NVDA's own config path instead of the add-on's install "
 #~ "directory, which NVDA deletes and re-creates on every update.\n"
-#~ "- **Scheduled recordings now use the correct NVDA profile.** The scheduled-"
-#~ "recordings store resolves through `globalVars.appArgs.configPath` instead "
-#~ "of `%APPDATA%\n"
-#~ "vda`, so a portable NVDA copy or an `nvda.exe -c <path>` session writes to "
-#~ "and reads from its own profile instead of the installed one.\n"
+#~ "- **Scheduled recordings now use the correct NVDA profile.** The "
+#~ "scheduled-recordings store resolves through `globalVars.appArgs."
+#~ "configPath` instead of `%APPDATA%\n"
+#~ "vda`, so a portable NVDA copy or an `nvda.exe -c <path>` session writes "
+#~ "to and reads from its own profile instead of the installed one.\n"
 #~ "- Fixed a race where a timer added between the timer loop's wakeup clear "
 #~ "and its wait could be delayed by up to a full minute.\n"
 #~ "\n"
 #~ "### Persistence\n"
 #~ "- **User data is now written atomically** (temp file plus `os.replace()`) "
 #~ "for favourites, timers, podcast resume positions, jukebox folder "
-#~ "positions, and the jukebox library, so a crash or power loss mid-write can "
-#~ "no longer leave a corrupted file behind.\n"
+#~ "positions, and the jukebox library, so a crash or power loss mid-write "
+#~ "can no longer leave a corrupted file behind.\n"
 #~ "\n"
 #~ "### UI, translations and small fixes\n"
 #~ "- `recorder.py` now calls `addonHandler.initTranslation()`, so `_()` "
 #~ "resolves against FreeRadio's own translation catalog.\n"
-#~ "- Removed a dead `globalVars.appArgs.secure` guard that never took effect, "
-#~ "and fixed an unbalanced `prePopup()` on the first dialog open.\n"
+#~ "- Removed a dead `globalVars.appArgs.secure` guard that never took "
+#~ "effect, and fixed an unbalanced `prePopup()` on the first dialog open.\n"
 #~ "- Fixed a \"potcasts\" typo in the time-shift checkbox label.\n"
 #~ "- Removed a stray \"()\" from the auto-generated per-favourite shortcut "
 #~ "descriptions in NVDA's Input Gestures dialog.\n"
@@ -6176,56 +6238,58 @@ msgstr ""
 #~ "\n"
 #~ "### Marcar y eliminar en lote en todas las pestañas de lista\n"
 #~ "- En las listas **Favoritos**, **Canciones favoritas**, **Audiolibros** y "
-#~ "**Jukebox**, ahora puedes marcar varios elementos y eliminarlos a la vez:\n"
+#~ "**Jukebox**, ahora puedes marcar varios elementos y eliminarlos a la "
+#~ "vez:\n"
 #~ "  - Pulsa **.** (punto) sobre un elemento resaltado para marcarlo o "
 #~ "desmarcarlo. Los elementos marcados muestran el sufijo \"(marcado)\" para "
 #~ "que su estado permanezca visible mientras navegas.\n"
 #~ "  - Pulsa **Suprimir** para eliminar todos los elementos marcados a la "
 #~ "vez. Si no hay nada marcado, Suprimir seguirá eliminando solo el elemento "
 #~ "enfocado, como antes.\n"
-#~ "  - Se ha añadido la entrada  **Eliminar seleccionado** al menú contextual "
-#~ "de cada lista, que solo se activa cuando hay al menos un elemento "
-#~ "marcado.\n"
-#~ "  - Un único cuadro de diálogo de confirmación resume cuántos elementos se "
-#~ "eliminarán antes de que se borre algo.\n"
+#~ "  - Se ha añadido la entrada  **Eliminar seleccionado** al menú "
+#~ "contextual de cada lista, que solo se activa cuando hay al menos un "
+#~ "elemento marcado.\n"
+#~ "  - Un único cuadro de diálogo de confirmación resume cuántos elementos "
+#~ "se eliminarán antes de que se borre algo.\n"
 #~ "\n"
 #~ "## Corregido\n"
 #~ "\n"
 #~ "### Reproducción y reanudación\n"
-#~ "- **Las emisoras en directo ya no se clasifican erróneamente como podcasts "
-#~ "al iniciarse.** Una transmisión en directo cuya URL no tenga extensión de "
-#~ "archivo de audio ni una entrada de posición de podcast guardada real ya no "
-#~ "se reanuda como si fuera un episodio de podcast. Esto afectaba "
-#~ "anteriormente a emisoras como \"AudioBook Radio\", que mostraba un campo "
-#~ "\"Episodio\" en el cuadro de diálogo de detalles y se quedaba bloqueada "
-#~ "tras el sonido de espera de la grabación.\n"
+#~ "- **Las emisoras en directo ya no se clasifican erróneamente como "
+#~ "podcasts al iniciarse.** Una transmisión en directo cuya URL no tenga "
+#~ "extensión de archivo de audio ni una entrada de posición de podcast "
+#~ "guardada real ya no se reanuda como si fuera un episodio de podcast. Esto "
+#~ "afectaba anteriormente a emisoras como \"AudioBook Radio\", que mostraba "
+#~ "un campo \"Episodio\" en el cuadro de diálogo de detalles y se quedaba "
+#~ "bloqueada tras el sonido de espera de la grabación.\n"
 #~ "\n"
 #~ "### Grabación\n"
-#~ "- **Las emisoras en directo cuyas etiquetas de Radio Browser que contengan "
-#~ "\"podcast\" se pueden volver a grabar** con Ctrl+Win+E. Grabación,Los "
-#~ "asistentes de reanudación/avance en la reproducción ahora utilizan el "
-#~ "campo `media_kind` en lugar de la coincidencia de subcadenas del campo de "
-#~ "texto libre `tags`, que es un texto de género asignado por la comunidad "
-#~ "que una transmisión en vivo real puede transmitir legítimamente.\n"
+#~ "- **Las emisoras en directo cuyas etiquetas de Radio Browser que "
+#~ "contengan \"podcast\" se pueden volver a grabar** con Ctrl+Win+E. "
+#~ "Grabación,Los asistentes de reanudación/avance en la reproducción ahora "
+#~ "utilizan el campo `media_kind` en lugar de la coincidencia de subcadenas "
+#~ "del campo de texto libre `tags`, que es un texto de género asignado por "
+#~ "la comunidad que una transmisión en vivo real puede transmitir "
+#~ "legítimamente.\n"
 #~ "- **Las estaciones de TuneIn ahora graban y capturan los títulos de las "
 #~ "canciones correctamente.** Anteriormente, la grabación y captura de "
 #~ "canciones con Ctrl+Win+E escribían la respuesta de sintonización en el "
-#~ "disco en lugar del audio; ahora resuelven primero la URL de sintonización, "
-#~ "por lo que las grabaciones son válidas y reproducibles.\n"
+#~ "disco en lugar del audio; ahora resuelven primero la URL de "
+#~ "sintonización, por lo que las grabaciones son válidas y reproducibles.\n"
 #~ "\n"
 #~ "### Puesta en espejo  de audio\n"
 #~ "- **La puesta en espejo de audio ahora funciona en estaciones cuyos "
-#~ "servidores limitan las conexiones simultáneas.** La reproducción principal "
-#~ "y el búfer de desplazamiento temporal siempre activo ya utilizan dos "
-#~ "conexiones; algunos servidores rechazan una tercera para una puesta en "
-#~ "espejo. Si falla un intento de puesta en espejo y no se está grabando "
-#~ "nada, se libera la conexión del búfer de desplazamiento temporal y se "
-#~ "vuelve a intentar la puesta en espejo una vez, restaurándose "
+#~ "servidores limitan las conexiones simultáneas.** La reproducción "
+#~ "principal y el búfer de desplazamiento temporal siempre activo ya "
+#~ "utilizan dos conexiones; algunos servidores rechazan una tercera para una "
+#~ "puesta en espejo. Si falla un intento de puesta en espejo y no se está "
+#~ "grabando nada, se libera la conexión del búfer de desplazamiento temporal "
+#~ "y se vuelve a intentar la puesta en espejo una vez, restaurándose "
 #~ "automáticamente cuando se detiene.\n"
-#~ "- Se corrigió un error por el cual la limpieza interna de `start_mirror()` "
-#~ "(que borra un motor espejo obsoleto antes de abrir uno nuevo) reanudaba el "
-#~ "búfer de desplazamiento temporal prematuramente, deshaciendo la corrección "
-#~ "anterior en cada intento posterior.\n"
+#~ "- Se corrigió un error por el cual la limpieza interna de `start_mirror()"
+#~ "` (que borra un motor espejo obsoleto antes de abrir uno nuevo) reanudaba "
+#~ "el búfer de desplazamiento temporal prematuramente, deshaciendo la "
+#~ "corrección anterior en cada intento posterior.\n"
 #~ "\n"
 #~ "### Jukebox\n"
 #~ "- **La reproducción de la carpeta Jukebox ya no ralentiza NVDA.** La "
@@ -6235,8 +6299,8 @@ msgstr ""
 #~ "que bloqueaban el sistema ya no interrumpen el habla y la entrada durante "
 #~ "las transiciones automáticas de pista.\n"
 #~ "- **Los perfiles de audio de pista ahora se conservan con los cambios de "
-#~ "mayúsculas/minúsculas y formato de la ruta.**** Los perfiles se indexan en "
-#~ "la misma ruta normalizada que la lista de entradas, con una migración "
+#~ "mayúsculas/minúsculas y formato de la ruta.**** Los perfiles se indexan "
+#~ "en la misma ruta normalizada que la lista de entradas, con una migración "
 #~ "única al cargarlos. De esta forma, un perfil guardado con una "
 #~ "configuración de mayúsculas y minúsculas se encuentra incluso cuando se "
 #~ "accede al mismo archivo con otra configuración (sistemas de archivos que "
@@ -6255,11 +6319,12 @@ msgstr ""
 #~ "\n"
 #~ "### Temporizadores y grabaciones programadas\n"
 #~ "- **Los temporizadores de apagado y alarma pendientes ahora se conservan "
-#~ "tras las actualizaciones de los complementos.** Se almacenan en la ruta de "
-#~ "configuración propia de NVDA en lugar del directorio de instalación del "
-#~ "complemento, que NVDA elimina y vuelve a crear con cada actualización.\n"
-#~ "- **Las grabaciones programadas ahora utilizan el perfil correcto de "
-#~ "NVDA.** El almacenamiento de grabaciones programadas se resuelve mediante "
+#~ "tras las actualizaciones de los complementos.** Se almacenan en la ruta "
+#~ "de configuración propia de NVDA en lugar del directorio de instalación "
+#~ "del complemento, que NVDA elimina y vuelve a crear con cada "
+#~ "actualización.\n"
+#~ "- **Las grabaciones programadas ahora utilizan el perfil correcto de NVDA."
+#~ "** El almacenamiento de grabaciones programadas se resuelve mediante "
 #~ "`globalVars.appArgs.configPath` en lugar de `%APPDATA% vda`, por lo que "
 #~ "una copia portátil de NVDA o una sesión de `nvda.exe -c <ruta>` escribe y "
 #~ "lee en su propio perfil en lugar del instalado.\n"
@@ -6269,22 +6334,23 @@ msgstr ""
 #~ "\n"
 #~ "### Persistencia\n"
 #~ "- **Los datos de usuario ahora se escriben de forma atómica** (archivo "
-#~ "temporal más `os.replace()`) para favoritos, temporizadores, posiciones de "
-#~ "reanudación de podcast, posiciones de carpeta del jukebox y la biblioteca "
-#~ "del jukebox, por lo que un fallo o un corte de energía durante la "
-#~ "escritura ya no puede dejar un archivo corrupto.\n"
+#~ "temporal más `os.replace()`) para favoritos, temporizadores, posiciones "
+#~ "de reanudación de podcast, posiciones de carpeta del jukebox y la "
+#~ "biblioteca del jukebox, por lo que un fallo o un corte de energía durante "
+#~ "la escritura ya no puede dejar un archivo corrupto.\n"
 #~ "\n"
 #~ "### Interfaz de usuario, traducciones y pequeñas correcciones\n"
-#~ "- `recorder.py` ahora llama a `addonHandler.initTranslation()`, por lo que "
-#~ "`_()` se resuelve con el catálogo de traducciones propio de FreeRadio.\n"
+#~ "- `recorder.py` ahora llama a `addonHandler.initTranslation()`, por lo "
+#~ "que `_()` se resuelve con el catálogo de traducciones propio de "
+#~ "FreeRadio.\n"
 #~ "- Se eliminó una protección `globalVars.appArgs.secure` que nunca surtía "
-#~ "efecto y se corrigió un `prePopup()` desequilibrado en la primera apertura "
-#~ "del diálogo.\n"
+#~ "efecto y se corrigió un `prePopup()` desequilibrado en la primera "
+#~ "apertura del diálogo.\n"
 #~ "- Se corrigió un error tipográfico de \"potcasts\" en la etiqueta de la "
 #~ "casilla de verificación de desplazamiento temporal.\n"
-#~ "- Se eliminó un paréntesis \"()\" sobrante de las descripciones de accesos "
-#~ "directos generadas automáticamente para cada favorito en el diálogo de "
-#~ "gestos de entrada de NVDA.\n"
+#~ "- Se eliminó un paréntesis \"()\" sobrante de las descripciones de "
+#~ "accesos directos generadas automáticamente para cada favorito en el "
+#~ "diálogo de gestos de entrada de NVDA.\n"
 #~ "- Se eliminó una \"S\" duplicada en la tabla de ordenación turca "
 #~ "(`_TR_ORDER`) que desplazaba la clave de ordenación para cada carácter "
 #~ "posterior.\n"
@@ -6298,24 +6364,24 @@ msgstr ""
 #~ "## Fixed\n"
 #~ "- **Wrong duration/bitrate/sample rate/channels for some MP3s** (e.g. "
 #~ "showing 12:44 instead of 4:46, mono instead of stereo, 32 kbps / 8 kHz "
-#~ "instead of the real values). Caused by a missing entry in the MPEG bitrate "
-#~ "table for Version 2/2.5 Layer III files (common for lower sample-rate "
-#~ "MP3s), which made frame detection fail and lock onto random bytes "
+#~ "instead of the real values). Caused by a missing entry in the MPEG "
+#~ "bitrate table for Version 2/2.5 Layer III files (common for lower sample-"
+#~ "rate MP3s), which made frame detection fail and lock onto random bytes "
 #~ "elsewhere in the file.\n"
-#~ "- **VBR files could report the placeholder bitrate** of the dummy "
-#~ "\"Xing\"/ \"Info\"/\"VBRI\" header frame instead of the track's real "
-#~ "average bitrate.\n"
+#~ "- **VBR files could report the placeholder bitrate** of the dummy \"Xing"
+#~ "\"/ \"Info\"/\"VBRI\" header frame instead of the track's real average "
+#~ "bitrate.\n"
 #~ "- **Files without an ID3v2 tag could be probed from the wrong byte "
 #~ "offset**, throwing off duration/bitrate/sample rate/channel detection.\n"
 #~ "## Added\n"
 #~ "- **Jukebox folders now resume from the last track played**, not always "
 #~ "track 1. The track index is remembered per folder (new "
 #~ "`jukebox_folder_positions.json`, alongside the existing "
-#~ "`podcast_positions.json`) and updated every time a track starts playing as "
-#~ "part of a folder sequence - including automatic advance while the dialog "
-#~ "is closed. Cleared once the folder is played through to its last track, so "
-#~ "it starts over next time; also cleared if the folder is removed from the "
-#~ "jukebox library.\n"
+#~ "`podcast_positions.json`) and updated every time a track starts playing "
+#~ "as part of a folder sequence - including automatic advance while the "
+#~ "dialog is closed. Cleared once the folder is played through to its last "
+#~ "track, so it starts over next time; also cleared if the folder is removed "
+#~ "from the jukebox library.\n"
 #~ "- An explicit selection already made in the tracks list still wins over "
 #~ "the remembered position - this only kicks in when nothing's selected.\n"
 #~ "- Within-track resume position (the existing per-file feature) applies on "
@@ -6332,25 +6398,26 @@ msgstr ""
 #~ "never moves keyboard focus.\n"
 #~ "## Fixed\n"
 #~ "- Playing a jukebox track (single file or folder) no longer requires an "
-#~ "internet connection. The connectivity check in `_play_station()` now skips "
-#~ "jukebox tracks (`media_kind == \"jukebox\"`), since they're local files "
-#~ "and never touch the network.\n"
+#~ "internet connection. The connectivity check in `_play_station()` now "
+#~ "skips jukebox tracks (`media_kind == \"jukebox\"`), since they're local "
+#~ "files and never touch the network.\n"
 #~ "## Fixed\n"
 #~ "- Time-shift (rewind) now works on stations that use a \"redirect\" style "
-#~ "address, such as many TuneIn stations. Previously, time-shift would try to "
-#~ "reconnect over and over without ever actually buffering anything, so "
+#~ "address, such as many TuneIn stations. Previously, time-shift would try "
+#~ "to reconnect over and over without ever actually buffering anything, so "
 #~ "rewind wasn't available on those stations - even though normal playback "
 #~ "worked fine. Regular listening was never affected.\n"
 #~ msgstr ""
 #~ "\n"
 #~ "## Corregido\n"
 #~ "- **Duración, tasa de bits, frecuencia de muestreo y canales incorrectos "
-#~ "para algunos archivos MP3** (por ejemplo, mostraba 12:44 en lugar de 4:46, "
-#~ "mono en lugar de estéreo, 32 kbps / 8 kHz en lugar de los valores reales). "
-#~ "Esto se debía a la falta de una entrada en la tabla de tasas de bits MPEG "
-#~ "para archivos Layer III de la versión 2/2.5 (común en archivos MP3 con "
-#~ "baja frecuencia de muestreo), lo que provocaba un fallo en la detección de "
-#~ "fotogramas y el bloqueo en bytes aleatorios en otras partes del archivo.\n"
+#~ "para algunos archivos MP3** (por ejemplo, mostraba 12:44 en lugar de "
+#~ "4:46, mono en lugar de estéreo, 32 kbps / 8 kHz en lugar de los valores "
+#~ "reales). Esto se debía a la falta de una entrada en la tabla de tasas de "
+#~ "bits MPEG para archivos Layer III de la versión 2/2.5 (común en archivos "
+#~ "MP3 con baja frecuencia de muestreo), lo que provocaba un fallo en la "
+#~ "detección de fotogramas y el bloqueo en bytes aleatorios en otras partes "
+#~ "del archivo.\n"
 #~ "- **Los archivos VBR podían informar la tasa de bits del marcador de "
 #~ "posición** del encabezado ficticio \"Xing\"/\"Info\"/\"VBRI\" en lugar de "
 #~ "la tasa de bits promedio real de la pista.\n"
@@ -6358,15 +6425,15 @@ msgstr ""
 #~ "desplazamiento de byte incorrecto**, lo que afectaba la detección de "
 #~ "duración, tasa de bits, frecuencia de muestreo y canales.\n"
 #~ "## Añadido\n"
-#~ "- **Las carpetas de Jukebox ahora reanudan la reproducción desde la última "
-#~ "pista reproducida**, no siempre desde la pista 1. El índice de pista se "
-#~ "guarda por carpeta (nuevo archivo `jukebox_folder_positions.json`, junto "
-#~ "con el archivo `podcast_positions.json` existente) y se actualiza cada vez "
-#~ "que comienza a reproducirse una pista como parte de una secuencia de "
-#~ "carpetas, incluyendo el avance automático mientras el diálogo está "
-#~ "cerrado. Se borra una vez que la carpeta se reproduce hasta su última "
-#~ "pista, por lo que comienza de nuevo la próxima vez; también se borra si la "
-#~ "carpeta se elimina de la biblioteca de Jukebox.\n"
+#~ "- **Las carpetas de Jukebox ahora reanudan la reproducción desde la "
+#~ "última pista reproducida**, no siempre desde la pista 1. El índice de "
+#~ "pista se guarda por carpeta (nuevo archivo `jukebox_folder_positions."
+#~ "json`, junto con el archivo `podcast_positions.json` existente) y se "
+#~ "actualiza cada vez que comienza a reproducirse una pista como parte de "
+#~ "una secuencia de carpetas, incluyendo el avance automático mientras el "
+#~ "diálogo está cerrado. Se borra una vez que la carpeta se reproduce hasta "
+#~ "su última pista, por lo que comienza de nuevo la próxima vez; también se "
+#~ "borra si la carpeta se elimina de la biblioteca de Jukebox.\n"
 #~ "- Una selección explícita ya realizada en la lista de pistas sigue "
 #~ "teniendo prioridad sobre la posición guardada; esto solo se activa cuando "
 #~ "no hay nada seleccionado.\n"
@@ -6378,12 +6445,12 @@ msgstr ""
 #~ "de pistas ahora se actualiza a la pista que comienza a reproducirse, sin "
 #~ "mover el foco del teclado.\n"
 #~ "## Añadido\n"
-#~ "- La selección de la lista de pistas ahora también sigue a la pista que se "
-#~ "está reproduciendo cuando cambia automáticamente: cuando una pista termina "
-#~ "y avanza a la siguiente, o cuando se usa Ctrl+Win+J/K para cambiar de "
-#~ "pista. Solo se actualiza si la carpeta que se está reproduciendo es la que "
-#~ "se muestra actualmente en la lista de pistas; nunca mueve el foco del "
-#~ "teclado.\n"
+#~ "- La selección de la lista de pistas ahora también sigue a la pista que "
+#~ "se está reproduciendo cuando cambia automáticamente: cuando una pista "
+#~ "termina y avanza a la siguiente, o cuando se usa Ctrl+Win+J/K para "
+#~ "cambiar de pista. Solo se actualiza si la carpeta que se está "
+#~ "reproduciendo es la que se muestra actualmente en la lista de pistas; "
+#~ "nunca mueve el foco del teclado.\n"
 #~ "## Corregido\n"
 #~ "- La reproducción de una pista de la biblioteca (archivo o carpeta) ya no "
 #~ "requiere conexión a internet. La comprobación de conectividad en "
@@ -6395,8 +6462,8 @@ msgstr ""
 #~ "de TuneIn. Anteriormente, la función de desplazamiento temporal intentaba "
 #~ "reconectarse una y otra vez sin almacenar nada en búfer, por lo que la "
 #~ "función de rebobinado no estaba disponible en esas emisoras, aunque la "
-#~ "reproducción normal funcionaba correctamente. La escucha habitual nunca se "
-#~ "vio afectada.\n"
+#~ "reproducción normal funcionaba correctamente. La escucha habitual nunca "
+#~ "se vio afectada.\n"
 
 #, fuzzy
 #~ msgid "Search disk:"
@@ -6414,8 +6481,8 @@ msgstr ""
 #~ "filename, or build a persistent personal library of files and folders. "
 #~ "Jukebox tracks get the same treatment as podcasts and audio books: "
 #~ "automatic resume, tiered rewind/fast-forward, playback speed, pitch "
-#~ "transpose, and per-item audio profiles. Open the Jukebox tab from anywhere "
-#~ "with Ctrl+Win+U, or from the Station Browser with Alt+8.\n"
+#~ "transpose, and per-item audio profiles. Open the Jukebox tab from "
+#~ "anywhere with Ctrl+Win+U, or from the Station Browser with Alt+8.\n"
 #~ "- Transpose (pitch shift): shift the pitch of podcasts, audio books, and "
 #~ "jukebox tracks up or down without changing their speed, using Shift+Win+K "
 #~ "(raise) and Shift+Win+J (lower). Each step is one eighth of a whole tone "
@@ -6424,17 +6491,17 @@ msgstr ""
 #~ "- Jukebox tab keyboard shortcuts: F3 / F4 move between tracks within the "
 #~ "selected jukebox item; Shift+F3 / Shift+F4 move between jukebox entries; "
 #~ "Ctrl+Left / Ctrl+Right do the same as F3 / F4 while the tracks or entries "
-#~ "list is focused. Space previews a disk-search result or pauses the current "
-#~ "playback; Enter adds a disk-search result to the jukebox or plays the "
-#~ "focused item directly.\n"
+#~ "list is focused. Space previews a disk-search result or pauses the "
+#~ "current playback; Enter adds a disk-search result to the jukebox or plays "
+#~ "the focused item directly.\n"
 #~ "\n"
 #~ "Improvements:\n"
 #~ "- Playback speed shortcuts (Ctrl+Win+Shift+K / Ctrl+Win+Shift+J) now also "
 #~ "apply to jukebox tracks, not just podcasts and audio books.\n"
 #~ "- Ctrl+Win+V (Add to Favourites / Download Media) now tells the user "
-#~ "explicitly that the shortcut only applies to stations, podcasts, and audio "
-#~ "books when a jukebox track is currently playing, instead of silently "
-#~ "treating the jukebox track as a station.\n"
+#~ "explicitly that the shortcut only applies to stations, podcasts, and "
+#~ "audio books when a jukebox track is currently playing, instead of "
+#~ "silently treating the jukebox track as a station.\n"
 #~ "- The Station Browser now contains eight tabs instead of seven; tab "
 #~ "navigation shortcuts run from Alt+1 through Alt+8.\n"
 #~ "- Ctrl+Tab / Ctrl+Shift+Tab tab cycling now includes the Jukebox tab.\n"
@@ -6449,9 +6516,9 @@ msgstr ""
 #~ "almacenados en cualquier unidad conectada por nombre de archivo, o crea "
 #~ "una biblioteca personal persistente de archivos y carpetas. Las pistas de "
 #~ "Jukebox reciben el mismo tratamiento que los podcasts y audiolibros: "
-#~ "reanudación automática, rebobinado/avance rápido por niveles, velocidad de "
-#~ "reproducción, transposición de tono y perfiles de audio por elemento. Abre "
-#~ "la pestaña Jukebox desde cualquier lugar con Ctrl+Win+U, o desde el "
+#~ "reanudación automática, rebobinado/avance rápido por niveles, velocidad "
+#~ "de reproducción, transposición de tono y perfiles de audio por elemento. "
+#~ "Abre la pestaña Jukebox desde cualquier lugar con Ctrl+Win+U, o desde el "
 #~ "Explorador de estaciones con Alt+8.\n"
 #~ "- Transposición (cambio de tono): cambia el tono de podcasts, audiolibros "
 #~ "y pistas del Jukebox hacia arriba o hacia abajo sin cambiar su velocidad, "
@@ -6460,25 +6527,26 @@ msgstr ""
 #~ "semitonos. Requiere el bass_fx.dll.\n"
 #~ "- Atajos de teclado para la pestaña Jukebox: F3 / F4 se mueven entre las "
 #~ "pistas dentro del elemento seleccionado del Jukebox; Shift+F3 / Shift+F4 "
-#~ "permite navegar entre las entradas de la lista de reproducción; "
-#~ "Ctrl+Izquierda / Ctrl+Derecha realiza la misma función que F3 / F4 "
-#~ "mientras la lista de pistas o entradas está seleccionada. La barra "
-#~ "espaciadora muestra una vista previa del resultado de la búsqueda en disco "
-#~ "o pausa la reproducción actual; Intro añade un resultado de la búsqueda en "
-#~ "disco a la lista de reproducción o reproduce directamente el elemento "
+#~ "permite navegar entre las entradas de la lista de reproducción; Ctrl"
+#~ "+Izquierda / Ctrl+Derecha realiza la misma función que F3 / F4 mientras "
+#~ "la lista de pistas o entradas está seleccionada. La barra espaciadora "
+#~ "muestra una vista previa del resultado de la búsqueda en disco o pausa la "
+#~ "reproducción actual; Intro añade un resultado de la búsqueda en disco a "
+#~ "la lista de reproducción o reproduce directamente el elemento "
 #~ "seleccionado.\n"
 #~ "\n"
 #~ "Mejoras:\n"
-#~ "- Los atajos de velocidad de reproducción (Ctrl+Win+Shift+K / "
-#~ "Ctrl+Win+Shift+J) ahora también se aplican a las pistas de la lista de "
+#~ "- Los atajos de velocidad de reproducción (Ctrl+Win+Shift+K / Ctrl+Win"
+#~ "+Shift+J) ahora también se aplican a las pistas de la lista de "
 #~ "reproducción, no solo a podcasts y audiolibros.\n"
 #~ "- Ctrl+Win+V (Añadir a Favoritos / Descargar el Medio) ahora indica "
-#~ "explícitamente al usuario que el atajo solo se aplica a emisoras, podcasts "
-#~ "y audiolibros cuando se está reproduciendo una pista de la lista de "
-#~ "reproducción.En lugar de tratar silenciosamente la pista del jukebox como "
-#~ "una emisora.\n"
-#~ "- El navegador de emisoras ahora contiene ocho pestañas en lugar de siete; "
-#~ "los atajos de navegación entre pestañas van desde Alt+1 hasta Alt+8.\n"
+#~ "explícitamente al usuario que el atajo solo se aplica a emisoras, "
+#~ "podcasts y audiolibros cuando se está reproduciendo una pista de la lista "
+#~ "de reproducción.En lugar de tratar silenciosamente la pista del jukebox "
+#~ "como una emisora.\n"
+#~ "- El navegador de emisoras ahora contiene ocho pestañas en lugar de "
+#~ "siete; los atajos de navegación entre pestañas van desde Alt+1 hasta Alt"
+#~ "+8.\n"
 #~ "- El cambio de pestañas con Ctrl+Tab / Ctrl+Shift+Tab ahora incluye la "
 #~ "pestaña del Jukebox .\n"
 #~ "- Ctrl+Win+I (¿Qué se está reproduciendo?) ahora también anuncia los "

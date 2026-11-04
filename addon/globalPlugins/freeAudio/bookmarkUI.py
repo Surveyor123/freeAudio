@@ -4,6 +4,7 @@
 # the context menu and its actions, and the voice-note recording dialog.
 
 import ctypes
+import os
 
 import ui
 import wx
@@ -123,12 +124,16 @@ class BookmarkList:
 
 	*provider* returns [(key, label_prefix, extra), ...] - the item key(s)
 	whose bookmarks to list. *start_fn(entry)* starts playing the item the
-	entry belongs to (its resume position has already been set)."""
+	entry belongs to (its resume position has already been set).
+	*source_fn(entry)* (optional) describes where the entry's item can be
+	read from, as a dict for excerptExport.start_excerpt(); it is what
+	enables "Save Excerpt Between Marked Bookmarks"."""
 
-	def __init__(self, dialog, panel, sizer, provider, start_fn):
+	def __init__(self, dialog, panel, sizer, provider, start_fn, source_fn=None):
 		self._dialog = dialog
 		self._provider = provider
 		self._start_fn = start_fn
+		self._source_fn = source_fn
 		self._entries = []
 		self._marked = set()   # bookmark ids
 		self._pending_id = None
@@ -389,15 +394,25 @@ class BookmarkList:
 		# Translators: Spoken after removing a bookmark's text and voice notes.
 		ui.message(_("Notes removed"))
 
-	def repeat_between_marked(self):
-		from . import _format_duration
+	def _marked_span(self):
+		"""(first, last) of the marked bookmarks - earliest and latest
+		position - or None (after telling the user) unless two or more
+		bookmarks of the same item are marked."""
 		marked = self.marked_entries()
 		if len(marked) < 2 or len({e.key for e in marked}) != 1:
 			# Translators: Spoken when the repeat command is used without two or more marked bookmarks of the same item.
 			ui.message(_("Mark at least two bookmarks of the same item with the period key first."))
-			return
+			return None
 		first = min(marked, key=lambda e: e.bookmark.position)
 		last = max(marked, key=lambda e: e.bookmark.position)
+		return first, last
+
+	def repeat_between_marked(self):
+		from . import _format_duration
+		span = self._marked_span()
+		if span is None:
+			return
+		first, last = span
 		start, end = first.bookmark.position, last.bookmark.position
 		player = self._dialog._player
 		player.set_loop_range(first.key, start, end)
@@ -410,6 +425,57 @@ class BookmarkList:
 		self._dialog._player.clear_loop()
 		# Translators: Spoken when repeat mode between bookmarks is turned off.
 		ui.message(_("Repeat stopped"))
+
+	def save_excerpt_between_marked(self):
+		"""Save the section between the earliest and latest marked bookmark
+		(the same section repeat mode loops) as an audio file in
+		<recordings folder>\\<media name>\\."""
+		from . import _notify, excerptExport
+		if self._source_fn is None:
+			return
+		span = self._marked_span()
+		if span is None:
+			return
+		first, last = span
+		start, end = first.bookmark.position, last.bookmark.position
+		if end - start < 0.5:
+			# Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
+			ui.message(_("The marked bookmarks are too close together to save an excerpt."))
+			return
+		try:
+			source = self._source_fn(first)
+		except Exception:
+			source = None
+		if not source:
+			# Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
+			ui.message(_("Could not find the audio of this item."))
+			return
+		mgr = bookmarks.get_manager()
+		start_name = mgr.display_name(first.key, first.bookmark)
+		end_name = mgr.display_name(last.key, last.bookmark)
+
+		def _started():
+			# Translators: Spoken when saving the audio between two bookmarks starts.
+			wx.CallAfter(_notify, _("Saving excerpt..."))
+
+		def _done(path):
+			# Translators: Spoken when an audio excerpt was saved; %s is the file name.
+			wx.CallAfter(_notify, _("Excerpt saved: %s") % os.path.basename(path))
+
+		def _failed(reason):
+			if reason == "ffmpeg":
+				# Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
+				message = _("Could not save the excerpt: ffmpeg was not found.")
+			else:
+				# Translators: Spoken when saving an audio excerpt failed; %s is the error.
+				message = _("Could not save the excerpt: %s") % reason
+			wx.CallAfter(ui.message, message)
+
+		started = excerptExport.start_excerpt(
+			source, start, end, start_name, end_name, first.key, _started, _done, _failed)
+		if not started:
+			# Translators: Spoken when the same excerpt is already being saved.
+			ui.message(_("This excerpt is already being saved."))
 
 	# -- context menu --------------------------------------------------------
 
@@ -444,6 +510,9 @@ class BookmarkList:
 		add(_("&Repeat Between Marked Bookmarks"), self.repeat_between_marked, len(self._marked) >= 2)
 		# Translators: Bookmark context-menu item; turns off the repeat mode.
 		add(_("St&op Repeat"), self.stop_repeat, player.get_loop_range() is not None)
+		if self._source_fn is not None:
+			# Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
+			add(_("Save &Excerpt Between Marked Bookmarks"), self.save_excerpt_between_marked, len(self._marked) >= 2)
 
 		dlg.PopupMenu(menu, self.listbox.GetScreenPosition() - dlg.GetScreenPosition())
 		menu.Destroy()

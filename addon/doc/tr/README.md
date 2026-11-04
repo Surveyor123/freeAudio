@@ -8,7 +8,7 @@ freeAudio, ekran okuyucu NVDA için geliştirilmiş, tüm özellikleriyle donan�
 - **Podcastler** — Herhangi bir RSS/Atom akışına abone olun veya Apple'ın podcast dizininde arama yaparak abone olmadan önce bölümleri önizleyin. Oynatma konumu otomatik olarak kaydedilir ve kaldığınız yerden devam eder — bkz. [Podcastler](#podcastler).
 - **Sesli kitaplar** — Üç kaynaktan kitap arayın, akış üzerinden dinleyin veya indirin: Boğaziçi Üniversitesi'nin görme engelliler için dijital kütüphanesi [GETEM](https://getem.boun.edu.tr/), gönüllülerin seslendirdiği kamu malı sesli kitap projesi [LibriVox](https://librivox.org/) ve Project Gutenberg Açık Sesli Kitap Koleksiyonu — son ikisi hesap gerektirmez — çok bölümlü eserlerde otomatik devam etme özelliği vardır — bkz. [Sesli Kitaplar (GETEM, LibriVox ve Project Gutenberg)](#sesli-kitaplar-getem-librivox-ve-project-gutenberg).
 - **Yerel Müzik Kutusu** — Bilgisayarınıza bağlı herhangi bir sürücüdeki ses dosyalarını dosya adına göre arayın veya dosya ve klasörlerden kişisel bir kitaplık oluşturun; çalınan parçalar podcastler ve sesli kitaplarla aynı devam etme, atlama, hız ve perde araçlarına sahip olur — bkz. [Yerel Müzik Kutusu](#yerel-müzik-kutusu).
-- **Yer imleri** — Herhangi bir sesli kitap bölümünün, podcast bölümünün veya müzik kutusu parçasının geçerli konumuna yer imi koyun, sonra istediğiniz zaman oraya geri dönün. Bir yer imine metin notu veya kaydedilmiş bir ses notu eklenebilir; oynatma o noktaya geldiğinde not çalınır. İki yer imi arasındaki bölümü tekrar etmek de mümkündür — bkz. [Yer İmleri](#yer-i̇mleri).
+- **Yer imleri** — Herhangi bir sesli kitap bölümünün, podcast bölümünün veya müzik kutusu parçasının geçerli konumuna yer imi koyun, sonra istediğiniz zaman oraya geri dönün. Bir yer imine metin notu veya kaydedilmiş bir ses notu eklenebilir; oynatma o noktaya geldiğinde not çalınır. İki yer imi arasındaki bölümü tekrar etmek veya ses alıntısı olarak kaydetmek de mümkündür — bkz. [Yer İmleri](#yer-i̇mleri).
 - **Kayıt** — Çalan içeriği anında, tek bir şarkıyı başından sonuna kadar, bir istasyondaki her şarkıyı siz durdurana kadar ayrı bir dosyaya kaydedin veya tek seferlik ve tekrarlanan kayıtlar planlayın — tüm bunlar oynatmayı kesintiye uğratmadan yapılır — bkz. [Kayıt](#kayıt).
 - **Zaman kaydırma (canlı radyoyu geri sarma)** — Canlı bir istasyonu bir DVR gibi duraklatın ve geri sarın, ardından istediğinizde canlıya tekrar yetişin — bkz. [Zaman Kaydırma (Canlı Radyoyu Geri Sarma)](#zaman-kaydırma-canlı-radyoyu-geri-sarma).
 - **Müzik tanıma ve beğenilen şarkılar** — istasyonun hakkında bilgi yayınlamadığı parçaları Shazam tabanlı tanıma ile belirleyin, beğendiğiniz şarkıları bir metin dosyasına kaydedin ve sözlerini bulun — bkz. [Müzik Tanıma](#müzik-tanıma) ve [Beğenilen Şarkılar](#beğenilen-şarkılar).
@@ -253,7 +253,7 @@ Favoriler, Beğenilen Şarkılar, Sesli Kitaplar kitaplığı ve Müzik Kutusu l
 
 İşaretler liste başınadır ve öğeler kaldırıldığında (veya tek tek işaretleri kaldırıldığında) temizlenir; oturumlar arasında saklanmaz.
 
-Podcastler, Sesli Kitaplar ve Müzik Kutusu sekmelerindeki yer imi listeleri de aynı `.` ile işaretlemeyi kullanır; **Seçilenleri Sil** ve **İşaretli Yer İmleri Arasını Tekrarla** komutları işaretli yer imleri üzerinde çalışır — bkz. [Yer İmleri](#yer-i̇mleri).
+Podcastler, Sesli Kitaplar ve Müzik Kutusu sekmelerindeki yer imi listeleri de aynı `.` ile işaretlemeyi kullanır; **Seçilenleri Sil**, **İşaretli Yer İmleri Arasını Tekrarla** ve **İşaretli Yer İmleri Arasını Ses Alıntısı Olarak Kaydet** komutları işaretli yer imleri üzerinde çalışır — bkz. [Yer İmleri](#yer-i̇mleri).
 
 ### Favorileri Dışa ve İçe Aktarma
 
@@ -868,6 +868,7 @@ Bir yer imi listesine odaklanıldığında, üstündeki sekmenin oynatma tuşlar
 - **Notları Temizle** — odaktaki yer iminin hem metin notunu hem ses notunu kaldırır. Yalnızca yer iminin notu varsa etkindir.
 - **İşaretli Yer İmleri Arasını Tekrarla** — aşağıya bakın. En az iki yer imi işaretliyse etkindir.
 - **Tekrarı Durdur** — tekrar kipini kapatır. Bir tekrar etkinken etkindir.
+- **İşaretli Yer İmleri Arasını Ses Alıntısı Olarak Kaydet** — işaretli yer imleri arasındaki bölümü ses dosyası olarak kaydeder — bkz. [Yer İmleri Arasındaki Bölümü Ses Alıntısı Olarak Kaydetme](#yer-i̇mleri-arasındaki-bölümü-ses-alıntısı-olarak-kaydetme). En az iki yer imi işaretliyse etkindir.
 
 ### Oynatma Bir Yer İmine Ulaştığında Ne Olur
 
@@ -880,6 +881,17 @@ Yer imleri normal oynatma sırasında algılanır. Bir yer iminin üzerinden ile
 ### Yer İmleri Arasındaki Bölümü Tekrarlama
 
 Aynı **öğeye** ait iki veya daha fazla yer imini `.` ile işaretleyin, sonra **İşaretli Yer İmleri Arasını Tekrarla**'yı seçin. Oynatma en erken işaretli yer imine atlar ve en erken ile en geç işaretli yer imleri arasında döngüye girer; NVDA iki konumu bildirir. Bu, zor anlaşılan bir bölümü, bir dil öğrenme cümlesini veya çalıştığınız bir müzik parçasını tekrar etmek için kullanışlıdır. Normal oynatmaya dönmek için **Tekrarı Durdur**'u seçin. Tekrar oturumlar arasında kaydedilmez ve farklı bir öğe çalmaya başlarsa tekrar aralığı yok sayılır ve yaklaşık 20 saniye sonra bırakılır.
+
+### Yer İmleri Arasındaki Bölümü Ses Alıntısı Olarak Kaydetme
+
+Aynı **öğeye** ait iki veya daha fazla yer imini `.` ile işaretleyin, sonra yer imi bağlam menüsünden **İşaretli Yer İmleri Arasını Ses Alıntısı Olarak Kaydet**'i seçin. Tekrar kipinin döngüye alacağı bölümü, yani en erken ile en geç işaretli yer imi arasını keser ve ses dosyası olarak kaydeder. Bunun için klavye kısayolu yoktur; yalnızca bağlam menüsünden kullanılabilir. Öğenin çalıyor olması gerekmez.
+
+- **Nereye kaydedilir:** kayıt klasörünüze (freeAudio ayarlarında belirlenen klasör, varsayılan olarak `Belgeler\freeAudio Recordings`), medyanın adını taşıyan yeni bir alt klasöre: podcast için bölüm başlığı, sesli kitap için kitap adı, müzik kutusu parçası için dosya adı. Windows'un izin vermediği karakterler değiştirilir; klasör yoksa oluşturulur.
+- **Dosya adı:** ilk ve son işaretli yer iminin adları ve ardından iki konum, örneğin `Yer imi 1 - Yer imi 2 (1.23-4.56).mp3`. Windows dosya adlarında iki noktaya izin vermediği için konumlarda iki nokta yerine nokta kullanılır. Birden çok bölümlü bir kitapta bölümün başlığı en başa eklenir. Var olan bir dosyanın üzerine yazılmaz; bunun yerine `(2)` gibi bir sayı eklenir.
+- **Biçim:** alıntı öğenin özgün biçimini korur (MP3 MP3 olarak, M4A M4A olarak kalır) ve yeniden kodlanmadan kesilir; yani kalite kaybı olmaz. Bu nedenle kesim noktaları en yakın ses karesine düşer ve yer imi konumlarından saniyenin bir kesri kadar uzakta olabilir.
+- **Ses nereden alınır:** müzik kutusu parçası kendi dosyasından kesilir. Daha önce indirdiğiniz bir podcast bölümü veya sesli kitap bölümü indirilen dosyadan kesilir; aksi halde web adresinden okunur. GETEM bölümleri oturum açmanızı gerektirdiği için önce geçici bir dosyaya indirilir ve iş bitince bu dosya silinir. Web adresinden okuma başarısız olursa freeAudio öğenin tamamını indirmeye geçer.
+- **Bildirimler:** NVDA başlarken "Alıntı kaydediliyor…", bittiğinde "Alıntı kaydedildi: *dosya adı*" der. Kaydetme arka planda çalışır; dinlemeye veya çalışmaya devam edebilirsiniz. Web adresinden okunan uzun öğeler biraz zaman alabilir. Aynı bölüm zaten kaydediliyorsa komut ikinci bir kopya başlatmak yerine bunu söyler.
+- **Gereksinimler:** ses alıntısını kaydetmek, freeAudio ile birlikte gelen ffmpeg'i kullanır. Bulunamazsa NVDA bunu söyler; **ffmpeg.exe yolu** ayarı freeAudio'yu başka bir kopyaya yönlendirebilir. İşaretli yer imleri arasında yarım saniyeden az varsa hiçbir şey kaydedilmez.
 
 ### Yer İmi Veri Depolama
 
@@ -960,7 +972,7 @@ NVDA Menüsü → Tercihler → Ayarlar → freeAudio bölümünden aşağıdaki
 | Ctrl+Win+P üç kez basıldığında | Kısayola art arda üç kez basıldığında gerçekleşecek işlemi seçer: hiçbir şey yapma, favoriler listesini aç, istasyon aramasını aç, kayıt sekmesini aç veya zamanlayıcı sekmesini aç. |
 | Başlangıçta güncellemeleri otomatik denetle | Açıksa NVDA her başlatıldığında arka planda güncelleme kontrolü yapılır; yeni sürüm bulunursa bildirim verilir. Kapatıldığında otomatik kontrol devre dışı kalır, elle kontrol hâlâ kullanılabilir. |
 | Güncellemeleri Şimdi Denetle | Otomatik denetimler kapalı olsa bile yeni bir sürüm olup olmadığını hemen denetleyen bir düğme. Denetim sürerken düğme "Denetleniyor..." yazar. |
-| ffmpeg.exe yolu | Müzik tanıma için kullanılan ffmpeg.exe'nin konumu. Boş bırakılırsa eklenti klasöründeki ffmpeg.exe otomatik olarak kullanılır. |
+| ffmpeg.exe yolu | Müzik tanıma ve yer imleri arasındaki bölümü ses alıntısı olarak kaydetme için kullanılan ffmpeg.exe'nin konumu. Boş bırakılırsa eklenti klasöründeki ffmpeg.exe otomatik olarak kullanılır. |
 | Kayıt klasörü | Kayıt dosyalarının yazılacağı klasörü belirler. Boş bırakılırsa varsayılan konum olan `Belgeler\freeAudio Recordings\` kullanılır. Gözat düğmesiyle klasör seçilebilir. Değişiklikler kaydedildikten hemen sonra geçerli olur. |
 | Modüller | freeAudio'nun isteğe bağlı bölümlerinin bir onay listesi: **Podcastler**, **Sesli Kitaplar** ve **Müzik Kutusu**. Üçü de varsayılan olarak etkindir. Birinin işaretini kaldırmak, sekmesini İstasyon Tarayıcısı'ndan ve komutlarını NVDA'nın Girdi Hareketleri iletişim kutusundan kaldırır; orada kaydettiğiniz hiçbir şey (abonelikler, kitaplık, Müzik Kutusu listesi) silinmez; yeniden işaretlemek her şeyi geri getirir. Değişiklikler İstasyon Tarayıcısı'nın bir sonraki açılışında uygulanır. |
 | Müzik kutusunda ararken ağ sürücülerini dahil et | Etkinleştirildiğinde Müzik Kutusu'nun **Diski ara** özelliği ağ sürücülerini de tarar. Varsayılan olarak devre dışıdır; çünkü bir ağ paylaşımını aramak dakikalar sürebilir veya paylaşıma ulaşılamıyorsa takılıp kalabilir. |

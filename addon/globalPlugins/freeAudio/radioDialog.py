@@ -6112,7 +6112,8 @@ class RadioDialog(wx.Dialog):
 
 		# --- Bookmarks of the selected episode (right after the episode list) ---
 		self._episode_bookmarks = bookmarkUI.BookmarkList(
-			self, panel, sizer, self._bookmarks_for_episode, self._start_bookmark_episode)
+			self, panel, sizer, self._bookmarks_for_episode, self._start_bookmark_episode,
+			self._excerpt_source_episode)
 
 		# --- Selected episode details (read-only, reachable by Tab right
 		# after the episode list) ---
@@ -6731,6 +6732,80 @@ class RadioDialog(wx.Dialog):
 
 	def _start_bookmark_track(self, entry):
 		self._on_jukebox_track_play(None)
+
+	# -- audio excerpts between marked bookmarks (see excerptExport.py) ------
+
+	def _excerpt_source_episode(self, entry):
+		"""Where to cut a podcast episode's excerpt from: the downloaded file
+		if there is one, otherwise its URL."""
+		episodes = getattr(self, "_episode_filtered", None) or []
+		episode = next((e for e in episodes if e.url == entry.key), None)
+		if episode is None:
+			return None
+		local = None
+		try:
+			out_path, _filename = podcast.episode_download_target(episode.title, episode.url)
+			if os.path.isfile(out_path):
+				local = out_path
+		except Exception:
+			pass
+		url = episode.url
+		return {
+			"folder": episode.title or url,
+			"local": local,
+			"url": lambda: url,
+			"ext": "",
+		}
+
+	def _excerpt_source_chapter(self, entry):
+		"""Where to cut an audio book part's excerpt from. GETEM parts need
+		the login session, so they are downloaded first; the other sources
+		are read by URL (with a download as fallback)."""
+		book = self._selected_library_book()
+		chapters = (getattr(book, "chapters", None) or []) if book else []
+		index = entry.extra
+		if index is None or not (0 <= index < len(chapters)):
+			return None
+		chapter = chapters[index]
+		chapter_url = chapter.get("url")
+		if not chapter_url:
+			return None
+		module = self._audiobook_module_for(book)
+		book_title = (getattr(book, "title", "") or getattr(book, "name", "") or "").strip()
+		part_title = (chapter.get("title") or "").strip()
+		if len(chapters) > 1 and part_title and part_title.lower() != book_title.lower():
+			prefix = part_title
+			if book_title and prefix.lower().startswith(book_title.lower()):
+				prefix = prefix[len(book_title):].lstrip(" \u2014-:,.\u2013").strip() or part_title
+		else:
+			prefix = ""
+		local = None
+		try:
+			target = module.download_book_chapter_target(book, chapter, index)
+			if target and os.path.isfile(target):
+				local = target
+		except Exception:
+			pass
+		detail_url = book.detail_url
+		return {
+			"folder": book_title or part_title,
+			"prefix": prefix,
+			"local": local,
+			"url": lambda: module.get_stream_url(chapter_url, referer=detail_url),
+			"download": lambda out_path: module.download_chapter_to(chapter_url, out_path, referer=detail_url),
+			"prefer_download": module is getem,
+			"referer": detail_url,
+			"ext": "",
+		}
+
+	def _excerpt_source_track(self, entry):
+		path = entry.key
+		if not path or not os.path.isfile(path):
+			return None
+		return {
+			"folder": os.path.splitext(os.path.basename(path))[0],
+			"local": path,
+		}
 
 	def _on_episode_download(self, event):
 		idx = self._episode_list.GetSelection()
@@ -7368,7 +7443,8 @@ class RadioDialog(wx.Dialog):
 
 		# --- Bookmarks of the selected book (all of its parts) ---
 		self._getem_bookmarks = bookmarkUI.BookmarkList(
-			self, panel, sizer, self._bookmarks_for_book, self._start_bookmark_chapter)
+			self, panel, sizer, self._bookmarks_for_book, self._start_bookmark_chapter,
+			self._excerpt_source_chapter)
 
 		# --- Selected item details (read-only, reachable by Tab right
 		# after either list) ---
@@ -8565,7 +8641,8 @@ class RadioDialog(wx.Dialog):
 
 		# --- Bookmarks of the selected track ---
 		self._jukebox_bookmarks = bookmarkUI.BookmarkList(
-			self, panel, sizer, self._bookmarks_for_track, self._start_bookmark_track)
+			self, panel, sizer, self._bookmarks_for_track, self._start_bookmark_track,
+			self._excerpt_source_track)
 
 		add_btn_sizer = wx.BoxSizer(wx.HORIZONTAL)
 		# Translators: Button label; adds a single audio file (via a file picker) to the jukebox library.
