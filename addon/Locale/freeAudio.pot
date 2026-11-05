@@ -5316,16 +5316,48 @@ msgid ""
 "its folder. Previously this stopped automatic advance to the next track.\n"
 msgstr ""
 
-#: globalPlugins/freeAudio/graphicEqualizer.py:76
-msgid "Equalizer reset"
+#: globalPlugins/freeAudio/graphicEqualizer.py:69
+msgid "%(frequency)g Hz, %(gain)+d dB"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:16
+msgid "%+d dB"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:34
+msgid "%g Hz"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:82
+msgid "Could not save Equalizer settings"
+msgstr ""
+
+#: globalPlugins/freeAudio/radioDialog.py:737
+msgid "Equalizer"
 msgstr ""
 
 #: globalPlugins/freeAudio/graphicEqualizer.py:27
 msgid "Equalizer On/Off"
 msgstr ""
 
-#: globalPlugins/freeAudio/graphicEqualizer.py:34
-msgid "%g Hz"
+#: globalPlugins/freeAudio/audioFxMixin.py:295 globalPlugins/freeAudio/graphicEqualizer.py:61
+msgid "Equalizer disabled"
+msgstr ""
+
+#: globalPlugins/freeAudio/audioFxMixin.py:295 globalPlugins/freeAudio/graphicEqualizer.py:61
+msgid "Equalizer enabled"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:76
+msgid "Equalizer reset"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:84
+msgid "Equalizer settings saved"
+msgstr ""
+
+#: globalPlugins/freeAudio/__init__.py:1163
+msgid "Open freeAudio favourite stations"
 msgstr ""
 
 #: globalPlugins/freeAudio/graphicEqualizer.py:46
@@ -5336,123 +5368,22 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: globalPlugins/freeAudio/graphicEqualizer.py:61
-msgid "Equalizer enabled"
-msgstr ""
-
-#: globalPlugins/freeAudio/graphicEqualizer.py:61
-msgid "Equalizer disabled"
-msgstr ""
-
-#: globalPlugins/freeAudio/graphicEqualizer.py:69
-msgid "%(frequency)g Hz, %(gain)+d dB"
-msgstr ""
-
-#: globalPlugins/freeAudio/graphicEqualizer.py:84
-msgid "Equalizer settings saved"
-msgstr ""
-
-#: globalPlugins/freeAudio/graphicEqualizer.py:16
-msgid "%+d dB"
-msgstr ""
-
-#: globalPlugins/freeAudio/graphicEqualizer.py:82
-msgid "Could not save Equalizer settings"
+#: globalPlugins/freeAudio/audioFxMixin.py:287
+msgid "Toggle Equalizer"
 msgstr ""
 
 #: globalPlugins/freeAudio/audioFxMixin.py:272
 msgid "Toggle Weird"
 msgstr ""
 
-#: globalPlugins/freeAudio/audioFxMixin.py:287
-msgid "Toggle Equalizer"
-msgstr ""
-
-#: globalPlugins/freeAudio/audioFxMixin.py:88
-msgid "Playback speed control needs the bass_fx add-on library — see the freeAudio docs."
-msgstr ""
-
-#: globalPlugins/freeAudio/audioFxMixin.py:285
-msgid "Weird enabled"
+#: globalPlugins/freeAudio/radioDialog.py:784 globalPlugins/freeAudio/settingsPanel.py:181
+msgid "Weird"
 msgstr ""
 
 #: globalPlugins/freeAudio/audioFxMixin.py:285
 msgid "Weird disabled"
 msgstr ""
 
-#: globalPlugins/freeAudio/radioDialog.py:3313
-msgid "Supported files (*.json;*.m3u)|*.json;*.m3u|JSON favourites (*.json)|*.json|M3U playlist (*.m3u)|*.m3u"
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:5241
-msgid "Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|*.json|M3U playlist (*.m3u)|*.m3u"
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:7324
-msgid "Search audio books by title, author, narrator, subject, or publisher. Press enter to search"
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:736
-msgid "Equalizer"
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:784
-msgid "Weird"
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:843
-msgid "Re-downloads the full station list from the server, so search and browsing use the latest data."
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:3334
-msgid "How should the imported stations be added?\n\nYes  — Merge: add new stations without removing existing ones.\nNo   — Replace: clear the current list and load from file."
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:5262
-msgid "How should the imported entries be added?\n\nYes  — Merge: add new entries without removing existing ones.\nNo   — Replace: clear the current library and load from file."
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:6048
-msgid "Search podcasts, or enter a podcast feed URL. Press enter to search or add"
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:1013
-msgid "Audio Books are disabled - enable them in freeAudio settings to use this"
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:1908
-msgid "Press comma to pick a station, navigate to the target position, then press comma again to drop."
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:7558
-msgid "No audio book sources are enabled. Enable at least one in freeAudio settings."
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:4603
-msgid "%s selected. Navigate to the target position and press comma again to drop."
-msgstr ""
-
-#: globalPlugins/freeAudio/radioDialog.py:8502
-msgid "Downloaded %(saved)d of %(total)d parts of %(title)s. Last error: %(error)s"
-msgstr ""
-
-#: globalPlugins/freeAudio/settingsPanel.py:89
-msgid "&Enable time-shift buffer (rewind live radio, no effect on podcasts and audio books)"
-msgstr ""
-
-#: globalPlugins/freeAudio/settingsPanel.py:117
-msgid "Longer buffers use more temporary disk space, especially for high-bitrate stations — a 5-hour buffer can use several gigabytes."
-msgstr ""
-
-#: globalPlugins/freeAudio/settingsPanel.py:565
-msgid "Stored encrypted on this computer, for this Windows user only. Leave both fields empty and save to remove them."
-msgstr ""
-
-#: globalPlugins/freeAudio/settingsPanel.py:608
-msgid "&Disable internet connectivity check before playing (recommended if DNS is blocked)"
-msgstr ""
-
-#. Translators: Opens the Favourites tab and focuses its station list.
-#: globalPlugins/freeAudio/__init__.py
-msgid "Open freeAudio favourite stations"
+#: globalPlugins/freeAudio/audioFxMixin.py:285
+msgid "Weird enabled"
 msgstr ""
