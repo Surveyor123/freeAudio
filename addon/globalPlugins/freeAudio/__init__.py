@@ -329,6 +329,16 @@ def _init_config():
 		"hotkey_p_double":  "string(default='none')",
 		"hotkey_p_triple":  "string(default='none')",
 		"ffmpeg_path":       "string(default='')",
+		"graphic_eq_enabled": "boolean(default=False)",
+		"graphic_eq_0": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_1": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_2": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_3": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_4": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_5": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_6": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_7": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_8": "integer(default=0, min=-20, max=20)",
 		"audio_fx":          "string(default='none')",
 		# Comma-separated subset of {"getem","librivox","gutenberg"} - which
 		# audio book sources are actually searched from the Audio Books tab
@@ -553,6 +563,8 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 					config.conf["freeAudio"]["audio_device_name"] = _actual_name
 			except Exception:
 				pass
+		self._player.set_graphic_eq(config.conf["freeAudio"]["graphic_eq_enabled"],
+			[config.conf["freeAudio"]["graphic_eq_%d" % i] for i in range(9)])
 		# Apply saved audio FX setting
 		_saved_fx = config.conf["freeAudio"].get("audio_fx", "none")
 		if _saved_fx and _saved_fx != "none":
@@ -1147,6 +1159,17 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 
 
 	@script(
+		# Translators: Name of an NVDA command; opens the Favourites tab and focuses its station list.
+		description=_("Open freeAudio favourite stations"),
+		category=_("freeAudio"),
+		gesture="kb:control+windows+f",
+	)
+	def script_openFavoriteStations(self, gesture):
+		# Preserve this script name for existing NVDA user gesture mappings.
+		wx.CallAfter(self._open_dialog_on_favorites)
+
+
+	@script(
 		# Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 		description=_("Open freeAudio audio book library"),
 		category=_("freeAudio"),
@@ -1377,6 +1400,8 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 		valid (bool(wx_object) is False when the C++ peer has been destroyed) or
 		its notebook has become corrupted, it is destroyed and rebuilt from scratch.
 		"""
+		# Supersede any tab change queued by an earlier open command.
+		request = self._dialog_focus_request = object()
 		if self._dialog is not None:
 			notebook_ok = False
 			try:
@@ -1409,7 +1434,9 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 				recorder=self._recorder,
 				timer_manager=self._timer_manager,
 				plugin=self,
+				initial_focus=focus,
 			)
+		self._dialog._initial_focus = focus
 		if not self._dialog.IsShown():
 			# prePopup() balances the postPopup() that radioDialog calls on
 			# every Hide(). Called exactly once per Show(), never at
@@ -1417,7 +1444,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 			# as much as every later re-show does.
 			gui.mainFrame.prePopup()
 			self._dialog.Show()
-		elif self._dialog.IsIconized():
+		if self._dialog.IsIconized():
 			# The dialog is only ever Hide()'n on close (see
 			# RadioDialog._on_window_close()/_on_close_btn()), never
 			# Destroy()'d - so IsShown() stays True if the user minimized it
@@ -1429,6 +1456,8 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 			# to None, forcing a fresh Show().
 			self._dialog.Iconize(False)
 		self._dialog.Raise()
+		if focus == "favorites":
+			self._dialog.SetFocus()
 		try:
 			self._dialog.refresh_audio_devices(force=True)
 		except Exception:
@@ -1472,8 +1501,11 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 		# at this point when the dialog was just constructed).
 		if focus is None:
 			return
+		dialog = self._dialog
 		def _apply_focus():
-			if not self._dialog:
+			# Never focus a hidden/replaced dialog or an obsolete request.
+			if (self._dialog is not dialog or not dialog
+					or self._dialog_focus_request is not request or not dialog.IsShown()):
 				return
 			try:
 				if focus == "favorites":

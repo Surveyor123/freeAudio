@@ -815,6 +815,8 @@ class _AbcHlsRepackServer:
 
 
 # BASS engine
+_GRAPHIC_EQ_FREQS = (62.0, 125.0, 250.0, 500.0, 1000.0, 2000.0, 4000.0, 8000.2, 16000.0)
+
 class BassHost:
 	def __init__(self, dll_dir, device_index=-1):
 		self._dll_dir	 = dll_dir
@@ -862,7 +864,15 @@ class BassHost:
 		self._bass_y1 = [0.0, 0.0]  # previous output examples
 		# FX: set of active effect names and handles returned from BASS_ChannelSetFX
 		self._fx_names   = set()   # active effect names
+		self._graphic_eq_enabled = False
+		self._graphic_eq_gains = (0,) * 9
 		self._fx_handles = {}	  # {fx_name: handle}
+		self._weird_dsp_handle = 0
+		self._weird_dsp_proc_ref = None
+		self._media_eq_preamp_dsp_handle = 0
+		self._media_eq_preamp_dsp_proc_ref = None
+		self._graphic_eq_applied = None
+		self._graphic_eq_runtime = None
 
 
 	@staticmethod
@@ -1137,6 +1147,12 @@ class BassHost:
 				# FX handles belong to the freed stream — clear so _apply_fx
 				# re-registers them on the next stream instead of skipping.
 				self._fx_handles = {}
+				self._weird_dsp_handle = 0
+				self._weird_dsp_proc_ref = None
+				self._media_eq_preamp_dsp_handle = 0
+				self._media_eq_preamp_dsp_proc_ref = None
+				self._graphic_eq_applied = None
+				self._graphic_eq_runtime = None
 			
 			# Notify waiting caller that this operation is cancelled
 			if self._pending_response:
@@ -2164,6 +2180,12 @@ class BassHost:
 				# FX handles belong to the freed stream — must be cleared so
 				# _apply_fx() re-registers them on the next stream.
 				self._fx_handles = {}
+				self._weird_dsp_handle = 0
+				self._weird_dsp_proc_ref = None
+				self._media_eq_preamp_dsp_handle = 0
+				self._media_eq_preamp_dsp_proc_ref = None
+				self._graphic_eq_applied = None
+				self._graphic_eq_runtime = None
 			# Clean up any downloaded temp file (if any)
 			if hasattr(self, '_downloaded_file_path') and self._downloaded_file_path:
 				try:
@@ -2225,6 +2247,12 @@ class BassHost:
 					pass
 				self._handle = 0
 				self._fx_handles = {}
+				self._weird_dsp_handle = 0
+				self._weird_dsp_proc_ref = None
+				self._media_eq_preamp_dsp_handle = 0
+				self._media_eq_preamp_dsp_proc_ref = None
+				self._graphic_eq_applied = None
+				self._graphic_eq_runtime = None
 
 		try:
 			stream = self._dll.BASS_StreamCreateFile(
@@ -2507,6 +2535,221 @@ class BassHost:
 				except Exception:
 					pass
 
+	def _apply_weird_dsp(self, handle):
+		"""Install/remove the custom GoldWave-style Weird DSP on 16-bit PCM.
+
+		Derived from the supplied original/processed WAV pair:
+			y ~= 1.5 * abs(x) - 16384
+		"""
+		dll = self._dll
+		if not dll or not handle:
+			return
+
+		if self._weird_dsp_handle and "weird" in self._fx_names:
+			return
+		if self._weird_dsp_handle:
+			try:
+				dll.BASS_ChannelRemoveDSP(handle, self._weird_dsp_handle)
+			except Exception:
+				pass
+			self._weird_dsp_handle = 0
+			self._weird_dsp_proc_ref = None
+
+		weird_active = (
+			"weird" in self._fx_names
+		)
+		if not weird_active:
+			return
+
+		DSPPROC = ctypes.WINFUNCTYPE(
+			None, ctypes.c_ulong, ctypes.c_ulong, ctypes.c_void_p,
+			ctypes.c_ulong, ctypes.c_void_p
+		)
+
+		def _dsp_weird(dsp_h, channel, buf, length, user):
+			if not buf or not length:
+				return
+			n_samples = length // 2
+			arr = (ctypes.c_int16 * n_samples).from_address(buf)
+			for i in range(n_samples):
+				v = int(arr[i])
+				a = 32768 if v == -32768 else abs(v)
+				out = (3 * a) // 2 - 16384
+				if out > 32767:
+					out = 32767
+				elif out < -32768:
+					out = -32768
+				arr[i] = out
+
+		proc = DSPPROC(_dsp_weird)
+		self._weird_dsp_proc_ref = proc
+		try:
+			self._weird_dsp_handle = dll.BASS_ChannelSetDSP(handle, proc, None, -1)
+		except Exception:
+			self._weird_dsp_handle = 0
+			self._weird_dsp_proc_ref = None
+
+	def _apply_media_eq(self, handle):
+		"""Install/remove the custom 9-band EQ as one DSP callback.
+
+		This version does NOT use BASS/DirectX ParamEQ. It processes the PCM
+		samples directly, with the same biquads and -3 dB preamp as the supplied My EQ.
+
+		Nine runtime gains, Q=sqrt(2), preamp -3 dB.
+		"""
+		import math
+
+		dll = self._dll
+		if not dll or not handle:
+			return
+
+		if self._media_eq_preamp_dsp_handle and self._graphic_eq_applied == (self._graphic_eq_enabled, self._graphic_eq_gains):
+			return
+		self._graphic_eq_applied = (self._graphic_eq_enabled, self._graphic_eq_gains)
+		# Remove a previous instance.
+		if self._media_eq_preamp_dsp_handle and not self._graphic_eq_enabled:
+			try:
+				dll.BASS_ChannelRemoveDSP(handle, self._media_eq_preamp_dsp_handle)
+			except Exception:
+				pass
+			self._media_eq_preamp_dsp_handle = 0
+			self._media_eq_preamp_dsp_proc_ref = None
+
+		eq_active = (
+			self._graphic_eq_enabled
+		)
+		if not eq_active:
+			self._graphic_eq_runtime = None
+			return
+
+		# BASS was initialized at 44100 Hz. Most radio streams are 44.1 kHz.
+		# Try to ask the channel for its real rate; fall back to 44100.
+		sample_rate = 44100.0
+		channels = 2
+		try:
+			class _BASS_CHANNELINFO(ctypes.Structure):
+				_fields_ = [
+					("freq", ctypes.c_uint32),
+					("chans", ctypes.c_uint32),
+					("flags", ctypes.c_uint32),
+					("ctype", ctypes.c_uint32),
+					("origres", ctypes.c_uint32),
+					("plugin", ctypes.c_uint32),
+					("sample", ctypes.c_uint32),
+					("filename", ctypes.c_void_p),
+				]
+			info = _BASS_CHANNELINFO()
+			if dll.BASS_ChannelGetInfo(handle, ctypes.byref(info)) and info.freq:
+				sample_rate = float(info.freq)
+				channels = max(1, int(info.chans))
+		except Exception:
+			pass
+
+		# RBJ peaking-EQ biquads. Q=sqrt(2) is a reasonable approximation
+		# for the broad one-octave bands used by a graphic EQ.
+		q = 1.41421356237
+		bands = []
+		for freq, gain_db in zip(_GRAPHIC_EQ_FREQS, self._graphic_eq_gains):
+			if abs(gain_db) < 0.0001:
+				bands.append(None)
+				continue
+			# Do not place a peaking filter at/above Nyquist.
+			f = min(float(freq), sample_rate * 0.45)
+			if f <= 0.0:
+				continue
+
+			A = 10.0 ** (float(gain_db) / 40.0)
+			w0 = 2.0 * math.pi * f / sample_rate
+			alpha = math.sin(w0) / (2.0 * q)
+			cosw = math.cos(w0)
+
+			b0 = 1.0 + alpha * A
+			b1 = -2.0 * cosw
+			b2 = 1.0 - alpha * A
+			a0 = 1.0 + alpha / A
+			a1 = -2.0 * cosw
+			a2 = 1.0 - alpha / A
+
+			# Normalize so a0 == 1.
+			bands.append((
+				b0 / a0, b1 / a0, b2 / a0,
+				a1 / a0, a2 / a0
+			))
+
+		# Per-band filter state for left and right:
+		# [x1L,x2L,y1L,y2L,x1R,x2R,y1R,y2R]
+		old_runtime = getattr(self, "_graphic_eq_runtime", None)
+		states = old_runtime[1] if old_runtime and old_runtime[2] == channels else [[0.0] * (4 * channels) for _ in bands]
+		# Publish one coherent block snapshot; no stream stop or DSP replacement.
+		self._graphic_eq_runtime = (tuple(bands), states, channels)
+		if self._media_eq_preamp_dsp_handle:
+			return
+		preamp = 10.0 ** (-3.0 / 20.0)
+
+		DSPPROC = ctypes.WINFUNCTYPE(
+			None, ctypes.c_ulong, ctypes.c_ulong, ctypes.c_void_p,
+			ctypes.c_ulong, ctypes.c_void_p
+		)
+
+		def _dsp_media_eq(dsp_h, channel, buf, length, user):
+			if not buf or length < 2:
+				return
+
+			bands, states, channels = self._graphic_eq_runtime
+			n_samples = length // 2
+			arr = (ctypes.c_int16 * n_samples).from_address(buf)
+
+			# Independent filter history for every actual channel.
+			for i in range(n_samples):
+				x = float(arr[i]) / 32768.0
+				base = (i % channels) * 4
+
+				for bi, coeff in enumerate(bands):
+					if coeff is None:
+						continue
+					b0, b1, b2, a1, a2 = coeff
+					st = states[bi]
+
+					x1 = st[base]
+					x2 = st[base + 1]
+					y1 = st[base + 2]
+					y2 = st[base + 3]
+
+					y = b0*x + b1*x1 + b2*x2 - a1*y1 - a2*y2
+
+					st[base + 1] = x1
+					st[base] = x
+					st[base + 3] = y1
+					st[base + 2] = y
+					x = y
+
+				x *= preamp
+				if x > 0.999969:
+					x = 0.999969
+				elif x < -1.0:
+					x = -1.0
+				arr[i] = int(round(x * 32768.0))
+
+		proc = DSPPROC(_dsp_media_eq)
+		self._media_eq_preamp_dsp_proc_ref = proc
+		try:
+			self._media_eq_preamp_dsp_handle = dll.BASS_ChannelSetDSP(
+				handle, proc, None, -2
+			)
+		except Exception:
+			self._media_eq_preamp_dsp_handle = 0
+			self._media_eq_preamp_dsp_proc_ref = None
+
+	def set_graphic_eq(self, enabled, gains):
+		values = tuple(max(-20, min(20, int(v))) for v in gains)
+		if len(values) != 9:
+			raise ValueError("Equalizer requires nine gains")
+		with self._lock:
+			self._graphic_eq_enabled = bool(enabled)
+			self._graphic_eq_gains = values
+			if self._handle and self._dll:
+				self._apply_media_eq(self._handle)
+
 	def set_fx(self, fx_names):
 		"""Replace active DirectX 8 effects.
 
@@ -2575,6 +2818,9 @@ class BassHost:
 					dll.BASS_FXSetParameters(self._fx_handles[name], ctypes.byref(params))
 				except Exception:
 					pass
+
+		self._apply_weird_dsp(handle)
+		self._apply_media_eq(handle)
 
 	def set_eq_gain(self, band, gain_db):
 		"""Set the gain (dB) for one ParamEQ band and re-apply it immediately.
@@ -3055,6 +3301,10 @@ def main():
 		elif cmd == "set_fx":
 			fx = cmd_obj.get("fx", "none")
 			host.set_fx(fx)
+			_ok()
+
+		elif cmd == "set_graphic_eq":
+			host.set_graphic_eq(cmd_obj.get("enabled", False), cmd_obj.get("gains", [0] * 9))
 			_ok()
 
 		elif cmd == "set_eq_gain":
