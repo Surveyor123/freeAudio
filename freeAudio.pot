@@ -5357,3 +5357,78 @@ msgid ""
 "- F3/F4 and Ctrl+Left/Right on the Jukebox tab now play the track as part of "
 "its folder. Previously this stopped automatic advance to the next track.\n"
 msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:70
+#, python-format
+msgid "%(frequency)g Hz, %(gain)+d dB"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:17
+#, python-format
+msgid "%+d dB"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:35
+#, python-format
+msgid "%g Hz"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:83
+msgid "Could not save Equalizer settings"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/radioDialog.py:737
+msgid "Equalizer"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:28
+msgid "Equalizer On/Off"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/audioFxMixin.py:296 addon/globalPlugins/freeAudio/graphicEqualizer.py:62
+msgid "Equalizer disabled"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/audioFxMixin.py:296 addon/globalPlugins/freeAudio/graphicEqualizer.py:62
+msgid "Equalizer enabled"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:77
+msgid "Equalizer reset"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:85
+msgid "Equalizer settings saved"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/__init__.py:1165
+msgid "Open freeAudio favourite stations"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:47
+msgid "Reset"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/graphicEqualizer.py:47
+msgid "Save"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/audioFxMixin.py:288
+msgid "Toggle Equalizer"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/audioFxMixin.py:273
+msgid "Toggle Weird"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/radioDialog.py:784 addon/globalPlugins/freeAudio/settingsPanel.py:181
+msgid "Weird"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/audioFxMixin.py:286
+msgid "Weird disabled"
+msgstr ""
+
+#: addon/globalPlugins/freeAudio/audioFxMixin.py:286
+msgid "Weird enabled"
+msgstr ""
