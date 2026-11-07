@@ -339,6 +339,7 @@ def _init_config():
 		"graphic_eq_6": "integer(default=0, min=-20, max=20)",
 		"graphic_eq_7": "integer(default=0, min=-20, max=20)",
 		"graphic_eq_8": "integer(default=0, min=-20, max=20)",
+		"graphic_eq_9": "integer(default=0, min=-20, max=20)",
 		"audio_fx":          "string(default='none')",
 		# Comma-separated subset of {"getem","librivox","gutenberg"} - which
 		# audio book sources are actually searched from the Audio Books tab
@@ -428,6 +429,7 @@ from .audioDeviceMixin import AudioDeviceMixin
 from .playbackCoreMixin import PlaybackCoreMixin
 from .timeshiftMixin import TimeshiftMixin
 from .audioFxMixin import AudioFxMixin
+from .graphicEqConfig import get_graphic_eq_gains
 from .recordingMixin import RecordingMixin
 from .trackInfoMixin import TrackInfoMixin
 from .miscTogglesMixin import MiscTogglesMixin
@@ -564,7 +566,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 			except Exception:
 				pass
 		self._player.set_graphic_eq(config.conf["freeAudio"]["graphic_eq_enabled"],
-			[config.conf["freeAudio"]["graphic_eq_%d" % i] for i in range(9)])
+			get_graphic_eq_gains(config.conf["freeAudio"]))
 		# Apply saved audio FX setting
 		_saved_fx = config.conf["freeAudio"].get("audio_fx", "none")
 		if _saved_fx and _saved_fx != "none":

@@ -1444,7 +1444,7 @@ class RadioPlayer(BookmarkPlayerMixin):
 
 		if success:
 			self._backend = self.BACKEND_BASS
-			self._bass_engine.set_graphic_eq(*getattr(self, "_graphic_eq", (False, (0,) * 9)))
+			self._bass_engine.set_graphic_eq(*getattr(self, "_graphic_eq", (False, (0,) * 10)))
 			# Reapply bass boost setting (DSP resets when stream restarts)
 			boost = getattr(self, "_bass_boost", 0.0)
 			if boost > 0.0:

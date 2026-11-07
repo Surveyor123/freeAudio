@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Keyboard-accessible nine-band graphic equalizer page."""
+"""Keyboard-accessible ten-band graphic equalizer page."""
 import wx
 import config
 import ui
 import addonHandler
+from .graphicEqConfig import GRAPHIC_EQ_KEYS, get_graphic_eq_gains
 addonHandler.initTranslation()
 
-FREQUENCIES = (62, 125, 250, 500, 1000, 2000, 4000, 8000.2, 16000)
+FREQUENCIES = (62, 125, 250, 500, 1000, 2000, 4000, 8000, 12000, 16000)
 
 
 class GainAccessible(wx.Accessible):
@@ -33,7 +34,7 @@ class EqualizerPanel(wx.Panel):
 			row = wx.BoxSizer(wx.HORIZONTAL)
 			label = _("%g Hz") % freq
 			row.Add(wx.StaticText(self, label=label), 0, wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 8)
-			slider = wx.Slider(self, value=section["graphic_eq_%d" % i], minValue=-20, maxValue=20, style=wx.SL_HORIZONTAL)
+			slider = wx.Slider(self, value=section.get(GRAPHIC_EQ_KEYS[i], 0), minValue=-20, maxValue=20, style=wx.SL_HORIZONTAL)
 			slider.SetName(label)
 			slider.SetLineSize(1)
 			slider.SetPageSize(1)
@@ -52,7 +53,7 @@ class EqualizerPanel(wx.Panel):
 
 	def apply(self):
 		section = config.conf["freeAudio"]
-		self.player.set_graphic_eq(section["graphic_eq_enabled"], [section["graphic_eq_%d" % i] for i in range(9)])
+		self.player.set_graphic_eq(section["graphic_eq_enabled"], get_graphic_eq_gains(section))
 
 	def on_toggle(self, event):
 		enabled = self.toggle.GetValue()
@@ -62,7 +63,7 @@ class EqualizerPanel(wx.Panel):
 
 	def on_gain(self, event, band):
 		value = self.sliders[band].GetValue()
-		config.conf["freeAudio"]["graphic_eq_%d" % band] = value
+		config.conf["freeAudio"][GRAPHIC_EQ_KEYS[band]] = value
 		self.apply()
 		# Explicit unit announcement also covers NVDA versions that use the
 		# native slider value rather than the custom MSAA value.
@@ -71,7 +72,7 @@ class EqualizerPanel(wx.Panel):
 	def on_reset(self, event):
 		for i, slider in enumerate(self.sliders):
 			slider.SetValue(0)
-			config.conf["freeAudio"]["graphic_eq_%d" % i] = 0
+			config.conf["freeAudio"][GRAPHIC_EQ_KEYS[i]] = 0
 		self.apply()
 		ui.message(_("Equalizer reset"))
 

@@ -22,6 +22,7 @@ _ = _tr
 del _tr
 
 from . import _notify
+from .graphicEqConfig import get_graphic_eq_gains
 
 
 class AudioFxMixin:
@@ -289,7 +290,7 @@ class AudioFxMixin:
 		section = config.conf["freeAudio"]
 		enabled = not section["graphic_eq_enabled"]
 		section["graphic_eq_enabled"] = enabled
-		self._player.set_graphic_eq(enabled, [section["graphic_eq_%d" % i] for i in range(9)])
+		self._player.set_graphic_eq(enabled, get_graphic_eq_gains(section))
 		if self._dialog and hasattr(self._dialog, "_graphic_eq_toggle"):
 			self._dialog._graphic_eq_toggle.SetValue(enabled)
 		ui.message(_("Equalizer enabled") if enabled else _("Equalizer disabled"))

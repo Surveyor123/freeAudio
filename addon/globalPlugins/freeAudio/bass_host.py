@@ -32,6 +32,7 @@ Time-shift (local buffer file) commands:
 """
 
 import ctypes
+from array import array
 import json
 import os
 import sys
@@ -815,7 +816,19 @@ class _AbcHlsRepackServer:
 
 
 # BASS engine
-_GRAPHIC_EQ_FREQS = (62.0, 125.0, 250.0, 500.0, 1000.0, 2000.0, 4000.0, 8000.2, 16000.0)
+_GRAPHIC_EQ_FREQS = (62.0, 125.0, 250.0, 500.0, 1000.0, 2000.0, 4000.0, 8000.0, 12000.0, 16000.0)
+
+# BASS_FX 2.4, bass_fx.h. DWORD handles remain 32-bit on Win64.
+_BASS_FX_BFX_PEAKEQ = 0x10004
+
+
+class _BASS_BFX_PEAKEQ(ctypes.Structure):
+	_fields_ = [
+		("lBand", ctypes.c_int32), ("fBandwidth", ctypes.c_float),
+		("fQ", ctypes.c_float), ("fCenter", ctypes.c_float),
+		("fGain", ctypes.c_float), ("lChannel", ctypes.c_int32),
+	]
+
 
 class BassHost:
 	def __init__(self, dll_dir, device_index=-1):
@@ -863,9 +876,10 @@ class BassHost:
 		self._bass_x1 = [0.0, 0.0]  # previous entry examples
 		self._bass_y1 = [0.0, 0.0]  # previous output examples
 		# FX: set of active effect names and handles returned from BASS_ChannelSetFX
+		self._weird_lookup = None
 		self._fx_names   = set()   # active effect names
 		self._graphic_eq_enabled = False
-		self._graphic_eq_gains = (0,) * 9
+		self._graphic_eq_gains = (0,) * 10
 		self._fx_handles = {}	  # {fx_name: handle}
 		self._weird_dsp_handle = 0
 		self._weird_dsp_proc_ref = None
@@ -873,6 +887,9 @@ class BassHost:
 		self._media_eq_preamp_dsp_proc_ref = None
 		self._graphic_eq_applied = None
 		self._graphic_eq_runtime = None
+		self._graphic_eq_fx_handle = 0
+		self._graphic_eq_stream = 0
+		self._graphic_eq_native_applied = None
 
 
 	@staticmethod
@@ -951,6 +968,11 @@ class BassHost:
 		except Exception as e:
 			return False, f"Could not load DLL: {e}"
 
+		dll.BASS_ChannelSetFX.restype = ctypes.c_uint32
+		dll.BASS_ChannelSetFX.argtypes = [ctypes.c_uint32, ctypes.c_uint32, ctypes.c_int]
+		dll.BASS_ChannelRemoveFX.argtypes = [ctypes.c_uint32, ctypes.c_uint32]
+		dll.BASS_FXSetParameters.argtypes = [ctypes.c_uint32, ctypes.c_void_p]
+		dll.BASS_FXGetParameters.argtypes = [ctypes.c_uint32, ctypes.c_void_p]
 		if not dll.BASS_Init(self._device_index, 44100, 0, None, None):
 			err = dll.BASS_ErrorGetCode()
 			if err != _BASS_ERROR_ALREADY:
@@ -1153,6 +1175,9 @@ class BassHost:
 				self._media_eq_preamp_dsp_proc_ref = None
 				self._graphic_eq_applied = None
 				self._graphic_eq_runtime = None
+				self._graphic_eq_fx_handle = 0
+				self._graphic_eq_stream = 0
+				self._graphic_eq_native_applied = None
 			
 			# Notify waiting caller that this operation is cancelled
 			if self._pending_response:
@@ -2186,6 +2211,9 @@ class BassHost:
 				self._media_eq_preamp_dsp_proc_ref = None
 				self._graphic_eq_applied = None
 				self._graphic_eq_runtime = None
+				self._graphic_eq_fx_handle = 0
+				self._graphic_eq_stream = 0
+				self._graphic_eq_native_applied = None
 			# Clean up any downloaded temp file (if any)
 			if hasattr(self, '_downloaded_file_path') and self._downloaded_file_path:
 				try:
@@ -2253,6 +2281,9 @@ class BassHost:
 				self._media_eq_preamp_dsp_proc_ref = None
 				self._graphic_eq_applied = None
 				self._graphic_eq_runtime = None
+				self._graphic_eq_fx_handle = 0
+				self._graphic_eq_stream = 0
+				self._graphic_eq_native_applied = None
 
 		try:
 			stream = self._dll.BASS_StreamCreateFile(
@@ -2561,6 +2592,13 @@ class BassHost:
 		if not weird_active:
 			return
 
+		if self._weird_lookup is None:
+			# Signed PCM values index this 128 KiB table directly, including negatives.
+			self._weird_lookup = array("h", (
+				min(32767, (3 * abs(value if value < 32768 else value - 65536)) // 2 - 16384)
+				for value in range(65536)
+			))
+		lookup = self._weird_lookup
 		DSPPROC = ctypes.WINFUNCTYPE(
 			None, ctypes.c_ulong, ctypes.c_ulong, ctypes.c_void_p,
 			ctypes.c_ulong, ctypes.c_void_p
@@ -2571,15 +2609,8 @@ class BassHost:
 				return
 			n_samples = length // 2
 			arr = (ctypes.c_int16 * n_samples).from_address(buf)
-			for i in range(n_samples):
-				v = int(arr[i])
-				a = 32768 if v == -32768 else abs(v)
-				out = (3 * a) // 2 - 16384
-				if out > 32767:
-					out = 32767
-				elif out < -32768:
-					out = -32768
-				arr[i] = out
+			for i, value in enumerate(arr):
+				arr[i] = lookup[value]
 
 		proc = DSPPROC(_dsp_weird)
 		self._weird_dsp_proc_ref = proc
@@ -2589,14 +2620,81 @@ class BassHost:
 			self._weird_dsp_handle = 0
 			self._weird_dsp_proc_ref = None
 
+	def _remove_native_graphic_eq(self):
+		"""Remove only the native peaking effect owned by this equalizer."""
+		if self._graphic_eq_fx_handle:
+			if not self._dll.BASS_ChannelRemoveFX(self._graphic_eq_stream, self._graphic_eq_fx_handle):
+				raise RuntimeError("Could not remove graphic equalizer effect")
+			self._graphic_eq_fx_handle = 0
+		self._graphic_eq_native_applied = None
+
 	def _apply_media_eq(self, handle):
-		"""Install/remove the custom 9-band EQ as one DSP callback.
+		"""Update ten native peaking bands without restarting the stream.
 
-		This version does NOT use BASS/DirectX ParamEQ. It processes the PCM
-		samples directly, with the same biquads and -3 dB preamp as the supplied My EQ.
-
-		Nine runtime gains, Q=sqrt(2), preamp -3 dB.
+		BASS_FX uses the same RBJ Q=sqrt(2) filters as the fallback. Weird
+		(priority -1) precedes the ten-band equalizer (-3). Band gains affect
+		only their peaking filters, with no gain-dependent broadband attenuation.
+		Flat or disabled EQ bypasses the effect, preserving unity gain.
 		"""
+		import math
+
+		dll = self._dll
+		if not dll or not handle:
+			return
+		if self._graphic_eq_stream != handle:
+			# Previous stream disposal also disposed its native FX handles.
+			self._graphic_eq_stream = handle
+			self._graphic_eq_fx_handle = 0
+			self._graphic_eq_native_applied = None
+		if not self._bass_fx_dll:
+			self._apply_media_eq_python(handle)
+			return
+		if not self._graphic_eq_enabled or not any(self._graphic_eq_gains):
+			self._remove_native_graphic_eq()
+			self._apply_media_eq_python(handle)  # detach any previous fallback
+			return
+		if self._graphic_eq_native_applied == self._graphic_eq_gains:
+			return
+		try:
+			class ChannelInfo(ctypes.Structure):
+				_fields_ = [
+					("freq", ctypes.c_uint32), ("chans", ctypes.c_uint32),
+					("flags", ctypes.c_uint32), ("ctype", ctypes.c_uint32),
+					("origres", ctypes.c_uint32), ("plugin", ctypes.c_uint32),
+					("sample", ctypes.c_uint32), ("filename", ctypes.c_void_p),
+				]
+			info = ChannelInfo()
+			if not dll.BASS_ChannelGetInfo(handle, ctypes.byref(info)) or not info.freq:
+				raise RuntimeError("Could not read equalizer sample rate")
+			if not self._graphic_eq_fx_handle:
+				self._graphic_eq_fx_handle = dll.BASS_ChannelSetFX(handle, _BASS_FX_BFX_PEAKEQ, -3)
+				if not self._graphic_eq_fx_handle:
+					raise RuntimeError("Could not create native peaking EQ")
+			for band, (frequency, gain) in enumerate(zip(_GRAPHIC_EQ_FREQS, self._graphic_eq_gains)):
+				center = min(frequency, info.freq * 0.45)
+				omega = 2.0 * math.pi * center / info.freq
+				# RBJ's octave-width form gives the same alpha as Q=sqrt(2).
+				# Use this form to stay within bass_fx.h's documented Q range.
+				octave_width = 2.0 * math.asinh(1.0 / (2.0 * 1.41421356237)) / math.log(2.0)
+				bandwidth = octave_width * math.sin(omega) / omega
+				params = _BASS_BFX_PEAKEQ(band, bandwidth, 0.0, center, gain, -1)
+				if not dll.BASS_FXSetParameters(self._graphic_eq_fx_handle, ctypes.byref(params)):
+					raise RuntimeError("Could not set native peaking EQ band")
+			if self._media_eq_preamp_dsp_handle:
+				if not dll.BASS_ChannelRemoveDSP(handle, self._media_eq_preamp_dsp_handle):
+					raise RuntimeError("Could not detach fallback equalizer")
+				self._media_eq_preamp_dsp_handle = 0
+				self._media_eq_preamp_dsp_proc_ref = None
+				self._graphic_eq_runtime = None
+				self._graphic_eq_applied = None
+			self._graphic_eq_native_applied = self._graphic_eq_gains
+		except Exception as error:
+			self._remove_native_graphic_eq()
+			_debug_log("Native graphic EQ unavailable; using Python fallback: %s" % error)
+			self._apply_media_eq_python(handle)
+
+	def _apply_media_eq_python(self, handle):
+		"""Fallback RBJ peaking biquads when the optional BASS_FX is unavailable."""
 		import math
 
 		dll = self._dll
@@ -2607,7 +2705,7 @@ class BassHost:
 			return
 		self._graphic_eq_applied = (self._graphic_eq_enabled, self._graphic_eq_gains)
 		# Remove a previous instance.
-		if self._media_eq_preamp_dsp_handle and not self._graphic_eq_enabled:
+		if self._media_eq_preamp_dsp_handle and not (self._graphic_eq_enabled and any(self._graphic_eq_gains)):
 			try:
 				dll.BASS_ChannelRemoveDSP(handle, self._media_eq_preamp_dsp_handle)
 			except Exception:
@@ -2615,9 +2713,7 @@ class BassHost:
 			self._media_eq_preamp_dsp_handle = 0
 			self._media_eq_preamp_dsp_proc_ref = None
 
-		eq_active = (
-			self._graphic_eq_enabled
-		)
+		eq_active = self._graphic_eq_enabled and any(self._graphic_eq_gains)
 		if not eq_active:
 			self._graphic_eq_runtime = None
 			return
@@ -2684,7 +2780,6 @@ class BassHost:
 		self._graphic_eq_runtime = (tuple(bands), states, channels)
 		if self._media_eq_preamp_dsp_handle:
 			return
-		preamp = 10.0 ** (-3.0 / 20.0)
 
 		DSPPROC = ctypes.WINFUNCTYPE(
 			None, ctypes.c_ulong, ctypes.c_ulong, ctypes.c_void_p,
@@ -2723,7 +2818,6 @@ class BassHost:
 					st[base + 2] = y
 					x = y
 
-				x *= preamp
 				if x > 0.999969:
 					x = 0.999969
 				elif x < -1.0:
@@ -2742,8 +2836,11 @@ class BassHost:
 
 	def set_graphic_eq(self, enabled, gains):
 		values = tuple(max(-20, min(20, int(v))) for v in gains)
-		if len(values) != 9:
-			raise ValueError("Equalizer requires nine gains")
+		if len(values) == 9:
+			# Older clients send 16 kHz last; insert a flat 12 kHz band.
+			values = values[:8] + (0,) + values[8:]
+		if len(values) != 10:
+			raise ValueError("Equalizer requires ten gains (or a legacy nine-band list)")
 		with self._lock:
 			self._graphic_eq_enabled = bool(enabled)
 			self._graphic_eq_gains = values
@@ -3304,8 +3401,12 @@ def main():
 			_ok()
 
 		elif cmd == "set_graphic_eq":
-			host.set_graphic_eq(cmd_obj.get("enabled", False), cmd_obj.get("gains", [0] * 9))
-			_ok()
+			try:
+				host.set_graphic_eq(cmd_obj.get("enabled", False), cmd_obj.get("gains", [0] * 10))
+			except Exception as error:
+				_err("Could not update graphic equalizer: %s" % error)
+			else:
+				_ok()
 
 		elif cmd == "set_eq_gain":
 			band	= cmd_obj.get("band", "")
