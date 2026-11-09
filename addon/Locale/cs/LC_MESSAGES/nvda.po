@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: freeAudio 2026.25.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-11-07 08:26+0300\n"
-"PO-Revision-Date: 2026-11-02 15:31+0300\n"
+"PO-Revision-Date: 2026-11-09 12:52+0300\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Generator: Poedit 3.10\n"
 "X-Poedit-Basepath: ../../../..\n"
@@ -569,42 +569,39 @@ msgstr "Opakování zastaveno"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "Úryvek nelze uložit, označené záložky jsou příliš blízko u sebe."
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "Tuto audioknihu se nepodařilo nalézt."
+msgstr "Pro tuto položku se nepodařilo nalézt žádné audio."
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "Načítání zařízení..."
+msgstr "Ukládání úryvku..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "Znovu prohledáno: %s"
+msgstr "Úryvek uložen: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "Hlasovou poznámku se nepodařilo uložit"
+msgstr "Úryvek se nepodařilo uložit. Ffmpeg nebyl nalezen."
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "Hlasovou poznámku se nepodařilo uložit"
+msgstr "Úryvek se nepodařilo uložit: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "Tento úryvek se jjiž ukládá."
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -650,9 +647,8 @@ msgstr "Za&stavit opakování"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "&Opakovat mezi označenými záložkami"
+msgstr "Uložit úryvek mezi označenými záložkami"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -1009,9 +1005,9 @@ msgid ""
 "and place ffmpeg.exe in the freeAudio addon folder, or set the path in "
 "settings."
 msgstr ""
-"Soubor ffmpeg.exe nebyl nalezen. Stáhněte si ffmpeg z adresy https://ffmpeg."
-"org/download.html a umístěte jej do složky doplňku freeAudio, případně "
-"zvolte cestu k souboru v nastavení."
+"Soubor ffmpeg.exe nebyl nalezen. Stáhněte si ffmpeg z adresy https://"
+"ffmpeg.org/download.html a umístěte jej do složky doplňku freeAudio, "
+"případně zvolte cestu k souboru v nastavení."
 
 #. Translators: Title of the Obligato mode setup dialog.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:55
@@ -2540,8 +2536,8 @@ msgid ""
 "Supported files (*.json;*.m3u)|*.json;*.m3u|JSON favourites (*.json)|*.json|"
 "M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Oblíbené JSON (*.json)|*."
-"json|Playlist M3U (*.m3u)|*.m3u"
+"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Oblíbené JSON (*.json)|"
+"*.json|Playlist M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing favourites.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
@@ -3042,11 +3038,11 @@ msgstr[2] ""
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5233
 msgid ""
-"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|*."
-"json|M3U playlist (*.m3u)|*.m3u"
+"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|"
+"*.json|M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Knihovna jukeboxu JSON (*."
-"json)|*.json|Playlist M3U (*.m3u)|*.m3u"
+"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Knihovna jukeboxu JSON "
+"(*.json)|*.json|Playlist M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing a jukebox library.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
@@ -3814,8 +3810,8 @@ msgstr "Stahování knihy: %s"
 msgid ""
 "Downloaded %(saved)d of %(total)d parts of %(title)s. Last error: %(error)s"
 msgstr ""
-"Staženo %(saved)d z %(total)d částí knihy %(title)s. Poslední chyba: %(error)"
-"s"
+"Staženo %(saved)d z %(total)d částí knihy %(title)s. Poslední chyba: "
+"%(error)s"
 
 #. Translators: Label for the jukebox device-search field.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8596
@@ -5608,6 +5604,13 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## Novinky ve verzi 2026.25.4\n"
+"\n"
+"### Novinka: Uloží úsek mezi dvěmi označenými záložkami jako úryvek\n"
+"\n"
+"Toto se týká podcastů, audioknih a souborů v jukeboxu. Úryvek je uložen jako "
+"samostatný audio soubor, původní soubory jsou zachovány.\n"
 
 #~ msgid ""
 #~ "\n"

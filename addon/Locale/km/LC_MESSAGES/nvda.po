@@ -553,42 +553,39 @@ msgstr "បានបញ្ឈប់ការចាក់ម្តងទៀត"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "ចំណាំដែលបានសម្គាល់នៅជិតគ្នាពេក មិនអាចរក្សាទុកផ្នែកសំឡេងបានទេ"
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "មិនអាចរកឃើញសៀវភៅជាសំឡេងនេះទេ។"
+msgstr "រកមិនឃើញសំឡេងរបស់ធាតុនេះទេ"
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "កំពុងដំណើរការឧបករណ៍..."
+msgstr "កំពុងរក្សាទុកផ្នែកសំឡេង..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "បានស្កេនឡើងវិញ: %s"
+msgstr "បានរក្សាទុកផ្នែកសំឡេង: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "មិនអាចរក្សាទុកកំណត់ត្រាសំឡេងបានទេ"
+msgstr "មិនអាចរក្សាទុកផ្នែកសំឡេងបានទេ: រកមិនឃើញ ffmpeg"
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "មិនអាចរក្សាទុកកំណត់ត្រាសំឡេងបានទេ"
+msgstr "មិនអាចរក្សាទុកផ្នែកសំឡេងបានទេ: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "ផ្នែកសំឡេងនេះកំពុងត្រូវបានរក្សាទុករួចហើយ"
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -634,9 +631,8 @@ msgstr "បញ្ឈប់ការចាក់ម្តងទៀត &o"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "ចាក់ម្តងទៀតចន្លោះចំណាំដែលបានសម្គាល់ &R"
+msgstr "រក្សាទុកផ្នែកសំឡេងចន្លោះចំណាំដែលបានសម្គាល់ &E"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5443,6 +5439,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## ព័ត៌មានថ្មីសម្រាប់កំណែ 2026.25.4\n"
+"\n"
+"### មុខងារថ្មី៖ រក្សាទុកផ្នែករវាងចំណាំពីរជាផ្នែកសំឡេង\n"
+"\n"
+"- នៅលើផ្ទាំងផតខាស់ សៀវភៅជាសំឡេង និង Jukebox សូមសម្គាល់ចំណាំពីរ ឬច្រើនរបស់ធាតុតែមួយដោយប្រើ `.` បើកម៉ឺនុយបរិបទនៃចំណាំ ហើយជ្រើសរើស **រក្សាទុកផ្នែកសំឡេងចន្លោះចំណាំដែលបានសម្គាល់**។ ផ្នែកចាប់ពីចំណាំដែលបានសម្គាល់ទីមុនបំផុតដល់ចំណាំចុងក្រោយបំផុត (ផ្នែកដូចគ្នាដែលរបៀបចាក់ម្តងទៀតចាក់វិលជុំ) នឹងត្រូវរក្សាទុកជាឯកសារសំឡេង។\n"
+"- ឯកសារត្រូវបានរក្សាទុកក្នុងថតសម្រាប់ការថត នៅក្នុងថតថ្មីមួយដែលដាក់ឈ្មោះតាមមេឌៀ៖ ចំណងជើងវគ្គ ចំណងជើងសៀវភៅ ឬឈ្មោះបទ។ ឈ្មោះឯកសារមានឈ្មោះ និងទីតាំងរបស់ចំណាំ ឧទាហរណ៍ `ចំណាំ 1 - ចំណាំ 2 (1.23-4.56).mp3`។ ឯកសារដែលមានស្រាប់មិនដែលត្រូវបានសរសេរជាន់ពីលើឡើយ។\n"
+"- ផ្នែកសំឡេងរក្សាទ្រង់ទ្រាយ និងគុណភាពដើម ហើយគ្មានអ្វីត្រូវបានអ៊ិនកូដឡើងវិញទេ។\n"
+"- ការរក្សាទុកដំណើរការនៅផ្ទៃខាងក្រោយ ហើយ NVDA នឹងប្រកាសនៅពេលចាប់ផ្តើម និងនៅពេលបញ្ចប់។ ធាតុមិនចាំបាច់កំពុងចាក់ទេ។\n"
+"- ដំណើរការជាមួយឯកសារដែលបានទាញយក ព្រមទាំងធាតុដែលចាក់ជាស្ទ្រីមតែប៉ុណ្ណោះ។ សម្រាប់សៀវភៅ GETEM ផ្នែកនោះត្រូវបានទាញយកជាបណ្តោះអាសន្ន ដើម្បីកាត់។\n"
+"- ប្រើ ffmpeg ដែលមកជាមួយ freeAudio។ ការកំណត់ **ផ្លូវ ffmpeg.exe** ឥឡូវនេះក៏អនុវត្តចំពោះផ្នែកសំឡេងដែរ។\n"
+"- ពាក្យបញ្ជានេះអាចប្រើបានតែពីម៉ឺនុយបរិបទប៉ុណ្ណោះ ហើយមិនមានគ្រាប់ចុចផ្លូវកាត់ទេ។\n"
 
 #~ msgid ""
 #~ "\n"

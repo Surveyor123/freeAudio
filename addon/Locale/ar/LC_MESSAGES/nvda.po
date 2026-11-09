@@ -571,42 +571,39 @@ msgstr "توقف التكرار"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "الإشارات المرجعية المُعلَّمة متقاربة جدًا بحيث لا يمكن حفظ مقطع صوتي."
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "تعذّر العثور على هذا الكتاب الصوتي."
+msgstr "تعذّر العثور على صوت هذا العنصر."
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "جارٍ تحميل الأجهزة..."
+msgstr "جارٍ حفظ المقطع الصوتي..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "أُعيد فحص: %s"
+msgstr "تم حفظ المقطع الصوتي: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "تعذّر حفظ الملاحظة الصوتية"
+msgstr "تعذّر حفظ المقطع الصوتي: لم يُعثر على ffmpeg."
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "تعذّر حفظ الملاحظة الصوتية"
+msgstr "تعذّر حفظ المقطع الصوتي: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "هذا المقطع الصوتي قيد الحفظ بالفعل."
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -652,9 +649,8 @@ msgstr "إ&يقاف التكرار"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "ت&كرار ما بين الإشارات المرجعية المُعلَّمة"
+msgstr "حف&ظ مقطع صوتي بين الإشارات المرجعية المُعلَّمة"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5676,6 +5672,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## سجل التغييرات للإصدار 2026.25.4\n"
+"\n"
+"### جديد: حفظ المقطع بين إشارتين مرجعيتين كمقطع صوتي\n"
+"\n"
+"- في علامات تبويب البودكاست والكتب الصوتية وصندوق الموسيقى، علّم بمفتاح `.` إشارتين مرجعيتين أو أكثر من العنصر نفسه، ثم افتح قائمة السياق للإشارات المرجعية واختر **حفظ مقطع صوتي بين الإشارات المرجعية المُعلَّمة**. يُحفظ الجزء الممتد من أقدم إشارة مرجعية مُعلَّمة إلى أحدثها (وهو الجزء نفسه الذي يكرره وضع التكرار) كملف صوتي.\n"
+"- يُحفظ الملف في مجلد التسجيلات، داخل مجلد جديد يحمل اسم الوسائط: عنوان الحلقة أو عنوان الكتاب أو اسم المقطوعة. يتضمن اسم الملف أسماء الإشارات المرجعية ومواضعها، مثل `إشارة مرجعية 1 - إشارة مرجعية 2 (1.23-4.56).mp3`. لا تُستبدل الملفات الموجودة أبدًا.\n"
+"- يحتفظ المقطع بالصيغة والجودة الأصليتين، ولا يُعاد ترميز أي شيء.\n"
+"- يجري الحفظ في الخلفية، ويعلن NVDA عند بدئه وعند انتهائه. لا يلزم أن يكون العنصر قيد التشغيل.\n"
+"- يعمل مع الملفات المنزَّلة ومع العناصر التي تُبثّ فقط. وفي كتب GETEM يُنزَّل الجزء مؤقتًا لإجراء القص.\n"
+"- يستخدم ffmpeg المرفق مع freeAudio. ينطبق إعداد **مسار ffmpeg.exe** الآن على المقاطع الصوتية أيضًا.\n"
+"- الأمر متاح من قائمة السياق فقط، وليس له اختصار لوحة مفاتيح.\n"
 
 #~ msgid ""
 #~ "\n"

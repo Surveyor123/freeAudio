@@ -574,42 +574,39 @@ msgstr "Zatrzymano powtarzanie"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "Zaznaczone zakładki są zbyt blisko siebie, aby zapisać fragment."
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "Nie znaleziono tego audiobooka."
+msgstr "Nie znaleziono dźwięku tego elementu."
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "Ładowanie urządzeń..."
+msgstr "Zapisywanie fragmentu..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "Ponownie przeskanowano: %s"
+msgstr "Zapisano fragment: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "Nie można zapisać notatki głosowej"
+msgstr "Nie można zapisać fragmentu: nie znaleziono ffmpeg."
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "Nie można zapisać notatki głosowej"
+msgstr "Nie można zapisać fragmentu: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "Ten fragment jest już zapisywany."
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -655,9 +652,8 @@ msgstr "Zatrzymaj p&owtarzanie"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "Po&wtarzaj między zaznaczonymi zakładkami"
+msgstr "&Zapisz fragment między zaznaczonymi zakładkami"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5676,6 +5672,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## Co nowego w wersji 2026.25.4\n"
+"\n"
+"### Nowość: zapisywanie fragmentu między dwiema zakładkami jako pliku audio\n"
+"\n"
+"- Na kartach Podcasty, Audiobooki i Jukebox zaznacz klawiszem `.` dwie lub więcej zakładek tego samego elementu, otwórz menu kontekstowe zakładek i wybierz **Zapisz fragment między zaznaczonymi zakładkami**. Fragment od najwcześniejszej do najpóźniejszej zaznaczonej zakładki (ten sam, który zapętla tryb powtarzania) zostanie zapisany jako plik audio.\n"
+"- Plik trafia do folderu nagrań, do nowego folderu nazwanego tak jak odtwarzane medium: tytuł odcinka, tytuł książki lub nazwa utworu. Nazwa pliku zawiera nazwy i pozycje zakładek, np. `Zakładka 1 - Zakładka 2 (1.23-4.56).mp3`. Istniejące pliki nigdy nie są nadpisywane.\n"
+"- Fragment zachowuje oryginalny format i jakość; nic nie jest ponownie kodowane.\n"
+"- Zapisywanie odbywa się w tle, a NVDA ogłasza jego początek i koniec. Element nie musi być odtwarzany.\n"
+"- Działa zarówno z pobranymi plikami, jak i z elementami odtwarzanymi tylko strumieniowo. W przypadku książek GETEM część jest tymczasowo pobierana, aby wykonać cięcie.\n"
+"- Używa programu ffmpeg dołączonego do freeAudio. Ustawienie **Ścieżka do ffmpeg.exe** obowiązuje teraz także dla fragmentów.\n"
+"- Polecenie jest dostępne tylko z menu kontekstowego; nie ma skrótu klawiszowego.\n"
 
 #~ msgid ""
 #~ "\n"

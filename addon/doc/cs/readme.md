@@ -8,7 +8,7 @@ freeAudio je plnohodnotný doplněk internetového rádia, podcastů, audioknih 
 - **Podcasty** - Přihlaste se k odběru libovolného kanálu RSS/Atom, nebo vyhledávejte v adresáři podcastů Apple a před přihlášením k odběru si poslechněte náhled epizod. Pozice přehrávání se ukládá automaticky a pokračuje tam, kde jste skončili - viz [Podcasty](#podcasty).
 - **Audioknihy** - Vyhledávejte a přehrávejte nebo stahujte knihy ze tří zdrojů: [GETEM](https://getem.boun.edu.tr/), digitální knihovny Univerzity Boğaziçi pro zrakově postižené, [LibriVox](https://librivox.org/), projektu audioknih z veřejné domény čtených dobrovolníky, a kolekce otevřených audioknih Project Gutenberg - poslední dva nevyžadují účet - s automatickým pokračováním napříč vícedílnými díly - viz [Audioknihy (GETEM, LibriVox a Project Gutenberg)](#audioknihy-getem-librivox-a-project-gutenberg).
 - **Místní jukebox** - Prohledávejte zvukové soubory uložené na jakémkoli připojeném disku podle názvu, nebo si vytvořte osobní knihovnu souborů a složek, a přehrávejte je se stejnými nástroji pro pokračování, posouvání, rychlost a transpozici, jaké používají podcasty a audioknihy - viz [Místní jukebox](#místní-jukebox).
-- **Záložky** — Vložte záložku na aktuální pozici libovolné části audioknihy, epizody podcastu nebo skladby v jukeboxu a později se k ní vraťte. Záložka může nést textovou poznámku nebo nahranou hlasovou poznámku, která se přehraje, když přehrávání na záložku dorazí, a úsek mezi dvěma záložkami lze opakovat — viz [Záložky](#záložky).
+- **Záložky** — Vložte záložku na aktuální pozici libovolné části audioknihy, epizody podcastu nebo skladby v jukeboxu a později se k ní vraťte. Záložka může nést textovou poznámku nebo nahranou hlasovou poznámku, která se přehraje, když přehrávání na záložku dorazí, a úsek mezi dvěma záložkami lze opakovat nebo uložit jako zvukový úryvek — viz [Záložky](#záložky).
 - **Nahrávání** — Okamžitě nahrávejte, co právě hraje, nahrajte jednu skladbu od začátku do konce, nahrávejte každou skladbu stanice do vlastního souboru, dokud nahrávání nezastavíte, nebo naplánujte jednorázová a opakující se nahrávání — to vše bez přerušení přehrávání — viz [Nahrávání](#nahrávání).
 - **Časový posun (přetočení živého rádia)** - Pozastavte a přetočte živou stanici jako DVR, a poté se kdykoli vraťte zpět k živému vysílání - viz [Časový posun (přetočení živého rádia)](#časový-posun-přetočení-živého-rádia).
 - **Rozpoznávání hudby a oblíbené skladby** - Rozpoznávejte skladby bez metadat pomocí technologie Shazam, ukládejte oblíbené skladby do textového souboru a vyhledávejte jejich texty - viz [Rozpoznávání hudby](#rozpoznávání-hudby) a [Oblíbené skladby](#oblíbené-skladby).
@@ -253,7 +253,7 @@ Oblíbené, oblíbené skladby, knihovna audioknih a seznam jukeboxu podporují 
 
 Označení jsou specifická pro každý seznam a po odstranění položek (nebo jejich jednotlivém odznačení) se vymažou; mezi relacemi se neukládají.
 
-Seznamy záložek na kartách Podcasty, Audioknihy a Jukebox používají stejné označování klávesou `.` a označené záložky jsou ty, na které působí příkazy **Odstranit vybrané** a **Opakovat mezi označenými záložkami** — viz [Záložky](#záložky).
+Seznamy záložek na kartách Podcasty, Audioknihy a Jukebox používají stejné označování klávesou `.` a označené záložky jsou ty, na které působí příkazy **Odstranit vybrané**, **Opakovat mezi označenými záložkami** a **Uložit zvukový úryvek mezi označenými záložkami** — viz [Záložky](#záložky).
 
 ### Export a import oblíbených stanic
 
@@ -868,6 +868,7 @@ Má-li fokus seznam záložek, fungují v něm i klávesy přehrávání karty n
 - **Vymazat poznámky** — odstraní textovou i hlasovou poznámku záložky s fokusem. Dostupné jen tehdy, má-li záložka poznámku.
 - **Opakovat mezi označenými záložkami** — viz níže. Dostupné, jsou-li označeny alespoň dvě záložky.
 - **Zastavit opakování** — vypne režim opakování. Dostupné, když je opakování aktivní.
+- **Uložit zvukový úryvek mezi označenými záložkami** — uloží úsek mezi označenými záložkami jako zvukový soubor — viz [Uložení úseku mezi záložkami jako zvukového úryvku](#uložení-úseku-mezi-záložkami-jako-zvukového-úryvku). Dostupné, jsou-li označeny alespoň dvě záložky.
 
 ### Co se stane, když přehrávání dorazí k záložce
 
@@ -880,6 +881,17 @@ Záložky se rozpoznávají při běžném přehrávání. Přetočení nebo př
 ### Opakování úseku mezi záložkami
 
 Označte klávesou `.` dvě nebo více záložek **téže položky** a poté zvolte **Opakovat mezi označenými záložkami**. Přehrávání skočí na nejstarší označenou záložku a opakuje se mezi nejstarší a nejnovější označenou záložkou; NVDA oznámí obě pozice. To se hodí k opakování obtížně srozumitelného úseku, fráze při učení jazyka nebo skladby, kterou nacvičujete. Volbou **Zastavit opakování** se vrátíte k běžnému přehrávání. Opakování se mezi relacemi neukládá, a pokud se začne přehrávat jiná položka, rozsah opakování se ignoruje a po zhruba 20 sekundách se zahodí.
+
+### Uložení úseku mezi záložkami jako zvukového úryvku
+
+Označte klávesou `.` dvě nebo více záložek **téže položky** a poté v kontextové nabídce záložek zvolte **Uložit zvukový úryvek mezi označenými záložkami**. Příkaz vyřízne přesně ten úsek, který by v režimu opakování běžel ve smyčce — od nejstarší po nejnovější označenou záložku — a uloží jej jako zvukový soubor. Klávesová zkratka pro něj neexistuje; je dostupný pouze z kontextové nabídky. Položka se přehrávat nemusí.
+
+- **Kam se ukládá:** do složky nahrávek (nastavené v nastavení freeAudio, ve výchozím stavu `Documents\freeAudio Recordings`), do nové podsložky pojmenované podle média: u podcastu podle názvu epizody, u audioknihy podle názvu knihy, u skladby v jukeboxu podle názvu souboru. Znaky, které Windows v názvech nepovoluje, se nahradí a složka se v případě potřeby vytvoří.
+- **Název souboru:** názvy první a poslední označené záložky následované dvěma pozicemi, například `Záložka 1 - Záložka 2 (1.23-4.56).mp3`. Pozice používají tečky místo dvojteček, protože Windows v názvech souborů dvojtečky nepovoluje. U knihy s více částmi se na začátek přidá název části. Existující soubor se nikdy nepřepíše; místo toho se přidá číslo, například `(2)`.
+- **Formát:** úryvek si zachová původní formát položky (MP3 zůstane MP3, M4A zůstane M4A) a stříhá se bez překódování, takže nedochází ke ztrátě kvality. Střih proto připadne na nejbližší zvukový snímek, který se může od přesných pozic záložek lišit o zlomek sekundy.
+- **Odkud se zvuk bere:** skladba z jukeboxu se vystřihne z jejího souboru. Epizoda podcastu nebo část audioknihy, kterou jste již stáhli, se vystřihne ze staženého souboru; jinak se čte z webové adresy. Části z GETEM vyžadují přihlášenou relaci, proto se nejprve stáhnou do dočasného souboru, který se poté opět smaže. Pokud čtení z webové adresy selže, freeAudio přejde na stažení celé položky.
+- **Oznámení:** NVDA řekne „Ukládá se úryvek…“ při zahájení a „Úryvek uložen: *název souboru*“ po dokončení. Ukládání probíhá na pozadí, takže můžete dál poslouchat nebo pracovat; dlouhé položky čtené z webu mohou chvíli trvat. Pokud se stejný úsek již ukládá, příkaz to oznámí místo spuštění druhé kopie.
+- **Požadavky:** k ukládání úryvků se používá ffmpeg, který je součástí freeAudio. Pokud jej nelze najít, NVDA to oznámí; nastavení **Cesta k souboru ffmpeg.exe** může freeAudio nasměrovat na jinou kopii. Pokud jsou označené záložky od sebe méně než půl sekundy, nic se neuloží.
 
 ### Uložení dat záložek
 
@@ -960,7 +972,7 @@ Následující možnosti lze konfigurovat v nabídce NVDA → Předvolby → Nas
 | Při trojím stisknutí klávesové zkratky Ctrl+Win+P | Vybírá, co se stane při trojím stisknutí klávesové zkratky v rychlém sledu za sebou: neudělat nic, otevřít seznam oblíbených položek, otevřít kartu vyhledávání, otevřít kartu záznamu nebo otevřít kartu časovače. |
 | Automaticky kontrolovat aktualizace při spuštění | Je-li tato volba povolena, spustí se při každém spuštění aplikace NVDA kontrola aktualizací na pozadí; pokud je nalezena nová verze, jste o tom informováni. Pokud je zakázána, automatická kontrola se zastaví, ale ruční kontrola zůstane k dispozici. |
 | Zkontrolovat aktualizace nyní | Tlačítko, které okamžitě zkontroluje, zda je k dispozici nová verze, i když jsou automatické kontroly vypnuté. Během kontroly je na tlačítku napsáno „Kontroluje se...“. |
-| Cesta k souboru ffmpeg.exe | Cesta k souboru ffmpeg.exe, který se používá pro rozpoznávání hudby. Pokud zůstane prázdná, použije se automaticky soubor ffmpeg.exe ve složce doplňku. |
+| Cesta k souboru ffmpeg.exe | Cesta k souboru ffmpeg.exe, který se používá pro rozpoznávání hudby a pro ukládání zvukových úryvků mezi záložkami. Pokud zůstane prázdná, použije se automaticky soubor ffmpeg.exe ve složce doplňku. |
 | Složka nahrávek | Nastaví složku, do které se ukládají nahrané soubory. Pokud zůstane prázdná, použije se výchozí umístění `Documents\freeAudio Recordings\`. Tlačítko Procházet umožňuje interaktivní výběr složky. Změny se projeví okamžitě po uložení. |
 | Moduly | Seznam zaškrtávacích políček s volitelnými částmi freeAudio: **Podcasty**, **Audioknihy** a **Jukebox**. Všechny tři jsou ve výchozím nastavení zapnuté. Zrušením zaškrtnutí se odstraní příslušná karta z Prohlížeče stanic a její příkazy z dialogu Vstupní gesta NVDA, aniž by se smazalo cokoli, co jste tam uložili (odběry, knihovna, seznam Jukeboxu); opětovným zaškrtnutím se vše vrátí. Změny se projeví při dalším otevření Prohlížeče stanic. |
 | Zahrnout síťové disky při hledání v jukeboxu | Je-li zapnuto, **Hledat na disku** v Jukeboxu prohledává i síťové disky. Ve výchozím nastavení je vypnuto, protože prohledávání síťového sdílení může trvat minuty nebo se zasekne, pokud sdílení není dostupné. |

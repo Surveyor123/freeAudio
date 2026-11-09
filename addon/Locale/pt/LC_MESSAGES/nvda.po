@@ -576,42 +576,39 @@ msgstr "Repetição parada"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "Os marcadores marcados estão demasiado próximos para guardar um excerto."
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "Não foi possível encontrar este audiolivro."
+msgstr "Não foi possível encontrar o áudio deste item."
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "A carregar dispositivos..."
+msgstr "A guardar excerto..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "Reanalisado: %s"
+msgstr "Excerto guardado: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "Não foi possível guardar a nota de voz"
+msgstr "Não foi possível guardar o excerto: o ffmpeg não foi encontrado."
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "Não foi possível guardar a nota de voz"
+msgstr "Não foi possível guardar o excerto: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "Este excerto já está a ser guardado."
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -657,9 +654,8 @@ msgstr "Pa&rar repetição"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "Re&petir entre marcadores marcados"
+msgstr "&Guardar excerto entre marcadores marcados"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5589,6 +5585,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## Novidades da versão 2026.25.4\n"
+"\n"
+"### Novo: guardar a secção entre dois marcadores como excerto de áudio\n"
+"\n"
+"- Nos separadores Podcasts, Audiolivros e Jukebox, marque com `.` dois ou mais marcadores do mesmo item, abra o menu de contexto dos marcadores e escolha **Guardar excerto entre marcadores marcados**. A secção do primeiro ao último marcador marcado (a mesma que o modo de repetição repete em ciclo) é guardada como ficheiro de áudio.\n"
+"- O ficheiro vai para a pasta de gravações, numa nova pasta com o nome do conteúdo: o título do episódio, o título do livro ou o nome da faixa. O nome do ficheiro contém os nomes e as posições dos marcadores, por exemplo `Marcador 1 - Marcador 2 (1.23-4.56).mp3`. Os ficheiros existentes nunca são substituídos.\n"
+"- O excerto mantém o formato e a qualidade originais; nada é recodificado.\n"
+"- O processo de guardar decorre em segundo plano e o NVDA anuncia quando começa e quando termina. O item não precisa de estar a ser reproduzido.\n"
+"- Funciona com ficheiros transferidos e com itens que só são reproduzidos em fluxo contínuo. Nos livros GETEM, a parte é transferida temporariamente para fazer o corte.\n"
+"- Utiliza o ffmpeg incluído no freeAudio. A definição **Caminho para ffmpeg.exe** aplica-se agora também aos excertos.\n"
+"- O comando só está disponível no menu de contexto; não tem atalho de teclado.\n"
 
 #~ msgid ""
 #~ "\n"

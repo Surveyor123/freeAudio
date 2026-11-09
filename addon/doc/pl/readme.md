@@ -8,7 +8,7 @@ freeAudio to pełnowartościowy dodatek do czytnika ekranu NVDA, łączący radi
 - **Podcasty** — subskrybuj dowolny kanał RSS/Atom albo przeszukuj katalog podcastów Apple i odsłuchuj odcinki przed subskrypcją. Pozycja odtwarzania jest zapisywana automatycznie i wznawiana w miejscu, w którym skończyłeś — zobacz [Podcasty](#podcasty).
 - **Audiobooki** — wyszukuj i odtwarzaj lub pobieraj książki z trzech źródeł: [GETEM](https://getem.boun.edu.tr/), biblioteki cyfrowej Uniwersytetu Boğaziçi dla osób z dysfunkcją wzroku, [LibriVox](https://librivox.org/), wolontariackiego projektu audiobooków z domeny publicznej, oraz Open Audiobook Collection Projektu Gutenberg — dwa ostatnie nie wymagają konta — z automatycznym wznawianiem w dziełach wieloczęściowych — zobacz [Audiobooki (GETEM, LibriVox i Project Gutenberg)](#audiobooki-getem-librivox-i-project-gutenberg).
 - **Lokalny Jukebox** — wyszukuj pliki audio zapisane na dowolnym podłączonym dysku według nazwy pliku albo zbuduj osobistą bibliotekę plików i folderów i odtwarzaj je z tymi samymi narzędziami wznawiania, przewijania, prędkości i wysokości dźwięku, których używają podcasty i audiobooki — zobacz [Lokalny Jukebox](#lokalny-jukebox).
-- **Zakładki** — Wstaw zakładkę w bieżącym miejscu dowolnej części audiobooka, odcinka podcastu lub utworu z jukeboksa, a później wróć do niej w każdej chwili. Zakładka może zawierać notatkę tekstową lub nagraną notatkę głosową, odtwarzaną, gdy odtwarzanie dojdzie do tego miejsca; można też powtarzać fragment między dwiema zakładkami — zob. [Zakładki](#zakładki).
+- **Zakładki** — Wstaw zakładkę w bieżącym miejscu dowolnej części audiobooka, odcinka podcastu lub utworu z jukeboksa, a później wróć do niej w każdej chwili. Zakładka może zawierać notatkę tekstową lub nagraną notatkę głosową, odtwarzaną, gdy odtwarzanie dojdzie do tego miejsca; można też powtarzać fragment między dwiema zakładkami lub zapisać go jako plik audio — zob. [Zakładki](#zakładki).
 - **Nagrywanie** — Nagrywaj to, co gra, natychmiast, nagraj pojedynczy utwór od początku do końca, nagrywaj każdy utwór ze stacji do osobnego pliku, dopóki nie zatrzymasz nagrywania, albo zaplanuj nagrania jednorazowe i cykliczne — a wszystko to bez przerywania odtwarzania — zob. [Nagrywanie](#nagrywanie).
 - **Time-shift (cofanie radia na żywo)** — wstrzymuj i cofaj stację na żywo jak w DVR, a następnie wracaj do transmisji na żywo, kiedy chcesz — zobacz [Time-shift (cofanie radia na żywo)](#time-shift-cofanie-radia-na-żywo).
 - **Rozpoznawanie muzyki i polubione utwory** — rozpoznawaj utwory bez metadanych za pomocą rozpoznawania opartego na Shazam, zapisuj polubione utwory do pliku tekstowego i wyszukuj ich teksty — zobacz [Rozpoznawanie muzyki](#rozpoznawanie-muzyki) i [Polubione utwory](#polubione-utwory).
@@ -253,7 +253,7 @@ Ulubione, Polubione utwory, biblioteka Audiobooków i lista Jukeboksa umożliwia
 
 Zaznaczenia są przypisane do danej listy i znikają po usunięciu elementów (lub po ich indywidualnym odznaczeniu); nie są zapisywane między sesjami.
 
-Listy zakładek na kartach Podcasty, Audiobooki i Jukebox używają tego samego zaznaczania klawiszem `.`, a zaznaczone zakładki są tymi, na których działają polecenia **Usuń zaznaczone** i **Powtarzaj między zaznaczonymi zakładkami** — zob. [Zakładki](#zakładki).
+Listy zakładek na kartach Podcasty, Audiobooki i Jukebox używają tego samego zaznaczania klawiszem `.`, a zaznaczone zakładki są tymi, na których działają polecenia **Usuń zaznaczone**, **Powtarzaj między zaznaczonymi zakładkami** i **Zapisz fragment między zaznaczonymi zakładkami** — zob. [Zakładki](#zakładki).
 
 ### Eksportowanie i importowanie ulubionych
 
@@ -868,6 +868,7 @@ Gdy fokus jest na liście zakładek, działają na niej także klawisze odtwarza
 - **Wyczyść notatki** — usuwa zarówno notatkę tekstową, jak i głosową zakładki z fokusem. Dostępne tylko wtedy, gdy zakładka ma notatkę.
 - **Powtarzaj między zaznaczonymi zakładkami** — zob. poniżej. Dostępne, gdy zaznaczone są co najmniej dwie zakładki.
 - **Zatrzymaj powtarzanie** — wyłącza tryb powtarzania. Dostępne, gdy powtarzanie jest aktywne.
+- **Zapisz fragment między zaznaczonymi zakładkami** — zapisuje fragment między zaznaczonymi zakładkami jako plik audio — zob. [Zapisywanie fragmentu między zakładkami jako pliku audio](#zapisywanie-fragmentu-między-zakładkami-jako-pliku-audio). Dostępne, gdy zaznaczone są co najmniej dwie zakładki.
 
 ### Co się dzieje, gdy odtwarzanie dojdzie do zakładki
 
@@ -880,6 +881,17 @@ Zakładki są wykrywane podczas zwykłego odtwarzania. Przewinięcie lub przesko
 ### Powtarzanie fragmentu między zakładkami
 
 Zaznacz klawiszem `.` dwie lub więcej zakładek **tego samego elementu**, a następnie wybierz **Powtarzaj między zaznaczonymi zakładkami**. Odtwarzanie przeskakuje do najwcześniejszej zaznaczonej zakładki i zapętla się między najwcześniejszą a najpóźniejszą zaznaczoną zakładką, a NVDA ogłasza obie pozycje. Przydaje się to do powtórzenia trudnego fragmentu, frazy w nauce języka lub utworu, który ćwiczysz. Wybierz **Zatrzymaj powtarzanie**, aby wrócić do zwykłego odtwarzania. Powtarzanie nie jest zapisywane między sesjami, a jeśli zacznie grać inny element, zakres powtarzania jest ignorowany i po około 20 sekundach porzucany.
+
+### Zapisywanie fragmentu między zakładkami jako pliku audio
+
+Zaznacz klawiszem `.` dwie lub więcej zakładek **tego samego elementu**, a następnie wybierz z menu kontekstowego zakładek **Zapisz fragment między zaznaczonymi zakładkami**. Polecenie wycina dokładnie ten fragment, który tryb powtarzania zapętlałby — od najwcześniejszej do najpóźniejszej zaznaczonej zakładki — i zapisuje go jako plik audio. Nie ma dla niego skrótu klawiszowego; jest dostępne tylko z menu kontekstowego. Element nie musi być odtwarzany.
+
+- **Gdzie jest zapisywany:** w folderze nagrań (ustawionym w ustawieniach freeAudio, domyślnie `Documents\freeAudio Recordings`), w nowym podfolderze nazwanym tak jak medium: tytuł odcinka dla podcastu, tytuł książki dla audiobooka, nazwa pliku dla utworu z jukeboksa. Znaki niedozwolone przez Windows w nazwach są zastępowane, a folder jest tworzony, jeśli nie istnieje.
+- **Nazwa pliku:** nazwy pierwszej i ostatniej zaznaczonej zakładki, a po nich obie pozycje, na przykład `Zakładka 1 - Zakładka 2 (1.23-4.56).mp3`. Pozycje zapisywane są z kropkami zamiast dwukropków, ponieważ Windows nie zezwala na dwukropki w nazwach plików. W przypadku książki z wieloma częściami na początku dodawany jest tytuł części. Istniejący plik nigdy nie jest nadpisywany; zamiast tego dodawany jest numer, np. `(2)`.
+- **Format:** fragment zachowuje oryginalny format elementu (MP3 pozostaje MP3, M4A pozostaje M4A) i jest wycinany bez ponownego kodowania, więc nie ma utraty jakości. Z tego powodu punkty cięcia przypadają na najbliższą ramkę audio, która może odbiegać od dokładnych pozycji zakładek o ułamek sekundy.
+- **Skąd pochodzi dźwięk:** utwór z jukeboksa jest wycinany z jego pliku. Odcinek podcastu lub część audiobooka, które zostały już pobrane, są wycinane z pobranego pliku; w przeciwnym razie dźwięk jest odczytywany z adresu internetowego. Części z GETEM wymagają sesji logowania, więc są najpierw pobierane do pliku tymczasowego, który potem jest usuwany. Jeśli odczyt z adresu internetowego się nie powiedzie, freeAudio przechodzi do pobrania całego elementu.
+- **Komunikaty:** NVDA mówi „Zapisywanie fragmentu…” na początku i „Zapisano fragment: *nazwa pliku*” po zakończeniu. Zapisywanie odbywa się w tle, więc można dalej słuchać lub pracować; długie elementy odczytywane z internetu mogą chwilę potrwać. Jeśli ten sam fragment jest już zapisywany, polecenie informuje o tym zamiast uruchamiać drugą kopię.
+- **Wymagania:** do zapisywania fragmentów używany jest program ffmpeg, dołączony do freeAudio. Jeśli nie można go znaleźć, NVDA o tym informuje; ustawienie **Ścieżka do ffmpeg.exe** może wskazać freeAudio inną kopię. Jeśli zaznaczone zakładki dzieli mniej niż pół sekundy, nic nie jest zapisywane.
 
 ### Przechowywanie danych zakładek
 
@@ -960,7 +972,7 @@ Poniższe opcje można skonfigurować w menu NVDA → Preferencje → Ustawienia
 | Gdy Ctrl+Win+P zostanie naciśnięty trzy razy | Wybiera akcję po trzykrotnym szybkim naciśnięciu skrótu: nic nie rób, otwórz listę ulubionych, otwórz wyszukiwanie stacji, otwórz kartę nagrywania albo otwórz kartę timera. |
 | Automatycznie sprawdzaj aktualizacje przy uruchomieniu | Gdy włączone, przy każdym starcie NVDA działa w tle sprawdzanie aktualizacji; jeśli zostanie znaleziona nowa wersja, pojawi się powiadomienie. Gdy wyłączone, automatyczne sprawdzanie jest zatrzymane, ale ręczne nadal działa. |
 | Sprawdź aktualizacje teraz | Przycisk, który natychmiast sprawdza, czy jest nowa wersja, nawet gdy automatyczne sprawdzanie jest wyłączone. Podczas sprawdzania przycisk ma etykietę „Sprawdzanie...”. |
-| Ścieżka do ffmpeg.exe | Ścieżka do `ffmpeg.exe` używanego do rozpoznawania muzyki. Jeśli pozostanie pusta, automatycznie użyty zostanie `ffmpeg.exe` z folderu dodatku. |
+| Ścieżka do ffmpeg.exe | Ścieżka do `ffmpeg.exe` używanego do rozpoznawania muzyki oraz do zapisywania fragmentów audio między zakładkami. Jeśli pozostanie pusta, automatycznie użyty zostanie `ffmpeg.exe` z folderu dodatku. |
 | Folder nagrań | Ustawia folder, w którym zapisywane są nagrania. Jeśli pozostanie pusty, używana jest domyślna lokalizacja `Documents\freeAudio Recordings\`. Przycisk Przeglądaj pozwala wybrać folder interaktywnie. Zmiany działają natychmiast po zapisaniu. |
 | Moduły | Lista z polami wyboru opcjonalnych części freeAudio: **Podcasty**, **Audiobooki** i **Jukebox**. Wszystkie trzy są domyślnie włączone. Odznaczenie jednej usuwa jej kartę z Przeglądarki stacji, a jej polecenia z okna Gesty wejściowe NVDA, bez usuwania czegokolwiek, co tam zapisano (subskrypcje, biblioteka, lista Jukeboksa); ponowne zaznaczenie przywraca wszystko. Zmiany zaczynają obowiązywać przy następnym otwarciu Przeglądarki stacji. |
 | Uwzględniaj dyski sieciowe podczas wyszukiwania w jukeboksie | Gdy włączone, funkcja **Szukaj na urządzeniach** Jukeboksa przeszukuje także dyski sieciowe. Domyślnie wyłączone, ponieważ przeszukiwanie udziału sieciowego może trwać minuty lub się zawiesić, jeśli udział jest nieosiągalny. |

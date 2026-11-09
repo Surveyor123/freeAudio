@@ -573,42 +573,39 @@ msgstr "Herhalen gestopt"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "De gemarkeerde bladwijzers liggen te dicht bij elkaar om een fragment op te slaan."
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "Kan dit luisterboek niet vinden."
+msgstr "Kon de audio van dit item niet vinden."
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "Apparaten worden geladen..."
+msgstr "Fragment wordt opgeslagen..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "Opnieuw gescand: %s"
+msgstr "Fragment opgeslagen: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "Kon de spraaknotitie niet opslaan"
+msgstr "Kon het fragment niet opslaan: ffmpeg is niet gevonden."
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "Kon de spraaknotitie niet opslaan"
+msgstr "Kon het fragment niet opslaan: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "Dit fragment wordt al opgeslagen."
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -654,9 +651,8 @@ msgstr "Herhalen s&toppen"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "&Herhalen tussen gemarkeerde bladwijzers"
+msgstr "&Fragment tussen gemarkeerde bladwijzers opslaan"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5600,6 +5596,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## Wat is er nieuw in versie 2026.25.4\n"
+"\n"
+"### Nieuw: het gedeelte tussen twee bladwijzers opslaan als audiofragment\n"
+"\n"
+"- Markeer op de tabbladen Podcasts, Luisterboeken en Jukebox twee of meer bladwijzers van hetzelfde item met `.`, open het contextmenu van de bladwijzers en kies **Fragment tussen gemarkeerde bladwijzers opslaan**. Het gedeelte van de vroegste tot de laatste gemarkeerde bladwijzer (hetzelfde gedeelte dat de herhaalmodus herhaalt) wordt als audiobestand opgeslagen.\n"
+"- Het bestand komt in de opnamemap, in een nieuwe map die is genoemd naar het medium: de titel van de aflevering, de titel van het boek of de naam van het nummer. De bestandsnaam bevat de namen en posities van de bladwijzers, bijvoorbeeld `Bladwijzer 1 - Bladwijzer 2 (1.23-4.56).mp3`. Bestaande bestanden worden nooit overschreven.\n"
+"- Het fragment behoudt het oorspronkelijke formaat en de kwaliteit; er wordt niets opnieuw gecodeerd.\n"
+"- Het opslaan gebeurt op de achtergrond en NVDA meldt wanneer het begint en wanneer het klaar is. Het item hoeft niet te worden afgespeeld.\n"
+"- Werkt met gedownloade bestanden en met items die alleen worden gestreamd. Bij GETEM-boeken wordt het deel tijdelijk gedownload om het fragment te knippen.\n"
+"- Gebruikt de ffmpeg die bij freeAudio wordt geleverd. De instelling **Pad naar ffmpeg.exe** geldt nu ook voor fragmenten.\n"
+"- De opdracht is alleen beschikbaar via het contextmenu; er is geen sneltoets voor.\n"
 
 #~ msgid ""
 #~ "\n"

@@ -566,42 +566,39 @@ msgstr "Wiederholung beendet"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "Die markierten Lesezeichen liegen zu dicht beieinander, um einen Ausschnitt zu speichern."
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "Dieses Hörbuch wurde nicht gefunden."
+msgstr "Das Audio dieses Eintrags wurde nicht gefunden."
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "Geräte werden geladen..."
+msgstr "Ausschnitt wird gespeichert..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "Neu eingelesen: %s"
+msgstr "Ausschnitt gespeichert: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "Die Sprachnotiz ließ sich nicht speichern"
+msgstr "Der Ausschnitt ließ sich nicht speichern: ffmpeg wurde nicht gefunden."
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "Die Sprachnotiz ließ sich nicht speichern"
+msgstr "Der Ausschnitt ließ sich nicht speichern: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "Dieser Ausschnitt wird bereits gespeichert."
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -647,9 +644,8 @@ msgstr "Wiederh&olung beenden"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "Zwischen markierten Lesezeichen wieder&holen"
+msgstr "&Ausschnitt zwischen markierten Lesezeichen speichern"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5564,6 +5560,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## Änderungen in 2026.25.4\n"
+"\n"
+"### Neu: Abschnitt zwischen zwei Lesezeichen als Audioausschnitt speichern\n"
+"\n"
+"- Markieren Sie auf den Registerkarten Podcasts, Hörbücher und Jukebox zwei oder mehr Lesezeichen desselben Eintrags mit `.`, öffnen Sie das Kontextmenü der Lesezeichen und wählen Sie **Ausschnitt zwischen markierten Lesezeichen speichern**. Der Abschnitt vom frühesten bis zum spätesten markierten Lesezeichen (derselbe Abschnitt, den der Wiederholungsmodus wiederholt) wird als Audiodatei gespeichert.\n"
+"- Die Datei wird im Aufnahmeordner in einem neuen, nach dem Medium benannten Ordner abgelegt: dem Titel der Folge, dem Buchtitel oder dem Titelnamen. Der Dateiname enthält die Namen und Positionen der Lesezeichen, z. B. `Lesezeichen 1 - Lesezeichen 2 (1.23-4.56).mp3`. Vorhandene Dateien werden nie überschrieben.\n"
+"- Der Ausschnitt behält Originalformat und Qualität; es wird nichts neu kodiert.\n"
+"- Das Speichern läuft im Hintergrund, und NVDA meldet, wann es beginnt und wann es abgeschlossen ist. Der Eintrag muss nicht wiedergegeben werden.\n"
+"- Funktioniert mit heruntergeladenen Dateien ebenso wie mit Einträgen, die nur gestreamt werden. Bei GETEM-Büchern wird der Teil für den Schnitt vorübergehend heruntergeladen.\n"
+"- Verwendet das mit freeAudio gelieferte ffmpeg. Die Einstellung **Pfad zu ffmpeg.exe** gilt jetzt auch für Ausschnitte.\n"
+"- Der Befehl ist nur im Kontextmenü verfügbar; es gibt keine Tastenkombination dafür.\n"
 
 #~ msgid ""
 #~ "\n"

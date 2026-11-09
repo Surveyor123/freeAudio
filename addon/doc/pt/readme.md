@@ -8,7 +8,7 @@ freeAudio é um complemento completo de rádio pela Internet, podcasts, audioliv
 - **Podcasts** — Subscreva qualquer feed RSS/Atom, ou pesquise no diretório de podcasts da Apple e pré-visualize episódios antes de subscrever. A posição de reprodução é guardada automaticamente e retoma onde ficou — veja [Podcasts](#podcasts).
 - **Audiolivros** — Pesquise e transmita ou descarregue livros de três fontes: [GETEM](https://getem.boun.edu.tr/), a biblioteca digital da Universidade de Boğaziçi para pessoas com deficiência visual, [LibriVox](https://librivox.org/), o projeto de audiolivros de domínio público lidos por voluntários, e a Coleção de Audiolivros Abertos do Project Gutenberg — os dois últimos não requerem conta — com retoma automática em obras de várias partes — veja [Audiolivros (GETEM, LibriVox e Project Gutenberg)](#audiolivros-getem-librivox-e-project-gutenberg).
 - **Jukebox local** — Pesquise ficheiros de áudio armazenados em qualquer unidade ligada pelo nome do ficheiro, ou construa uma biblioteca pessoal de ficheiros e pastas, e reproduza-os com as mesmas ferramentas de retoma, procura, velocidade e transposição que os podcasts e audiolivros usam — veja [Jukebox local](#jukebox-local).
-- **Marcadores** — Coloque um marcador na posição atual de qualquer parte de um audiolivro, episódio de podcast ou faixa do jukebox e volte a ela quando quiser. Um marcador pode ter uma nota de texto ou uma nota de voz gravada, reproduzida quando a reprodução chega a esse ponto, e a secção entre dois marcadores pode ser repetida — veja [Marcadores](#marcadores).
+- **Marcadores** — Coloque um marcador na posição atual de qualquer parte de um audiolivro, episódio de podcast ou faixa do jukebox e volte a ela quando quiser. Um marcador pode ter uma nota de texto ou uma nota de voz gravada, reproduzida quando a reprodução chega a esse ponto, e a secção entre dois marcadores pode ser repetida ou guardada como excerto de áudio — veja [Marcadores](#marcadores).
 - **Gravação** — Grave de imediato o que está a tocar, grave uma única música do princípio ao fim, grave todas as músicas de uma estação, cada uma no seu próprio ficheiro, até parar, ou agende gravações únicas e recorrentes — tudo sem interromper a reprodução — veja [Gravação](#gravação).
 - **Time-Shift (recuar na rádio em direto)** — Pause e recue numa estação em direto como um DVR, e depois volte ao direto sempre que quiser — veja [Time-Shift (Recuar na Rádio em Direto)](#time-shift-recuar-na-rádio-em-direto).
 - **Reconhecimento musical e músicas gostadas** — Identifique faixas sem metadados usando reconhecimento baseado em Shazam, guarde músicas gostadas num ficheiro de texto e consulte as suas letras — veja [Reconhecimento Musical](#reconhecimento-musical) e [Músicas Gostadas](#músicas-gostadas).
@@ -253,7 +253,7 @@ Favoritos, Músicas Gostadas, a biblioteca de Audiolivros e a lista do Jukebox s
 
 As marcas são por lista e são limpas assim que remove os itens (ou os desmarca individualmente); não são guardadas entre sessões.
 
-As listas de marcadores dos separadores Podcasts, Audiolivros e Jukebox usam a mesma marcação com `.`, e os marcadores marcados são aqueles sobre os quais atuam os comandos **Eliminar selecionados** e **Repetir entre os marcadores marcados** — veja [Marcadores](#marcadores).
+As listas de marcadores dos separadores Podcasts, Audiolivros e Jukebox usam a mesma marcação com `.`, e os marcadores marcados são aqueles sobre os quais atuam os comandos **Eliminar selecionados**, **Repetir entre os marcadores marcados** e **Guardar excerto entre marcadores marcados** — veja [Marcadores](#marcadores).
 
 ### Exportar e Importar Favoritos
 
@@ -868,6 +868,7 @@ Enquanto uma lista de marcadores tem o foco, as teclas de reprodução do separa
 - **Limpar notas** — remove a nota de texto e a nota de voz do marcador com o foco. Ativo apenas quando o marcador tem uma nota.
 - **Repetir entre os marcadores marcados** — veja abaixo. Ativo quando pelo menos dois marcadores estão marcados.
 - **Parar repetição** — desativa o modo de repetição. Ativo enquanto uma repetição estiver ativa.
+- **Guardar excerto entre marcadores marcados** — guarda a secção entre os marcadores marcados como ficheiro de áudio — veja [Guardar a secção entre marcadores como excerto de áudio](#guardar-a-secção-entre-marcadores-como-excerto-de-áudio). Ativo quando pelo menos dois marcadores estão marcados.
 
 ### O que acontece quando a reprodução chega a um marcador
 
@@ -880,6 +881,17 @@ Os marcadores são detetados durante a reprodução normal. Avançar ou retroced
 ### Repetir a secção entre marcadores
 
 Marque com `.` dois ou mais marcadores **do mesmo item** e escolha **Repetir entre os marcadores marcados**. A reprodução salta para o marcador marcado mais antigo e repete em ciclo entre o mais antigo e o mais recente dos marcados, e o NVDA anuncia as duas posições. É útil para repassar uma passagem difícil de perceber, uma frase de aprendizagem de línguas ou uma peça musical que está a praticar. Escolha **Parar repetição** para voltar à reprodução normal. A repetição não é guardada entre sessões e, se outro item começar a tocar, o intervalo de repetição é ignorado e abandonado ao fim de cerca de 20 segundos.
+
+### Guardar a secção entre marcadores como excerto de áudio
+
+Marque com `.` dois ou mais marcadores **do mesmo item** e escolha **Guardar excerto entre marcadores marcados** no menu de contexto dos marcadores. O comando corta exatamente a secção que o modo de repetição repetiria em ciclo — do marcador marcado mais antigo ao mais recente — e guarda-a como ficheiro de áudio. Não existe atalho de teclado para ele; está disponível apenas no menu de contexto. O item não precisa de estar a ser reproduzido.
+
+- **Onde é guardado:** na pasta de gravações (a definida nas configurações do freeAudio, ou `Documents\freeAudio Recordings` por predefinição), numa nova subpasta com o nome do conteúdo: o título do episódio, no caso de um podcast; o título do livro, no caso de um audiolivro; o nome do ficheiro, no caso de uma faixa do jukebox. Os carateres que o Windows não permite nos nomes são substituídos, e a pasta é criada se não existir.
+- **Nome do ficheiro:** os nomes do primeiro e do último marcador marcados, seguidos das duas posições, por exemplo `Marcador 1 - Marcador 2 (1.23-4.56).mp3`. As posições usam pontos em vez de dois-pontos porque o Windows não permite dois-pontos em nomes de ficheiros. Num livro com várias partes, o título da parte é colocado à frente. Um ficheiro existente nunca é substituído; em vez disso, é acrescentado um número como `(2)`.
+- **Formato:** o excerto mantém o formato original do item (um MP3 continua MP3, um M4A continua M4A) e é cortado sem recodificação, pelo que não há perda de qualidade. Por isso, os pontos de corte ficam na trama de áudio mais próxima, que pode estar a uma fração de segundo das posições exatas dos marcadores.
+- **De onde vem o áudio:** uma faixa do jukebox é cortada a partir do seu ficheiro. Um episódio de podcast ou uma parte de audiolivro que já tenha transferido é cortado a partir do ficheiro transferido; caso contrário, é lido a partir do seu endereço web. As partes do GETEM precisam da sessão iniciada, por isso são primeiro transferidas para um ficheiro temporário, que é depois eliminado. Se a leitura a partir do endereço web falhar, o freeAudio recorre à transferência do item completo.
+- **Anúncios:** o NVDA diz «A guardar excerto…» ao começar e «Excerto guardado: *nome do ficheiro*» ao terminar. O processo decorre em segundo plano, pelo que pode continuar a ouvir ou a trabalhar; itens longos lidos a partir da web podem demorar um pouco. Se a mesma secção já estiver a ser guardada, o comando di-lo em vez de iniciar uma segunda cópia.
+- **Requisitos:** guardar excertos utiliza o ffmpeg, que é fornecido com o freeAudio. Se não puder ser encontrado, o NVDA di-lo; a definição **Caminho do ffmpeg.exe** pode indicar ao freeAudio outra cópia. Se os marcadores marcados estiverem a menos de meio segundo um do outro, nada é guardado.
 
 ### Armazenamento dos dados dos marcadores
 
@@ -960,7 +972,7 @@ As seguintes opções podem ser configuradas em Menu NVDA → Preferências → 
 | Quando Ctrl+Win+P é premido três vezes | Seleciona o que acontece quando o atalho é premido três vezes rapidamente: não fazer nada, abrir a lista de favoritos, abrir o separador de pesquisa, abrir o separador de gravação ou abrir o separador do temporizador. |
 | Verificar atualizações automaticamente ao iniciar | Quando ativado, é efetuada uma verificação de atualizações em segundo plano sempre que o NVDA inicia; é emitida uma notificação se for encontrada uma nova versão. Quando desativado, as verificações automáticas são interrompidas mas as verificações manuais continuam disponíveis. |
 | Verificar atualizações agora | Um botão que verifica imediatamente se existe uma nova versão, mesmo que as verificações automáticas estejam desativadas. Enquanto a verificação decorre, o botão indica «A verificar...». |
-| Caminho do ffmpeg.exe | Caminho para o ffmpeg.exe utilizado no reconhecimento musical. Se deixado em branco, é utilizado automaticamente um ffmpeg.exe na pasta do complemento. |
+| Caminho do ffmpeg.exe | Caminho para o ffmpeg.exe utilizado no reconhecimento musical e para guardar excertos de áudio entre marcadores. Se deixado em branco, é utilizado automaticamente um ffmpeg.exe na pasta do complemento. |
 | Pasta de gravações | Define a pasta onde os ficheiros gravados são guardados. Se deixado em branco, é utilizada a localização predefinida `Documents\freeAudio Recordings\`. Um botão Procurar permite selecionar a pasta de forma interativa. As alterações têm efeito imediatamente após guardar. |
 | Módulos | Uma lista de caixas de verificação com as partes opcionais do freeAudio: **Podcasts**, **Audiolivros** e **Jukebox**. As três estão ativas por predefinição. Desmarcar uma remove o seu separador do Navegador de Estações e os seus comandos da caixa de diálogo Definir comandos do NVDA, sem apagar nada do que lá guardou (subscrições, biblioteca, lista do Jukebox); voltar a marcá-la repõe tudo. As alterações aplicam-se na próxima vez que o Navegador de Estações for aberto. |
 | Incluir unidades de rede ao pesquisar no Jukebox | Quando ativado, **Pesquisar no disco** do Jukebox também pesquisa unidades de rede. Desativado por predefinição, porque pesquisar uma partilha de rede pode demorar vários minutos ou bloquear se a partilha estiver inacessível. |

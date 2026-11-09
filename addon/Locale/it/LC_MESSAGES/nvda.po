@@ -581,42 +581,39 @@ msgstr "Ripetizione interrotta"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "I segnalibri contrassegnati sono troppo vicini per salvare un estratto."
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "Impossibile trovare questo audiolibro."
+msgstr "Impossibile trovare l'audio di questo elemento."
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "Caricamento dei dispositivi..."
+msgstr "Salvataggio dell'estratto..."
 
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "Nuova scansione: %s"
+msgstr "Estratto salvato: %s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "Impossibile salvare la nota vocale"
+msgstr "Impossibile salvare l'estratto: ffmpeg non trovato."
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "Impossibile salvare la nota vocale"
+msgstr "Impossibile salvare l'estratto: %s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "Questo estratto è già in fase di salvataggio."
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -662,9 +659,8 @@ msgstr "&Interrompi ripetizione"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "Ri&peti tra i segnalibri contrassegnati"
+msgstr "&Salva estratto audio tra i segnalibri contrassegnati"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5602,6 +5598,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## Novità della versione 2026.25.4\n"
+"\n"
+"### Novità: salvare la sezione tra due segnalibri come estratto audio\n"
+"\n"
+"- Nelle schede Podcast, Audiolibri e Jukebox, contrassegna con `.` due o più segnalibri dello stesso elemento, apri il menu contestuale dei segnalibri e scegli **Salva estratto audio tra i segnalibri contrassegnati**. La sezione dal primo all'ultimo segnalibro contrassegnato (la stessa che la modalità di ripetizione riproduce in ciclo) viene salvata come file audio.\n"
+"- Il file viene salvato nella cartella delle registrazioni, in una nuova cartella che prende il nome dal contenuto: il titolo dell'episodio, il titolo del libro o il nome del brano. Il nome del file contiene i nomi e le posizioni dei segnalibri, ad esempio `Segnalibro 1 - Segnalibro 2 (1.23-4.56).mp3`. I file esistenti non vengono mai sovrascritti.\n"
+"- L'estratto mantiene il formato e la qualità originali; non viene ricodificato nulla.\n"
+"- Il salvataggio avviene in background e NVDA annuncia quando inizia e quando è terminato. L'elemento non deve essere in riproduzione.\n"
+"- Funziona sia con i file scaricati sia con gli elementi riprodotti solo in streaming. Per i libri GETEM la parte viene scaricata temporaneamente per eseguire il taglio.\n"
+"- Utilizza l'ffmpeg incluso in freeAudio. L'impostazione **Percorso di ffmpeg.exe** vale ora anche per gli estratti.\n"
+"- Il comando è disponibile solo dal menu contestuale; non ha una scorciatoia da tastiera.\n"
 
 #~ msgid ""
 #~ "\n"

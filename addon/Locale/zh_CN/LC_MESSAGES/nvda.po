@@ -553,43 +553,40 @@ msgstr "已停止重复"
 #. Translators: Spoken when the marked bookmarks are (almost) at the same position, so there is nothing to save as an excerpt.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:443
 msgid "The marked bookmarks are too close together to save an excerpt."
-msgstr ""
+msgstr "已标记的书签彼此太近，无法保存音频片段。"
 
 #. Translators: Spoken when an audio excerpt can't be saved because the source of the item isn't known.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:451
-#, fuzzy
 msgid "Could not find the audio of this item."
-msgstr "找不到此有声书。"
+msgstr "找不到此项目的音频。"
 
 #. Translators: Spoken when saving the audio between two bookmarks starts.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:459
-#, fuzzy
 msgid "Saving excerpt..."
-msgstr "正在加载设备..."
+msgstr "正在保存音频片段……"
 
 # | msgid "Removed: %s"
 #. Translators: Spoken when an audio excerpt was saved; %s is the file name.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:463
-#, fuzzy, python-format
+#, python-format
 msgid "Excerpt saved: %s"
-msgstr "重新扫描：%s"
+msgstr "音频片段已保存：%s"
 
 #. Translators: Spoken when an audio excerpt can't be saved because ffmpeg could not be found.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:468
-#, fuzzy
 msgid "Could not save the excerpt: ffmpeg was not found."
-msgstr "无法保存语音备注"
+msgstr "无法保存音频片段：未找到 ffmpeg。"
 
 #. Translators: Spoken when saving an audio excerpt failed; %s is the error.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:471
-#, fuzzy, python-format
+#, python-format
 msgid "Could not save the excerpt: %s"
-msgstr "无法保存语音备注"
+msgstr "无法保存音频片段：%s"
 
 #. Translators: Spoken when the same excerpt is already being saved.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:478
 msgid "This excerpt is already being saved."
-msgstr ""
+msgstr "此音频片段正在保存中。"
 
 #. Translators: Bookmark context-menu item; plays the item starting at the selected bookmark.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:496
@@ -635,9 +632,8 @@ msgstr "停止重复(&O)"
 
 #. Translators: Bookmark context-menu item; saves the section between the bookmarks marked with '.' as an audio file in the recordings folder, in a folder named after the media.
 #: addon\globalPlugins\freeAudio\bookmarkUI.py:515
-#, fuzzy
 msgid "Save &Excerpt Between Marked Bookmarks"
-msgstr "在已标记书签之间重复(&R)"
+msgstr "保存已标记书签之间的音频片段(&E)"
 
 #. Translators: Fallback catalog-search result title when GETEM returns no usable link text.
 #. Translators: Fallback GetemBook.title when no title was supplied at construction.
@@ -5431,6 +5427,18 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+"\n"
+"## 自由之声 2026.25.4 版本新增内容\n"
+"\n"
+"### 新功能：将两个书签之间的部分保存为音频片段\n"
+"\n"
+"- 在“播客”“有声读物”和“点唱机”选项卡中，用 `.` 键标记同一项目的两个或更多书签，打开书签右键菜单，选择**保存已标记书签之间的音频片段**。从最早到最晚的已标记书签之间的部分（即重复模式循环播放的同一部分）将保存为音频文件。\n"
+"- 文件会保存到录音文件夹中，并放入一个以媒体命名的新文件夹：节目标题、书名或曲目名。文件名包含书签名称和位置，例如 `书签 1 - 书签 2 (1.23-4.56).mp3`。已有文件绝不会被覆盖。\n"
+"- 音频片段保持原始格式和音质，不会重新编码。\n"
+"- 保存在后台进行，NVDA 会在开始和完成时播报。项目无需正在播放。\n"
+"- 既适用于已下载的文件，也适用于仅在线播放的项目。对于 GETEM 图书，会临时下载该部分以完成剪切。\n"
+"- 使用 freeAudio 自带的 ffmpeg。**ffmpeg.exe 路径**设置现在也适用于音频片段。\n"
+"- 该命令只能通过右键菜单使用，没有键盘快捷键。\n"
 
 #~ msgid ""
 #~ "\n"
