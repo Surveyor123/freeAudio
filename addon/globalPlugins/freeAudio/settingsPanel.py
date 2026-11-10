@@ -167,10 +167,10 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		sHelper.addItem(self._fx_static)
 
 		_fx_keys  = ["chorus", "compressor", "distortion",
-		             "echo", "flanger", "gargle", "reverb",
+		             "echo", "flanger", "gargle", "reverb", "weird",
 		             "eq_bass", "eq_treble", "eq_vocal"]
 		_fx_display = [
-			# Translators: Names of the audio effects offered in the Settings effects checklist, in the same order as _fx_keys above - same wording as radioDialog.py's in-dialog effects list (continues for the next several lines: Compressor, Distortion, Echo, Flanger, Gargle, Reverb, then the three EQ boost bands).
+			# Translators: Names of the audio effects offered in the Settings effects checklist, in the same order as _fx_keys above - same wording as radioDialog.py's in-dialog effects list (continues for the next several lines: Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird, then the three EQ boost bands).
 			_("Chorus"),
 			_("Compressor"),
 			_("Distortion"),
@@ -178,6 +178,7 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 			_("Flanger"),
 			_("Gargle"),
 			_("Reverb"),
+			_("Weird"),
 			_("EQ: Bass Boost"),
 			_("EQ: Treble Boost"),
 			_("EQ: Vocal Boost"),

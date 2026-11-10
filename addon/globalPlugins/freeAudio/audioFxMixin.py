@@ -22,6 +22,7 @@ _ = _tr
 del _tr
 
 from . import _notify
+from .graphicEqConfig import get_graphic_eq_gains
 
 
 class AudioFxMixin:
@@ -268,3 +269,28 @@ class AudioFxMixin:
 
 		ui.message(_cf_labels.get(new_value, new_value))
 
+
+	@script(description=_("Toggle Weird"), category=_("freeAudio"))
+	def script_toggleWeird(self, gesture):
+		section = config.conf["freeAudio"]
+		active = [x.strip() for x in self._player.get_fx().split(",") if x.strip() and x.strip() != "none"]
+		enabled = "weird" not in active
+		if enabled:
+			active.append("weird")
+		else:
+			active.remove("weird")
+		fx = ",".join(active) or "none"
+		section["audio_fx"] = fx
+		self._player.set_fx(fx)
+		self._sync_dialog_audio(self._player.get_volume(), fx)
+		ui.message(_("Weird enabled") if enabled else _("Weird disabled"))
+
+	@script(description=_("Toggle Equalizer"), category=_("freeAudio"))
+	def script_toggleGraphicEqualizer(self, gesture):
+		section = config.conf["freeAudio"]
+		enabled = not section["graphic_eq_enabled"]
+		section["graphic_eq_enabled"] = enabled
+		self._player.set_graphic_eq(enabled, get_graphic_eq_gains(section))
+		if self._dialog and hasattr(self._dialog, "_graphic_eq_toggle"):
+			self._dialog._graphic_eq_toggle.SetValue(enabled)
+		ui.message(_("Equalizer enabled") if enabled else _("Equalizer disabled"))

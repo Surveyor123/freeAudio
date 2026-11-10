@@ -59,6 +59,7 @@ Some of these shortcuts overlap with ones Windows itself uses. If you'd rather k
 | Shortcut | Function | Description |
 |---|---|---|
 | `Ctrl+Win+R` | Open station browser | Opens the browser window if closed, or brings it to the foreground if already open. |
+| `Ctrl+Win+F` | Open Favourites tab | Opens or restores the Station Browser, selects Favourites, and focuses the station list. |
 | `Ctrl+Win+O` | Open Podcasts tab | Opens the station browser (if closed) or brings it to the foreground, and switches directly to the **Podcasts** tab. |
 | `Ctrl+Win+L` | Open Audio Books tab | Opens the station browser (if closed) or brings it to the foreground, and switches directly to the **Audio Books** tab. |
 | `Ctrl+Win+U` | Open Jukebox tab | Opens the station browser (if closed) or brings it to the foreground, and switches directly to the **Jukebox** tab, focused on the devices search box. |
@@ -129,7 +130,7 @@ When searching, results from Radio Browser are supplemented with stations from T
 
 The **Output Device** dropdown at the bottom of the browser window — outside the tabs — lists all BASS-recognised audio output devices. Selecting a device immediately redirects audio output to it and saves the choice permanently; the same device is used automatically in the next session. If the selected device is not connected, the add-on falls back to the system default automatically. Press `F11` to open a simpler on-demand device picker from anywhere in the Station Browser. The picker is not shown automatically and opens only when BASS detects more than one physical output device. When just one is available, no selection is needed and freeAudio uses the system default output.
 
-The **Volume** (0–200) and **Effects** controls in the same area can be adjusted at any time while the window is open. From the Effects list, Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, EQ: Bass Boost, EQ: Treble Boost and EQ: Vocal Boost can be enabled simultaneously; changes are applied to the active stream instantly. Each effect can also be toggled instantly with `Ctrl+1` through `Ctrl+0` without leaving the keyboard — see [Effect Shortcuts](#effect-shortcuts).
+The **Volume** (0–200) and **Effects** controls in the same area can be adjusted at any time while the window is open. From the Effects list, Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird, EQ: Bass Boost, EQ: Treble Boost and EQ: Vocal Boost can be enabled simultaneously; changes are applied to the active stream instantly. The ten original effects can also be toggled instantly with `Ctrl+1` through `Ctrl+0` without leaving the keyboard — see [Effect Shortcuts](#effect-shortcuts).
 
 When one or more EQ effects are enabled, a **gain control** appears for each active band. The gain can be set between −15 dB and +15 dB; the default values are Bass +9 dB, Treble +9 dB, and Vocal +6 dB. The gain controls are shown only for the EQ bands that are currently checked, and are hidden automatically when an EQ effect is unchecked. Gain values are saved globally and restored on the next session.
 
@@ -315,6 +316,24 @@ The Favourites tab includes two buttons for managing per-station audio settings:
 **Clear Audio Profile** — removes the saved audio profile from the selected station. After clearing, the station reverts to the global volume, effects and EQ gain settings. This button is only active when the selected station already has a saved profile.
 
 Both buttons are located below the favourites list and are only enabled when a station in the list is selected.
+
+## Ten-Band Equalizer
+
+The **Equalizer** tab is the last tab in the Station Browser. Use **Equalizer On/Off** to enable or disable it. Disabling it keeps your band settings.
+
+The ten sliders control **62, 125, 250, 500, 1000, 2000, 4000, 8000, 12000 and 16000 Hz**, from **−20 to +20 dB** in 1 dB steps. Use Tab and Shift+Tab to reach a slider, then the arrow keys to adjust it. NVDA announces the frequency and the signed value in dB. Changes take effect during playback.
+
+**Reset** sets all ten bands to 0 dB. **Save** writes the settings to NVDA's configuration and announces success or a saving error. The settings are restored when NVDA starts. The equalizer applies globally across stations and other media. Existing nine-band settings keep their original values, including the 16000 Hz band. The new 12000 Hz band starts at 0 dB.
+
+With all bands at 0 dB, the equalizer preserves the original volume. Each slider adjusts its peaking filter without changing the overall volume automatically. Large boosts can clip. Reduce the band gains if you hear distortion.
+
+To toggle the equalizer while the browser is closed, assign a gesture to **Toggle Equalizer** in NVDA Menu → Preferences → Input Gestures → **freeAudio**. This command has no default gesture. The existing Bass, Treble and Vocal Boost effects remain available alongside the ten-band equalizer.
+
+## Weird Effect
+
+**Weird** appears immediately after **Reverb** in the Effects list in the Station Browser and in freeAudio Settings. Check or uncheck it to enable or disable its rectified, nonlinear sound. It can be combined with the equalizer and other effects.
+
+To save its state for a favourite station, use **Save Audio Profile** and choose **Effects only** or **Volume and effects**. The saved on/off state is restored with the station's other effects. Stations without a profile use the global effects settings. **Toggle Weird** is also available in NVDA's Input Gestures dialog under **freeAudio**, with no default gesture.
 
 ## Music Recognition
 
@@ -957,7 +976,7 @@ The following options can be configured from NVDA Menu → Preferences → Setti
 | Audio output device | Sets the audio output device for radio playback. The list includes all BASS-compatible devices on the system plus a "System default" option. Changes are applied immediately on save; if the selected device is disconnected, the add-on automatically falls back to the system default and announces the change. |
 | Audio device refresh mode | Controls how freeAudio refreshes BASS output-device numbers. **Reliable** mode (default) probes devices live and tracks Bluetooth/USB changes more accurately, but can make device changes slightly slower. **Fast** mode uses the current BASS device list and is quicker, but device numbers may stay stale until BASS or NVDA is restarted. |
 | Volume | Sets the add-on's starting volume (0–100). During playback, `Ctrl+Win+↑` can raise the volume up to 200, but the starting volume saved here is capped at 100. |
-| Audio effects | Sets which effects (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, and the three EQ boosts) are active when NVDA starts or a station begins playing. Multiple effects can be checked at once, matching the Effects list in the Station Browser. |
+| Audio effects | Sets which effects (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird, and the three EQ boosts) are active when NVDA starts or a station begins playing. Multiple effects can be checked at once, matching the Effects list in the Station Browser. |
 | EQ gain (Bass / Treble / Vocal) | Sets the gain level in dB for each EQ band (−15 to +15). These values apply when the corresponding EQ effect is active and are saved globally. Per-station overrides can be stored using the **Save Audio Profile** button in the Favourites tab. |
 | Station switch transition | Controls the transition behaviour when switching between **live radio stations**. **Instant cut** (default) stops the previous station immediately before the new one starts. **Short crossfade (1 second)** and **Normal crossfade (2 seconds)** start the new station immediately with no gap, then gradually fade out the previous station in the background once the new stream is confirmed active. **Station tuning sound effect** stops the previous station immediately and plays a station tuner sound effect before the new one starts. Has no effect and no performance impact when set to Instant cut. Does not apply to podcasts, audio books, or jukebox tracks — resuming those always plays its own brief cassette sound effect regardless of this setting; see [Podcast Playback Details](#podcast-playback-details). |
 | Resume last station on NVDA startup | When enabled, the last played station automatically restarts every time NVDA starts. |

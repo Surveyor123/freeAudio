@@ -5347,3 +5347,75 @@ msgid ""
 "- The command is available from the context menu only; it has no keyboard "
 "shortcut.\n"
 msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:69
+msgid "%(frequency)g Hz, %(gain)+d dB"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:16
+msgid "%+d dB"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:34
+msgid "%g Hz"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:82
+msgid "Could not save Equalizer settings"
+msgstr ""
+
+#: globalPlugins/freeAudio/radioDialog.py:737
+msgid "Equalizer"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:27
+msgid "Equalizer On/Off"
+msgstr ""
+
+#: globalPlugins/freeAudio/audioFxMixin.py:295 globalPlugins/freeAudio/graphicEqualizer.py:61
+msgid "Equalizer disabled"
+msgstr ""
+
+#: globalPlugins/freeAudio/audioFxMixin.py:295 globalPlugins/freeAudio/graphicEqualizer.py:61
+msgid "Equalizer enabled"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:76
+msgid "Equalizer reset"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:84
+msgid "Equalizer settings saved"
+msgstr ""
+
+#: globalPlugins/freeAudio/__init__.py:1163
+msgid "Open freeAudio favourite stations"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:46
+msgid "Reset"
+msgstr ""
+
+#: globalPlugins/freeAudio/graphicEqualizer.py:46
+msgid "Save"
+msgstr ""
+
+#: globalPlugins/freeAudio/audioFxMixin.py:287
+msgid "Toggle Equalizer"
+msgstr ""
+
+#: globalPlugins/freeAudio/audioFxMixin.py:272
+msgid "Toggle Weird"
+msgstr ""
+
+#: globalPlugins/freeAudio/radioDialog.py:784 globalPlugins/freeAudio/settingsPanel.py:181
+msgid "Weird"
+msgstr ""
+
+#: globalPlugins/freeAudio/audioFxMixin.py:285
+msgid "Weird disabled"
+msgstr ""
+
+#: globalPlugins/freeAudio/audioFxMixin.py:285
+msgid "Weird enabled"
+msgstr ""

@@ -787,6 +787,9 @@ class _BassSubprocessEngine:
 		"""
 		self._send({"cmd": "set_fx", "fx": fx_name or "none"})
 
+	def set_graphic_eq(self, enabled, gains):
+		self._send({"cmd": "set_graphic_eq", "enabled": bool(enabled), "gains": list(gains)})
+
 	def set_eq_gain(self, band, gain_db):
 		"""Set the ParamEQ gain for one EQ band in dB (-15..+15).
 
@@ -1441,6 +1444,7 @@ class RadioPlayer(BookmarkPlayerMixin):
 
 		if success:
 			self._backend = self.BACKEND_BASS
+			self._bass_engine.set_graphic_eq(*getattr(self, "_graphic_eq", (False, (0,) * 10)))
 			# Reapply bass boost setting (DSP resets when stream restarts)
 			boost = getattr(self, "_bass_boost", 0.0)
 			if boost > 0.0:
@@ -2502,6 +2506,11 @@ class RadioPlayer(BookmarkPlayerMixin):
 				self._bass_engine.set_fx(self._audio_fx)
 			except Exception:
 				pass
+
+	def set_graphic_eq(self, enabled, gains):
+		self._graphic_eq = (bool(enabled), tuple(gains))
+		if self._bass_engine:
+			self._bass_engine.set_graphic_eq(*self._graphic_eq)
 
 	def set_eq_gain(self, band, gain_db):
 		"""Set the ParamEQ gain for one EQ band in dB (-15..+15).

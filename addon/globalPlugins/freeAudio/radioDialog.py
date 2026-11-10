@@ -584,13 +584,14 @@ class RadioDialog(wx.Dialog):
 	# If the user pauses for this period, a single request is sent.
 	_COMBO_DEBOUNCE_MS = 400
 
-	def __init__(self, parent, station_manager, player, play_callback, recorder=None, timer_manager=None, plugin=None):
+	def __init__(self, parent, station_manager, player, play_callback, recorder=None, timer_manager=None, plugin=None, initial_focus=None):
 		super().__init__(
 			parent,
 			# Translators: Title of the main freeAudio station-browser dialog itself.
 			title=_("freeAudio - Station Browser"),
 			style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER,
 		)
+		self._initial_focus = initial_focus
 		self._manager       = station_manager
 		self._player        = player
 		self._play_callback = play_callback
@@ -730,6 +731,10 @@ class RadioDialog(wx.Dialog):
 			self._optional_tab_pos["jukebox"] = self._notebook.GetPageCount()
 			# Translators: Tab label for the local jukebox (user-added audio files/folders).
 			self._notebook.AddPage(self._jukebox_panel, _("Jukebox"))
+		from .graphicEqualizer import EqualizerPanel
+		self._graphic_eq_panel = EqualizerPanel(self._notebook, self._player)
+		self._graphic_eq_toggle = self._graphic_eq_panel.toggle
+		self._notebook.AddPage(self._graphic_eq_panel, _("Equalizer"))
 		self._notebook.SetSelection(0)  # Start on the All Stations tab
 		main_sizer.Add(self._notebook, 1, wx.EXPAND | wx.ALL, 5)
 
@@ -771,12 +776,12 @@ class RadioDialog(wx.Dialog):
 		audio_row.Add(self._fx_label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 12)
 
 		self._fx_keys = ["chorus", "compressor", "distortion",
-		                 "echo", "flanger", "gargle", "reverb",
+		                 "echo", "flanger", "gargle", "reverb", "weird",
 		                 "eq_bass", "eq_treble", "eq_vocal"]
-		# Translators: Names of the audio effects in the Effects checklist, in the same order as self._fx_keys just above: chorus, compressor, distortion, echo, flanger, gargle, reverb, then the three EQ boost bands.
+		# Translators: Names of the audio effects in the Effects checklist, in the same order as self._fx_keys just above: chorus, compressor, distortion, echo, flanger, gargle, reverb, Weird, then the three EQ boost bands.
 		_fx_display = [
 			_("Chorus"), _("Compressor"), _("Distortion"),
-			_("Echo"), _("Flanger"), _("Gargle"), _("Reverb"),
+			_("Echo"), _("Flanger"), _("Gargle"), _("Reverb"), _("Weird"),
 			_("EQ: Bass Boost"), _("EQ: Treble Boost"), _("EQ: Vocal Boost"),
 		]
 		self._fx_choice = wx.CheckListBox(self, choices=_fx_display)
@@ -894,7 +899,20 @@ class RadioDialog(wx.Dialog):
 		self.Bind(wx.EVT_CHAR_HOOK, self._on_char_hook)
 
 		self._play_btn.SetDefault()
-		wx.CallAfter(self._search.SetFocus)
+		wx.CallAfter(self._focus_initial_search)
+
+	def _focus_initial_search(self):
+		# The initial default must not steal focus from a requested tab,
+		# even if its callback runs after the tab-opening callback.
+		if (self and self.IsShown() and self._initial_focus is None
+				and self._notebook.GetSelection() == 0):
+			self._search.SetFocus()
+
+	def _focus_initial_recording(self):
+		# A hidden page built during startup must not take focus from Favourites.
+		if (self and self.IsShown() and self._initial_focus in (None, 2)
+				and self._notebook.GetSelection() == 2):
+			self._sched_station_filter.SetFocus()
 
 	def focus_favorites(self):
 		"""Switch to the Favourites tab and give the list focus.
@@ -911,9 +929,9 @@ class RadioDialog(wx.Dialog):
 			self._notebook.SetSelection(1)  # Favourites tab index
 		except Exception:
 			return
+		self._apply_tab_side_effects(1)
 		self._refresh_fav_list()
-		favs = self._manager.get_favorites()
-		if favs and self._fav_list.GetSelection() == wx.NOT_FOUND:
+		if self._fav_list.GetCount() and self._fav_list.GetSelection() == wx.NOT_FOUND:
 			self._fav_list.SetSelection(0)
 		self._fav_list.SetFocus()
 
@@ -1369,7 +1387,7 @@ class RadioDialog(wx.Dialog):
 		self._sched_rec_once.Bind(wx.EVT_RADIOBUTTON,   self._on_sched_recurrence_changed)
 		self._sched_rec_indef.Bind(wx.EVT_RADIOBUTTON,  self._on_sched_recurrence_changed)
 		# Type-ahead for the station listbox is handled in _on_char_hook.
-		wx.CallAfter(self._sched_station_filter.SetFocus)
+		wx.CallAfter(self._focus_initial_recording)
 
 	def _build_timer_tab(self):
 		"""Timer tab: start (alarm) or stop (sleep) the radio at a specific time."""
@@ -1585,7 +1603,7 @@ class RadioDialog(wx.Dialog):
 		population runs.  Without this deferral the Clear()+Append() calls block
 		the wx paint cycle and the tab switch feels sluggish.
 		"""
-		on_rec_or_timer = (sel in (2, 3, 4, 5, 6, 7))
+		on_rec_or_timer = (sel in (2, 3, 4, 5, 6, 7) or self._notebook.GetPage(sel) is self._graphic_eq_panel)
 		self._play_btn.Show(not on_rec_or_timer)
 		self._fav_btn.Show(not on_rec_or_timer)
 		self._del_btn.Show(not on_rec_or_timer)
@@ -4014,6 +4032,11 @@ class RadioDialog(wx.Dialog):
 			gui.mainFrame.postPopup()
 			return
 
+		# Let the Equalizer page handle native slider keys and button activation.
+		if focused and self._graphic_eq_panel.IsDescendant(focused):
+			event.Skip()
+			return
+
 		# Bookmark lists (Podcasts / Audio Books / Jukebox): '.', Enter,
 		# Space, Delete and the context-menu keys. Handled first so the
 		# generic '.' / Enter / Applications-key branches below never see them.
@@ -4333,13 +4356,15 @@ class RadioDialog(wx.Dialog):
 				self._vol_spin.SetValue(vol)
 				return
 			# Ctrl+1..Ctrl+9 and Ctrl+0 toggle the 10 audio effects in the
-			# order they appear in self._fx_keys / the Effects checklist
-			# (1=Chorus, 2=Compressor, ..., 9=EQ: Bass Boost, 0=EQ: Vocal Boost).
+			# original order, skipping the newly inserted Weird item
+			# (1=Chorus, 2=Compressor, ..., 8=Bass, 9=Treble, 0=Vocal Boost).
 			if ord("1") <= key <= ord("9"):
-				self._toggle_fx_by_index(key - ord("1"))
+				effect_index = key - ord("1")
+				# Preserve the original Ctrl+1..0 commands after inserting Weird.
+				self._toggle_fx_by_index(effect_index + (1 if effect_index >= 7 else 0))
 				return
 			if key == ord("0"):
-				self._toggle_fx_by_index(9)
+				self._toggle_fx_by_index(10)
 				return
 
 		if event.AltDown():
