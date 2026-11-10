@@ -83,6 +83,27 @@ class PlaybackCoreMixin:
 	pipeline (_play_station / _start_playing / _on_station_selected /
 	_resume_last_station) that other scripts and dialogs call into."""
 
+	# The station most recently handed to _play_station(), until its
+	# background thread has actually started it on the player. Rapid repeated
+	# commands (e.g. a voice command saying "next station" four times, or
+	# several key presses in a row) arrive before the previous one has reached
+	# RadioPlayer.play(), so asking the player what is "current" returns the
+	# OLD station and several presses collapse into one step. Navigation asks
+	# _nav_current_station() instead, which prefers this.
+	_pending_station = None
+	# Incremented by every _play_station() call; a play whose token is no
+	# longer the latest is skipped, so the newest request always wins and
+	# older ones can't start (or announce) after it.
+	_play_token = 0
+
+	def _nav_current_station(self):
+		"""The station navigation should treat as current: one that is
+		queued to start, else what the player is playing."""
+		pending = self._pending_station
+		if pending:
+			return pending
+		return self._player.get_current_station()
+
 	@script(
 		# Translators: Name of an NVDA command; pauses playback (single press), with double/triple-press doing other actions - see the docstring above.
 		description=_("Pause or resume freeAudio playback"),
@@ -220,6 +241,8 @@ class PlaybackCoreMixin:
 				result = dlg.ShowModal()
 				dlg.Destroy()
 				if result == wx.ID_YES:
+					self._pending_station = None
+					self._play_token += 1
 					if self._recorder.is_recording():
 						self._recorder.stop(self._player)
 					self._recorder.stop_active_scheduled()
@@ -236,6 +259,8 @@ class PlaybackCoreMixin:
 		if not self._player.has_media():
 			gesture.send()
 			return
+		self._pending_station = None
+		self._play_token += 1
 		self._player.stop()
 		self._stations      = []
 		self._current_index = -1
@@ -254,7 +279,7 @@ class PlaybackCoreMixin:
 			gesture.send()
 			return
 		
-		current_station = self._player.get_current_station()
+		current_station = self._nav_current_station()
 		current_uuid = current_station.get("stationuuid", "") if current_station else ""
 		
 		# Find current index by stationuuid
@@ -268,7 +293,10 @@ class PlaybackCoreMixin:
 				self._current_index = -1
 		else:
 			# Fallback to name comparison for backward compatibility
-			current_name = self._player.get_current_name()
+			current_name = (
+				(self._pending_station or {}).get("name", "").strip()
+				if self._pending_station else self._player.get_current_name()
+			)
 			fav_names = [s.get("name", "").strip() for s in favs]
 			if current_name in fav_names:
 				self._current_index = fav_names.index(current_name)
@@ -291,7 +319,7 @@ class PlaybackCoreMixin:
 			gesture.send()
 			return
 		
-		current_station = self._player.get_current_station()
+		current_station = self._nav_current_station()
 		current_uuid = current_station.get("stationuuid", "") if current_station else ""
 		
 		# Find current index by stationuuid
@@ -305,7 +333,10 @@ class PlaybackCoreMixin:
 				self._current_index = -1
 		else:
 			# Fallback to name comparison for backward compatibility
-			current_name = self._player.get_current_name()
+			current_name = (
+				(self._pending_station or {}).get("name", "").strip()
+				if self._pending_station else self._player.get_current_name()
+			)
 			fav_names = [s.get("name", "").strip() for s in favs]
 			if current_name in fav_names:
 				self._current_index = fav_names.index(current_name)
@@ -647,7 +678,7 @@ class PlaybackCoreMixin:
 			# same as Ctrl+Win+Left/Right do.
 			gesture.send()
 			return
-		station = self._player.get_current_station() or {}
+		station = self._nav_current_station() or {}
 		kind = station.get("media_kind")
 		try:
 			if kind == "podcast":
@@ -1166,6 +1197,13 @@ class PlaybackCoreMixin:
 				ui.message(_("No internet connection. Please check your connection and try again."))
 				return
 
+		# Claim this play synchronously (we're on the caller's thread): later
+		# navigation commands must see this station as current even though
+		# the player won't know about it until the thread below gets there.
+		self._play_token += 1
+		token = self._play_token
+		self._pending_station = station
+
 		try:
 			config.conf["freeAudio"]["last_station_url"]  = url_resolved or url
 			config.conf["freeAudio"]["last_station_name"] = name
@@ -1266,6 +1304,10 @@ class PlaybackCoreMixin:
 		# here unchanged - no benefit to moving them, and keeping them here
 		# means _sync_dialog_audio() (below) reflects them immediately.
 		def _apply_profile_and_play():
+			# A newer _play_station() call arrived while this thread was
+			# starting - it supersedes this one, so do nothing.
+			if token != self._play_token:
+				return
 			if station_audio:
 				vol = station_audio.get("volume", config.conf["freeAudio"]["volume"])
 				fx  = station_audio.get("fx", "none")
@@ -1345,8 +1387,13 @@ class PlaybackCoreMixin:
 			# own blocking work is already pushed into RadioPlayer._bg_launch()
 			# on a further background thread), so it's simply called directly
 			# here rather than bounced back to the thread we just moved off of.
+			if token != self._play_token:
+				return
 			self._start_playing(url, name, url_resolved, station)
-			if announce:
+			if token == self._play_token:
+				# The player now knows this station; stop overriding it.
+				self._pending_station = None
+			if announce and token == self._play_token:
 				if not _notifications_muted():
 					wx.CallAfter(ui.message, name)
 

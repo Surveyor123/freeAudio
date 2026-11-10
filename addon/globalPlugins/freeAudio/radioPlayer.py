@@ -968,6 +968,8 @@ class RadioPlayer(BookmarkPlayerMixin):
 		self._audio_fx   = "none"  # active DirectX 8 effect name
 		self._intentional_stop = False
 		self._play_lock = threading.RLock()  # Prevent concurrent play operations
+		self._engine_load_lock = threading.Lock()  # Serialises BASS host (re)loads
+		self._launch_lock = threading.Lock()  # One _launch() at a time touches the BASS engine
 		self._play_gen  = 0		  # Incremented on every play(); bg threads check this
 
 		self._backend = self.BACKEND_NONE
@@ -1344,6 +1346,20 @@ class RadioPlayer(BookmarkPlayerMixin):
 	def use_fresh_audio_device_probe(self):
 		return getattr(self, "_audio_device_refresh_mode", "reliable") != "fast"
 
+	def _ensure_engine_loaded(self, engine):
+		"""Load *engine* if it isn't ready yet. Safe to call from several
+		launch threads at once: only one of them actually loads it."""
+		if engine is None:
+			return False
+		with self._engine_load_lock:
+			if engine.ready():
+				return True
+			try:
+				return bool(engine.load()) and engine.ready()
+			except Exception:
+				log.warning("freeAudio: BASS engine load failed", exc_info=True)
+				return False
+
 	def _stop_current(self):
 		if self._bass_engine:
 			self._bass_engine.stop()
@@ -1359,20 +1375,38 @@ class RadioPlayer(BookmarkPlayerMixin):
 		def _stale():
 			return gen is not None and self._play_gen != gen
 
-		self._stop_current()
+		# Only one launch may drive the shared BASS engine at a time, and a
+		# launch that has already been superseded must not touch it at all.
+		# Without this, a stale launch thread that was still on its way into
+		# _launch() when a newer play() arrived would call _stop_current()
+		# *after* the newer launch had started its engine.play(), cancelling
+		# the newer play ("BASS connection failed ... (cancelled)") even
+		# though it was the current one. The superseding play() has already
+		# cancelled whatever the previous launch was waiting on, so waiting
+		# for this lock is short.
+		with self._launch_lock:
+			if _stale():
+				return
 
-		if _stale():
-			return
+			self._stop_current()
 
-		if self._bass_engine and self._bass_engine.ready():
-			try:
-				if self._launch_bass(url, volume):
-					if _stale():
-						self._bass_engine.stop()
+			# Self-heal: a rapid station switch can leave a freshly created,
+			# never-loaded engine behind (its _bg_launch went stale before it
+			# reached load()). Load it here instead of failing forever.
+			self._ensure_engine_loaded(self._bass_engine)
+			if _stale():
+				return
+
+			if self._bass_engine and self._bass_engine.ready():
+				try:
+					if self._launch_bass(url, volume):
+						if _stale():
+							# Still inside the lock, so the newer launch has not
+							# reached the engine yet - stopping is safe here.
+							self._bass_engine.stop()
 						return
-					return
-			except Exception:
-				pass
+				except Exception:
+					pass
 
 	def _launch_bass(self, url, volume):
 		"""Start BASS playback — single attempt, no retry."""
@@ -1819,8 +1853,8 @@ class RadioPlayer(BookmarkPlayerMixin):
 
 			# If crossfade or tuning mode: load the brand-new engine now (blocking).
 			if xfade is not None or tuner is not None:
-				loaded = self._bass_engine.load()
-				if not loaded or not self._bass_engine.ready():
+				loaded = self._ensure_engine_loaded(self._bass_engine)
+				if not loaded:
 					# New engine failed to initialise — restore old engine and
 					# fall back to a regular (non-crossfade/non-tuning) launch.
 					log.warning("freeAudio: crossfade/tuning engine failed to load, falling back.")
@@ -1950,7 +1984,10 @@ class RadioPlayer(BookmarkPlayerMixin):
 			# with no indication why BASS never started in the first
 			# place. Treat this exactly like the exception branch above.
 			if self._backend != self.BACKEND_BASS:
-				reason = getattr(self._bass_engine, "last_play_error", None) or "unknown reason"
+				_eng = self._bass_engine
+				reason = getattr(_eng, "last_play_error", None) or (
+					"BASS engine not ready" if not (_eng and _eng.ready()) else "unknown reason"
+				)
 				log.warning("freeAudio: BASS connection failed for %s, giving up (%s)", launch_url, reason)
 				self._is_playing = False
 				if xfade:
