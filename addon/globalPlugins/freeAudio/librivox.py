@@ -75,6 +75,8 @@ ngettext = globals().get("ngettext", lambda s, p, n: s if n == 1 else p)
 
 import globalVars
 
+from . import archiveQuery
+
 log = logging.getLogger(__name__)
 
 LIBRIVOX_API_URL = "https://librivox.org/api/feed/audiobooks/"
@@ -201,32 +203,38 @@ def search_librivox(query, limit=RESULTS_PER_QUERY):
 	# expect - unlike the old API's anchored-prefix-only title/^query
 	# matching, this also matches the term appearing anywhere in the
 	# title or author name.
-	phrase = query.replace('"', "")
-	search_q = 'collection:(librivoxaudio) AND (title:("%s") OR creator:("%s"))' % (phrase, phrase)
-	params = [
-		("q", search_q),
-		("fl[]", "identifier"),
-		("fl[]", "title"),
-		("fl[]", "creator"),
-		("fl[]", "language"),
-		("fl[]", "description"),
-		("fl[]", "runtime"),
-		("rows", str(limit)),
-		("page", "1"),
-		("output", "json"),
-	]
-	url = "%s?%s" % (ARCHIVE_ADVANCED_SEARCH_URL, urllib.parse.urlencode(params))
-	try:
-		response_text = _fetch(url, timeout=SEARCH_TIMEOUT)
-	except Exception as e:
-		log.warning("freeAudio LibriVox: archive.org search failed: %s", e)
-		return [], str(e)
+	# Try the exact phrase first (as before), then progressively more
+	# tolerant queries - see archiveQuery.build_queries(). Later queries
+	# only run when the earlier ones found nothing.
+	data = None
+	for search_q in archiveQuery.build_queries(query, 'librivoxaudio'):
+		params = [
+			("q", search_q),
+			("fl[]", "identifier"),
+			("fl[]", "title"),
+			("fl[]", "creator"),
+			("fl[]", "language"),
+			("fl[]", "description"),
+			("fl[]", "runtime"),
+			("rows", str(limit)),
+			("page", "1"),
+			("output", "json"),
+		]
+		url = "%s?%s" % (ARCHIVE_ADVANCED_SEARCH_URL, urllib.parse.urlencode(params))
+		try:
+			response_text = _fetch(url, timeout=SEARCH_TIMEOUT)
+		except Exception as e:
+			log.warning("freeAudio LibriVox: archive.org search failed: %s", e)
+			return [], str(e)
 
-	try:
-		data = json.loads(response_text)
-	except ValueError as e:
-		log.warning("freeAudio LibriVox: could not parse archive.org search response: %s", e)
-		return [], str(e)
+		try:
+			data = json.loads(response_text)
+		except ValueError as e:
+			log.warning("freeAudio LibriVox: could not parse archive.org search response: %s", e)
+			return [], str(e)
+
+		if (((data or {}).get("response") or {}).get("docs")):
+			break
 
 	docs = (((data or {}).get("response") or {}).get("docs")) or []
 	books = []

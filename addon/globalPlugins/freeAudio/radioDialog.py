@@ -23,6 +23,7 @@ from . import podcast
 from . import getem
 from . import librivox
 from . import gutenberg_audiobooks
+from . import archive_audiobooks
 from . import jukebox
 from . import bookmarks
 from . import bookmarkUI
@@ -559,16 +560,16 @@ def _format_podcast_episode_lines(author="", published="", duration="", descript
 
 
 def _enabled_audiobook_sources():
-	"""Which audio book sources (currently "getem"/"librivox"/"gutenberg")
+	"""Which audio book sources (currently "getem"/"librivox"/"gutenberg"/"archive")
 	the user has enabled in Settings - see freeAudioSettingsPanel's "Audio
 	book sources" checklist, which is what edits config.conf["freeAudio"]
-	["audiobook_sources"]. Returns a set of the enabled keys - all three are
-	enabled by default (the confspec default is "getem,librivox,gutenberg"),
+	["audiobook_sources"]. Returns a set of the enabled keys - all four are
+	enabled by default (the confspec default is "getem,librivox,gutenberg,archive"),
 	so an upgrade from a version before this option existed searches
 	exactly as before. An empty set is a legitimate result (the user
 	unchecked everything), not a fallback case - _on_getem_search() handles
 	that by simply finding nothing rather than searching everything."""
-	raw = config.conf["freeAudio"].get("audiobook_sources", "getem,librivox,gutenberg")
+	raw = config.conf["freeAudio"].get("audiobook_sources", "getem,librivox,gutenberg,archive")
 	return {s.strip() for s in raw.split(",") if s.strip()}
 
 
@@ -602,6 +603,7 @@ class RadioDialog(wx.Dialog):
 		self._getem_library   = getem.GetemLibrary()
 		self._librivox_library = librivox.LibrivoxLibrary()
 		self._gutenberg_library = gutenberg_audiobooks.GutenbergLibrary()
+		self._archive_library = archive_audiobooks.ArchiveLibrary()
 		self._jukebox_manager = jukebox.JukeboxManager()
 		# Cancels an in-flight disk search (see jukebox.search_disk_for_audio)
 		# as soon as a newer one is requested, so a slow, stale search can't
@@ -7375,6 +7377,8 @@ class RadioDialog(wx.Dialog):
 			return librivox
 		if isinstance(book, gutenberg_audiobooks.GutenbergAudiobook):
 			return gutenberg_audiobooks
+		if isinstance(book, archive_audiobooks.ArchiveAudiobook):
+			return archive_audiobooks
 		return getem
 
 	def _audiobook_library_for(self, book):
@@ -7385,6 +7389,8 @@ class RadioDialog(wx.Dialog):
 			return self._librivox_library
 		if isinstance(book, gutenberg_audiobooks.GutenbergAudiobook):
 			return self._gutenberg_library
+		if isinstance(book, archive_audiobooks.ArchiveAudiobook):
+			return self._archive_library
 		return self._getem_library
 
 	def _audiobook_source_label_for(self, book):
@@ -7394,6 +7400,9 @@ class RadioDialog(wx.Dialog):
 		if isinstance(book, gutenberg_audiobooks.GutenbergAudiobook):
 			# Translators: Source-name label for a book from the Project Gutenberg Open Audiobook Collection.
 			return _("Project Gutenberg")
+		if isinstance(book, archive_audiobooks.ArchiveAudiobook):
+			# Translators: Source-name label for a general audio book from the Internet Archive (outside LibriVox and Project Gutenberg).
+			return _("Internet Archive")
 		# Translators: Source-name label for a book from GETEM (Boğaziçi University audio e-library) - the fallback when the book is neither LibriVox nor Project Gutenberg.
 		return _("GETEM")
 
@@ -7406,9 +7415,22 @@ class RadioDialog(wx.Dialog):
 			self._getem_library.get_books()
 			+ self._librivox_library.get_books()
 			+ self._gutenberg_library.get_books()
+			+ self._archive_library.get_books()
 		)
 		books.sort(key=lambda b: (b.title or "").casefold())
 		return books
+
+	def _saved_audiobook_by_key(self, detail_url):
+		"""The saved book whose identity key is *detail_url*, looked up in
+		every source's library, or None."""
+		for library in (
+			self._getem_library, self._librivox_library,
+			self._gutenberg_library, self._archive_library,
+		):
+			book = library.get_book_by_key(detail_url)
+			if book:
+				return book
+		return None
 
 	def _audiobook_search_field_label(self):
 		# Translators: Accessible name of the audio book search field - searches both GETEM and LibriVox at once
@@ -7529,6 +7551,7 @@ class RadioDialog(wx.Dialog):
 		self._getem_library = getem.GetemLibrary()
 		self._librivox_library = librivox.LibrivoxLibrary()
 		self._gutenberg_library = gutenberg_audiobooks.GutenbergLibrary()
+		self._archive_library = archive_audiobooks.ArchiveLibrary()
 
 	def _sync_getem_now_playing_from_player(self):
 		"""If an audio book chapter (GETEM or LibriVox) is already playing
@@ -7555,7 +7578,7 @@ class RadioDialog(wx.Dialog):
 		detail_url = current.get("getem_detail_url")
 		if not detail_url:
 			return
-		book = self._getem_library.get_book_by_key(detail_url) or self._librivox_library.get_book_by_key(detail_url)
+		book = self._saved_audiobook_by_key(detail_url)
 		if not book or not book.chapters:
 			return
 		try:
@@ -7685,12 +7708,17 @@ class RadioDialog(wx.Dialog):
 		is_archive_org_url = librivox.looks_like_book_url(query)
 		is_librivox_url = "librivox" in enabled_sources and is_archive_org_url
 		is_gutenberg_url = "gutenberg" in enabled_sources and is_archive_org_url
+		# The general Internet Archive source only accepts items that are
+		# neither LibriVox nor Gutenberg (see archive_audiobooks.get_book_by_url()),
+		# so it is tried after Gutenberg and before LibriVox's accept-anything
+		# fallback.
+		is_archive_url = "archive" in enabled_sources and is_archive_org_url
 		is_getem_url = (
 			"getem" in enabled_sources
 			and hasattr(getem, "looks_like_book_url")
 			and getem.looks_like_book_url(query)
 		)
-		if is_librivox_url or is_gutenberg_url or is_getem_url:
+		if is_librivox_url or is_gutenberg_url or is_archive_url or is_getem_url:
 			# Translators: Spoken while resolving a pasted book-detail URL directly to one book (rather than running a keyword search).
 			ui.message(_("Loading..."))
 
@@ -7698,6 +7726,8 @@ class RadioDialog(wx.Dialog):
 				book, error = None, None
 				if is_gutenberg_url:
 					book, error = gutenberg_audiobooks.get_book_by_url(query)
+				if not book and is_archive_url:
+					book, error = archive_audiobooks.get_book_by_url(query)
 				if not book and is_librivox_url:
 					book, error = librivox.get_book_by_url(query)
 				if not book and is_getem_url:
@@ -7735,14 +7765,21 @@ class RadioDialog(wx.Dialog):
 				gutenberg_books, gutenberg_error = gutenberg_audiobooks.search_gutenberg_audiobooks(query)
 			else:
 				gutenberg_books, gutenberg_error = [], None
-			books = list(getem_books or []) + list(librivox_books or []) + list(gutenberg_books or [])
+			if "archive" in enabled_sources:
+				archive_books, archive_error = archive_audiobooks.search_archive_audiobooks(query)
+			else:
+				archive_books, archive_error = [], None
+			books = (
+				list(getem_books or []) + list(librivox_books or [])
+				+ list(gutenberg_books or []) + list(archive_books or [])
+			)
 			# Only surface an error message if NONE of the sources
 			# returned any results - a real result from one source is
 			# shown even if another one genuinely failed, rather than
 			# hiding a working result behind another source's error.
 			error = None
 			if not books:
-				error = getem_error or librivox_error or gutenberg_error
+				error = getem_error or librivox_error or gutenberg_error or archive_error
 			wx.CallAfter(self._on_getem_search_done, books, error, search_id)
 
 		threading.Thread(target=_do_search, daemon=True).start()
@@ -8499,7 +8536,7 @@ class RadioDialog(wx.Dialog):
 		playing = getattr(self, "_getem_now_playing", None)
 		book = playing[0] if playing and playing[0].detail_url == detail_url else None
 		if book is None:
-			book = self._getem_library.get_book_by_key(detail_url) or self._librivox_library.get_book_by_key(detail_url)
+			book = self._saved_audiobook_by_key(detail_url)
 		if book is None:
 			# Translators: Spoken when a pasted book-detail link can't be resolved to a real book.
 			ui.message(_("Could not find this audio book."))

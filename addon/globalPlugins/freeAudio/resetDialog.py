@@ -94,11 +94,12 @@ def _build_items():
 		(
 			"audiobooks",
 			# Translators: Check box in the clean-up dialog; deletes the audio book libraries of all sources.
-			_("Audio book libraries (GETEM, LibriVox, Project Gutenberg)"),
+			_("Audio book libraries (GETEM, LibriVox, Project Gutenberg, Internet Archive)"),
 			[
 				_cfg_path("freeAudio_getem_library.json"),
 				_cfg_path("freeAudio_librivox_library.json"),
 				_cfg_path("freeAudio_gutenberg_audiobooks_library.json"),
+				_cfg_path("freeAudio_archive_audiobooks_library.json"),
 			],
 		),
 		(

@@ -99,6 +99,8 @@ ngettext = globals().get("ngettext", lambda s, p, n: s if n == 1 else p)
 
 import globalVars
 
+from . import archiveQuery
+
 log = logging.getLogger(__name__)
 
 # The archive.org collection tag every book in the collection carries -
@@ -230,32 +232,38 @@ def search_gutenberg_audiobooks(query, limit=RESULTS_PER_QUERY):
 		# Translators: Error returned by search_gutenberg_audiobooks() when the user submits an empty search box.
 		return [], _("Please enter a search term.")
 
-	phrase = query.replace('"', "")
-	search_q = 'collection:(%s) AND (title:("%s") OR creator:("%s"))' % (COLLECTION, phrase, phrase)
-	params = [
-		("q", search_q),
-		("fl[]", "identifier"),
-		("fl[]", "title"),
-		("fl[]", "creator"),
-		("fl[]", "language"),
-		("fl[]", "description"),
-		("fl[]", "tts-voice"),
-		("rows", str(limit)),
-		("page", "1"),
-		("output", "json"),
-	]
-	url = "%s?%s" % (ARCHIVE_ADVANCED_SEARCH_URL, urllib.parse.urlencode(params))
-	try:
-		response_text = _fetch(url, timeout=SEARCH_TIMEOUT)
-	except Exception as e:
-		log.warning("freeAudio Gutenberg Audiobooks: archive.org search failed: %s", e)
-		return [], str(e)
+	# Try the exact phrase first (as before), then progressively more
+	# tolerant queries - see archiveQuery.build_queries(). Later queries
+	# only run when the earlier ones found nothing.
+	data = None
+	for search_q in archiveQuery.build_queries(query, COLLECTION):
+		params = [
+			("q", search_q),
+			("fl[]", "identifier"),
+			("fl[]", "title"),
+			("fl[]", "creator"),
+			("fl[]", "language"),
+			("fl[]", "description"),
+			("fl[]", "tts-voice"),
+			("rows", str(limit)),
+			("page", "1"),
+			("output", "json"),
+		]
+		url = "%s?%s" % (ARCHIVE_ADVANCED_SEARCH_URL, urllib.parse.urlencode(params))
+		try:
+			response_text = _fetch(url, timeout=SEARCH_TIMEOUT)
+		except Exception as e:
+			log.warning("freeAudio Gutenberg Audiobooks: archive.org search failed: %s", e)
+			return [], str(e)
 
-	try:
-		data = json.loads(response_text)
-	except ValueError as e:
-		log.warning("freeAudio Gutenberg Audiobooks: could not parse archive.org search response: %s", e)
-		return [], str(e)
+		try:
+			data = json.loads(response_text)
+		except ValueError as e:
+			log.warning("freeAudio Gutenberg Audiobooks: could not parse archive.org search response: %s", e)
+			return [], str(e)
+
+		if (((data or {}).get("response") or {}).get("docs")):
+			break
 
 	docs = (((data or {}).get("response") or {}).get("docs")) or []
 	books = []

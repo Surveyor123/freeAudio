@@ -514,14 +514,14 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		# the "audiobook_sources" confspec default in __init__.py); the
 		# actual filtering happens in
 		# radioDialog._enabled_audiobook_sources()/_on_getem_search().
-		_AUDIOBOOK_SOURCE_KEYS = ["getem", "librivox", "gutenberg"]
+		_AUDIOBOOK_SOURCE_KEYS = ["getem", "librivox", "gutenberg", "archive"]
 		# Reuses the exact same bare "GETEM"/"LibriVox"/"Project Gutenberg"
 		# strings RadioDialog._audiobook_source_label_for() already shows
 		# next to each book in the Audio Books tab, rather than
 		# introducing new, differently-worded translations for the same
 		# three names.
 		# Translators: Names in the audio-book-sources checklist below; see the comment above for why these reuse RadioDialog's existing source-label strings rather than new translations.
-		_AUDIOBOOK_SOURCE_DISPLAY = [_("GETEM"), _("LibriVox"), _("Project Gutenberg")]
+		_AUDIOBOOK_SOURCE_DISPLAY = [_("GETEM"), _("LibriVox"), _("Project Gutenberg"), _("Internet Archive")]
 		self._audiobook_source_keys = _AUDIOBOOK_SOURCE_KEYS
 		self._audiobook_sources_choice = sHelper.addLabeledControl(
 			# Translators: Label for the audio-book-sources checklist (which catalogs to search/show).
@@ -529,7 +529,7 @@ class freeAudioSettingsPanel(gui.settingsDialogs.SettingsPanel):
 			nvdaControls.CustomCheckListBox,
 			choices=_AUDIOBOOK_SOURCE_DISPLAY,
 		)
-		_saved_audiobook_sources = config.conf["freeAudio"].get("audiobook_sources", "getem,librivox,gutenberg")
+		_saved_audiobook_sources = config.conf["freeAudio"].get("audiobook_sources", "getem,librivox,gutenberg,archive")
 		_active_audiobook_sources = {s.strip() for s in _saved_audiobook_sources.split(",") if s.strip()}
 		for i, key in enumerate(_AUDIOBOOK_SOURCE_KEYS):
 			self._audiobook_sources_choice.Check(i, key in _active_audiobook_sources)

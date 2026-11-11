@@ -287,7 +287,7 @@ except KeyError:
 
 
 from . import radioPlayer, stationManager, recorder as recorderModule, jukebox
-from . import getem, librivox, gutenberg_audiobooks
+from . import getem, librivox, gutenberg_audiobooks, archive_audiobooks
 
 
 _AUDIO_DEVICE_REFRESH_MODE_KEYS = ["reliable", "fast"]
@@ -341,12 +341,12 @@ def _init_config():
 		"graphic_eq_8": "integer(default=0, min=-20, max=20)",
 		"graphic_eq_9": "integer(default=0, min=-20, max=20)",
 		"audio_fx":          "string(default='none')",
-		# Comma-separated subset of {"getem","librivox","gutenberg"} - which
+		# Comma-separated subset of {"getem","librivox","gutenberg","archive"} - which
 		# audio book sources are actually searched from the Audio Books tab
-		# (see radioDialog._enabled_audiobook_sources()). All three enabled
+		# (see radioDialog._enabled_audiobook_sources()). All four enabled
 		# by default; freeAudioSettingsPanel's "Audio book sources" checklist
 		# is what edits this, in settingsPanel.py.
-		"audiobook_sources": "string(default='getem,librivox,gutenberg')",
+		"audiobook_sources": "string(default='getem,librivox,gutenberg,archive')",
 		# Comma-separated subset of {"podcast","audiobook","jukebox"} -
 		# which of those three whole tabs/modules are shown at all (see
 		# RadioDialog._enabled_optional_modules()/._tab_pos() in
@@ -927,6 +927,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 			(getem, getem.GetemLibrary),
 			(librivox, librivox.LibrivoxLibrary),
 			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+			(archive_audiobooks, archive_audiobooks.ArchiveLibrary),
 		)
 		books = []   # (module, library class, book)
 		for module, library_cls in sources:

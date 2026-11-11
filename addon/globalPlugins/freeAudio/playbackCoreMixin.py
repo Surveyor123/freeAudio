@@ -33,6 +33,7 @@ del _tr
 from . import _notify, _notifications_muted
 from . import getem
 from . import gutenberg_audiobooks
+from . import archive_audiobooks
 from . import jukebox
 from . import librivox
 from . import podcast
@@ -400,6 +401,7 @@ class PlaybackCoreMixin:
 			(getem, getem.GetemLibrary),
 			(librivox, librivox.LibrivoxLibrary),
 			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+			(archive_audiobooks, archive_audiobooks.ArchiveLibrary),
 		):
 			try:
 				library = library_cls()
@@ -492,6 +494,7 @@ class PlaybackCoreMixin:
 			(getem, getem.GetemLibrary),
 			(librivox, librivox.LibrivoxLibrary),
 			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+			(archive_audiobooks, archive_audiobooks.ArchiveLibrary),
 		):
 			try:
 				candidate_library = library_cls()
@@ -827,6 +830,7 @@ class PlaybackCoreMixin:
 			(getem, getem.GetemLibrary),
 			(librivox, librivox.LibrivoxLibrary),
 			(gutenberg_audiobooks, gutenberg_audiobooks.GutenbergLibrary),
+			(archive_audiobooks, archive_audiobooks.ArchiveLibrary),
 		)
 
 	def _nav_audiobook_books(self):
