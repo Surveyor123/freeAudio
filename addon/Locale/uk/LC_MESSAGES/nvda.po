@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Freeradio2026.20.2\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-11-11 14:24+0300\n"
-"PO-Revision-Date: 2026-10-16 18:38+0300\n"
+"POT-Creation-Date: 2026-11-12 07:30+0200\n"
+"PO-Revision-Date: 2026-11-12 07:41+0200\n"
 "Last-Translator: Volodymyr Pyrih <vp88.mobile@gmail.com>\n"
 "Language-Team: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.10\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -63,7 +63,7 @@ msgstr "Будь ласка, введіть пошуковий запит."
 #: addon\globalPlugins\freeAudio\radioDialog.py:7405
 #: addon\globalPlugins\freeAudio\settingsPanel.py:524
 msgid "Internet Archive"
-msgstr ""
+msgstr "Інтернет-архів"
 
 #. Translators: Error returned by resolve_media() when the book has no linked archive.org item id, so no audio files can be looked up.
 #: addon\globalPlugins\freeAudio\archive_audiobooks.py:325
@@ -91,6 +91,8 @@ msgid ""
 "This archive.org item is not a general audio book (LibriVox and Project "
 "Gutenberg titles have their own sources)."
 msgstr ""
+"Цей елемент archive.org не є загальною аудіокнигою (видання LibriVox та "
+"Project Gutenberg мають власні джерела)."
 
 #. Translators: Error returned by the chapter-listing step when archive.org has no playable audio file for the resolved book.
 #. Translators: Error returned by the archive.org metadata path when no playable audio file was found for the resolved book.
@@ -475,32 +477,29 @@ msgstr "Звук налаштування станції"
 
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:273
 msgid "Toggle Weird"
-msgstr ""
+msgstr "Перемкнути Weird"
 
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:286
-#, fuzzy
 msgid "Weird enabled"
-msgstr "увімкнено"
+msgstr "Weird увімкнено"
 
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:286
-#, fuzzy
 msgid "Weird disabled"
-msgstr "вимкнено"
+msgstr "Weird вимкнено"
 
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:288
 msgid "Toggle Equalizer"
-msgstr ""
+msgstr "Перемкнути еквалайзер"
 
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:296
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:62
 msgid "Equalizer enabled"
-msgstr ""
+msgstr "Еквалайзер увімкнено"
 
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:296
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:62
-#, fuzzy
 msgid "Equalizer disabled"
-msgstr "вимкнено"
+msgstr "Еквалайзер вимкнено"
 
 #. Translators: Name of an NVDA command; adds a bookmark at the current playback position of an audio book part, podcast episode or jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:39
@@ -878,45 +877,43 @@ msgstr "GETEM не повернув аудіофайл, який можна ві
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:17
 #, python-format
 msgid "%+d dB"
-msgstr ""
+msgstr "%+d дБ"
 
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:28
 msgid "Equalizer On/Off"
-msgstr ""
+msgstr "Еквалайзер увімкнено/вимкнено"
 
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:35
-#, fuzzy, python-format
+#, python-format
 msgid "%g Hz"
-msgstr "%.1f кГц"
+msgstr "%g Гц"
 
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:47
 msgid "Reset"
-msgstr ""
+msgstr "Скинути"
 
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:47
-#, fuzzy
 msgid "Save"
-msgstr "&Зберегти"
+msgstr "Зберегти"
 
 #. Explicit unit announcement also covers NVDA versions that use the
 #. native slider value rather than the custom MSAA value.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:70
 #, python-format
 msgid "%(frequency)g Hz, %(gain)+d dB"
-msgstr ""
+msgstr "%(frequency)g Гц, %(gain)+d дБ"
 
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:77
 msgid "Equalizer reset"
-msgstr ""
+msgstr "Скидання еквалайзера"
 
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:83
-#, fuzzy
 msgid "Could not save Equalizer settings"
-msgstr "Не вдалося зберегти фрагмент: %s"
+msgstr "Не вдалося зберегти налаштування еквалайзера"
 
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:85
 msgid "Equalizer settings saved"
-msgstr ""
+msgstr "Налаштування еквалайзера збережено"
 
 #. Shown as this book's narrator (see GutenbergAudiobook.__init__) instead
 #. of leaving the field blank the way LibriVox does (which credits a
@@ -1773,7 +1770,7 @@ msgstr "Черга прослуховування"
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:739
 msgid "Equalizer"
-msgstr ""
+msgstr "Еквалайзер"
 
 #. Translators: Static label for the output-device choice control, shown above every tab.
 #. Translators: Accessible name for the output-device dropdown (same text as its static label).
@@ -1843,7 +1840,7 @@ msgstr "Реверберація"
 #: addon\globalPlugins\freeAudio\radioDialog.py:786
 #: addon\globalPlugins\freeAudio\settingsPanel.py:181
 msgid "Weird"
-msgstr ""
+msgstr "Weird"
 
 #. Translators: Label for the bass-boost EQ gain spin control, shown only while that effect is checked.
 #: addon\globalPlugins\freeAudio\radioDialog.py:804
@@ -3136,8 +3133,8 @@ msgstr[2] "Вилучено %(count)d записів з їхніх груп"
 #: addon\globalPlugins\freeAudio\radioDialog.py:5201
 msgid "JSON jukebox library (*.json)|*.json|M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Бібліотека черги прослуховування JSON (*.json)|*.json|Плейлист M3U (*.m3u)|*."
-"m3u"
+"Бібліотека черги прослуховування JSON (*.json)|*.json|Плейлист M3U (*.m3u)|"
+"*.m3u"
 
 #. Translators: Title of the file-save dialog for exporting the jukebox library.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5207
@@ -3164,8 +3161,8 @@ msgstr[2] ""
 
 #: addon\globalPlugins\freeAudio\radioDialog.py:5260
 msgid ""
-"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|*."
-"json|M3U playlist (*.m3u)|*.m3u"
+"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|"
+"*.json|M3U playlist (*.m3u)|*.m3u"
 msgstr ""
 "Підтримувані файли (*.json;*.m3u)|*.json;*.m3u|Бібліотека черги "
 "прослуховування JSON (*.json)|*.json|Плейлист M3U (*.m3u)|*.m3u"
@@ -3936,8 +3933,8 @@ msgstr "Завантаження книги: %s"
 msgid ""
 "Downloaded %(saved)d of %(total)d parts of %(title)s. Last error: %(error)s"
 msgstr ""
-"Завантажено %(saved)d з %(total)d частин %(title)s. Остання помилка: %(error)"
-"s"
+"Завантажено %(saved)d з %(total)d частин %(title)s. Остання помилка: "
+"%(error)s"
 
 #. Translators: Label for the jukebox device-search field.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8658
@@ -4405,10 +4402,10 @@ msgstr "Кеш списку станцій (за потреби завантаж
 
 #. Translators: Check box in the clean-up dialog; deletes the audio book libraries of all sources.
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
-#, fuzzy
 msgid ""
 "Audio book libraries (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
-msgstr "Бібліотеки аудіокниг (GETEM, LibriVox, Project Gutenberg)"
+msgstr ""
+"Бібліотеки аудіокниг (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:108
@@ -5455,9 +5452,8 @@ msgstr "Відкрити браузер радіостанцій freeAudio"
 
 #. Translators: Name of an NVDA command; opens the Favourites tab and focuses its station list.
 #: addon\globalPlugins\freeAudio\__init__.py:1166
-#, fuzzy
 msgid "Open freeAudio favourite stations"
-msgstr "Відкрити браузер радіостанцій freeAudio"
+msgstr "Відкрити улюблені станції freeAudio"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 #: addon\globalPlugins\freeAudio\__init__.py:1177
@@ -5941,10 +5937,11 @@ msgstr ""
 #~ "списках елементів.\n"
 #~ "  - **Очищення.** Вікно очищення може видалити всі закладки разом із "
 #~ "їхніми голосовими нотатками.\n"
-#~ "- **Точне перемотування (1 секунда).** `Ctrl+Win+Alt+J` і `Ctrl+Win+Alt"
-#~ "+K` перемотують назад або вперед на 1 секунду — як у тайм-шифті прямого "
-#~ "радіо, так і в подкастах, аудіокнигах і треках черги прослуховування. `Alt"
-#~ "+←` і `Alt+→` роблять те саме в браузері радіостанцій.\n"
+#~ "- **Точне перемотування (1 секунда).** `Ctrl+Win+Alt+J` і "
+#~ "`Ctrl+Win+Alt+K` перемотують назад або вперед на 1 секунду — як у тайм-"
+#~ "шифті прямого радіо, так і в подкастах, аудіокнигах і треках черги "
+#~ "прослуховування. `Alt+←` і `Alt+→` роблять те саме в браузері "
+#~ "радіостанцій.\n"
 #~ "- **Запис кожного треку.** Натисніть `Ctrl+Win+E` тричі, щоб продовжувати "
 #~ "запис і починати новий файл під час кожної зміни треку, доки ви його не "
 #~ "зупините.\n"
