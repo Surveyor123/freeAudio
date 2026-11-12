@@ -32,6 +32,7 @@ class AudioFxMixin:
 	@script(
 		# Translators: Name of an NVDA command; raises freeAudio's playback volume by 5 (of 200 max, capped at 100 when saved).
 		description=_("Increase freeAudio volume by 5"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+upArrow",
 	)
@@ -46,6 +47,7 @@ class AudioFxMixin:
 	@script(
 		# Translators: Name of an NVDA command; lowers freeAudio's playback volume by 5.
 		description=_("Decrease freeAudio volume by 5"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+downArrow",
 	)
@@ -60,6 +62,7 @@ class AudioFxMixin:
 	@script(
 		# Translators: Name of an NVDA command; speeds up playback rate, podcasts/audiobooks/GETEM chapters only.
 		description=_("Increase podcast, audio book and jukebox playback speed"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+shift+k",
 	)
@@ -69,6 +72,7 @@ class AudioFxMixin:
 	@script(
 		# Translators: Name of an NVDA command; slows down playback rate, podcasts/audiobooks/GETEM chapters only.
 		description=_("Decrease podcast, audio book and jukebox playback speed"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+shift+j",
 	)
@@ -131,6 +135,7 @@ class AudioFxMixin:
 	@script(
 		# Translators: Name of an NVDA command; toggles a low-frequency EQ boost on/off.
 		description=_("Toggle bass boost"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		# No gesture assigned by default; bind one via NVDA's Input Gestures dialog.
 	)
@@ -141,6 +146,7 @@ class AudioFxMixin:
 	@script(
 		# Translators: Name of an NVDA command; toggles a high-frequency EQ boost on/off.
 		description=_("Toggle treble boost"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		# No gesture assigned by default; bind one via NVDA's Input Gestures dialog.
 	)
@@ -151,6 +157,7 @@ class AudioFxMixin:
 	@script(
 		# Translators: Name of an NVDA command; toggles a mid-range EQ boost tuned for vocal clarity on/off.
 		description=_("Toggle vocal boost"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		# No gesture assigned by default; bind one via NVDA's Input Gestures dialog.
 	)
@@ -221,13 +228,18 @@ class AudioFxMixin:
 		# Translators: Announcement after toggling an EQ band; %(effect)s is one of the 'EQ: ... Boost' labels above, %(state)s is 'enabled'/'disabled' below.
 		ui.message(_("%(effect)s %(state)s") % {
 			"effect": label,
-			# Translators: Second half of the 'X enabled/disabled' announcement in _toggle_eq_band; describes the EQ band's new on/off state.
-			"state": _("enabled") if turning_on else _("disabled"),
+			"state": (
+				# Translators: EQ band state word spoken after the EQ band name when the band is turned on, e.g. "EQ: Bass Boost enabled".
+				_("enabled") if turning_on else
+				# Translators: EQ band state word spoken after the EQ band name when the band is turned off, e.g. "EQ: Bass Boost disabled".
+				_("disabled")
+			),
 		})
 
 	@script(
 		# Translators: Name of an NVDA command; cycles the sound effect played when switching stations (crossfade/instant cut/tuning effect).
 		description=_("Toggle station switch transition (crossfade)"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		# No gesture assigned by default; bind one via NVDA's Input Gestures dialog.
 	)
@@ -270,7 +282,12 @@ class AudioFxMixin:
 		ui.message(_cf_labels.get(new_value, new_value))
 
 
-	@script(description=_("Toggle Weird"), category=_("freeAudio"))
+	@script(
+		# Translators: Name of an NVDA command; toggles the "Weird" audio effect on/off.
+		description=_("Toggle Weird"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
+		category=_("freeAudio"),
+	)
 	def script_toggleWeird(self, gesture):
 		section = config.conf["freeAudio"]
 		active = [x.strip() for x in self._player.get_fx().split(",") if x.strip() and x.strip() != "none"]
@@ -283,9 +300,19 @@ class AudioFxMixin:
 		section["audio_fx"] = fx
 		self._player.set_fx(fx)
 		self._sync_dialog_audio(self._player.get_volume(), fx)
-		ui.message(_("Weird enabled") if enabled else _("Weird disabled"))
+		ui.message(
+			# Translators: Spoken when the "Weird" audio effect is turned on with its command.
+			_("Weird enabled") if enabled else
+			# Translators: Spoken when the "Weird" audio effect is turned off with its command.
+			_("Weird disabled")
+		)
 
-	@script(description=_("Toggle Equalizer"), category=_("freeAudio"))
+	@script(
+		# Translators: Name of an NVDA command; turns the ten-band graphic equalizer on/off.
+		description=_("Toggle Equalizer"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
+		category=_("freeAudio"),
+	)
 	def script_toggleGraphicEqualizer(self, gesture):
 		section = config.conf["freeAudio"]
 		enabled = not section["graphic_eq_enabled"]
@@ -293,4 +320,9 @@ class AudioFxMixin:
 		self._player.set_graphic_eq(enabled, get_graphic_eq_gains(section))
 		if self._dialog and hasattr(self._dialog, "_graphic_eq_toggle"):
 			self._dialog._graphic_eq_toggle.SetValue(enabled)
-		ui.message(_("Equalizer enabled") if enabled else _("Equalizer disabled"))
+		ui.message(
+			# Translators: Spoken when the ten-band graphic equalizer is turned on with its command.
+			_("Equalizer enabled") if enabled else
+			# Translators: Spoken when the ten-band graphic equalizer is turned off with its command.
+			_("Equalizer disabled")
+		)

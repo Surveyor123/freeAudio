@@ -736,6 +736,7 @@ class RadioDialog(wx.Dialog):
 		from .graphicEqualizer import EqualizerPanel
 		self._graphic_eq_panel = EqualizerPanel(self._notebook, self._player)
 		self._graphic_eq_toggle = self._graphic_eq_panel.toggle
+		# Translators: Tab label for the ten-band graphic equalizer page.
 		self._notebook.AddPage(self._graphic_eq_panel, _("Equalizer"))
 		self._notebook.SetSelection(0)  # Start on the All Stations tab
 		main_sizer.Add(self._notebook, 1, wx.EXPAND | wx.ALL, 5)
@@ -780,11 +781,30 @@ class RadioDialog(wx.Dialog):
 		self._fx_keys = ["chorus", "compressor", "distortion",
 		                 "echo", "flanger", "gargle", "reverb", "weird",
 		                 "eq_bass", "eq_treble", "eq_vocal"]
-		# Translators: Names of the audio effects in the Effects checklist, in the same order as self._fx_keys just above: chorus, compressor, distortion, echo, flanger, gargle, reverb, Weird, then the three EQ boost bands.
+		# Names of the audio effects in the Effects checklist, in the same order as self._fx_keys just above.
 		_fx_display = [
-			_("Chorus"), _("Compressor"), _("Distortion"),
-			_("Echo"), _("Flanger"), _("Gargle"), _("Reverb"), _("Weird"),
-			_("EQ: Bass Boost"), _("EQ: Treble Boost"), _("EQ: Vocal Boost"),
+			# Translators: Name of the Chorus audio effect in the Effects checklist.
+			_("Chorus"),
+			# Translators: Name of the Compressor audio effect (evens out loud and quiet parts) in the Effects checklist.
+			_("Compressor"),
+			# Translators: Name of the Distortion audio effect in the Effects checklist.
+			_("Distortion"),
+			# Translators: Name of the Echo audio effect in the Effects checklist.
+			_("Echo"),
+			# Translators: Name of the Flanger audio effect in the Effects checklist.
+			_("Flanger"),
+			# Translators: Name of the Gargle audio effect in the Effects checklist.
+			_("Gargle"),
+			# Translators: Name of the Reverb audio effect in the Effects checklist.
+			_("Reverb"),
+			# Translators: Name of the "Weird" audio effect, a strange, distorted sound effect in the Effects checklist.
+			_("Weird"),
+			# Translators: Name of the Equalizer preset that boosts low frequencies in the Effects checklist.
+			_("EQ: Bass Boost"),
+			# Translators: Name of the Equalizer preset that boosts high frequencies in the Effects checklist.
+			_("EQ: Treble Boost"),
+			# Translators: Name of the Equalizer preset that boosts mid frequencies for vocal clarity in the Effects checklist.
+			_("EQ: Vocal Boost"),
 		]
 		self._fx_choice = wx.CheckListBox(self, choices=_fx_display)
 		# Translators: Accessible name for the audio-effects checklist (same text as its static label).
@@ -1161,8 +1181,12 @@ class RadioDialog(wx.Dialog):
 		self._sort_cb = wx.ComboBox(
 			self._all_panel,
 			style=wx.CB_READONLY,
-			# Translators: The two sort-order choices for the All Stations list: alphabetical by name, or by the station's Radio Browser rating/votes.
-			choices=[_("Alphabetical"), _("By Rating")],
+			choices=[
+				# Translators: Sort-order choice for the All Stations list: alphabetical by station name.
+				_("Alphabetical"),
+				# Translators: Sort-order choice for the All Stations list: by the station's Radio Browser rating/votes.
+				_("By Rating"),
+			],
 		)
 		# Translators: Accessible name for the sort-order combo box (same text as its static label).
 		self._sort_cb.SetName(_("Sort:"))
@@ -1320,9 +1344,20 @@ class RadioDialog(wx.Dialog):
 		)
 		sizer.Add(self._sched_days_label, 0, wx.EXPAND | wx.LEFT | wx.RIGHT | wx.TOP, 8)
 		_day_labels = [
-			# Translators: Day-of-week checklist items, Monday through Sunday (continues on the next line).
-			_("Monday"), _("Tuesday"), _("Wednesday"), _("Thursday"),
-			_("Friday"), _("Saturday"), _("Sunday"),
+			# Translators: Day-of-week checklist item (Monday); also used when listing a schedule's or timer's active days.
+			_("Monday"),
+			# Translators: Day-of-week checklist item (Tuesday); also used when listing a schedule's or timer's active days.
+			_("Tuesday"),
+			# Translators: Day-of-week checklist item (Wednesday); also used when listing a schedule's or timer's active days.
+			_("Wednesday"),
+			# Translators: Day-of-week checklist item (Thursday); also used when listing a schedule's or timer's active days.
+			_("Thursday"),
+			# Translators: Day-of-week checklist item (Friday); also used when listing a schedule's or timer's active days.
+			_("Friday"),
+			# Translators: Day-of-week checklist item (Saturday); also used when listing a schedule's or timer's active days.
+			_("Saturday"),
+			# Translators: Day-of-week checklist item (Sunday); also used when listing a schedule's or timer's active days.
+			_("Sunday"),
 		]
 		self._sched_days_clb = nvdaControls.CustomCheckListBox(
 			self._rec_panel, choices=_day_labels,
@@ -1816,8 +1851,12 @@ class RadioDialog(wx.Dialog):
 			# Translators: Effect on/off status spoken when hovering over an item in the Effects checklist; %(effect)s is the effect name, %(state)s the enabled/disabled word below.
 			ui.message(_("%(effect)s %(state)s") % {
 				"effect": label,
-				# Translators: The two possible %(state)s values above, and in the two other identical announcements in _on_fx_changed/_toggle_fx_by_index below.
-				"state": _("enabled") if is_checked else _("disabled"),
+				"state": (
+					# Translators: Effect state word spoken after the effect name when the effect is turned on, e.g. "Echo enabled".
+					_("enabled") if is_checked else
+					# Translators: Effect state word spoken after the effect name when the effect is turned off, e.g. "Echo disabled".
+					_("disabled")
+				),
 			})
 		event.Skip()
 
@@ -1829,7 +1868,12 @@ class RadioDialog(wx.Dialog):
 		# Translators: Same effect on/off announcement as _on_fx_focus above, spoken here after actually toggling the effect (checklist click).
 		ui.message(_("%(effect)s %(state)s") % {
 			"effect": label,
-			"state": _("enabled") if is_checked else _("disabled"),
+			"state": (
+				# Translators: Effect state word spoken after the effect name when the effect is turned on, e.g. "Echo enabled".
+				_("enabled") if is_checked else
+				# Translators: Effect state word spoken after the effect name when the effect is turned off, e.g. "Echo disabled".
+				_("disabled")
+			),
 		})
 		checked = self._fx_choice.GetCheckedItems()
 		active = [self._fx_keys[i] for i in checked if 0 <= i < len(self._fx_keys)]
@@ -1854,7 +1898,12 @@ class RadioDialog(wx.Dialog):
 		# Translators: Same effect on/off announcement, spoken here after toggling via the Ctrl+1..Ctrl+0 keyboard shortcuts.
 		ui.message(_("%(effect)s %(state)s") % {
 			"effect": label,
-			"state": _("enabled") if is_checked else _("disabled"),
+			"state": (
+				# Translators: Effect state word spoken after the effect name when the effect is turned on, e.g. "Echo enabled".
+				_("enabled") if is_checked else
+				# Translators: Effect state word spoken after the effect name when the effect is turned off, e.g. "Echo disabled".
+				_("disabled")
+			),
 		})
 		checked = self._fx_choice.GetCheckedItems()
 		active = [self._fx_keys[i] for i in checked if 0 <= i < len(self._fx_keys)]
@@ -2011,8 +2060,12 @@ class RadioDialog(wx.Dialog):
 
 		for rec in self._recorder.get_schedules():
 			station = rec.station.get("name", "?").strip()
-			# Translators: Mode word used in each schedule-list line below (see the docstring's format examples): whether the recording plays out loud too, or is silent/record-only.
-			mode    = _("Record only") if rec.record_only else _("Listen and record")
+			mode    = (
+				# Translators: Mode word for a schedule that only records silently, without playing the station aloud. Shown in the schedule list and in the "Schedule added" announcements.
+				_("Record only") if rec.record_only else
+				# Translators: Mode word for a schedule that plays the station aloud while it records. Shown in the schedule list and in the "Schedule added" announcements.
+				_("Listen and record")
+			)
 
 			if rec.recurrence != "once":
 				days = sorted(rec.active_days) if rec.active_days else list(range(7))
@@ -2153,8 +2206,12 @@ class RadioDialog(wx.Dialog):
 					all_conflict_names.append(conflict_names)
 			self._refresh_sched_list()
 			record_only = _rec.record_only
-			# Translators: Mode word used inside the 'Schedule added' announcement below: whether the recording plays out loud too, or is silent/record-only. Used for both the multi-date (once, several days checked) and single-date branches.
-			mode_str = _("Record only") if record_only else _("Listen and record")
+			mode_str = (
+				# Translators: Mode word for a schedule that only records silently, without playing the station aloud. Shown in the schedule list and in the "Schedule added" announcements.
+				_("Record only") if record_only else
+				# Translators: Mode word for a schedule that plays the station aloud while it records. Shown in the schedule list and in the "Schedule added" announcements.
+				_("Listen and record")
+			)
 			# Translators: Confirmation spoken after adding a one-time schedule that expands to one entry per checked weekday; %(station)s is the station, %(time)s the HH:MM time, %(dates)s the comma-joined list of dates, %(mode)s the mode word above.
 			ui.message(_("Schedule added: %(station)s at %(time)s on %(dates)s (%(mode)s)") % {
 				"station": station.get("name", "?"),
@@ -2203,8 +2260,12 @@ class RadioDialog(wx.Dialog):
 			)
 			self._refresh_sched_list()
 			record_only = _rec.record_only
-			# Translators: Same mode word as in the multi-date branch above, reused here for the single-date scheduling branch.
-			mode_str = _("Record only") if record_only else _("Listen and record")
+			mode_str = (
+				# Translators: Mode word for a schedule that only records silently, without playing the station aloud. Shown in the schedule list and in the "Schedule added" announcements.
+				_("Record only") if record_only else
+				# Translators: Mode word for a schedule that plays the station aloud while it records. Shown in the schedule list and in the "Schedule added" announcements.
+				_("Listen and record")
+			)
 			date_str = start.strftime("%d.%m.%Y")
 			# Translators: Confirmation spoken after adding a single (non-multi-date) schedule; %(station)s is the station, %(date)s the date, %(time)s the HH:MM time, %(mode)s the mode word from above.
 			ui.message(_("Schedule added: %(station)s on %(date)s at %(time)s (%(mode)s)") % {
@@ -3268,8 +3329,8 @@ class RadioDialog(wx.Dialog):
 
 	def _on_fav_export(self, event=None):
 		"""Show a file-save dialog and export favourites as JSON or M3U."""
-		# Translators: File-type filter list ('wildcard') for the favourites-export file-save dialog; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 		wildcard = _(
+			# Translators: File-type filter list ('wildcard') for the favourites-export file-save dialog; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 			"JSON favourites (*.json)|*.json"
 			"|M3U playlist (*.m3u)|*.m3u"
 		)
@@ -3311,8 +3372,8 @@ class RadioDialog(wx.Dialog):
 
 		count = len(self._manager.get_favorites())
 		wx.MessageBox(
-			# Translators: Plural forms of the success message after exporting favourites; %(count)d is how many stations were exported, %(path)s the file path they were saved to.
 			ngettext(
+				# Translators: Plural forms of the success message after exporting favourites; %(count)d is how many stations were exported, %(path)s the file path they were saved to.
 				"Exported %(count)d station to:\n%(path)s",
 				"Exported %(count)d stations to:\n%(path)s",
 				count,
@@ -3325,8 +3386,8 @@ class RadioDialog(wx.Dialog):
 
 	def _on_fav_import(self, event=None):
 		"""Show a file-open dialog, ask merge/replace, then import favourites."""
-		# Translators: File-type filter list ('wildcard') for the favourites-import file picker; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 		wildcard = _(
+			# Translators: File-type filter list ('wildcard') for the favourites-import file picker; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 			"Supported files (*.json;*.m3u)|*.json;*.m3u"
 			"|JSON favourites (*.json)|*.json"
 			"|M3U playlist (*.m3u)|*.m3u"
@@ -3346,8 +3407,8 @@ class RadioDialog(wx.Dialog):
 
 		# Ask the user whether to merge or replace.
 		choice = wx.MessageBox(
-			# Translators: Body of the merge-vs-replace confirmation dialog shown after choosing a file to import; describes what the Yes and No buttons do (this dialog uses stock Yes/No/Cancel buttons, not custom labels).
 			_(
+				# Translators: Body of the merge-vs-replace confirmation dialog shown after choosing a file to import; describes what the Yes and No buttons do (this dialog uses stock Yes/No/Cancel buttons, not custom labels).
 				"How should the imported stations be added?\n\n"
 				"Yes  — Merge: add new stations without removing existing ones.\n"
 				"No   — Replace: clear the current list and load from file."
@@ -3389,16 +3450,16 @@ class RadioDialog(wx.Dialog):
 		self._refresh_timer_stations()
 
 		if merge:
-			# Translators: Plural forms of the success message after merging imported favourites; %(count)d is how many new stations were added.
 			msg = ngettext(
+				# Translators: Plural forms of the success message after merging imported favourites; %(count)d is how many new stations were added.
 				"Import complete: %(count)d new station added.",
 				"Import complete: %(count)d new stations added.",
 				added,
 			) % {"count": added}
 		else:
 			total = len(self._manager.get_favorites())
-			# Translators: Plural forms of the success message after replacing favourites outright; %(count)d is the total number of stations now in the list.
 			msg = ngettext(
+				# Translators: Plural forms of the success message after replacing favourites outright; %(count)d is the total number of stations now in the list.
 				"Favourites replaced with %(count)d station from the file.",
 				"Favourites replaced with %(count)d stations from the file.",
 				total,
@@ -4957,6 +5018,7 @@ class RadioDialog(wx.Dialog):
 
 	def _mark_range_liked(self, toward_end):
 		"""Shift+End/Shift+Home for the Liked Songs list - see _mark_range()."""
+		# Translators: Placeholder lines shown in the Liked Songs list when it is empty / when a search finds nothing; Shift+End/Shift+Home range marking ignores them.
 		placeholders = (_("No liked songs yet."), _("No results found."))
 
 		def identity_of(i):
@@ -5093,15 +5155,15 @@ class RadioDialog(wx.Dialog):
 
 		count = len(targets)
 		if new_group:
-			# Translators: Spoken after assigning marked favourite(s) to a group; %(count)d is how many stations, %(group)s the group name.
 			ui.message(ngettext(
+				# Translators: Spoken after assigning marked favourite(s) to a group; %(count)d is how many stations, %(group)s the group name.
 				"Assigned %(count)d favourite to group \"%(group)s\"",
 				"Assigned %(count)d favourites to group \"%(group)s\"",
 				count,
 			) % {"count": count, "group": new_group})
 		else:
-			# Translators: Spoken after clearing the group from marked favourite(s); %(count)d is how many stations.
 			ui.message(ngettext(
+				# Translators: Spoken after clearing the group from marked favourite(s); %(count)d is how many stations.
 				"Removed %(count)d favourite from its group",
 				"Removed %(count)d favourites from their groups",
 				count,
@@ -5177,15 +5239,15 @@ class RadioDialog(wx.Dialog):
 
 		count = len(targets)
 		if new_group:
-			# Translators: Spoken after assigning marked jukebox entry/entries to a group; %(count)d is how many entries, %(group)s the group name.
 			ui.message(ngettext(
+				# Translators: Spoken after assigning marked jukebox entry/entries to a group; %(count)d is how many entries, %(group)s the group name.
 				"Assigned %(count)d entry to group \"%(group)s\"",
 				"Assigned %(count)d entries to group \"%(group)s\"",
 				count,
 			) % {"count": count, "group": new_group})
 		else:
-			# Translators: Spoken after clearing the group from marked jukebox entry/entries; %(count)d is how many entries.
 			ui.message(ngettext(
+				# Translators: Spoken after clearing the group from marked jukebox entry/entries; %(count)d is how many entries.
 				"Removed %(count)d entry from its group",
 				"Removed %(count)d entries from their groups",
 				count,
@@ -5196,8 +5258,8 @@ class RadioDialog(wx.Dialog):
 		(entries + per-file audio profiles) or M3U (paths and custom names
 		only, no group/profiles - see JukeboxManager.export_entries_m3u())
 		- mirrors _on_fav_export()."""
-		# Translators: File-type filter list ('wildcard') for the jukebox-export file-save dialog; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 		wildcard = _(
+			# Translators: File-type filter list ('wildcard') for the jukebox-export file-save dialog; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 			"JSON jukebox library (*.json)|*.json"
 			"|M3U playlist (*.m3u)|*.m3u"
 		)
@@ -5238,8 +5300,8 @@ class RadioDialog(wx.Dialog):
 
 		count = len(self._jukebox_manager.get_entries())
 		wx.MessageBox(
-			# Translators: Plural forms of the success message after exporting the jukebox library; %(count)d is how many entries were exported, %(path)s the file path.
 			ngettext(
+				# Translators: Plural forms of the success message after exporting the jukebox library; %(count)d is how many entries were exported, %(path)s the file path.
 				"Exported %(count)d entry to:\n%(path)s",
 				"Exported %(count)d entries to:\n%(path)s",
 				count,
@@ -5255,8 +5317,8 @@ class RadioDialog(wx.Dialog):
 		entries from a file written by _on_jukebox_export() (JSON or M3U,
 		picked here by the chosen file's extension) - mirrors
 		_on_fav_import()."""
-		# Translators: File-type filter list ('wildcard') for the jukebox-import file picker; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 		wildcard = _(
+			# Translators: File-type filter list ('wildcard') for the jukebox-import file picker; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 			"Supported files (*.json;*.m3u)|*.json;*.m3u"
 			"|JSON jukebox library (*.json)|*.json"
 			"|M3U playlist (*.m3u)|*.m3u"
@@ -5276,8 +5338,8 @@ class RadioDialog(wx.Dialog):
 		is_m3u = path.lower().endswith((".m3u", ".m3u8"))
 
 		choice = wx.MessageBox(
-			# Translators: Body of the merge-vs-replace confirmation dialog shown after choosing a jukebox file to import.
 			_(
+				# Translators: Body of the merge-vs-replace confirmation dialog shown after choosing a jukebox file to import.
 				"How should the imported entries be added?\n\n"
 				"Yes  — Merge: add new entries without removing existing ones.\n"
 				"No   — Replace: clear the current library and load from file."
@@ -5309,16 +5371,16 @@ class RadioDialog(wx.Dialog):
 
 		self._refresh_jukebox_list()
 		if merge:
-			# Translators: Plural forms of the success message after merge-importing jukebox entries; %(count)d is how many NEW entries were added.
 			msg = ngettext(
+				# Translators: Plural forms of the success message after merge-importing jukebox entries; %(count)d is how many NEW entries were added.
 				"Import complete: %(count)d new entry added.",
 				"Import complete: %(count)d new entries added.",
 				added,
 			) % {"count": added}
 		else:
 			total = len(self._jukebox_manager.get_entries())
-			# Translators: Plural forms of the success message after replacing the jukebox library outright; %(count)d is the total number of entries now in the library.
 			msg = ngettext(
+				# Translators: Plural forms of the success message after replacing the jukebox library outright; %(count)d is the total number of entries now in the library.
 				"Jukebox replaced with %(count)d entry from the file.",
 				"Jukebox replaced with %(count)d entries from the file.",
 				total,
@@ -5338,8 +5400,8 @@ class RadioDialog(wx.Dialog):
 		if count == 0:
 			self._fav_marked.clear()
 			return
-		# Translators: Body of the bulk-delete confirmation dialog for favourite stations; %d is how many stations are marked.
 		message = ngettext(
+			# Translators: Body of the bulk-delete confirmation dialog for favourite stations; %d is how many stations are marked.
 			"Do you want to delete the %d marked station?",
 			"Do you want to delete the %d marked stations?",
 			count,
@@ -5374,8 +5436,12 @@ class RadioDialog(wx.Dialog):
 		if hasattr(self, "_timer_station_filter"):
 			self._timer_station_filter.Show(is_start)
 		self._timer_station_cb.Show(is_start)
-		# Translators: Timer time-field label, which switches wording depending on the chosen timer action (start/alarm vs stop/sleep); the field itself is shared between both modes.
-		lbl = _("Start time (HH:MM):") if is_start else _("Stop time (HH:MM):")
+		lbl = (
+			# Translators: Timer time-field label for actions that start playback (start/alarm); the field is shared with the stop/sleep mode.
+			_("Start time (HH:MM):") if is_start else
+			# Translators: Timer time-field label for actions that stop playback (stop/sleep); the field is shared with the start/alarm mode.
+			_("Stop time (HH:MM):")
+		)
 		self._timer_time_label.SetLabel(lbl)
 		self._timer_time.SetName(lbl)
 		self._timer_panel.Layout()
@@ -5586,6 +5652,7 @@ class RadioDialog(wx.Dialog):
 				when_desc = _("Every day")
 			else:
 				_FULL_DAY_NAMES = [
+					# Translators: Day names used when listing a recurring timer's active days, Monday through Sunday (continues on the next line) - same wording as the Recording tab's scheduling section.
 					_("Monday"), _("Tuesday"), _("Wednesday"), _("Thursday"),
 					_("Friday"), _("Saturday"), _("Sunday"),
 				]
@@ -5874,8 +5941,8 @@ class RadioDialog(wx.Dialog):
 		if not marked:
 			return
 		count = len(marked)
-		# Translators: Body of the bulk-remove confirmation dialog for liked songs; %d is how many songs are marked.
 		message = ngettext(
+			# Translators: Body of the bulk-remove confirmation dialog for liked songs; %d is how many songs are marked.
 			"Do you want to remove the %d marked song from liked songs?",
 			"Do you want to remove the %d marked songs from liked songs?",
 			count,
@@ -7044,8 +7111,12 @@ class RadioDialog(wx.Dialog):
 		episode = episodes[idx]
 
 		menu = wx.Menu()
-		# Translators: Same Preview/Stop Preview toggle pattern as the GETEM/jukebox context menus, applied to a podcast episode preview.
-		label = _("&Stop Preview") if self._is_previewing(episode) else _("&Preview")
+		label = (
+			# Translators: Context-menu item (podcast episode) that stops the short preview sample that is currently playing. & marks the access key.
+			_("&Stop Preview") if self._is_previewing(episode) else
+			# Translators: Context-menu item (podcast episode) that plays a short preview sample of the selected episode. & marks the access key.
+			_("&Preview")
+		)
 		item_preview = menu.Append(wx.ID_ANY, label)
 		self.Bind(wx.EVT_MENU, self._on_podcast_preview_toggle, item_preview)
 
@@ -7669,8 +7740,8 @@ class RadioDialog(wx.Dialog):
 
 		enabled_sources = _enabled_audiobook_sources()
 		if not enabled_sources:
-			# Translators: Spoken when the user tries to search but disabled every audio-book source (GETEM/LibriVox/Project Gutenberg) in Settings.
 			ui.message(_(
+				# Translators: Spoken when the user tries to search but disabled every audio-book source (GETEM/LibriVox/Project Gutenberg) in Settings.
 				"No audio book sources are enabled. Enable at least one "
 				"in freeAudio settings."
 			))
@@ -7893,8 +7964,12 @@ class RadioDialog(wx.Dialog):
 
 		menu.AppendSeparator()
 
-		# Translators: Context-menu item label toggles between these two: 'Preview' plays a short sample of the selected search result before adding it, 'Stop Preview' appears while that sample is playing.
-		label = _("&Stop Preview") if self._is_previewing_getem_book(book) else _("&Preview")
+		label = (
+			# Translators: Context-menu item that stops the short preview sample of a search result that is currently playing. & marks the access key.
+			_("&Stop Preview") if self._is_previewing_getem_book(book) else
+			# Translators: Context-menu item that plays a short preview sample of the selected search result before adding it. & marks the access key.
+			_("&Preview")
+		)
 		item_preview = menu.Append(wx.ID_ANY, label)
 		self.Bind(wx.EVT_MENU, self._on_getem_preview_toggle, item_preview)
 
@@ -8045,8 +8120,8 @@ class RadioDialog(wx.Dialog):
 		if count == 0:
 			self._getem_marked.clear()
 			return
-		# Translators: Body of the bulk-remove confirmation dialog for audio books; %d is how many books are marked.
 		message = ngettext(
+			# Translators: Body of the bulk-remove confirmation dialog for audio books; %d is how many books are marked.
 			"Do you want to remove the %d marked book from the library?",
 			"Do you want to remove the %d marked books from the library?",
 			count,
@@ -8913,8 +8988,12 @@ class RadioDialog(wx.Dialog):
 			return
 
 		menu = wx.Menu()
-		# Translators: Same Preview/Stop Preview toggle pattern as the GETEM search-result context menu, applied to a jukebox device-search result.
-		label = _("&Stop Preview") if self._is_previewing_jukebox_path(self._jukebox_results[idx]) else _("&Preview")
+		label = (
+			# Translators: Context-menu item (jukebox device-search result) that stops the short preview sample that is currently playing. & marks the access key.
+			_("&Stop Preview") if self._is_previewing_jukebox_path(self._jukebox_results[idx]) else
+			# Translators: Context-menu item (jukebox device-search result) that plays a short preview sample of the selected result. & marks the access key.
+			_("&Preview")
+		)
 		item_preview = menu.Append(wx.ID_ANY, label)
 		self.Bind(wx.EVT_MENU, self._on_jukebox_preview_toggle, item_preview)
 
@@ -9235,8 +9314,8 @@ class RadioDialog(wx.Dialog):
 		if count == 0:
 			self._jukebox_marked.clear()
 			return
-		# Translators: Body of the bulk-remove confirmation dialog for jukebox entries; %d is how many entries are marked.
 		message = ngettext(
+			# Translators: Body of the bulk-remove confirmation dialog for jukebox entries; %d is how many entries are marked.
 			"Do you want to remove the %d marked entry from the jukebox?",
 			"Do you want to remove the %d marked entries from the jukebox?",
 			count,

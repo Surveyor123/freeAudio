@@ -1154,6 +1154,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 	@script(
 		# Translators: Name of an NVDA command; opens the freeAudio station browser dialog on its main Stations tab.
 		description=_("Open freeAudio station browser"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+r",
 	)
@@ -1164,6 +1165,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 	@script(
 		# Translators: Name of an NVDA command; opens the Favourites tab and focuses its station list.
 		description=_("Open freeAudio favourite stations"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+f",
 	)
@@ -1175,6 +1177,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 	@script(
 		# Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 		description=_("Open freeAudio audio book library"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+l",
 	)
@@ -1185,6 +1188,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 	@script(
 		# Translators: Name of an NVDA command; opens the station browser dialog on the Podcasts tab.
 		description=_("Open freeAudio podcast subscriptions"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+o",
 	)
@@ -1195,6 +1199,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 	@script(
 		# Translators: Name of an NVDA command; opens the station browser dialog on the local Jukebox tab.
 		description=_("Open freeAudio local jukebox"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+u",
 	)
@@ -1205,6 +1210,7 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 	@script(
 		# Translators: Name of an NVDA command whose behaviour depends on what is currently playing: adds a live station to favourites, or downloads the current audio book/podcast episode.
 		description=_("Add currently playing station to favourites, download the whole audio book if one is playing, or download the episode if a podcast is playing"),
+		# Translators: Name of the NVDA Input Gestures category that groups all freeAudio commands; normally the add-on name.
 		category=_("freeAudio"),
 		gesture="kb:control+windows+v",
 	)
@@ -1638,7 +1644,11 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 						"A new version of freeAudio is available: %(new)s.\n"
 						"You have version %(current)s.\n\n"
 						"Would you like to download and install it now?"
-					) % {"new": latest_tag, "current": current_version or _("unknown")}
+					) % {
+						"new": latest_tag,
+						# Translators: Fallback shown for the installed version in the update dialog when it cannot be determined.
+						"current": current_version or _("unknown"),
+					}
 					# Translators: Button label on the update-available dialog when a direct .nvda-addon download is available, offering to install it right away.
 					yes_label = _("&Install")
 				else:
@@ -1647,7 +1657,11 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 						"A new version of freeAudio is available: %(new)s.\n"
 						"You have version %(current)s.\n\n"
 						"Would you like to open the download page?"
-					) % {"new": latest_tag, "current": current_version or _("unknown")}
+					) % {
+						"new": latest_tag,
+						# Translators: Fallback shown for the installed version in the update dialog when it cannot be determined.
+						"current": current_version or _("unknown"),
+					}
 					# Translators: Button label on the update-available dialog when only a release web page (no direct download) is available, offering to open it in a browser.
 					yes_label = _("&Open Page")
 
@@ -1715,7 +1729,11 @@ class GlobalPlugin(BookmarkMixin, ObligatoMixin, MiscTogglesMixin, TrackInfoMixi
 					dlg = wx.MessageDialog(
 						gui.mainFrame,
 						# Translators: Message and title of the dialog shown after a manual update check finds no newer version; %s is the currently installed version, or the fallback 'unknown' label just below if it could not be determined.
-						_("freeAudio is up to date. Installed: %s") % (current_version or _("unknown")),
+						_("freeAudio is up to date. Installed: %s") % (
+							# Translators: Fallback shown for the installed version when it cannot be determined.
+							current_version or _("unknown")
+						),
+						# Translators: Title of the dialog shown after a manual update check finds no newer version.
 						_("freeAudio Update Check"),
 						wx.OK | wx.ICON_INFORMATION,
 					)
