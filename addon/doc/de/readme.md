@@ -6,7 +6,7 @@ freeAudio ist ein vollwertiges Add-on für Internetradio, Podcasts, Hörbücher 
 
 - **Internetradio** — Über 50.000 Sender aus dem Verzeichnis von [Radio Browser](https://www.radio-browser.info/) durchstöbern und durchsuchen, ergänzt um Treffer von TuneIn und iHeartRadio. Favoriten speichern, neu anordnen und von überall in Windows per globalem Tastenbefehl direkt aufrufen — siehe [Das Verzeichnis von Radio Browser](#das-verzeichnis-von-radio-browser) und [Favoriten](#favoriten).
 - **Podcasts** — Beliebige RSS- oder Atom-Feeds abonnieren oder das Podcast-Verzeichnis von Apple durchsuchen und Folgen schon vor dem Abonnieren anhören. Die Wiedergabeposition wird automatisch gespeichert, das Hören geht an der zuletzt gehörten Stelle weiter — siehe [Podcasts](#podcasts).
-- **Hörbücher** — Bücher aus drei Quellen suchen, streamen und herunterladen: [GETEM](https://getem.boun.edu.tr/), die digitale Bibliothek der Boğaziçi-Universität für blinde und sehbehinderte Menschen; [LibriVox](https://librivox.org/), das von Freiwilligen eingelesene Hörbuchprojekt mit gemeinfreien Werken; und die Project Gutenberg Open Audiobook Collection. LibriVox und Project Gutenberg brauchen kein Konto. Mehrteilige Werke laufen automatisch an der zuletzt gehörten Stelle weiter — siehe [Hörbücher (GETEM, LibriVox und Project Gutenberg)](#hörbücher-getem-librivox-und-project-gutenberg).
+- **Hörbücher** — Bücher aus vier Quellen suchen, streamen und herunterladen: [GETEM](https://getem.boun.edu.tr/), die digitale Bibliothek der Boğaziçi-Universität für Sehbehinderte; [LibriVox](https://librivox.org/), das Projekt mit von Freiwilligen gelesenen gemeinfreien Werken; die Project Gutenberg Open Audiobook Collection; und Hörbücher im [Internet Archive](https://archive.org/), darunter viele in anderen Sprachen. Nur GETEM braucht ein Konto. Mehrteilige Werke laufen automatisch an der zuletzt gehörten Stelle weiter — siehe [Hörbücher (GETEM, LibriVox, Project Gutenberg und Internet Archive)](#hörbücher-getem-librivox-project-gutenberg-und-internet-archive).
 - **Lokale Jukebox** — Auf allen angeschlossenen Laufwerken nach Audiodateien suchen oder eine eigene Bibliothek aus Dateien und Ordnern anlegen und diese mit denselben Werkzeugen zum Fortsetzen, Springen, für Tempo und Tonhöhe abspielen, die auch Podcasts und Hörbücher nutzen — siehe [Lokale Jukebox](#lokale-jukebox).
 - **Lesezeichen** — An der aktuellen Position eines Hörbuchteils, einer Podcast-Folge oder eines Jukebox-Titels ein Lesezeichen setzen und später dorthin zurückspringen. Ein Lesezeichen kann eine Textnotiz oder eine aufgenommene Sprachnotiz tragen, die beim Erreichen abgespielt wird, und mit zwei Lesezeichen lässt sich der Abschnitt dazwischen wiederholen oder als Audioausschnitt speichern — siehe [Lesezeichen](#lesezeichen).
 - **Aufnehmen** — Das Laufende sofort mitschneiden, einen einzelnen Titel von Anfang bis Ende aufnehmen, jeden Titel eines Senders bis zum Stoppen in eine eigene Datei aufnehmen oder einmalige und wiederkehrende Aufnahmen planen — alles, ohne die Wiedergabe zu unterbrechen — siehe [Aufnehmen](#aufnehmen).
@@ -59,6 +59,7 @@ Einige dieser Tastenbefehle überschneiden sich mit solchen, die Windows selbst 
 | Tastenbefehl | Funktion | Beschreibung |
 |---|---|---|
 | `Strg+Windows+R` | Senderbrowser öffnen | Öffnet das Browserfenster, oder holt es in den Vordergrund, falls es bereits offen ist. |
+| `Strg+Windows+F` | Registerkarte „Favoriten“ öffnen | Öffnet den Senderbrowser oder stellt ihn wieder her, wählt „Favoriten“ aus und setzt den Fokus auf die Senderliste. |
 | `Strg+Windows+O` | Registerkarte „Podcasts“ öffnen | Öffnet den Senderbrowser (falls geschlossen) oder holt ihn in den Vordergrund und wechselt direkt zur Registerkarte **Podcasts**. |
 | `Strg+Windows+L` | Registerkarte „Hörbücher“ öffnen | Öffnet den Senderbrowser (falls geschlossen) oder holt ihn in den Vordergrund und wechselt direkt zur Registerkarte **Hörbücher**. |
 | `Strg+Windows+U` | Registerkarte „Jukebox“ öffnen | Öffnet den Senderbrowser (falls geschlossen) oder holt ihn in den Vordergrund und wechselt direkt zur Registerkarte **Jukebox**, mit dem Fokus im Suchfeld für Datenträger. |
@@ -92,7 +93,7 @@ Einige dieser Tastenbefehle überschneiden sich mit solchen, die Windows selbst 
 | *(nicht belegt)* | Meldungen stummschalten | Schaltet die Einstellung „Meldungen stummschalten“ im laufenden Betrieb um. Ein Tastenbefehl lässt sich unter NVDA-Menü → Optionen → Tastenzuordnungen → freeAudio zuweisen. |
 | *(nicht belegt)* | Lieblingssender direkt starten | Jeder Sender der Favoritenliste erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Sender**. Wird einem Sender dort ein Tastenbefehl zugewiesen, startet er von überall sofort, ohne dass der Browser geöffnet werden muss. |
 | *(nicht belegt)* | Jukebox-Eintrag direkt starten | Jede Datei und jeder Ordner der Jukebox-Liste erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Jukebox**. Siehe [Eigene Tastenbefehle für Jukebox-Einträge](#eigene-tastenbefehle-für-jukebox-einträge). |
-| *(nicht belegt)* | Hörbuch direkt starten | Jedes Buch der Hörbuchbibliothek — ob von GETEM, LibriVox oder Project Gutenberg — erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Hörbücher**. Wird einem Buch ein beliebiger Tastenbefehl zugewiesen, setzt es von überall sofort fort, ohne dass der Browser geöffnet werden muss. Siehe [Eigene Tastenbefehle für Hörbücher](#eigene-tastenbefehle-für-hörbücher). |
+| *(nicht belegt)* | Hörbuch direkt starten | Jedes Buch der Hörbuchbibliothek — ob von GETEM, LibriVox, Project Gutenberg oder Internet Archive — erscheint als eigener Eintrag unter NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio-Hörbücher**. Wird einem Buch ein beliebiger Tastenbefehl zugewiesen, setzt es von überall sofort fort, ohne dass der Browser geöffnet werden muss. Siehe [Eigene Tastenbefehle für Hörbücher](#eigene-tastenbefehle-für-hörbücher). |
 
 `Strg+Windows+→` / `Strg+Windows+←` bewegen sich nur durch die Favoritenliste, nicht durch die Liste aller Sender — um durch die Liste zu gehen, aus der der aktuelle Sender gestartet wurde, dienen `Strg+Windows+F4` / `Strg+Windows+F3` (siehe unten). Liegt im Browserfenster der Fokus auf einer Liste, übernehmen die Pfeiltasten links und rechts dieselbe Aufgabe — siehe Tastenbefehle im Dialog.
 
@@ -112,6 +113,7 @@ Das ist gut zu wissen:
 - Läuft nichts, wird die Tastenkombination unverändert an Windows weitergereicht, genau wie bei `Strg+Windows+→` / `Strg+Windows+←`.
 - Am Anfang bzw. Ende einer Liste (außer beim Radio, das von vorn beginnt) sagt NVDA „Bereits beim ersten …“ bzw. „Bereits beim letzten …“ an, und es ändert sich nichts. Ein Jukebox-Titel, der nicht als Teil eines Ordners gestartet wurde, hat keine Nachbarn und meldet dasselbe.
 - **Der automatische Wechsel wird nicht unterbrochen.** Nach einem Sprung innerhalb eines Jukebox-Ordners oder eines Hörbuchs startet der nächste Titel bzw. Teil weiterhin von selbst, wenn der aktuelle endet — bei geöffnetem wie bei geschlossenem Senderbrowser. Ein Druck auf „Nächster“ beim letzten Titel eines Ordners setzt die gespeicherte Position des Ordners nicht zurück.
+- **Mehrfaches Drücken einer Sprungtaste arbeitet Schritt für Schritt.** Jeder Tastendruck springt ein Element weiter als der vorherige, auch wenn dieses noch nicht zu spielen begonnen hat; nur das letzte wird abgespielt. Das gilt auch für einen Sprachbefehl oder ein Makro, das einen Befehl wiederholt, etwa „nächster Sender“ viermal.
 - Die Folgenliste eines Podcasts wird nur für die laufende NVDA-Sitzung im Speicher gehalten. Ist sie noch nicht geladen — etwa direkt nach dem Start von NVDA —, bittet NVDA darum, den Senderbrowser zu öffnen und diesen Podcast einmal auszuwählen; danach funktionieren die Tasten auch bei geschlossenem Fenster.
 - Ist der Senderbrowser geöffnet, aktualisiert ein per Tastatur übersprungenes Hörbuch auch das „Aktuelle Wiedergabe“ des Fensters (Buch und Teil), sodass dessen automatischer Wechsel an der richtigen Stelle weitermacht.
 
@@ -129,7 +131,7 @@ Bei einer Suche werden die Treffer von Radio Browser um Sender von TuneIn und iH
 
 Die Auswahlliste **Ausgabegerät** am unteren Rand des Browserfensters — außerhalb der Registerkarten — führt alle von BASS erkannten Audio-Ausgabegeräte auf. Die Wahl eines Geräts leitet den Ton sofort dorthin um und merkt sich die Entscheidung dauerhaft; in der nächsten Sitzung wird dasselbe Gerät wieder verwendet. Ist das gewählte Gerät nicht angeschlossen, weicht das Add-on automatisch auf den Systemstandard aus. Mit `F11` öffnet sich von überall im Senderbrowser eine einfachere Geräteauswahl bei Bedarf. Sie erscheint nicht von selbst und öffnet sich nur, wenn BASS mehr als ein physisches Ausgabegerät erkennt. Gibt es nur eines, ist keine Wahl nötig und freeAudio verwendet die Standardausgabe des Systems.
 
-Die Regler **Lautstärke** (0–200) und **Effekte** im selben Bereich lassen sich bei geöffnetem Fenster jederzeit anpassen. Aus der Effektliste können Chorus, Kompressor, Verzerrung, Echo, Flanger, Gargle, Hall, EQ: Bassanhebung, EQ: Höhenanhebung und EQ: Stimmenanhebung gleichzeitig aktiviert werden; Änderungen greifen sofort im laufenden Stream. Jeder Effekt lässt sich außerdem mit `Strg+1` bis `Strg+0` direkt umschalten, ohne die Tastatur zu verlassen — siehe [Tastenbefehle für Effekte](#tastenbefehle-für-effekte).
+Die Regler **Lautstärke** (0–200) und **Effekte** im selben Bereich lassen sich bei geöffnetem Fenster jederzeit anpassen. Aus der Effektliste können Chorus, Kompressor, Verzerrung, Echo, Flanger, Gargle, Hall, Seltsam, EQ: Bassanhebung, EQ: Höhenanhebung und EQ: Stimmenanhebung gleichzeitig aktiviert werden; Änderungen greifen sofort im laufenden Stream. Jeder Effekt lässt sich außerdem mit `Strg+1` bis `Strg+0` direkt umschalten, ohne die Tastatur zu verlassen — siehe [Tastenbefehle für Effekte](#tastenbefehle-für-effekte).
 
 Sobald ein oder mehrere EQ-Effekte aktiv sind, erscheint für jedes aktive Band ein **Verstärkungsregler**. Die Verstärkung reicht von −15 dB bis +15 dB; voreingestellt sind Bass +9 dB, Höhen +9 dB und Stimme +6 dB. Die Regler erscheinen nur für die gerade angehakten EQ-Bänder und verschwinden automatisch wieder, sobald ein EQ-Effekt abgewählt wird. Die Werte gelten global und stehen in der nächsten Sitzung wieder zur Verfügung.
 
@@ -315,6 +317,24 @@ Die Registerkarte „Favoriten“ enthält zwei Schaltflächen für senderbezoge
 **Audioprofil löschen** — entfernt das gespeicherte Profil vom ausgewählten Sender. Danach gelten wieder die globalen Werte für Lautstärke, Effekte und EQ-Verstärkung. Die Schaltfläche ist nur aktiv, wenn für den ausgewählten Sender bereits ein Profil hinterlegt ist.
 
 Beide Schaltflächen sitzen unterhalb der Favoritenliste und werden erst aktiv, sobald ein Sender in der Liste ausgewählt ist.
+
+## Zehnband-Equalizer
+
+Die Registerkarte **Equalizer** ist die letzte Registerkarte im Senderbrowser. Mit **Equalizer Ein/Aus** wird er ein- oder ausgeschaltet. Beim Ausschalten bleiben Ihre Bandeinstellungen erhalten.
+
+Die zehn Schieberegler steuern **62, 125, 250, 500, 1000, 2000, 4000, 8000, 12000 und 16000 Hz** von **−20 bis +20 dB** in 1-dB-Schritten. Mit Tab und Umschalt+Tab erreichen Sie einen Regler, mit den Pfeiltasten stellen Sie ihn ein. NVDA sagt die Frequenz und den vorzeichenbehafteten Wert in dB an. Änderungen wirken sich während der Wiedergabe sofort aus.
+
+**Zurücksetzen** setzt alle zehn Bänder auf 0 dB. **Speichern** schreibt die Einstellungen in die Konfiguration von NVDA und meldet Erfolg oder einen Speicherfehler. Die Einstellungen werden beim Start von NVDA wiederhergestellt. Der Equalizer gilt global für alle Sender und anderen Medien. Vorhandene Neunband-Einstellungen behalten ihre ursprünglichen Werte, einschließlich des 16000-Hz-Bands. Das neue 12000-Hz-Band beginnt bei 0 dB.
+
+Stehen alle Bänder auf 0 dB, bleibt die ursprüngliche Lautstärke erhalten. Jeder Regler stellt seinen Peaking-Filter ein, ohne die Gesamtlautstärke automatisch zu ändern. Starke Anhebungen können übersteuern. Verringern Sie die Bandverstärkung, wenn Sie Verzerrungen hören.
+
+Um den Equalizer bei geschlossenem Browser umzuschalten, weisen Sie im NVDA-Menü → Optionen → Tastenzuordnungen → **freeAudio** dem Befehl **Equalizer ein- oder ausschalten** eine Geste zu. Dieser Befehl hat keine Standardgeste. Die vorhandenen Effekte Bass-, Höhen- und Stimmenanhebung bleiben neben dem Zehnband-Equalizer verfügbar.
+
+## Effekt „Seltsam“
+
+**Seltsam** erscheint in der Effektliste des Senderbrowsers und in den freeAudio-Einstellungen direkt nach **Reverb**. Aktivieren oder deaktivieren Sie das Kontrollkästchen, um seinen gleichgerichteten, nichtlinearen Klang ein- oder auszuschalten. Er lässt sich mit dem Equalizer und anderen Effekten kombinieren.
+
+Um seinen Zustand für einen Lieblingssender zu speichern, verwenden Sie **Audioprofil speichern** und wählen **Nur Effekte** oder **Lautstärke und Effekte**. Der gespeicherte Ein/Aus-Zustand wird zusammen mit den anderen Effekten des Senders wiederhergestellt. Sender ohne Profil verwenden die globalen Effekteinstellungen. **Seltsam ein- oder ausschalten** steht auch im Dialog „Tastenzuordnungen“ von NVDA unter **freeAudio** bereit, ohne Standardgeste.
 
 ## Musikerkennung
 
@@ -614,19 +634,20 @@ Nur das Gewählte wandert ins Profil; alles Übrige behält, was dort bereits hi
 
 Die Abos stehen in `freeAudio_podcasts.json` im NVDA-Benutzerkonfigurationsordner. Die Positionen in den Folgen liegen getrennt davon in `podcast_positions.json` am selben Ort. Beide Dateien sind reines JSON und lassen sich sichern oder auf einen anderen Rechner übertragen.
 
-## Hörbücher (GETEM, LibriVox und Project Gutenberg)
+## Hörbücher (GETEM, LibriVox, Project Gutenberg und Internet Archive)
 
-freeAudio bringt einen Hörbuch-Player mit, der Bücher aus drei Quellen sucht, abspielt und herunterlädt:
+freeAudio bringt einen Hörbuch-Player mit, der Bücher aus vier Quellen sucht, abspielt und herunterlädt:
 
 - **[GETEM](https://getem.boun.edu.tr/)** — die digitale Bibliothek des Zentrums für Blinde und Sehbehinderte der Boğaziçi-Universität. Zum Streamen oder Herunterladen des Audios ist eine kostenlose Mitgliedschaft nötig (zum bloßen Stöbern nicht) — siehe [Anmelden](#anmelden) weiter unten.
 - **[LibriVox](https://librivox.org/)** — das von Freiwilligen eingelesene Hörbuchprojekt mit gemeinfreien Werken. Ein Konto oder eine Anmeldung braucht es in keiner Form; der gesamte Katalog samt Audiodateien ist gemeinfrei und frei zugänglich.
 - **Project Gutenberg Open Audiobook Collection** — von Menschen und vom Computer gelesene gemeinfreie Hörbücher, gehostet auf [archive.org](https://archive.org/), als Gegenstück zur Textbibliothek von Project Gutenberg. Wie bei LibriVox ist kein Konto und keine Anmeldung nötig.
+- **Internet Archive** — auf [archive.org](https://archive.org/) hochgeladene Hörbücher mit dem Tag „audiobook“, die LibriVox oder Project Gutenberg nicht bereits abdecken. Damit kommen Hörbücher in anderen Sprachen hinzu, auch türkische. Es ist kein Konto und keine Anmeldung nötig. Es handelt sich um Uploads einzelner Personen, daher kann die Vollständigkeit von Teilen und Angaben eines Buchs von Eintrag zu Eintrag unterschiedlich sein.
 
-Die Treffer aller drei Quellen erscheinen zusammen in einer einzigen Liste **Suchergebnisse** und einer einzigen **Bibliothek** — es gibt keine getrennte Registerkarte und keine Auswahlliste zum Umschalten. Die Quelle jedes Buchs (GETEM, LibriVox oder Project Gutenberg) steht als Kennzeichnung neben dem Titel und in den Details, sodass sie stets erkennbar bleibt. Suchen, Anhören, Aufnehmen in die Bibliothek, Abspielen und Herunterladen funktionieren bei allen Quellen genau gleich; mehrteilige Werke laufen mit automatischem Fortsetzen über die Teile hinweg, und Bücher lassen sich zum Offline-Hören herunterladen — alles durchgängig barrierefrei.
+Die Treffer aller vier Quellen erscheinen zusammen in einer einzigen Liste **Suchergebnisse** und einer einzigen **Bibliothek** — es gibt keine getrennte Registerkarte und keine Auswahlliste zum Umschalten. Die Quelle jedes Buchs (GETEM, LibriVox, Project Gutenberg oder Internet Archive) steht als Kennzeichnung neben dem Titel und in den Details, sodass sie stets erkennbar bleibt. Suchen, Anhören, Aufnehmen in die Bibliothek, Abspielen und Herunterladen funktionieren bei allen Quellen genau gleich; mehrteilige Werke laufen mit automatischem Fortsetzen über die Teile hinweg, und Bücher lassen sich zum Offline-Hören herunterladen — alles durchgängig barrierefrei.
 
-Jede Quelle lässt sich unter **NVDA-Menü → Optionen → Einstellungen → freeAudio** über die Liste **Hörbuch-Quellen** einzeln abschalten, wenn nur ein Teil davon durchsucht werden soll. Standardmäßig sind alle drei aktiv.
+Jede Quelle lässt sich unter **NVDA-Menü → Optionen → Einstellungen → freeAudio** über die Liste **Hörbuch-Quellen** einzeln abschalten, wenn nur ein Teil davon durchsucht werden soll. Standardmäßig sind alle vier aktiv.
 
-> **Hinweis:** Zum Hören eines GETEM-Buchs ist eine kostenlose GETEM-Mitgliedschaft nötig. Der Katalog lässt sich ohne Konto durchstöbern, das Auflösen und Abspielen des Audios eines GETEM-Buchs jedoch nicht — siehe [Anmelden](#anmelden) weiter unten. Bücher von LibriVox und Project Gutenberg brauchen nie ein Konto.
+> **Hinweis:** Zum Hören eines GETEM-Buchs ist eine kostenlose GETEM-Mitgliedschaft nötig. Der Katalog lässt sich ohne Konto durchstöbern, das Auflösen und Abspielen des Audios eines GETEM-Buchs jedoch nicht — siehe [Anmelden](#anmelden) weiter unten. Bücher von LibriVox, Project Gutenberg und Internet Archive brauchen nie ein Konto.
 
 ### Die Registerkarte „Hörbücher“ erreichen
 
@@ -640,7 +661,7 @@ Den Senderbrowser mit `Strg+Windows+R` öffnen und mit `Strg+Tabulator` oder `Al
 
 GETEM verlangt eine registrierte Mitgliedschaft, um das eigentliche Audio eines Buchs zu streamen oder herunterzuladen, auch wenn sich der Katalog frei durchsuchen lässt. GETEM-Benutzername und -Passwort werden einmalig unter **NVDA-Menü → Optionen → Einstellungen → freeAudio** eingetragen; sie liegen verschlüsselt auf der Festplatte (über die Windows-Datenschutz-API, gebunden an das Windows-Benutzerkonto) und werden danach automatisch wiederverwendet. Ohne hinterlegte Zugangsdaten weist freeAudio beim Abspielen oder Herunterladen eines GETEM-Buchs darauf hin, sie zuerst in den Einstellungen einzutragen.
 
-Bei LibriVox und Project Gutenberg entfällt die Anmeldung vollständig — Treffer und Audio lassen sich sofort suchen, anhören, abspielen und herunterladen, ganz ohne Zugangsdaten.
+Bei LibriVox, Project Gutenberg und Internet Archive entfällt die Anmeldung vollständig — Treffer und Audio lassen sich sofort suchen, anhören, abspielen und herunterladen, ganz ohne Zugangsdaten.
 
 ### Nach Hörbüchern suchen
 
@@ -649,8 +670,11 @@ Einen Suchbegriff ins Suchfeld eintragen und die `Eingabetaste` drücken. freeAu
 - **GETEM** wird gleichzeitig nach Titel, Autor, Sprecher, Thema und Verlag durchsucht, da das GETEM-eigene Suchformular nur die Einschränkung über all diese Felder zusammen kennt und keine übergreifende Suche über eines davon. Angezeigt werden nur Werke, die tatsächlich als Audio vorliegen (menschlich oder synthetisch gelesen, Audiodeskription, Hörspiel, DAISY-Hörbuch usw.); Braille, Großdruck und andere Nicht-Audio-Formate werden automatisch herausgefiltert.
 - **LibriVox** wird nach Titel oder Autor bzw. lesender Person in seinem gemeinfreien Katalog durchsucht.
 - **Project Gutenberg** wird nach Titel oder Autor in der Open Audiobook Collection auf archive.org durchsucht.
+- **Internet Archive** wird nach Titel oder Autor unter den auf archive.org mit „audiobook“ markierten Audio-Einträgen durchsucht. Titel von LibriVox und Project Gutenberg werden in diesen Ergebnissen ausgelassen, damit kein Buch doppelt erscheint.
 
-Wird die Adresse der Katalog- bzw. Detailseite eines Buchs direkt ins Suchfeld eingefügt (eine GETEM-Katalogseite oder eine archive.org-„details“-Seite eines LibriVox- oder Project-Gutenberg-Titels), löst freeAudio genau dieses eine Buch direkt auf, statt eine Stichwortsuche zu starten.
+Die Suchen bei LibriVox, Project Gutenberg und Internet Archive probieren zuerst Ihre genauen Worte. Nur wenn das nichts findet, greifen sie auf toleranteres Abgleichen zurück: Ein Titel wie „Moonstone, The“ wird auch als „The Moonstone“ versucht, ein als „Doyle, Arthur Conan“ geschriebener Autor auch als „Arthur Conan Doyle“, Anreden und Satzzeichen werden ignoriert, und schließlich wird jedes Wort einzeln in Titel und Autor abgeglichen.
+
+Wird die Adresse der Katalog- bzw. Detailseite eines Buchs direkt ins Suchfeld eingefügt (eine GETEM-Katalogseite oder eine archive.org-„details“-Seite eines LibriVox-, Project-Gutenberg- oder Internet-Archive-Titels), löst freeAudio genau dieses eine Buch direkt auf, statt eine Stichwortsuche zu starten. Ist eine archive.org-Seite kein Hörbuch, sagt freeAudio das.
 
 NVDA sagt an, wie viele Hörbücher insgesamt gefunden wurden.
 
@@ -673,7 +697,7 @@ Aufgenommene Bücher erscheinen in der Liste **Bibliothek**, mit Titel, Autor un
 
 - **Medium wiedergeben** — die Wiedergabe starten, wie mit der `Eingabetaste`.
 - **Buch herunterladen** — sämtliche Teile des Buchs laden; siehe [Hörbücher herunterladen](#hörbücher-herunterladen) weiter unten.
-- **Adresse kopieren** — die Adresse der Katalogseite in die Zwischenablage übernehmen (die GETEM-Katalogseite bei einem GETEM-Buch, die archive.org-Detailseite bei einem Buch von LibriVox oder Project Gutenberg).
+- **Adresse kopieren** — die Adresse der Katalogseite in die Zwischenablage übernehmen (die GETEM-Katalogseite bei einem GETEM-Buch, die archive.org-Detailseite bei einem Buch von LibriVox, Project Gutenberg oder Internet Archive).
 - **Audioprofil für dieses Buch speichern** / **Audioprofil löschen** — siehe [Audioprofil für ein Hörbuch](#audioprofil-für-ein-hörbuch) weiter unten.
 - **Aus der Bibliothek entfernen** — das Buch aus der Bibliothek löschen.
 
@@ -701,7 +725,7 @@ Ein Buch in der Bibliothek auswählen und im Kontextmenü **Buch herunterladen**
 
 ### Eigene Tastenbefehle für Hörbücher
 
-Jedes Buch der Hörbuchbibliothek — ob von GETEM, LibriVox oder Project Gutenberg — ist im Dialog „Tastenzuordnungen“ von NVDA als eigenes Skript hinterlegt, und zwar in der Kategorie **freeAudio-Hörbücher**, genau wie bei [Eigene Tastenbefehle für Lieblingssender](#eigene-tastenbefehle-für-lieblingssender) und [Eigene Tastenbefehle für Jukebox-Einträge](#eigene-tastenbefehle-für-jukebox-einträge). Jedem Buch lässt sich ein beliebiger Tastenbefehl zuweisen, der dann von überall greift — das Browserfenster muss dafür nicht geöffnet werden. Standardmäßig ist nichts belegt.
+Jedes Buch der Hörbuchbibliothek — ob von GETEM, LibriVox, Project Gutenberg oder Internet Archive — ist im Dialog „Tastenzuordnungen“ von NVDA als eigenes Skript hinterlegt, und zwar in der Kategorie **freeAudio-Hörbücher**, genau wie bei [Eigene Tastenbefehle für Lieblingssender](#eigene-tastenbefehle-für-lieblingssender) und [Eigene Tastenbefehle für Jukebox-Einträge](#eigene-tastenbefehle-für-jukebox-einträge). Jedem Buch lässt sich ein beliebiger Tastenbefehl zuweisen, der dann von überall greift — das Browserfenster muss dafür nicht geöffnet werden. Standardmäßig ist nichts belegt.
 
 So wird ein Tastenbefehl zugewiesen:
 
@@ -716,7 +740,7 @@ Wird der Bibliothek ein Buch hinzugefügt oder daraus entfernt, wird die Kategor
 
 ### Wo die Hörbuchdaten liegen
 
-Jede Quelle führt ihre eigene Bibliotheksdatei, auch wenn alle auf der Registerkarte „Hörbücher“ zusammengeführt erscheinen. Die GETEM-Bibliothek (aufgenommene Bücher und ihr Hörfortschritt) liegt in `freeAudio_getem_library.json`, die LibriVox-Bibliothek getrennt davon in `freeAudio_librivox_library.json` und die Project-Gutenberg-Bibliothek ebenfalls getrennt in `freeAudio_gutenberg_library.json` — alle drei im NVDA-Benutzerkonfigurationsordner. Die verschlüsselten GETEM-Zugangsdaten liegen separat in `freeAudio_getem_credentials.bin` am selben Ort und lassen sich nur von demselben Windows-Benutzerkonto entschlüsseln, das sie gespeichert hat. Für LibriVox und Project Gutenberg gibt es keine Zugangsdatendatei, da keine der beiden Quellen ein Konto verlangt.
+Jede Quelle führt ihre eigene Bibliotheksdatei, auch wenn alle auf der Registerkarte „Hörbücher“ zusammengeführt erscheinen. Die GETEM-Bibliothek (aufgenommene Bücher und ihr Hörfortschritt) liegt in `freeAudio_getem_library.json`, die LibriVox-Bibliothek getrennt davon in `freeAudio_librivox_library.json` und die Project-Gutenberg-Bibliothek ebenfalls getrennt in `freeAudio_gutenberg_library.json`, die Internet-Archive-Bibliothek ebenfalls getrennt in `freeAudio_archive_audiobooks_library.json` — alle vier im NVDA-Benutzerkonfigurationsordner. Die verschlüsselten GETEM-Zugangsdaten liegen separat in `freeAudio_getem_credentials.bin` am selben Ort und lassen sich nur von demselben Windows-Benutzerkonto entschlüsseln, das sie gespeichert hat. Für LibriVox, Project Gutenberg und Internet Archive gibt es keine Zugangsdatendatei, da keine der beiden Quellen ein Konto verlangt.
 
 ## Lokale Jukebox
 
@@ -957,7 +981,7 @@ Die folgenden Optionen lassen sich unter NVDA-Menü → Optionen → Einstellung
 | Audio-Ausgabegerät | Legt das Ausgabegerät für die Radiowiedergabe fest. Die Liste enthält alle BASS-tauglichen Geräte des Systems sowie den Eintrag „Systemstandard“. Änderungen greifen sofort beim Speichern; ist das gewählte Gerät getrennt, weicht das Add-on automatisch auf den Systemstandard aus und sagt den Wechsel an. |
 | Aktualisierungsmodus für Audiogeräte | Steuert, wie freeAudio die BASS-Gerätenummern auffrischt. Der Modus **Zuverlässig** (Voreinstellung) prüft die Geräte live und verfolgt Änderungen bei Bluetooth und USB genauer, macht Gerätewechsel aber etwas langsamer. Der Modus **Schnell** verwendet die aktuelle BASS-Geräteliste und ist flotter, dafür können Gerätenummern veraltet bleiben, bis BASS oder NVDA neu startet. |
 | Lautstärke | Legt die Startlautstärke des Add-ons fest (0–100). Während der Wiedergabe kann `Strg+Windows+↑` die Lautstärke bis 200 anheben, die hier gespeicherte Startlautstärke ist aber auf 100 begrenzt. |
-| Audioeffekte | Legt fest, welche Effekte (Chorus, Kompressor, Verzerrung, Echo, Flanger, Gargle, Hall und die drei EQ-Anhebungen) beim NVDA-Start oder beim Start eines Senders aktiv sind. Mehrere Effekte lassen sich gleichzeitig anhaken, passend zur Effektliste im Senderbrowser. |
+| Audioeffekte | Legt fest, welche Effekte (Chorus, Kompressor, Verzerrung, Echo, Flanger, Gargle, Hall, Seltsam und die drei EQ-Anhebungen) beim NVDA-Start oder beim Start eines Senders aktiv sind. Mehrere Effekte lassen sich gleichzeitig anhaken, passend zur Effektliste im Senderbrowser. |
 | EQ-Verstärkung (Bass / Höhen / Stimme) | Legt die Verstärkung in dB für jedes EQ-Band fest (−15 bis +15). Diese Werte gelten, sobald der zugehörige EQ-Effekt aktiv ist, und werden global gespeichert. Abweichende Werte je Sender lassen sich über die Schaltfläche **Audioprofil speichern** auf der Registerkarte „Favoriten“ hinterlegen. |
 | Übergang beim Senderwechsel | Steuert das Verhalten beim Wechsel zwischen **Live-Radiosendern**. **Harter Schnitt** (Voreinstellung) beendet den vorherigen Sender unmittelbar vor dem Start des neuen. **Kurze Überblendung (1 Sekunde)** und **Normale Überblendung (2 Sekunden)** starten den neuen Sender sofort und lückenlos und blenden den vorherigen im Hintergrund langsam aus, sobald der neue Stream bestätigt läuft. **Sendersuchlauf-Geräusch** beendet den vorherigen Sender sofort und spielt vor dem Start des neuen einen Suchlaufklang ab. Bei „Harter Schnitt“ ohne Wirkung und ohne Leistungseinbußen. Gilt nicht für Podcasts, Hörbücher und Jukebox-Titel — deren Fortsetzen spielt unabhängig von dieser Einstellung stets den eigenen kurzen Kassettenklang ab; siehe [Details zur Podcast-Wiedergabe](#details-zur-podcast-wiedergabe). |
 | Letzten Sender beim NVDA-Start fortsetzen | Aktiviert, startet der zuletzt gehörte Sender bei jedem NVDA-Start automatisch neu. |
@@ -976,7 +1000,7 @@ Die folgenden Optionen lassen sich unter NVDA-Menü → Optionen → Einstellung
 | Aufnahmeordner | Legt fest, wohin aufgenommene Dateien gespeichert werden. Bleibt das Feld leer, gilt der Standardort `Dokumente\freeAudio Recordings\`. Eine Schaltfläche zum Durchsuchen öffnet die Ordnerauswahl. Änderungen greifen sofort nach dem Speichern. |
 | Module | Eine Liste zum Anhaken der optionalen Teile von freeAudio: **Podcasts**, **Hörbücher** und **Jukebox**. Standardmäßig sind alle drei aktiv. Wird einer abgewählt, verschwinden seine Registerkarte aus dem Senderbrowser und seine Befehle aus dem Dialog „Tastenzuordnungen“ von NVDA, ohne dass dort Gespeichertes gelöscht wird (Abos, Bibliothek, Jukebox-Liste); erneutes Anhaken bringt alles zurück. Änderungen greifen beim nächsten Öffnen des Senderbrowsers. |
 | Bei der Jukebox-Suche auch Netzlaufwerke einbeziehen | Aktiviert, durchsucht **Auf Datenträgern suchen** in der Jukebox auch Netzlaufwerke. Standardmäßig deaktiviert, weil die Suche auf einer Netzwerkfreigabe Minuten dauern oder hängen kann, wenn die Freigabe nicht erreichbar ist. |
-| Hörbuch-Quellen | Eine Liste zum Anhaken, welche Hörbuchquellen (**GETEM**, **LibriVox**, **Project Gutenberg**) durchsucht und auf der Registerkarte „Hörbücher“ angezeigt werden. Standardmäßig sind alle drei aktiv. Wird eine Quelle abgewählt, verschwinden ihre Bücher aus den zusammengeführten Suchergebnissen und aus der Bibliotheksliste, ohne dass bereits Aufgenommenes gelöscht wird — siehe [Hörbücher (GETEM, LibriVox und Project Gutenberg)](#hörbücher-getem-librivox-und-project-gutenberg). |
+| Hörbuch-Quellen | Eine Liste zum Anhaken, welche Hörbuchquellen (**GETEM**, **LibriVox**, **Project Gutenberg**, **Internet Archive**) durchsucht und auf der Registerkarte „Hörbücher“ angezeigt werden. Standardmäßig sind alle vier aktiv. Wird eine Quelle abgewählt, verschwinden ihre Bücher aus den zusammengeführten Suchergebnissen und aus der Bibliotheksliste, ohne dass bereits Aufgenommenes gelöscht wird — siehe [Hörbücher (GETEM, LibriVox, Project Gutenberg und Internet Archive)](#hörbücher-getem-librivox-project-gutenberg-und-internet-archive). |
 | GETEM-Benutzername / GETEM-Passwort | Die Zugangsdaten der [GETEM](https://getem.boun.edu.tr/)-Hörbuchmitgliedschaft, nötig zum Streamen oder Herunterladen des Audios eines Buchs — siehe [Anmelden](#anmelden). Sie liegen verschlüsselt auf der Festplatte, über die Windows-Datenschutz-API und gebunden an das Windows-Benutzerkonto; im Klartext werden sie nie gespeichert. Beide Felder leeren und speichern entfernt hinterlegte Zugangsdaten. LibriVox und Project Gutenberg brauchen kein Konto und haben kein entsprechendes Feld. |
 | Ausgabeformat der Aufnahme | Behält den Originalstream, extrahiert das Audio ohne Codec-Wechsel oder wandelt fertige Aufnahmen in MP3 um. Voreingestellt ist das Originalformat des Streams. |
 | MP3-Bitrate der Aufnahme | Legt die Bitrate fest, wenn als Ausgabeformat MP3 gewählt ist. Voreingestellt sind 128 kb/s. |
@@ -991,7 +1015,7 @@ Die Schaltfläche **Aufräumen: Einstellungen zurücksetzen und gespeicherte Dat
 - **Favoriten**
 - **Zwischengespeicherte Senderliste** — wird bei Bedarf neu geladen.
 - **Podcast-Abos**
-- **Hörbuchbibliotheken** — GETEM, LibriVox und Project Gutenberg.
+- **Hörbuchbibliotheken** — GETEM, LibriVox, Project Gutenberg und Internet Archive.
 - **Gespeicherte GETEM-Anmeldedaten** — Benutzername und Passwort.
 - **Jukebox-Liste** — die Musikdateien selbst werden nicht gelöscht.
 - **Gespeicherte Fortsetzungspositionen** — Podcasts, Hörbücher und Jukebox-Ordner.

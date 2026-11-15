@@ -6,7 +6,7 @@ freeAudio is een volledig uitgeruste add-on voor internetradio, podcasts, luiste
 
 - **Internetradio** — Blader door en zoek in meer dan 50.000 stations uit de [Radio Browser](https://www.radio-browser.info/)-directory, met resultaten aangevuld door TuneIn en iHeartRadio. Sla favorieten op, herschik ze en spring direct naar elk station met een globale sneltoets vanaf elke locatie in Windows — zie [Radio Browser-directory](#radio-browser-directory) en [Favorieten](#favorieten).
 - **Podcasts** — Abonneer je op elke RSS/Atom-feed, of doorzoek Apple's podcastdirectory en bekijk afleveringen voordat je je abonneert. De afspeelpositie wordt automatisch opgeslagen en hervat waar je gebleven was — zie [Podcasts](#podcasts).
-- **Luisterboeken** — Zoek, stream en download boeken uit drie bronnen: [GETEM](https://getem.boun.edu.tr/), de digitale bibliotheek van de Boğaziçi Universiteit voor slechtzienden; [LibriVox](https://librivox.org/), het door vrijwilligers voorgelezen publiek-domein luisterboekproject; en de Project Gutenberg Open Audiobook Collection. LibriVox en Project Gutenberg vereisen geen account. Werken met meerdere delen worden automatisch hervat waar je gebleven was — zie [Luisterboeken (GETEM, LibriVox en Project Gutenberg)](#luisterboeken-getem-librivox-en-project-gutenberg).
+- **Luisterboeken** — Zoek, stream en download boeken uit vier bronnen: [GETEM](https://getem.boun.edu.tr/), de digitale bibliotheek van de Boğaziçi-universiteit voor slechtzienden; [LibriVox](https://librivox.org/), het project met door vrijwilligers voorgelezen luisterboeken uit het publiek domein; de Project Gutenberg Open Audiobook Collection; en luisterboeken op het [Internet Archive](https://archive.org/), waaronder veel in andere talen. Alleen GETEM vereist een account. Werken met meerdere delen worden automatisch hervat waar je gebleven was — zie [Luisterboeken (GETEM, LibriVox, Project Gutenberg en Internet Archive)](#luisterboeken-getem-librivox-project-gutenberg-en-internet-archive).
 - **Lokale jukebox** — Zoek audiobestanden op elke aangesloten schijf op bestandsnaam, of bouw een persoonlijke bibliotheek van bestanden en mappen, en speel ze af met dezelfde hervat-, spoel-, snelheids- en toonhoogtetools die podcasts en luisterboeken gebruiken — zie [Lokale jukebox](#lokale-jukebox).
 - **Bladwijzers** — Plaats een bladwijzer op de huidige positie van elk deel van een luisterboek, elke podcastaflevering of elk jukeboxnummer, en spring er later naar terug. Een bladwijzer kan een tekstnotitie of een opgenomen spraaknotitie bevatten die wordt afgespeeld wanneer het afspelen de bladwijzer bereikt, en met twee bladwijzers kan de sectie ertussen worden herhaald of als audiofragment worden opgeslagen — zie [Bladwijzers](#bladwijzers).
 - **Opnemen** — Neem direct op wat er speelt, neem één nummer op van begin tot eind, neem elk nummer op een station op in een eigen bestand tot je stopt, of plan eenmalige en terugkerende opnames — allemaal zonder het afspelen te onderbreken — zie [Opnemen](#opnemen).
@@ -59,6 +59,7 @@ Sommige van deze sneltoetsen overlappen met sneltoetsen die Windows zelf gebruik
 | Sneltoets | Functie | Beschrijving |
 |---|---|---|
 | `Ctrl+Win+R` | Stationsverkenner openen | Opent het stationsverkenner-venster als het gesloten is, of brengt het naar de voorgrond als het al geopend is. |
+| `Ctrl+Win+F` | Tabblad Favorieten openen | Opent of herstelt de stationsverkenner, selecteert Favorieten en zet de focus op de stationslijst. |
 | `Ctrl+Win+O` | Tabblad Podcasts openen | Opent de stationsverkenner (indien gesloten) of brengt deze naar de voorgrond, en schakelt direct naar het tabblad **Podcasts**. |
 | `Ctrl+Win+L` | Tabblad Luisterboeken openen | Opent de stationsverkenner (indien gesloten) of brengt deze naar de voorgrond, en schakelt direct naar het tabblad **Luisterboeken**. |
 | `Ctrl+Win+U` | Tabblad Jukebox openen | Opent de stationsverkenner (indien gesloten) of brengt deze naar de voorgrond, en schakelt direct naar het tabblad **Jukebox**, met focus op het zoekveld voor apparaten. |
@@ -92,7 +93,7 @@ Sommige van deze sneltoetsen overlappen met sneltoetsen die Windows zelf gebruik
 | *(niet toegewezen)* | Meldingen dempen in-/uitschakelen | Schakelt de instelling Meldingen dempen direct in of uit. Wijs een toetsencombinatie toe via NVDA-menu → Opties → Invoerhandelingen → freeAudio. |
 | *(niet toegewezen)* | Favoriet station direct afspelen | Elk station in je favorietenlijst verschijnt als een apart item in NVDA-menu → Opties → Invoerhandelingen → **freeAudio Stations**. Wijs een sneltoets toe aan een station om het direct af te spelen vanaf elke locatie, zonder de stationsverkenner te openen. |
 | *(niet toegewezen)* | Jukeboxitem direct afspelen | Elk bestand of elke map in je jukeboxlijst verschijnt als een apart item in NVDA-menu → Opties → Invoerhandelingen → **freeAudio Jukebox**. Zie [Directe sneltoetsen voor jukeboxitems](#directe-sneltoetsen-voor-jukeboxitems). |
-| *(niet toegewezen)* | Luisterboek direct afspelen | Elk boek in je luisterboekenbibliotheek — van GETEM, LibriVox of Project Gutenberg — verschijnt als een apart item in NVDA-menu → Opties → Invoerhandelingen → **freeAudio Luisterboeken**. Wijs een sneltoets toe aan een boek om het direct te hervatten vanaf elke locatie, zonder de stationsverkenner te openen. Zie [Directe sneltoetsen voor luisterboeken](#directe-sneltoetsen-voor-luisterboeken). |
+| *(niet toegewezen)* | Luisterboek direct afspelen | Elk boek in je luisterboekenbibliotheek — van GETEM, LibriVox, Project Gutenberg of Internet Archive — verschijnt als een apart item in NVDA-menu → Opties → Invoerhandelingen → **freeAudio Luisterboeken**. Wijs een sneltoets toe aan een boek om het direct te hervatten vanaf elke locatie, zonder de stationsverkenner te openen. Zie [Directe sneltoetsen voor luisterboeken](#directe-sneltoetsen-voor-luisterboeken). |
 
 `Ctrl+Win+→` / `Ctrl+Win+←` navigeren alleen door de favorietenlijst; ze werken niet met de lijst met alle stations — gebruik `Ctrl+Win+F4` / `Ctrl+Win+F3` (zie hieronder) om te navigeren door de lijst waaruit het huidige station is gestart. Wanneer een lijst is gefocust in de stationsverkenner, dienen de linker- en rechterpijltjestoetsen hetzelfde doel — zie [In-dialoog sneltoetsen](#in-dialoog-sneltoetsen).
 
@@ -112,6 +113,7 @@ Goed om te weten:
 - Als er niets wordt afgespeeld, wordt de toetsencombinatie ongewijzigd aan Windows doorgegeven, net als bij `Ctrl+Win+→` / `Ctrl+Win+←`.
 - Aan beide uiteinden van een lijst (behalve bij radio, dat rondgaat) kondigt NVDA "Al bij het eerste …" of "Al bij het laatste …" aan en verandert er niets. Een jukeboxnummer dat niet als onderdeel van een map is gestart, heeft geen buren en meldt hetzelfde.
 - **Automatisch doorgaan wordt niet onderbroken.** Na het overslaan binnen een jukeboxmap of een luisterboek begint het volgende nummer of deel nog steeds vanzelf wanneer het huidige afloopt, met de stationsverkenner open of gesloten. Op volgende drukken bij het laatste nummer van een map zet de opgeslagen positie van de map niet terug.
+- **Meermaals achter elkaar op een springtoets drukken werkt stap voor stap.** Elke druk gaat één item verder dan waar de vorige druk eindigde, ook als dat item nog niet is gaan spelen, en alleen het laatste wordt afgespeeld. Dit geldt ook voor een spraakopdracht of macro die een opdracht herhaalt, zoals vier keer “volgend station”.
 - De afleveringenlijst van een podcast wordt alleen tijdens de huidige NVDA-sessie in het geheugen bewaard. Is die nog niet geladen — bijvoorbeeld direct na het starten van NVDA — dan vraagt NVDA je de stationsverkenner te openen en die podcast één keer te selecteren; daarna werken de toetsen ook bij gesloten venster.
 - Als de stationsverkenner open is, werkt het overslaan van een luisterboek met het toetsenbord ook het "nu afspelen"-boek en -deel van het venster bij, zodat het eigen automatisch doorgaan vanaf de juiste plek verdergaat.
 
@@ -129,7 +131,7 @@ Bij het zoeken worden resultaten van Radio Browser aangevuld met stations van Tu
 
 De **Uitvoerapparaat** vervolgkeuzelijst onderaan de stationsverkenner — buiten de tabbladen — bevat alle door BASS herkende audio-uitvoerapparaten. Het selecteren van een apparaat leidt de audio-uitvoer direct daarnaartoe en slaat de keuze permanent op; hetzelfde apparaat wordt automatisch in de volgende sessie gebruikt. Als het geselecteerde apparaat niet is verbonden, valt de add-on automatisch terug op de systeemstandaard. Druk op `F11` om een eenvoudigere apparaatkiezer op aanvraag te openen vanuit de hele stationsverkenner. De kiezer wordt niet automatisch getoond en opent alleen wanneer BASS meer dan één fysiek uitvoerapparaat detecteert. Wanneer er maar één beschikbaar is, is geen selectie nodig en gebruikt freeAudio de standaarduitvoer van het systeem.
 
-De **Volume** (0–200) en **Effecten** besturingen in hetzelfde gebied kunnen op elk moment worden aangepast terwijl het venster geopend is. Uit de Effecten-lijst kunnen Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, EQ: Bass Boost, EQ: Treble Boost en EQ: Vocal Boost tegelijkertijd worden ingeschakeld; wijzigingen worden direct toegepast op de actieve stream. Elk effect kan ook direct worden in- of uitgeschakeld met `Ctrl+1` tot en met `Ctrl+0`, zonder het toetsenbord te verlaten — zie [Effectsneltoetsen](#effectsneltoetsen) hieronder.
+De **Volume** (0–200) en **Effecten** besturingen in hetzelfde gebied kunnen op elk moment worden aangepast terwijl het venster geopend is. Uit de Effecten-lijst kunnen Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird, EQ: Bass Boost, EQ: Treble Boost en EQ: Vocal Boost tegelijkertijd worden ingeschakeld; wijzigingen worden direct toegepast op de actieve stream. Elk effect kan ook direct worden in- of uitgeschakeld met `Ctrl+1` tot en met `Ctrl+0`, zonder het toetsenbord te verlaten — zie [Effectsneltoetsen](#effectsneltoetsen) hieronder.
 
 Wanneer een of meer EQ-effecten zijn ingeschakeld, verschijnt een **gain-regeling** voor elke actieve band. De gain kan worden ingesteld tussen -15 dB en +15 dB; de standaardwaarden zijn Bass +9 dB, Treble +9 dB en Vocal +6 dB. De gain-regelingen worden alleen getoond voor de EQ-banden die momenteel zijn aangevinkt, en worden automatisch verborgen wanneer een EQ-effect wordt uitgeschakeld. Gain-waarden worden globaal opgeslagen en hersteld in de volgende sessie.
 
@@ -315,6 +317,24 @@ Het tabblad Favorieten bevat twee knoppen voor het beheren van audio-instellinge
 **Audio-profiel wissen** — verwijdert het opgeslagen audioprofiel van het geselecteerde station. Na het wissen valt het station terug op de globale volume-, effect- en EQ-gain-instellingen. Deze knop is alleen actief wanneer het geselecteerde station al een opgeslagen profiel heeft.
 
 Beide knoppen bevinden zich onder de favorietenlijst en zijn alleen ingeschakeld wanneer een station in de lijst is geselecteerd.
+
+## Tienbands-equalizer
+
+Het tabblad **Equalizer** is het laatste tabblad in de stationsverkenner. Gebruik **Equalizer aan/uit** om hem in of uit te schakelen. Uitschakelen behoudt je bandinstellingen.
+
+De tien schuifregelaars bedienen **62, 125, 250, 500, 1000, 2000, 4000, 8000, 12000 en 16000 Hz**, van **−20 tot +20 dB** in stappen van 1 dB. Gebruik Tab en Shift+Tab om een schuifregelaar te bereiken en de pijltjestoetsen om hem aan te passen. NVDA kondigt de frequentie en de waarde met teken in dB aan. Wijzigingen werken direct tijdens het afspelen.
+
+**Opnieuw instellen** zet alle tien de banden op 0 dB. **Opslaan** schrijft de instellingen naar de configuratie van NVDA en meldt succes of een opslagfout. De instellingen worden hersteld wanneer NVDA start. De equalizer geldt globaal voor alle stations en andere media. Bestaande instellingen met negen banden behouden hun oorspronkelijke waarden, inclusief de 16000 Hz-band. De nieuwe 12000 Hz-band begint op 0 dB.
+
+Met alle banden op 0 dB behoudt de equalizer het oorspronkelijke volume. Elke schuifregelaar past zijn piekfilter aan zonder automatisch het totale volume te wijzigen. Grote versterkingen kunnen clippen. Verlaag de bandversterking als je vervorming hoort.
+
+Om de equalizer te schakelen terwijl de verkenner gesloten is, wijs je een handeling toe aan **Equalizer in- of uitschakelen** in NVDA-menu → Opties → Invoerhandelingen → **freeAudio**. Deze opdracht heeft geen standaardhandeling. De bestaande effecten Basversterking, Hoogfrequentieversterking en Stemversterking blijven beschikbaar naast de tienbands-equalizer.
+
+## Effect Vreemd
+
+**Vreemd** staat in de effectenlijst van de stationsverkenner en in de freeAudio-instellingen direct na **Reverb**. Vink het aan of uit om het gelijkgerichte, niet-lineaire geluid in of uit te schakelen. Het kan worden gecombineerd met de equalizer en andere effecten.
+
+Om de status voor een favoriet station op te slaan, gebruik je **Audio-profiel opslaan** en kies je **Alleen effecten** of **Volume en effecten**. De opgeslagen aan/uit-status wordt hersteld samen met de andere effecten van het station. Stations zonder profiel gebruiken de globale effectinstellingen. **Vreemd in- of uitschakelen** is ook beschikbaar in het dialoogvenster Invoerhandelingen van NVDA onder **freeAudio**, zonder standaardhandeling.
 
 ## Muziekherkenning
 
@@ -614,19 +634,20 @@ Alleen de onderdelen die je kiest, worden naar het profiel geschreven; alles wat
 
 Je abonnementen worden opgeslagen in `freeAudio_podcasts.json` in de NVDA-gebruikersconfiguratiemap. Afleveringsposities worden apart opgeslagen in `podcast_positions.json` op dezelfde locatie. Beide bestanden zijn gewone JSON en kunnen worden geback-upt of naar een andere computer worden overgebracht.
 
-## Luisterboeken (GETEM, LibriVox en Project Gutenberg)
+## Luisterboeken (GETEM, LibriVox, Project Gutenberg en Internet Archive)
 
-freeAudio bevat een luisterboekenspeler die boeken zoekt, afspeelt en downloadt uit drie bronnen:
+freeAudio bevat een luisterboekenspeler die boeken zoekt, afspeelt en downloadt uit vier bronnen:
 
 - **[GETEM](https://getem.boun.edu.tr/)** — de digitale bibliotheek van het Centrum voor Slechtzienden van de Boğaziçi Universiteit. Vereist een gratis lidmaatschap om de audio van een boek te streamen of te downloaden (bladeren niet) — zie [Aanmelden](#aanmelden) hieronder.
 - **[LibriVox](https://librivox.org/)** — het door vrijwilligers voorgelezen publiek-domein luisterboekproject. Er is geen account of aanmelding van welke aard dan ook nodig; de hele catalogus, inclusief de audiobestanden zelf, is publiek domein en openlijk toegankelijk.
 - **Project Gutenberg Open Audiobook Collection** — door mensen en computers voorgelezen publiek-domein luisterboeken gehost op [archive.org](https://archive.org/), metgezel van de Project Gutenberg-tekstbibliotheek. Net als LibriVox is er geen account of aanmelding nodig.
+- **Internet Archive** — luisterboeken die zijn geüpload naar [archive.org](https://archive.org/) en de tag “audiobook” hebben, en die nog niet door LibriVox of Project Gutenberg worden gedekt. Dit brengt luisterboeken in andere talen, waaronder Turkse. Een account of aanmelding is niet nodig. Dit zijn uploads van individuele personen, dus hoe volledig de delen en gegevens van een boek zijn, kan per item verschillen.
 
-Resultaten uit alle drie de bronnen verschijnen samen in één samengevoegde lijst **Zoekresultaten** en één samengevoegde lijst **Bibliotheek** — er is geen apart tabblad of vervolgkeuzelijst om tussen hen te wisselen. De bron van elk boek (GETEM, LibriVox of Project Gutenberg) wordt getoond als een label naast de titel, en in de details, zodat je altijd kunt zien naar welke je kijkt. Je kunt boeken uit elke bron op precies dezelfde manier zoeken, bekijken, toevoegen, afspelen en downloaden; werken met meerdere delen afspelen met automatisch hervatten tussen delen; en boeken downloaden voor offline luisteren — allemaal volledig toegankelijk.
+Resultaten uit alle vier de bronnen verschijnen samen in één samengevoegde lijst **Zoekresultaten** en één samengevoegde lijst **Bibliotheek** — er is geen apart tabblad of vervolgkeuzelijst om tussen hen te wisselen. De bron van elk boek (GETEM, LibriVox, Project Gutenberg of Internet Archive) wordt getoond als een label naast de titel, en in de details, zodat je altijd kunt zien naar welke je kijkt. Je kunt boeken uit elke bron op precies dezelfde manier zoeken, bekijken, toevoegen, afspelen en downloaden; werken met meerdere delen afspelen met automatisch hervatten tussen delen; en boeken downloaden voor offline luisteren — allemaal volledig toegankelijk.
 
-Elke bron kan afzonderlijk worden uitgeschakeld via **NVDA-menu → Opties → Instellingen → freeAudio** met de checklist **Luisterboekbronnen**, als je er slechts enkele wilt doorzoeken. Alle drie zijn standaard ingeschakeld.
+Elke bron kan afzonderlijk worden uitgeschakeld via **NVDA-menu → Opties → Instellingen → freeAudio** met de checklist **Luisterboekbronnen**, als je er slechts enkele wilt doorzoeken. Alle vier zijn standaard ingeschakeld.
 
-> **Opmerking:** Naar een GETEM-boek luisteren vereist een gratis GETEM-lidmaatschap. Bladeren door de catalogus van GETEM vereist geen account, maar het ophalen en afspelen van de audio van een GETEM-boek wel — zie [Aanmelden](#aanmelden) hieronder. LibriVox- en Project Gutenberg-boeken vereisen nooit een account.
+> **Opmerking:** Naar een GETEM-boek luisteren vereist een gratis GETEM-lidmaatschap. Bladeren door de catalogus van GETEM vereist geen account, maar het ophalen en afspelen van de audio van een GETEM-boek wel — zie [Aanmelden](#aanmelden) hieronder. LibriVox-, Project Gutenberg- en Internet Archive-boeken vereisen nooit een account.
 
 ### Toegang tot het tabblad Luisterboeken
 
@@ -640,7 +661,7 @@ Open de stationsverkenner met `Ctrl+Win+R` en schakel naar het tabblad **Luister
 
 GETEM vereist dat je een geregistreerd lid bent om de daadwerkelijke audio van een boek te streamen of te downloaden, ook al kan de catalogus zelf vrij worden doorzocht. Voer je GETEM-gebruikersnaam en wachtwoord één keer in via **NVDA-menu → Opties → Instellingen → freeAudio**; ze worden versleuteld op schijf opgeslagen (via de Windows Data Protection API, gekoppeld aan je Windows-gebruikersaccount) en daarna automatisch hergebruikt. Als je probeert een GETEM-boek af te spelen of te downloaden voordat je inloggegevens hebt ingevoerd, vertelt freeAudio je eerst dat je ze in de Instellingen moet toevoegen.
 
-LibriVox en Project Gutenberg hebben helemaal geen aanmeldingsstap nodig — hun resultaten en audio kunnen onmiddellijk worden doorzocht, bekeken, afgespeeld en gedownload, zonder inloggegevens in te voeren.
+LibriVox, Project Gutenberg en Internet Archive hebben helemaal geen aanmeldingsstap nodig — hun resultaten en audio kunnen onmiddellijk worden doorzocht, bekeken, afgespeeld en gedownload, zonder inloggegevens in te voeren.
 
 ### Luisterboeken zoeken
 
@@ -649,8 +670,11 @@ Typ een zoekterm in het zoekveld en druk op `Enter`. freeAudio doorzoekt de bron
 - **GETEM** wordt doorzocht op titel, auteur, verteller, onderwerp en uitgever tegelijk, omdat GETEM's eigen zoekformulier alleen het beperken op alle tegelijk ondersteunt in plaats van één zoekopdracht over elk ervan. Alleen werken die daadwerkelijk beschikbaar zijn als audio (menselijke of computervoorlezing, audiodescriptie, hoorspel, DAISY-sprekende boeken, enz.) worden getoond; braille, grootletterdruk en andere niet-audioformaten worden automatisch uitgefilterd.
 - **LibriVox** wordt doorzocht op titel of auteur/lezer in zijn publiek-domein catalogus.
 - **Project Gutenberg** wordt doorzocht op titel of auteur in de Open Audiobook Collection op archive.org.
+- **Internet Archive** wordt doorzocht op titel of auteur binnen de audio-items met de tag “audiobook” op archive.org. Titels van LibriVox en Project Gutenberg blijven buiten deze resultaten, zodat geen boek dubbel verschijnt.
 
-Het rechtstreeks plakken van de catalogus-/detailpagina-URL van een boek in het zoekveld (een GETEM-cataloguspagina, of een archive.org "details"-pagina voor een LibriVox- of Project Gutenberg-titel) herleidt dat enkele boek direct in plaats van een trefwoordzoekopdracht uit te voeren.
+De zoekopdrachten bij LibriVox, Project Gutenberg en Internet Archive proberen eerst je exacte woorden. Alleen als dat niets oplevert, vallen ze terug op toleranter zoeken: een titel als “Moonstone, The” wordt ook geprobeerd als “The Moonstone”, een auteur geschreven als “Doyle, Arthur Conan” ook als “Arthur Conan Doyle”, titels en leestekens worden genegeerd, en ten slotte wordt elk woord apart in titel en auteur gezocht.
+
+Het rechtstreeks plakken van de catalogus-/detailpagina-URL van een boek in het zoekveld (een GETEM-cataloguspagina, of een archive.org "details"-pagina voor een LibriVox-, Project Gutenberg- of Internet Archive-titel) herleidt dat enkele boek direct in plaats van een trefwoordzoekopdracht uit te voeren. Als een archive.org-pagina geen luisterboek is, meldt freeAudio dat.
 
 NVDA kondigt aan hoeveel luisterboeken in totaal zijn gevonden.
 
@@ -673,7 +697,7 @@ Boeken die je hebt toegevoegd verschijnen in de lijst **Bibliotheek**, met titel
 
 - **Media afspelen** — begin met afspelen, hetzelfde als `Enter`.
 - **Boek downloaden** — download elk deel van het boek; zie [Luisterboeken downloaden](#luisterboeken-downloaden) hieronder.
-- **Kopieer de URL** — kopieer de cataloguspagina-URL van het boek naar het klembord (de GETEM-cataloguspagina voor een GETEM-boek, of de archive.org detailpagina voor een LibriVox- of Project Gutenberg-boek).
+- **Kopieer de URL** — kopieer de cataloguspagina-URL van het boek naar het klembord (de GETEM-cataloguspagina voor een GETEM-boek, of de archive.org detailpagina voor een LibriVox-, Project Gutenberg- of Internet Archive-boek).
 - **Audioprofiel voor dit boek opslaan** / **Audioprofiel wissen** — zie [Luisterboek-audioprofiel](#luisterboek-audioprofiel) hieronder.
 - **Verwijder uit bibliotheek** — verwijder het boek uit je bibliotheek.
 
@@ -701,7 +725,7 @@ Selecteer een boek in je bibliotheek en kies **Boek downloaden** in het contextm
 
 ### Directe sneltoetsen voor luisterboeken
 
-Elk boek in je Luisterboekenbibliotheek — of het nu van GETEM, LibriVox of Project Gutenberg komt — wordt geregistreerd als een apart script in het dialoogvenster Invoerhandelingen van NVDA, onder de categorie **freeAudio Luisterboeken**, precies zoals [Directe sneltoetsen voor favoriete stations](#directe-sneltoetsen-voor-favoriete-stations) en [Directe sneltoetsen voor jukeboxitems](#directe-sneltoetsen-voor-jukeboxitems). Je kunt elke sneltoets aan elk boek toewijzen en deze vanaf elke locatie indrukken — je hoeft de stationsverkenner niet eerst te openen. Standaard zijn er geen sneltoetsen toegewezen.
+Elk boek in je Luisterboekenbibliotheek — of het nu van GETEM, LibriVox, Project Gutenberg of Internet Archive komt — wordt geregistreerd als een apart script in het dialoogvenster Invoerhandelingen van NVDA, onder de categorie **freeAudio Luisterboeken**, precies zoals [Directe sneltoetsen voor favoriete stations](#directe-sneltoetsen-voor-favoriete-stations) en [Directe sneltoetsen voor jukeboxitems](#directe-sneltoetsen-voor-jukeboxitems). Je kunt elke sneltoets aan elk boek toewijzen en deze vanaf elke locatie indrukken — je hoeft de stationsverkenner niet eerst te openen. Standaard zijn er geen sneltoetsen toegewezen.
 
 Een sneltoets toewijzen:
 
@@ -716,7 +740,7 @@ Wanneer je een boek aan de bibliotheek toevoegt of er een verwijdert, wordt de c
 
 ### Opslag van luisterboekgegevens
 
-Elke bron houdt zijn eigen bibliotheekbestand bij, ook al worden ze samengevoegd weergegeven op het tabblad Luisterboeken. Je GETEM-bibliotheek (toegevoegde boeken en hun luistervoortgang) wordt opgeslagen in `freeAudio_getem_library.json`, je LibriVox-bibliotheek wordt apart opgeslagen in `freeAudio_librivox_library.json`, en je Project Gutenberg-bibliotheek wordt apart opgeslagen in `freeAudio_gutenberg_library.json` — alle drie in de NVDA-gebruikersconfiguratiemap. Je versleutelde GETEM-inloggegevens worden apart opgeslagen in `freeAudio_getem_credentials.bin` op dezelfde locatie, en kunnen alleen worden ontsleuteld door dezelfde Windows-gebruikersaccount die ze heeft opgeslagen. LibriVox en Project Gutenberg hebben geen inloggegevensbestand, aangezien geen van beide een account vereist.
+Elke bron houdt zijn eigen bibliotheekbestand bij, ook al worden ze samengevoegd weergegeven op het tabblad Luisterboeken. Je GETEM-bibliotheek (toegevoegde boeken en hun luistervoortgang) wordt opgeslagen in `freeAudio_getem_library.json`, je LibriVox-bibliotheek wordt apart opgeslagen in `freeAudio_librivox_library.json`, en je Project Gutenberg-bibliotheek wordt apart opgeslagen in `freeAudio_gutenberg_library.json`, en je Internet Archive-bibliotheek wordt apart opgeslagen in `freeAudio_archive_audiobooks_library.json` — alle vier in de NVDA-gebruikersconfiguratiemap. Je versleutelde GETEM-inloggegevens worden apart opgeslagen in `freeAudio_getem_credentials.bin` op dezelfde locatie, en kunnen alleen worden ontsleuteld door dezelfde Windows-gebruikersaccount die ze heeft opgeslagen. LibriVox, Project Gutenberg en Internet Archive hebben geen inloggegevensbestand, aangezien geen van beide een account vereist.
 
 ## Lokale jukebox
 
@@ -957,7 +981,7 @@ De volgende opties kunnen worden geconfigureerd via NVDA-menu → Opties → Ins
 | Audio-uitvoerapparaat | Stelt het audio-uitvoerapparaat in voor radio-afspelen. De lijst bevat alle BASS-compatibele apparaten op het systeem plus een optie "Systeemstandaard". Wijzigingen worden direct na opslaan toegepast; als het geselecteerde apparaat is losgekoppeld, valt de add-on automatisch terug op de systeemstandaard en kondigt de wijziging aan. |
 | Vernieuwingsmodus voor audioapparaten | Bepaalt hoe freeAudio de BASS-uitvoerapparaatnummers vernieuwt. **Betrouwbaar** (standaard) peilt apparaten live en volgt Bluetooth/USB-wijzigingen nauwkeuriger, maar kan apparaatwisselingen iets langzamer maken. **Snel** gebruikt de huidige BASS-apparatenlijst en is sneller, maar apparaatnummers kunnen verouderd blijven tot BASS of NVDA opnieuw wordt gestart. |
 | Volume | Stelt het startvolume van de add-on in (0–100). Tijdens het afspelen kan `Ctrl+Win+↑` het volume verhogen tot 200, maar het startvolume dat hier wordt opgeslagen, is beperkt tot 100. |
-| Audio-effecten | Stelt in welke effecten (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb en de drie EQ-versterkingen) actief zijn wanneer NVDA start of een station begint te spelen. Meerdere effecten kunnen tegelijk worden aangevinkt, overeenkomstig de Effecten-lijst in de Stationsverkenner. |
+| Audio-effecten | Stelt in welke effecten (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird en de drie EQ-versterkingen) actief zijn wanneer NVDA start of een station begint te spelen. Meerdere effecten kunnen tegelijk worden aangevinkt, overeenkomstig de Effecten-lijst in de Stationsverkenner. |
 | EQ-gain (Bass / Treble / Vocal) | Stelt het gain-niveau in dB in voor elke EQ-band (−15 tot +15). Deze waarden zijn van toepassing wanneer het bijbehorende EQ-effect actief is en worden globaal opgeslagen. Overschrijvingen per station kunnen worden opgeslagen met de knop **Audioprofiel opslaan** in het tabblad Favorieten. |
 | Vloeiende stationsovergang | Regelt het overgangsgedrag bij het wisselen tussen **live radiostations**. **Directe overgang** (standaard) stopt het vorige station onmiddellijk voordat het nieuwe begint. **Korte crossfade (1 seconde)** en **Normale crossfade (2 seconden)** starten het nieuwe station direct zonder pauze, en vervagen vervolgens geleidelijk het vorige station op de achtergrond zodra de nieuwe stream als actief is bevestigd. **Stationsafstemgeluidseffect** stopt het vorige station onmiddellijk en speelt een stationsafstemgeluid af voordat het nieuwe begint. Heeft geen effect en geen prestatie-impact bij instelling op "Directe overgang". Niet van toepassing op podcasts, luisterboeken of jukeboxnummers — het hervatten daarvan speelt altijd zijn eigen korte cassette-geluidseffect af, ongeacht deze instelling; zie [Afspeeldetails van podcasts](#afspeeldetails-van-podcasts). |
 | Laatste station hervatten bij NVDA-opstart | Indien ingeschakeld, start het laatst gespeelde station automatisch elke keer dat NVDA opstart. |
@@ -976,7 +1000,7 @@ De volgende opties kunnen worden geconfigureerd via NVDA-menu → Opties → Ins
 | Map voor opnames | Stelt de map in waar opgenomen bestanden worden opgeslagen. Indien leeg gelaten, wordt de standaardlocatie `Documents\freeAudio Recordings\` gebruikt. Een Bladeren-knop laat je de map interactief selecteren. Wijzigingen worden direct na het opslaan van kracht. |
 | Modules | Een checklist van de optionele onderdelen van freeAudio: **Podcasts**, **Luisterboeken** en **Jukebox**. Alle drie zijn standaard ingeschakeld. Het uitvinken van een onderdeel verwijdert het tabblad uit de Stationsverkenner en de bijbehorende commando's uit het dialoogvenster Invoerhandelingen van NVDA, zonder iets te verwijderen dat je er hebt opgeslagen (abonnementen, bibliotheek, Jukebox-lijst); opnieuw aanvinken brengt alles terug. Wijzigingen worden van kracht de volgende keer dat de Stationsverkenner wordt geopend. |
 | Neem netwerkstations mee in de zoekopdracht in de jukebox | Indien ingeschakeld, doorzoekt **Zoek op apparaten** in de Jukebox ook netwerkschijven. Standaard uitgeschakeld, omdat het doorzoeken van een netwerkshare minuten kan duren, of kan vastlopen als de share niet bereikbaar is. |
-| Luisterboekbronnen | Een checklist die selecteert welke luisterboekbronnen (**GETEM**, **LibriVox**, **Project Gutenberg**) worden doorzocht en getoond op het tabblad Luisterboeken. Alle drie zijn standaard ingeschakeld. Het uitvinken van een bron verbergt de boeken uit die bron uit de samengevoegde zoekresultaten en bibliotheeklijst, zonder iets te verwijderen dat je er al hebt toegevoegd — zie [Luisterboeken (GETEM, LibriVox en Project Gutenberg)](#luisterboeken-getem-librivox-en-project-gutenberg). |
+| Luisterboekbronnen | Een checklist die selecteert welke luisterboekbronnen (**GETEM**, **LibriVox**, **Project Gutenberg**, **Internet Archive**) worden doorzocht en getoond op het tabblad Luisterboeken. Alle vier zijn standaard ingeschakeld. Het uitvinken van een bron verbergt de boeken uit die bron uit de samengevoegde zoekresultaten en bibliotheeklijst, zonder iets te verwijderen dat je er al hebt toegevoegd — zie [Luisterboeken (GETEM, LibriVox, Project Gutenberg en Internet Archive)](#luisterboeken-getem-librivox-project-gutenberg-en-internet-archive). |
 | GETEM-gebruikersnaam / GETEM-wachtwoord | Je lidmaatschapsgegevens voor [GETEM](https://getem.boun.edu.tr/)-luisterboeken, nodig om de audio van een boek te streamen of te downloaden — zie [Aanmelden](#aanmelden). Versleuteld op schijf opgeslagen via de Windows Data Protection API, gekoppeld aan je Windows-gebruikersaccount; nooit als platte tekst opgeslagen. Het leeg laten van beide velden en opslaan verwijdert eventuele opgeslagen inloggegevens. LibriVox en Project Gutenberg vereisen geen account en hebben geen equivalent veld. |
 | Opname-uitvoerformaat | Behoudt de originele stream, extraheert audio zonder de codec te wijzigen, of converteert voltooide opnames naar MP3. De standaard is het originele streamformaat. |
 | Bitsnelheid MP3-opname | Stelt de bitsnelheid in die wordt gebruikt wanneer het opname-uitvoerformaat MP3 is. De standaard is 128 kb/s. |
@@ -991,7 +1015,7 @@ De knop **Opruimen: instellingen terugzetten en opgeslagen gegevens verwijderen.
 - **Favoriete stations**
 - **Cache van de stationlijst** — wordt indien nodig opnieuw gedownload.
 - **Podcast-abonnementen**
-- **Luisterboekenbibliotheken** — GETEM, LibriVox en Project Gutenberg.
+- **Luisterboekenbibliotheken** — GETEM, LibriVox, Project Gutenberg en Internet Archive.
 - **Opgeslagen GETEM-aanmelding** — de opgeslagen gebruikersnaam en het wachtwoord.
 - **Jukeboxlijst** — je muziekbestanden worden niet verwijderd.
 - **Opgeslagen hervatposities** — podcasts, luisterboeken en jukeboxmappen.

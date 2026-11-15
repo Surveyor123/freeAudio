@@ -6,7 +6,7 @@ freeAudio to pełnowartościowy dodatek do czytnika ekranu NVDA, łączący radi
 
 - **Radio internetowe** — przeglądaj i wyszukuj ponad 50 000 stacji z katalogu [Radio Browser](https://www.radio-browser.info/), z wynikami uzupełnianymi o TuneIn i iHeartRadio. Zapisuj ulubione, zmieniaj ich kolejność i przechodź do dowolnej z nich globalnym skrótem klawiszowym z dowolnego miejsca w systemie Windows — zobacz [Katalog Radio Browser](#katalog-radio-browser) i [Ulubione](#ulubione).
 - **Podcasty** — subskrybuj dowolny kanał RSS/Atom albo przeszukuj katalog podcastów Apple i odsłuchuj odcinki przed subskrypcją. Pozycja odtwarzania jest zapisywana automatycznie i wznawiana w miejscu, w którym skończyłeś — zobacz [Podcasty](#podcasty).
-- **Audiobooki** — wyszukuj i odtwarzaj lub pobieraj książki z trzech źródeł: [GETEM](https://getem.boun.edu.tr/), biblioteki cyfrowej Uniwersytetu Boğaziçi dla osób z dysfunkcją wzroku, [LibriVox](https://librivox.org/), wolontariackiego projektu audiobooków z domeny publicznej, oraz Open Audiobook Collection Projektu Gutenberg — dwa ostatnie nie wymagają konta — z automatycznym wznawianiem w dziełach wieloczęściowych — zobacz [Audiobooki (GETEM, LibriVox i Project Gutenberg)](#audiobooki-getem-librivox-i-project-gutenberg).
+- **Audiobooki** — wyszukuj, odtwarzaj i pobieraj książki z czterech źródeł: [GETEM](https://getem.boun.edu.tr/), biblioteki cyfrowej Uniwersytetu Boğaziçi dla osób niewidomych i słabowidzących; [LibriVox](https://librivox.org/), projektu audiobooków z domeny publicznej czytanych przez wolontariuszy; Open Audiobook Collection Project Gutenberg; oraz audiobooków w [Internet Archive](https://archive.org/), w tym wielu w innych językach. Konta wymaga tylko GETEM. Dzieła wieloczęściowe są automatycznie wznawiane w miejscu, w którym skończyłeś — zobacz [Audiobooki (GETEM, LibriVox, Project Gutenberg i Internet Archive)](#audiobooki-getem-librivox-project-gutenberg-i-internet-archive).
 - **Lokalny Jukebox** — wyszukuj pliki audio zapisane na dowolnym podłączonym dysku według nazwy pliku albo zbuduj osobistą bibliotekę plików i folderów i odtwarzaj je z tymi samymi narzędziami wznawiania, przewijania, prędkości i wysokości dźwięku, których używają podcasty i audiobooki — zobacz [Lokalny Jukebox](#lokalny-jukebox).
 - **Zakładki** — Wstaw zakładkę w bieżącym miejscu dowolnej części audiobooka, odcinka podcastu lub utworu z jukeboksa, a później wróć do niej w każdej chwili. Zakładka może zawierać notatkę tekstową lub nagraną notatkę głosową, odtwarzaną, gdy odtwarzanie dojdzie do tego miejsca; można też powtarzać fragment między dwiema zakładkami lub zapisać go jako plik audio — zob. [Zakładki](#zakładki).
 - **Nagrywanie** — Nagrywaj to, co gra, natychmiast, nagraj pojedynczy utwór od początku do końca, nagrywaj każdy utwór ze stacji do osobnego pliku, dopóki nie zatrzymasz nagrywania, albo zaplanuj nagrania jednorazowe i cykliczne — a wszystko to bez przerywania odtwarzania — zob. [Nagrywanie](#nagrywanie).
@@ -59,6 +59,7 @@ Niektóre z tych skrótów pokrywają się ze skrótami używanymi przez sam sys
 | Skrót | Funkcja | Opis |
 |---|---|---|
 | `Ctrl+Win+R` | Otwórz przeglądarkę stacji | Otwiera okno przeglądarki, jeśli jest zamknięte, albo przenosi je na wierzch, jeśli jest już otwarte. |
+| `Ctrl+Win+F` | Otwórz kartę Ulubione | Otwiera lub przywraca przeglądarkę stacji, wybiera Ulubione i ustawia fokus na liście stacji. |
 | `Ctrl+Win+O` | Otwórz kartę Podcasty | Otwiera przeglądarkę stacji (jeśli jest zamknięta) albo przenosi ją na wierzch i przełącza bezpośrednio na kartę **Podcasty**. |
 | `Ctrl+Win+L` | Otwórz kartę Audiobooki | Otwiera przeglądarkę stacji (jeśli jest zamknięta) albo przenosi ją na wierzch i przełącza bezpośrednio na kartę **Audiobooki**. |
 | `Ctrl+Win+U` | Otwórz kartę Jukebox | Otwiera przeglądarkę stacji (jeśli jest zamknięta) albo przenosi ją na wierzch i przełącza bezpośrednio na kartę **Jukebox**, z fokusem w polu wyszukiwania na urządzeniach. |
@@ -92,7 +93,7 @@ Niektóre z tych skrótów pokrywają się ze skrótami używanymi przez sam sys
 | *(nieprzypisane)* | Przełącz wyciszenie powiadomień | Przełącza ustawienie Wycisz powiadomienia w locie. Przypisz skrót w menu NVDA → Preferencje → Zdarzenia wejścia → freeAudio. |
 | *(nieprzypisane)* | Odtwórz ulubioną stację bezpośrednio | Każda stacja z listy ulubionych pojawia się jako osobna pozycja w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio Stations**. Przypisz skrót klawiszowy dowolnej stacji i uruchamiaj ją natychmiast z dowolnego miejsca, bez otwierania przeglądarki. |
 | *(nieprzypisane)* | Odtwórz pozycję Jukeboksa bezpośrednio | Każdy plik lub folder z listy Jukebox pojawia się jako osobna pozycja w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio Jukebox**. Zobacz [Bezpośrednie skróty klawiszowe do pozycji Jukeboksa](#bezpośrednie-skróty-klawiszowe-do-pozycji-jukeboksa). |
-| *(nieprzypisane)* | Odtwórz audiobook bezpośrednio | Każda książka z Twojej biblioteki audiobooków — z GETEM, LibriVox lub Project Gutenberg — pojawia się jako osobna pozycja w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio Audio Books**. Przypisz skrót klawiszowy dowolnej książce i wznawiaj ją natychmiast z dowolnego miejsca, bez otwierania przeglądarki. Zobacz [Bezpośrednie skróty klawiszowe do audiobooków](#bezpośrednie-skróty-klawiszowe-do-audiobooków). |
+| *(nieprzypisane)* | Odtwórz audiobook bezpośrednio | Każda książka z Twojej biblioteki audiobooków — z GETEM, LibriVox, Project Gutenberg lub Internet Archive — pojawia się jako osobna pozycja w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio Audio Books**. Przypisz skrót klawiszowy dowolnej książce i wznawiaj ją natychmiast z dowolnego miejsca, bez otwierania przeglądarki. Zobacz [Bezpośrednie skróty klawiszowe do audiobooków](#bezpośrednie-skróty-klawiszowe-do-audiobooków). |
 
 `Ctrl+Win+→` / `Ctrl+Win+←` poruszają się tylko po liście ulubionych; nie działają z listą wszystkich stacji — aby przechodzić po liście, z której uruchomiono bieżącą stację, użyj `Ctrl+Win+F4` / `Ctrl+Win+F3` (patrz niżej). Gdy fokus znajduje się na liście w oknie przeglądarki, lewa i prawa strzałka pełnią tę samą funkcję — zobacz Skróty w oknie dialogowym.
 
@@ -112,6 +113,7 @@ Warto wiedzieć:
 - Jeśli nic nie jest odtwarzane, kombinacja klawiszy jest przekazywana do systemu Windows bez zmian, tak samo jak w przypadku `Ctrl+Win+→` / `Ctrl+Win+←`.
 - Na obu końcach listy (poza radiem, które zawija) NVDA komunikuje „To już pierwszy …” lub „To już ostatni …” i nic się nie zmienia. Utwór jukeboksa, który nie został uruchomiony jako część folderu, nie ma sąsiadów i zgłasza to samo.
 - **Automatyczne przechodzenie nie jest przerywane.** Po przeskoku w folderze jukeboksa lub w audiobooku następny utwór lub część nadal uruchamia się samoczynnie, gdy bieżący się kończy — przy otwartej i zamkniętej przeglądarce stacji. Naciśnięcie „następny” na ostatnim utworze folderu nie resetuje zapisanej pozycji folderu.
+- **Wielokrotne naciskanie klawisza pomijania działa krok po kroku.** Każde naciśnięcie przesuwa o jeden element dalej od miejsca, w którym zakończyło się poprzednie, nawet jeśli ten element jeszcze nie zaczął grać, a odtwarzany jest tylko ostatni. Dotyczy to także polecenia głosowego lub makra powtarzającego polecenie, na przykład „następna stacja” cztery razy.
 - Lista odcinków podcastu jest przechowywana w pamięci tylko przez bieżącą sesję NVDA. Jeśli nie została jeszcze załadowana — na przykład tuż po uruchomieniu NVDA — NVDA prosi o otwarcie przeglądarki stacji i jednorazowe wybranie tego podcastu; potem klawisze działają także przy zamkniętym oknie.
 - Jeśli przeglądarka stacji jest otwarta, przeskoczenie audiobooka z klawiatury aktualizuje także informację „teraz odtwarzane” (książka i część) w oknie, dzięki czemu jego własne automatyczne przechodzenie kontynuuje od właściwego miejsca.
 
@@ -129,7 +131,7 @@ Podczas wyszukiwania wyniki z Radio Browser są uzupełniane stacjami z TuneIn i
 
 Lista **Urządzenie wyjściowe** na dole okna przeglądarki, poza kartami, zawiera wszystkie urządzenia audio rozpoznane przez BASS. Wybranie urządzenia natychmiast przekierowuje na nie dźwięk i zapisuje wybór na stałe; to samo urządzenie będzie użyte automatycznie w następnej sesji. Jeśli wybrane urządzenie nie jest podłączone, dodatek sam wraca do domyślnego urządzenia systemowego. Naciśnij `F11`, aby z dowolnego miejsca w Przeglądarce stacji otworzyć prostsze okno wyboru urządzenia. Nie pojawia się ono automatycznie i jest otwierane tylko wtedy, gdy BASS wykryje więcej niż jedno fizyczne urządzenie wyjściowe. Gdy dostępne jest tylko jedno urządzenie, wybór nie jest potrzebny, a freeAudio korzysta z domyślnego urządzenia systemowego.
 
-Kontrolki **Głośność** (0–200) i **Efekty** w tym samym obszarze można zmieniać w dowolnej chwili, gdy okno jest otwarte. Z listy efektów można jednocześnie włączyć Chorus, Kompresor, Przesterowanie, Echo, Flanger, Gargle, Pogłos, EQ: wzmocnienie basu, EQ: wzmocnienie sopranów i EQ: wzmocnienie wokalu; zmiany są natychmiast stosowane do aktywnego strumienia. Każdy efekt można też natychmiast przełączyć skrótami od `Ctrl+1` do `Ctrl+0`, bez odrywania rąk od klawiatury — zobacz [Skróty efektów](#skróty-efektów).
+Kontrolki **Głośność** (0–200) i **Efekty** w tym samym obszarze można zmieniać w dowolnej chwili, gdy okno jest otwarte. Z listy efektów można jednocześnie włączyć Chorus, Kompresor, Przesterowanie, Echo, Flanger, Gargle, Pogłos, Dziwny, EQ: wzmocnienie basu, EQ: wzmocnienie sopranów i EQ: wzmocnienie wokalu; zmiany są natychmiast stosowane do aktywnego strumienia. Każdy efekt można też natychmiast przełączyć skrótami od `Ctrl+1` do `Ctrl+0`, bez odrywania rąk od klawiatury — zobacz [Skróty efektów](#skróty-efektów).
 
 Gdy włączony jest co najmniej jeden efekt EQ, dla każdego aktywnego pasma pojawia się **kontrolka wzmocnienia**. Wzmocnienie można ustawić od −15 dB do +15 dB; wartości domyślne to bas +9 dB, soprany +9 dB i wokal +6 dB. Kontrolki są widoczne tylko dla aktualnie zaznaczonych pasm EQ i znikają automatycznie po odznaczeniu efektu. Wartości wzmocnienia są zapisywane globalnie i przywracane w następnej sesji.
 
@@ -179,8 +181,8 @@ Poniższe klawisze działają tylko wtedy, gdy aktywne jest okno Przeglądarka s
 |---|---|---|
 | `→` | Następny element / przewiń do przodu | Na liście stacji (Wszystkie stacje / Ulubione) przechodzi do następnej stacji i odtwarza ją natychmiast, wracając na początek po dojściu do końca listy. Na listach elementów Podcastów, Audiobooków lub Jukeboksa, gdy coś jest załadowane i gra, zamiast tego przewija do przodu — tak samo jak globalne polecenie `Ctrl+Win+K` (zobacz Przewijanie stopniowane powyżej). Na liście odcinków Podcastów, jeśli nic jeszcze nie jest załadowane, przechodzi do następnego odcinka i go odtwarza. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
 | `←` | Poprzedni element / przewiń wstecz | Na liście stacji przechodzi do poprzedniej stacji i odtwarza ją, skacząc na koniec listy po dojściu do jej początku. Na listach elementów Podcastów, Audiobooków lub Jukeboksa, gdy coś jest załadowane i gra, zamiast tego przewija wstecz — tak samo jak globalne polecenie `Ctrl+Win+J`. Na liście odcinków Podcastów, jeśli nic jeszcze nie jest załadowane, przechodzi do poprzedniego odcinka i go odtwarza. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
-| `Shift+→` | Transpozycja w górę | Na listach elementów Podcastów, Audiobooków lub Jukeboksa: podwyższa wysokość bieżącego odtwarzania o półton, tak samo jak globalne polecenie `Shift+Win+K`. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
-| `Shift+←` | Transpozycja w dół | Na listach elementów Podcastów, Audiobooków lub Jukeboksa: obniża wysokość bieżącego odtwarzania o półton, tak samo jak globalne polecenie `Shift+Win+J`. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
+| `Shift+→` | Transpozycja w górę | Na listach elementów Podcastów, Audiobooków lub Jukeboksa: podwyższa wysokość bieżącego odtwarzania o jeden krok (0,25 półtonu), tak samo jak globalne polecenie `Shift+Win+K`. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
+| `Shift+←` | Transpozycja w dół | Na listach elementów Podcastów, Audiobooków lub Jukeboksa: obniża wysokość bieżącego odtwarzania o jeden krok (0,25 półtonu), tak samo jak globalne polecenie `Shift+Win+J`. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
 | `Page Up` | Zwiększ prędkość odtwarzania | Na listach elementów Podcastów, Audiobooków lub Jukeboksa: zwiększa prędkość odtwarzania, tak samo jak globalne polecenie `Ctrl+Win+Shift+K`. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
 | `Page Down` | Zmniejsz prędkość odtwarzania | Na listach elementów Podcastów, Audiobooków lub Jukeboksa: zmniejsza prędkość odtwarzania, tak samo jak globalne polecenie `Ctrl+Win+Shift+J`. To samo dotyczy list zakładek pod tymi listami (zob. [Zakładki](#zakładki)). |
 | `Alt+→` | Dokładne przewijanie do przodu (1 sekunda) | Na dowolnej karcie Przeglądarki stacji, gdy coś jest wczytane: przewija do przodu dokładnie o 1 sekundę, tak samo jak globalne polecenie `Ctrl+Win+Alt+K`. Zob. [Dokładne przewijanie (1 sekunda)](#dokładne-przewijanie-1-sekunda). |
@@ -316,9 +318,27 @@ Karta Ulubione zawiera dwa przyciski do zarządzania ustawieniami audio dla konk
 
 Oba przyciski znajdują się pod listą ulubionych i są aktywne tylko po zaznaczeniu stacji na liście.
 
+## Dziesięciopasmowy korektor
+
+Karta **Korektor** jest ostatnią kartą w przeglądarce stacji. Użyj **Korektor wł./wył.**, aby go włączyć lub wyłączyć. Wyłączenie zachowuje ustawienia pasm.
+
+Dziesięć suwaków steruje pasmami **62, 125, 250, 500, 1000, 2000, 4000, 8000, 12000 i 16000 Hz** w zakresie od **−20 do +20 dB** z krokiem 1 dB. Do suwaka dojdziesz klawiszami Tab i Shift+Tab, a ustawisz go strzałkami. NVDA ogłasza częstotliwość i wartość ze znakiem w dB. Zmiany działają podczas odtwarzania.
+
+**Resetuj** ustawia wszystkie dziesięć pasm na 0 dB. **Zapisz** zapisuje ustawienia w konfiguracji NVDA i ogłasza powodzenie lub błąd zapisu. Ustawienia są przywracane przy uruchomieniu NVDA. Korektor działa globalnie dla wszystkich stacji i innych multimediów. Istniejące ustawienia dziewięciopasmowe zachowują pierwotne wartości, w tym pasmo 16000 Hz. Nowe pasmo 12000 Hz zaczyna od 0 dB.
+
+Gdy wszystkie pasma są na 0 dB, korektor zachowuje pierwotną głośność. Każdy suwak reguluje swój filtr szczytowy bez automatycznej zmiany ogólnej głośności. Duże podbicia mogą powodować przesterowanie. Jeśli słyszysz zniekształcenia, zmniejsz wzmocnienie pasm.
+
+Aby przełączać korektor przy zamkniętej przeglądarce, przypisz gest do polecenia **Włącz lub wyłącz korektor** w menu NVDA → Preferencje → Zdarzenia wejścia → **freeAudio**. To polecenie nie ma domyślnego gestu. Istniejące efekty wzmocnienia basów, wysokich tonów i wokalu pozostają dostępne obok dziesięciopasmowego korektora.
+
+## Efekt Dziwny
+
+**Dziwny** pojawia się na liście efektów w przeglądarce stacji i w ustawieniach freeAudio zaraz po **Reverb**. Zaznacz lub odznacz go, aby włączyć lub wyłączyć jego wyprostowany, nieliniowy dźwięk. Można go łączyć z korektorem i innymi efektami.
+
+Aby zapisać jego stan dla ulubionej stacji, użyj **Zapisz profil audio** i wybierz **Tylko efekty** lub **Głośność i efekty**. Zapisany stan włączenia jest przywracany razem z pozostałymi efektami stacji. Stacje bez profilu używają globalnych ustawień efektów. **Włącz lub wyłącz efekt Dziwny** jest też dostępne w oknie Zdarzenia wejścia NVDA w kategorii **freeAudio**, bez domyślnego gestu.
+
 ## Rozpoznawanie muzyki
 
-Trzykrotne naciśnięcie `Ctrl+Win+I` uruchamia rozpoznawanie muzyki przez Shazam dla aktualnie odtwarzanego strumienia. Rozpoznawanie zaczyna się tylko wtedy, gdy nie są dostępne metadane ICY, czyli informacje o utworze nadawane przez stację; jeśli metadane są dostępne, zostaną zamiast tego skopiowane do schowka.
+Trzykrotne naciśnięcie `Ctrl+Win+I` uruchamia rozpoznawanie muzyki przez Shazam dla aktualnie odtwarzanego strumienia. Rozpoznawanie zaczyna się tylko wtedy, gdy nie są dostępne metadane ICY, czyli informacje o utworze nadawane przez stację; jeśli metadane są dostępne, zostaną zamiast tego skopiowane do schowka. Czterokrotne naciśnięcie `Ctrl+Win+I` wymusza rozpoznawanie, nawet gdy stacja wysyła metadane, co pomaga, gdy są błędne.
 
 Rozpoznawanie działa następująco: za pomocą ffmpeg ze strumienia pobierana jest krótka próbka dźwięku (ffmpeg przedstawia się tak jak odtwarzacz multimedialny, więc stacje odmawiające obsługi nieznanych programów nadal odpowiadają), stosowany jest algorytm odcisków palców Shazam, a wynik jest wysyłany na serwery Shazam. Jeśli rozpoznanie się powiedzie, tytuł utworu, wykonawca, album i rok wydania są ogłaszane przez NVDA i automatycznie kopiowane do schowka. Jeśli włączona jest opcja **Zapisuj polubione utwory do pliku tekstowego**, wynik rozpoznawania jest także dopisywany do pliku `likedSongs.txt`.
 
@@ -614,19 +634,20 @@ Do profilu zapisywane są tylko wybrane elementy; wszystko, co pominiesz, zachow
 
 Subskrypcje są zapisywane w pliku `freeAudio_podcasts.json` w folderze konfiguracji użytkownika NVDA. Pozycje odcinków są przechowywane osobno w `podcast_positions.json` w tej samej lokalizacji. Oba pliki są zwykłym JSON i można je archiwizować lub przenosić na inny komputer.
 
-## Audiobooki (GETEM, LibriVox i Project Gutenberg)
+## Audiobooki (GETEM, LibriVox, Project Gutenberg i Internet Archive)
 
-freeAudio zawiera odtwarzacz audiobooków, który wyszukuje, odtwarza i pobiera książki z trzech źródeł:
+freeAudio zawiera odtwarzacz audiobooków, który wyszukuje, odtwarza i pobiera książki z czterech źródeł:
 
 - **[GETEM](https://getem.boun.edu.tr/)** — biblioteka cyfrowa prowadzona przez Centrum Osób z Dysfunkcją Wzroku Uniwersytetu Boğaziçi. Strumieniowanie lub pobieranie dźwięku książki wymaga bezpłatnego członkostwa (przeglądanie go nie wymaga) — zobacz [Logowanie](#logowanie) poniżej.
 - **[LibriVox](https://librivox.org/)** — wolontariacki projekt audiobooków z domeny publicznej. Nie jest potrzebne żadne konto ani logowanie; cały jego katalog, łącznie z samymi plikami audio, należy do domeny publicznej i jest otwarcie dostępny.
 - **Project Gutenberg Open Audiobook Collection** — audiobooki z domeny publicznej czytane przez lektorów lub syntezator, hostowane na [archive.org](https://archive.org/), towarzysz biblioteki tekstów Projektu Gutenberg. Podobnie jak w LibriVox, nie jest potrzebne konto ani logowanie.
+- **Internet Archive** — audiobooki przesłane do [archive.org](https://archive.org/) i oznaczone „audiobook”, których nie obejmują jeszcze LibriVox ani Project Gutenberg. Dzięki temu pojawiają się audiobooki w innych językach, w tym po turecku. Konto ani logowanie nie jest potrzebne. To pliki przesłane przez pojedyncze osoby, więc kompletność części i szczegółów książki może się różnić między pozycjami.
 
-Wyniki ze wszystkich trzech źródeł pojawiają się razem na jednej połączonej liście **Wyniki wyszukiwania** i jednej połączonej liście **Biblioteka** — nie ma osobnej karty ani listy rozwijanej do przełączania między nimi. Źródło każdej książki (GETEM, LibriVox lub Project Gutenberg) jest pokazywane jako etykieta obok jej tytułu oraz w jej szczegółach, więc zawsze wiesz, na co patrzysz. Możesz wyszukiwać, podglądać, dodawać, odtwarzać i pobierać książki z dowolnego źródła dokładnie w ten sam sposób; odtwarzać dzieła wieloczęściowe z automatycznym wznawianiem między częściami; oraz pobierać książki do słuchania offline — wszystko w pełni dostępne.
+Wyniki ze wszystkich czterech źródeł pojawiają się razem na jednej połączonej liście **Wyniki wyszukiwania** i jednej połączonej liście **Biblioteka** — nie ma osobnej karty ani listy rozwijanej do przełączania między nimi. Źródło każdej książki (GETEM, LibriVox, Project Gutenberg lub Internet Archive) jest pokazywane jako etykieta obok jej tytułu oraz w jej szczegółach, więc zawsze wiesz, na co paczterysz. Możesz wyszukiwać, podglądać, dodawać, odtwarzać i pobierać książki z dowolnego źródła dokładnie w ten sam sposób; odtwarzać dzieła wieloczęściowe z automatycznym wznawianiem między częściami; oraz pobierać książki do słuchania offline — wszystko w pełni dostępne.
 
-Każde źródło można osobno wyłączyć w menu **NVDA → Preferencje → Ustawienia → freeAudio** za pomocą listy **Źródła audiobooków**, jeśli chcesz przeszukiwać tylko niektóre z nich. Wszystkie trzy są domyślnie włączone.
+Każde źródło można osobno wyłączyć w menu **NVDA → Preferencje → Ustawienia → freeAudio** za pomocą listy **Źródła audiobooków**, jeśli chcesz przeszukiwać tylko niektóre z nich. Wszystkie cztery są domyślnie włączone.
 
-> **Uwaga:** Słuchanie książki z GETEM wymaga bezpłatnego członkostwa w GETEM. Przeglądanie katalogu GETEM nie wymaga konta, ale uzyskanie i odtwarzanie dźwięku książki z GETEM — tak — zobacz [Logowanie](#logowanie) poniżej. Książki z LibriVox i Project Gutenberg nigdy nie wymagają konta.
+> **Uwaga:** Słuchanie książki z GETEM wymaga bezpłatnego członkostwa w GETEM. Przeglądanie katalogu GETEM nie wymaga konta, ale uzyskanie i odtwarzanie dźwięku książki z GETEM — tak — zobacz [Logowanie](#logowanie) poniżej. Książki z LibriVox, Project Gutenberg i Internet Archive nigdy nie wymagają konta.
 
 ### Dostęp do karty Audiobooki
 
@@ -640,7 +661,7 @@ Otwórz przeglądarkę stacji skrótem `Ctrl+Win+R` i przełącz się na kartę 
 
 GETEM wymaga bycia zarejestrowanym członkiem, aby strumieniować lub pobierać faktyczny dźwięk książki, chociaż sam katalog można swobodnie przeszukiwać. Wpisz swoją nazwę użytkownika i hasło GETEM jeden raz w menu **NVDA → Preferencje → Ustawienia → freeAudio**; są one przechowywane na dysku w postaci zaszyfrowanej (przez Windows Data Protection API, powiązane z Twoim kontem użytkownika systemu Windows) i automatycznie używane później. Jeśli spróbujesz odtworzyć lub pobrać książkę z GETEM przed wpisaniem danych logowania, freeAudio poinformuje, że najpierw trzeba je dodać w Ustawieniach.
 
-LibriVox i Project Gutenberg w ogóle nie wymagają logowania — ich wyniki i dźwięk można wyszukiwać, podglądać, odtwarzać i pobierać od razu, bez wpisywania żadnych danych logowania.
+LibriVox, Project Gutenberg i Internet Archive w ogóle nie wymagają logowania — ich wyniki i dźwięk można wyszukiwać, podglądać, odtwarzać i pobierać od razu, bez wpisywania żadnych danych logowania.
 
 ### Wyszukiwanie audiobooków
 
@@ -649,8 +670,11 @@ Wpisz wyszukiwane hasło w polu wyszukiwania i naciśnij `Enter`. freeAudio prze
 - **GETEM** jest przeszukiwany jednocześnie po tytule, autorze, lektorze, temacie i wydawcy, ponieważ formularz wyszukiwania GETEM pozwala tylko zawężać według wszystkich tych pól razem, a nie przeszukiwać pojedynczo dowolne z nich. Pokazywane są tylko dzieła faktycznie dostępne jako audio (narracja ludzka lub komputerowa, audiodeskrypcja, słuchowisko radiowe, książki mówione DAISY itd.); braille, duży druk i inne formaty bez dźwięku są automatycznie odfiltrowywane.
 - **LibriVox** jest przeszukiwany po tytule lub autorze/lektorze w jego katalogu z domeny publicznej.
 - **Project Gutenberg** jest przeszukiwany po tytule lub autorze w Open Audiobook Collection na archive.org.
+- **Internet Archive** jest przeszukiwane według tytułu lub autora wśród pozycji audio oznaczonych „audiobook” w archive.org. Tytuły z LibriVox i Project Gutenberg są pomijane w tych wynikach, więc żadna książka nie pojawia się dwa razy.
 
-Wklejenie adresu URL strony katalogowej/szczegółów książki bezpośrednio w polu wyszukiwania (strony katalogu GETEM albo strony „details” na archive.org dla tytułu z LibriVox lub Project Gutenberg) rozpoznaje tę jedną książkę bezpośrednio, zamiast uruchamiać wyszukiwanie po słowach kluczowych.
+Wyszukiwania w LibriVox, Project Gutenberg i Internet Archive najpierw próbują dokładnie wpisanych słów. Dopiero gdy nic nie znajdą, przechodzą do bardziej tolerancyjnego dopasowania: tytuł taki jak „Moonstone, The” jest też próbowany jako „The Moonstone”, autor zapisany jako „Doyle, Arthur Conan” także jako „Arthur Conan Doyle”, tytuły i interpunkcja są pomijane, a na końcu każde słowo jest dopasowywane osobno w tytule i autorze.
+
+Wklejenie adresu URL strony katalogowej/szczegółów książki bezpośrednio w polu wyszukiwania (strony katalogu GETEM albo strony „details” na archive.org dla tytułu z LibriVox, Project Gutenberg lub Internet Archive) rozpoznaje tę jedną książkę bezpośrednio, zamiast uruchamiać wyszukiwanie po słowach kluczowych. Jeśli strona archive.org nie jest audiobookiem, freeAudio o tym informuje.
 
 NVDA ogłasza, ile audiobooków znaleziono łącznie.
 
@@ -673,7 +697,7 @@ Dodane książki pojawiają się na liście **Biblioteka**, z tytułem, autorem 
 
 - **Odtwórz media** — rozpocznij odtwarzanie, tak samo jak `Enter`.
 - **Pobierz książkę** — pobierz wszystkie części książki; zobacz [Pobieranie audiobooków](#pobieranie-audiobooków) poniżej.
-- **Kopiuj adres URL** — skopiuj adres URL strony katalogowej książki do schowka (stronę katalogu GETEM dla książki z GETEM albo stronę szczegółów archive.org dla książki z LibriVox lub Project Gutenberg).
+- **Kopiuj adres URL** — skopiuj adres URL strony katalogowej książki do schowka (stronę katalogu GETEM dla książki z GETEM albo stronę szczegółów archive.org dla książki z LibriVox, Project Gutenberg lub Internet Archive).
 - **Zapisz profil audio dla tej książki** / **Wyczyść profil audio** — zobacz [Profil audio audiobooka](#profil-audio-audiobooka) poniżej.
 - **Usuń z biblioteki** — usuń książkę z biblioteki.
 
@@ -701,7 +725,7 @@ Zaznacz książkę w bibliotece i wybierz **Pobierz książkę** z jej menu kont
 
 ### Bezpośrednie skróty klawiszowe do audiobooków
 
-Każda książka w Twojej bibliotece audiobooków — niezależnie od tego, czy pochodzi z GETEM, LibriVox czy Project Gutenberg — jest zarejestrowana jako osobny skrypt w oknie Zdarzeń wejścia NVDA, w kategorii **freeAudio Audio Books**, dokładnie tak jak w [Bezpośrednie skróty klawiszowe do ulubionych stacji](#bezpośrednie-skróty-klawiszowe-do-ulubionych-stacji) i [Bezpośrednie skróty klawiszowe do pozycji Jukeboksa](#bezpośrednie-skróty-klawiszowe-do-pozycji-jukeboksa). Możesz przypisać dowolny skrót klawiszowy dowolnej książce i naciskać go z dowolnego miejsca — bez konieczności wcześniejszego otwierania okna przeglądarki. Domyślnie żaden skrót nie jest przypisany.
+Każda książka w Twojej bibliotece audiobooków — niezależnie od tego, czy pochodzi z GETEM, LibriVox, Project Gutenberg czy Internet Archive — jest zarejestrowana jako osobny skrypt w oknie Zdarzeń wejścia NVDA, w kategorii **freeAudio Audio Books**, dokładnie tak jak w [Bezpośrednie skróty klawiszowe do ulubionych stacji](#bezpośrednie-skróty-klawiszowe-do-ulubionych-stacji) i [Bezpośrednie skróty klawiszowe do pozycji Jukeboksa](#bezpośrednie-skróty-klawiszowe-do-pozycji-jukeboksa). Możesz przypisać dowolny skrót klawiszowy dowolnej książce i naciskać go z dowolnego miejsca — bez konieczności wcześniejszego otwierania okna przeglądarki. Domyślnie żaden skrót nie jest przypisany.
 
 Aby przypisać skrót:
 
@@ -716,7 +740,7 @@ Gdy dodasz książkę do biblioteki lub ją usuniesz, kategoria **freeAudio Audi
 
 ### Przechowywanie danych audiobooków
 
-Każde źródło ma własny plik biblioteki, chociaż na karcie Audiobooki są wyświetlane razem. Twoja biblioteka GETEM (dodane książki i postęp słuchania) jest zapisywana w `freeAudio_getem_library.json`, biblioteka LibriVox jest zapisywana osobno w `freeAudio_librivox_library.json`, a biblioteka Project Gutenberg osobno w `freeAudio_gutenberg_library.json` — wszystkie trzy w folderze konfiguracji użytkownika NVDA. Zaszyfrowane dane logowania GETEM są przechowywane osobno w `freeAudio_getem_credentials.bin` w tej samej lokalizacji i mogą zostać odszyfrowane tylko przez to samo konto użytkownika systemu Windows, które je zapisało. LibriVox i Project Gutenberg nie mają pliku z danymi logowania, ponieważ żaden z nich nie wymaga konta.
+Każde źródło ma własny plik biblioteki, chociaż na karcie Audiobooki są wyświetlane razem. Twoja biblioteka GETEM (dodane książki i postęp słuchania) jest zapisywana w `freeAudio_getem_library.json`, biblioteka LibriVox jest zapisywana osobno w `freeAudio_librivox_library.json`, a biblioteka Project Gutenberg osobno w `freeAudio_gutenberg_library.json` i biblioteka Internet Archive osobno w `freeAudio_archive_audiobooks_library.json` — wszystkie cztery w folderze konfiguracji użytkownika NVDA. Zaszyfrowane dane logowania GETEM są przechowywane osobno w `freeAudio_getem_credentials.bin` w tej samej lokalizacji i mogą zostać odszyfrowane tylko przez to samo konto użytkownika systemu Windows, które je zapisało. LibriVox, Project Gutenberg i Internet Archive nie mają pliku z danymi logowania, ponieważ żaden z nich nie wymaga konta.
 
 ## Lokalny Jukebox
 
@@ -957,7 +981,7 @@ Poniższe opcje można skonfigurować w menu NVDA → Preferencje → Ustawienia
 | Urządzenie wyjściowe audio | Ustawia urządzenie wyjściowe audio dla odtwarzania radia. Lista zawiera wszystkie urządzenia zgodne z BASS w systemie oraz opcję „Domyślne systemowe”. Zmiany są stosowane natychmiast po zapisaniu; jeśli wybrane urządzenie zostanie odłączone, dodatek automatycznie wróci do domyślnego urządzenia systemowego i ogłosi zmianę. |
 | Tryb odświeżania urządzeń audio | Kontroluje sposób odświeżania numerów urządzeń wyjściowych BASS. Tryb **Niezawodny** (domyślny) sprawdza urządzenia na żywo i dokładniej śledzi zmiany Bluetooth/USB, ale może lekko spowolnić zmianę urządzenia. Tryb **Szybki** używa bieżącej listy urządzeń BASS i działa szybciej, ale numery urządzeń mogą pozostać nieaktualne do restartu BASS albo NVDA. |
 | Głośność | Ustawia początkową głośność dodatku (0–100). Podczas odtwarzania `Ctrl+Win+↑` może zwiększyć głośność do 200, ale zapisana tu głośność początkowa jest ograniczona do 100. |
-| Efekty audio | Ustawia, które efekty (Chorus, Kompresor, Przesterowanie, Echo, Flanger, Gargle, Pogłos i trzy wzmocnienia EQ) są aktywne przy starcie NVDA albo rozpoczęciu odtwarzania stacji. Można zaznaczyć wiele efektów naraz, tak jak na liście Efekty w Przeglądarce stacji. |
+| Efekty audio | Ustawia, które efekty (Chorus, Kompresor, Przesterowanie, Echo, Flanger, Gargle, Pogłos, Dziwny i trzy wzmocnienia EQ) są aktywne przy starcie NVDA albo rozpoczęciu odtwarzania stacji. Można zaznaczyć wiele efektów naraz, tak jak na liście Efekty w Przeglądarce stacji. |
 | Wzmocnienie EQ (bas / soprany / wokal) | Ustawia poziom wzmocnienia w dB dla każdego pasma EQ (−15 do +15). Wartości obowiązują, gdy odpowiedni efekt EQ jest aktywny, i są zapisywane globalnie. Nadpisania dla pojedynczej stacji można zapisać przyciskiem **Zapisz profil audio** na karcie Ulubione. |
 | Sposób przełączania stacji | Kontroluje zachowanie podczas przełączania między **stacjami radiowymi na żywo**. **Natychmiastowe przełączenie** (domyślne) od razu zatrzymuje poprzednią stację przed uruchomieniem nowej. **Krótkie płynne przejście (1 sekunda)** i **Normalne płynne przejście (2 sekundy)** uruchamiają nową stację bez przerwy, a potem stopniowo wyciszają poprzednią w tle, gdy nowy strumień zostanie potwierdzony jako aktywny. **Dźwiękowy efekt strojenia stacji** natychmiast zatrzymuje poprzednią stację i odtwarza dźwięk strojenia radia przed uruchomieniem nowej. Przy ustawieniu Natychmiastowe przełączenie nie ma wpływu na wydajność. Nie dotyczy podcastów, audiobooków ani utworów z jukeboksa — ich wznawianie zawsze odtwarza własny krótki dźwięk kasety, niezależnie od tego ustawienia; zobacz [Szczegóły odtwarzania podcastów](#szczegóły-odtwarzania-podcastów). |
 | Wznów ostatnią stację przy starcie NVDA | Gdy włączone, ostatnio odtwarzana stacja jest automatycznie uruchamiana przy każdym starcie NVDA. |
@@ -976,7 +1000,7 @@ Poniższe opcje można skonfigurować w menu NVDA → Preferencje → Ustawienia
 | Folder nagrań | Ustawia folder, w którym zapisywane są nagrania. Jeśli pozostanie pusty, używana jest domyślna lokalizacja `Documents\freeAudio Recordings\`. Przycisk Przeglądaj pozwala wybrać folder interaktywnie. Zmiany działają natychmiast po zapisaniu. |
 | Moduły | Lista z polami wyboru opcjonalnych części freeAudio: **Podcasty**, **Audiobooki** i **Jukebox**. Wszystkie trzy są domyślnie włączone. Odznaczenie jednej usuwa jej kartę z Przeglądarki stacji, a jej polecenia z okna Gesty wejściowe NVDA, bez usuwania czegokolwiek, co tam zapisano (subskrypcje, biblioteka, lista Jukeboksa); ponowne zaznaczenie przywraca wszystko. Zmiany zaczynają obowiązywać przy następnym otwarciu Przeglądarki stacji. |
 | Uwzględniaj dyski sieciowe podczas wyszukiwania w jukeboksie | Gdy włączone, funkcja **Szukaj na urządzeniach** Jukeboksa przeszukuje także dyski sieciowe. Domyślnie wyłączone, ponieważ przeszukiwanie udziału sieciowego może trwać minuty lub się zawiesić, jeśli udział jest nieosiągalny. |
-| Źródła audiobooków | Lista wyboru określająca, które źródła audiobooków (**GETEM**, **LibriVox**, **Project Gutenberg**) są przeszukiwane i pokazywane na karcie Audiobooki. Wszystkie trzy są domyślnie włączone. Odznaczenie źródła ukrywa jego książki na połączonej liście wyników i w bibliotece, bez usuwania czegokolwiek, co już z niego dodałeś — zobacz [Audiobooki (GETEM, LibriVox i Project Gutenberg)](#audiobooki-getem-librivox-i-project-gutenberg). |
+| Źródła audiobooków | Lista wyboru określająca, które źródła audiobooków (**GETEM**, **LibriVox**, **Project Gutenberg**, **Internet Archive**) są przeszukiwane i pokazywane na karcie Audiobooki. Wszystkie cztery są domyślnie włączone. Odznaczenie źródła ukrywa jego książki na połączonej liście wyników i w bibliotece, bez usuwania czegokolwiek, co już z niego dodałeś — zobacz [Audiobooki (GETEM, LibriVox, Project Gutenberg i Internet Archive)](#audiobooki-getem-librivox-project-gutenberg-i-internet-archive). |
 | Nazwa użytkownika GETEM / Hasło GETEM | Dane logowania członkowskiego do audiobooków [GETEM](https://getem.boun.edu.tr/), potrzebne do strumieniowania lub pobierania dźwięku książki — zobacz [Logowanie](#logowanie). Przechowywane na dysku w postaci zaszyfrowanej przez Windows Data Protection API, powiązanej z Twoim kontem użytkownika systemu Windows; nigdy nie są zapisywane jako zwykły tekst. Pozostawienie obu pól pustych i zapisanie usuwa wszystkie zapisane dane logowania. LibriVox i Project Gutenberg nie wymagają konta i nie mają odpowiedniego pola. |
 | Format zapisu nagrań | Zachowuje oryginalny strumień, wyodrębnia sam dźwięk bez zmiany kodeka albo konwertuje zakończone nagrania do MP3. Domyślnie zachowywany jest oryginalny format strumienia. |
 | Przepływność nagrań MP3 | Ustawia przepływność używaną, gdy wybrany jest format MP3. Domyślna wartość to 128 kb/s. |
@@ -991,7 +1015,7 @@ Przycisk **Czyszczenie: zresetuj ustawienia i usuń zapisane dane...** na dole s
 - **Ulubione stacje**
 - **Pamięć podręczna listy stacji** — pobierana ponownie w razie potrzeby.
 - **Subskrypcje podcastów**
-- **Biblioteki audiobooków** — GETEM, LibriVox i Project Gutenberg.
+- **Biblioteki audiobooków** — GETEM, LibriVox, Project Gutenberg i Internet Archive.
 - **Zapisane logowanie do GETEM** — zapisana nazwa użytkownika i hasło.
 - **Lista Jukeboksa** — twoje pliki muzyczne nie są usuwane.
 - **Zapisane pozycje wznowienia** — podcasty, audiobooki i foldery Jukeboksa.

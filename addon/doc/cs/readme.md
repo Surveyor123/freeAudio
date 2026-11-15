@@ -6,7 +6,7 @@ freeAudio je plnohodnotný doplněk internetového rádia, podcastů, audioknih 
 
 - **Internetové rádio** - Procházejte a vyhledávejte mezi více než 50 000 stanicemi z adresáře [Radio Browser](https://www.radio-browser.info/), doplněného o výsledky z TuneIn a iHeartRadio. Ukládejte oblíbené stanice, měňte jejich pořadí a přejděte přímo na kteroukoli z nich globální klávesovou zkratkou odkudkoli ve Windows - viz [Adresář Radio Browser](#adresář-radio-browser) a [Oblíbené](#oblíbené).
 - **Podcasty** - Přihlaste se k odběru libovolného kanálu RSS/Atom, nebo vyhledávejte v adresáři podcastů Apple a před přihlášením k odběru si poslechněte náhled epizod. Pozice přehrávání se ukládá automaticky a pokračuje tam, kde jste skončili - viz [Podcasty](#podcasty).
-- **Audioknihy** - Vyhledávejte a přehrávejte nebo stahujte knihy ze tří zdrojů: [GETEM](https://getem.boun.edu.tr/), digitální knihovny Univerzity Boğaziçi pro zrakově postižené, [LibriVox](https://librivox.org/), projektu audioknih z veřejné domény čtených dobrovolníky, a kolekce otevřených audioknih Project Gutenberg - poslední dva nevyžadují účet - s automatickým pokračováním napříč vícedílnými díly - viz [Audioknihy (GETEM, LibriVox a Project Gutenberg)](#audioknihy-getem-librivox-a-project-gutenberg).
+- **Audioknihy** — Vyhledávejte, přehrávejte a stahujte knihy ze čtyř zdrojů: [GETEM](https://getem.boun.edu.tr/), digitální knihovny Univerzity Boğaziçi pro zrakově postižené; [LibriVox](https://librivox.org/), projektu dobrovolně čtených audioknih ve veřejné doméně; kolekce otevřených audioknih Project Gutenberg; a audioknih na [Internet Archive](https://archive.org/), včetně mnoha v dalších jazycích. Účet vyžaduje pouze GETEM. Vícedílná díla se automaticky pokračují tam, kde jste skončili — viz [Audioknihy (GETEM, LibriVox, Project Gutenberg a Internet Archive)](#audioknihy-getem-librivox-project-gutenberg-a-internet-archive).
 - **Místní jukebox** - Prohledávejte zvukové soubory uložené na jakémkoli připojeném disku podle názvu, nebo si vytvořte osobní knihovnu souborů a složek, a přehrávejte je se stejnými nástroji pro pokračování, posouvání, rychlost a transpozici, jaké používají podcasty a audioknihy - viz [Místní jukebox](#místní-jukebox).
 - **Záložky** — Vložte záložku na aktuální pozici libovolné části audioknihy, epizody podcastu nebo skladby v jukeboxu a později se k ní vraťte. Záložka může nést textovou poznámku nebo nahranou hlasovou poznámku, která se přehraje, když přehrávání na záložku dorazí, a úsek mezi dvěma záložkami lze opakovat nebo uložit jako zvukový úryvek — viz [Záložky](#záložky).
 - **Nahrávání** — Okamžitě nahrávejte, co právě hraje, nahrajte jednu skladbu od začátku do konce, nahrávejte každou skladbu stanice do vlastního souboru, dokud nahrávání nezastavíte, nebo naplánujte jednorázová a opakující se nahrávání — to vše bez přerušení přehrávání — viz [Nahrávání](#nahrávání).
@@ -59,6 +59,7 @@ Některé z těchto zkratek se překrývají se zkratkami, které používá sá
 | Zkratka | Funkce | Popis |
 |---|---|---|
 | `Ctrl+Win+R` | Otevřít prohlížeč stanic | Otevře okno prohlížeče, pokud je zavřené, nebo jej přenese do popředí, pokud je již otevřené. |
+| `Ctrl+Win+F` | Otevřít kartu Oblíbené | Otevře nebo obnoví prohlížeč stanic, vybere Oblíbené a přesune fokus na seznam stanic. |
 | `Ctrl+Win+O` | Otevřít kartu Podcasty | Otevře prohlížeč stanic (pokud je zavřený) nebo jej přenese do popředí a přepne přímo na kartu **Podcasty**. |
 | `Ctrl+Win+L` | Otevřít kartu Audioknihy | Otevře prohlížeč stanic (pokud je zavřený) nebo jej přenese do popředí a přepne přímo na kartu **Audioknihy**. |
 | `Ctrl+Win+U` | Otevřít kartu Jukebox | Otevře prohlížeč stanic (pokud je zavřený) nebo jej přenese do popředí a přepne přímo na kartu **Jukebox**, zaměřenou na vyhledávací pole disku. |
@@ -92,7 +93,7 @@ Některé z těchto zkratek se překrývají se zkratkami, které používá sá
 | *(nepřiřazeno)* | Přepnout oznámení o ztlumení | Přepíná nastavení oznámení o ztlumení za chodu. Přiřazení kombinace kláves pomocí NVDA Menu → Předvolby → Vstupní gesta → freeAudio. |
 | *(nepřiřazeno)* | Přehrát oblíbenou stanici přímo | Každá stanice v seznamu oblíbených se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Stations**. Přiřaďte klávesovou zkratku libovolné stanici a spusťte ji okamžitě odkudkoli bez nutnosti otevírat prohlížeč. |
 | *(nepřiřazeno)* | Přehrát položku jukeboxu přímo | Každý soubor nebo složka v seznamu jukeboxu se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Jukebox**. Viz [Přímé klávesové zkratky pro položky jukeboxu](#přímé-klávesové-zkratky-pro-položky-jukeboxu). |
-| *(nepřiřazeno)* | Přehrát audioknihu přímo | Každá kniha ve vaší knihovně audioknih — z GETEM, LibriVox nebo Project Gutenberg — se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Audio Books**. Přiřaďte klávesovou zkratku libovolné knize a pokračujte v ní okamžitě odkudkoli bez nutnosti otevírat prohlížeč. Viz [Přímé klávesové zkratky pro audioknihy](#přímé-klávesové-zkratky-pro-audioknihy). |
+| *(nepřiřazeno)* | Přehrát audioknihu přímo | Každá kniha ve vaší knihovně audioknih — z GETEM, LibriVox, Project Gutenberg nebo Internet Archive — se zobrazuje jako samostatná položka v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio Audio Books**. Přiřaďte klávesovou zkratku libovolné knize a pokračujte v ní okamžitě odkudkoli bez nutnosti otevírat prohlížeč. Viz [Přímé klávesové zkratky pro audioknihy](#přímé-klávesové-zkratky-pro-audioknihy). |
 
 `Ctrl+Win+→` / `Ctrl+Win+←` navigují pouze v seznamu oblíbených stanic; nefungují se seznamem všech stanic — pro procházení seznamem, ze kterého byla aktuální stanice spuštěna, použijte `Ctrl+Win+F4` / `Ctrl+Win+F3` (viz níže). Když je seznam zaměřen v okně prohlížeče, slouží ke stejnému účelu klávesy se šipkou doleva a doprava — viz Zkratky v dialogovém okně.
 
@@ -112,6 +113,7 @@ Co je dobré vědět:
 - Pokud se nic nepřehrává, kombinace kláves se beze změny předá systému Windows, stejně jako u `Ctrl+Win+→` / `Ctrl+Win+←`.
 - Na obou koncích seznamu (kromě rádia, které se vrací na začátek) NVDA oznámí „Již na první …“ nebo „Již na poslední …“ a nic se nezmění. Skladba jukeboxu, která nebyla spuštěna jako součást složky, nemá sousedy, a hlásí totéž.
 - **Automatický přechod není přerušen.** Po přeskočení ve složce jukeboxu nebo v audioknize se další skladba či část stále spustí sama, když ta aktuální skončí, ať je prohlížeč stanic otevřený, nebo zavřený. Stisknutí „další“ na poslední skladbě složky neresetuje uloženou pozici složky.
+- **Opakované stisknutí klávesy pro přeskok funguje krok za krokem.** Každé stisknutí posune o jednu položku dál od místa, kam dopadlo předchozí, i když se tato položka ještě nezačala přehrávat, a přehraje se jen poslední. Platí to i pro hlasový příkaz nebo makro, které příkaz opakuje, například „další stanice“ čtyřikrát.
 - Seznam epizod podcastu se uchovává v paměti jen po dobu aktuální relace NVDA. Pokud ještě není načten — například hned po spuštění NVDA — NVDA vás požádá, abyste otevřeli prohlížeč stanic a tento podcast jednou vybrali; poté klávesy fungují i při zavřeném okně.
 - Je-li prohlížeč stanic otevřený, přeskočení audioknihy z klávesnice aktualizuje také údaj „právě hraje“ (kniha a část) v okně, takže jeho vlastní automatický přechod pokračuje ze správného místa.
 
@@ -129,7 +131,7 @@ Při vyhledávání jsou výsledky z Radio Browser doplněny o stanice z TuneIn 
 
 V rozbalovacím seznamu **Výstupní zařízení** v dolní části okna prohlížeče - mimo karty - jsou uvedena všechna výstupní zvuková zařízení rozpoznaná rozhraním BASS. Výběrem zařízení se na něj okamžitě přesměruje zvukový výstup a volba se trvale uloží; stejné zařízení se automaticky použije při příští relaci. Pokud vybrané zařízení není připojeno, doplněk se automaticky vrátí k výchozímu nastavení systému. Stisknutím `F11` kdekoli v Prohlížeči stanic otevřete jednodušší výběr zařízení na vyžádání. Tento výběr se nezobrazuje automaticky a otevře se pouze v případě, že BASS rozpozná více než jedno fyzické výstupní zařízení. Pokud je k dispozici pouze jedno zařízení, výběr není potřeba a freeAudio použije výchozí systémový výstup.
 
-Ovládací prvky **Hlasitosti** (0-200) a **Efekty** ve stejné oblasti lze nastavit kdykoli, když je okno otevřené. V seznamu efektů lze současně aktivovat funkce Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, EQ: Bass Boost, EQ: Treble Boost a EQ: Vocal Boost; změny se okamžitě aplikují na aktivní proud. Každý efekt lze také okamžitě přepnout klávesovými zkratkami `Ctrl+1` až `Ctrl+0`, aniž byste museli opustit klávesnici – viz Klávesové zkratky pro efekty níže.
+Ovládací prvky **Hlasitosti** (0-200) a **Efekty** ve stejné oblasti lze nastavit kdykoli, když je okno otevřené. V seznamu efektů lze současně aktivovat funkce Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird, EQ: Bass Boost, EQ: Treble Boost a EQ: Vocal Boost; změny se okamžitě aplikují na aktivní proud. Každý efekt lze také okamžitě přepnout klávesovými zkratkami `Ctrl+1` až `Ctrl+0`, aniž byste museli opustit klávesnici – viz Klávesové zkratky pro efekty níže.
 
 Pokud je aktivován jeden nebo více EQ efektů, automaticky se zobrazí **ovládací prvek zesílení** pro každé aktivní pásmo. Zesílení lze nastavit v rozsahu od −15 dB do +15 dB; výchozí hodnoty jsou basy +9 dB, výšky +9 dB a vokál +6 dB. Ovládací prvky se zobrazují pouze pro zaškrtnutá EQ pásma a automaticky se skryjí, když je efekt odznačen. Hodnoty se trvale ukládají a obnoví se při příštím spuštění.
 
@@ -179,8 +181,8 @@ Následující klávesy fungují pouze při aktivním okně Průzkumník stanic.
 |---|---|---|
 | `→` | Další položka / Posun vpřed | V seznamu stanic (Všechny stanice / Oblíbené) přejde na další stanici a okamžitě ji přehraje; na konci seznamu se vrátí na začátek. V seznamech položek Podcasty, Audioknihy nebo Jukebox při načteném a přehrávaném obsahu místo toho posouvá vpřed — stejně jako globální příkaz `Ctrl+Win+K` (viz Odstupňované posouvání výše). Konkrétně v seznamu epizod Podcastů, pokud ještě není nic načteno, přejde na další epizodu a přehraje ji. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
 | `←` | Předchozí položka / Posun zpět | V seznamu stanic přejde na předchozí stanici a přehraje ji; na začátku přeskočí na konec. V seznamech položek Podcasty, Audioknihy nebo Jukebox při načteném a přehrávaném obsahu místo toho posouvá zpět — stejně jako globální příkaz `Ctrl+Win+J`. V seznamu epizod Podcastů, pokud ještě není nic načteno, přejde na předchozí epizodu a přehraje ji. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
-| `Shift+→` | Transponovat nahoru | V seznamech položek Podcasty, Audioknihy nebo Jukebox: zvýší výšku tónu aktuálního přehrávání o půltón, stejně jako globální příkaz `Shift+Win+K`. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
-| `Shift+←` | Transponovat dolů | V seznamech položek Podcasty, Audioknihy nebo Jukebox: sníží výšku tónu aktuálního přehrávání o půltón, stejně jako globální příkaz `Shift+Win+J`. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
+| `Shift+→` | Transponovat nahoru | V seznamech položek Podcasty, Audioknihy nebo Jukebox: zvýší výšku tónu aktuálního přehrávání o jeden krok (0,25 půltónu), stejně jako globální příkaz `Shift+Win+K`. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
+| `Shift+←` | Transponovat dolů | V seznamech položek Podcasty, Audioknihy nebo Jukebox: sníží výšku tónu aktuálního přehrávání o jeden krok (0,25 půltónu), stejně jako globální příkaz `Shift+Win+J`. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
 | `Page Up` | Zvýšit rychlost přehrávání | V seznamech položek Podcasty, Audioknihy nebo Jukebox: zvýší rychlost přehrávání, stejně jako globální příkaz `Ctrl+Win+Shift+K`. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
 | `Page Down` | Snížit rychlost přehrávání | V seznamech položek Podcasty, Audioknihy nebo Jukebox: sníží rychlost přehrávání, stejně jako globální příkaz `Ctrl+Win+Shift+J`. Totéž platí pro seznamy záložek pod těmito seznamy (viz [Záložky](#záložky)). |
 | `Alt+→` | Jemné přetočení vpřed (1 sekunda) | Na libovolné kartě Prohlížeče stanic, je-li něco načteno: přetočí vpřed přesně o 1 sekundu, stejně jako globální příkaz `Ctrl+Win+Alt+K`. Viz [Jemné přetáčení (1 sekunda)](#jemné-přetáčení-1-sekunda). |
@@ -316,9 +318,27 @@ Karta Oblíbené obsahuje dvě tlačítka pro správu nastavení zvuku jednotliv
 
 Obě tlačítka se nacházejí pod seznamem oblíbených stanic a jsou aktivní pouze v případě, že je vybrána stanice ze seznamu.
 
+## Desetipásmový ekvalizér
+
+Karta **Ekvalizér** je poslední kartou v prohlížeči stanic. Pomocí **Ekvalizér zap./vyp.** ho zapnete nebo vypnete. Vypnutím zůstanou nastavení pásem zachována.
+
+Deset posuvníků ovládá **62, 125, 250, 500, 1000, 2000, 4000, 8000, 12000 a 16000 Hz** v rozsahu **−20 až +20 dB** po krocích 1 dB. K posuvníku se dostanete klávesami Tab a Shift+Tab, upravíte ho šipkami. NVDA oznamuje frekvenci a hodnotu se znaménkem v dB. Změny se projeví během přehrávání.
+
+**Vynulovat** nastaví všech deset pásem na 0 dB. **Uložit** zapíše nastavení do konfigurace NVDA a oznámí úspěch nebo chybu ukládání. Nastavení se obnoví při spuštění NVDA. Ekvalizér platí globálně pro všechny stanice i další média. Stávající devítipásmová nastavení zachovávají původní hodnoty včetně pásma 16000 Hz. Nové pásmo 12000 Hz začíná na 0 dB.
+
+Při všech pásmech na 0 dB ekvalizér zachovává původní hlasitost. Každý posuvník upravuje svůj zvýrazňovací filtr, aniž by automaticky měnil celkovou hlasitost. Velká zesílení mohou způsobit ořezání. Pokud slyšíte zkreslení, snižte zisk pásem.
+
+Chcete-li ekvalizér přepínat při zavřeném prohlížeči, přiřaďte gesto příkazu **Zapnout/vypnout ekvalizér** v nabídce NVDA → Předvolby → Vstupní gesta → **freeAudio**. Tento příkaz nemá výchozí gesto. Stávající efekty zesílení basů, výšek a vokálů zůstávají dostupné vedle desetipásmového ekvalizéru.
+
+## Efekt Podivný
+
+**Podivný** se zobrazuje v seznamu efektů v prohlížeči stanic i v nastavení freeAudia hned za **Reverb**. Zaškrtnutím nebo odškrtnutím zapnete či vypnete jeho usměrněný, nelineární zvuk. Lze ho kombinovat s ekvalizérem a dalšími efekty.
+
+Chcete-li jeho stav uložit pro oblíbenou stanici, použijte **Uložit zvukový profil** a zvolte **Pouze efekty** nebo **Hlasitost a efekty**. Uložený stav zapnuto/vypnuto se obnoví spolu s ostatními efekty stanice. Stanice bez profilu používají globální nastavení efektů. **Zapnout/vypnout Podivný** je dostupné také v dialogu Vstupní gesta NVDA v kategorii **freeAudio**, bez výchozího gesta.
+
 ## Rozpoznávání hudby
 
-Třikrát stisknete klávesy `Ctrl+Win+I`, čímž spustíte rozpoznávání hudby založené na technologii Shazam pro aktuálně přehrávaný stream. Rozpoznávání se spustí pouze v případě, že nejsou k dispozici metadata ICY (informace o skladbě vysílané stanicí); pokud jsou metadata přítomna, zkopírují se místo toho do schránky.
+Třikrát stisknete klávesy `Ctrl+Win+I`, čímž spustíte rozpoznávání hudby založené na technologii Shazam pro aktuálně přehrávaný stream. Rozpoznávání se spustí pouze v případě, že nejsou k dispozici metadata ICY (informace o skladbě vysílané stanicí); pokud jsou metadata přítomna, zkopírují se místo toho do schránky. Čtyřnásobné stisknutí `Ctrl+Win+I` vynutí rozpoznání, i když stanice posílá metadata, což pomáhá, když jsou tato metadata chybná.
 
 Rozpoznávání probíhá takto: pomocí ffmpeg se ze streamu zachytí krátký zvukový vzorek (ffmpeg se představuje jako přehrávač médií, takže odpovídají i stanice, které neznámé programy odmítají), použije se algoritmus otisků Shazam a výsledek se odešle na servery Shazam. Pokud je rozpoznání úspěšné, NVDA oznámí název skladby, interpreta, album a rok vydání a automaticky je zkopíruje do schránky. Je-li zapnutá volba **Uložení oblíbených skladeb do textového souboru**, výsledek rozpoznání se navíc připojí do souboru `likedSongs.txt`.
 
@@ -614,19 +634,20 @@ Do profilu se zapíší pouze vybrané položky; cokoli, co vynecháte, si ponec
 
 Vaše odběry se ukládají do souboru `freeAudio_podcasts.json` ve složce uživatelské konfigurace NVDA. Pozice epizod se ukládají samostatně do souboru `podcast_positions.json` na stejném místě. Oba soubory jsou ve formátu prostého JSON a lze je zálohovat nebo přenést do jiného počítače.
 
-## Audioknihy (GETEM, LibriVox a Project Gutenberg)
+## Audioknihy (GETEM, LibriVox, Project Gutenberg a Internet Archive)
 
-freeAudio obsahuje přehrávač audioknih, který vyhledává, přehrává a stahuje knihy ze tří zdrojů:
+freeAudio obsahuje přehrávač audioknih, který vyhledává, přehrává a stahuje knihy ze čtyř zdrojů:
 
 - **[GETEM](https://getem.boun.edu.tr/)** - digitální knihovna provozovaná Centrem pro zrakově postižené Univerzity Boğaziçi. Ke streamování nebo stažení zvuku knihy vyžaduje bezplatné členství (procházení nikoli) - viz [Přihlášení](#přihlášení) níže.
 - **[LibriVox](https://librivox.org/)** - projekt audioknih z veřejné domény čtených dobrovolníky. Není potřeba žádný účet ani přihlášení; celý jeho katalog, včetně samotných zvukových souborů, je veřejnou doménou a volně dostupný.
 - **Kolekce otevřených audioknih Project Gutenberg** - audioknihy z veřejné domény namluvené lidmi i počítačem, hostované na [archive.org](https://archive.org/), doplněk textové knihovny Project Gutenberg. Stejně jako LibriVox nevyžaduje žádný účet ani přihlášení.
+- **Internet Archive** — audioknihy nahrané na [archive.org](https://archive.org/) a označené „audiobook“, které ještě nepokrývá LibriVox ani Project Gutenberg. Přináší to audioknihy v dalších jazycích, včetně tureckých. Není potřeba účet ani přihlášení. Jde o nahrávky jednotlivých lidí, takže úplnost částí a údajů knihy se může položku od položky lišit.
 
-Výsledky ze všech tří zdrojů se zobrazují společně v jednom sloučeném seznamu **Výsledky hledání** a jednom sloučeném seznamu **Knihovna** - není zde žádná samostatná karta ani rozevírací nabídka pro přepínání mezi nimi. Zdroj každé knihy (GETEM, LibriVox nebo Project Gutenberg) je zobrazen jako popisek vedle jejího názvu a v jejích podrobnostech, takže vždy poznáte, na kterou se díváte. Knihy z kteréhokoli zdroje můžete vyhledávat, prohlížet náhled, přidávat, přehrávat a stahovat úplně stejným způsobem; přehrávat vícedílná díla s automatickým pokračováním napříč díly; a stahovat knihy pro poslech offline - to vše plně přístupně.
+Výsledky ze všech čtyř zdrojů se zobrazují společně v jednom sloučeném seznamu **Výsledky hledání** a jednom sloučeném seznamu **Knihovna** - není zde žádná samostatná karta ani rozevírací nabídka pro přepínání mezi nimi. Zdroj každé knihy (GETEM, LibriVox, Project Gutenberg nebo Internet Archive) je zobrazen jako popisek vedle jejího názvu a v jejích podrobnostech, takže vždy poznáte, na kterou se díváte. Knihy z kteréhokoli zdroje můžete vyhledávat, prohlížet náhled, přidávat, přehrávat a stahovat úplně stejným způsobem; přehrávat vícedílná díla s automatickým pokračováním napříč díly; a stahovat knihy pro poslech offline - to vše plně přístupně.
 
-Kterýkoli ze zdrojů lze vypnout jednotlivě v **NVDA Menu → Předvolby → Nastavení → freeAudio** pomocí seznamu zaškrtávacích políček **Zdroje audioknih**, pokud chcete prohledávat pouze některé z nich. Všechny tři jsou ve výchozím nastavení zapnuté.
+Kterýkoli ze zdrojů lze vypnout jednotlivě v **NVDA Menu → Předvolby → Nastavení → freeAudio** pomocí seznamu zaškrtávacích políček **Zdroje audioknih**, pokud chcete prohledávat pouze některé z nich. Všechny čtyři jsou ve výchozím nastavení zapnuté.
 
-> **Poznámka:** Poslech knihy z GETEM vyžaduje bezplatné členství v GETEM. Procházení katalogu GETEM účet nevyžaduje, ale přeložení a přehrání zvuku knihy z GETEM ano - viz [Přihlášení](#přihlášení) níže. Knihy z LibriVox a Project Gutenberg nikdy nevyžadují účet.
+> **Poznámka:** Poslech knihy z GETEM vyžaduje bezplatné členství v GETEM. Procházení katalogu GETEM účet nevyžaduje, ale přeložení a přehrání zvuku knihy z GETEM ano - viz [Přihlášení](#přihlášení) níže. Knihy z LibriVox, Project Gutenberg a Internet Archive nikdy nevyžadují účet.
 
 ### Přístup na kartu Audioknihy
 
@@ -640,7 +661,7 @@ Otevřete Průzkumníka stanic pomocí `Ctrl+Win+R` a přepněte na kartu **Audi
 
 GETEM vyžaduje registrované členství pro streamování nebo stahování skutečného zvuku knihy, ačkoli samotný katalog lze volně prohledávat. Zadejte své uživatelské jméno a heslo GETEM jednou v **NVDA Menu → Předvolby → Nastavení → freeAudio**; uloží se zašifrovaně na disk (prostřednictvím Windows Data Protection API, svázané s vaším uživatelským účtem Windows) a poté se automaticky znovu použijí. Pokud se pokusíte přehrát nebo stáhnout knihu z GETEM před zadáním přihlašovacích údajů, freeAudio vás vyzve, abyste je nejprve přidali v Nastavení.
 
-LibriVox a Project Gutenberg nevyžadují žádný krok přihlášení - jejich výsledky a zvuk lze okamžitě vyhledávat, poslechnout jako náhled, přehrávat a stahovat, bez zadávání jakýchkoli přihlašovacích údajů.
+LibriVox, Project Gutenberg a Internet Archive nevyžadují žádný krok přihlášení - jejich výsledky a zvuk lze okamžitě vyhledávat, poslechnout jako náhled, přehrávat a stahovat, bez zadávání jakýchkoli přihlašovacích údajů.
 
 ### Vyhledávání audioknih
 
@@ -649,8 +670,11 @@ Zadejte hledaný výraz do pole hledání a stiskněte `Enter`. freeAudio prohle
 - **GETEM** se prohledává podle názvu, autora, vypravěče, tématu a vydavatele najednou, protože vlastní vyhledávací formulář GETEM podporuje zúžení podle všech těchto polí dohromady, nikoli jediné hledání napříč jedním z nich. Zobrazují se pouze díla skutečně dostupná ve zvukové podobě (lidské nebo počítačové čtení, audiopopis, rozhlasová hra, mluvené knihy DAISY atd.); braillské, velkotiskové a jiné nezvukové formáty se automaticky vyfiltrují.
 - **LibriVox** se prohledává podle názvu nebo autora/čtenáře ve svém katalogu veřejné domény.
 - **Project Gutenberg** se prohledává podle názvu nebo autora v kolekci otevřených audioknih na archive.org.
+- **Internet Archive** se vyhledává podle názvu nebo autora mezi zvukovými položkami označenými „audiobook“ na archive.org. Tituly z LibriVox a Project Gutenberg jsou z těchto výsledků vynechány, takže se žádná kniha neobjeví dvakrát.
 
-Vložení adresy URL stránky katalogu/podrobností knihy přímo do pole hledání (stránka katalogu GETEM nebo stránka „details“ archive.org pro knihu z LibriVox nebo Project Gutenberg) vyřeší tuto jednu knihu přímo namísto spuštění vyhledávání podle klíčových slov.
+Vyhledávání v LibriVox, Project Gutenberg a Internet Archive nejprve zkusí přesně zadaná slova. Teprve když nic nenajde, přejde na tolerantnější shodu: název jako „Moonstone, The“ se zkouší i jako „The Moonstone“, autor zapsaný jako „Doyle, Arthur Conan“ i jako „Arthur Conan Doyle“, tituly a interpunkce se ignorují a nakonec se každé slovo hledá zvlášť v názvu a u autora.
+
+Vložení adresy URL stránky katalogu/podrobností knihy přímo do pole hledání (stránka katalogu GETEM nebo stránka „details“ archive.org pro knihu z LibriVox, Project Gutenberg nebo Internet Archive) vyřeší tuto jednu knihu přímo namísto spuštění vyhledávání podle klíčových slov. Pokud stránka archive.org není audiokniha, freeAudio to oznámí.
 
 NVDA oznámí, kolik audioknih bylo celkem nalezeno.
 
@@ -673,7 +697,7 @@ Knihy, které jste přidali, se zobrazují v seznamu **Knihovna**, s názvem, au
 
 - **Přehrát médium** - zahájí přehrávání, totéž co `Enter`.
 - **Stáhnout knihu** - stáhne všechny díly knihy; viz [Stahování audioknih](#stahování-audioknih) níže.
-- **Kopírovat adresu URL** - zkopíruje adresu URL stránky katalogu knihy do schránky (stránku katalogu GETEM u knihy z GETEM, nebo stránku podrobností archive.org u knihy z LibriVox nebo Project Gutenberg).
+- **Kopírovat adresu URL** - zkopíruje adresu URL stránky katalogu knihy do schránky (stránku katalogu GETEM u knihy z GETEM, nebo stránku podrobností archive.org u knihy z LibriVox, Project Gutenberg nebo Internet Archive).
 - **Uložit zvukový profil pro tuto knihu** / **Vymazat zvukový profil** - viz [Zvukový profil audioknihy](#zvukový-profil-audioknihy) níže.
 - **Odebrat z knihovny** - smaže knihu z vaší knihovny.
 
@@ -701,7 +725,7 @@ Vyberte knihu ve své knihovně a zvolte **Stáhnout knihu** z její kontextové
 
 ### Přímé klávesové zkratky pro audioknihy
 
-Každá kniha ve vaší knihovně audioknih — ať pochází z GETEM, LibriVox nebo Project Gutenberg — je zaregistrována jako samostatný skript v dialogovém okně Vstupní gesta NVDA, v kategorii **freeAudio Audio Books**, přesně jako v částech [Přímé klávesové zkratky pro oblíbené stanice](#přímé-klávesové-zkratky-pro-oblíbené-stanice) a [Přímé klávesové zkratky pro položky jukeboxu](#přímé-klávesové-zkratky-pro-položky-jukeboxu). Libovolné knize můžete přiřadit libovolnou klávesovou zkratku a stisknout ji odkudkoli — nemusíte nejprve otevírat okno prohlížeče. Ve výchozím stavu není přiřazena žádná zkratka.
+Každá kniha ve vaší knihovně audioknih — ať pochází z GETEM, LibriVox, Project Gutenberg nebo Internet Archive — je zaregistrována jako samostatný skript v dialogovém okně Vstupní gesta NVDA, v kategorii **freeAudio Audio Books**, přesně jako v částech [Přímé klávesové zkratky pro oblíbené stanice](#přímé-klávesové-zkratky-pro-oblíbené-stanice) a [Přímé klávesové zkratky pro položky jukeboxu](#přímé-klávesové-zkratky-pro-položky-jukeboxu). Libovolné knize můžete přiřadit libovolnou klávesovou zkratku a stisknout ji odkudkoli — nemusíte nejprve otevírat okno prohlížeče. Ve výchozím stavu není přiřazena žádná zkratka.
 
 Přiřazení klávesové zkratky:
 
@@ -716,7 +740,7 @@ Když do knihovny knihu přidáte nebo z ní odeberete, kategorie **freeAudio Au
 
 ### Ukládání dat audioknih
 
-Každý zdroj si vede vlastní soubor knihovny, i když se na kartě Audioknihy zobrazují sloučené. Vaše knihovna GETEM (přidané knihy a postup poslechu) se ukládá do `freeAudio_getem_library.json`, vaše knihovna LibriVox se ukládá samostatně do `freeAudio_librivox_library.json` a vaše knihovna Project Gutenberg se ukládá samostatně do `freeAudio_gutenberg_library.json` — všechny tři ve složce uživatelské konfigurace NVDA. Vaše zašifrované přihlašovací údaje GETEM se ukládají samostatně do `freeAudio_getem_credentials.bin` na stejném místě a lze je dešifrovat pouze stejným uživatelským účtem Windows, který je uložil. LibriVox a Project Gutenberg nemají žádný soubor s přihlašovacími údaji, protože ani jeden nevyžaduje účet.
+Každý zdroj si vede vlastní soubor knihovny, i když se na kartě Audioknihy zobrazují sloučené. Vaše knihovna GETEM (přidané knihy a postup poslechu) se ukládá do `freeAudio_getem_library.json`, vaše knihovna LibriVox se ukládá samostatně do `freeAudio_librivox_library.json` a vaše knihovna Project Gutenberg se ukládá samostatně do `freeAudio_gutenberg_library.json` a vaše knihovna Internet Archive se ukládá samostatně do `freeAudio_archive_audiobooks_library.json` — všechny tři ve složce uživatelské konfigurace NVDA. Vaše zašifrované přihlašovací údaje GETEM se ukládají samostatně do `freeAudio_getem_credentials.bin` na stejném místě a lze je dešifrovat pouze stejným uživatelským účtem Windows, který je uložil. LibriVox, Project Gutenberg a Internet Archive nemají žádný soubor s přihlašovacími údaji, protože ani jeden nevyžaduje účet.
 
 ## Místní jukebox
 
@@ -957,7 +981,7 @@ Následující možnosti lze konfigurovat v nabídce NVDA → Předvolby → Nas
 | Zvukové výstupní zařízení | Nastavuje zvukové výstupní zařízení pro přehrávání rádia. Seznam obsahuje všechna zařízení kompatibilní s BASS v systému a možnost "Výchozí systém". Změny se použijí okamžitě po uložení; pokud je vybrané zařízení odpojeno, doplněk se automaticky vrátí k výchozímu nastavení systému a oznámí změnu. |
 | Režim obnovení zvukových zařízení | Řídí, jak freeAudio obnovuje čísla výstupních zařízení BASS. Režim **Spolehlivý** (výchozí) zkoumá zařízení živě a přesněji sleduje změny Bluetooth/USB, ale může mírně zpomalit změny zařízení. Režim **Rychlý** používá aktuální seznam zařízení BASS a je rychlejší, ale čísla zařízení mohou zůstat zastaralá, dokud není BASS nebo NVDA restartováno. |
 | Hlasitost | Nastavuje počáteční hlasitost doplňku (0–100). Během přehrávání může `Ctrl+Win+↑` zvýšit hlasitost až na 200, ale zde uložená počáteční hlasitost je omezena na 100. |
-| Zvukové efekty | Nastavuje, které efekty (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb a tři zesílení EQ) jsou aktivní při spuštění NVDA nebo zahájení přehrávání stanice. Lze zaškrtnout více efektů současně, v souladu se seznamem Efekty v Prohlížeči stanic. |
+| Zvukové efekty | Nastavuje, které efekty (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird a tři zesílení EQ) jsou aktivní při spuštění NVDA nebo zahájení přehrávání stanice. Lze zaškrtnout více efektů současně, v souladu se seznamem Efekty v Prohlížeči stanic. |
 | Zesílení EQ (basy / výšky / vokál) | Nastavuje úroveň zesílení v dB pro každé pásmo EQ (od −15 do +15). Tyto hodnoty se použijí, když je příslušný EQ efekt aktivní, a ukládají se globálně. Pro každou stanici lze nastavit vlastní hodnoty pomocí tlačítka **Uložit zvukový profil** na záložce Oblíbené. |
 | Přechod mezi stanicemi | Ovládá chování přechodu při přepínání mezi **živými rozhlasovými stanicemi**. **Instant cut** (výchozí nastavení) zastaví předchozí stanici bezprostředně před spuštěním nové. **Krátký přechod (1 sekunda)** a **Normální přechod (2 sekundy)** spustí novou stanici okamžitě bez mezery a poté postupně ukončí předchozí stanici na pozadí, jakmile je potvrzena aktivita nového streamu. **Zvukový efekt ladění stanice** okamžitě zastaví předchozí stanici a před spuštěním nové přehraje zvukový efekt ladění stanice. Nemá žádný účinek a žádný vliv na výkon, pokud je nastaveno na okamžitý střih. Nevztahuje se na podcasty, audioknihy ani skladby jukeboxu — jejich pokračování vždy přehraje vlastní krátký zvukový efekt kazety bez ohledu na toto nastavení; viz [Podrobnosti o přehrávání podcastů](#podrobnosti-o-přehrávání-podcastů). |
 | Obnovit poslední stanici při spuštění NVDA | Je-li tato funkce povolena, při každém spuštění NVDA se automaticky obnoví naposledy přehrávaná stanice. |
@@ -976,7 +1000,7 @@ Následující možnosti lze konfigurovat v nabídce NVDA → Předvolby → Nas
 | Složka nahrávek | Nastaví složku, do které se ukládají nahrané soubory. Pokud zůstane prázdná, použije se výchozí umístění `Documents\freeAudio Recordings\`. Tlačítko Procházet umožňuje interaktivní výběr složky. Změny se projeví okamžitě po uložení. |
 | Moduly | Seznam zaškrtávacích políček s volitelnými částmi freeAudio: **Podcasty**, **Audioknihy** a **Jukebox**. Všechny tři jsou ve výchozím nastavení zapnuté. Zrušením zaškrtnutí se odstraní příslušná karta z Prohlížeče stanic a její příkazy z dialogu Vstupní gesta NVDA, aniž by se smazalo cokoli, co jste tam uložili (odběry, knihovna, seznam Jukeboxu); opětovným zaškrtnutím se vše vrátí. Změny se projeví při dalším otevření Prohlížeče stanic. |
 | Zahrnout síťové disky při hledání v jukeboxu | Je-li zapnuto, **Hledat na disku** v Jukeboxu prohledává i síťové disky. Ve výchozím nastavení je vypnuto, protože prohledávání síťového sdílení může trvat minuty nebo se zasekne, pokud sdílení není dostupné. |
-| Zdroje audioknih | Seznam zaškrtávacích políček vybírající, které zdroje audioknih (**GETEM**, **LibriVox**, **Project Gutenberg**) se prohledávají a zobrazují na kartě Audioknihy. Všechny tři jsou ve výchozím nastavení zapnuté. Odškrtnutím zdroje skryjete jeho knihy ze sloučených výsledků hledání a seznamu knihovny, aniž byste smazali cokoli, co jste z něj již přidali — viz [Audioknihy (GETEM, LibriVox a Project Gutenberg)](#audioknihy-getem-librivox-a-project-gutenberg). |
+| Zdroje audioknih | Seznam zaškrtávacích políček vybírající, které zdroje audioknih (**GETEM**, **LibriVox**, **Project Gutenberg**, **Internet Archive**) se prohledávají a zobrazují na kartě Audioknihy. Všechny čtyři jsou ve výchozím nastavení zapnuté. Odškrtnutím zdroje skryjete jeho knihy ze sloučených výsledků hledání a seznamu knihovny, aniž byste smazali cokoli, co jste z něj již přidali — viz [Audioknihy (GETEM, LibriVox, Project Gutenberg a Internet Archive)](#audioknihy-getem-librivox-project-gutenberg-a-internet-archive). |
 | Uživatelské jméno GETEM / Heslo GETEM | Vaše přihlašovací údaje pro členství v audioknihách [GETEM](https://getem.boun.edu.tr/), potřebné ke streamování nebo stažení zvuku knihy — viz [Přihlášení](#přihlášení). Ukládají se zašifrovaně na disk prostřednictvím Windows Data Protection API, svázané s vaším uživatelským účtem Windows; nikdy se neukládají jako prostý text. Ponecháním obou polí prázdných a uložením odstraníte všechny uložené přihlašovací údaje. LibriVox a Project Gutenberg nevyžadují žádný účet a nemají žádné ekvivalentní pole. |
 | Výstupní formát nahrávky | Zachová původní stream, extrahuje zvuk beze změny kodeku nebo převede dokončené nahrávky na MP3. Výchozí hodnotou je původní formát streamu. |
 | Datový tok nahrávání MP3 | Nastaví datový tok použitý, když je výstupní formát nahrávky MP3. Výchozí hodnota je 128 kb/s. |
@@ -991,7 +1015,7 @@ Tlačítko **Vyčištění: obnovit nastavení a smazat uložená data...** v do
 - **Oblíbené stanice**
 - **Mezipaměť seznamu stanic** — v případě potřeby se stáhne znovu.
 - **Odběry podcastů**
-- **Knihovny audioknih** — GETEM, LibriVox a Project Gutenberg.
+- **Knihovny audioknih** — GETEM, LibriVox, Project Gutenberg a Internet Archive.
 - **Uložené přihlášení GETEM** — uložené uživatelské jméno a heslo.
 - **Seznam Jukeboxu** — vaše hudební soubory se nesmažou.
 - **Uložené pozice pro pokračování** — podcasty, audioknihy a složky Jukeboxu.
