@@ -6,7 +6,7 @@ freeAudio is a full-featured internet radio, podcast, audio-book, and local-juke
 
 - **Internet radio** — Browse and search over 50,000 stations from the [Radio Browser](https://www.radio-browser.info/) directory, with results supplemented by TuneIn and iHeartRadio. Save favourites, reorder them, and jump straight to any of them with a global keyboard shortcut from anywhere in Windows — see [Radio Browser Directory](#radio-browser-directory) and [Favourites](#favourites).
 - **Podcasts** — Subscribe to any RSS/Atom feed, or search Apple's podcast directory and preview episodes before subscribing. Playback position is saved automatically and resumes where you left off — see [Podcasts](#podcasts).
-- **Audio books** — Search, stream and download books from three sources: [GETEM](https://getem.boun.edu.tr/), Boğaziçi University's digital library for the visually impaired; [LibriVox](https://librivox.org/), the volunteer-read public-domain audiobook project; and the Project Gutenberg Open Audiobook Collection. LibriVox and Project Gutenberg need no account. Multi-part works resume automatically where you left off — see [Audio Books (GETEM, LibriVox and Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg).
+- **Audio books** — Search, stream and download books from four sources: [GETEM](https://getem.boun.edu.tr/), Boğaziçi University's digital library for the visually impaired; [LibriVox](https://librivox.org/), the volunteer-read public-domain audiobook project; the Project Gutenberg Open Audiobook Collection; and audio books on the [Internet Archive](https://archive.org/), including many in other languages. Only GETEM needs an account. Multi-part works resume automatically where you left off — see [Audio Books (GETEM, LibriVox, Project Gutenberg and Internet Archive)](#audio-books-getem-librivox-project-gutenberg-and-internet-archive).
 - **Local Jukebox** — Search audio files stored on any attached drive by filename, or build a personal library of files and folders, and play them back with the same resume, seek, speed and pitch tools podcasts and audio books use — see [Local Jukebox](#local-jukebox).
 - **Bookmarks** — Drop a bookmark at the current position of any audio book part, podcast episode or jukebox track, then jump back to it later. A bookmark can carry a text note or a recorded voice note that plays when playback reaches it, and two bookmarks can be used to repeat the section between them or to save it as an audio excerpt — see [Bookmarks](#bookmarks).
 - **Recording** — Record what's playing instantly, record a single song from its start to its end, record every song on a station to its own file until you stop, or schedule one-off and recurring recordings — all without interrupting playback — see [Recording](#recording).
@@ -93,7 +93,7 @@ Some of these shortcuts overlap with ones Windows itself uses. If you'd rather k
 | *(unassigned)* | Toggle mute notifications | Toggles the Mute Notifications setting on the fly. Assign a key combination via NVDA Menu → Preferences → Input Gestures → freeAudio. |
 | *(unassigned)* | Play favourite station directly | Each station in your favourites list appears as a separate entry in NVDA Menu → Preferences → Input Gestures → **freeAudio Stations**. Assign any keyboard shortcut to a station to start playing it instantly from anywhere, without opening the browser. |
 | *(unassigned)* | Play jukebox entry directly | Each file or folder in your Jukebox list appears as a separate entry in NVDA Menu → Preferences → Input Gestures → **freeAudio Jukebox**. See [Direct Keyboard Shortcuts for Jukebox Entries](#direct-keyboard-shortcuts-for-jukebox-entries). |
-| *(unassigned)* | Play audio book directly | Each book in your Audio Books library — from GETEM, LibriVox or Project Gutenberg — appears as a separate entry in NVDA Menu → Preferences → Input Gestures → **freeAudio Audio Books**. Assign any keyboard shortcut to a book to resume it instantly from anywhere, without opening the browser. See [Direct Keyboard Shortcuts for Audio Books](#direct-keyboard-shortcuts-for-audio-books). |
+| *(unassigned)* | Play audio book directly | Each book in your Audio Books library — from GETEM, LibriVox, Project Gutenberg or the Internet Archive — appears as a separate entry in NVDA Menu → Preferences → Input Gestures → **freeAudio Audio Books**. Assign any keyboard shortcut to a book to resume it instantly from anywhere, without opening the browser. See [Direct Keyboard Shortcuts for Audio Books](#direct-keyboard-shortcuts-for-audio-books). |
 
 `Ctrl+Win+→` / `Ctrl+Win+←` only navigate the favourites list; they do not work with the all stations list — use `Ctrl+Win+F4` / `Ctrl+Win+F3` (see below) to step through whichever list the current station was started from. When a list is focused in the browser window, the left and right arrow keys serve the same purpose — see In-Dialog Shortcuts.
 
@@ -113,6 +113,7 @@ A few things to know:
 - If nothing is playing, the key combination is passed through to Windows untouched, the same as `Ctrl+Win+→` / `Ctrl+Win+←`.
 - At either end of a list (except radio, which wraps), NVDA announces "Already at first …" or "Already at last …" and nothing changes. A jukebox track that was not started as part of a folder has no neighbours, so it reports the same.
 - **Automatic advance is not interrupted.** After you skip within a jukebox folder or an audio book, the next track or part still starts by itself when the current one ends, with the Station Browser open or closed. Pressing next on the last track of a folder does not reset the folder's saved position.
+- **Pressing a skip key several times in a row works step by step.** Each press moves one item further from where the previous press landed, even if that item has not started playing yet, and only the last one is played. This also holds for a voice command or macro that repeats a command, such as "next station" four times.
 - A podcast's episode list is only kept in memory for the current NVDA session. If it has not been loaded yet — for example right after NVDA started — NVDA asks you to open the Station Browser and select that podcast once; after that the keys work with the window closed.
 - If the Station Browser is open, an audio book skipped from the keyboard also updates the window's "now playing" book and part, so its own automatic advance carries on from the right place.
 
@@ -633,19 +634,20 @@ Only the pieces you pick are written to the profile; anything left out keeps wha
 
 Your subscriptions are stored in `freeAudio_podcasts.json` in the NVDA user configuration folder. Episode positions are stored separately in `podcast_positions.json` in the same location. Both files are plain JSON and can be backed up or transferred to another computer.
 
-## Audio Books (GETEM, LibriVox and Project Gutenberg)
+## Audio Books (GETEM, LibriVox, Project Gutenberg and Internet Archive)
 
-freeAudio includes an audio book player that searches, plays, and downloads books from three sources:
+freeAudio includes an audio book player that searches, plays, and downloads books from four sources:
 
 - **[GETEM](https://getem.boun.edu.tr/)** — the digital library run by Boğaziçi University's Center for the Visually Impaired. Requires a free membership to stream or download a book's audio (browsing does not) — see [Signing In](#signing-in) below.
 - **[LibriVox](https://librivox.org/)** — the volunteer-read public-domain audiobook project. No account or sign-in of any kind is needed; its whole catalogue, including the audio files themselves, is public domain and openly reachable.
 - **Project Gutenberg Open Audiobook Collection** — human- and computer-narrated public-domain audiobooks hosted on [archive.org](https://archive.org/), companion to the Project Gutenberg text library. Like LibriVox, no account or sign-in is needed.
+- **Internet Archive** — audio books uploaded to [archive.org](https://archive.org/) and tagged "audiobook" that are not already covered by LibriVox or Project Gutenberg. This brings in audio books in other languages, including Turkish ones. No account or sign-in is needed. These are uploads by individual people, so how complete a book's parts and details are can vary from one item to the next.
 
-Results from all three sources appear together in a single merged **Search results** list and a single merged **Library** list — there is no separate tab or dropdown to switch between them. Each book's source (GETEM, LibriVox or Project Gutenberg) is shown as a label next to its title, and in its details, so you can always tell which one you're looking at. You can search, preview, add, play, and download books from any source exactly the same way; play multi-part works with automatic resume across parts; and download books for offline listening — all fully accessible.
+Results from all four sources appear together in a single merged **Search results** list and a single merged **Library** list — there is no separate tab or dropdown to switch between them. Each book's source (GETEM, LibriVox, Project Gutenberg or Internet Archive) is shown as a label next to its title, and in its details, so you can always tell which one you're looking at. You can search, preview, add, play, and download books from any source exactly the same way; play multi-part works with automatic resume across parts; and download books for offline listening — all fully accessible.
 
-Any source can be turned off individually from **NVDA Menu → Preferences → Settings → freeAudio** with the **Audio book sources** checklist, if you only want to search some of them. All three are enabled by default.
+Any source can be turned off individually from **NVDA Menu → Preferences → Settings → freeAudio** with the **Audio book sources** checklist, if you only want to search some of them. All four are enabled by default.
 
-> **Note:** Listening to a GETEM book requires a free GETEM membership. Browsing GETEM's catalogue does not need an account, but resolving and playing a GETEM book's audio does — see [Signing In](#signing-in) below. LibriVox and Project Gutenberg books never require an account.
+> **Note:** Listening to a GETEM book requires a free GETEM membership. Browsing GETEM's catalogue does not need an account, but resolving and playing a GETEM book's audio does — see [Signing In](#signing-in) below. LibriVox, Project Gutenberg and Internet Archive books never require an account.
 
 ### Accessing the Audio Books Tab
 
@@ -659,7 +661,7 @@ Open the station browser with `Ctrl+Win+R` and switch to the **Audio Books** tab
 
 GETEM requires being a registered member to stream or download a book's actual audio, even though the catalogue itself can be searched freely. Enter your GETEM username and password once in **NVDA Menu → Preferences → Settings → freeAudio**; they are stored encrypted on disk (via the Windows Data Protection API, tied to your Windows user account) and reused automatically afterward. If you try to play or download a GETEM book before entering credentials, freeAudio tells you to add them in Settings first.
 
-LibriVox and Project Gutenberg need no sign-in step at all — their results and audio can be searched, previewed, played and downloaded immediately, with no credentials to enter.
+LibriVox, Project Gutenberg and the Internet Archive need no sign-in step at all — their results and audio can be searched, previewed, played and downloaded immediately, with no credentials to enter.
 
 ### Searching for Audio Books
 
@@ -668,8 +670,11 @@ Type a search term into the search field and press `Enter`. freeAudio searches w
 - **GETEM** is searched by title, author, narrator, subject and publisher at once, since GETEM's own search form only supports narrowing by all of them together rather than a single search across any of them. Only works that are actually available as audio (human or computer narration, audio description, radio drama, DAISY talking books, etc.) are shown; braille, large-print and other non-audio formats are filtered out automatically.
 - **LibriVox** is searched by title or author/reader against its public-domain catalogue.
 - **Project Gutenberg** is searched by title or author against the Open Audiobook Collection on archive.org.
+- **Internet Archive** is searched by title or author across the audio items tagged "audiobook" on archive.org. LibriVox and Project Gutenberg titles are left out of these results, so no book appears twice.
 
-Pasting a book's catalogue/detail page URL directly into the search field (a GETEM catalogue page, or an archive.org "details" page for a LibriVox or Project Gutenberg title) resolves that single book directly instead of running a keyword search.
+The LibriVox, Project Gutenberg and Internet Archive searches try your exact words first. Only if that finds nothing do they fall back to more tolerant matching: a title such as "Moonstone, The" is also tried as "The Moonstone", an author written as "Doyle, Arthur Conan" is also tried as "Arthur Conan Doyle", honorifics and punctuation are ignored, and finally every word is matched on its own across title and author.
+
+Pasting a book's catalogue/detail page URL directly into the search field (a GETEM catalogue page, or an archive.org "details" page for a LibriVox, Project Gutenberg or Internet Archive title) resolves that single book directly instead of running a keyword search. If an archive.org page is not an audio book, freeAudio says so.
 
 NVDA announces how many audio books were found in total.
 
@@ -692,7 +697,7 @@ Books you've added appear in the **Library** list, showing title, author and for
 
 - **Play Media** — start playing, same as `Enter`.
 - **Download Book** — download every part of the book; see [Downloading Audio Books](#downloading-audio-books) below.
-- **Copy the URL** — copy the book's catalogue page URL to the clipboard (the GETEM catalogue page for a GETEM book, or the archive.org details page for a LibriVox or Project Gutenberg book).
+- **Copy the URL** — copy the book's catalogue page URL to the clipboard (the GETEM catalogue page for a GETEM book, or the archive.org details page for a LibriVox, Project Gutenberg or Internet Archive book).
 - **Save Audio Profile for This Book** / **Clear Audio Profile** — see [Audio Book Audio Profile](#audio-book-audio-profile) below.
 - **Remove from the Library** — delete the book from your library.
 
@@ -720,7 +725,7 @@ Select a book in your library and choose **Download Book** from its context menu
 
 ### Direct Keyboard Shortcuts for Audio Books
 
-Every book in your Audio Books library — whether it comes from GETEM, LibriVox or Project Gutenberg — is registered as a separate script in NVDA's Input Gestures dialog, under the **freeAudio Audio Books** category, exactly like [Direct Keyboard Shortcuts for Favourite Stations](#direct-keyboard-shortcuts-for-favourite-stations) and [Direct Keyboard Shortcuts for Jukebox Entries](#direct-keyboard-shortcuts-for-jukebox-entries). You can assign any keyboard shortcut to any book and press it from anywhere — no need to open the browser window first. No shortcuts are assigned by default.
+Every book in your Audio Books library — whether it comes from GETEM, LibriVox, Project Gutenberg or the Internet Archive — is registered as a separate script in NVDA's Input Gestures dialog, under the **freeAudio Audio Books** category, exactly like [Direct Keyboard Shortcuts for Favourite Stations](#direct-keyboard-shortcuts-for-favourite-stations) and [Direct Keyboard Shortcuts for Jukebox Entries](#direct-keyboard-shortcuts-for-jukebox-entries). You can assign any keyboard shortcut to any book and press it from anywhere — no need to open the browser window first. No shortcuts are assigned by default.
 
 To assign a shortcut:
 
@@ -735,7 +740,7 @@ When you add a book to the library or remove one, the **freeAudio Audio Books** 
 
 ### Audio Book Data Storage
 
-Each source keeps its own library file, even though they're displayed merged in the Audio Books tab. Your GETEM library (added books and their listening progress) is stored in `freeAudio_getem_library.json`, your LibriVox library is stored separately in `freeAudio_librivox_library.json`, and your Project Gutenberg library is stored separately in `freeAudio_gutenberg_library.json` — all three in the NVDA user configuration folder. Your encrypted GETEM credentials are stored separately in `freeAudio_getem_credentials.bin` in the same location, and can only be decrypted by the same Windows user account that saved them. LibriVox and Project Gutenberg have no credentials file, since neither requires an account.
+Each source keeps its own library file, even though they're displayed merged in the Audio Books tab. Your GETEM library (added books and their listening progress) is stored in `freeAudio_getem_library.json`, your LibriVox library is stored separately in `freeAudio_librivox_library.json`, your Project Gutenberg library is stored separately in `freeAudio_gutenberg_library.json`, and your Internet Archive library is stored separately in `freeAudio_archive_audiobooks_library.json` — all four in the NVDA user configuration folder. Your encrypted GETEM credentials are stored separately in `freeAudio_getem_credentials.bin` in the same location, and can only be decrypted by the same Windows user account that saved them. LibriVox, Project Gutenberg and the Internet Archive have no credentials file, since none of them requires an account.
 
 ## Local Jukebox
 
@@ -995,7 +1000,7 @@ The following options can be configured from NVDA Menu → Preferences → Setti
 | Recordings folder | Sets the folder where recorded files are saved. If left blank, the default location `Documents\freeAudio Recordings\` is used. A Browse button lets you select the folder interactively. Changes take effect immediately after saving. |
 | Modules | A checklist of the optional parts of freeAudio: **Podcasts**, **Audio Books** and **Jukebox**. All three are enabled by default. Unchecking one removes its tab from the Station Browser and its commands from NVDA's Input Gestures dialog, without deleting anything you have saved there (subscriptions, library, Jukebox list); checking it again brings everything back. Changes apply the next time the Station Browser is opened. |
 | Include network drives when searching the jukebox | When enabled, the Jukebox's **Search on devices** also scans network drives. Disabled by default, because searching a network share can take minutes, or hang if the share cannot be reached. |
-| Audio book sources | A checklist selecting which audio-book sources (**GETEM**, **LibriVox**, **Project Gutenberg**) are searched and shown in the Audio Books tab. All three are enabled by default. Unchecking a source hides its books from the merged search results and library list without deleting anything you've already added from it — see [Audio Books (GETEM, LibriVox and Project Gutenberg)](#audio-books-getem-librivox-and-project-gutenberg). |
+| Audio book sources | A checklist selecting which audio-book sources (**GETEM**, **LibriVox**, **Project Gutenberg**, **Internet Archive**) are searched and shown in the Audio Books tab. All four are enabled by default. Unchecking a source hides its books from the merged search results and library list without deleting anything you've already added from it — see [Audio Books (GETEM, LibriVox, Project Gutenberg and Internet Archive)](#audio-books-getem-librivox-project-gutenberg-and-internet-archive). |
 | GETEM username / GETEM password | Your [GETEM](https://getem.boun.edu.tr/) audio-book membership credentials, needed to stream or download a book's audio — see [Signing In](#signing-in). Stored encrypted on disk via the Windows Data Protection API, tied to your Windows user account; never stored as plain text. Leaving both fields empty and saving removes any stored credentials. LibriVox and Project Gutenberg require no account and have no equivalent field. |
 | Recording output format | Keeps the original stream, extracts audio without changing its codec, or converts completed recordings to MP3. The default is the original stream format. |
 | MP3 recording bitrate | Sets the bitrate used when the recording output format is MP3. The default is 128 kb/s. |
@@ -1010,7 +1015,7 @@ The **Clean up: reset settings and delete saved data...** button at the bottom o
 - **Favourite stations**
 - **Station list cache** — downloaded again when needed.
 - **Podcast subscriptions**
-- **Audio book libraries** — GETEM, LibriVox and Project Gutenberg.
+- **Audio book libraries** — GETEM, LibriVox, Project Gutenberg and Internet Archive.
 - **Saved GETEM login** — the stored user name and password.
 - **Jukebox list** — your music files are not deleted.
 - **Saved resume positions** — podcasts, audio books and Jukebox folders.

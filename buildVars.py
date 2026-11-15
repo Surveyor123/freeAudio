@@ -19,22 +19,28 @@ addon_info = AddonInfo(
 	addon_description=_("""freeAudio is an internet radio, podcast, audio-book, and local music add-on for NVDA that provides seamless access to thousands of internet radio stations via the Radio Browser open directory, RSS/Atom podcast feeds, the libriVox + GETEM digital library for the visually impaired, and your own local audio files and folders through its built-in jukebox. It features a fully accessible station browser with search, country filter, favourites management, and per-station, per-podcast, per-audio-book, and per-jukebox-track audio profiles. Podcast episodes, audio book chapters, and jukebox tracks resume automatically from where you left off - jukebox folders even pick up on the last track you were playing - with adjustable pitch-preserving playback speed and independent pitch-shift (semitone transpose). Playback is handled by BASS, with support for volume control, audio effects, output device selection, and simultaneous audio mirroring to a second device. Additional features include instant and scheduled recording, time-shift rewind of live radio, sleep and alarm timers, automatic ICY metadata announcements, Shazam-based music recognition, and a liked-songs log with lyrics lookup. All controls and shortcuts are designed for NVDA accessibility."""),
 	
 	# version
-	addon_version="2026.25.4",
+	addon_version="2026.25.5",
 	
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version
 	addon_changelog=_("""
-## Changelog for 2026.25.4
+## Changelog for 2026.25.5
 
-### New: save the section between two bookmarks as an audio excerpt
+### New: Internet Archive as an audio book source
 
-- On the Podcasts, Audio Books and Jukebox tabs, mark two or more bookmarks of the same item with `.`, open the bookmark context menu and choose **Save Excerpt Between Marked Bookmarks**. The section from the earliest to the latest marked bookmark (the same section repeat mode loops) is saved as an audio file.
-- The file goes to your recordings folder, in a new folder named after the media: the episode title, the book title or the track name. The file name contains the bookmark names and positions, e.g. `Bookmark 1 - Bookmark 2 (1.23-4.56).mp3`. Existing files are never overwritten.
-- The excerpt keeps the original format and quality; nothing is re-encoded.
-- Saving runs in the background and NVDA announces when it starts and when it is done. The item does not need to be playing.
-- Works with downloaded files as well as items that are only streamed. For GETEM books the part is downloaded temporarily to make the cut.
-- Uses the ffmpeg that comes with freeAudio. The **ffmpeg.exe path** setting now also applies to excerpts.
-- The command is available from the context menu only; it has no keyboard shortcut.
+- A fourth audio book source, **Internet Archive**, covers audio books uploaded to archive.org (items tagged "audiobook") that LibriVox and Project Gutenberg do not already offer. This brings in audio books in other languages, including Turkish ones. No account is needed.
+- It works like the other sources: search, preview, add to your library, play with automatic resume, download, direct keyboard shortcuts and F3/F4 navigation. Pasting an archive.org details page resolves that single book.
+- It has its own library file and is enabled by default. It can be switched off in Settings > Audio book sources. The Clean up dialog's audio book libraries item now includes it.
+
+### Improved: audio book search
+
+- LibriVox, Project Gutenberg and Internet Archive searches try your exact words first and, only if nothing is found, fall back to more tolerant matching. "Moonstone, The" is also tried as "The Moonstone", "Doyle, Arthur Conan" as "Arthur Conan Doyle", honorifics and punctuation are ignored, and finally each word is matched separately across title and author.
+
+### Fixed
+
+- Playback no longer breaks after changing stations or tracks very quickly. Previously this could end in a "could not play ... Unknown reason" error that kept happening until NVDA was restarted.
+- Pressing next or previous several times in quick succession, or repeating the command by voice or macro, now moves one step per press. Previously some steps were lost, and only the newest request now starts playing.
+- Saved Project Gutenberg books are now found when syncing the playing book and when downloading the current book.
 """),
 	
 	# Author(s)

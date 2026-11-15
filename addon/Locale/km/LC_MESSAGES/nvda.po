@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreeRadio 2026.24.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-11-12 12:04+0300\n"
+"POT-Creation-Date: 2026-11-15 07:56+0300\n"
 "PO-Revision-Date: 2026-10-16 18:36+0300\n"
 "Last-Translator: \n"
 "Language-Team: Khmer\n"
@@ -64,7 +64,7 @@ msgstr "សូមបញ្ចូលពាក្យស្វែងរក។"
 #: addon\globalPlugins\freeAudio\radioDialog.py:7476
 #: addon\globalPlugins\freeAudio\settingsPanel.py:524
 msgid "Internet Archive"
-msgstr ""
+msgstr "Internet Archive"
 
 #. Translators: Error returned by resolve_media() when the book has no linked archive.org item id, so no audio files can be looked up.
 #: addon\globalPlugins\freeAudio\archive_audiobooks.py:325
@@ -91,7 +91,7 @@ msgstr "មិនអាចរកឃើញសៀវភៅនៅអាសយដ្
 msgid ""
 "This archive.org item is not a general audio book (LibriVox and Project "
 "Gutenberg titles have their own sources)."
-msgstr ""
+msgstr "ធាតុ archive.org នេះមិនមែនជាសៀវភៅជាសំឡេងទូទៅទេ (ចំណងជើងរបស់ LibriVox និង Project Gutenberg មានប្រភពផ្ទាល់ខ្លួន)។"
 
 #. Translators: Error returned by the chapter-listing step when archive.org has no playable audio file for the resolved book.
 #. Translators: Error returned by the archive.org metadata path when no playable audio file was found for the resolved book.
@@ -473,39 +473,36 @@ msgstr "បែបផែនការសំឡេងលៃតម្រូវស្
 #. Translators: Name of an NVDA command; toggles the "Weird" audio effect on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:287
 msgid "Toggle Weird"
-msgstr ""
+msgstr "បើក/បិទ ចម្លែក"
 
 #. Translators: Spoken when the "Weird" audio effect is turned on with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:305
-#, fuzzy
 msgid "Weird enabled"
-msgstr "បានបើកដំណើរការ"
+msgstr "ចម្លែក បានបើកដំណើរការ"
 
 #. Translators: Spoken when the "Weird" audio effect is turned off with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:307
-#, fuzzy
 msgid "Weird disabled"
-msgstr "បានបិទដំណើរការ"
+msgstr "ចម្លែក បានបិទដំណើរការ"
 
 #. Translators: Name of an NVDA command; turns the ten-band graphic equalizer on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:312
 msgid "Toggle Equalizer"
-msgstr ""
+msgstr "បើក/បិទ Equalizer"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned on with its command.
 #. Translators: Spoken when the equalizer is turned on with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:325
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:72
 msgid "Equalizer enabled"
-msgstr ""
+msgstr "Equalizer បានបើកដំណើរការ"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned off with its command.
 #. Translators: Spoken when the equalizer is turned off with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:327
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:74
-#, fuzzy
 msgid "Equalizer disabled"
-msgstr "បានបិទដំណើរការ"
+msgstr "Equalizer បានបិទដំណើរការ"
 
 #. Translators: Name of an NVDA command; adds a bookmark at the current playback position of an audio book part, podcast episode or jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:39
@@ -862,29 +859,28 @@ msgstr "GETEM មិនបានត្រឡប់ឯកសារសំឡេង
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:18
 #, python-format
 msgid "%+d dB"
-msgstr ""
+msgstr "%+d dB"
 
 #. Translators: Label of the checkbox that turns the ten-band graphic equalizer on or off.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:30
 msgid "Equalizer On/Off"
-msgstr ""
+msgstr "Equalizer បើក/បិទ"
 
 #. Translators: Label (and accessible name) of one equalizer band slider. %g is the band's centre frequency in hertz, e.g. "62 Hz" or "12000 Hz".
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "%g Hz"
-msgstr "%.1f kHz"
+msgstr "%g Hz"
 
 #. Translators: Label of the equalizer button that sets every band back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:52
 msgid "Reset"
-msgstr ""
+msgstr "កំណត់ឡើងវិញ"
 
 #. Translators: Label of the equalizer button that saves the equalizer settings to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:54
-#, fuzzy
 msgid "Save"
-msgstr "រក្សាទុក &S"
+msgstr "រក្សាទុក"
 
 #. Explicit unit announcement also covers NVDA versions that use the
 #. native slider value rather than the custom MSAA value.
@@ -892,23 +888,22 @@ msgstr "រក្សាទុក &S"
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:84
 #, python-format
 msgid "%(frequency)g Hz, %(gain)+d dB"
-msgstr ""
+msgstr "%(frequency)g Hz, %(gain)+d dB"
 
 #. Translators: Spoken after the Reset button sets all equalizer bands back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:92
 msgid "Equalizer reset"
-msgstr ""
+msgstr "Equalizer ត្រូវបានកំណត់ឡើងវិញ"
 
 #. Translators: Spoken when saving the equalizer settings to the configuration fails.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:99
-#, fuzzy
 msgid "Could not save Equalizer settings"
-msgstr "មិនអាចរក្សាទុកផ្នែកសំឡេងបានទេ: %s"
+msgstr "មិនអាចរក្សាទុកការកំណត់ Equalizer បានទេ"
 
 #. Translators: Spoken after the equalizer settings were saved to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:102
 msgid "Equalizer settings saved"
-msgstr ""
+msgstr "បានរក្សាទុកការកំណត់ Equalizer"
 
 #. Shown as this book's narrator (see GutenbergAudiobook.__init__) instead
 #. of leaving the field blank the way LibriVox does (which credits a
@@ -1739,7 +1734,7 @@ msgstr "Jukebox"
 #. Translators: Tab label for the ten-band graphic equalizer page.
 #: addon\globalPlugins\freeAudio\radioDialog.py:740
 msgid "Equalizer"
-msgstr ""
+msgstr "Equalizer"
 
 #. Translators: Static label for the output-device choice control, shown above every tab.
 #. Translators: Accessible name for the output-device dropdown (same text as its static label).
@@ -1817,7 +1812,7 @@ msgstr "Reverb"
 #: addon\globalPlugins\freeAudio\radioDialog.py:801
 #: addon\globalPlugins\freeAudio\settingsPanel.py:181
 msgid "Weird"
-msgstr ""
+msgstr "ចម្លែក"
 
 #. Translators: Label for the bass-boost EQ gain spin control, shown only while that effect is checked.
 #: addon\globalPlugins\freeAudio\radioDialog.py:824
@@ -4310,10 +4305,9 @@ msgstr "ឃ្លាំងសម្ងាត់បញ្ជីស្ថានី
 
 #. Translators: Check box in the clean-up dialog; deletes the audio book libraries of all sources.
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
-#, fuzzy
 msgid ""
 "Audio book libraries (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
-msgstr "បណ្ណាល័យសៀវភៅជាសំឡេង (GETEM, LibriVox, Project Gutenberg)"
+msgstr "បណ្ណាល័យសៀវភៅជាសំឡេង (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:108
@@ -5344,9 +5338,8 @@ msgstr "បើកកម្មវិធីរុករកស្ថានីយ៍
 
 #. Translators: Name of an NVDA command; opens the Favourites tab and focuses its station list.
 #: addon\globalPlugins\freeAudio\__init__.py:1167
-#, fuzzy
 msgid "Open freeAudio favourite stations"
-msgstr "បើកកម្មវិធីរុករកស្ថានីយ៍វិទ្យុរបស់ freeAudio"
+msgstr "បើកស្ថានីយ៍ដែលចូលចិត្តរបស់ freeAudio"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 #: addon\globalPlugins\freeAudio\__init__.py:1179
@@ -5605,49 +5598,106 @@ msgstr ""
 #: buildVars.py:26
 msgid ""
 "\n"
-"## Changelog for 2026.25.4\n"
+"## Changelog for 2026.25.5\n"
 "\n"
-"### New: save the section between two bookmarks as an audio excerpt\n"
+"### New: Internet Archive as an audio book source\n"
 "\n"
-"- On the Podcasts, Audio Books and Jukebox tabs, mark two or more bookmarks "
-"of the same item with `.`, open the bookmark context menu and choose **Save "
-"Excerpt Between Marked Bookmarks**. The section from the earliest to the "
-"latest marked bookmark (the same section repeat mode loops) is saved as an "
-"audio file.\n"
-"- The file goes to your recordings folder, in a new folder named after the "
-"media: the episode title, the book title or the track name. The file name "
-"contains the bookmark names and positions, e.g. `Bookmark 1 - Bookmark 2 "
-"(1.23-4.56).mp3`. Existing files are never overwritten.\n"
-"- The excerpt keeps the original format and quality; nothing is re-encoded.\n"
-"- Saving runs in the background and NVDA announces when it starts and when "
-"it is done. The item does not need to be playing.\n"
-"- Works with downloaded files as well as items that are only streamed. For "
-"GETEM books the part is downloaded temporarily to make the cut.\n"
-"- Uses the ffmpeg that comes with freeAudio. The **ffmpeg.exe path** setting "
-"now also applies to excerpts.\n"
-"- The command is available from the context menu only; it has no keyboard "
-"shortcut.\n"
+"- A fourth audio book source, **Internet Archive**, covers audio books "
+"uploaded to archive.org (items tagged \"audiobook\") that LibriVox and "
+"Project Gutenberg do not already offer. This brings in audio books in other "
+"languages, including Turkish ones. No account is needed.\n"
+"- It works like the other sources: search, preview, add to your library, "
+"play with automatic resume, download, direct keyboard shortcuts and F3/F4 "
+"navigation. Pasting an archive.org details page resolves that single book.\n"
+"- It has its own library file and is enabled by default. It can be switched "
+"off in Settings > Audio book sources. The Clean up dialog's audio book "
+"libraries item now includes it.\n"
+"\n"
+"### Improved: audio book search\n"
+"\n"
+"- LibriVox, Project Gutenberg and Internet Archive searches try your exact "
+"words first and, only if nothing is found, fall back to more tolerant "
+"matching. \"Moonstone, The\" is also tried as \"The Moonstone\", \"Doyle, "
+"Arthur Conan\" as \"Arthur Conan Doyle\", honorifics and punctuation are "
+"ignored, and finally each word is matched separately across title and "
+"author.\n"
+"\n"
+"### Fixed\n"
+"\n"
+"- Playback no longer breaks after changing stations or tracks very quickly. "
+"Previously this could end in a \"could not play ... Unknown reason\" error "
+"that kept happening until NVDA was restarted.\n"
+"- Pressing next or previous several times in quick succession, or repeating "
+"the command by voice or macro, now moves one step per press. Previously some "
+"steps were lost, and only the newest request now starts playing.\n"
+"- Saved Project Gutenberg books are now found when syncing the playing book "
+"and when downloading the current book.\n"
 msgstr ""
 "\n"
-"## ព័ត៌មានថ្មីសម្រាប់កំណែ 2026.25.4\n"
+"## កំណត់ហេតុការផ្លាស់ប្តូរសម្រាប់ 2026.25.5\n"
 "\n"
-"### មុខងារថ្មី៖ រក្សាទុកផ្នែករវាងចំណាំពីរជាផ្នែកសំឡេង\n"
+"### ថ្មី៖ Internet Archive ជាប្រភពសៀវភៅជាសំឡេង\n"
 "\n"
-"- នៅលើផ្ទាំងផតខាស់ សៀវភៅជាសំឡេង និង Jukebox សូមសម្គាល់ចំណាំពីរ ឬច្រើនរបស់ធាតុតែមួយដោយប្រើ `."
-"` បើកម៉ឺនុយបរិបទនៃចំណាំ ហើយជ្រើសរើស **រក្សាទុកផ្នែកសំឡេងចន្លោះចំណាំដែលបានសម្គាល់**។ "
-"ផ្នែកចាប់ពីចំណាំដែលបានសម្គាល់ទីមុនបំផុតដល់ចំណាំចុងក្រោយបំផុត (ផ្នែកដូចគ្នាដែលរបៀបចាក់ម្តងទៀតចាក់វិលជុំ) "
-"នឹងត្រូវរក្សាទុកជាឯកសារសំឡេង។\n"
-"- ឯកសារត្រូវបានរក្សាទុកក្នុងថតសម្រាប់ការថត នៅក្នុងថតថ្មីមួយដែលដាក់ឈ្មោះតាមមេឌៀ៖ ចំណងជើងវគ្គ "
-"ចំណងជើងសៀវភៅ ឬឈ្មោះបទ។ ឈ្មោះឯកសារមានឈ្មោះ និងទីតាំងរបស់ចំណាំ ឧទាហរណ៍ `ចំណាំ 1 - ចំណាំ 2 "
-"(1.23-4.56).mp3`។ ឯកសារដែលមានស្រាប់មិនដែលត្រូវបានសរសេរជាន់ពីលើឡើយ។\n"
-"- ផ្នែកសំឡេងរក្សាទ្រង់ទ្រាយ និងគុណភាពដើម ហើយគ្មានអ្វីត្រូវបានអ៊ិនកូដឡើងវិញទេ។\n"
-"- ការរក្សាទុកដំណើរការនៅផ្ទៃខាងក្រោយ ហើយ NVDA នឹងប្រកាសនៅពេលចាប់ផ្តើម និងនៅពេលបញ្ចប់។ "
-"ធាតុមិនចាំបាច់កំពុងចាក់ទេ។\n"
-"- ដំណើរការជាមួយឯកសារដែលបានទាញយក ព្រមទាំងធាតុដែលចាក់ជាស្ទ្រីមតែប៉ុណ្ណោះ។ សម្រាប់សៀវភៅ GETEM "
-"ផ្នែកនោះត្រូវបានទាញយកជាបណ្តោះអាសន្ន ដើម្បីកាត់។\n"
-"- ប្រើ ffmpeg ដែលមកជាមួយ freeAudio។ ការកំណត់ **ផ្លូវ ffmpeg.exe** "
-"ឥឡូវនេះក៏អនុវត្តចំពោះផ្នែកសំឡេងដែរ។\n"
-"- ពាក្យបញ្ជានេះអាចប្រើបានតែពីម៉ឺនុយបរិបទប៉ុណ្ណោះ ហើយមិនមានគ្រាប់ចុចផ្លូវកាត់ទេ។\n"
+"- ប្រភពសៀវភៅជាសំឡេងទីបួន គឺ **Internet Archive** ដែលគ្របដណ្តប់លើសៀវភៅជាសំឡេងដែលបានផ្ទុកឡើងទៅ archive.org (ធាតុដែលមានស្លាក “audiobook”) ដែល LibriVox និង Project Gutenberg មិនទាន់មាន។ នេះនាំមកនូវសៀវភៅជាសំឡេងជាភាសាផ្សេងៗ រួមទាំងភាសាទួរគី។ មិនចាំបាច់មានគណនីទេ។\n"
+"- វាដំណើរការដូចប្រភពផ្សេងទៀតដែរ៖ ស្វែងរក មើលជាមុន បន្ថែមទៅបណ្ណាល័យរបស់អ្នក ចាក់ជាមួយការបន្តដោយស្វ័យប្រវត្តិ ទាញយក ផ្លូវកាត់ក្តារចុចផ្ទាល់ និងការរុករកដោយ F3/F4។ ការបិទភ្ជាប់ទំព័រព័ត៌មានលម្អិតរបស់ archive.org នឹងរកឃើញសៀវភៅតែមួយក្បាលនោះ។\n"
+"- វាមានឯកសារបណ្ណាល័យផ្ទាល់ខ្លួន ហើយត្រូវបានបើកតាមលំនាំដើម។ អាចបិទវាបានក្នុង ការកំណត់ > ប្រភពសៀវភៅជាសំឡេង។ ឥឡូវនេះធាតុបណ្ណាល័យសៀវភៅជាសំឡេងនៃប្រអប់សម្អាតក៏រួមបញ្ចូលវាដែរ។\n"
+"\n"
+"### កែលម្អ៖ ការស្វែងរកសៀវភៅជាសំឡេង\n"
+"\n"
+"- ការស្វែងរក LibriVox, Project Gutenberg និង Internet Archive សាកល្បងពាក្យពិតប្រាកដរបស់អ្នកជាមុន ហើយលុះត្រាតែរកមិនឃើញអ្វី ទើបប្តូរទៅការផ្គូផ្គងដែលអត់អោនជាងមុន។ “Moonstone, The” ក៏ត្រូវបានសាកល្បងជា “The Moonstone” ដែរ “Doyle, Arthur Conan” ជា “Arthur Conan Doyle” ពាក្យនាំមុខឋានន្តរសក្តិ និងសញ្ញាវណ្ណយុត្តិត្រូវបានមិនអើពើ ហើយចុងក្រោយពាក្យនីមួយៗត្រូវបានផ្គូផ្គងដាច់ដោយឡែកក្នុងចំណងជើង និងអ្នកនិពន្ធ។\n"
+"\n"
+"### បានជួសជុល\n"
+"\n"
+"- ការចាក់លែងខូចទៀតហើយ បន្ទាប់ពីប្តូរស្ថានីយ៍ ឬបទយ៉ាងលឿន។ កាលពីមុនវាអាចបញ្ចប់ដោយកំហុស “មិនអាចចាក់បាន ... មូលហេតុមិនស្គាល់” ដែលកើតឡើងជាបន្តបន្ទាប់រហូតដល់ NVDA ត្រូវបានចាប់ផ្តើមឡើងវិញ។\n"
+"- ការចុចបន្ទាប់ ឬមុនច្រើនដងជាប់ៗគ្នាយ៉ាងលឿន ឬការធ្វើពាក្យបញ្ជាម្តងទៀតដោយសំឡេង ឬម៉ាក្រូ ឥឡូវផ្លាស់ទីមួយជំហានក្នុងមួយការចុច។ កាលពីមុនជំហានខ្លះបាត់ ហើយឥឡូវមានតែសំណើថ្មីបំផុតទេដែលចាប់ផ្តើមចាក់។\n"
+"- ឥឡូវនេះសៀវភៅ Project Gutenberg ដែលបានរក្សាទុកត្រូវបានរកឃើញនៅពេលធ្វើសមកាលកម្មសៀវភៅដែលកំពុងចាក់ និងនៅពេលទាញយកសៀវភៅបច្ចុប្បន្ន។\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "## Changelog for 2026.25.4\n"
+#~ "\n"
+#~ "### New: save the section between two bookmarks as an audio excerpt\n"
+#~ "\n"
+#~ "- On the Podcasts, Audio Books and Jukebox tabs, mark two or more "
+#~ "bookmarks of the same item with `.`, open the bookmark context menu and "
+#~ "choose **Save Excerpt Between Marked Bookmarks**. The section from the "
+#~ "earliest to the latest marked bookmark (the same section repeat mode "
+#~ "loops) is saved as an audio file.\n"
+#~ "- The file goes to your recordings folder, in a new folder named after "
+#~ "the media: the episode title, the book title or the track name. The file "
+#~ "name contains the bookmark names and positions, e.g. `Bookmark 1 - "
+#~ "Bookmark 2 (1.23-4.56).mp3`. Existing files are never overwritten.\n"
+#~ "- The excerpt keeps the original format and quality; nothing is re-"
+#~ "encoded.\n"
+#~ "- Saving runs in the background and NVDA announces when it starts and "
+#~ "when it is done. The item does not need to be playing.\n"
+#~ "- Works with downloaded files as well as items that are only streamed. "
+#~ "For GETEM books the part is downloaded temporarily to make the cut.\n"
+#~ "- Uses the ffmpeg that comes with freeAudio. The **ffmpeg.exe path** "
+#~ "setting now also applies to excerpts.\n"
+#~ "- The command is available from the context menu only; it has no keyboard "
+#~ "shortcut.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "## ព័ត៌មានថ្មីសម្រាប់កំណែ 2026.25.4\n"
+#~ "\n"
+#~ "### មុខងារថ្មី៖ រក្សាទុកផ្នែករវាងចំណាំពីរជាផ្នែកសំឡេង\n"
+#~ "\n"
+#~ "- នៅលើផ្ទាំងផតខាស់ សៀវភៅជាសំឡេង និង Jukebox សូមសម្គាល់ចំណាំពីរ ឬច្រើនរបស់ធាតុតែមួយដោយប្រើ "
+#~ "`.` បើកម៉ឺនុយបរិបទនៃចំណាំ ហើយជ្រើសរើស **រក្សាទុកផ្នែកសំឡេងចន្លោះចំណាំដែលបានសម្គាល់**។ "
+#~ "ផ្នែកចាប់ពីចំណាំដែលបានសម្គាល់ទីមុនបំផុតដល់ចំណាំចុងក្រោយបំផុត "
+#~ "(ផ្នែកដូចគ្នាដែលរបៀបចាក់ម្តងទៀតចាក់វិលជុំ) នឹងត្រូវរក្សាទុកជាឯកសារសំឡេង។\n"
+#~ "- ឯកសារត្រូវបានរក្សាទុកក្នុងថតសម្រាប់ការថត នៅក្នុងថតថ្មីមួយដែលដាក់ឈ្មោះតាមមេឌៀ៖ "
+#~ "ចំណងជើងវគ្គ ចំណងជើងសៀវភៅ ឬឈ្មោះបទ។ ឈ្មោះឯកសារមានឈ្មោះ និងទីតាំងរបស់ចំណាំ ឧទាហរណ៍ `ចំណាំ "
+#~ "1 - ចំណាំ 2 (1.23-4.56).mp3`។ ឯកសារដែលមានស្រាប់មិនដែលត្រូវបានសរសេរជាន់ពីលើឡើយ។\n"
+#~ "- ផ្នែកសំឡេងរក្សាទ្រង់ទ្រាយ និងគុណភាពដើម ហើយគ្មានអ្វីត្រូវបានអ៊ិនកូដឡើងវិញទេ។\n"
+#~ "- ការរក្សាទុកដំណើរការនៅផ្ទៃខាងក្រោយ ហើយ NVDA នឹងប្រកាសនៅពេលចាប់ផ្តើម និងនៅពេលបញ្ចប់។ "
+#~ "ធាតុមិនចាំបាច់កំពុងចាក់ទេ។\n"
+#~ "- ដំណើរការជាមួយឯកសារដែលបានទាញយក ព្រមទាំងធាតុដែលចាក់ជាស្ទ្រីមតែប៉ុណ្ណោះ។ សម្រាប់សៀវភៅ "
+#~ "GETEM ផ្នែកនោះត្រូវបានទាញយកជាបណ្តោះអាសន្ន ដើម្បីកាត់។\n"
+#~ "- ប្រើ ffmpeg ដែលមកជាមួយ freeAudio។ ការកំណត់ **ផ្លូវ ffmpeg.exe** "
+#~ "ឥឡូវនេះក៏អនុវត្តចំពោះផ្នែកសំឡេងដែរ។\n"
+#~ "- ពាក្យបញ្ជានេះអាចប្រើបានតែពីម៉ឺនុយបរិបទប៉ុណ្ណោះ ហើយមិនមានគ្រាប់ចុចផ្លូវកាត់ទេ។\n"
 
 #~ msgid ""
 #~ "\n"

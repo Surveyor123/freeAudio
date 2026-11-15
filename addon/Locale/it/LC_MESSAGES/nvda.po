@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreeRadio 2026.24.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-11-12 12:04+0300\n"
+"POT-Creation-Date: 2026-11-15 07:56+0300\n"
 "PO-Revision-Date: 2026-10-16 18:36+0300\n"
 "Last-Translator: Alessio <lenzone10@gmail.com>\n"
 "Language-Team: Alessio Lenzi <lenzone10@gmail.com>\n"
@@ -64,7 +64,7 @@ msgstr "Inserisci un termine di ricerca."
 #: addon\globalPlugins\freeAudio\radioDialog.py:7476
 #: addon\globalPlugins\freeAudio\settingsPanel.py:524
 msgid "Internet Archive"
-msgstr ""
+msgstr "Internet Archive"
 
 #. Translators: Error returned by resolve_media() when the book has no linked archive.org item id, so no audio files can be looked up.
 #: addon\globalPlugins\freeAudio\archive_audiobooks.py:325
@@ -92,7 +92,7 @@ msgstr "Impossibile trovare un libro a questo indirizzo su archive.org."
 msgid ""
 "This archive.org item is not a general audio book (LibriVox and Project "
 "Gutenberg titles have their own sources)."
-msgstr ""
+msgstr "Questo elemento di archive.org non è un audiolibro generico (i titoli di LibriVox e Progetto Gutenberg hanno le proprie fonti)."
 
 #. Translators: Error returned by the chapter-listing step when archive.org has no playable audio file for the resolved book.
 #. Translators: Error returned by the archive.org metadata path when no playable audio file was found for the resolved book.
@@ -487,39 +487,36 @@ msgstr "Effetto sonoro di sintonizzazione della stazione"
 #. Translators: Name of an NVDA command; toggles the "Weird" audio effect on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:287
 msgid "Toggle Weird"
-msgstr ""
+msgstr "Attiva o disattiva Strano"
 
 #. Translators: Spoken when the "Weird" audio effect is turned on with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:305
-#, fuzzy
 msgid "Weird enabled"
-msgstr "attivato"
+msgstr "Strano attivato"
 
 #. Translators: Spoken when the "Weird" audio effect is turned off with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:307
-#, fuzzy
 msgid "Weird disabled"
-msgstr "disattivato"
+msgstr "Strano disattivato"
 
 #. Translators: Name of an NVDA command; turns the ten-band graphic equalizer on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:312
 msgid "Toggle Equalizer"
-msgstr ""
+msgstr "Attiva o disattiva l’equalizzatore"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned on with its command.
 #. Translators: Spoken when the equalizer is turned on with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:325
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:72
 msgid "Equalizer enabled"
-msgstr ""
+msgstr "Equalizzatore attivato"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned off with its command.
 #. Translators: Spoken when the equalizer is turned off with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:327
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:74
-#, fuzzy
 msgid "Equalizer disabled"
-msgstr "disattivato"
+msgstr "Equalizzatore disattivato"
 
 #. Translators: Name of an NVDA command; adds a bookmark at the current playback position of an audio book part, podcast episode or jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:39
@@ -898,29 +895,28 @@ msgstr "GETEM non ha restituito un file audio riproducibile per questa parte."
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:18
 #, python-format
 msgid "%+d dB"
-msgstr ""
+msgstr "%+d dB"
 
 #. Translators: Label of the checkbox that turns the ten-band graphic equalizer on or off.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:30
 msgid "Equalizer On/Off"
-msgstr ""
+msgstr "Equalizzatore attivo/disattivo"
 
 #. Translators: Label (and accessible name) of one equalizer band slider. %g is the band's centre frequency in hertz, e.g. "62 Hz" or "12000 Hz".
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "%g Hz"
-msgstr "%.1f kHz"
+msgstr "%g Hz"
 
 #. Translators: Label of the equalizer button that sets every band back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:52
 msgid "Reset"
-msgstr ""
+msgstr "Reimposta"
 
 #. Translators: Label of the equalizer button that saves the equalizer settings to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:54
-#, fuzzy
 msgid "Save"
-msgstr "&Salva"
+msgstr "Salva"
 
 #. Explicit unit announcement also covers NVDA versions that use the
 #. native slider value rather than the custom MSAA value.
@@ -928,23 +924,22 @@ msgstr "&Salva"
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:84
 #, python-format
 msgid "%(frequency)g Hz, %(gain)+d dB"
-msgstr ""
+msgstr "%(frequency)g Hz, %(gain)+d dB"
 
 #. Translators: Spoken after the Reset button sets all equalizer bands back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:92
 msgid "Equalizer reset"
-msgstr ""
+msgstr "Equalizzatore reimpostato"
 
 #. Translators: Spoken when saving the equalizer settings to the configuration fails.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:99
-#, fuzzy
 msgid "Could not save Equalizer settings"
-msgstr "Impossibile salvare l'estratto: %s"
+msgstr "Impossibile salvare le impostazioni dell’equalizzatore"
 
 #. Translators: Spoken after the equalizer settings were saved to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:102
 msgid "Equalizer settings saved"
-msgstr ""
+msgstr "Impostazioni dell’equalizzatore salvate"
 
 #. Shown as this book's narrator (see GutenbergAudiobook.__init__) instead
 #. of leaving the field blank the way LibriVox does (which credits a
@@ -1799,7 +1794,7 @@ msgstr "Jukebox"
 #. Translators: Tab label for the ten-band graphic equalizer page.
 #: addon\globalPlugins\freeAudio\radioDialog.py:740
 msgid "Equalizer"
-msgstr ""
+msgstr "Equalizzatore"
 
 #. Translators: Static label for the output-device choice control, shown above every tab.
 #. Translators: Accessible name for the output-device dropdown (same text as its static label).
@@ -1877,7 +1872,7 @@ msgstr "Reverb"
 #: addon\globalPlugins\freeAudio\radioDialog.py:801
 #: addon\globalPlugins\freeAudio\settingsPanel.py:181
 msgid "Weird"
-msgstr ""
+msgstr "Strano"
 
 #. Translators: Label for the bass-boost EQ gain spin control, shown only while that effect is checked.
 #: addon\globalPlugins\freeAudio\radioDialog.py:824
@@ -4436,10 +4431,9 @@ msgstr "Cache dell'elenco delle stazioni (scaricata di nuovo quando serve)"
 
 #. Translators: Check box in the clean-up dialog; deletes the audio book libraries of all sources.
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
-#, fuzzy
 msgid ""
 "Audio book libraries (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
-msgstr "Librerie di audiolibri (GETEM, LibriVox, Project Gutenberg)"
+msgstr "Librerie di audiolibri (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:108
@@ -5494,9 +5488,8 @@ msgstr "Apri il browser delle stazioni di freeAudio"
 
 #. Translators: Name of an NVDA command; opens the Favourites tab and focuses its station list.
 #: addon\globalPlugins\freeAudio\__init__.py:1167
-#, fuzzy
 msgid "Open freeAudio favourite stations"
-msgstr "Apri il browser delle stazioni di freeAudio"
+msgstr "Apri le stazioni preferite di freeAudio"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 #: addon\globalPlugins\freeAudio\__init__.py:1179
@@ -5765,55 +5758,113 @@ msgstr ""
 #: buildVars.py:26
 msgid ""
 "\n"
-"## Changelog for 2026.25.4\n"
+"## Changelog for 2026.25.5\n"
 "\n"
-"### New: save the section between two bookmarks as an audio excerpt\n"
+"### New: Internet Archive as an audio book source\n"
 "\n"
-"- On the Podcasts, Audio Books and Jukebox tabs, mark two or more bookmarks "
-"of the same item with `.`, open the bookmark context menu and choose **Save "
-"Excerpt Between Marked Bookmarks**. The section from the earliest to the "
-"latest marked bookmark (the same section repeat mode loops) is saved as an "
-"audio file.\n"
-"- The file goes to your recordings folder, in a new folder named after the "
-"media: the episode title, the book title or the track name. The file name "
-"contains the bookmark names and positions, e.g. `Bookmark 1 - Bookmark 2 "
-"(1.23-4.56).mp3`. Existing files are never overwritten.\n"
-"- The excerpt keeps the original format and quality; nothing is re-encoded.\n"
-"- Saving runs in the background and NVDA announces when it starts and when "
-"it is done. The item does not need to be playing.\n"
-"- Works with downloaded files as well as items that are only streamed. For "
-"GETEM books the part is downloaded temporarily to make the cut.\n"
-"- Uses the ffmpeg that comes with freeAudio. The **ffmpeg.exe path** setting "
-"now also applies to excerpts.\n"
-"- The command is available from the context menu only; it has no keyboard "
-"shortcut.\n"
+"- A fourth audio book source, **Internet Archive**, covers audio books "
+"uploaded to archive.org (items tagged \"audiobook\") that LibriVox and "
+"Project Gutenberg do not already offer. This brings in audio books in other "
+"languages, including Turkish ones. No account is needed.\n"
+"- It works like the other sources: search, preview, add to your library, "
+"play with automatic resume, download, direct keyboard shortcuts and F3/F4 "
+"navigation. Pasting an archive.org details page resolves that single book.\n"
+"- It has its own library file and is enabled by default. It can be switched "
+"off in Settings > Audio book sources. The Clean up dialog's audio book "
+"libraries item now includes it.\n"
+"\n"
+"### Improved: audio book search\n"
+"\n"
+"- LibriVox, Project Gutenberg and Internet Archive searches try your exact "
+"words first and, only if nothing is found, fall back to more tolerant "
+"matching. \"Moonstone, The\" is also tried as \"The Moonstone\", \"Doyle, "
+"Arthur Conan\" as \"Arthur Conan Doyle\", honorifics and punctuation are "
+"ignored, and finally each word is matched separately across title and "
+"author.\n"
+"\n"
+"### Fixed\n"
+"\n"
+"- Playback no longer breaks after changing stations or tracks very quickly. "
+"Previously this could end in a \"could not play ... Unknown reason\" error "
+"that kept happening until NVDA was restarted.\n"
+"- Pressing next or previous several times in quick succession, or repeating "
+"the command by voice or macro, now moves one step per press. Previously some "
+"steps were lost, and only the newest request now starts playing.\n"
+"- Saved Project Gutenberg books are now found when syncing the playing book "
+"and when downloading the current book.\n"
 msgstr ""
 "\n"
-"## Novità della versione 2026.25.4\n"
+"## Registro delle modifiche per la versione 2026.25.5\n"
 "\n"
-"### Novità: salvare la sezione tra due segnalibri come estratto audio\n"
+"### Novità: Internet Archive come fonte di audiolibri\n"
 "\n"
-"- Nelle schede Podcast, Audiolibri e Jukebox, contrassegna con `.` due o più "
-"segnalibri dello stesso elemento, apri il menu contestuale dei segnalibri e "
-"scegli **Salva estratto audio tra i segnalibri contrassegnati**. La sezione "
-"dal primo all'ultimo segnalibro contrassegnato (la stessa che la modalità di "
-"ripetizione riproduce in ciclo) viene salvata come file audio.\n"
-"- Il file viene salvato nella cartella delle registrazioni, in una nuova "
-"cartella che prende il nome dal contenuto: il titolo dell'episodio, il "
-"titolo del libro o il nome del brano. Il nome del file contiene i nomi e le "
-"posizioni dei segnalibri, ad esempio `Segnalibro 1 - Segnalibro 2 (1.23-"
-"4.56).mp3`. I file esistenti non vengono mai sovrascritti.\n"
-"- L'estratto mantiene il formato e la qualità originali; non viene "
-"ricodificato nulla.\n"
-"- Il salvataggio avviene in background e NVDA annuncia quando inizia e "
-"quando è terminato. L'elemento non deve essere in riproduzione.\n"
-"- Funziona sia con i file scaricati sia con gli elementi riprodotti solo in "
-"streaming. Per i libri GETEM la parte viene scaricata temporaneamente per "
-"eseguire il taglio.\n"
-"- Utilizza l'ffmpeg incluso in freeAudio. L'impostazione **Percorso di "
-"ffmpeg.exe** vale ora anche per gli estratti.\n"
-"- Il comando è disponibile solo dal menu contestuale; non ha una scorciatoia "
-"da tastiera.\n"
+"- Una quarta fonte di audiolibri, **Internet Archive**, copre gli audiolibri caricati su archive.org (elementi con il tag «audiobook») che LibriVox e Progetto Gutenberg non offrono già. Porta così audiolibri in altre lingue, compreso il turco. Non serve alcun account.\n"
+"- Funziona come le altre fonti: ricerca, anteprima, aggiunta alla libreria, riproduzione con ripresa automatica, download, scorciatoie da tastiera dirette e navigazione con F3/F4. Incollando una pagina di dettagli di archive.org viene risolto quel singolo libro.\n"
+"- Ha un proprio file di libreria ed è attiva per impostazione predefinita. Può essere disattivata in Impostazioni > Fonti di audiolibri. La voce delle librerie di audiolibri nella finestra di pulizia ora la include.\n"
+"\n"
+"### Migliorato: ricerca degli audiolibri\n"
+"\n"
+"- Le ricerche su LibriVox, Progetto Gutenberg e Internet Archive provano prima le parole esatte e, solo se non trovano nulla, ricorrono a una corrispondenza più tollerante. «Moonstone, The» viene provato anche come «The Moonstone», «Doyle, Arthur Conan» come «Arthur Conan Doyle», titoli onorifici e punteggiatura vengono ignorati e infine ogni parola viene cercata separatamente in titolo e autore.\n"
+"\n"
+"### Corretto\n"
+"\n"
+"- La riproduzione non si interrompe più dopo aver cambiato stazione o brano molto rapidamente. In precedenza ciò poteva sfociare in un errore «impossibile riprodurre ... Motivo sconosciuto» che si ripeteva fino al riavvio di NVDA.\n"
+"- Premere più volte di seguito successivo o precedente, o ripetere il comando a voce o con una macro, ora avanza di un passo per pressione. In precedenza alcuni passi andavano persi; ora solo la richiesta più recente avvia la riproduzione.\n"
+"- I libri di Progetto Gutenberg salvati vengono ora trovati durante la sincronizzazione del libro in riproduzione e il download del libro corrente.\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "## Changelog for 2026.25.4\n"
+#~ "\n"
+#~ "### New: save the section between two bookmarks as an audio excerpt\n"
+#~ "\n"
+#~ "- On the Podcasts, Audio Books and Jukebox tabs, mark two or more "
+#~ "bookmarks of the same item with `.`, open the bookmark context menu and "
+#~ "choose **Save Excerpt Between Marked Bookmarks**. The section from the "
+#~ "earliest to the latest marked bookmark (the same section repeat mode "
+#~ "loops) is saved as an audio file.\n"
+#~ "- The file goes to your recordings folder, in a new folder named after "
+#~ "the media: the episode title, the book title or the track name. The file "
+#~ "name contains the bookmark names and positions, e.g. `Bookmark 1 - "
+#~ "Bookmark 2 (1.23-4.56).mp3`. Existing files are never overwritten.\n"
+#~ "- The excerpt keeps the original format and quality; nothing is re-"
+#~ "encoded.\n"
+#~ "- Saving runs in the background and NVDA announces when it starts and "
+#~ "when it is done. The item does not need to be playing.\n"
+#~ "- Works with downloaded files as well as items that are only streamed. "
+#~ "For GETEM books the part is downloaded temporarily to make the cut.\n"
+#~ "- Uses the ffmpeg that comes with freeAudio. The **ffmpeg.exe path** "
+#~ "setting now also applies to excerpts.\n"
+#~ "- The command is available from the context menu only; it has no keyboard "
+#~ "shortcut.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "## Novità della versione 2026.25.4\n"
+#~ "\n"
+#~ "### Novità: salvare la sezione tra due segnalibri come estratto audio\n"
+#~ "\n"
+#~ "- Nelle schede Podcast, Audiolibri e Jukebox, contrassegna con `.` due o "
+#~ "più segnalibri dello stesso elemento, apri il menu contestuale dei "
+#~ "segnalibri e scegli **Salva estratto audio tra i segnalibri "
+#~ "contrassegnati**. La sezione dal primo all'ultimo segnalibro "
+#~ "contrassegnato (la stessa che la modalità di ripetizione riproduce in "
+#~ "ciclo) viene salvata come file audio.\n"
+#~ "- Il file viene salvato nella cartella delle registrazioni, in una nuova "
+#~ "cartella che prende il nome dal contenuto: il titolo dell'episodio, il "
+#~ "titolo del libro o il nome del brano. Il nome del file contiene i nomi e "
+#~ "le posizioni dei segnalibri, ad esempio `Segnalibro 1 - Segnalibro 2 "
+#~ "(1.23-4.56).mp3`. I file esistenti non vengono mai sovrascritti.\n"
+#~ "- L'estratto mantiene il formato e la qualità originali; non viene "
+#~ "ricodificato nulla.\n"
+#~ "- Il salvataggio avviene in background e NVDA annuncia quando inizia e "
+#~ "quando è terminato. L'elemento non deve essere in riproduzione.\n"
+#~ "- Funziona sia con i file scaricati sia con gli elementi riprodotti solo "
+#~ "in streaming. Per i libri GETEM la parte viene scaricata temporaneamente "
+#~ "per eseguire il taglio.\n"
+#~ "- Utilizza l'ffmpeg incluso in freeAudio. L'impostazione **Percorso di "
+#~ "ffmpeg.exe** vale ora anche per gli estratti.\n"
+#~ "- Il comando è disponibile solo dal menu contestuale; non ha una "
+#~ "scorciatoia da tastiera.\n"
 
 #~ msgid ""
 #~ "\n"

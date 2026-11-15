@@ -6,7 +6,7 @@ freeAudio, ekran okuyucu NVDA için geliştirilmiş, tüm özellikleriyle donan�
 
 - **İnternet radyosu** — [Radio Browser](https://www.radio-browser.info/) dizinindeki 50.000'i aşkın istasyona göz atın ve arama yapın; sonuçlar TuneIn ve iHeartRadio ile desteklenir. İstasyonları favorilere ekleyin, yeniden sıralayın ve Windows'ta herhangi bir yerden genel bir klavye kısayoluyla doğrudan çalmaya başlayın — bkz. [Radio Browser Dizini](#radio-browser-dizini) ve [Favoriler](#favoriler).
 - **Podcastler** — Herhangi bir RSS/Atom akışına abone olun veya Apple'ın podcast dizininde arama yaparak abone olmadan önce bölümleri önizleyin. Oynatma konumu otomatik olarak kaydedilir ve kaldığınız yerden devam eder — bkz. [Podcastler](#podcastler).
-- **Sesli kitaplar** — Üç kaynaktan kitap arayın, akış üzerinden dinleyin veya indirin: Boğaziçi Üniversitesi'nin görme engelliler için dijital kütüphanesi [GETEM](https://getem.boun.edu.tr/), gönüllülerin seslendirdiği kamu malı sesli kitap projesi [LibriVox](https://librivox.org/) ve Project Gutenberg Açık Sesli Kitap Koleksiyonu — son ikisi hesap gerektirmez — çok bölümlü eserlerde otomatik devam etme özelliği vardır — bkz. [Sesli Kitaplar (GETEM, LibriVox ve Project Gutenberg)](#sesli-kitaplar-getem-librivox-ve-project-gutenberg).
+- **Sesli kitaplar** — Dört kaynaktan kitap arayın, akış üzerinden dinleyin veya indirin: Boğaziçi Üniversitesi'nin görme engelliler için dijital kütüphanesi [GETEM](https://getem.boun.edu.tr/), gönüllülerin seslendirdiği kamu malı sesli kitap projesi [LibriVox](https://librivox.org/); Project Gutenberg Açık Sesli Kitap Koleksiyonu ve diğer dillerdeki birçok kitabı da içeren [Internet Archive](https://archive.org/) üzerindeki sesli kitaplar. Yalnızca GETEM hesap gerektirir. Çok bölümlü eserlerde otomatik devam etme özelliği vardır — bkz. [Sesli Kitaplar (GETEM, LibriVox, Project Gutenberg ve Internet Archive)](#sesli-kitaplar-getem-librivox-project-gutenberg-ve-internet-archive).
 - **Yerel Müzik Kutusu** — Bilgisayarınıza bağlı herhangi bir sürücüdeki ses dosyalarını dosya adına göre arayın veya dosya ve klasörlerden kişisel bir kitaplık oluşturun; çalınan parçalar podcastler ve sesli kitaplarla aynı devam etme, atlama, hız ve perde araçlarına sahip olur — bkz. [Yerel Müzik Kutusu](#yerel-müzik-kutusu).
 - **Yer imleri** — Herhangi bir sesli kitap bölümünün, podcast bölümünün veya müzik kutusu parçasının geçerli konumuna yer imi koyun, sonra istediğiniz zaman oraya geri dönün. Bir yer imine metin notu veya kaydedilmiş bir ses notu eklenebilir; oynatma o noktaya geldiğinde not çalınır. İki yer imi arasındaki bölümü tekrar etmek veya ses alıntısı olarak kaydetmek de mümkündür — bkz. [Yer İmleri](#yer-i̇mleri).
 - **Kayıt** — Çalan içeriği anında, tek bir şarkıyı başından sonuna kadar, bir istasyondaki her şarkıyı siz durdurana kadar ayrı bir dosyaya kaydedin veya tek seferlik ve tekrarlanan kayıtlar planlayın — tüm bunlar oynatmayı kesintiye uğratmadan yapılır — bkz. [Kayıt](#kayıt).
@@ -59,6 +59,7 @@ Bu kısayolların bazıları Windows'un kendi kullandığı kısayollarla çakı
 | Kısayol | İşlev | Açıklama |
 |---|---|---|
 | `Ctrl+Win+R` | İstasyon tarayıcısını aç | Tarayıcı penceresi kapalıysa açar, açıksa öne getirir. |
+| `Ctrl+Win+F` | Favoriler sekmesini aç | İstasyon Tarayıcısı'nı açar veya geri yükler, Favoriler'i seçer ve istasyon listesine odaklanır. |
 | `Ctrl+Win+O` | Podcastler sekmesini aç | İstasyon tarayıcısını (kapalıysa) açar veya öne getirir ve doğrudan **Podcastler** sekmesine geçer. |
 | `Ctrl+Win+L` | Sesli Kitaplar sekmesini aç | İstasyon tarayıcısını (kapalıysa) açar veya öne getirir ve doğrudan **Sesli Kitaplar** sekmesine geçer. |
 | `Ctrl+Win+U` | Müzik Kutusu sekmesini aç | İstasyon tarayıcısını (kapalıysa) açar veya öne getirir ve doğrudan **Müzik Kutusu** sekmesine, disk arama kutusu odaklanmış olarak geçer. |
@@ -92,7 +93,7 @@ Bu kısayolların bazıları Windows'un kendi kullandığı kısayollarla çakı
 | *(atanmamış)* | Bildirimleri sessize al / aç | Bildirim sessize alma ayarını anlık olarak değiştirir. NVDA Menüsü → Tercihler → Girdi Hareketleri → freeAudio bölümünden bir tuş kombinasyonu atanabilir. |
 | *(atanmamış)* | Favori istasyonu doğrudan çal | Favoriler listenizdeki her istasyon, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio İstasyonları** kategorisinde ayrı bir girdi olarak görünür. Bir istasyona klavye kısayolu atayarak tarayıcıyı açmadan her yerden doğrudan çalmaya başlayabilirsiniz. |
 | *(atanmamış)* | Müzik kutusu öğesini doğrudan çal | Müzik Kutusu listenizdeki her dosya veya klasör, NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Müzik Kutusu** kategorisinde ayrı bir girdi olarak görünür. Bkz. [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları). |
-| *(atanmamış)* | Sesli kitabı doğrudan çal | Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Sesli Kitaplar** kategorisinde ayrı bir girdi olarak görünür. Bir kitaba klavye kısayolu atayarak tarayıcıyı açmadan her yerden kaldığınız yerden devam ettirebilirsiniz. Bkz. [Sesli Kitaplar İçin Doğrudan Klavye Kısayolları](#sesli-kitaplar-i̇çin-doğrudan-klavye-kısayolları). |
+| *(atanmamış)* | Sesli kitabı doğrudan çal | Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox, Project Gutenberg veya Internet Archive'den olsun — NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio Sesli Kitaplar** kategorisinde ayrı bir girdi olarak görünür. Bir kitaba klavye kısayolu atayarak tarayıcıyı açmadan her yerden kaldığınız yerden devam ettirebilirsiniz. Bkz. [Sesli Kitaplar İçin Doğrudan Klavye Kısayolları](#sesli-kitaplar-i̇çin-doğrudan-klavye-kısayolları). |
 
 `Ctrl+Win+→` / `Ctrl+Win+←` yalnızca favoriler listesinde dolaşır; tüm istasyonlar listesinde çalışmaz — o an çalan istasyonun başlatıldığı listede gezinmek için aşağıda anlatılan `Ctrl+Win+F4` / `Ctrl+Win+F3` kullanılır. Tarayıcı penceresinde listeler odaklanmışken sol ve sağ ok tuşları da aynı işlevi görür: bkz. Diyalog İçi Kısayollar.
 
@@ -112,6 +113,7 @@ Bilmeniz gerekenler:
 - Hiçbir şey çalmıyorsa tuş kombinasyonu, `Ctrl+Win+→` / `Ctrl+Win+←` gibi, değiştirilmeden Windows'a iletilir.
 - Bir listenin başında veya sonunda (başa sarmayan radyo dışında) NVDA başta ya da sonda olduğunuzu bildirir ve hiçbir şey değişmez. Klasörün parçası olarak başlatılmamış bir müzik kutusu parçasının komşusu yoktur, bu yüzden aynısını bildirir.
 - **Otomatik geçiş kesintiye uğramaz.** Bir müzik kutusu klasöründe ya da sesli kitapta elle atladıktan sonra da, mevcut parça veya bölüm bittiğinde sonraki kendiliğinden başlar; İstasyon Tarayıcısı açık da olsa kapalı da olsa. Bir klasörün son parçasında "sonraki"ne basmak klasörün kayıtlı konumunu sıfırlamaz.
+- **Bir atlama tuşuna art arda birkaç kez basmak adım adım çalışır.** Her basış, önceki basışın vardığı yerden bir öğe daha ileri gider; o öğe henüz çalmaya başlamamış olsa bile. Yalnızca sonuncusu çalınır. Bu, bir komutu tekrarlayan sesli komut veya makro için de geçerlidir; örneğin "sonraki istasyon" komutunun dört kez verilmesi.
 - Bir podcast'in bölüm listesi yalnızca geçerli NVDA oturumu boyunca bellekte tutulur. Henüz yüklenmemişse — örneğin NVDA yeni başladıktan hemen sonra — NVDA, İstasyon Tarayıcısı'nı açıp o podcast'i bir kez seçmenizi ister; ondan sonra tuşlar pencere kapalıyken de çalışır.
 - İstasyon Tarayıcısı açıksa, klavyeden atlanan bir sesli kitap pencerenin "şu an çalan" kitap ve bölüm bilgisini de günceller; böylece pencerenin kendi otomatik geçişi doğru yerden devam eder.
 
@@ -129,7 +131,7 @@ Arama yapıldığında, Radio Browser sonuçlarına TuneIn ve iHeartRadio'dan (m
 
 Tarayıcı penceresinin alt kısmında sekmelerin dışında yer alan **Çıkış Cihazı** açılır listesi, o an BASS tarafından tanınan ses çıkış aygıtlarını listeler. Listeden bir aygıt seçildiğinde ses çıkışı anında o aygıta yönlendirilir ve seçim kalıcı olarak kaydedilir; bir sonraki oturumda aynı aygıt otomatik olarak kullanılır. Seçili aygıt sisteme bağlı değilse otomatik olarak sistem varsayılanına dönülür. İstasyon Tarayıcısı içindeyken herhangi bir yerden `F11` tuşuna basarak daha basit, isteğe bağlı bir aygıt seçicisi açabilirsiniz. Bu seçici otomatik olarak gösterilmez; yalnızca BASS birden fazla fiziksel çıkış aygıtı algıladığında açılır. Yalnızca bir aygıt varsa seçim yapmaya gerek yoktur ve freeAudio sistem varsayılan çıkışını kullanır.
 
-Aynı bölümde yer alan **Ses Seviyesi** (0–200) ve **Efektler** denetimleri, pencere açıkken anlık olarak ayarlanabilir. Efektler listesinden Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb ile EQ: Bass Boost, EQ: Treble Boost ve EQ: Vocal Boost seçenekleri aynı anda birden fazla seçilerek etkinleştirilebilir; değişiklikler çalan akışa anında uygulanır. Her efekt, klavyeden elinizi kaldırmadan `Ctrl+1` ile `Ctrl+0` arasındaki kısayollarla da anında açılıp kapatılabilir — aşağıdaki [Efekt Kısayolları](#efekt-kısayolları) bölümüne bakın.
+Aynı bölümde yer alan **Ses Seviyesi** (0–200) ve **Efektler** denetimleri, pencere açıkken anlık olarak ayarlanabilir. Efektler listesinden Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird ile EQ: Bass Boost, EQ: Treble Boost ve EQ: Vocal Boost seçenekleri aynı anda birden fazla seçilerek etkinleştirilebilir; değişiklikler çalan akışa anında uygulanır. Her efekt, klavyeden elinizi kaldırmadan `Ctrl+1` ile `Ctrl+0` arasındaki kısayollarla da anında açılıp kapatılabilir — aşağıdaki [Efekt Kısayolları](#efekt-kısayolları) bölümüne bakın.
 
 EQ efektlerinden biri veya birkaçı etkinleştirildiğinde, her aktif band için bir **kazanç denetimi** otomatik olarak görünür. Kazanç −15 dB ile +15 dB arasında ayarlanabilir; varsayılan değerler Bas +9 dB, Tiz +9 dB ve Vokal +6 dB'dir. Kazanç denetimleri yalnızca işaretli EQ bandları için gösterilir, efekt kapatıldığında otomatik olarak gizlenir. Kazanç değerleri genel olarak kaydedilir ve bir sonraki oturumda geri yüklenir.
 
@@ -179,8 +181,8 @@ Aşağıdaki tuşlar yalnızca İstasyon Tarayıcısı penceresi etkinken çalı
 |---|---|---|
 | `→` | Sonraki öğe / İleri atla | Bir istasyon listesinde (Tüm İstasyonlar / Favoriler) bir sonraki istasyona geçer ve hemen çalar; liste sonunda başa döner. Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde, bir şey yüklenmiş ve çalıyorken bunun yerine ileri atlar — genel `Ctrl+Win+K` komutuyla aynıdır (yukarıdaki Kademeli atlama bölümüne bakın). Özellikle Podcastler bölüm listesinde, henüz hiçbir şey yüklenmemişse bir sonraki bölüme geçip çalmaya geri döner. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
 | `←` | Önceki öğe / Geri atla | Bir istasyon listesinde bir önceki istasyona geçer ve çalar; başındayken sona atlar. Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde, bir şey yüklenmiş ve çalıyorken bunun yerine geri atlar — genel `Ctrl+Win+J` komutuyla aynıdır. Podcastler bölüm listesinde, henüz hiçbir şey yüklenmemişse bir önceki bölüme geçip çalmaya geri döner. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
-| `Shift+→` | Perdeyi yükselt | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: çalmakta olan içeriğin perdesini bir yarım ton yükseltir; genel `Shift+Win+K` komutuyla aynıdır. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
-| `Shift+←` | Perdeyi düşür | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: çalmakta olan içeriğin perdesini bir yarım ton düşürür; genel `Shift+Win+J` komutuyla aynıdır. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
+| `Shift+→` | Perdeyi yükselt | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: çalmakta olan içeriğin perdesini bir adım (0.25 yarım ton) yükseltir; genel `Shift+Win+K` komutuyla aynıdır. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
+| `Shift+←` | Perdeyi düşür | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: çalmakta olan içeriğin perdesini bir adım (0.25 yarım ton) düşürür; genel `Shift+Win+J` komutuyla aynıdır. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
 | `Page Up` | Oynatma hızını artır | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: oynatma hızını artırır; genel `Ctrl+Win+Shift+K` komutuyla aynıdır. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
 | `Page Down` | Oynatma hızını azalt | Podcastler, Sesli Kitaplar veya Müzik Kutusu öğe listelerinde: oynatma hızını azaltır; genel `Ctrl+Win+Shift+J` komutuyla aynıdır. Bu, bu listelerin altındaki yer imi listelerinde de geçerlidir (bkz. [Yer İmleri](#yer-i̇mleri)). |
 | `Alt+→` | Hassas ileri sarma (1 saniye) | İstasyon Tarayıcısı'nın herhangi bir sekmesinde, bir şey yüklüyken: genel `Ctrl+Win+Alt+K` komutu gibi tam olarak 1 saniye ileri sarar. Bkz. [Hassas Sarma (1 Saniye)](#hassas-sarma-1-saniye). |
@@ -316,9 +318,27 @@ Favoriler sekmesinde per-istasyon ses ayarlarını yönetmek için iki düğme b
 
 Her iki düğme de favoriler listesinin altında yer alır ve yalnızca listeden bir istasyon seçiliyken etkin olur.
 
+## On Bantlı Ekolayzer
+
+**Ekolayzer** sekmesi, İstasyon Tarayıcısı'ndaki son sekmedir. Etkinleştirmek veya devre dışı bırakmak için **Ekolayzer Açma/Kapama** seçeneğini kullanın. Devre dışı bırakmak bant ayarlarınızı korur.
+
+On kaydırıcı **62, 125, 250, 500, 1000, 2000, 4000, 8000, 12000 ve 16000 Hz** frekanslarını **−20 ile +20 dB** arasında 1 dB'lik adımlarla denetler. Bir kaydırıcıya ulaşmak için Tab ve Shift+Tab, ayarlamak için ok tuşlarını kullanın. NVDA frekansı ve dB cinsinden işaretli değeri duyurur. Değişiklikler oynatma sırasında hemen etkili olur.
+
+**Sıfırla** on bandın tamamını 0 dB'ye ayarlar. **Kaydet** ayarları NVDA yapılandırmasına yazar ve başarıyı ya da kaydetme hatasını duyurur. Ayarlar NVDA başlarken geri yüklenir. Ekolayzer, istasyonların ve diğer medyanın tamamına genel olarak uygulanır. Mevcut dokuz bantlı ayarlar, 16000 Hz bandı dahil özgün değerlerini korur. Yeni 12000 Hz bandı 0 dB ile başlar.
+
+Tüm bantlar 0 dB'deyken ekolayzer özgün ses seviyesini korur. Her kaydırıcı kendi tepe (peaking) filtresini, genel ses seviyesini otomatik olarak değiştirmeden ayarlar. Büyük artışlar kırpılmaya (clipping) yol açabilir. Bozulma duyarsanız bant kazançlarını azaltın.
+
+Tarayıcı kapalıyken ekolayzeri açıp kapatmak için NVDA Menüsü → Tercihler → Girdi Hareketleri → **freeAudio** altında **Ekolayzırı Aç/Kapa** komutuna bir hareket atayın. Bu komutun varsayılan bir hareketi yoktur. Mevcut Bass, Treble ve Vocal Boost efektleri, on bantlı ekolayzerin yanında kullanılabilir kalır.
+
+## Tuhaf (Weird) Efekti
+
+**Tuhaf**, İstasyon Tarayıcısı'ndaki ve freeAudio Ayarları'ndaki Efektler listesinde **Reverb**'ten hemen sonra yer alır. Düzeltilmiş (rectified), doğrusal olmayan sesini açmak veya kapatmak için işaretleyin ya da işaretini kaldırın. Ekolayzer ve diğer efektlerle birlikte kullanılabilir.
+
+Bir favori istasyon için durumunu kaydetmek üzere **Ses Profilini Kaydet**'i kullanın ve **Yalnızca efektler** veya **Ses seviyesi ve efektler** seçeneğini seçin. Kaydedilen açık/kapalı durumu, istasyonun diğer efektleriyle birlikte geri yüklenir. Profili olmayan istasyonlar genel efekt ayarlarını kullanır. **Tuhafı Aç/Kapa** komutu da NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio** altında bulunur; varsayılan bir hareketi yoktur.
+
 ## Müzik Tanıma
 
-`Ctrl+Win+İ` kısayoluna üç kez basıldığında çalan akış için Shazam tabanlı müzik tanıma başlar. Tanıma yalnızca ICY metadata (istasyon tarafından yayınlanan parça bilgisi) mevcut olmadığında başlar; metadata varsa bunun yerine panoya kopyalanır.
+`Ctrl+Win+İ` kısayoluna üç kez basıldığında çalan akış için Shazam tabanlı müzik tanıma başlar. Tanıma yalnızca ICY metadata (istasyon tarafından yayınlanan parça bilgisi) mevcut olmadığında başlar; metadata varsa bunun yerine panoya kopyalanır. `Ctrl+Win+İ` kısayoluna dört kez basmak, istasyon metadata gönderse bile tanımayı zorlar; bu, metadata yanlış olduğunda işe yarar.
 
 Tanıma şöyle çalışır: ffmpeg kullanılarak akıştan kısa bir ses örneği alınır (ffmpeg kendini bir medya oynatıcı gibi tanıttığı için bilinmeyen programları reddeden istasyonlar da yanıt verir), Shazam parmak izi algoritması uygulanır ve sonuç Shazam'ın sunucularına gönderilir. Tanıma başarılı olursa parça adı, sanatçı, albüm ve yayın yılı NVDA tarafından duyurulur ve otomatik olarak panoya kopyalanır. **Beğenilen şarkıları metin dosyasına kaydet** seçeneği etkinse tanıma sonucu ayrıca `likedSongs.txt` dosyasına eklenir.
 
@@ -351,7 +371,7 @@ ffmpeg akışı doğrudan okuyamıyorsa — örneğin istasyon bağlantısını 
 
 - **Fon istasyonu** — fonda hangi favori istasyonun döngüye alınacağını seçtiğiniz liste. En az bir favori gerektirir; favori listeniz boşsa freeAudio önce bir istasyon eklemenizi ister (bir istasyon çalarken `Ctrl+Win+V`).
 - **Ses çıkışı** — fon istasyonunun hangi aygıttan çalacağı: **Ana çıkışla aynı** (varsayılan), **Sistem varsayılanı** veya freeAudio'nun gördüğü belirli bir aygıt.
-- **Fon ses seviyesi** — fon istasyonunun, ana oynatıcının o anki ses seviyesine oranla ne kadar yüksek çalacağı (%5, %10, %25, %50, %75, %100, %125 veya %150). Seçimleriniz bir sonraki sefer için hatırlanır.
+- **Fon ses seviyesi** — fon istasyonunun, ana oynatıcının o anki ses seviyesine oranla ne kadar yüksek çalacağı (%25, %50, %75, %100, %125 veya %150). Seçimleriniz bir sonraki sefer için hatırlanır.
 
 Başladıktan sonra fon istasyonu ana oynatıcıdan bağımsız olarak çalmaya devam eder — ana oynatıcıda istasyon, podcast veya sesli kitap değiştirmek, hatta oynatmayı tamamen durdurmak Obligato modunu kesintiye uğratmaz. Buna karşın iki şey otomatik olarak ana oynatıcıya bağlı kalır:
 
@@ -614,19 +634,20 @@ Yalnızca seçtiğiniz parçalar profile yazılır; dışarıda bıraktığını
 
 Abonelikleriniz, NVDA kullanıcı yapılandırma klasöründeki `freeAudio_podcasts.json` dosyasında saklanır. Bölüm konumları ayrı olarak aynı konumdaki `podcast_positions.json` dosyasında saklanır. Her iki dosya da düz JSON'dur ve yedeklenebilir veya başka bir bilgisayara aktarılabilir.
 
-## Sesli Kitaplar (GETEM, LibriVox ve Project Gutenberg)
+## Sesli Kitaplar (GETEM, LibriVox, Project Gutenberg ve Internet Archive)
 
-freeAudio, üç kaynaktan kitap arayan, çalan ve indiren bir sesli kitap oynatıcısı içerir:
+freeAudio, dört kaynaktan kitap arayan, çalan ve indiren bir sesli kitap oynatıcısı içerir:
 
 - **[GETEM](https://getem.boun.edu.tr/)** — Boğaziçi Üniversitesi Görme Engelliler Teknoloji ve Eğitim Laboratuvarı tarafından işletilen dijital kütüphane. Bir kitabın sesini akışla dinlemek veya indirmek için ücretsiz bir üyelik gerektirir (göz atmak gerektirmez) — aşağıdaki [Oturum Açma](#oturum-açma) bölümüne bakın.
 - **[LibriVox](https://librivox.org/)** — gönüllülerin seslendirdiği, kamu malı sesli kitap projesi. Herhangi bir hesap veya oturum açma gerekmez; kataloğunun tamamı, ses dosyalarının kendisi dahil, kamu malıdır ve serbestçe erişilebilir.
 - **Project Gutenberg Açık Sesli Kitap Koleksiyonu** — [archive.org](https://archive.org/) üzerinde barındırılan, insan ve bilgisayar tarafından seslendirilmiş kamu malı sesli kitaplar; Project Gutenberg metin kütüphanesinin tamamlayıcısıdır. LibriVox gibi, hesap veya oturum açma gerektirmez.
+- **Internet Archive** — [archive.org](https://archive.org/) üzerine yüklenen, "audiobook" etiketli ve LibriVox ya da Project Gutenberg tarafından zaten kapsanmayan sesli kitaplar. Bu, Türkçe dahil diğer dillerdeki sesli kitapları da getirir. Hesap veya oturum açma gerekmez. Bunlar bireylerin yüklemeleri olduğundan, bir kitabın bölümlerinin ve ayrıntılarının ne kadar eksiksiz olduğu öğeden öğeye değişebilir.
 
-Her üç kaynaktan gelen sonuçlar, ayrı bir sekme veya açılır liste olmadan tek bir birleşik **Arama sonuçları** listesinde ve tek bir birleşik **Kitaplık** listesinde birlikte görünür. Her kitabın kaynağı (GETEM, LibriVox veya Project Gutenberg), başlığının yanında ve ayrıntılarında bir etiket olarak gösterilir; böylece hangisine baktığınızı her zaman anlayabilirsiniz. Her üç kaynaktan kitapları tamamen aynı şekilde arayabilir, önizleyebilir, ekleyebilir, çalabilir ve indirebilirsiniz; çok bölümlü eserleri bölümler arası otomatik devam etme özelliğiyle oynatabilir ve kitapları çevrimdışı dinlemek için indirebilirsiniz — tümü tam erişilebilir şekilde.
+Dört kaynaktan gelen sonuçlar, ayrı bir sekme veya açılır liste olmadan tek bir birleşik **Arama sonuçları** listesinde ve tek bir birleşik **Kitaplık** listesinde birlikte görünür. Her kitabın kaynağı (GETEM, LibriVox, Project Gutenberg veya Internet Archive), başlığının yanında ve ayrıntılarında bir etiket olarak gösterilir; böylece hangisine baktığınızı her zaman anlayabilirsiniz. Herhangi bir kaynaktan kitapları tamamen aynı şekilde arayabilir, önizleyebilir, ekleyebilir, çalabilir ve indirebilirsiniz; çok bölümlü eserleri bölümler arası otomatik devam etme özelliğiyle oynatabilir ve kitapları çevrimdışı dinlemek için indirebilirsiniz — tümü tam erişilebilir şekilde.
 
-Yalnızca bazılarını aramak isterseniz, **NVDA Menüsü → Tercihler → Ayarlar → freeAudio** bölümündeki **Sesli kitap kaynakları** onay kutuları listesinden her kaynak ayrı ayrı kapatılabilir. Varsayılan olarak üçü de açıktır.
+Yalnızca bazılarını aramak isterseniz, **NVDA Menüsü → Tercihler → Ayarlar → freeAudio** bölümündeki **Sesli kitap kaynakları** onay kutuları listesinden her kaynak ayrı ayrı kapatılabilir. Varsayılan olarak dördü de açıktır.
 
-> **Not:** Bir GETEM kitabını dinlemek için ücretsiz bir GETEM üyeliği gereklidir. GETEM kataloğuna göz atmak için hesap gerekmez, ancak bir GETEM kitabının sesini çözmek ve oynatmak için gereklidir — aşağıdaki [Oturum Açma](#oturum-açma) bölümüne bakın. LibriVox ve Project Gutenberg kitapları hiçbir zaman hesap gerektirmez.
+> **Not:** Bir GETEM kitabını dinlemek için ücretsiz bir GETEM üyeliği gereklidir. GETEM kataloğuna göz atmak için hesap gerekmez, ancak bir GETEM kitabının sesini çözmek ve oynatmak için gereklidir — aşağıdaki [Oturum Açma](#oturum-açma) bölümüne bakın. LibriVox, Project Gutenberg ve Internet Archive kitapları hiçbir zaman hesap gerektirmez.
 
 ### Sesli Kitaplar Sekmesine Erişim
 
@@ -640,7 +661,7 @@ Yalnızca bazılarını aramak isterseniz, **NVDA Menüsü → Tercihler → Aya
 
 GETEM, kataloğun kendisi özgürce taranabilse de, bir kitabın gerçek sesini akışla iletmek veya indirmek için kayıtlı bir üye olmayı gerektirir. GETEM kullanıcı adınızı ve şifrenizi **NVDA Menüsü → Tercihler → Ayarlar → freeAudio** bölümüne bir kez girin; bunlar diskte (Windows Veri Koruma API'si aracılığıyla, Windows kullanıcı hesabınıza bağlı olarak) şifrelenmiş olarak saklanır ve daha sonra otomatik olarak yeniden kullanılır. Kimlik bilgilerini girmeden bir GETEM kitabını oynatmaya veya indirmeye çalışırsanız, freeAudio önce bunları Ayarlar'a eklemenizi söyler.
 
-LibriVox ve Project Gutenberg'de herhangi bir oturum açma adımı yoktur — sonuçları ve sesi hiçbir kimlik bilgisi girmeden hemen arayabilir, önizleyebilir, çalabilir ve indirebilirsiniz.
+LibriVox, Project Gutenberg ve Internet Archive'da herhangi bir oturum açma adımı yoktur — sonuçları ve sesi hiçbir kimlik bilgisi girmeden hemen arayabilir, önizleyebilir, çalabilir ve indirebilirsiniz.
 
 ### Sesli Kitapları Arama
 
@@ -649,8 +670,11 @@ Arama alanına bir arama terimi yazın ve `Enter`'a basın. freeAudio, Ayarlar'd
 - **GETEM**, başlık, yazar, seslendiren, konu ve yayıncı alanlarının tümünde aynı anda aranır; çünkü GETEM'in kendi arama formu bunların hepsini birlikte daraltmayı destekler, tek bir aramayla herhangi birinde arama yapmayı değil. Yalnızca gerçekten sesli olarak mevcut olan eserler (insan veya bilgisayar sesi, sesli betimleme, radyo tiyatrosu, DAISY konuşan kitaplar vb.) gösterilir; braille, büyük puntolu ve diğer ses dışı biçimler otomatik olarak filtrelenir.
 - **LibriVox**, kamu malı kataloğunda başlık veya yazar/seslendiren alanına göre aranır.
 - **Project Gutenberg**, archive.org üzerindeki Açık Sesli Kitap Koleksiyonu'nda başlık veya yazara göre aranır.
+- **Internet Archive**, archive.org üzerinde "audiobook" etiketli ses öğeleri arasında başlık veya yazara göre aranır. LibriVox ve Project Gutenberg başlıkları bu sonuçların dışında tutulur; böylece hiçbir kitap iki kez görünmez.
 
-Bir kitabın katalog/ayrıntı sayfası URL'sini doğrudan arama alanına yapıştırmak (bir GETEM katalog sayfası veya bir LibriVox ya da Project Gutenberg başlığı için bir archive.org "details" sayfası), anahtar kelime araması yapmak yerine o tek kitabı doğrudan çözer.
+LibriVox, Project Gutenberg ve Internet Archive aramaları önce yazdığınız sözcükleri aynen dener. Yalnızca bu hiçbir şey bulmazsa daha toleranslı eşleştirmeye geçer: "Moonstone, The" gibi bir başlık aynı zamanda "The Moonstone" olarak, "Doyle, Arthur Conan" biçiminde yazılmış bir yazar da "Arthur Conan Doyle" olarak denenir, unvanlar ve noktalama yok sayılır ve son olarak her sözcük başlık ve yazar içinde tek başına eşleştirilir.
+
+Bir kitabın katalog/ayrıntı sayfası URL'sini doğrudan arama alanına yapıştırmak (bir GETEM katalog sayfası veya bir LibriVox, Project Gutenberg ya da Internet Archive başlığı için bir archive.org "details" sayfası), anahtar kelime araması yapmak yerine o tek kitabı doğrudan çözer. Bir archive.org sayfası sesli kitap değilse freeAudio bunu söyler.
 
 NVDA, toplamda kaç sesli kitap bulunduğunu bildirir.
 
@@ -673,7 +697,7 @@ Eklediğiniz kitaplar, başlık, yazar ve biçimi gösteren **Kitaplık** listes
 
 - **Medyayı Oynat** — oynatmaya başlar, `Enter` ile aynı.
 - **Kitabı İndir** — kitabın her bölümünü indirir; aşağıdaki [Sesli Kitapları İndirme](#sesli-kitapları-i̇ndirme) bölümüne bakın.
-- **URL'yi Kopyala** — kitabın katalog sayfası URL'sini panoya kopyalar (GETEM kitapları için GETEM katalog sayfası, LibriVox veya Project Gutenberg kitapları için archive.org ayrıntı sayfası).
+- **URL'yi Kopyala** — kitabın katalog sayfası URL'sini panoya kopyalar (GETEM kitapları için GETEM katalog sayfası, LibriVox, Project Gutenberg veya Internet Archive kitapları için archive.org ayrıntı sayfası).
 - **Bu Kitap İçin Ses Profili Kaydet** / **Ses Profilini Temizle** — bkz. aşağıdaki [Sesli Kitap Ses Profili](#sesli-kitap-ses-profili).
 - **Kitaplıktan Kaldır** — kitabı kitaplığınızdan siler.
 
@@ -701,7 +725,7 @@ Kitaplıktan bir kitap seçin ve bağlam menüsünden **Kitabı İndir**'i seçe
 
 ### Sesli Kitaplar İçin Doğrudan Klavye Kısayolları
 
-Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox veya Project Gutenberg'den olsun — NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Sesli Kitaplar** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) ve [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları) bölümlerindeki gibi. İstediğiniz kitaba herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz. Varsayılan olarak hiçbir kısayol atanmış değildir.
+Sesli Kitaplar kitaplığınızdaki her kitap — GETEM, LibriVox, Project Gutenberg veya Internet Archive'den olsun — NVDA'nın Girdi Hareketleri iletişim kutusunda **freeAudio Sesli Kitaplar** kategorisinde ayrı bir script olarak kayıtlıdır; tıpkı [Favori İstasyonlar İçin Doğrudan Klavye Kısayolları](#favori-i̇stasyonlar-i̇çin-doğrudan-klavye-kısayolları) ve [Müzik Kutusu Öğeleri İçin Doğrudan Klavye Kısayolları](#müzik-kutusu-öğeleri-i̇çin-doğrudan-klavye-kısayolları) bölümlerindeki gibi. İstediğiniz kitaba herhangi bir klavye kısayolu atayabilir ve önce tarayıcı penceresini açmanıza gerek kalmadan her yerden basabilirsiniz. Varsayılan olarak hiçbir kısayol atanmış değildir.
 
 Kısayol atamak için:
 
@@ -716,7 +740,7 @@ Kitaplığa bir kitap eklediğinizde ya da kitaplıktan çıkardığınızda **f
 
 ### Sesli Kitap Veri Depolama
 
-Sesli Kitaplar sekmesinde birleşik gösterilseler de, her kaynak kendi kitaplık dosyasını ayrı tutar. GETEM kitaplığınız (eklenen kitaplar ve dinleme ilerlemeleri) `freeAudio_getem_library.json` dosyasında, LibriVox kitaplığınız ayrı olarak `freeAudio_librivox_library.json` dosyasında ve Project Gutenberg kitaplığınız ayrı olarak `freeAudio_gutenberg_library.json` dosyasında saklanır — üçü de NVDA kullanıcı yapılandırma klasöründedir. Şifrelenmiş GETEM kimlik bilgileriniz aynı konumdaki `freeAudio_getem_credentials.bin` dosyasında ayrı olarak saklanır ve yalnızca bunları kaydeden Windows kullanıcı hesabı tarafından şifresi çözülebilir. LibriVox ve Project Gutenberg hesap gerektirmediğinden bunlara karşılık gelen bir kimlik bilgisi dosyası yoktur.
+Sesli Kitaplar sekmesinde birleşik gösterilseler de, her kaynak kendi kitaplık dosyasını ayrı tutar. GETEM kitaplığınız (eklenen kitaplar ve dinleme ilerlemeleri) `freeAudio_getem_library.json` dosyasında, LibriVox kitaplığınız ayrı olarak `freeAudio_librivox_library.json` dosyasında, Project Gutenberg kitaplığınız ayrı olarak `freeAudio_gutenberg_library.json` dosyasında ve Internet Archive kitaplığınız ayrı olarak `freeAudio_archive_audiobooks_library.json` dosyasında saklanır — dördü de NVDA kullanıcı yapılandırma klasöründedir. Şifrelenmiş GETEM kimlik bilgileriniz aynı konumdaki `freeAudio_getem_credentials.bin` dosyasında ayrı olarak saklanır ve yalnızca bunları kaydeden Windows kullanıcı hesabı tarafından şifresi çözülebilir. LibriVox, Project Gutenberg ve Internet Archive hesap gerektirmediğinden bunlara karşılık gelen bir kimlik bilgisi dosyası yoktur.
 
 ## Yerel Müzik Kutusu
 
@@ -957,7 +981,7 @@ NVDA Menüsü → Tercihler → Ayarlar → freeAudio bölümünden aşağıdaki
 | Ses çıkış cihazı | Radyo çalma sesinin yönlendirileceği çıkış aygıtını belirler. Listede sistemdeki BASS uyumlu tüm aygıtlar ve "Sistem varsayılanı" seçeneği yer alır. Kaydedildiğinde değişiklik anında uygulanır; seçili aygıtın bağlantısı kesilirse otomatik olarak sistem varsayılanına dönülür ve değişiklik bildirilir. |
 | Ses aygıtı yenileme modu | freeAudio'nun BASS çıkış aygıtı numaralarını nasıl yenilediğini kontrol eder. **Güvenilir** mod (varsayılan) aygıtları canlı olarak yoklar ve Bluetooth/USB değişikliklerini daha doğru izler, ancak aygıt değişikliklerini biraz yavaşlatabilir. **Hızlı** mod mevcut BASS aygıt listesini kullanır ve daha hızlıdır, ancak BASS veya NVDA yeniden başlatılana kadar aygıt numaraları güncel kalmayabilir. |
 | Ses seviyesi | Eklentinin başlangıç ses seviyesini belirler (0–100). Oynatma sırasında `Ctrl+Win+↑` ses seviyesini 200'e kadar yükseltebilir, ancak burada kaydedilen başlangıç ses seviyesi 100 ile sınırlıdır. |
-| Ses efektleri | NVDA başladığında veya bir istasyon çalmaya başladığında hangi efektlerin (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb ve üç EQ artırma seçeneği) aktif olacağını belirler. İstasyon Tarayıcısı'ndaki Efektler listesiyle eşleşecek şekilde birden fazla efekt aynı anda işaretlenebilir. |
+| Ses efektleri | NVDA başladığında veya bir istasyon çalmaya başladığında hangi efektlerin (Chorus, Compressor, Distortion, Echo, Flanger, Gargle, Reverb, Weird ve üç EQ artırma seçeneği) aktif olacağını belirler. İstasyon Tarayıcısı'ndaki Efektler listesiyle eşleşecek şekilde birden fazla efekt aynı anda işaretlenebilir. |
 | EQ kazancı (Bas / Tiz / Vokal) | Her EQ bandının kazanç düzeyini dB cinsinden belirler (−15 ile +15 arasında). İlgili EQ efekti etkinleştirildiğinde bu değerler uygulanır ve genel olarak kaydedilir. İstasyona özel geçersiz kılmalar Favoriler sekmesindeki **Ses Profilini Kaydet** düğmesiyle yapılabilir. |
 | İstasyon geçiş efekti | **Canlı radyo istasyonları** arasında geçiş yapılırken uygulanacak davranışı belirler. **Anlık kesme** (varsayılan) yeni istasyon başlamadan önce eskisini hemen durdurur. **Kısa geçiş efekti (1 saniye)** ve **Normal geçiş efekti (2 saniye)** seçeneklerinde yeni istasyon hiç boşluk olmadan hemen başlar; yeni akışın aktif olduğu onaylandıktan sonra eski istasyonun sesi arka planda kademeli olarak azaltılarak kesilir. **İstasyon ayarlama sesi efekti** eski istasyonu hemen durdurur ve yeni istasyon başlamadan önce bir istasyon ayarlama sesi efekti çalar. Anlık kesme seçiliyken herhangi bir performans etkisi yoktur. Podcast, sesli kitap veya müzik kutusu parçaları için geçerli değildir — bunların devam ettirilmesi bu ayardan bağımsız olarak her zaman kendi kısa kaset sesini çalar; bkz. [Podcast Oynatma Ayrıntıları](#podcast-oynatma-ayrıntıları). |
 | NVDA başlangıcında son istasyonu devam ettir | Açıksa NVDA her başlatıldığında en son çalınan istasyon otomatik olarak yeniden başlar. |
@@ -976,7 +1000,7 @@ NVDA Menüsü → Tercihler → Ayarlar → freeAudio bölümünden aşağıdaki
 | Kayıt klasörü | Kayıt dosyalarının yazılacağı klasörü belirler. Boş bırakılırsa varsayılan konum olan `Belgeler\freeAudio Recordings\` kullanılır. Gözat düğmesiyle klasör seçilebilir. Değişiklikler kaydedildikten hemen sonra geçerli olur. |
 | Modüller | freeAudio'nun isteğe bağlı bölümlerinin bir onay listesi: **Podcastler**, **Sesli Kitaplar** ve **Müzik Kutusu**. Üçü de varsayılan olarak etkindir. Birinin işaretini kaldırmak, sekmesini İstasyon Tarayıcısı'ndan ve komutlarını NVDA'nın Girdi Hareketleri iletişim kutusundan kaldırır; orada kaydettiğiniz hiçbir şey (abonelikler, kitaplık, Müzik Kutusu listesi) silinmez; yeniden işaretlemek her şeyi geri getirir. Değişiklikler İstasyon Tarayıcısı'nın bir sonraki açılışında uygulanır. |
 | Müzik kutusunda ararken ağ sürücülerini dahil et | Etkinleştirildiğinde Müzik Kutusu'nun **Diski ara** özelliği ağ sürücülerini de tarar. Varsayılan olarak devre dışıdır; çünkü bir ağ paylaşımını aramak dakikalar sürebilir veya paylaşıma ulaşılamıyorsa takılıp kalabilir. |
-| Sesli kitap kaynakları | Sesli Kitaplar sekmesinde hangi kaynakların (**GETEM**, **LibriVox**, **Project Gutenberg**) aranıp gösterileceğini belirleyen bir onay kutuları listesi. Varsayılan olarak üçü de açıktır. Bir kaynağın işaretini kaldırmak, o kaynaktan daha önce eklediğiniz kitapları silmeden yalnızca birleşik arama sonuçlarından ve kitaplık listesinden gizler — bkz. [Sesli Kitaplar (GETEM, LibriVox ve Project Gutenberg)](#sesli-kitaplar-getem-librivox-ve-project-gutenberg). |
+| Sesli kitap kaynakları | Sesli Kitaplar sekmesinde hangi kaynakların (**GETEM**, **LibriVox**, **Project Gutenberg**, **Internet Archive**) aranıp gösterileceğini belirleyen bir onay kutuları listesi. Varsayılan olarak dördü de açıktır. Bir kaynağın işaretini kaldırmak, o kaynaktan daha önce eklediğiniz kitapları silmeden yalnızca birleşik arama sonuçlarından ve kitaplık listesinden gizler — bkz. [Sesli Kitaplar (GETEM, LibriVox, Project Gutenberg ve Internet Archive)](#sesli-kitaplar-getem-librivox-project-gutenberg-ve-internet-archive). |
 | GETEM kullanıcı adı / GETEM şifresi | Bir kitabın sesini akışla dinlemek veya indirmek için gereken [GETEM](https://getem.boun.edu.tr/) sesli kitap üyelik kimlik bilgileriniz — bkz. [Oturum Açma](#oturum-açma). Windows kullanıcı hesabınıza bağlı olarak diskte Windows Veri Koruma API'si aracılığıyla şifrelenmiş saklanır; asla düz metin olarak tutulmaz. Her iki alanı da boş bırakıp kaydetmek kayıtlı kimlik bilgilerini siler. LibriVox ve Project Gutenberg hesap gerektirmez ve bunlara karşılık gelen bir alanı yoktur. |
 | Kayıt çıkış formatı | Orijinal akışı korur, sesi codec'ini değiştirmeden ayıklar veya tamamlanan kayıtları MP3'e dönüştürür. Varsayılan, orijinal akış formatıdır. |
 | MP3 kayıt bit hızı | Kayıt çıkış formatı MP3 olarak seçildiğinde kullanılacak bit hızını belirler. Varsayılan 128 kb/sn'dir. |
@@ -991,7 +1015,7 @@ freeAudio ayarlar sayfasının altındaki **Temizle: ayarları sıfırla ve kay�
 - **Favori istasyonlar**
 - **İstasyon listesi önbelleği** — gerektiğinde yeniden indirilir.
 - **Podcast abonelikleri**
-- **Sesli kitap kitaplıkları** — GETEM, LibriVox ve Project Gutenberg.
+- **Sesli kitap kitaplıkları** — GETEM, LibriVox, Project Gutenberg ve Internet Archive.
 - **Kayıtlı GETEM girişi** — saklanan kullanıcı adı ve parola.
 - **Müzik Kutusu listesi** — müzik dosyalarınız silinmez.
 - **Kayıtlı devam konumları** — podcastler, sesli kitaplar ve Müzik Kutusu klasörleri.
