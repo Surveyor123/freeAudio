@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: freeAudio 2026.25.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-11-15 07:56+0300\n"
-"PO-Revision-Date: 2026-11-09 12:52+0300\n"
+"PO-Revision-Date: 2026-11-17 13:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Generator: Poedit 3.10\n"
 "X-Poedit-Basepath: ../../../..\n"
@@ -95,7 +95,9 @@ msgstr "Na této adrese na archive.org nebyla nalezena žádná kniha."
 msgid ""
 "This archive.org item is not a general audio book (LibriVox and Project "
 "Gutenberg titles have their own sources)."
-msgstr "Tato položka z archive.org není běžná audiokniha (tituly z LibriVox a Projektu Gutenberg mají vlastní zdroje)."
+msgstr ""
+"Tato položka na Archive.org není obecnou audioknihou, Librivox a projekt "
+"Gutenberk mají své vlastní zdroje tohoto titulu."
 
 #. Translators: Error returned by the chapter-listing step when archive.org has no playable audio file for the resolved book.
 #. Translators: Error returned by the archive.org metadata path when no playable audio file was found for the resolved book.
@@ -483,36 +485,36 @@ msgstr "Zvukový efekt přelaďování stanic"
 #. Translators: Name of an NVDA command; toggles the "Weird" audio effect on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:287
 msgid "Toggle Weird"
-msgstr "Zapnout/vypnout Podivný"
+msgstr "Zapnout/vypnout Weird"
 
 #. Translators: Spoken when the "Weird" audio effect is turned on with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:305
 msgid "Weird enabled"
-msgstr "Podivný zapnut"
+msgstr "Weird zapnuto"
 
 #. Translators: Spoken when the "Weird" audio effect is turned off with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:307
 msgid "Weird disabled"
-msgstr "Podivný vypnut"
+msgstr "Weird vypnuto"
 
 #. Translators: Name of an NVDA command; turns the ten-band graphic equalizer on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:312
 msgid "Toggle Equalizer"
-msgstr "Zapnout/vypnout ekvalizér"
+msgstr "Zapnout/vypnout Equalizér"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned on with its command.
 #. Translators: Spoken when the equalizer is turned on with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:325
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:72
 msgid "Equalizer enabled"
-msgstr "Ekvalizér zapnut"
+msgstr "Equalizer zapnut"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned off with its command.
 #. Translators: Spoken when the equalizer is turned off with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:327
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:74
 msgid "Equalizer disabled"
-msgstr "Ekvalizér vypnut"
+msgstr "Equalizer vypnut"
 
 #. Translators: Name of an NVDA command; adds a bookmark at the current playback position of an audio book part, podcast episode or jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:39
@@ -890,7 +892,7 @@ msgstr "%+d dB"
 #. Translators: Label of the checkbox that turns the ten-band graphic equalizer on or off.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:30
 msgid "Equalizer On/Off"
-msgstr "Ekvalizér zap./vyp."
+msgstr "Equalizer Zapnutý/vypnutý"
 
 #. Translators: Label (and accessible name) of one equalizer band slider. %g is the band's centre frequency in hertz, e.g. "62 Hz" or "12000 Hz".
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:38
@@ -901,7 +903,7 @@ msgstr "%g Hz"
 #. Translators: Label of the equalizer button that sets every band back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:52
 msgid "Reset"
-msgstr "Vynulovat"
+msgstr "Resetovat"
 
 #. Translators: Label of the equalizer button that saves the equalizer settings to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:54
@@ -919,17 +921,17 @@ msgstr "%(frequency)g Hz, %(gain)+d dB"
 #. Translators: Spoken after the Reset button sets all equalizer bands back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:92
 msgid "Equalizer reset"
-msgstr "Ekvalizér vynulován"
+msgstr "Equalizer resetován"
 
 #. Translators: Spoken when saving the equalizer settings to the configuration fails.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:99
 msgid "Could not save Equalizer settings"
-msgstr "Nastavení ekvalizéru se nepodařilo uložit"
+msgstr "Nastavení equalizéru se nepodařilo uložit"
 
 #. Translators: Spoken after the equalizer settings were saved to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:102
 msgid "Equalizer settings saved"
-msgstr "Nastavení ekvalizéru uloženo"
+msgstr "Nastavení equalizeru uloženo"
 
 #. Shown as this book's narrator (see GutenbergAudiobook.__init__) instead
 #. of leaving the field blank the way LibriVox does (which credits a
@@ -1127,9 +1129,9 @@ msgid ""
 "and place ffmpeg.exe in the freeAudio addon folder, or set the path in "
 "settings."
 msgstr ""
-"Soubor ffmpeg.exe nebyl nalezen. Stáhněte si ffmpeg z adresy https://ffmpeg."
-"org/download.html a umístěte jej do složky doplňku freeAudio, případně "
-"zvolte cestu k souboru v nastavení."
+"Soubor ffmpeg.exe nebyl nalezen. Stáhněte si ffmpeg z adresy https://"
+"ffmpeg.org/download.html a umístěte jej do složky doplňku freeAudio, "
+"případně zvolte cestu k souboru v nastavení."
 
 #. Translators: Title of the Obligato mode setup dialog.
 #: addon\globalPlugins\freeAudio\obligatoMixin.py:55
@@ -1780,7 +1782,7 @@ msgstr "Jukebox"
 #. Translators: Tab label for the ten-band graphic equalizer page.
 #: addon\globalPlugins\freeAudio\radioDialog.py:740
 msgid "Equalizer"
-msgstr "Ekvalizér"
+msgstr "Equalizer"
 
 #. Translators: Static label for the output-device choice control, shown above every tab.
 #. Translators: Accessible name for the output-device dropdown (same text as its static label).
@@ -1858,7 +1860,7 @@ msgstr "Dozvuk"
 #: addon\globalPlugins\freeAudio\radioDialog.py:801
 #: addon\globalPlugins\freeAudio\settingsPanel.py:181
 msgid "Weird"
-msgstr "Podivný"
+msgstr "Weird"
 
 #. Translators: Label for the bass-boost EQ gain spin control, shown only while that effect is checked.
 #: addon\globalPlugins\freeAudio\radioDialog.py:824
@@ -2686,8 +2688,8 @@ msgid ""
 "Supported files (*.json;*.m3u)|*.json;*.m3u|JSON favourites (*.json)|*.json|"
 "M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Oblíbené JSON (*.json)|*."
-"json|Playlist M3U (*.m3u)|*.m3u"
+"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Oblíbené JSON (*.json)|"
+"*.json|Playlist M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing favourites.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
@@ -3199,11 +3201,11 @@ msgstr[2] ""
 #. Translators: File-type filter list ('wildcard') for the jukebox-import file picker; each '|'-separated pair is a display label then a glob pattern, don't translate the patterns after the pipes, only the descriptive labels before them.
 #: addon\globalPlugins\freeAudio\radioDialog.py:5322
 msgid ""
-"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|*."
-"json|M3U playlist (*.m3u)|*.m3u"
+"Supported files (*.json;*.m3u)|*.json;*.m3u|JSON jukebox library (*.json)|"
+"*.json|M3U playlist (*.m3u)|*.m3u"
 msgstr ""
-"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Knihovna jukeboxu JSON (*."
-"json)|*.json|Playlist M3U (*.m3u)|*.m3u"
+"Podporované soubory (*.json;*.m3u)|*.json;*.m3u|Knihovna jukeboxu JSON "
+"(*.json)|*.json|Playlist M3U (*.m3u)|*.m3u"
 
 #. Translators: Title of the file-picker dialog for importing a jukebox library.
 #. Translators: Title of the merge-vs-replace confirmation dialog (same title as the file-picker above).
@@ -3982,8 +3984,8 @@ msgstr "Stahování knihy: %s"
 msgid ""
 "Downloaded %(saved)d of %(total)d parts of %(title)s. Last error: %(error)s"
 msgstr ""
-"Staženo %(saved)d z %(total)d částí knihy %(title)s. Poslední chyba: %(error)"
-"s"
+"Staženo %(saved)d z %(total)d částí knihy %(title)s. Poslední chyba: "
+"%(error)s"
 
 #. Translators: Label for the jukebox device-search field.
 #: addon\globalPlugins\freeAudio\radioDialog.py:8733
@@ -4454,7 +4456,7 @@ msgstr "Mezipaměť seznamu stanic (v případě potřeby se stáhne znovu)"
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
 msgid ""
 "Audio book libraries (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
-msgstr "Knihovny audioknih (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
+msgstr "Knihovny audioknih (GETEM, LibriVox, Project Gutenberg, archive.org)"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:108
@@ -5504,7 +5506,7 @@ msgstr "Otevřít prohlížeč stanic"
 #. Translators: Name of an NVDA command; opens the Favourites tab and focuses its station list.
 #: addon\globalPlugins\freeAudio\__init__.py:1167
 msgid "Open freeAudio favourite stations"
-msgstr "Otevřít oblíbené stanice freeAudio"
+msgstr "Otevřít seznam oblíbených stanic"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 #: addon\globalPlugins\freeAudio\__init__.py:1179
@@ -5798,24 +5800,6 @@ msgid ""
 "- Saved Project Gutenberg books are now found when syncing the playing book "
 "and when downloading the current book.\n"
 msgstr ""
-"\n"
-"## Seznam změn ve verzi 2026.25.5\n"
-"\n"
-"### Novinka: Internet Archive jako zdroj audioknih\n"
-"\n"
-"- Čtvrtý zdroj audioknih, **Internet Archive**, pokrývá audioknihy nahrané na archive.org (položky označené „audiobook“), které LibriVox a Projekt Gutenberg dosud nenabízejí. Přináší tak audioknihy v dalších jazycích, včetně tureckých. Není potřeba žádný účet.\n"
-"- Funguje jako ostatní zdroje: vyhledávání, náhled, přidání do knihovny, přehrávání s automatickým pokračováním, stahování, přímé klávesové zkratky a navigace pomocí F3/F4. Vložením stránky s podrobnostmi z archive.org se najde právě tato kniha.\n"
-"- Má vlastní soubor knihovny a je ve výchozím stavu zapnutý. Lze ho vypnout v Nastavení > Zdroje audioknih. Položka knihoven audioknih v dialogu Vyčistit ho nyní také zahrnuje.\n"
-"\n"
-"### Vylepšeno: vyhledávání audioknih\n"
-"\n"
-"- Vyhledávání v LibriVox, Projektu Gutenberg a Internet Archive nejprve zkusí přesně zadaná slova a teprve když nic nenajde, přejde na tolerantnější shodu. „Moonstone, The“ se zkouší i jako „The Moonstone“, „Doyle, Arthur Conan“ jako „Arthur Conan Doyle“, tituly a interpunkce se ignorují a nakonec se každé slovo hledá zvlášť v názvu a u autora.\n"
-"\n"
-"### Opraveno\n"
-"\n"
-"- Přehrávání se již nerozbije po velmi rychlé změně stanice nebo skladby. Dříve to mohlo skončit chybou „nelze přehrát ... Neznámý důvod“, která se opakovala až do restartu NVDA.\n"
-"- Vícenásobné rychlé stisknutí tlačítka další nebo předchozí, nebo opakování příkazu hlasem či makrem, nyní posune o jeden krok na stisk. Dříve se některé kroky ztratily a nyní se přehrávání spustí jen u nejnovějšího požadavku.\n"
-"- Uložené knihy z Projektu Gutenberg se nyní najdou při synchronizaci právě přehrávané knihy i při stahování aktuální knihy.\n"
 
 #~ msgid ""
 #~ "\n"

@@ -3,10 +3,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: freeAudio 2026.25.4\n"
+"Project-Id-Version: freeAudio 2026.25.5\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-11-15 07:56+0300\n"
-"PO-Revision-Date: 2026-11-15 08:00+0300\n"
+"PO-Revision-Date: 2026-11-17 13:11+0100\n"
 "Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language: fr\n"
@@ -95,7 +95,9 @@ msgstr "Impossible de trouver un livre à cette adresse sur archive.org."
 msgid ""
 "This archive.org item is not a general audio book (LibriVox and Project "
 "Gutenberg titles have their own sources)."
-msgstr "Cet élément d’archive.org n’est pas un livre audio général (les titres LibriVox et Projet Gutenberg ont leurs propres sources)."
+msgstr ""
+"Cet élément d'archive.org n'est pas un livre audio général (les titres "
+"LibriVox et Project Gutenberg ont leurs propres sources)."
 
 #. Translators: Error returned by the chapter-listing step when archive.org has no playable audio file for the resolved book.
 #. Translators: Error returned by the archive.org metadata path when no playable audio file was found for the resolved book.
@@ -487,22 +489,22 @@ msgstr "Effet sonore de syntonisation de station"
 #. Translators: Name of an NVDA command; toggles the "Weird" audio effect on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:287
 msgid "Toggle Weird"
-msgstr "Activer/désactiver Bizarre"
+msgstr "Activer/désactiver Étrange"
 
 #. Translators: Spoken when the "Weird" audio effect is turned on with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:305
 msgid "Weird enabled"
-msgstr "Bizarre activé"
+msgstr "Étrange activé"
 
 #. Translators: Spoken when the "Weird" audio effect is turned off with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:307
 msgid "Weird disabled"
-msgstr "Bizarre désactivé"
+msgstr "Étrange désactivé"
 
 #. Translators: Name of an NVDA command; turns the ten-band graphic equalizer on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:312
 msgid "Toggle Equalizer"
-msgstr "Activer/désactiver l’égaliseur"
+msgstr "Activer/désactiver l'Égaliseur"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned on with its command.
 #. Translators: Spoken when the equalizer is turned on with the checkbox.
@@ -933,17 +935,17 @@ msgstr "%(frequency)g Hz, %(gain)+d dB"
 #. Translators: Spoken after the Reset button sets all equalizer bands back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:92
 msgid "Equalizer reset"
-msgstr "Égaliseur réinitialisé"
+msgstr "Réinitialisation de l'égaliseur"
 
 #. Translators: Spoken when saving the equalizer settings to the configuration fails.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:99
 msgid "Could not save Equalizer settings"
-msgstr "Impossible d’enregistrer les paramètres de l’égaliseur"
+msgstr "Impossible d'enregistrer les paramètres de l'Égaliseur"
 
 #. Translators: Spoken after the equalizer settings were saved to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:102
 msgid "Equalizer settings saved"
-msgstr "Paramètres de l’égaliseur enregistrés"
+msgstr "Paramètres de l'égaliseur enregistrés"
 
 #. Shown as this book's narrator (see GutenbergAudiobook.__init__) instead
 #. of leaving the field blank the way LibriVox does (which credits a
@@ -977,7 +979,7 @@ msgstr "Narration générée par IA (Microsoft neuronal text-to-speech, voix %s)
 #. volunteer-read or library-hosted human-narrated catalog.
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:362
 msgid "Project Gutenberg (AI narration)"
-msgstr "Projet Gutenberg (narration IA)"
+msgstr "Project Gutenberg (narration IA)"
 
 #. Translators: Error returned when the resolved archive.org item exists but isn't tagged as part of this specific audiobook collection.
 #: addon\globalPlugins\freeAudio\gutenberg_audiobooks.py:459
@@ -986,7 +988,7 @@ msgid ""
 "Collection."
 msgstr ""
 "Cet élément de archive.org ne fait pas partie de la collection de livres "
-"audio ouverts du projet Gutenberg."
+"audio ouverts du Project Gutenberg."
 
 #. Translators: %(name)s = folder name, %(count)d = number of audio files found in it
 #: addon\globalPlugins\freeAudio\jukebox.py:1039
@@ -1885,7 +1887,7 @@ msgstr "Réverbération"
 #: addon\globalPlugins\freeAudio\radioDialog.py:801
 #: addon\globalPlugins\freeAudio\settingsPanel.py:181
 msgid "Weird"
-msgstr "Bizarre"
+msgstr "Étrange"
 
 #. Translators: Label for the bass-boost EQ gain spin control, shown only while that effect is checked.
 #: addon\globalPlugins\freeAudio\radioDialog.py:824
@@ -3795,7 +3797,7 @@ msgstr "Copié dans le presse-papiers"
 #: addon\globalPlugins\freeAudio\radioDialog.py:7473
 #: addon\globalPlugins\freeAudio\settingsPanel.py:524
 msgid "Project Gutenberg"
-msgstr "Projet Gutenberg"
+msgstr "Project Gutenberg"
 
 #. Translators: Accessible name of the audio book search field - searches both GETEM and LibriVox at once
 #: addon\globalPlugins\freeAudio\radioDialog.py:7508
@@ -4462,7 +4464,9 @@ msgstr "Liste des stations en cache (téléchargée à nouveau en cas de besoin)
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
 msgid ""
 "Audio book libraries (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
-msgstr "Bibliothèques de livres audio (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
+msgstr ""
+"Bibliothèques de livres audio (GETEM, LibriVox, Project Gutenberg, Internet "
+"Archive)"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:108
@@ -5835,23 +5839,46 @@ msgid ""
 "and when downloading the current book.\n"
 msgstr ""
 "\n"
-"## Journal des modifications de la version 2026.25.5\n"
+"## Journal des modifications pour la version 2026.25.5\n"
 "\n"
-"### Nouveau : Internet Archive comme source de livres audio\n"
+"### Nouveautés: Internet Archive comme source de livres audio\n"
 "\n"
-"- Une quatrième source de livres audio, **Internet Archive**, couvre les livres audio déposés sur archive.org (éléments marqués « audiobook ») que LibriVox et Projet Gutenberg ne proposent pas déjà. Elle apporte des livres audio dans d’autres langues, dont le turc. Aucun compte n’est nécessaire.\n"
-"- Elle fonctionne comme les autres sources : recherche, aperçu, ajout à la bibliothèque, lecture avec reprise automatique, téléchargement, raccourcis clavier directs et navigation par F3/F4. Coller une page de détails archive.org permet de retrouver ce livre précis.\n"
-"- Elle possède son propre fichier de bibliothèque et est activée par défaut. On peut la désactiver dans Paramètres > Sources de livres audio. L’élément des bibliothèques de livres audio de la boîte de dialogue Nettoyage l’inclut désormais.\n"
+"- Une quatrième source de livres audio, **Internet Archive**, livres audio "
+"mis en ligne sur archive.org (éléments étiquetés \"audiobook\") qui ne sont "
+"pas déjà couverts par LibriVox ou Project Gutenberg. Cela apporte des livres "
+"audio dans d'autres langues, notamment en turc. Aucun compte n'est "
+"nécessaire.\n"
+"- Elle fonctionne comme les autres sources : recherche, aperçu, ajouter à la "
+"bibliothèque, lecture avec reprise automatique, téléchargement, touches de "
+"raccourci et navigation  avec F3/F4. Coller la page de détails depuis "
+"archive.org vous mènera directement à ce livre audio.\n"
+"- Elle possède son propre fichier de bibliothèque et est activée par défaut. "
+"Elle peut être désactivée dans Paramètres  > Sources livre audio. L'élément "
+"de bibliothèques de livres audio de la boîte de dialogue Nettoyage l'inclut "
+"désormais.\n"
 "\n"
-"### Amélioré : recherche de livres audio\n"
+"### Amélioré: recherche de livres audio\n"
 "\n"
-"- Les recherches LibriVox, Projet Gutenberg et Internet Archive essaient d’abord vos mots exacts et, seulement si rien n’est trouvé, passent à une correspondance plus tolérante. « Moonstone, The » est aussi essayé comme « The Moonstone », « Doyle, Arthur Conan » comme « Arthur Conan Doyle », les titres honorifiques et la ponctuation sont ignorés, et enfin chaque mot est recherché séparément dans le titre et l’auteur.\n"
+"- Les recherches sur LibriVox, Project Gutenberg et Internet Archive "
+"essaient d'abord vos mots exacts et, ce n'est que si cela ne donne aucun "
+"résultat qu'elles se rabattent sur une correspondance plus souple. "
+"\"Moonstone, The\" est également essayé sous la forme \"The Moonstone\", "
+"\"Doyle, Arthur Conan\" est également essayé sous la forme \"Arthur Conan "
+"Doyle\", les titres honorifiques et la ponctuation sont ignorés, et enfin "
+"chaque mot est recherché individuellement dans le titre et l'auteur.\n"
 "\n"
 "### Corrigé\n"
 "\n"
-"- La lecture ne se bloque plus après un changement très rapide de station ou de piste. Auparavant, cela pouvait aboutir à une erreur « impossible de lire ... Raison inconnue » qui se répétait jusqu’au redémarrage de NVDA.\n"
-"- Appuyer plusieurs fois de suite sur suivant ou précédent, ou répéter la commande par la voix ou une macro, avance désormais d’un pas par pression. Auparavant, certains pas étaient perdus ; seule la demande la plus récente lance maintenant la lecture.\n"
-"- Les livres Projet Gutenberg enregistrés sont désormais retrouvés lors de la synchronisation du livre en cours de lecture et du téléchargement du livre actuel.\n"
+"- La lecture ne s'interrompt plus après un changement très rapide de station "
+"ou de morceau. Auparavant, cela pouvait aboutir à une erreur \"Impossible de "
+"lire ... Raison inconnue\" qui persistait jusqu’au redémarrage de NVDA.\n"
+"- Appuyer plusieurs fois en succession rapide sur suivant ou précédent, ou "
+"répéter la commande par la voix ou par macro, déplace désormais d'un pas à "
+"chaque pulsation. Auparavant, certains pas étaient perdus, et seule la "
+"demande la plus récente démarre désormais la lecture.\n"
+"- Les livres enregistrés du Project Gutenberg sont désormais trouvés lors de "
+"la synchronisation du livre en cours de lecture et lors du téléchargement du "
+"livre actuel.\n"
 
 #~ msgid ""
 #~ "\n"
