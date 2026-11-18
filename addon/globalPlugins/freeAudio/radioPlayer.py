@@ -3047,6 +3047,16 @@ class RadioPlayer(BookmarkPlayerMixin):
 			ok = self._bass_engine.play_timeshift_file(path, vol, start_pos)
 			if not ok:
 				self._timeshift_buffer.exit_playback()
+				# play_timeshift_file() stops the live stream before it tries to
+				# open the buffer file, so a failure here would leave the listener
+				# in silence (even pause/resume cannot bring the sound back).
+				# Go back to the live stream.
+				stream_url = self._current_url_resolved or self._current_url
+				if stream_url:
+					try:
+						self._bass_engine.play(stream_url, vol)
+					except Exception:
+						log.warning("freeAudio: could not resume the live stream after a failed time-shift start", exc_info=True)
 				return False, 0.0, buffered, "engine_error"
 			self._timeshift_active = True
 			self._sync_mirror_timeshift_enter(path, start_pos)

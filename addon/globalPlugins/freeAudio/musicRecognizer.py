@@ -256,7 +256,10 @@ def _is_access_denied(stderr_txt):
 	return bool(re.search(r"\b40[13]\b|forbidden|unauthorized", stderr_txt, re.IGNORECASE))
 
 
-def _decode_to_pcm(ffmpeg_path, stream_url, duration=_SAMPLE_DURATION):
+def _decode_to_pcm(ffmpeg_path, stream_url, duration=_SAMPLE_DURATION, start=0.0):
+	# start: seconds to skip before sampling (input seeking). Used to recognise
+	# the passage of a podcast/audio book/jukebox file that is actually playing
+	# instead of the beginning of the file.
 	# -user_agent is an option of ffmpeg's HTTP protocol (HLS segment requests
 	# inherit it); on a local file ffmpeg would reject it, so only remote
 	# sources get it.
@@ -268,6 +271,8 @@ def _decode_to_pcm(ffmpeg_path, stream_url, duration=_SAMPLE_DURATION):
 		cmd = [ffmpeg_path]
 		if ua:
 			cmd += ["-user_agent", ua]
+		if start and start > 0:
+			cmd += ["-ss", "%.3f" % start]
 		cmd += [
 			"-t", str(duration),
 			"-i", stream_url,
@@ -845,7 +850,7 @@ def _beep_loop():
 			pass
 
 
-def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None):
+def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None, start_offset=0.0):
 	"""local_file: path to a small standalone audio file already extracted
 	from freeAudio's time-shift buffer (see timeshift.extract_recent_snippet).
 	When given, this is used instead of reconnecting to stream_url - some
@@ -853,6 +858,12 @@ def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None):
 	second connection just to sample audio for recognition would capture
 	that ad instead of whatever is actually playing. stream_url is still
 	used for logging/fallback context even when local_file is provided.
+
+	start_offset: for seekable media (podcast episode, audio book part, jukebox
+	track) the playback position in seconds. The sample is then taken from there
+	instead of from the start of the file, so what is recognised is the passage
+	the listener is actually hearing. Ignored when local_file is given (that
+	snippet is already cut at the right place) and for live streams.
 	"""
 	acquired = _semaphore.acquire(blocking=False)
 	if not acquired:
@@ -893,6 +904,17 @@ def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None):
 			log.warning("freeAudio Recognizer: using time-shift buffer snippet (%s), "
 					  "skipping a new connection to %s", local_file, stream_url)
 			source_for_ffmpeg = local_file
+		elif start_offset and start_offset > 0:
+			local_file = None
+			# Seekable media: ffmpeg reads the file/URL itself and seeks to the
+			# playback position. Local paths need no resolving; remote URLs may
+			# be redirects, so resolve those.
+			if stream_url.lower().startswith(("http://", "https://")) and not _is_hls_url(stream_url):
+				resolved = _resolve_to_audio_url(stream_url)
+				if resolved:
+					stream_url = resolved
+			log.info("freeAudio Recognizer: sampling %s from %.1fs", stream_url, start_offset)
+			source_for_ffmpeg = stream_url
 		else:
 			local_file = None
 			# HLS playlists (.m3u8) are passed directly to ffmpeg, which handles
@@ -913,7 +935,10 @@ def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None):
 		# 3. ffmpeg ile PCM al
 		log.info("freeAudio Recognizer: decoding %ds PCM via ffmpeg", _SAMPLE_DURATION)
 		try:
-			if local_file or _is_hls_url(source_for_ffmpeg):
+			if not local_file and start_offset and start_offset > 0:
+				pcm_bytes = _decode_to_pcm(ffmpeg_path, source_for_ffmpeg, _SAMPLE_DURATION,
+					start=start_offset)
+			elif local_file or _is_hls_url(source_for_ffmpeg):
 				pcm_bytes = _decode_to_pcm(ffmpeg_path, source_for_ffmpeg, _SAMPLE_DURATION)
 			else:
 				pcm_bytes = _decode_live_stream(ffmpeg_path, source_for_ffmpeg)
@@ -985,12 +1010,13 @@ def recognize(stream_url, ffmpeg_path, _unused_api_key="", local_file=None):
 		_semaphore.release()
 
 
-def recognize_async(stream_url, ffmpeg_path, api_key, callback, local_file=None):
+def recognize_async(stream_url, ffmpeg_path, api_key, callback, local_file=None, start_offset=0.0):
 	"""api_key geriye dönük uyumluluk için korunmuştur (kullanılmaz).
-	local_file: bkz. recognize()."""
+	local_file, start_offset: bkz. recognize()."""
 	def _worker():
 		_lower_current_thread_priority()
-		result = recognize(stream_url, ffmpeg_path, api_key, local_file=local_file)
+		result = recognize(stream_url, ffmpeg_path, api_key, local_file=local_file,
+			start_offset=start_offset)
 		try:
 			callback(result)
 		except Exception as exc:

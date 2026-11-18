@@ -78,16 +78,44 @@ class TrackInfoMixin:
 		# ad to every brand-new connection, so a second connection made just
 		# for recognition would sample that ad instead of the actual track -
 		# even though the main playback connection is already well past it.
+		#
+		# Recognition must look at what the listener is actually hearing, not
+		# always at the live edge or the start of a file:
+		#   - podcast/audio book/jukebox: sample from the current playback
+		#     position (start_offset);
+		#   - live station currently rewound in the time-shift buffer: cut the
+		#     snippet at the playback position inside that buffer.
 		local_snippet = None
+		start_offset = 0.0
+		seekable = False
+		seek_pos = None   # (position, length) while time-shifted
+		try:
+			station = self._player.get_current_station()
+			ok, pos, length = self._player.get_playback_position()
+			seekable = _is_seekable_media(station)
+			if ok and seekable:
+				if pos > 1.0:
+					# Keep a full sample window before the end of the file.
+					start_offset = max(0.0, min(pos, length - 14.0)) if length > 0 else pos
+			elif ok and length > 0 and self._player.is_timeshifted():
+				seek_pos = (pos, length)
+		except Exception:
+			log.warning("freeAudio: could not read the playback position for recognition", exc_info=True)
 		try:
 			buf = self._player.get_timeshift_buffer()
 		except Exception:
 			buf = None
-		if buf is not None and buf.is_active() and buf.is_tail_safe():
+		if buf is not None and not seekable and buf.is_active() and buf.is_tail_safe():
 			try:
 				fd, snippet_path = tempfile.mkstemp(prefix="freeAudio_recognize_", suffix=".buf")
 				os.close(fd)
-				if buf.extract_recent_snippet(18, snippet_path):
+				if seek_pos is not None:
+					extracted = buf.extract_snippet_at(seek_pos[0], seek_pos[1], 18, snippet_path)
+				else:
+					extracted = False
+				if not extracted:
+					extracted = buf.extract_recent_snippet(18, snippet_path)
+				if extracted:
 					local_snippet = snippet_path
 				else:
 					try:
@@ -113,7 +141,8 @@ class TrackInfoMixin:
 				except OSError:
 					pass
 
-		musicRecognizer.recognize_async(stream_url, ffmpeg_path, "", _on_result, local_file=local_snippet)
+		musicRecognizer.recognize_async(stream_url, ffmpeg_path, "", _on_result, local_file=local_snippet,
+			start_offset=start_offset)
 
 	@script(
 		# Translators: Name of an NVDA command (Ctrl+Win+I); its behaviour escalates with repeated presses as the description itself explains.

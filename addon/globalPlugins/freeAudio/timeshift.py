@@ -289,6 +289,56 @@ class TimeShiftBuffer:
 		finally:
 			self.exit_playback()
 
+	def extract_snippet_at(self, start, total, seconds, out_path):
+		"""Write about *seconds* of audio that begins *start* seconds into the
+		buffer to *out_path*. *total* is the buffer's playable length on the same
+		timeline as *start* (as the player reports it while time-shifted), which
+		is what maps a position to a byte offset. Used to recognise the passage
+		the listener is hearing after a rewind rather than the live edge. The
+		window is moved back if it would run past the end of the buffer."""
+		path = self._file_path
+		if not path or total <= 0 or seconds <= 0:
+			return False
+
+		self.enter_playback()
+		try:
+			try:
+				size = os.path.getsize(path)
+			except OSError:
+				return False
+			prefix_len = min(self._reserved_prefix_len, size)
+			audio_size = size - prefix_len
+			if audio_size <= 0:
+				return False
+
+			bytes_per_second = audio_size / float(total)
+			start = max(0.0, min(float(start), total - seconds))
+			offset = prefix_len + int(bytes_per_second * start)
+			count = int(bytes_per_second * seconds)
+
+			try:
+				with open(path, "rb") as f:
+					prefix = f.read(prefix_len) if prefix_len else b""
+					f.seek(offset)
+					data = f.read(count)
+			except OSError as e:
+				log.info("freeAudio TimeShift: snippet read failed: %s", e)
+				return False
+
+			if not data:
+				return False
+			try:
+				with open(out_path, "wb") as out_f:
+					if prefix:
+						out_f.write(prefix)
+					out_f.write(data)
+			except OSError as e:
+				log.info("freeAudio TimeShift: snippet write failed: %s", e)
+				return False
+			return True
+		finally:
+			self.exit_playback()
+
 	def _captured_seconds(self):
 		"""Actual elapsed capture time - time a connection was open and
 		writing, NOT wall-clock time since start() was called. The two
@@ -581,10 +631,24 @@ class TimeShiftBuffer:
 		# Parse headers
 		headers = {}
 		header_part = response.split(b"\r\n\r\n", 1)[0] if b"\r\n\r\n" in response else response.split(b"\n\n", 1)[0]
+		# Only a 200 answer carries the audio. A redirect, an error page or an
+		# HTML body would otherwise be written into the buffer as if it were
+		# audio, and the buffer file could then never be opened for playback.
+		# Raising here makes _run_once() fall back to the urllib path, which
+		# follows redirects.
+		status_line = header_part.split(b"\n", 1)[0].decode("latin-1", "replace").strip()
+		if not re.match(r"(ICY|HTTP/\S+)\s+200", status_line, re.IGNORECASE):
+			ssl_sock.close()
+			raise Exception("unexpected status from stream server: %r" % status_line)
 		for line in header_part.split(b"\r\n"):
 			if b":" in line:
 				key, value = line.split(b":", 1)
 				headers[key.decode().strip().lower()] = value.decode().strip()
+
+		content_type = headers.get("content-type", "").lower()
+		if content_type.startswith(("text/", "application/json")):
+			ssl_sock.close()
+			raise Exception("stream server sent %s instead of audio" % content_type)
 
 		# Extract ICY metadata interval
 		metaint_str = headers.get("icy-metaint", "")
