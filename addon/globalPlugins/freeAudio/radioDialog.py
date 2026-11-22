@@ -3588,6 +3588,61 @@ class RadioDialog(wx.Dialog):
 			return
 		self._show_station_details_for(station)
 
+	def _playing_icy_title_for(self, station):
+		"""The track title the player currently has for *station* if that is the
+		station playing right now, else ""."""
+		try:
+			cur = self._player.get_current_station() or {}
+			same = bool(
+				(station.get("stationuuid") and station.get("stationuuid") == cur.get("stationuuid"))
+				or (station.get("url") and station.get("url") == cur.get("url"))
+			)
+			if same and self._player.has_media():
+				return (self._player.get_icy_title() or "").strip()
+		except Exception:
+			pass
+		return ""
+
+	def _speak_station_now_playing(self):
+		"""Shift+Enter on a station list: speak the track the focused station is
+		broadcasting, whether or not it is the one playing. For another station
+		the title is read from its stream in the background."""
+		station, _idx = self._get_selected_station()
+		if not station:
+			return
+		name = (station.get("name") or "").strip()
+		# Translators: Spoken by Shift+Enter on a station in the list when the station has no name: the label, then the track that station is broadcasting. Same label as the Station Details dialog.
+		label = _("Now playing")
+
+		def _speak(icy):
+			if icy:
+				ui.message("%s: %s" % (name or label, icy))
+			else:
+				# Translators: Spoken when no track title could be found for the station.
+				ui.message(_("No track info available"))
+
+		icy = self._playing_icy_title_for(station)
+		url = (station.get("url_resolved") or station.get("url", "")).strip()
+		if icy or not url or station.get("media_kind") or station.get("is_tv") \
+				or not url.lower().startswith(("http://", "https://")):
+			_speak(icy)
+			return
+
+		# Only the newest request may speak, so quickly moving through the list
+		# and pressing the key repeatedly does not read out stale answers.
+		self._now_playing_token = token = getattr(self, "_now_playing_token", 0) + 1
+
+		def _worker():
+			from . import radioPlayer as _rp
+			try:
+				found = (_rp._read_icy_title_via_playlist(url) or "").strip()
+			except Exception:
+				found = ""
+			if token == self._now_playing_token:
+				wx.CallAfter(_speak, found)
+
+		threading.Thread(target=_worker, daemon=True, name="freeAudio-NowPlaying").start()
+
 	def _show_station_details_for(self, station):
 		"""Shows the details of the selected station in the same structure as the dialog in __init__.py."""
 		s = station
@@ -3598,6 +3653,16 @@ class RadioDialog(wx.Dialog):
 		if name:
 			# Translators: Field-name row header in the station-details dialog's info table (see _show_station_details_for docstring); value is the station name.
 			rows.append((_("Station"), name))
+		# The track being broadcast. If this is the station that is playing
+		# right now, the player already knows it; otherwise it is looked up
+		# in the background once the dialog is open (see below).
+		# Translators: Field-name row header for the track a station is broadcasting right now (ICY metadata); same wording as in the Station Details dialog opened with Ctrl+Win+I.
+		now_playing_label = _("Now playing")
+		# Translators: Same "Station" field-name row header as above, looked up here only to find that row's position when the track title arrives.
+		station_label = _("Station")
+		icy_now = self._playing_icy_title_for(s)
+		if icy_now:
+			rows.append((now_playing_label, icy_now))
 		country_code = s.get("countrycode", "").strip()
 		country      = s.get("country", "").strip()
 		if country_code:
@@ -3708,7 +3773,52 @@ class RadioDialog(wx.Dialog):
 		if first_ctrl:
 			wx.CallAfter(first_ctrl.SetFocus)
 
+		alive = [True]
+		probe_url = (s.get("url_resolved") or s.get("url", "")).strip()
+		if (not icy_now and probe_url and not s.get("media_kind") and not s.get("is_tv")
+				and probe_url.lower().startswith(("http://", "https://"))):
+			def _fetch_icy_and_insert():
+				from . import radioPlayer as _rp
+				try:
+					icy = (_rp._read_icy_title_via_playlist(probe_url) or "").strip()
+				except Exception:
+					icy = ""
+				if not icy:
+					return
+
+				def _insert_row():
+					if not alive[0]:
+						return
+					try:
+						insert_pos = 0
+						for i, (f, v) in enumerate(rows):
+							if f == station_label:
+								insert_pos = i + 1
+								break
+						rows.insert(insert_pos, (now_playing_label, icy))
+						lbl = wx.StaticText(dlg, label=now_playing_label + ":")
+						ctrl = wx.TextCtrl(
+							dlg,
+							value=icy,
+							style=wx.TE_READONLY | wx.TE_MULTILINE | wx.BORDER_SIMPLE,
+						)
+						ctrl.SetName(now_playing_label)
+						ctrl.SetMinSize((-1, ctrl.GetCharHeight() + 8))
+						grid.Insert(insert_pos * 2, lbl, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALIGN_RIGHT)
+						grid.Insert(insert_pos * 2 + 1, ctrl, 1, wx.EXPAND)
+						dlg.SetSize((580, min(120 + len(rows) * 38, 520)))
+						dlg.Layout()
+					except RuntimeError:
+						pass  # dialog was closed in the meantime
+
+				wx.CallAfter(_insert_row)
+
+			threading.Thread(
+				target=_fetch_icy_and_insert, daemon=True, name="freeAudio-DetailsIcy"
+			).start()
+
 		dlg.ShowModal()
+		alive[0] = False
 		dlg.Destroy()
 
 	def _marked_suffix(self):
@@ -4331,6 +4441,10 @@ class RadioDialog(wx.Dialog):
 			if focused == self._close_btn:
 				self.Hide()
 				gui.mainFrame.postPopup()
+				return
+			if focused in (self._all_list, self._fav_list) and event.ShiftDown() \
+					and not (event.ControlDown() or event.AltDown()):
+				self._speak_station_now_playing()
 				return
 			if focused in (self._all_list, self._fav_list):
 				station, idx = self._get_selected_station()

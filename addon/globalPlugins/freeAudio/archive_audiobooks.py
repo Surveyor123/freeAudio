@@ -65,10 +65,25 @@ log = logging.getLogger(__name__)
 # Items in these collections belong to the dedicated LibriVox / Project
 # Gutenberg sources and are excluded here so nothing shows up twice.
 EXCLUDED_COLLECTIONS = ("librivoxaudio", "gutenberg-audiobooks")
-# Every search is scoped to audio items tagged as an audio book, minus the
-# collections above.
+# Subject tags that mark an audio item as a book / spoken-word recording, in
+# several languages. Uploaders use these inconsistently, so a plain "audiobook"
+# tag alone misses a lot (e.g. Turkish uploads tagged "sesli kitap").
+_BOOK_SUBJECTS = (
+	'audiobook', 'audiobooks', '"audio book"', '"audio books"', '"talking book"',
+	'podcast', 'podcasts', '"sesli kitap"', '"sesli kitaplar"', '"sesli roman"',
+	'hörbuch', 'hörbücher', '"livre audio"', '"livres audio"', 'audiolibro',
+	'audiolibros', 'audiolivro',
+)
+# Collections that hold audio books / podcast-style uploads even when an item
+# carries none of the subject tags above (e.g. a Turkish "Binbir Gece
+# Masallari" upload whose only subject is its own title but which sits in the
+# Podcasts collections).
+_BOOK_COLLECTIONS = ("podcasts",)
+# Searches cover audio items that carry one of those subject tags or sit in
+# one of those collections, minus the collections above.
 SEARCH_SCOPE = (
-	'mediatype:(audio) AND subject:(audiobook OR audiobooks OR "audio book" OR "audio books")'
+	"mediatype:(audio) AND (subject:(%s) OR collection:(%s))"
+	% (" OR ".join(_BOOK_SUBJECTS), " OR ".join(_BOOK_COLLECTIONS))
 	+ "".join(" AND NOT collection:(%s)" % c for c in EXCLUDED_COLLECTIONS)
 )
 ARCHIVE_ADVANCED_SEARCH_URL = "https://archive.org/advancedsearch.php"
