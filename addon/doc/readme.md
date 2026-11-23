@@ -139,13 +139,13 @@ The **Play/Pause** button is also located at the bottom of the window. If no sta
 
 The **Update Station List** button re-syncs the local station catalogue from the Radio Browser API immediately, instead of waiting for the periodic background refresh. While the refresh is running the button is disabled and NVDA announces that a refresh is in progress; if you press it again before the current refresh finishes, NVDA lets you know one is already underway. Once the refresh completes, NVDA announces that the station list has been updated and the currently displayed search results or country listing are refreshed automatically to reflect the new data.
 
-When a station is selected in the list, the **Station Details** button displays information such as country, language, genre, format, bitrate, website and stream URL in a separate dialog. Each field appears in its own read-only text box; you can move between fields with Tab and copy all information to the clipboard at once with the **Copy all to clipboard** button. This button is available in both the All Stations and Favourites tabs. The dialog also includes a **Now playing** field with the track the station is currently broadcasting; if the station is not the one playing, freeAudio briefly checks its stream in the background and fills the field in once it has the answer.
+Pressing `Alt+Enter` on a station in the list (or choosing **Station Details** from its context menu) displays information such as country, language, genre, format, bitrate, website and stream URL in a separate dialog. Each field appears in its own read-only text box; you can move between fields with Tab and copy all information to the clipboard at once with the **Copy all to clipboard** button. This works in both the All Stations and Favourites tabs. The dialog also includes a **Now playing** field with the track the station is currently broadcasting; if the station is not the one playing, freeAudio briefly checks its stream in the background and fills the field in once it has the answer.
 
 ### Station Context Menu
 
 Right-click a station in the All Stations or Favourites list, or select it and press the Applications key or `Shift+F10`, to open a context menu with quick actions:
 
-- **Station Details** — same as the Station Details button described above.
+- **Station Details** — same as `Alt+Enter` on the station list, described above.
 - **Add to Favourites** *(All Stations tab)* / **Delete Station** *(Favourites tab)*.
 - **Rename Station** *(Favourites tab)* — same as `F9`.
 - **Save Audio Profile for This Station** / **Clear Audio Profile** *(Favourites tab)* — see [Station Audio Profile](#station-audio-profile).

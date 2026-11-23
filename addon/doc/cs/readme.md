@@ -139,13 +139,13 @@ V dolní části okna se nachází také tlačítko **Přehrát/Pozastavit**. Po
 
 Tlačítko **Aktualizovat seznam stanic** okamžitě znovu synchronizuje místní katalog stanic s API Radio Browser, místo aby se čekalo na pravidelnou aktualizaci na pozadí. Během aktualizace je tlačítko deaktivováno a NVDA oznámí, že aktualizace probíhá; pokud jej stisknete znovu ještě před dokončením aktuální aktualizace, NVDA vás upozorní, že již jedna probíhá. Po dokončení aktualizace NVDA oznámí, že seznam stanic byl aktualizován, a aktuálně zobrazené výsledky vyhledávání nebo seznam podle země se automaticky obnoví, aby odrážely nová data.
 
-Je-li v seznamu vybrána stanice, tlačítko **Podrobnosti o stanici** zobrazí v samostatném dialogovém okně informace, jako je země, jazyk, žánr, formát, datový tok, webová stránka a adresa URL streamu. Každé pole se zobrazuje ve vlastním textovém poli určeném pouze pro čtení; mezi poli se můžete pohybovat pomocí klávesy Tab a všechny informace najednou zkopírovat do schránky pomocí tlačítka **Kopírovat vše do schránky**. Toto tlačítko je k dispozici na kartách Všechny stanice i Oblíbené. Dialog obsahuje také pole **Právě hraje** se skladbou, kterou stanice právě vysílá; pokud stanice nehraje, freeAudio její stream krátce zkontroluje na pozadí a pole doplní, jakmile má odpověď.
+Stisknutí `Alt+Enter` na stanici v seznamu (nebo volba **Podrobnosti o stanici** v její místní nabídce) zobrazí v samostatném dialogovém okně informace, jako je země, jazyk, žánr, formát, datový tok, webová stránka a adresa URL streamu. Každé pole se zobrazuje ve vlastním textovém poli určeném pouze pro čtení; mezi poli se můžete pohybovat pomocí klávesy Tab a všechny informace najednou zkopírovat do schránky pomocí tlačítka **Kopírovat vše do schránky**. Funguje to na kartách Všechny stanice i Oblíbené. Dialog obsahuje také pole **Právě hraje** se skladbou, kterou stanice právě vysílá; pokud stanice nehraje, freeAudio její stream krátce zkontroluje na pozadí a pole doplní, jakmile má odpověď.
 
 ### Kontextová nabídka stanice
 
 Klepnutím pravým tlačítkem na stanici v seznamu Všechny stanice nebo Oblíbené, případně jejím vybráním a stiskem klávesy Nabídka nebo `Shift+F10`, otevřete kontextovou nabídku s rychlými akcemi:
 
-- **Podrobnosti o stanici** — totéž jako tlačítko Podrobnosti o stanici popsané výše.
+- **Podrobnosti o stanici** — totéž jako `Alt+Enter` v seznamu stanic popsané výše.
 - **Přidat do oblíbených** *(karta Všechny stanice)* / **Odstranit stanici** *(karta Oblíbené)*.
 - **Přejmenovat stanici** *(karta Oblíbené)* — totéž jako `F9`.
 - **Uložit zvukový profil pro tuto stanici** / **Vymazat zvukový profil** *(karta Oblíbené)* — viz Zvukový profil stanice.

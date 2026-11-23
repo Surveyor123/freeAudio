@@ -139,13 +139,13 @@ Przycisk **Odtwórz/Wstrzymaj** również znajduje się na dole okna. Jeśli nic
 
 Przycisk **Aktualizuj listę stacji** natychmiast synchronizuje ponownie lokalny katalog stacji z API Radio Browser, zamiast czekać na okresowe odświeżanie w tle. Podczas odświeżania przycisk jest nieaktywny, a NVDA ogłasza, że trwa odświeżanie; jeśli naciśniesz go ponownie przed zakończeniem bieżącego odświeżania, NVDA poinformuje, że jedno jest już w toku. Po zakończeniu odświeżania NVDA ogłasza, że lista stacji została zaktualizowana, a aktualnie wyświetlane wyniki wyszukiwania lub lista danego kraju są automatycznie odświeżane, aby odzwierciedlić nowe dane.
 
-Po zaznaczeniu stacji na liście przycisk **Szczegóły stacji** pokazuje informacje takie jak kraj, język, gatunek, format, przepływność, strona internetowa i adres URL strumienia w osobnym oknie. Każde pole znajduje się w osobnym, tylko do odczytu, polu tekstowym; można przechodzić między nimi klawiszem Tab i skopiować wszystkie informacje naraz przyciskiem **Kopiuj wszystko do schowka**. Ten przycisk jest dostępny na kartach Wszystkie stacje i Ulubione. Okno zawiera także pole **Teraz gra** z utworem, który stacja aktualnie nadaje; jeśli stacja nie jest odtwarzana, freeAudio krótko sprawdza jej strumień w tle i uzupełnia pole, gdy zna odpowiedź.
+Naciśnięcie `Alt+Enter` na stacji na liście (lub wybranie **Szczegóły stacji** z jej menu kontekstowego) pokazuje informacje takie jak kraj, język, gatunek, format, przepływność, strona internetowa i adres URL strumienia w osobnym oknie. Każde pole znajduje się w osobnym, tylko do odczytu, polu tekstowym; można przechodzić między nimi klawiszem Tab i skopiować wszystkie informacje naraz przyciskiem **Kopiuj wszystko do schowka**. Działa to na kartach Wszystkie stacje i Ulubione. Okno zawiera także pole **Teraz gra** z utworem, który stacja aktualnie nadaje; jeśli stacja nie jest odtwarzana, freeAudio krótko sprawdza jej strumień w tle i uzupełnia pole, gdy zna odpowiedź.
 
 ### Menu kontekstowe stacji
 
 Kliknij prawym przyciskiem myszy stację na liście Wszystkie stacje lub Ulubione, albo zaznacz ją i naciśnij klawisz Menu kontekstowe (Applications) lub `Shift+F10`, aby otworzyć menu kontekstowe z szybkimi akcjami:
 
-- **Szczegóły stacji** — to samo, co opisany wyżej przycisk Szczegóły stacji.
+- **Szczegóły stacji** — to samo, co opisane wyżej `Alt+Enter` na liście stacji.
 - **Dodaj do ulubionych** *(karta Wszystkie stacje)* / **Usuń stację** *(karta Ulubione)*.
 - **Zmień nazwę stacji** *(karta Ulubione)* — to samo, co `F9`.
 - **Zapisz profil audio dla tej stacji** / **Wyczyść profil audio** *(karta Ulubione)* — zobacz [Profil audio stacji](#profil-audio-stacji).

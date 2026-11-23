@@ -139,13 +139,13 @@ O botão **Reproduzir/Pausar** encontra-se também na parte inferior da janela. 
 
 O botão **Atualizar Lista de Estações** sincroniza imediatamente o catálogo local de estações com a API do Radio Browser, em vez de esperar pela atualização periódica em segundo plano. Enquanto a atualização decorre, o botão fica desativado e o NVDA anuncia que está a decorrer uma atualização; se voltar a premi-lo antes de a atualização atual terminar, o NVDA informa que já está uma em curso. Assim que a atualização termina, o NVDA anuncia que a lista de estações foi atualizada e os resultados de pesquisa ou a listagem de país atualmente apresentados são atualizados automaticamente para refletir os novos dados.
 
-Quando uma estação está selecionada na lista, o botão **Detalhes da Estação** apresenta informações como país, idioma, género, formato, bitrate, website e URL da transmissão numa caixa de diálogo separada. Cada campo aparece na sua própria caixa de texto só de leitura; pode mover-se entre campos com Tab e copiar todas as informações para a área de transferência de uma só vez com o botão **Copiar tudo para a área de transferência**. Este botão está disponível nos separadores Todas as Estações e Favoritos. A caixa de diálogo também inclui o campo **Tocando agora** com a faixa que a estação está transmitindo; se a estação não for a que está tocando, o freeAudio verifica brevemente o fluxo dela em segundo plano e preenche o campo quando tem a resposta.
+Premir `Alt+Enter` numa estação da lista (ou escolher **Detalhes da Estação** no menu de contexto) apresenta informações como país, idioma, género, formato, bitrate, website e URL da transmissão numa caixa de diálogo separada. Cada campo aparece na sua própria caixa de texto só de leitura; pode mover-se entre campos com Tab e copiar todas as informações para a área de transferência de uma só vez com o botão **Copiar tudo para a área de transferência**. Isto funciona nos separadores Todas as Estações e Favoritos. A caixa de diálogo também inclui o campo **Tocando agora** com a faixa que a estação está transmitindo; se a estação não for a que está tocando, o freeAudio verifica brevemente o fluxo dela em segundo plano e preenche o campo quando tem a resposta.
 
 ### Menu de Contexto da Estação
 
 Clique com o botão direito numa estação na lista Todas as Estações ou Favoritos, ou selecione-a e prima a tecla Aplicações ou `Shift+F10`, para abrir um menu de contexto com ações rápidas:
 
-- **Detalhes da Estação** — igual ao botão Detalhes da Estação descrito acima.
+- **Detalhes da Estação** — igual a `Alt+Enter` na lista de estações, descrito acima.
 - **Adicionar aos Favoritos** *(separador Todas as Estações)* / **Eliminar Estação** *(separador Favoritos)*.
 - **Mudar Nome da Estação** *(separador Favoritos)* — igual a `F9`.
 - **Guardar Perfil de Áudio para Esta Estação** / **Limpar Perfil de Áudio** *(separador Favoritos)* — ver Perfil de Áudio da Estação.

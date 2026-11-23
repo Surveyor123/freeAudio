@@ -139,13 +139,13 @@ Ebenfalls am unteren Fensterrand liegt die Schaltfläche **Wiedergabe/Pause**. L
 
 Die Schaltfläche **Senderliste aktualisieren** gleicht den lokalen Senderkatalog sofort mit der Radio-Browser-API ab, statt auf die regelmäßige Aktualisierung im Hintergrund zu warten. Während der Abgleich läuft, ist die Schaltfläche deaktiviert und NVDA meldet, dass eine Aktualisierung im Gange ist; ein erneuter Druck vor deren Ende führt zu einem entsprechenden Hinweis. Ist der Abgleich fertig, meldet NVDA die aktualisierte Senderliste, und die gerade angezeigten Suchergebnisse oder Länderlisten werden automatisch auf den neuen Stand gebracht.
 
-Ist ein Sender in der Liste ausgewählt, zeigt die Schaltfläche **Sender-Details** Angaben wie Land, Sprache, Genre, Format, Bitrate, Website und Stream-Adresse in einem eigenen Dialog. Jedes Feld steht in einem eigenen, schreibgeschützten Textfeld; mit der Tabulatortaste geht es von Feld zu Feld, und die Schaltfläche **Alles in die Zwischenablage kopieren** übernimmt sämtliche Angaben auf einmal. Diese Schaltfläche gibt es sowohl auf der Registerkarte „Alle Sender“ als auch bei den Favoriten. Der Dialog enthält außerdem das Feld **Jetzt läuft** mit dem Titel, den der Sender gerade ausstrahlt; läuft der Sender nicht, prüft freeAudio seinen Stream kurz im Hintergrund und füllt das Feld aus, sobald es eine Antwort hat.
+Drücken Sie `Alt+Enter` auf einem Sender in der Liste (oder wählen Sie im Kontextmenü **Sender-Details**), um Angaben wie Land, Sprache, Genre, Format, Bitrate, Website und Stream-Adresse in einem eigenen Dialog. Jedes Feld steht in einem eigenen, schreibgeschützten Textfeld; mit der Tabulatortaste geht es von Feld zu Feld, und die Schaltfläche **Alles in die Zwischenablage kopieren** übernimmt sämtliche Angaben auf einmal. Das funktioniert sowohl auf der Registerkarte „Alle Sender“ als auch bei den Favoriten. Der Dialog enthält außerdem das Feld **Jetzt läuft** mit dem Titel, den der Sender gerade ausstrahlt; läuft der Sender nicht, prüft freeAudio seinen Stream kurz im Hintergrund und füllt das Feld aus, sobald es eine Antwort hat.
 
 ### Kontextmenü für Sender
 
 Ein Rechtsklick auf einen Sender in der Liste „Alle Sender“ oder „Favoriten“ — oder die Kontextmenütaste bzw. `Umschalt+F10` bei ausgewähltem Sender — öffnet ein Kontextmenü mit den wichtigsten Aktionen:
 
-- **Sender-Details** — dasselbe wie die oben beschriebene Schaltfläche.
+- **Sender-Details** — dasselbe wie `Alt+Enter` in der Senderliste, wie oben beschrieben.
 - **Zu den Favoriten** *(Registerkarte „Alle Sender“)* / **Sender löschen** *(Registerkarte „Favoriten“)*.
 - **Sender umbenennen** *(Registerkarte „Favoriten“)* — dasselbe wie `F9`.
 - **Audioprofil für diesen Sender speichern** / **Audioprofil löschen** *(Registerkarte „Favoriten“)* — siehe [Audioprofil für einen Sender](#audioprofil-für-einen-sender).

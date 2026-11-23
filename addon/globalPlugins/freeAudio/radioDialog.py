@@ -852,9 +852,6 @@ class RadioDialog(wx.Dialog):
 		self._del_btn.Enable(False)
 		# Translators: Button label; adds the currently selected station to favourites.
 		self._fav_btn     = wx.Button(self, label=_("Add to Fa&vorites"))
-		# Translators: Button label; opens the selected station's details dialog (info, description, tags).
-		self._details_btn = wx.Button(self, label=_("Station Detai&ls"))
-		self._details_btn.Enable(False)
 		# Translators: Button label; opens the dialog for manually adding a custom station by stream URL.
 		self._add_btn     = wx.Button(self, label=_("Add C&ustom Station..."))
 		# Manually re-syncs the local station list cache from the Radio Browser
@@ -867,7 +864,7 @@ class RadioDialog(wx.Dialog):
 		)
 		# Translators: Button label; closes the station browser dialog.
 		self._close_btn   = wx.Button(self, label=_("&Close"))
-		for btn in (self._play_btn, self._del_btn, self._fav_btn, self._details_btn, self._add_btn, self._refresh_catalog_btn, self._close_btn):
+		for btn in (self._play_btn, self._del_btn, self._fav_btn, self._add_btn, self._refresh_catalog_btn, self._close_btn):
 			btn_sizer.Add(btn, 0, wx.ALL, 5)
 		main_sizer.Add(btn_sizer, 0, wx.CENTER | wx.BOTTOM, 8)
 
@@ -898,7 +895,6 @@ class RadioDialog(wx.Dialog):
 		self._del_btn.Bind(wx.EVT_BUTTON,     self._on_delete_station)
 		self._del_btn.Bind(wx.EVT_KEY_DOWN,   self._on_del_btn_key)
 		self._fav_btn.Bind(wx.EVT_BUTTON,     self._on_toggle_favorite)
-		self._details_btn.Bind(wx.EVT_BUTTON, self._on_details_clicked)
 		self._add_btn.Bind(wx.EVT_BUTTON,     self._on_add_custom)
 		self._refresh_catalog_btn.Bind(wx.EVT_BUTTON, self._on_refresh_catalog)
 		self._close_btn.Bind(wx.EVT_BUTTON,   self._on_close_btn)
@@ -913,7 +909,7 @@ class RadioDialog(wx.Dialog):
 		wx.CallAfter(self._init_eq_gains)
 
 		for btn in (self._play_btn, self._del_btn, self._fav_btn,
-		            self._details_btn, self._add_btn, self._refresh_catalog_btn, self._close_btn):
+		            self._add_btn, self._refresh_catalog_btn, self._close_btn):
 			btn.Bind(wx.EVT_SET_FOCUS, self._on_button_focused)
 
 		self._notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self._on_tab_changed)
@@ -1644,7 +1640,6 @@ class RadioDialog(wx.Dialog):
 		self._play_btn.Show(not on_rec_or_timer)
 		self._fav_btn.Show(not on_rec_or_timer)
 		self._del_btn.Show(not on_rec_or_timer)
-		self._details_btn.Show(not on_rec_or_timer)
 		self._add_btn.Show(not on_rec_or_timer)
 		self.Layout()
 
@@ -3520,7 +3515,6 @@ class RadioDialog(wx.Dialog):
 		is_fav = bool(station and self._manager.is_favorite(station))
 		self._del_btn.Enable(is_fav)
 		self._fav_btn.Enable(bool(station) and not is_fav)
-		self._details_btn.Enable(bool(station))
 
 	def _on_play_clicked(self, event):
 		if self._player.is_playing():
@@ -3581,12 +3575,6 @@ class RadioDialog(wx.Dialog):
 				self._plugin._rebuild_station_scripts()
 			except Exception:
 				pass
-
-	def _on_details_clicked(self, event):
-		station, _idx = self._get_selected_station()
-		if not station:
-			return
-		self._show_station_details_for(station)
 
 	def _playing_icy_title_for(self, station):
 		"""The track title the player currently has for *station* if that is the
@@ -3985,7 +3973,7 @@ class RadioDialog(wx.Dialog):
 		menu = wx.Menu()
 
 		# --- Details ---
-		# Translators: Context-menu item; same action as the Station Details button.
+		# Translators: Context-menu item; opens the station details dialog, same as Alt+Enter on the station list.
 		item_details = menu.Append(wx.ID_ANY, _("Station Detai&ls"))
 		self.Bind(wx.EVT_MENU, lambda e: self._show_station_details_for(station), item_details)
 
@@ -4445,6 +4433,12 @@ class RadioDialog(wx.Dialog):
 			if focused in (self._all_list, self._fav_list) and event.ShiftDown() \
 					and not (event.ControlDown() or event.AltDown()):
 				self._speak_station_now_playing()
+				return
+			if focused in (self._all_list, self._fav_list) and event.AltDown() \
+					and not (event.ControlDown() or event.ShiftDown()):
+				station, _idx = self._get_selected_station()
+				if station:
+					self._show_station_details_for(station)
 				return
 			if focused in (self._all_list, self._fav_list):
 				station, idx = self._get_selected_station()

@@ -139,13 +139,13 @@ Pencerenin alt kısmında ayrıca **Çal/Duraklat** düğmesi bulunur. Herhangi 
 
 **İstasyon Listesini Güncelle** düğmesi, periyodik arka plan güncellemesini beklemek yerine yerel istasyon kataloğunu Radio Browser API'siyle anında yeniden eşitler. Güncelleme sürerken düğme devre dışı kalır ve NVDA bir güncellemenin sürmekte olduğunu bildirir; mevcut güncelleme tamamlanmadan düğmeye tekrar basarsanız NVDA zaten bir güncellemenin sürmekte olduğunu söyler. Güncelleme tamamlandığında NVDA istasyon listesinin güncellendiğini bildirir ve o an ekranda gösterilen arama sonuçları veya ülke listesi, yeni verileri yansıtacak şekilde otomatik olarak yenilenir.
 
-Listede bir istasyon seçiliyken **İstasyon Detayları** düğmesi, o istasyona ait ülke, dil, tür, format, bit hızı, web sitesi ve akış adresi gibi bilgileri ayrı bir iletişim kutusunda gösterir. İletişim kutusunda her alan ayrı bir salt-okunur metin kutusunda yer alır; Tab tuşuyla alanlar arasında gezinilebilir ve **Tümünü panoya kopyala** düğmesiyle tüm bilgiler tek seferde panoya alınabilir. Bu düğme hem Tüm İstasyonlar hem de Favoriler sekmesinde bulunur. Pencerede ayrıca istasyonun o anda yayınladığı parçayı gösteren bir **Şimdi çalıyor** alanı bulunur; istasyon çalmıyorsa freeAudio yayınını arka planda kısaca denetler ve yanıtı alınca alanı doldurur.
+Listede bir istasyon üzerinde `Alt+Enter` tuşuna basmak (ya da içerik menüsünden **İstasyon Detayları**'nı seçmek) o istasyona ait ülke, dil, tür, format, bit hızı, web sitesi ve akış adresi gibi bilgileri ayrı bir iletişim kutusunda gösterir. İletişim kutusunda her alan ayrı bir salt-okunur metin kutusunda yer alır; Tab tuşuyla alanlar arasında gezinilebilir ve **Tümünü panoya kopyala** düğmesiyle tüm bilgiler tek seferde panoya alınabilir. Bu, hem Tüm İstasyonlar hem de Favoriler sekmesinde bulunur. Pencerede ayrıca istasyonun o anda yayınladığı parçayı gösteren bir **Şimdi çalıyor** alanı bulunur; istasyon çalmıyorsa freeAudio yayınını arka planda kısaca denetler ve yanıtı alınca alanı doldurur.
 
 ### İstasyon Bağlam Menüsü
 
 Tüm İstasyonlar veya Favoriler listesinde bir istasyona sağ tıklayarak ya da istasyonu seçip Uygulamalar tuşuna veya `Shift+F10`'a basarak hızlı eylemler içeren bir bağlam menüsü açabilirsiniz:
 
-- **İstasyon Detayları** — yukarıda açıklanan İstasyon Detayları düğmesiyle aynıdır.
+- **İstasyon Detayları** — yukarıda açıklanan istasyon listesindeki `Alt+Enter` ile aynıdır.
 - **Favorilere Ekle** *(Tüm İstasyonlar sekmesi)* / **İstasyonu Sil** *(Favoriler sekmesi)*.
 - **İstasyonu Yeniden Adlandır** *(Favoriler sekmesi)* — `F9` ile aynıdır.
 - **Bu İstasyon İçin Ses Profili Kaydet** / **Ses Profilini Temizle** *(Favoriler sekmesi)* — bkz. [İstasyon Ses Profili](#i̇stasyon-ses-profili).

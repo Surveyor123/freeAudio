@@ -139,13 +139,13 @@ De **Afspelen/Pauze**-knop bevindt zich ook onderaan het venster. Als er geen st
 
 De knop **Stationslijst bijwerken** synchroniseert de lokale stationcatalogus onmiddellijk opnieuw met de Radio Browser-API, in plaats van te wachten op de periodieke achtergrondverversing. Terwijl de verversing bezig is, is de knop uitgeschakeld en meldt NVDA dat er een verversing bezig is; als je nogmaals drukt voordat de huidige verversing klaar is, laat NVDA weten dat er al een bezig is. Zodra de verversing is voltooid, meldt NVDA dat de stationslijst is bijgewerkt en worden de op dat moment getoonde zoekresultaten of landweergave automatisch ververst om de nieuwe gegevens te tonen.
 
-Wanneer een station in de lijst is geselecteerd, toont de **Stationsinformatie**-knop informatie zoals land, taal, genre, formaat, bitrate, website en stream-URL in een apart dialoogvenster. Elk veld verschijnt in zijn eigen alleen-lezen tekstvak; je kunt tussen velden bewegen met Tab en alle informatie in één keer naar het klembord kopiëren met de **Alles naar klembord kopiëren**-knop. Deze knop is beschikbaar in zowel de tabbladen Alle stations als Favorieten. Het dialoogvenster bevat ook een veld **Nu aan het spelen** met het nummer dat de zender op dit moment uitzendt; als de zender niet degene is die speelt, controleert freeAudio kort op de achtergrond de stream en vult het veld in zodra het antwoord er is.
+Door in de lijst op `Alt+Enter` te drukken op een station (of **Stationdetails** te kiezen in het contextmenu) wordt informatie getoond zoals land, taal, genre, formaat, bitrate, website en stream-URL in een apart dialoogvenster. Elk veld verschijnt in zijn eigen alleen-lezen tekstvak; je kunt tussen velden bewegen met Tab en alle informatie in één keer naar het klembord kopiëren met de **Alles naar klembord kopiëren**-knop. Dit werkt in zowel de tabbladen Alle stations als Favorieten. Het dialoogvenster bevat ook een veld **Nu aan het spelen** met het nummer dat de zender op dit moment uitzendt; als de zender niet degene is die speelt, controleert freeAudio kort op de achtergrond de stream en vult het veld in zodra het antwoord er is.
 
 ### Contextmenu van station
 
 Klik met de rechtermuisknop op een station in de lijst Alle stations of Favorieten, of selecteer het en druk op de Toepassingentoets of `Shift+F10`, om een contextmenu met snelle acties te openen:
 
-- **Stationdetails** — hetzelfde als de hierboven beschreven knop Stationdetails.
+- **Stationdetails** — hetzelfde als `Alt+Enter` in de stationlijst, zoals hierboven beschreven.
 - **Toevoegen aan favorieten** *(tabblad Alle stations)* / **Station verwijderen** *(tabblad Favorieten)*.
 - **Station hernoemen** *(tabblad Favorieten)* — hetzelfde als `F9`.
 - **Audioprofiel voor dit station opslaan** / **Audioprofiel wissen** *(tabblad Favorieten)* — zie [Audio-profiel van station](#audio-profiel-van-station).
