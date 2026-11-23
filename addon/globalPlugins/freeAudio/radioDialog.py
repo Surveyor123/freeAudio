@@ -8081,6 +8081,16 @@ class RadioDialog(wx.Dialog):
 		item_preview = menu.Append(wx.ID_ANY, label)
 		self.Bind(wx.EVT_MENU, self._on_getem_preview_toggle, item_preview)
 
+		menu.AppendSeparator()
+
+		# Translators: Context-menu item; downloads a permanent local copy of the selected book/chapter. Same wording as in the library list's menu.
+		item_download = menu.Append(wx.ID_ANY, _("&Download Book"))
+		self.Bind(wx.EVT_MENU, lambda e: self._download_getem_book(book), item_download)
+
+		# Translators: Context-menu item; copies the book's detail-page URL to the clipboard. Same wording as in the library list's menu.
+		item_copy_url = menu.Append(wx.ID_ANY, _("&Copy the URL"))
+		self.Bind(wx.EVT_MENU, lambda e: self._copy_to_clipboard(book.detail_url), item_copy_url)
+
 		self.PopupMenu(menu, self._getem_results.GetScreenPosition() - self.GetScreenPosition())
 		menu.Destroy()
 
