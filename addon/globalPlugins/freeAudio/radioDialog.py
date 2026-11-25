@@ -3631,6 +3631,79 @@ class RadioDialog(wx.Dialog):
 
 		threading.Thread(target=_worker, daemon=True, name="freeAudio-NowPlaying").start()
 
+	def _speak_resume_position(self, head, position_key, total_seconds=None):
+		"""Speaks where playback of an audio book, a jukebox file or a jukebox
+		folder would resume - the Shift+Enter action on those lists, the
+		counterpart of _speak_station_now_playing() on the station lists. The
+		position comes from the same store the resume-on-play logic uses
+		(RadioPlayer.get_podcast_position()) and is spoken like F2 does:
+		"<head>. 12:34 elapsed, 45:00 remaining" (the remaining time only when
+		*total_seconds* is known). Says nothing for an item that has not been
+		played yet or was played to the end."""
+		from . import _format_duration
+		try:
+			pos = float(self._player.get_podcast_position(position_key) or 0.0)
+		except Exception:
+			pos = 0.0
+		if pos <= 0.0:
+			return
+		if total_seconds and total_seconds > pos:
+			# Translators: Same wording as the position line of the What's-playing announcement.
+			progress = _("%(elapsed)s elapsed, %(remaining)s remaining") % {
+				"elapsed": _format_duration(pos), "remaining": _format_duration(total_seconds - pos)}
+		else:
+			# Translators: Same wording as the position line of the What's-playing announcement.
+			progress = _("%(elapsed)s elapsed") % {"elapsed": _format_duration(pos)}
+		ui.message("%s. %s" % (head, progress))
+
+	def _speak_getem_resume_position(self):
+		idx = self._getem_library_ctrl.GetSelection()
+		books = self._merged_library_books()
+		if idx == wx.NOT_FOUND or idx >= len(books):
+			return
+		book = books[idx]
+		if not book.chapters:
+			return
+		part = min(max(book.last_chapter_index, 0), len(book.chapters) - 1)
+		head = book.title
+		chapter_title = (book.chapters[part].get("title") or "").strip()
+		if len(book.chapters) > 1 and chapter_title and chapter_title != book.title:
+			head = "%s, %s" % (book.title, chapter_title)
+		self._speak_resume_position(head, book.chapters[part]["url"])
+
+	def _jukebox_track_total_seconds(self, track):
+		try:
+			return jukebox._get_track_duration(track.path)
+		except Exception:
+			return None
+
+	def _speak_jukebox_entry_resume_position(self):
+		entry = self._get_selected_jukebox_entry()
+		if not entry:
+			return
+		tracks = entry.tracks()
+		if not tracks:
+			# Translators: Spoken when trying to play a jukebox library entry that has no usable audio files.
+			ui.message(_("No playable audio in this item."))
+			return
+		if entry.kind != "folder":
+			self._speak_resume_position(entry.title, tracks[0].path, self._jukebox_track_total_seconds(tracks[0]))
+			return
+		saved = self._player.get_jukebox_folder_position(entry.path)
+		index = saved[0] if saved else 0
+		if not (0 <= index < len(tracks)):
+			index = 0
+		track = tracks[index]
+		head = "%s, %s" % (entry.title, track.title)
+		self._speak_resume_position(head, track.path, self._jukebox_track_total_seconds(track))
+
+	def _speak_jukebox_track_resume_position(self):
+		idx = self._jukebox_tracks_list.GetSelection()
+		tracks = getattr(self, "_jukebox_selected_tracks", None) or []
+		if idx == wx.NOT_FOUND or idx >= len(tracks):
+			return
+		self._speak_resume_position(tracks[idx].title, tracks[idx].path, self._jukebox_track_total_seconds(tracks[idx]))
+
 	def _show_station_details_for(self, station):
 		"""Shows the details of the selected station in the same structure as the dialog in __init__.py."""
 		s = station
@@ -4457,6 +4530,18 @@ class RadioDialog(wx.Dialog):
 			if focused == self._play_btn:
 				self._on_play_clicked(event)
 				return
+			# Shift+Enter on the audio-book library and the jukebox lists
+			# speaks where playback would resume, instead of playing.
+			if event.ShiftDown() and not (event.ControlDown() or event.AltDown()):
+				if focused == self._getem_library_ctrl:
+					self._speak_getem_resume_position()
+					return
+				if focused == self._jukebox_list:
+					self._speak_jukebox_entry_resume_position()
+					return
+				if focused == self._jukebox_tracks_list:
+					self._speak_jukebox_track_resume_position()
+					return
 			# Podcast tab: call the field's submit action directly instead of
 			# relying on Skip() to reach the control's own EVT_KEY_DOWN handler —
 			# Enter on a TextCtrl inside a dialog can be swallowed by native
@@ -8186,6 +8271,10 @@ class RadioDialog(wx.Dialog):
 			else:
 				self._on_getem_remove_from_library(event)
 			return
+		if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER) and event.ShiftDown() \
+				and not (event.ControlDown() or event.AltDown()):
+			self._speak_getem_resume_position()
+			return
 		if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER):
 			self._on_getem_play(None)
 			return
@@ -9380,6 +9469,10 @@ class RadioDialog(wx.Dialog):
 		_on_liked_list_key()'s Delete handling - wx reports Shift+Delete
 		with the same WXK_DELETE key code, so both are handled here."""
 		key = event.GetKeyCode()
+		if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER) and event.ShiftDown() \
+				and not (event.ControlDown() or event.AltDown()):
+			self._speak_jukebox_entry_resume_position()
+			return
 		if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER):
 			self._on_jukebox_entry_play(event)
 			return
@@ -9482,6 +9575,10 @@ class RadioDialog(wx.Dialog):
 
 	def _on_jukebox_tracks_key(self, event):
 		key = event.GetKeyCode()
+		if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER) and event.ShiftDown() \
+				and not (event.ControlDown() or event.AltDown()):
+			self._speak_jukebox_track_resume_position()
+			return
 		if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER):
 			self._on_jukebox_track_play(event)
 			return
