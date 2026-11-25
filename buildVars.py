@@ -19,28 +19,21 @@ addon_info = AddonInfo(
 	addon_description=_("""freeAudio is an internet radio, podcast, audio-book, and local music add-on for NVDA that provides seamless access to thousands of internet radio stations via the Radio Browser open directory, RSS/Atom podcast feeds, the libriVox + GETEM digital library for the visually impaired, and your own local audio files and folders through its built-in jukebox. It features a fully accessible station browser with search, country filter, favourites management, and per-station, per-podcast, per-audio-book, and per-jukebox-track audio profiles. Podcast episodes, audio book chapters, and jukebox tracks resume automatically from where you left off - jukebox folders even pick up on the last track you were playing - with adjustable pitch-preserving playback speed and independent pitch-shift (semitone transpose). Playback is handled by BASS, with support for volume control, audio effects, output device selection, and simultaneous audio mirroring to a second device. Additional features include instant and scheduled recording, time-shift rewind of live radio, sleep and alarm timers, automatic ICY metadata announcements, Shazam-based music recognition, and a liked-songs log with lyrics lookup. All controls and shortcuts are designed for NVDA accessibility."""),
 	
 	# version
-	addon_version="2026.25.5",
+	addon_version="2026.25.6",
 	
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version
 	addon_changelog=_("""
-## Changelog for 2026.25.5
+## Changelog for 2026.25.6
 
-### New: Internet Archive as an audio book source
-
-- A fourth audio book source, **Internet Archive**, covers audio books uploaded to archive.org (items tagged "audiobook") that LibriVox and Project Gutenberg do not already offer. This brings in audio books in other languages, including Turkish ones. No account is needed.
-- It works like the other sources: search, preview, add to your library, play with automatic resume, download, direct keyboard shortcuts and F3/F4 navigation. Pasting an archive.org details page resolves that single book.
-- It has its own library file and is enabled by default. It can be switched off in Settings > Audio book sources. The Clean up dialog's audio book libraries item now includes it.
-
-### Improved: audio book search
-
-- LibriVox, Project Gutenberg and Internet Archive searches try your exact words first and, only if nothing is found, fall back to more tolerant matching. "Moonstone, The" is also tried as "The Moonstone", "Doyle, Arthur Conan" as "Arthur Conan Doyle", honorifics and punctuation are ignored, and finally each word is matched separately across title and author.
-
-### Fixed
-
-- Playback no longer breaks after changing stations or tracks very quickly. Previously this could end in a "could not play ... Unknown reason" error that kept happening until NVDA was restarted.
-- Pressing next or previous several times in quick succession, or repeating the command by voice or macro, now moves one step per press. Previously some steps were lost, and only the newest request now starts playing.
-- Saved Project Gutenberg books are now found when syncing the playing book and when downloading the current book.
+* Music recognition now samples the audio you are actually hearing: the rewound point when you have gone back in a live station, and the current position in podcasts, audio books and jukebox tracks.
+* Fixed time-shift failing on some HTTPS stations (for example Radio Navahang): if switching to the buffer fails, the live stream now resumes instead of leaving silence, and redirect or error pages are no longer captured into the buffer.
+* Station details now include a "Now playing" row with the track being broadcast. It is also filled in for stations that are not playing.
+* The Station Details button was removed. Press Alt+Enter on a station in All Stations or Favourites to open its details (the context menu item remains).
+* Shift+Enter on a station in All Stations or Favourites announces the track it is broadcasting, without starting playback.
+* Shift+Enter on the audio book library and on the jukebox entries and tracks lists announces where playback would resume, with elapsed and remaining time.
+* Internet Archive audio book search now also finds audio items tagged with audiobook or podcast-style subjects, or in the Podcasts collection (LibriVox and Project Gutenberg are still excluded).
+* Audio book search results now offer "Download Book" and "Copy the URL" in their context menu.
 """),
 	
 	# Author(s)

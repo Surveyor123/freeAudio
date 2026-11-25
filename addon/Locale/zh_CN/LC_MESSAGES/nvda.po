@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-11-25 09:07+0300\n"
+"POT-Creation-Date: 2026-11-25 09:27+0300\n"
 "PO-Revision-Date: 2026-10-16 18:39+0300\n"
 "Last-Translator: Alan <alanzhangmw@outlook.com>\n"
 "Language-Team: \n"
@@ -64,7 +64,7 @@ msgstr "请输入搜索词。"
 #: addon\globalPlugins\freeAudio\radioDialog.py:7669
 #: addon\globalPlugins\freeAudio\settingsPanel.py:524
 msgid "Internet Archive"
-msgstr ""
+msgstr "Internet Archive"
 
 #. Translators: Error returned by resolve_media() when the book has no linked archive.org item id, so no audio files can be looked up.
 #: addon\globalPlugins\freeAudio\archive_audiobooks.py:340
@@ -91,7 +91,7 @@ msgstr "在 archive.org 上的该网址处未找到图书。"
 msgid ""
 "This archive.org item is not a general audio book (LibriVox and Project "
 "Gutenberg titles have their own sources)."
-msgstr ""
+msgstr "此 archive.org 项目不是普通有声读物（LibriVox 和 Project Gutenberg 的作品有各自的来源）。"
 
 #. Translators: Error returned by the chapter-listing step when archive.org has no playable audio file for the resolved book.
 #. Translators: Error returned by the archive.org metadata path when no playable audio file was found for the resolved book.
@@ -473,39 +473,36 @@ msgstr "电台调谐音效"
 #. Translators: Name of an NVDA command; toggles the "Weird" audio effect on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:287
 msgid "Toggle Weird"
-msgstr ""
+msgstr "切换“怪异”音效"
 
 #. Translators: Spoken when the "Weird" audio effect is turned on with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:305
-#, fuzzy
 msgid "Weird enabled"
-msgstr "已启用"
+msgstr "已启用怪异音效"
 
 #. Translators: Spoken when the "Weird" audio effect is turned off with its command.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:307
-#, fuzzy
 msgid "Weird disabled"
-msgstr "已禁用"
+msgstr "已禁用怪异音效"
 
 #. Translators: Name of an NVDA command; turns the ten-band graphic equalizer on/off.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:312
 msgid "Toggle Equalizer"
-msgstr ""
+msgstr "切换均衡器"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned on with its command.
 #. Translators: Spoken when the equalizer is turned on with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:325
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:72
 msgid "Equalizer enabled"
-msgstr ""
+msgstr "均衡器已启用"
 
 #. Translators: Spoken when the ten-band graphic equalizer is turned off with its command.
 #. Translators: Spoken when the equalizer is turned off with the checkbox.
 #: addon\globalPlugins\freeAudio\audioFxMixin.py:327
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:74
-#, fuzzy
 msgid "Equalizer disabled"
-msgstr "已禁用"
+msgstr "均衡器已禁用"
 
 #. Translators: Name of an NVDA command; adds a bookmark at the current playback position of an audio book part, podcast episode or jukebox track.
 #: addon\globalPlugins\freeAudio\bookmarkMixin.py:39
@@ -862,29 +859,28 @@ msgstr "GETEM 没有为这部分返回可播放的音频文件。"
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:18
 #, python-format
 msgid "%+d dB"
-msgstr ""
+msgstr "%+d dB"
 
 #. Translators: Label of the checkbox that turns the ten-band graphic equalizer on or off.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:30
 msgid "Equalizer On/Off"
-msgstr ""
+msgstr "均衡器开/关"
 
 #. Translators: Label (and accessible name) of one equalizer band slider. %g is the band's centre frequency in hertz, e.g. "62 Hz" or "12000 Hz".
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:38
-#, fuzzy, python-format
+#, python-format
 msgid "%g Hz"
-msgstr "%.1f kHz"
+msgstr "%g Hz"
 
 #. Translators: Label of the equalizer button that sets every band back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:52
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #. Translators: Label of the equalizer button that saves the equalizer settings to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:54
-#, fuzzy
 msgid "Save"
-msgstr "保存(&S)"
+msgstr "保存"
 
 #. Explicit unit announcement also covers NVDA versions that use the
 #. native slider value rather than the custom MSAA value.
@@ -892,23 +888,22 @@ msgstr "保存(&S)"
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:84
 #, python-format
 msgid "%(frequency)g Hz, %(gain)+d dB"
-msgstr ""
+msgstr "%(frequency)g Hz, %(gain)+d dB"
 
 #. Translators: Spoken after the Reset button sets all equalizer bands back to 0 dB.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:92
 msgid "Equalizer reset"
-msgstr ""
+msgstr "均衡器已重置"
 
 #. Translators: Spoken when saving the equalizer settings to the configuration fails.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:99
-#, fuzzy
 msgid "Could not save Equalizer settings"
-msgstr "无法保存音频片段：%s"
+msgstr "无法保存均衡器设置"
 
 #. Translators: Spoken after the equalizer settings were saved to the configuration.
 #: addon\globalPlugins\freeAudio\graphicEqualizer.py:102
 msgid "Equalizer settings saved"
-msgstr ""
+msgstr "均衡器设置已保存"
 
 #. Shown as this book's narrator (see GutenbergAudiobook.__init__) instead
 #. of leaving the field blank the way LibriVox does (which credits a
@@ -1749,7 +1744,7 @@ msgstr "点唱机"
 #. Translators: Tab label for the ten-band graphic equalizer page.
 #: addon\globalPlugins\freeAudio\radioDialog.py:740
 msgid "Equalizer"
-msgstr ""
+msgstr "均衡器"
 
 #. Translators: Static label for the output-device choice control, shown above every tab.
 #. Translators: Accessible name for the output-device dropdown (same text as its static label).
@@ -1827,7 +1822,7 @@ msgstr "混响"
 #: addon\globalPlugins\freeAudio\radioDialog.py:801
 #: addon\globalPlugins\freeAudio\settingsPanel.py:181
 msgid "Weird"
-msgstr ""
+msgstr "怪异"
 
 #. Translators: Label for the bass-boost EQ gain spin control, shown only while that effect is checked.
 #: addon\globalPlugins\freeAudio\radioDialog.py:824
@@ -4398,10 +4393,9 @@ msgstr "电台列表缓存（需要时会重新下载）"
 
 #. Translators: Check box in the clean-up dialog; deletes the audio book libraries of all sources.
 #: addon\globalPlugins\freeAudio\resetDialog.py:97
-#, fuzzy
 msgid ""
 "Audio book libraries (GETEM, LibriVox, Project Gutenberg, Internet Archive)"
-msgstr "有声读物库（GETEM、LibriVox、Project Gutenberg）"
+msgstr "有声读物库（GETEM、LibriVox、Project Gutenberg、Internet Archive）"
 
 #. Translators: Check box in the clean-up dialog; deletes the saved GETEM user name and password.
 #: addon\globalPlugins\freeAudio\resetDialog.py:108
@@ -5371,9 +5365,8 @@ msgstr "打开自由之声电台浏览器"
 
 #. Translators: Name of an NVDA command; opens the Favourites tab and focuses its station list.
 #: addon\globalPlugins\freeAudio\__init__.py:1167
-#, fuzzy
 msgid "Open freeAudio favourite stations"
-msgstr "打开自由之声电台浏览器"
+msgstr "打开自由之声收藏电台"
 
 #. Translators: Name of an NVDA command; opens the station browser dialog on the Audio Books tab.
 #: addon\globalPlugins\freeAudio\__init__.py:1179
@@ -5611,38 +5604,39 @@ msgstr ""
 #: buildVars.py:26
 msgid ""
 "\n"
-"## Changelog for 2026.25.5\n"
+"## Changelog for 2026.25.6\n"
 "\n"
-"### New: Internet Archive as an audio book source\n"
-"\n"
-"- A fourth audio book source, **Internet Archive**, covers audio books "
-"uploaded to archive.org (items tagged \"audiobook\") that LibriVox and "
-"Project Gutenberg do not already offer. This brings in audio books in other "
-"languages, including Turkish ones. No account is needed.\n"
-"- It works like the other sources: search, preview, add to your library, "
-"play with automatic resume, download, direct keyboard shortcuts and F3/F4 "
-"navigation. Pasting an archive.org details page resolves that single book.\n"
-"- It has its own library file and is enabled by default. It can be switched "
-"off in Settings > Audio book sources. The Clean up dialog's audio book "
-"libraries item now includes it.\n"
-"\n"
-"### Improved: audio book search\n"
-"\n"
-"- LibriVox, Project Gutenberg and Internet Archive searches try your exact "
-"words first and, only if nothing is found, fall back to more tolerant "
-"matching. \"Moonstone, The\" is also tried as \"The Moonstone\", \"Doyle, "
-"Arthur Conan\" as \"Arthur Conan Doyle\", honorifics and punctuation are "
-"ignored, and finally each word is matched separately across title and "
-"author.\n"
-"\n"
-"### Fixed\n"
-"\n"
-"- Playback no longer breaks after changing stations or tracks very quickly. "
-"Previously this could end in a \"could not play ... Unknown reason\" error "
-"that kept happening until NVDA was restarted.\n"
-"- Pressing next or previous several times in quick succession, or repeating "
-"the command by voice or macro, now moves one step per press. Previously some "
-"steps were lost, and only the newest request now starts playing.\n"
-"- Saved Project Gutenberg books are now found when syncing the playing book "
-"and when downloading the current book.\n"
+"* Music recognition now samples the audio you are actually hearing: the "
+"rewound point when you have gone back in a live station, and the current "
+"position in podcasts, audio books and jukebox tracks.\n"
+"* Fixed time-shift failing on some HTTPS stations (for example Radio "
+"Navahang): if switching to the buffer fails, the live stream now resumes "
+"instead of leaving silence, and redirect or error pages are no longer "
+"captured into the buffer.\n"
+"* Station details now include a \"Now playing\" row with the track being "
+"broadcast. It is also filled in for stations that are not playing.\n"
+"* The Station Details button was removed. Press Alt+Enter on a station in "
+"All Stations or Favourites to open its details (the context menu item "
+"remains).\n"
+"* Shift+Enter on a station in All Stations or Favourites announces the track "
+"it is broadcasting, without starting playback.\n"
+"* Shift+Enter on the audio book library and on the jukebox entries and "
+"tracks lists announces where playback would resume, with elapsed and "
+"remaining time.\n"
+"* Internet Archive audio book search now also finds audio items tagged with "
+"audiobook or podcast-style subjects, or in the Podcasts collection (LibriVox "
+"and Project Gutenberg are still excluded).\n"
+"* Audio book search results now offer \"Download Book\" and \"Copy the URL\" "
+"in their context menu.\n"
 msgstr ""
+"\n"
+"## 版本 2026.25.6 更新日志\n"
+"\n"
+"* 音乐识别现在会从你实际听到的音频中取样：直播电台中是你回退到的位置，播客、有声读物和点唱机曲目中是当前播放位置。\n"
+"* 修复了部分 HTTPS 电台（例如 Radio Navahang）时移失败的问题：切换到缓冲区失败时，现在会恢复直播而不是留下静音，重定向页面或错误页面也不再被捕获到缓冲区中。\n"
+"* 电台详情现在包含“正在播放”一行，显示正在播出的曲目，对未在播放的电台也会填充。\n"
+"* 已移除“电台详情”按钮。在“所有电台”或“收藏”列表中的电台上按 Alt+Enter 即可打开详情（右键菜单项仍然保留）。\n"
+"* 在“所有电台”或“收藏”列表中的电台上按 Shift+Enter 会朗读其正在播出的曲目，而不会开始播放。\n"
+"* 在有声读物库以及点唱机的条目列表和曲目列表中按 Shift+Enter 会朗读播放将从何处继续，并附上已播放和剩余时间。\n"
+"* Internet Archive 有声读物搜索现在还能找到带有有声读物或播客类主题标签、或位于“播客”合集中的音频项目（仍排除 LibriVox 和 Project Gutenberg）。\n"
+"* 有声读物搜索结果的右键菜单现在提供“下载书籍”和“复制URL”。\n"
